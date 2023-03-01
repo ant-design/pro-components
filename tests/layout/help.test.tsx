@@ -1,5 +1,11 @@
-﻿import { ProHelp, ProHelpDataSourceChildren, ProHelpPanel } from '@ant-design/pro-components';
-import { act, render } from '@testing-library/react';
+﻿import {
+  ProHelp,
+  ProHelpDataSourceChildren,
+  ProHelpDrawer,
+  ProHelpModal,
+  ProHelpPanel,
+} from '@ant-design/pro-components';
+import { act, render, waitFor } from '@testing-library/react';
 import { Typography } from 'antd';
 
 export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) => {
@@ -20,10 +26,10 @@ export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) =
     ) => React.ReactNode
   >();
 
-  map.set('video', (item) => {
+  map.set('video', (item, index) => {
     return (
       <video
-        key=""
+        key={index}
         style={{
           width: '100%',
         }}
@@ -33,7 +39,7 @@ export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) =
     );
   });
 
-  map.set('list', (item) => {
+  map.set('list', (item, index) => {
     const listConfig = item.children as {
       title: string;
       children: {
@@ -42,7 +48,7 @@ export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) =
       }[];
     };
     return (
-      <div>
+      <div key={index}>
         <h3
           style={{
             margin: '8px 0',
@@ -369,5 +375,105 @@ describe('👍🏻 ProHelpPanel', () => {
     await html.findAllByText(
       '需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署',
     );
+  });
+
+  it('🎏 ProHelp is empty', async () => {
+    const html = render(
+      <ProHelp<{
+        video: React.VideoHTMLAttributes<HTMLVideoElement>;
+        list: {
+          title: string;
+          children: {
+            title: string;
+            href: string;
+          }[];
+        };
+      }>
+        dataSource={[]}
+      >
+        <ProHelpPanel />
+      </ProHelp>,
+    );
+    expect(html.baseElement).toMatchSnapshot();
+  });
+
+  it('🎏 ProHelpModal', async () => {
+    const fn = jest.fn();
+    const html = render(
+      <DefaultProHelp>
+        <div
+          style={{
+            width: 600,
+          }}
+        >
+          <ProHelpModal
+            modalProps={{
+              open: true,
+              afterClose: () => {
+                fn();
+              },
+            }}
+          />
+        </div>
+      </DefaultProHelp>,
+    );
+
+    await html.findAllByText('常见问题');
+
+    await act(async () => {
+      (await html.findByTitle('close panel'))?.click();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    await act(async () => {
+      html.baseElement.querySelector<HTMLDivElement>('.ant-modal-wrap')?.click();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
+  });
+
+  it('🎏 ProHelpDrawer', async () => {
+    const fn = jest.fn();
+    const html = render(
+      <DefaultProHelp>
+        <div
+          style={{
+            width: 600,
+          }}
+        >
+          <ProHelpDrawer
+            drawerProps={{
+              open: true,
+              afterOpenChange: () => {
+                fn();
+              },
+            }}
+          />
+        </div>
+      </DefaultProHelp>,
+    );
+
+    await html.findAllByText('常见问题');
+
+    await act(async () => {
+      (await html.findByTitle('close panel'))?.click();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
+
+    await act(async () => {
+      html.baseElement.querySelector<HTMLDivElement>('.ant-drawer-mask')?.click();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
   });
 });

@@ -428,7 +428,7 @@ export type ProHelpModalProps = {
   /**
    * Ant Design Modal 组件的 props，可以传递一些选项，如位置、大小、关闭方式等等。
    */
-  modalProps: ModalProps;
+  modalProps?: ModalProps;
 } & Omit<ProHelpPanelProps, 'onClose'>;
 /**
  * 渲染一个模态对话框，其中显示了一个 ProHelpPanel。
@@ -437,8 +437,8 @@ export type ProHelpModalProps = {
  */
 export const ProHelpModal: React.FC<ProHelpModalProps> = ({ modalProps, ...props }) => {
   const [modalOpen, setModalOpen] = useMergedState<boolean>(false, {
-    value: modalProps.open,
-    onChange: modalProps.afterClose,
+    value: modalProps?.open,
+    onChange: modalProps?.afterClose,
   });
   return (
     <Modal

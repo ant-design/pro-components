@@ -16764,6 +16764,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
         class="anticon anticon-search"
         role="img"
         tabindex="-1"
+        title="search panel"
       >
         <svg
           aria-hidden="true"
@@ -16808,6 +16809,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
                   class="anticon anticon-profile"
                   role="img"
                   tabindex="-1"
+                  title="collapse panel"
                 >
                   <svg
                     aria-hidden="true"
@@ -16832,6 +16834,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
                   class="anticon anticon-search"
                   role="img"
                   tabindex="-1"
+                  title="search panel"
                 >
                   <svg
                     aria-hidden="true"
