@@ -105,6 +105,7 @@ export const ProHelpSelect: React.FC<
       {!open ? (
         <div className={iconClassName}>
           <SearchOutlined
+            title="search panel"
             onClick={() => {
               setOpen(true);
             }}

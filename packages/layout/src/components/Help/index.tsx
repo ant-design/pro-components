@@ -201,6 +201,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     value: props.showLeftPanel,
     onChange: props.onShowLeftPanelChange,
   });
+
   return wrapSSR(
     <ProCard
       bordered={bordered}
@@ -218,6 +219,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
         <div className={`${className}-actions`}>
           <div className={`${className}-actions-item`}>
             <ProfileOutlined
+              title="collapse panel"
               onClick={() => {
                 setShowLeftPanel(!showLeftPanel);
               }}
@@ -236,10 +238,11 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           {onClose ? (
             <div className={`${className}-actions-item`}>
               <CloseOutlined
+                title="close panel"
                 onClick={() => {
                   onClose?.();
                 }}
-              />{' '}
+              />
             </div>
           ) : null}
         </div>
