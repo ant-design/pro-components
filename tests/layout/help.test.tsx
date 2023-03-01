@@ -64,9 +64,9 @@ export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) =
             gap: 8,
           }}
         >
-          {listConfig.children.map((child, index) => {
+          {listConfig.children.map((child, subIndex) => {
             return (
-              <div key={index}>
+              <div key={subIndex}>
                 <Typography.Text>
                   {child.href ? <a href={child.href}>{child.title}</a> : child.title}
                 </Typography.Text>
@@ -506,7 +506,7 @@ describe('👍🏻 ProHelpPanel', () => {
     await html.findByText('常见问题');
 
     act(() => {
-      fireEvent.change(input.parentElement?.querySelector('input')!, {
+      fireEvent.change(input.parentElement!.querySelector('input')!, {
         target: {
           value: '如何',
         },
