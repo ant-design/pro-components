@@ -292,6 +292,11 @@ export default () => {
                     children:
                       '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
                   },
+                  // @ts-expect-error
+                  {
+                    children:
+                      '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
+                  },
                   {
                     valueType: 'image',
                     children: {
@@ -330,7 +335,7 @@ export default () => {
             width: 600,
           }}
         >
-          <ProHelpPanel height={648} />
+          <ProHelpPanel defaultSelectedKey="1" height={648} />
         </div>
         <div
           style={{

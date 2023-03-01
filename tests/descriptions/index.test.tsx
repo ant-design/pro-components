@@ -109,6 +109,7 @@ describe('descriptions', () => {
 
   it('🥩 test reload', async () => {
     const fn = jest.fn();
+    jest.useFakeTimers();
     const Reload = () => {
       const actionRef = useRef<ProCoreActionType>();
       return (
@@ -142,18 +143,24 @@ describe('descriptions', () => {
       );
     };
     const html = render(<Reload />);
-    await waitTime(300);
 
-    act(() => {
-      html.queryByText('刷新')?.click();
+    await html.findAllByText('这是一段文本');
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
     });
     act(() => {
       html.queryByText('刷新')?.click();
     });
-    await waitTime(100);
+    act(() => {
+      html.queryByText('刷新')?.click();
+    });
 
-    // 因为有 loading 的控制，所有只会触发两次
-    expect(fn).toBeCalledTimes(2);
+    await waitFor(() => {
+      // 因为有 loading 的控制，所有只会触发两次
+      expect(fn).toBeCalledTimes(2);
+    });
+
+    jest.useRealTimers();
   });
 
   it('🥩 test reload by params', async () => {

@@ -196,7 +196,7 @@ describe('BasicTable Search', () => {
         search={false}
         request={async () => {
           fn();
-          await waitTime(5000);
+          await waitTime(50000);
           return {
             data: [{ key: 1, name: '1', money: 1 }],
           };
