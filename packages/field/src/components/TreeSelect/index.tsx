@@ -51,9 +51,9 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     fetchDataOnSearch: propsFetchDataOnSearch,
     searchValue: propsSearchValue,
     ...fieldProps
-  } = (rest.fieldProps as TreeSelectProps<any> & {
+  } = rest.fieldProps as TreeSelectProps<any> & {
     fetchDataOnSearch?: boolean;
-  }) || {};
+  };
   const size = useContext(ConfigProvider.SizeContext);
   const intl = useIntl();
 
