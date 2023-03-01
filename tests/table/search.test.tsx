@@ -2,11 +2,9 @@ import ProTable from '@ant-design/pro-table';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
-import MockDate from 'mockdate';
 import React, { createRef } from 'react';
 import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
-import { request } from './demo';
 
 describe('BasicTable Search', () => {
   process.env.NODE_ENV = 'TEST';
@@ -138,7 +136,7 @@ describe('BasicTable Search', () => {
         ]}
         onReset={resetFn}
         pagination={false}
-        request={async (params) => {
+        request={async () => {
           fn();
           return {
             data: [{ key: 1, name: '1', money: 1 }],
@@ -243,7 +241,7 @@ describe('BasicTable Search', () => {
           },
         ]}
         manualRequest
-        request={async (params) => {
+        request={async () => {
           fn();
           return {
             data: [{ key: 1, name: '1', money: 1 }],
@@ -279,7 +277,7 @@ describe('BasicTable Search', () => {
         search={false}
         actionRef={actionRef}
         manualRequest
-        request={async (params) => {
+        request={async () => {
           requestFn();
           return {
             data: [
