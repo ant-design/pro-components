@@ -311,13 +311,11 @@ describe('ModalForm', () => {
         <ProFormText name="name" />
       </ModalForm>,
     );
-    await waitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('新 建'))?.click();
     });
 
-    await waitTime(100);
     expect(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-modal-footer')).toBeFalsy();
   });
 
