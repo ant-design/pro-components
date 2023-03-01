@@ -85,6 +85,7 @@ describe('BasicTable', () => {
     await waitFor(() => {
       expect(pageSizeOnchange).toBeCalledWith(10);
     });
+
     act(() => {
       html.rerender(
         <ProTable
@@ -121,6 +122,10 @@ describe('BasicTable', () => {
     });
 
     await html.queryByText('更多操作');
+
+    await waitFor(() => {
+      return html.queryAllByText('Edward King 9');
+    });
 
     await waitFor(() => {
       expect(pageSizeOnchange).toBeCalledWith(1);
