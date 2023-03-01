@@ -4,8 +4,9 @@
   ProHelpDrawer,
   ProHelpModal,
   ProHelpPanel,
+  ProHelpSelect,
 } from '@ant-design/pro-components';
-import { act, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Typography } from 'antd';
 
 export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) => {
@@ -420,10 +421,6 @@ describe('👍🏻 ProHelpPanel', () => {
 
     await html.findAllByText('常见问题');
 
-    await act(async () => {
-      (await html.findByTitle('close panel'))?.click();
-    });
-
     await waitFor(() => {
       expect(fn).toBeCalledTimes(1);
     });
@@ -475,5 +472,47 @@ describe('👍🏻 ProHelpPanel', () => {
     await waitFor(() => {
       expect(fn).toBeCalledTimes(2);
     });
+  });
+
+  it('🎏 ProHelpSelect', async () => {
+    jest.useFakeTimers();
+    const html = render(
+      <DefaultProHelp>
+        <div
+          style={{
+            width: 600,
+          }}
+        >
+          <ProHelpSelect />
+        </div>
+      </DefaultProHelp>,
+    );
+
+    await act(async () => {
+      (await html.findByTitle('search panel'))?.click();
+    });
+
+    const input = await html.findByText('please input search text');
+
+    await act(async () => {
+      fireEvent.mouseDown(html.container.querySelector('.ant-select-selector')!);
+      jest.runOnlyPendingTimers();
+    });
+
+    await html.findByText('常见问题');
+
+    act(() => {
+      fireEvent.change(input.parentElement?.querySelector('input')!, {
+        target: {
+          value: '如何',
+        },
+      });
+
+      jest.runOnlyPendingTimers();
+    });
+
+    expect(
+      html.baseElement.querySelector('.ant-pro-help-search-list-item-content-light')?.textContent,
+    ).toBe('如何');
   });
 });

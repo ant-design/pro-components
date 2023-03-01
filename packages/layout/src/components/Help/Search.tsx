@@ -119,6 +119,7 @@ export const ProHelpSelect: React.FC<
           value: string;
           dataItemKey: string;
         }>
+          placeholder="please input search text"
           showSearch
           bordered={false}
           onBlur={() => {
