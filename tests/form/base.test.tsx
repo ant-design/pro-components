@@ -13,7 +13,7 @@ import ProForm, {
   ProFormText,
   ProFormTreeSelect,
 } from '@ant-design/pro-form';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
@@ -1513,6 +1513,11 @@ describe('ProForm', () => {
       </ProForm>,
     );
     await wrapper.findByText('查询选择器');
+
+    await waitFor(() => {
+      expect(onRequest.mock.calls.length).toBe(1);
+    });
+
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
@@ -1525,9 +1530,10 @@ describe('ProForm', () => {
       fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    await waitTime(200);
+    await waitFor(() => {
+      expect(onRequest.mock.calls.length).toBe(2);
+    });
 
-    expect(onRequest.mock.calls.length).toBe(2);
     wrapper.unmount();
   });
 
