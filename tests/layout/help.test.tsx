@@ -525,4 +525,70 @@ describe('👍🏻 ProHelpPanel', () => {
     });
     expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });
+
+  it('🎏 ProHelpSelect in panel', async () => {
+    jest.useFakeTimers();
+    const html = render(
+      <DefaultProHelp>
+        <div
+          style={{
+            width: 600,
+          }}
+        >
+          <ProHelpPanel height={648} />
+        </div>
+      </DefaultProHelp>,
+    );
+
+    await html.findAllByText('常见问题');
+
+    await act(async () => {
+      (await html.findByTitle('search panel'))?.click();
+    });
+
+    const input = await html.findByText('please input search text');
+
+    await act(async () => {
+      fireEvent.mouseDown(html.container.querySelector('.ant-select-selector')!);
+      jest.runOnlyPendingTimers();
+    });
+
+    await html.findAllByText('常见问题');
+
+    act(() => {
+      fireEvent.change(input.parentElement!.querySelector('input')!, {
+        target: {
+          value: '证据包内包含哪些内容，如何下载证据包',
+        },
+      });
+
+      jest.runOnlyPendingTimers();
+    });
+
+    expect(
+      html.baseElement.querySelector('.ant-pro-help-search-list-item-content-light')?.textContent,
+    ).toBe('证据包内包含哪些内容，如何下载证据包');
+
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-help-search-list-item-content-light')
+        ?.parentElement?.click();
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(html.baseElement.querySelector('.ant-menu-item-selected')?.textContent).toBe(
+        '证据包内包含哪些内容，如何下载证据包？',
+      );
+    });
+
+    await act(async () => {
+      fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
+      jest.runOnlyPendingTimers();
+    });
+    expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
+  });
 });

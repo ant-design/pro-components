@@ -27,7 +27,7 @@ export type ProHelpPanelProps = {
   /**
    * 当选中的文档键名发生变化时调用的回调函数。新的键名将作为参数传递给该函数。
    */
-  onSelectedKeyChange?: (key: string) => void;
+  onSelectedKeyChange?: (key: string | undefined) => void;
   /**
    *控制左侧面板是否能够打开
    */
@@ -190,7 +190,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   const className = getPrefixCls('pro-help');
   const { wrapSSR } = useStyle(className);
   const { dataSource } = useContext(ProHelpProvide);
-  const [selectedKey, setSelectedKey] = useMergedState<string>('', {
+  const [selectedKey, setSelectedKey] = useMergedState<string | undefined>(undefined, {
     defaultValue: props.defaultSelectedKey,
     value: props.selectedKey,
     onChange: props.onSelectedKeyChange,
@@ -288,7 +288,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               onOpenChange={(keys) => {
                 setOpenKey(keys.at(-1) || '');
               }}
-              selectedKeys={[selectedKey]}
+              selectedKeys={selectedKey ? [selectedKey] : []}
               onSelect={({ selectedKeys }) => {
                 setSelectedKey(selectedKeys.at(-1) || '');
               }}
@@ -315,7 +315,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           height,
         }}
       >
-        <ProHelpContentPanel selectedKey={selectedKey} />
+        {selectedKey ? <ProHelpContentPanel selectedKey={selectedKey} /> : null}
       </div>
     </ProCard>,
   );

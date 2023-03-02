@@ -93,9 +93,7 @@ exports[`👍🏻 ProHelpPanel 🎏 ProHelp is empty 1`] = `
         </div>
         <div
           class="ant-pro-help-content-panel"
-        >
-          <div />
-        </div>
+        />
       </div>
     </div>
   </div>
