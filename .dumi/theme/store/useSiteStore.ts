@@ -15,7 +15,7 @@ import { ComponentType } from 'react';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-export type NavData = (INavItem & { children?: INavItem[] | undefined })[];
+export type NavData = (INavItem & { children?: INavItem[] })[];
 
 export interface SiteState {
   pkg: Partial<Record<keyof typeof PICKED_PKG_FIELDS, any>>;

@@ -15,7 +15,7 @@ export type PureSettings = {
    * @name theme for nav menu
    * @name 导航菜单的主题
    */
-  navTheme?: 'light' | 'realDark' | undefined;
+  navTheme?: 'light' | 'realDark';
   /**
    * Side 为正常模式，top菜单显示在顶部，mix 两种兼有
    *

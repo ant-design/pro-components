@@ -11,14 +11,14 @@ import get from 'rc-util/es/utils/get';
 import set from 'rc-util/es/utils/set';
 import { noteOnce } from 'rc-util/es/warning';
 import React, {
+  createRef,
+  forwardRef,
   useContext,
-  useMemo,
   useEffect,
+  useImperativeHandle,
+  useMemo,
   useRef,
   useState,
-  forwardRef,
-  useImperativeHandle,
-  createRef,
 } from 'react';
 import { useDebounceFn, useRefFunction } from '..';
 import { ProFormContext } from '../components/ProFormContext';
@@ -54,7 +54,7 @@ export type AddLineOptions = {
 };
 
 export type NewLineConfig<T> = {
-  defaultValue: T | undefined;
+  defaultValue?: T;
   options: AddLineOptions;
 };
 
