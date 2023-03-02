@@ -3,14 +3,14 @@ import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/image/style';
 import { useIntl } from '@ant-design/pro-provider';
+import 'antd/es/image/style';
 //----------------------
 
 export type FieldImageProps = {
   text: string;
   width?: number;
-  placeholder?: string | string[] | undefined;
+  placeholder?: string | string[];
 };
 
 /**

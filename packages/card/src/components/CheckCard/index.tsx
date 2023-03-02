@@ -97,7 +97,7 @@ interface CheckCardProps {
    * @default default
    * @title 选择框大小
    */
-  size?: 'large' | 'default' | 'small' | undefined;
+  size?: 'large' | 'default' | 'small';
   /**
    * 是否显示边框
    *
@@ -138,7 +138,7 @@ const CheckCard: React.FC<CheckCardProps> & {
   };
 
   // small => sm large => lg
-  const getSizeCls = (size: string | undefined) => {
+  const getSizeCls = (size?: string) => {
     if (size === 'large') return 'lg';
     if (size === 'small') return 'sm';
     return '';

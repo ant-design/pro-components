@@ -85,7 +85,7 @@ export function useActionType<T>(
     reload: async (resetPageIndex?: boolean) => {
       // 如果为 true，回到第一页
       if (resetPageIndex) {
-        await action.setPageInfo({
+        action.setPageInfo({
           current: 1,
         });
       }
@@ -94,14 +94,14 @@ export function useActionType<T>(
     reloadAndRest: async () => {
       // reload 之后大概率会切换数据，清空一下选择。
       props.onCleanSelected();
-      await action.setPageInfo({
+      action.setPageInfo({
         current: 1,
       });
       await action?.reload();
     },
     reset: async () => {
-      await props.resetAll();
-      await action?.reset?.();
+      props.resetAll();
+      action?.reset?.();
       await action?.reload();
     },
     fullScreen: () => props.fullScreen(),
@@ -150,10 +150,7 @@ export const isMergeCell = (
  * @param dataIndex 在对象中的数据
  * @param index 序列号，理论上唯一
  */
-export const genColumnKey = (
-  key?: (string | number) | undefined,
-  index?: number | string,
-): string => {
+export const genColumnKey = (key?: string | number, index?: number | string): string => {
   if (key) {
     return Array.isArray(key) ? key.join('-') : key.toString();
   }

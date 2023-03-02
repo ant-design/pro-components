@@ -9,6 +9,7 @@ import type { UseEditableUtilType } from './useEditableArray';
 //@ts-ignore
 import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 
+import type { ProSchemaValueEnumType } from '@ant-design/pro-provider';
 import type {
   AvatarProps,
   CascaderProps,
@@ -30,7 +31,6 @@ import type {
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { PasswordProps, TextAreaProps } from 'antd/es/input';
 import type { SliderRangeProps } from 'antd/es/slider';
-import type { ProSchemaValueEnumType } from '@ant-design/pro-provider';
 
 /**
  * ProFieldValueTypeWithFieldProps
