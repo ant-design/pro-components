@@ -9831,7 +9831,35 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                     >
                       <div
                         style="height: 100%;"
-                      />
+                      >
+                        <div
+                          style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
+                        >
+                          <div
+                            class="ant-pro-global-header-header-actions "
+                          >
+                            <span
+                              class="ant-pro-global-header-header-actions-avatar "
+                            >
+                              <div>
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                                  />
+                                </span>
+                                <span
+                                  style="margin-inline-start: 8px;"
+                                >
+                                  七妮妮
+                                </span>
+                              </div>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -10592,7 +10620,35 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                     >
                       <div
                         style="height: 100%;"
-                      />
+                      >
+                        <div
+                          style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
+                        >
+                          <div
+                            class="ant-pro-global-header-header-actions "
+                          >
+                            <span
+                              class="ant-pro-global-header-header-actions-avatar "
+                            >
+                              <div>
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                                  />
+                                </span>
+                                <span
+                                  style="margin-inline-start: 8px;"
+                                >
+                                  七妮妮
+                                </span>
+                              </div>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -32506,7 +32562,24 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     <div
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
-                      dom
+                      <div
+                        class="ant-pro-global-header-header-actions "
+                      >
+                        <span
+                          class="ant-pro-global-header-header-actions-avatar "
+                        >
+                          <div>
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                              />
+                            </span>
+                          </div>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -32785,7 +32858,30 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 >
                   <div
                     style="height: 100%;"
-                  />
+                  >
+                    <div
+                      style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
+                    >
+                      <div
+                        class="ant-pro-global-header-header-actions "
+                      >
+                        <span
+                          class="ant-pro-global-header-header-actions-avatar "
+                        >
+                          <div>
+                            <span
+                              class="ant-avatar ant-avatar-circle ant-avatar-image"
+                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                              />
+                            </span>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
