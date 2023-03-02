@@ -523,7 +523,7 @@ describe('LightFilter', () => {
             min: 1000000000,
             max: 2000000000,
             tooltip: {
-              formatter: (v: number | undefined) => (
+              formatter: (v?: number) => (
                 <div>{v ? dayjs.unix(v).format('YYYY-MM-DD HH:mm:ss') : 0}</div>
               ),
             },

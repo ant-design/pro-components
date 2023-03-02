@@ -12,7 +12,7 @@ export type RangeInputNumberProps = Omit<
   'value' | 'defaultValue' | 'onChange' | 'placeholder'
 > & {
   value?: ValuePair;
-  defaultValue?: ValuePair | undefined;
+  defaultValue?: ValuePair;
   onChange?: (value?: ValuePair) => void;
 };
 

@@ -181,8 +181,8 @@ export const columns: ProColumns[] = [
 export { getFetchData };
 
 export const request = (params?: {
-  pageSize?: number | undefined;
-  current?: number | undefined;
+  pageSize?: number;
+  current?: number;
 }): Promise<{
   data: {
     key: string | number;
