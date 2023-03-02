@@ -46,7 +46,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
     return <div>{domList}</div>;
   }, [avatarProps]);
 
-  const rightActionsRender = actionsRender
+  const rightActionsRender = (actionsRender || avatarDom)
     ? (restParams: any) => {
         let doms = actionsRender && actionsRender?.(restParams);
 
