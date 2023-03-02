@@ -9,7 +9,7 @@ export type RequestData<T = any> = {
 export type UseFetchDataAction<T extends RequestData> = {
   dataSource: T['data'] | T;
   setDataSource: (value: T['data'] | T) => void;
-  loading: boolean | undefined;
+  loading?: boolean;
   reload: () => Promise<void>;
 };
 

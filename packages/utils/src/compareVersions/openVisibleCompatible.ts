@@ -7,7 +7,7 @@ export const getVersion = () => {
   return process?.env?.ANTD_VERSION || version;
 };
 
-const openVisibleCompatible = (open: boolean | undefined, onOpenChange?: any) => {
+const openVisibleCompatible = (open?: boolean, onOpenChange?: any) => {
   const props =
     compareVersions(getVersion(), '4.23.0') > -1
       ? {

@@ -203,10 +203,10 @@ export type QueryFilterProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFi
 
 const QueryFilterContent: React.FC<{
   defaultCollapsed: boolean;
-  onCollapse: undefined | ((collapsed: boolean) => void);
-  collapsed: boolean | undefined;
-  resetText: string | undefined;
-  searchText: string | undefined;
+  onCollapse?: (collapsed: boolean) => void;
+  collapsed?: boolean;
+  resetText?: string;
+  searchText?: string;
   searchGutter?: RowProps['gutter'];
   split?: boolean;
   form: FormInstance<any>;

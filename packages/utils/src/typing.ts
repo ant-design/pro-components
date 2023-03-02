@@ -9,6 +9,7 @@ import type { UseEditableUtilType } from './useEditableArray';
 //@ts-ignore
 import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 
+import type { ProSchemaValueEnumType } from '@ant-design/pro-provider';
 import type {
   AvatarProps,
   CascaderProps,
@@ -30,7 +31,6 @@ import type {
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { PasswordProps, TextAreaProps } from 'antd/es/input';
 import type { SliderRangeProps } from 'antd/es/slider';
-import type { ProSchemaValueEnumType } from '@ant-design/pro-provider';
 
 export type ProFieldValueTypeWithFieldProps = {
   text: InputProps;
@@ -203,7 +203,7 @@ export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumOb
 
 export type ProFieldValueObjectType = {
   type: 'progress' | 'money' | 'percent' | 'image';
-  status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
+  status?: 'normal' | 'active' | 'success' | 'exception';
   locale?: string;
   /** Percent */
   showSymbol?: ((value: any) => boolean) | boolean;
