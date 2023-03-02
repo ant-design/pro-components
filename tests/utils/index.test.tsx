@@ -556,6 +556,7 @@ describe('utils', () => {
         money: 20,
         dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
         dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
+        dateRange2: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
       },
       {
         dataTime: () => 'new-dataTime',
@@ -568,10 +569,18 @@ describe('utils', () => {
     );
     const htmlKeys = Object.keys(html).sort();
     expect(htmlKeys).toEqual(
-      ['new-dataTime', 'new-time', 'new-name', 'new-money', 'dateTimeRange', 'dateRange'].sort(),
+      [
+        'new-dataTime',
+        'new-time',
+        'dateRange2',
+        'new-name',
+        'new-money',
+        'dateTimeRange',
+        'dateRange',
+      ].sort(),
     );
     expect(htmlKeys).not.toEqual(
-      ['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort(),
+      ['dataTime', 'time', 'name', 'dateRange2', 'money', 'dateTimeRange', 'dateRange'].sort(),
     );
     expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect((html as any)['new-time']).toBe('2019-11-16 12:50:26');
