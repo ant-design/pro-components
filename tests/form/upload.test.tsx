@@ -1,14 +1,20 @@
 ﻿import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
 import { fireEvent, render } from '@testing-library/react';
+import { Form } from 'antd';
 import type { UploadFile } from 'antd/es/upload/interface';
 import { act } from 'react-dom/test-utils';
 import mock from 'xhr-mock';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 const mockFile = new File(['foo'], 'foo.png', {
   type: 'image/png',
 }) as unknown as UploadFile;
-
+const mockFile1 = new File(['foo1'], 'foo1.png', {
+  type: 'image/png',
+}) as unknown as UploadFile;
+const mockFile2 = new File(['foo2'], 'foo2.png', {
+  type: 'image/png',
+}) as unknown as UploadFile;
 export function setup() {
   mock.setup();
   // @ts-ignore
@@ -102,33 +108,37 @@ describe('ProFormUpload', () => {
 
   it('🏐 ProFormUploadButton support disable', async () => {
     const wrapper = render(
-      <ProFormUploadButton
-        disabled
-        action="http://upload.com"
-        listType="text"
-        label="upload"
-        name="files"
-      />,
-    );
-    expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')?.innerHTML,
-    ).toMatchSnapshot();
-    act(() => {
-      wrapper.rerender(
+      <Form>
         <ProFormUploadButton
           disabled
           action="http://upload.com"
           listType="text"
           label="upload"
           name="files"
-          buttonProps={{
-            disabled: true,
-            type: 'dashed',
-          }}
-        />,
+        />
+      </Form>,
+    );
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')?.innerHTML,
+    ).toMatchSnapshot();
+    act(() => {
+      wrapper.rerender(
+        <Form>
+          <ProFormUploadButton
+            disabled
+            action="http://upload.com"
+            listType="text"
+            label="upload"
+            name="files"
+            buttonProps={{
+              disabled: true,
+              type: 'dashed',
+            }}
+          />
+        </Form>,
       );
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.ant-upload')
@@ -136,20 +146,22 @@ describe('ProFormUpload', () => {
     ).toBeTruthy();
     act(() => {
       wrapper.rerender(
-        <ProFormUploadButton
-          disabled={false}
-          action="http://upload.com"
-          listType="text"
-          label="upload"
-          name="files"
-          buttonProps={{}}
-          fieldProps={{
-            disabled: true,
-          }}
-        />,
+        <Form>
+          <ProFormUploadButton
+            disabled={false}
+            action="http://upload.com"
+            listType="text"
+            label="upload"
+            name="files"
+            buttonProps={{}}
+            fieldProps={{
+              disabled: true,
+            }}
+          />
+        </Form>,
       );
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.ant-upload')
@@ -189,14 +201,15 @@ describe('ProFormUpload', () => {
 
   it('🏐 ProFormUploadDragger hide when max', async () => {
     const wrapper = render(
-      // @ts-ignore
-      <ProFormUploadDragger
-        max={2}
-        value={[mockFile, mockFile, mockFile]}
-        action="http://upload.com"
-        label="upload"
-        name="files"
-      />,
+      <Form>
+        <ProFormUploadDragger
+          max={2}
+          value={[mockFile, mockFile1, mockFile2]}
+          action="http://upload.com"
+          label="upload"
+          name="files"
+        />
+      </Form>,
     );
 
     await waitTime(200);
@@ -210,15 +223,16 @@ describe('ProFormUpload', () => {
   it('🏐 ProFormUploadDragger support children', async () => {
     const extra = 'extra';
     const wrapper = render(
-      // @ts-ignore
-      <ProFormUploadDragger
-        value={[mockFile, mockFile, mockFile]}
-        action="http://upload.com"
-        label="upload"
-        name="files"
-      >
-        {extra}
-      </ProFormUploadDragger>,
+      <Form>
+        <ProFormUploadDragger
+          value={[mockFile, mockFile1, mockFile2]}
+          action="http://upload.com"
+          label="upload"
+          name="files"
+        >
+          {extra}
+        </ProFormUploadDragger>
+      </Form>,
     );
 
     await waitTime(200);
@@ -230,14 +244,15 @@ describe('ProFormUpload', () => {
 
   it('🏐 ProFormUploadButton hide when max', async () => {
     const wrapper = render(
-      // @ts-ignore
-      <ProFormUploadButton
-        max={2}
-        value={[mockFile, mockFile, mockFile]}
-        action="http://upload.com"
-        label="upload"
-        name="files"
-      />,
+      <Form>
+        <ProFormUploadButton
+          max={2}
+          value={[mockFile, mockFile1, mockFile2]}
+          action="http://upload.com"
+          label="upload"
+          name="files"
+        />
+      </Form>,
     );
 
     await waitTime(200);

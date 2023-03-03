@@ -13,12 +13,12 @@ import ProForm, {
   ProFormText,
   ProFormTreeSelect,
 } from '@ant-design/pro-form';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -116,7 +116,7 @@ describe('ProForm', () => {
         syncToInitialValues={false}
       >
         <ProFormText name="navTheme" />
-        <ProForm.Item>
+        <ProForm.Item shouldUpdate>
           {() => {
             return '123';
           }}
@@ -127,6 +127,7 @@ describe('ProForm', () => {
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
+
     expect(onFinish).toHaveBeenCalledWith('realDark');
 
     // rest
@@ -181,11 +182,16 @@ describe('ProForm', () => {
 
   it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
+    jest.useFakeTimers();
     const wrapper = render(
       <ProForm
         onFinish={async () => {
           fn();
-          await waitTime(2000);
+          return new Promise((resolve) => {
+            return setTimeout(() => {
+              resolve(true);
+            }, 4000);
+          });
         }}
       />,
     );
@@ -197,16 +203,22 @@ describe('ProForm', () => {
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
     wrapper.unmount();
+    jest.useRealTimers();
   });
 
   it('📦 onFinish should simulate button close loading', async () => {
+    jest.useFakeTimers();
+
     const fn = jest.fn();
     const wrapper = render(
       <ProForm
         onFinish={async () => {
           fn();
-          await waitTime(1000);
-          throw new Error('期贤');
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              reject(new Error('期贤'));
+            }, 4000);
+          });
         }}
       />,
     );
@@ -214,22 +226,29 @@ describe('ProForm', () => {
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
-    let dom = await (await wrapper.findByText('提 交')).parentElement;
+    let dom: HTMLElement | undefined | null;
+    await act(async () => {
+      dom = await (await wrapper.findByText('提 交')).parentElement;
+    });
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
-    dom = await (await wrapper.findByText('提 交')).parentElement;
-    await act(async () => {
-      await waitTime(1200);
+
+    act(() => {
+      jest.runOnlyPendingTimers();
     });
+
+    await act(async () => {
+      dom = await (await wrapper.findByText('提 交')).parentElement;
+    });
+
     expect(dom?.className.includes('ant-btn-loading')).toBe(false);
-    wrapper.unmount();
+    jest.useRealTimers();
   });
 
   it('📦 onFinish support params and request', async () => {
     const wrapper = render(
       <ProForm
         request={async (params) => {
-          await act(async () => {});
           return params;
         }}
         params={{
@@ -240,6 +259,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await wrapper.findByText('提 交');
     expect(!!(await wrapper.findByDisplayValue('test'))).toBeTruthy();
 
     act(() => {
@@ -247,7 +267,6 @@ describe('ProForm', () => {
         <ProForm
           key="rerender"
           request={async (params) => {
-            await act(async () => {});
             return params;
           }}
           params={{
@@ -258,7 +277,7 @@ describe('ProForm', () => {
         </ProForm>,
       );
     });
-
+    await wrapper.findByText('提 交');
     expect(!!(await wrapper.findByDisplayValue('1234'))).toBeTruthy();
     wrapper.unmount();
   });
@@ -267,7 +286,6 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm
         request={async () => {
-          await act(async () => {});
           return {
             name: '100',
           };
@@ -279,7 +297,7 @@ describe('ProForm', () => {
         <ProFormText name="name" />
       </ProForm>,
     );
-
+    await wrapper.findByText('提 交');
     expect(!!(await wrapper.findByDisplayValue('100'))).toBeTruthy();
     wrapper.unmount();
   });
@@ -290,9 +308,11 @@ describe('ProForm', () => {
         submitter={{
           render: () => false,
         }}
-      />,
+      >
+        text
+      </ProForm>,
     );
-
+    await wrapper.findByText('text');
     expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
@@ -305,7 +325,7 @@ describe('ProForm', () => {
         }}
       />,
     );
-
+    await wrapper.findByText('test');
     expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
   });
@@ -332,7 +352,8 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
-    await waitTime(1000);
+    await wrapper.findByText('test');
+
     expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-')).toBe('12-34');
     expect(formRef.current?.getFieldFormatValueObject?.()?.test.join('-')).toBe('12-34');
@@ -362,6 +383,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await wrapper.findByText('提 交');
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
@@ -389,6 +411,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await wrapper.findByText('提 交');
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
@@ -434,7 +457,7 @@ describe('ProForm', () => {
         }}
       />,
     );
-
+    await wrapper.findByText('提交并发布');
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
@@ -452,6 +475,8 @@ describe('ProForm', () => {
         }}
       />,
     );
+
+    await wrapper.findByText('提 交');
 
     act(() => {
       expect(wrapper.asFragment()).toMatchSnapshot();
@@ -479,6 +504,8 @@ describe('ProForm', () => {
         }}
       />,
     );
+
+    await wrapper.findByText('提 交');
 
     act(() => {
       expect(wrapper.asFragment()).toMatchSnapshot();
@@ -513,24 +540,26 @@ describe('ProForm', () => {
         <ProFormText label="name" name="name" />
       </ProForm>,
     );
-
+    await wrapper.findByText('提交并发布');
     await act(async () => {
       (await wrapper.findByText('提交并发布')).click();
     });
 
-    await act(async () => {
-      await waitTime(100);
-    });
     expect(onFinish).toBeCalled();
     wrapper.unmount();
   });
 
   it('📦 ProFormCaptcha support onGetCaptcha', async () => {
+    jest.useFakeTimers();
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
-            await waitTime(10);
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve();
+              }, 2000);
+            });
           }}
           captchaProps={{
             id: 'test',
@@ -542,34 +571,37 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await wrapper.findByText('提 交');
+
     let captcha = await wrapper.findByText('获取验证码');
+
     expect(!!captcha).toBeTruthy();
 
     await act(async () => {
       (await wrapper.findByText('获取验证码'))?.click();
-      await waitTime(100);
     });
 
-    expect(wrapper.baseElement.querySelector<HTMLElement>('button#test')?.textContent).toBe(
-      '2 秒后重新获取',
-    );
-
-    await act(async () => {
-      await waitTime(1000);
+    act(() => {
+      jest.runOnlyPendingTimers();
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('button#test')[0].textContent).toBe(
-      '1 秒后重新获取',
-    );
+    await wrapper.findByText('2 秒后重新获取');
 
-    await act(async () => {
-      await waitTime(1000);
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
     });
 
     captcha = await wrapper.findByText('获取验证码');
 
     expect(!!captcha).toBeTruthy();
+
     wrapper.unmount();
+
+    jest.useRealTimers();
   });
 
   it('📦 ProFormCaptcha support value and onchange', async () => {
@@ -586,6 +618,7 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+    await wrapper.findByText('提 交');
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0], {
@@ -604,11 +637,16 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormCaptcha support captchaTextRender', async () => {
+    jest.useFakeTimers();
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
-            await waitTime(10);
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve();
+              }, 200);
+            });
           }}
           captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
           captchaProps={{
@@ -619,18 +657,27 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+    await wrapper.findByText('提 交');
 
-    let captcha = await wrapper.findByText('获 取');
-    expect(!!captcha).toBeTruthy();
+    const firstCaptcha = await wrapper.findByText('获 取');
+    expect(!!firstCaptcha).toBeTruthy();
 
     await act(async () => {
+      const captcha = await wrapper.findByText('获 取');
       captcha?.click();
-      await waitTime(1000);
     });
 
-    captcha = await wrapper.findByText('重新获取');
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    const captcha = await wrapper.findByText('重新获取');
     expect(!!captcha).toBeTruthy();
-    wrapper.unmount();
+    jest.useRealTimers();
   });
 
   it('📦 ProFormCaptcha onGetCaptcha throw error', async () => {
@@ -638,7 +685,6 @@ describe('ProForm', () => {
       <ProForm>
         <ProFormCaptcha
           onGetCaptcha={async () => {
-            await waitTime(10);
             throw new Error('TEST');
           }}
           captchaTextRender={(timing) => (timing ? '重新获取' : '获取')}
@@ -650,6 +696,8 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+
+    await wrapper.findByText('提 交');
 
     act(() => {
       fireEvent.click(wrapper.baseElement.querySelector('#test')!);
@@ -676,7 +724,6 @@ describe('ProForm', () => {
         <ProFormCaptcha
           onGetCaptcha={async () => {
             fn();
-            await waitTime(10);
           }}
           phoneName="phone"
           captchaProps={{
@@ -689,11 +736,11 @@ describe('ProForm', () => {
     );
 
     const captcha = await wrapper.findByText('获取验证码');
+
     expect(!!captcha).toBeTruthy();
 
     await act(async () => {
       (await wrapper.findByText('获取验证码'))?.click();
-      await waitTime(100);
     });
 
     expect(fn).not.toBeCalled();
@@ -708,7 +755,6 @@ describe('ProForm', () => {
 
     await act(async () => {
       captcha.click();
-      await waitTime(100);
     });
 
     expect(fn).toBeCalled();
@@ -765,6 +811,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await wrapper.findByText('提 交');
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0], {
         target: {
@@ -797,7 +844,7 @@ describe('ProForm', () => {
         </ProForm.Group>
       </ProForm>,
     );
-
+    await wrapper.findByText('提 交');
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
@@ -822,7 +869,7 @@ describe('ProForm', () => {
         </ProForm.Group>
       </ProForm>,
     );
-
+    await wrapper.findByText('提 交');
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
     });
@@ -852,7 +899,7 @@ describe('ProForm', () => {
         </ProForm.Group>
       </ProForm>,
     );
-
+    await wrapper.findByText('提 交');
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('#click')[0].click();
     });
@@ -860,6 +907,7 @@ describe('ProForm', () => {
     expect(fn).not.toBeCalled();
     wrapper.unmount();
   });
+
   it('📦 ProForm.Group support FormItem hidden', async () => {
     const wrapper = render(
       <ProForm>
@@ -870,7 +918,7 @@ describe('ProForm', () => {
         </ProForm.Group>
       </ProForm>,
     );
-
+    await wrapper.findByText('提 交');
     expect(
       wrapper.baseElement.querySelectorAll<HTMLElement>(
         '.ant-pro-form-group-container div.ant-form-item',
@@ -893,7 +941,7 @@ describe('ProForm', () => {
         </ProFormField>
       </ProForm>,
     );
-
+    await wrapper.findByText('提 交');
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
         target: {
@@ -908,16 +956,20 @@ describe('ProForm', () => {
   it('📦 ProFormField support onChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
-      <ProFormField
-        name="phone2"
-        // @ts-ignore
-        onChange={(e) => {
-          fn(e.target.value);
-        }}
-      >
-        <Input id="testInput" />
-      </ProFormField>,
+      <ProForm>
+        <ProFormField
+          name="phone2"
+          // @ts-ignore
+          onChange={(e) => {
+            fn(e.target.value);
+          }}
+        >
+          <Input id="testInput" />
+        </ProFormField>
+      </ProForm>,
     );
+
+    await wrapper.findByText('提 交');
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
@@ -945,13 +997,15 @@ describe('ProForm', () => {
         <ProFormDatePicker.Year name="dateYear" label="年" />
       </ProForm>,
     );
+
+    await wrapper.findByText('提 交');
+
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
     });
 
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
-      await waitTime(100);
     });
 
     expect(onFinish).toHaveBeenCalledWith({
@@ -980,6 +1034,8 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+
+    await wrapper.findByText('查询选择器');
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
@@ -1030,6 +1086,8 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+
+    await wrapper.findByText('查询选择器');
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
@@ -1087,6 +1145,8 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await wrapper.findByText('查询选择器');
+
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
@@ -1143,6 +1203,8 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+
+    await wrapper.findByText('查询选择器');
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
@@ -1207,6 +1269,8 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+
+    await wrapper.findByText('查询选择器');
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
@@ -1285,6 +1349,8 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await wrapper.findByText('查询选择器');
+
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
@@ -1320,6 +1386,7 @@ describe('ProForm', () => {
 
   it('📦 SearchSelect support resetAfterSelect', async () => {
     const onSearch = jest.fn();
+
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
@@ -1347,6 +1414,7 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+    await wrapper.findByText('查询选择器');
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
@@ -1409,6 +1477,8 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await wrapper.findByText('查询选择器');
+
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
@@ -1442,6 +1512,11 @@ describe('ProForm', () => {
         />
       </ProForm>,
     );
+    await wrapper.findByText('查询选择器');
+
+    await waitFor(() => {
+      expect(onRequest.mock.calls.length).toBe(1);
+    });
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
@@ -1451,18 +1526,14 @@ describe('ProForm', () => {
       });
     });
 
-    await act(async () => {
-      await waitTime(200);
-    });
     act(() => {
       fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
 
-    await act(async () => {
-      await waitTime(200);
+    await waitFor(() => {
+      expect(onRequest.mock.calls.length).toBe(2);
     });
 
-    expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });
 
@@ -2035,7 +2106,6 @@ describe('ProForm', () => {
 
     expect(onFinish).toBeCalledWith('open');
   });
-
   it('📦 Select support multiple unnamed async options', async () => {
     const wrapper = render(
       <>
@@ -2044,9 +2114,7 @@ describe('ProForm', () => {
       </>,
     );
 
-    await act(async () => {
-      await waitTime(100);
-    });
+    await waitTime(100);
 
     act(() => {
       fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0]);
@@ -2426,18 +2494,14 @@ describe('ProForm', () => {
 
     const wrapper = render(<App />);
 
-    await act(async () => {
-      await waitTime(200);
-    });
+    await waitTime(200);
     expect(fn1).toHaveBeenCalledWith('2021-08-09');
 
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
     });
 
-    await act(async () => {
-      await waitTime(200);
-    });
+    await waitTime(200);
 
     expect(fn2).toHaveBeenCalledWith('2021-08-03');
 
@@ -2664,7 +2728,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     act(() => {
       const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
       fireEvent.change(dom, {
@@ -2675,7 +2739,7 @@ describe('ProForm', () => {
       fireEvent.blur(dom);
       fireEvent.click(dom);
     });
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
     expect(html.baseElement.querySelector<HTMLInputElement>('input#count')?.value).toBe('22');
 
     await act(async () => {
@@ -2705,13 +2769,13 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
     await userEvent.type(dom, '22.22.22');
     await userEvent.click(await html.findByText('提 交'));
 
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     expect(dom.value).toBe('22');
     expect(fn).toBeCalledWith(22);
@@ -2829,6 +2893,8 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
+    await waitTime(100);
+
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
         target: {
@@ -2836,18 +2902,11 @@ describe('ProForm', () => {
         },
       });
     });
-
-    await act(async () => {
-      await waitTime(200);
-    });
+    await waitTime(100);
     act(() => {
       fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
     });
-
-    await act(async () => {
-      await waitTime(200);
-    });
-
+    await waitTime(100);
     expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });

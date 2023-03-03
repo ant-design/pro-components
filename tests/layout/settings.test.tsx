@@ -1,13 +1,11 @@
 import { ProLayout } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
-import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 describe('settings.test', () => {
   it('set title', async () => {
     const wrapper = render(<ProLayout title="test-title" />);
-    await waitForComponentToPaint(wrapper, 160);
+    await waitTime(160);
     expect(wrapper.getAllByText('test-title')).toBeTruthy();
 
     wrapper.rerender(<ProLayout title="test-title-2" />);

@@ -1,7 +1,7 @@
 import { ProForm, ProFormDependency, ProFormText } from '@ant-design/pro-components';
 import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 describe('ProForm Dependency component', () => {
   it('⛲ shouldUpdate of ProFormDependency is Boolean', async () => {
@@ -30,7 +30,7 @@ describe('ProForm Dependency component', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent).toBe('first');
 
@@ -38,7 +38,7 @@ describe('ProForm Dependency component', () => {
       html.rerender(<Demo shouldUpdate />);
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input.ant-input')!, {
@@ -48,7 +48,7 @@ describe('ProForm Dependency component', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent).toBe(
       'ProComponents',
@@ -83,7 +83,7 @@ describe('ProForm Dependency component', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector<HTMLDivElement>('input.ant-input')!, {
@@ -93,7 +93,7 @@ describe('ProForm Dependency component', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent).toBe('update');
   });
@@ -135,7 +135,7 @@ describe('ProForm Dependency component', () => {
       });
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
     expect(dependencyFn).toBeCalledWith('second chen');
   });
 });

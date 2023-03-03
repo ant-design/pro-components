@@ -437,13 +437,70 @@ export type ActionType = ProCoreActionType & {
   setPageInfo?: (page: Partial<PageInfo>) => void;
 };
 
+/**
+ * 用于定义 useFetch 的参数类型
+ * @typedef {Object} UseFetchProps
+ * @property {any} [dataSource] - 数据源，可选参数
+ * @property {UseFetchDataAction['loading']} loading - 数据加载状态，必须参数
+ * @property {(loading: UseFetchDataAction['loading']) => void} [onLoadingChange] - 加载状态改变时的回调函数，可选参数
+ * @property {(dataSource: any[], extra: any) => void} [onLoad] - 数据加载完成时的回调函数，可选参数
+ * @property {(dataSource?: any) => void} [onDataSourceChange] - 数据源改变时的回调函数，可选参数
+ * @property {any} postData - 发送到后端的数据，必须参数
+ * @property {{current?: number; pageSize?: number; defaultCurrent?: number; defaultPageSize?: number;} | false} pageInfo - 分页信息，可选参数，false 表示不启用分页
+ * @property {(pageInfo: PageInfo) => void} [onPageInfoChange] - 分页信息改变时的回调函数，可选参数
+ * @property {any[]} [effects] - 依赖的其它 Hook 或其它变量，可选参数
+ * @property {(e: Error) => void} [onRequestError] - 请求出错时的回调函数，可选参数
+ * @property {boolean} manual - 是否手动触发请求，必须参数
+ * @property {number} [debounceTime] - 延迟时间，可选参数，单位为毫秒
+ * @property {number | ((dataSource: any[]) => number)} [polling] - 轮询时间，可选参数，单位为毫秒或一个返回时间的函数
+ * @property {boolean} [revalidateOnFocus] - 是否在焦点回到页面时重新验证数据，可选参数
+ */
 export type UseFetchProps = {
+  /**
+   * 数据源
+   * @type {any}
+   */
   dataSource?: any;
+
+  /**
+   * 是否处于加载状态
+   * @type {UseFetchDataAction['loading']}
+   */
   loading: UseFetchDataAction['loading'];
+
+  /**
+   * 加载状态改变时的回调函数
+   * @type {(loading: UseFetchDataAction['loading']) => void}
+   */
   onLoadingChange?: (loading: UseFetchDataAction['loading']) => void;
+
+  /**
+   * 数据加载完成后的回调函数
+   * @type {(dataSource: any[], extra: any) => void}
+   */
   onLoad?: (dataSource: any[], extra: any) => void;
+
+  /**
+   * 数据源变化时的回调函数
+   * @type {(dataSource?: any) => void}
+   */
   onDataSourceChange?: (dataSource?: any) => void;
+
+  /**
+   * 请求时附带的数据
+   * @type {any}
+   */
   postData: any;
+
+  /**
+   * 分页信息
+   * @type {{
+   *   current?: number;
+   *   pageSize?: number;
+   *   defaultCurrent?: number;
+   *   defaultPageSize?: number;
+   * } | false}
+   */
   pageInfo:
     | {
         current?: number;
@@ -452,12 +509,47 @@ export type UseFetchProps = {
         defaultPageSize?: number;
       }
     | false;
+
+  /**
+   * 分页信息变化时的回调函数
+   * @type {(pageInfo: PageInfo) => void}
+   */
   onPageInfoChange?: (pageInfo: PageInfo) => void;
+
+  /**
+   * 请求相关的副作用
+   * @type {any[]}
+   */
   effects?: any[];
+
+  /**
+   * 请求出错时的回调函数
+   * @type {(e: Error) => void}
+   */
   onRequestError?: (e: Error) => void;
+
+  /**
+   * 是否手动触发请求
+   * @type {boolean}
+   */
   manual: boolean;
+
+  /**
+   * 请求防抖时间
+   * @type {number}
+   */
   debounceTime?: number;
+
+  /**
+   * 数据源轮询间隔时间或轮询触发条件
+   * @type {number | ((dataSource: any[]) => number)}
+   */
   polling?: number | ((dataSource: any[]) => number);
+
+  /**
+   * 是否在页面获得焦点时重新验证数据
+   * @type {Boolean}
+   */
   revalidateOnFocus?: boolean;
 };
 

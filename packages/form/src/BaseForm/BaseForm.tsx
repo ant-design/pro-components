@@ -635,10 +635,9 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         /** 在同步到 url 上时对参数进行转化 */
         setUrlSearch(genParams(syncToUrl, syncToUrlParams, 'set'));
       }
-
       setLoading(false);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
       setLoading(false);
     }
   });

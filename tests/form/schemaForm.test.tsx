@@ -4,7 +4,7 @@ import { act, fireEvent, render, waitFor, screen } from '@testing-library/react'
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import React, { createRef } from 'react';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -145,6 +145,7 @@ describe('SchemaForm', () => {
             valueType: 'select',
             fieldProps: fieldPropsFn,
             formItemProps: formItemPropsFn,
+            valueEnum: {},
           },
         ]}
         onValuesChange={onValuesChangeFn}
@@ -277,6 +278,7 @@ describe('SchemaForm', () => {
             dataIndex: 'state',
             valueType: 'select',
             fieldProps: fieldPropsFn,
+            valueEnum: {},
             formItemProps: formItemPropsFn,
           },
         ]}
@@ -349,7 +351,6 @@ describe('SchemaForm', () => {
 
   it('😊 SchemaForm support table columns', async () => {
     const { container } = render(<BetaSchemaForm columns={columns} />);
-
     expect(container.querySelectorAll('div.ant-form-item')).toHaveLength(4);
   });
 
@@ -515,7 +516,6 @@ describe('SchemaForm', () => {
             columns: (values) => [
               {
                 valueType: 'select',
-
                 width: 'md',
                 valueEnum: {
                   chapter: {
@@ -587,29 +587,29 @@ describe('SchemaForm', () => {
         columns={curColumns}
       />,
     );
-    await waitForComponentToPaint(wrapper, 300);
+    await waitTime(300);
 
     await act(async () => {
       fireEvent.click(await wrapper.findByText('提 交'));
     });
-    await waitForComponentToPaint(wrapper, 300);
+    await waitTime(300);
     expect(onFinish).toBeCalledTimes(0);
     expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
     await act(async () => {
       fireEvent.click(await wrapper.findByText('添加一行数据'));
     });
-    await waitForComponentToPaint(wrapper, 300);
+    await waitTime(300);
     await act(async () => {
       fireEvent.click(await wrapper.findByText('提 交'));
     });
-    await waitForComponentToPaint(wrapper, 300);
+    await waitTime(300);
     expect(
       (await wrapper.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML,
     ).toBe('请填写1');
     await act(async () => {
       fireEvent.click(await wrapper.baseElement.querySelector('.action-remove')!);
     });
-    await waitForComponentToPaint(wrapper, 300);
+    await waitTime(300);
     expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
   });
 
@@ -664,7 +664,7 @@ describe('SchemaForm', () => {
           ]}
         />,
       );
-      await waitForComponentToPaint(wrapper, 1000);
+      await waitTime(1000);
 
       expect(formRef.current).toBeTruthy();
 
@@ -672,20 +672,24 @@ describe('SchemaForm', () => {
         name: 'Ant Design',
       };
 
-      await waitForComponentToPaint(wrapper, 1000);
+      await waitTime(1000);
 
-      formRef.current!.setFieldsValue(value);
+      act(() => {
+        formRef.current!.setFieldsValue(value);
+      });
 
       expect(formRef.current!.getFieldsValue(true)).toMatchObject(value);
 
       if (layoutType === 'StepsForm') {
         const button = await wrapper.findByText('下一步');
         button?.click();
-        await waitForComponentToPaint(wrapper, 1000);
+        await waitTime(1000);
         const stepsValue = {
           next: 'Step 2',
         };
-        formRef.current!.setFieldsValue(stepsValue);
+        act(() => {
+          formRef.current!.setFieldsValue(stepsValue);
+        });
         expect(formRef.current!.getFieldsValue()).toMatchObject(stepsValue);
       }
     });

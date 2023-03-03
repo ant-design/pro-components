@@ -46,6 +46,9 @@ import { getMenuData } from './utils/getMenuData';
 
 export type { ProSettings, ProSettings as Settings } from './defaultSettings';
 export type { MenuDataItem } from './typing';
+
+export * from './components/Help';
+
 export {
   PageHeader,
   ProLayout,

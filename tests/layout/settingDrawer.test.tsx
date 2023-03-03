@@ -1,6 +1,6 @@
 import { SettingDrawer } from '@ant-design/pro-components';
 import { act, fireEvent, render } from '@testing-library/react';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 import { defaultSettings } from './defaultSettings';
 
 describe('settingDrawer.test', () => {
@@ -426,7 +426,7 @@ describe('settingDrawer.test', () => {
       <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
     );
     const { rerender } = html;
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
     act(() => {
       expect(
         (
@@ -439,7 +439,7 @@ describe('settingDrawer.test', () => {
     act(() => {
       window.localStorage.setItem('umi_locale', 'en-US');
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     act(() => {
       fn?.();
       rerender(
@@ -447,7 +447,7 @@ describe('settingDrawer.test', () => {
       );
     });
     addEventListenerSpy.mockRestore();
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     act(() => {
       expect(
         (
@@ -457,7 +457,7 @@ describe('settingDrawer.test', () => {
         ).textContent,
       ).toEqual('Page style setting');
     });
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
     html.unmount();
     window.localStorage.setItem('umi_locale', 'zh-CN');
   });
