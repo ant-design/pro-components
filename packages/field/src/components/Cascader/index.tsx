@@ -38,7 +38,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
 
   useImperativeHandle(ref, () => ({
     ...(cascaderRef.current || {}),
-    fetchData: () => fetchData(),
+    fetchData: (keyWord: string) => fetchData(keyWord),
   }));
 
   const optionsValueEnum = useMemo(() => {

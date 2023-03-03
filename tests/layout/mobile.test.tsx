@@ -1,7 +1,7 @@
 ﻿import { ProLayout } from '@ant-design/pro-components';
 import { render as reactRender, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 import defaultProps from './defaultProps';
 
 describe('mobile BasicLayout', () => {
@@ -111,20 +111,20 @@ describe('mobile BasicLayout', () => {
       />,
     );
 
-    waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       html.baseElement
         ?.querySelector<HTMLSpanElement>('span.ant-pro-global-header-collapsed-button')
         ?.click();
     });
-    waitForComponentToPaint(html);
+    await waitTime(100);
     act(() => {
       html.baseElement?.querySelector<HTMLDivElement>('div.ant-drawer-mask')?.click();
     });
-    waitForComponentToPaint(html);
+    await waitTime(100);
     expect(onCollapse).toHaveBeenCalled();
 
-    waitForComponentToPaint(html);
+    await waitTime(100);
     html.unmount();
   });
 });

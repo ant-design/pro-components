@@ -2,6 +2,9 @@
 
 exports[`docs/components demos 📸 renders ./docs/components/customization-value-type.tsx correctly 1`] = `
 <DocumentFragment>
+  <div>
+    test
+  </div>
   <div
     class="ant-pro"
   >
@@ -681,6 +684,9 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
 
 exports[`docs/components demos 📸 renders ./docs/components/valueType.tsx correctly 1`] = `
 <DocumentFragment>
+  <div>
+    test
+  </div>
   <div
     class="ant-form-item"
   >

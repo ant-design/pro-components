@@ -1,7 +1,7 @@
 import { CheckCard } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 describe('CheckCard', () => {
   it('should invoke onChange and onClick function when click option', async () => {
@@ -21,7 +21,7 @@ describe('CheckCard', () => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     expect(onChange).toBeCalledWith(true);
     expect(onClick).toHaveBeenCalled();
@@ -47,19 +47,19 @@ describe('CheckCard', () => {
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenLastCalledWith('Apple');
 
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     expect(onChange).toHaveBeenLastCalledWith(undefined);
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenLastCalledWith('Pear');
 
     act(() => {
@@ -113,18 +113,18 @@ describe('CheckCard', () => {
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenLastCalledWith(['Apple']);
 
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenLastCalledWith(['Apple', 'Pear']);
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenLastCalledWith(['Apple']);
     act(() => {
       wrapper.unmount();
@@ -150,14 +150,14 @@ describe('CheckCard', () => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenCalledWith(undefined);
 
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenCalledWith('A');
   });
 
@@ -178,13 +178,13 @@ describe('CheckCard', () => {
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenCalledWith([]);
 
     act(() => {
       wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).toHaveBeenCalledWith(['B']);
 
     act(() => {
@@ -203,7 +203,7 @@ describe('CheckCard', () => {
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(onChange).not.toHaveBeenCalled();
     act(() => {
       wrapper.unmount();
