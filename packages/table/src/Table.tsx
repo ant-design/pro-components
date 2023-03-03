@@ -505,13 +505,21 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (props.manualRequest || !props.request || !revalidateOnFocus || props.form?.ignoreRules)
       return;
 
-    // 聚焦时重新请求事件
+    // 页面可见状态变化时重新请求事件
     const visibilitychange = () => {
       if (document.visibilityState === 'visible') action.reload();
     };
+    // 重新focus页面时重新请求
+    const focusChange = () => {
+      if(document.hasFocus() === true) action.reload()
+    }
 
     document.addEventListener('visibilitychange', visibilitychange);
-    return () => document.removeEventListener('visibilitychange', visibilitychange);
+    document.addEventListener('focus', focusChange);
+    return () => {
+      document.removeEventListener('visibilitychange', visibilitychange);
+      document.removeEventListener('focus', focusChange);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
