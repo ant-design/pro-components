@@ -1,7 +1,7 @@
 import { ProTable } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 const valueEnum = {
   0: 'close',
@@ -78,7 +78,7 @@ describe('Dynamic Persistence', () => {
       />,
     );
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     act(() => {
       html.baseElement
@@ -86,7 +86,7 @@ describe('Dynamic Persistence', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(window.sessionStorage.getItem('table_dynamic_status_close')).toMatch(
       '{"index":{"show":true},"statusText":{"show":true}}',
@@ -100,7 +100,7 @@ describe('Dynamic Persistence', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(window.sessionStorage.getItem('table_dynamic_status_close')).toMatch(
       '{"index":{"show":true},"statusText":{"show":false}}',
@@ -144,7 +144,7 @@ describe('Dynamic Persistence', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(window.sessionStorage.getItem('table_dynamic_status_running')).toMatch(
       '{"index":{"show":true},"statusText":{"show":true}}',

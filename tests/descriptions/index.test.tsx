@@ -3,7 +3,7 @@ import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import { useRef } from 'react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 describe('descriptions', () => {
   it('🥩 descriptions render valueEnum when data = 0', async () => {
@@ -36,7 +36,7 @@ describe('descriptions', () => {
 
   it('🎏 onLoadingChange test', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProDescriptions
         size="small"
         onLoadingChange={fn}
@@ -53,8 +53,10 @@ describe('descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(fn).toBeCalled();
+
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
   });
 
   it('🎏 loading test', async () => {
@@ -76,7 +78,7 @@ describe('descriptions', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeTruthy();
 
     act(() => {
@@ -100,13 +102,14 @@ describe('descriptions', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     // props 指定为 false 后，无论 request 完成与否都不会出现 spin
     expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeFalsy();
   });
 
   it('🥩 test reload', async () => {
     const fn = jest.fn();
+    jest.useFakeTimers();
     const Reload = () => {
       const actionRef = useRef<ProCoreActionType>();
       return (
@@ -140,18 +143,24 @@ describe('descriptions', () => {
       );
     };
     const html = render(<Reload />);
-    await waitForComponentToPaint(html, 500);
 
-    act(() => {
-      html.queryByText('刷新')?.click();
+    await html.findAllByText('这是一段文本');
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
     });
     act(() => {
       html.queryByText('刷新')?.click();
     });
-    await waitForComponentToPaint(html);
+    act(() => {
+      html.queryByText('刷新')?.click();
+    });
 
-    // 因为有 loading 的控制，所有只会触发两次
-    expect(fn).toBeCalledTimes(2);
+    await waitFor(() => {
+      // 因为有 loading 的控制，所有只会触发两次
+      expect(fn).toBeCalledTimes(2);
+    });
+
+    jest.useRealTimers();
   });
 
   it('🥩 test reload by params', async () => {
@@ -178,7 +187,7 @@ describe('descriptions', () => {
         <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
       </ProDescriptions>,
     );
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     act(() => {
       html.rerender(
@@ -205,7 +214,7 @@ describe('descriptions', () => {
       );
     });
 
-    await waitForComponentToPaint(html);
+    await waitTime(100);
 
     expect(fn).toBeCalledTimes(2);
   });
@@ -213,7 +222,7 @@ describe('descriptions', () => {
   it('🥩 test request error', async () => {
     const fn = jest.fn();
 
-    const html = render(
+    render(
       <ProDescriptions
         title="高级定义列表 request"
         request={async () => {
@@ -231,7 +240,7 @@ describe('descriptions', () => {
         <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
       </ProDescriptions>,
     );
-    await waitForComponentToPaint(html, 300);
+    await waitTime(300);
 
     expect(fn).toBeCalledTimes(1);
   });
@@ -263,7 +272,7 @@ describe('descriptions', () => {
     ).toBeTruthy();
   });
 
-  it('🏊 ProDescriptions support order', () => {
+  it('🏊 ProDescriptions support order', async () => {
     const html = render(
       <ProDescriptions
         dataSource={{

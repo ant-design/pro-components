@@ -31,7 +31,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
 
   useImperativeHandle(ref, () => ({
     ...(radioRef.current || {}),
-    fetchData: () => fetchData(),
+    fetchData: (keyWord: string) => fetchData(keyWord),
   }));
 
   // css

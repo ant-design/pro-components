@@ -54,7 +54,7 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import Summary from 'rc-table/es/Footer/Summary';
+import type Summary from 'rc-table/es/Footer/Summary';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -360,6 +360,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 }
 
 const emptyObj = {};
+
 const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
@@ -507,7 +508,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
     // 聚焦时重新请求事件
     const visibilitychange = () => {
-      if (document.visibilityState === 'visible') action.reload();
+      if (document.visibilityState === 'visible') {
+        action.reload();
+      }
     };
 
     document.addEventListener('visibilitychange', visibilitychange);

@@ -1,7 +1,7 @@
 import { ProCard } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 jest.mock('antd/es/grid/hooks/useBreakpoint');
 
@@ -13,7 +13,7 @@ describe('Card', () => {
         内容
       </ProCard>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     act(() => {
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapsible-icon')?.click();
@@ -28,7 +28,7 @@ describe('Card', () => {
         内容
       </ProCard>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(
       !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
     ).toBeTruthy();
@@ -40,7 +40,7 @@ describe('Card', () => {
         内容
       </ProCard>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(
       !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
     ).toBeTruthy();
@@ -53,7 +53,7 @@ describe('Card', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(
       !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
     ).toBeFalsy();
@@ -73,7 +73,7 @@ describe('Card', () => {
         内容
       </ProCard>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     expect(
       !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
@@ -96,7 +96,7 @@ describe('Card', () => {
         内容
       </ProCard>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
 
     expect(!!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card')).toBeTruthy();
 

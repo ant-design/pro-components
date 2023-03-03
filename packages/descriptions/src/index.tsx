@@ -44,6 +44,21 @@ export interface DescriptionsItemProps {
   span?: number;
 }
 
+/**
+ * 定义列表属性的类型定义，用于定义列表的一列
+ * @typedef {Object} ProDescriptionsItemProps
+ * @property {ProSchema} schema - 用于生成表格项的 schema 配置对象
+ * @property {boolean} [hide] - 是否隐藏该列，可用于权限控制
+ * @property {boolean} [plain] - 是否只展示文本，不展示标签
+ * @property {boolean} [copyable] - 是否可以拷贝该列的内容
+ * @property {boolean | { showTitle?: boolean }} [ellipsis] - 是否展示省略号，如果是一个对象，可以设置鼠标悬浮时是否展示完整的内容
+ * @property {ProFieldFCMode} [mode] - ProField 组件的模式
+ * @property {React.ReactNode} [children] - 表格项的子组件
+ * @property {number} [order] - 表格项的排序
+ * @property {number} [index] - 表格项的索引
+ * @template T - 表格数据的类型
+ * @template ValueType - 表格项的值类型
+ */
 export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'> = ProSchema<
   T,
   Omit<DescriptionsItemProps, 'children'> & {
@@ -54,7 +69,13 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
     ellipsis?: boolean | { showTitle?: boolean };
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
+    /**
+     * 子项的排序
+     */
     order?: number;
+    /**
+     * 子项的索引
+     */
     index?: number;
   },
   ProSchemaComponentTypes,
