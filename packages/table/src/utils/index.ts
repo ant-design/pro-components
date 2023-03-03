@@ -85,7 +85,7 @@ export function useActionType<T>(
     reload: async (resetPageIndex?: boolean) => {
       // 如果为 true，回到第一页
       if (resetPageIndex) {
-        action.setPageInfo({
+        await action.setPageInfo({
           current: 1,
         });
       }
@@ -94,14 +94,14 @@ export function useActionType<T>(
     reloadAndRest: async () => {
       // reload 之后大概率会切换数据，清空一下选择。
       props.onCleanSelected();
-      action.setPageInfo({
+      await action.setPageInfo({
         current: 1,
       });
       await action?.reload();
     },
     reset: async () => {
-      props.resetAll();
-      action?.reset?.();
+      await props.resetAll();
+      await action?.reset?.();
       await action?.reload();
     },
     fullScreen: () => props.fullScreen(),
