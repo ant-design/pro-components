@@ -47,13 +47,19 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         gap: 8,
         justifyContent: 'flex-start',
         maxWidth: 'calc(100% - 200px)',
-        width: '100%',
+        flex: 1,
         overflow: 'auto',
         [`${token.antCls}-tabs`]: {
           width: '100%',
         },
       },
-      '&-right': { display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', gap: 8 },
+      '&-right': {
+        flex: 1,
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-end',
+        gap: 8,
+      },
       '&-extra-line': { marginBlockEnd: token.margin },
       '&-setting-items': {
         display: 'flex',
