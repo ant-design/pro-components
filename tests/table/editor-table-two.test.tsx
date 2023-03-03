@@ -1,11 +1,11 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
 import type { ActionType, ProColumns, TableRowEditable } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useRef } from 'react';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitTime } from '../util';
 
 type DataSourceType = {
   id: number | string;
@@ -262,7 +262,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 300);
+    await waitTime(300);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith({
@@ -327,7 +327,7 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       fireEvent.change(
         wrapper.container.querySelectorAll('.ant-table-cell .ant-form-item-control-input input')[0],
@@ -339,7 +339,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith({
@@ -405,7 +405,7 @@ describe('EditorProTable 2', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper, 1200);
+    await waitTime(2000);
 
     act(() => {
       fireEvent.change(
@@ -420,7 +420,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith({
@@ -463,7 +463,7 @@ describe('EditorProTable 2', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     act(() => {
       fireEvent.change(
@@ -476,7 +476,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith(
@@ -514,7 +514,7 @@ describe('EditorProTable 2', () => {
       },
     ];
 
-    const wrapper = render(
+    render(
       <ProForm
         initialValues={{
           table: [
@@ -536,12 +536,12 @@ describe('EditorProTable 2', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper, 100);
 
-    expect(formItemPropsFn).toBeCalled();
-    expect(fieldPropsFn).toBeCalled();
-
-    expect(errorSpy).not.toBeCalled();
+    await waitFor(() => {
+      expect(formItemPropsFn).toBeCalled();
+      expect(fieldPropsFn).toBeCalled();
+      expect(errorSpy).not.toBeCalled();
+    });
 
     errorSpy.mockRestore();
   });
@@ -599,7 +599,7 @@ describe('EditorProTable 2', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     let answerTitle = '';
 
@@ -627,7 +627,7 @@ describe('EditorProTable 2', () => {
         value={defaultData}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1200);
+    await waitTime(2000);
     expect(wrapper.asFragment).toMatchSnapshot();
   });
 
@@ -640,7 +640,7 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.queryAllByText('编辑')[0]?.click();
     });
@@ -666,7 +666,7 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       fireEvent.change(
@@ -680,7 +680,7 @@ describe('EditorProTable 2', () => {
         },
       );
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(fn).toBeCalledWith(624748504);
   });
 
@@ -710,7 +710,7 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       fireEvent.change(
@@ -725,7 +725,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(fn).toBeCalledWith('02');
     wrapper.unmount();
   });
@@ -749,11 +749,11 @@ describe('EditorProTable 2', () => {
         onChange={(list) => fn(list.length)}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.queryAllByText('添加新行').at(0)?.click();
     });
-    await waitForComponentToPaint(wrapper, 2000);
+    await waitTime(1200);
 
     expect(fn).toBeCalledWith(4);
   });
@@ -786,17 +786,17 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 500);
+    await waitTime(1200);
 
     act(() => {
       wrapper.queryAllByText('添加新行')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     expect(fn).not.toBeCalled();
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       fireEvent.change(
@@ -811,7 +811,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(onValueChangeFn).toBeCalledWith('1223');
     wrapper.unmount();
   });
@@ -861,12 +861,12 @@ describe('EditorProTable 2', () => {
         />
       </ProForm>,
     );
-    await waitForComponentToPaint(wrapper, 1200);
+    await waitTime(2000);
 
     act(() => {
       wrapper.queryByText('开始编辑')?.click();
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       fireEvent.change(
@@ -881,13 +881,13 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     expect(onValueChangeFn).toBeCalledWith(624748504);
 
     act(() => {
       actionRef.current?.cancelEditable(0);
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(
       wrapper.container
         .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
@@ -917,12 +917,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       wrapper.queryAllByText('添加新行').at(0)?.click();
     });
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     act(() => {
       fireEvent.change(
@@ -937,7 +937,7 @@ describe('EditorProTable 2', () => {
       );
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     expect(fn).toBeCalledWith(newLineId);
     wrapper.unmount();
   });
@@ -962,7 +962,7 @@ describe('EditorProTable 2', () => {
         value={defaultData}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1200);
+    await waitTime(2000);
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
@@ -992,7 +992,7 @@ describe('EditorProTable 2', () => {
         value={defaultData}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1200);
+    await waitTime(2000);
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
@@ -1044,14 +1044,14 @@ describe('EditorProTable 2', () => {
       />,
     );
 
-    await waitForComponentToPaint(wrapper, 1200);
+    await waitTime(2000);
 
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
   it('📝 support editorRowKeys', async () => {
     const wrapper = render(<EditorProTableDemo editorRowKeys={[624748504]} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     // 第一行应该编辑态
     expect(
       wrapper.container
@@ -1069,11 +1069,11 @@ describe('EditorProTable 2', () => {
 
   it('📝 support cancel click', async () => {
     const wrapper = render(<EditorProTableDemo />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.queryAllByText('编辑').at(0)?.click();
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(
       wrapper.container
         .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
@@ -1084,7 +1084,7 @@ describe('EditorProTable 2', () => {
       (await wrapper.findByText('取消')).click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.container
@@ -1105,11 +1105,11 @@ describe('EditorProTable 2', () => {
         onCancel={async () => false}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.queryAllByText('编辑')[0]?.click();
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.container
@@ -1124,7 +1124,7 @@ describe('EditorProTable 2', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.container
@@ -1143,12 +1143,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.queryAllByText('编辑')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(fn).not.toBeCalled();
     wrapper.unmount();
@@ -1157,7 +1157,7 @@ describe('EditorProTable 2', () => {
   it('📝 edit tree data table', async () => {
     const fn = jest.fn();
     const wrapper = render(<EditorProTableDemo onSave={fn} dataSource={[defaultData[2]]} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.container
         .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
@@ -1165,13 +1165,13 @@ describe('EditorProTable 2', () => {
         .click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     act(() => {
       wrapper.container.querySelectorAll<HTMLSpanElement>('#editor')[0].click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.container
@@ -1185,7 +1185,7 @@ describe('EditorProTable 2', () => {
         .querySelectorAll<HTMLAnchorElement>('td a')[0]
         .click();
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.container
@@ -1208,11 +1208,11 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[0].click();
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(fn).toBeCalledWith([624748504, 624691229]);
     wrapper.unmount();
   });
@@ -1228,12 +1228,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1].click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect.any(
       wrapper.container
@@ -1248,9 +1248,9 @@ describe('EditorProTable 2', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     expect(fn).not.toBeCalled();
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(fn).toBeCalledWith(624691229);
     wrapper.unmount();
   });
@@ -1266,12 +1266,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1].click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.container
@@ -1283,7 +1283,7 @@ describe('EditorProTable 2', () => {
       wrapper.queryAllByText('删除').at(0)?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     act(() => {
       wrapper.queryAllByText('确 定').at(0)?.click();
@@ -1291,7 +1291,7 @@ describe('EditorProTable 2', () => {
 
     expect(fn).not.toBeCalled();
 
-    await waitForComponentToPaint(wrapper, 1200);
+    await waitTime(2000);
 
     expect(fn).toBeCalledWith(624691229);
     wrapper.unmount();
@@ -1307,12 +1307,12 @@ describe('EditorProTable 2', () => {
         onDataSourceChange={(data) => onDataSourceChange(data.length)}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1].click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect.any(
       wrapper.container
@@ -1331,7 +1331,7 @@ describe('EditorProTable 2', () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(onSave).toBeCalledWith(624691229);
     expect(onDataSourceChange).toBeCalledWith(3);
@@ -1385,7 +1385,7 @@ describe('EditorProTable 2', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
@@ -1395,7 +1395,7 @@ describe('EditorProTable 2', () => {
       wrapper.container.querySelector<HTMLButtonElement>('Button#editor')?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect.any(
       wrapper.container
@@ -1411,7 +1411,7 @@ describe('EditorProTable 2', () => {
       wrapper.queryByText('取消')?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-0').length).toBe(
       1,
@@ -1430,12 +1430,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.container
@@ -1450,7 +1450,7 @@ describe('EditorProTable 2', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect.any(
       wrapper.container
@@ -1466,12 +1466,12 @@ describe('EditorProTable 2', () => {
   it('📝 support onCancel', async () => {
     const fn = jest.fn();
     const wrapper = render(<EditorProTableDemo onCancel={(key) => fn(key)} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect.any(
       wrapper.container
@@ -1486,7 +1486,7 @@ describe('EditorProTable 2', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(fn).toBeCalledWith(624691229);
   });
@@ -1501,12 +1501,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect.any(
       wrapper.container
@@ -1521,7 +1521,7 @@ describe('EditorProTable 2', () => {
         ?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect.any(
       wrapper.container
@@ -1542,12 +1542,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.queryAllByText('编辑')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.container
@@ -1559,12 +1559,12 @@ describe('EditorProTable 2', () => {
       wrapper.queryAllByText('删除')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     act(() => {
       wrapper.queryAllByText('确 定')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(!!wrapper.container.querySelector('.anticon-loading')).toBeFalsy();
 
@@ -1581,12 +1581,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.queryAllByText('编辑')[1]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.container
@@ -1598,13 +1598,13 @@ describe('EditorProTable 2', () => {
       wrapper.queryAllByText('删除')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     act(() => {
       wrapper.queryAllByText('确 定')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(fn).toBeCalledWith(624691229);
 
@@ -1621,12 +1621,12 @@ describe('EditorProTable 2', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     act(() => {
       wrapper.queryAllByText('编辑')[1]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(
       wrapper.container
@@ -1638,12 +1638,12 @@ describe('EditorProTable 2', () => {
       wrapper.queryAllByText('删除')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     act(() => {
       wrapper.queryAllByText('确 定')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(fn).toBeCalledWith(624691229);
   });
@@ -1651,13 +1651,13 @@ describe('EditorProTable 2', () => {
   it('📝 support form rules', async () => {
     const fn = jest.fn();
     const wrapper = render(<EditorProTableDemo onSave={(key, row) => fn(row.title)} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       wrapper.queryAllByText('编辑')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     expect(
       wrapper.container
         .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
@@ -1700,7 +1700,7 @@ describe('EditorProTable 2', () => {
       wrapper.queryAllByText('保存')[0]?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     expect(fn).toBeCalledWith('qixian');
     wrapper.unmount();
@@ -1709,12 +1709,12 @@ describe('EditorProTable 2', () => {
   it('📝 support add line for start', async () => {
     const fn = jest.fn();
     const wrapper = render(<EditorProTableDemo position="top" onSave={fn} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('增加一行')).at(0)?.click();
     });
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     let editorRow = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[0];
 
     expect(editorRow.querySelectorAll('input').length > 0).toBeTruthy();
@@ -1722,7 +1722,7 @@ describe('EditorProTable 2', () => {
     act(() => {
       editorRow.querySelectorAll<HTMLButtonElement>(`td a`)[1]?.click();
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
     editorRow = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[0];
 
     expect(editorRow.querySelectorAll('input').length > 0).toBeFalsy();
@@ -1731,7 +1731,7 @@ describe('EditorProTable 2', () => {
       (await wrapper.queryAllByText('增加一行')).at(0)?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     act(() => {
       fireEvent.change(
@@ -1751,20 +1751,20 @@ describe('EditorProTable 2', () => {
         .querySelectorAll<HTMLAnchorElement>(`td a`)[0]
         ?.click();
     });
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     expect(fn).toBeCalled();
   });
 
   it('📝 support add line for bottom', async () => {
     const fn = jest.fn();
     const wrapper = render(<EditorProTableDemo onSave={fn} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       wrapper.queryByText('增加一行')?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     act(() => {
       wrapper.queryByText('增加一行')?.click();
@@ -1780,13 +1780,13 @@ describe('EditorProTable 2', () => {
       wrapper.queryByText('取消')?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     act(() => {
       wrapper.queryByText('增加一行')?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
 
     act(() => {
       fireEvent.change(
@@ -1809,13 +1809,13 @@ describe('EditorProTable 2', () => {
         {},
       );
     });
-    await waitForComponentToPaint(wrapper, 200);
+    await waitTime(200);
     expect(fn).toBeCalled();
   });
 
   it('📝 support add line when single line edit when keys', async () => {
     const wrapper = render(<EditorProTableDemo editorRowKeys={[624748504]} />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.container
@@ -1827,12 +1827,12 @@ describe('EditorProTable 2', () => {
       (await wrapper.queryByText('增加一行'))?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     await act(async () => {
       (await wrapper.queryByText('增加一行'))?.click();
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     expect(
       wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,
@@ -1841,7 +1841,7 @@ describe('EditorProTable 2', () => {
 
   it('📝 support add line when single line edit', async () => {
     const wrapper = render(<EditorProTableDemo />);
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
 
     expect(
       wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,
@@ -1851,12 +1851,12 @@ describe('EditorProTable 2', () => {
       (await wrapper.queryByText('增加一行'))?.click();
     });
 
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     await act(async () => {
       (await wrapper.queryByText('增加一行'))?.click();
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await waitTime(100);
 
     expect(
       wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,

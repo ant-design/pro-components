@@ -1,5 +1,3 @@
-const { join, dirname } = require('path');
-
 function replacePath(path) {
   if (path.node.source && path.node.source.value?.includes('es/')) {
     const esModule = path.node.source.value.replace('/es/', '/lib/');

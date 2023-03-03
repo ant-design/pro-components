@@ -490,7 +490,7 @@ const FieldSelect: ProFieldFC<
   const size = useContext(ConfigProvider.SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
-    fetchData: () => fetchData(),
+    fetchData: (keyWord: string) => fetchData(keyWord),
   }));
 
   const optionsValueEnum = useMemo(() => {

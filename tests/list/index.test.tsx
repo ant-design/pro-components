@@ -4,7 +4,7 @@ import { Tag } from 'antd';
 import type { ReactText } from 'react';
 import { useState } from 'react';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 type DataSourceType = {
   name: string;
@@ -610,7 +610,7 @@ describe('List', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(html.baseElement.textContent?.includes('qixian:我是名称')).toBeTruthy();
   });
 
@@ -637,7 +637,7 @@ describe('List', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     expect(html.baseElement.textContent?.includes('qixian:我是名称')).toBeTruthy();
   });
@@ -671,7 +671,7 @@ describe('List', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     // 触发click，执行一下 stopPropagation 的代码
     await act(async () => {
       (await html.findByText('修复'))?.click();
@@ -711,7 +711,7 @@ describe('List', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(!!html.baseElement.querySelector('.ant-pro-card-extra')).toBeFalsy();
 
@@ -762,7 +762,7 @@ describe('List', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     act(() => {
       fireEvent.mouseEnter(

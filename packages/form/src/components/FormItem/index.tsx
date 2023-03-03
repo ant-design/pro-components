@@ -1,5 +1,5 @@
 ﻿import type {
-  ProSchemaValueType,
+  ProFieldValueType,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
@@ -209,7 +209,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
 
 export type ProFormItemProps = FormItemProps & {
   ignoreFormItem?: boolean;
-  valueType?: ProSchemaValueType<'text'>;
+  valueType?: ProFieldValueType;
   /**
    * @name 提交时转化值，一般用于将值转化为提交的数据
    * @param value 字段的值

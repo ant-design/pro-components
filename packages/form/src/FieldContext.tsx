@@ -1,4 +1,4 @@
-import type { ProSchemaValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import React from 'react';
@@ -12,7 +12,7 @@ export type FiledContextProps = {
   setFieldValueType?: (
     name: NamePath,
     obj: {
-      valueType?: ProSchemaValueType<'text'>;
+      valueType?: ProFieldValueType;
       dateFormat?: string;
       /** 数据转化的地方 */
       transform?: SearchTransformKeyFn;
