@@ -60,6 +60,7 @@ describe('descriptions', () => {
   });
 
   it('🎏 loading test', async () => {
+    jest.useFakeTimers();
     const html = render(
       <ProDescriptions
         columns={[
@@ -78,8 +79,14 @@ describe('descriptions', () => {
         }}
       />,
     );
-    await waitTime(1200);
-    expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeTruthy();
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeTruthy();
+    });
 
     act(() => {
       html.rerender(
@@ -102,9 +109,17 @@ describe('descriptions', () => {
         />,
       );
     });
-    await waitTime(1200);
-    // props 指定为 false 后，无论 request 完成与否都不会出现 spin
-    expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeFalsy();
+
+    act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    await waitFor(() => {
+      // props 指定为 false 后，无论 request 完成与否都不会出现 spin
+      expect(!!html.baseElement.querySelector('.ant-skeleton')).toBeFalsy();
+    });
+
+    jest.useRealTimers();
   });
 
   it('🥩 test reload', async () => {
@@ -165,11 +180,11 @@ describe('descriptions', () => {
 
   it('🥩 test reload by params', async () => {
     const fn = jest.fn();
-
+    jest.useFakeTimers();
     const html = render(
       <ProDescriptions
         title="高级定义列表 request"
-        request={async () => {
+        request={async (params) => {
           fn();
           return Promise.resolve({
             success: true,
@@ -187,13 +202,22 @@ describe('descriptions', () => {
         <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
       </ProDescriptions>,
     );
-    await waitTime(300);
+
+    await html.findAllByText('这是一段文本');
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
 
     act(() => {
       html.rerender(
         <ProDescriptions
           title="高级定义列表 request"
-          request={async () => {
+          request={async (params) => {
             fn();
             return Promise.resolve({
               success: true,
@@ -214,9 +238,17 @@ describe('descriptions', () => {
       );
     });
 
-    await waitTime(100);
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
-    expect(fn).toBeCalledTimes(2);
+    await html.findAllByText('这是一段文本');
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
+
+    jest.useRealTimers();
   });
 
   it('🥩 test request error', async () => {
@@ -240,12 +272,13 @@ describe('descriptions', () => {
         <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
       </ProDescriptions>,
     );
-    await waitTime(300);
 
-    expect(fn).toBeCalledTimes(1);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
   });
 
-  it('🏊 Progress', () => {
+  it('🏊 Progress', async () => {
     const html = render(
       <ProDescriptions>
         <ProDescriptions.Item label="进度条1" valueType="progress">
@@ -259,17 +292,22 @@ describe('descriptions', () => {
         </ProDescriptions.Item>
       </ProDescriptions>,
     );
-    expect(html.baseElement.querySelector('.ant-progress-text')?.textContent).toEqual('40%');
-    expect(
-      !!html.baseElement
-        .querySelectorAll('.ant-progress-text')?.[1]
-        ?.querySelector('.anticon-close-circle'),
-    ).toBeTruthy();
-    expect(
-      !!html.baseElement
-        .querySelectorAll('.ant-progress-text')?.[2]
-        ?.querySelector('.anticon-check-circle'),
-    ).toBeTruthy();
+    await waitFor(() => {
+      expect(html.baseElement.querySelector('.ant-progress-text')?.textContent).toEqual('40%');
+    });
+
+    await waitFor(() => {
+      expect(
+        !!html.baseElement
+          .querySelectorAll('.ant-progress-text')?.[1]
+          ?.querySelector('.anticon-close-circle'),
+      ).toBeTruthy();
+      expect(
+        !!html.baseElement
+          .querySelectorAll('.ant-progress-text')?.[2]
+          ?.querySelector('.anticon-check-circle'),
+      ).toBeTruthy();
+    });
   });
 
   it('🏊 ProDescriptions support order', async () => {
@@ -324,11 +362,13 @@ describe('descriptions', () => {
       />,
     );
 
-    expect(
-      wrapper.baseElement.querySelector(
-        'span.ant-descriptions-item-content div.ant-typography-copy',
-      ),
-    ).toBeTruthy();
+    await waitFor(() => {
+      expect(
+        wrapper.baseElement.querySelector(
+          'span.ant-descriptions-item-content div.ant-typography-copy',
+        ),
+      ).toBeTruthy();
+    });
 
     wrapper.rerender(
       <ProDescriptions
@@ -349,10 +389,13 @@ describe('descriptions', () => {
         ]}
       />,
     );
-    expect(
-      wrapper.baseElement.querySelectorAll('.ant-descriptions-item-content .ant-typography-copy')
-        .length,
-    ).toBe(0);
+
+    await waitFor(() => {
+      expect(
+        wrapper.baseElement.querySelectorAll('.ant-descriptions-item-content .ant-typography-copy')
+          .length,
+      ).toBe(0);
+    });
 
     wrapper.unmount();
   });

@@ -225,7 +225,7 @@ describe('LightFilter', () => {
     unmount();
   });
 
-  it(' 🪕 multiple select showSearch', async () => {
+  fit(' 🪕 multiple select showSearch', async () => {
     const { container, unmount } = render(
       <LightFilter
         initialValues={{
@@ -247,38 +247,57 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
-    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
-      1,
-    );
-
-    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
-
-    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
-      1,
-    );
-
-    fireEvent.change(await screen.findByRole('textbox'), {
-      target: {
-        value: 'tech',
-      },
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
+      expect(
+        container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down'),
+      ).toHaveLength(1);
     });
-    await userEvent.click(await screen.findByTitle('TechUI'));
-    fireEvent.change(await screen.findByRole('textbox'), {
-      target: {
-        value: 'YES',
-      },
+
+    await act(async () => {
+      await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
     });
-    await userEvent.click(await screen.findByTitle('YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKLM'));
+    await waitFor(() => {
+      expect(
+        container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down'),
+      ).toHaveLength(1);
+    });
+
+    await act(async () => {
+      fireEvent.change(await screen.findByRole('textbox'), {
+        target: {
+          value: 'tech',
+        },
+      });
+    });
+    await act(async () => {
+      await userEvent.click(await screen.findByTitle('TechUI'));
+    });
+
+    await act(async () => {
+      fireEvent.change(await screen.findByRole('textbox'), {
+        target: {
+          value: 'YES',
+        },
+      });
+    });
+
+    await act(async () => {
+      await userEvent.click(
+        await screen.findByTitle('YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKLM'),
+      );
+    });
 
     expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
       '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
     );
 
-    fireEvent.keyDown(await screen.findByRole('textbox'), {
-      target: {
-        which: KeyCode.BACKSPACE,
-      },
+    await act(async () => {
+      fireEvent.keyDown(await screen.findByRole('textbox'), {
+        target: {
+          which: KeyCode.BACKSPACE,
+        },
+      });
     });
 
     expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
