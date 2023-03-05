@@ -82,9 +82,15 @@ describe('BasicTable', () => {
     await waitFor(() => {
       return html.queryAllByText('Edward King 9');
     });
-    await waitFor(() => {
-      expect(pageSizeOnchange).toBeCalledWith(10);
-    });
+
+    await waitFor(
+      () => {
+        expect(pageSizeOnchange).toBeCalledWith(10);
+      },
+      {
+        timeout: 1000,
+      },
+    );
 
     act(() => {
       html.rerender(
