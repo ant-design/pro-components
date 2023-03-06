@@ -160,7 +160,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
                     value={keyword}
                     allowClear={allowClear}
                     onChange={(e) => {
-                      setKeyword(e.target.value.toLowerCase());
+                      setKeyword(e.target.value);
                       onSearch?.(e.target.value);
                     }}
                     onKeyDown={(e) => {
@@ -195,8 +195,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
                   return toArray(o[optionFilterProp]).join('').toLowerCase().includes(keyword);
                 }
                 return (
-                  String(o[labelPropsName])?.toLowerCase()?.includes(keyword) ||
-                  o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword)
+                  String(o[labelPropsName])?.toLowerCase()?.includes(keyword?.toLowerCase()) ||
+                  o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword?.toLowerCase())
                 );
               })
         }

@@ -84,9 +84,9 @@ describe('Field', () => {
         },
       });
     });
-    await waitTime(100);
-
-    expect(!!html.queryByDisplayValue('￥ 1,000')).toBeTruthy();
+    await waitFor(() => {
+      expect(!!html.queryByDisplayValue('￥ 1,000')).toBeTruthy();
+    });
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input')!, {
@@ -95,9 +95,9 @@ describe('Field', () => {
         },
       });
     });
-    await waitTime(100);
-    expect(!!html.queryByDisplayValue('￥ 100')).toBeTruthy();
-
+    await waitFor(() => {
+      expect(!!html.queryByDisplayValue('￥ 100')).toBeTruthy();
+    });
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
@@ -105,8 +105,6 @@ describe('Field', () => {
         },
       });
     });
-    await waitTime(100);
-    html.unmount();
   });
 
   it('🐴 money show Popover', async () => {
@@ -130,7 +128,7 @@ describe('Field', () => {
       });
     });
 
-    await waitTime(100);
+    await html.findByDisplayValue('￥ 111,111,111');
 
     act(() => {
       fireEvent.click(html.baseElement.querySelector('.ant-input-number-input')!);
@@ -457,8 +455,9 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    await waitTime(100);
-    expect(html.baseElement.textContent).toBe('全部');
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('全部');
+    });
 
     act(() => {
       html.rerender(
@@ -473,9 +472,10 @@ describe('Field', () => {
       );
     });
 
-    await waitTime(100);
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('all');
+    });
 
-    expect(html.baseElement.textContent).toBe('all');
     html.unmount();
   });
 
@@ -525,8 +525,9 @@ describe('Field', () => {
           mode="read"
         />,
       );
-      await waitTime(100);
-      expect(html.baseElement.textContent).toBe('Node1,Child Node1');
+      await waitFor(() => {
+        expect(html.baseElement.textContent).toBe('Node1,Child Node1');
+      });
 
       act(() => {
         html.rerender(
@@ -546,9 +547,9 @@ describe('Field', () => {
         );
       });
 
-      await waitTime(100);
-
-      expect(html.baseElement.textContent).toBe('0-0,0-0-0');
+      await waitFor(() => {
+        expect(html.baseElement.textContent).toBe('0-0,0-0-0');
+      });
     });
   });
 
@@ -592,6 +593,7 @@ describe('Field', () => {
   });
 
   it(`🐴 treeSelect options single value`, async () => {
+    jest.useFakeTimers();
     const onChangeFn = jest.fn();
     const TreeSelectChangeDemo = () => {
       const [value, setValue] = useState();
@@ -608,24 +610,27 @@ describe('Field', () => {
     };
     const html = render(<TreeSelectChangeDemo />);
 
-    await waitTime(200);
+    await html.findAllByText('Node2');
 
     const searchInput = html.baseElement.querySelector('input.ant-select-selection-search-input');
 
     expect(!!searchInput).toBeTruthy();
 
-    fireEvent.change(html.baseElement.querySelector('input.ant-select-selection-search-input')!, {
-      target: {
-        value: 'Node5',
-      },
+    act(() => {
+      fireEvent.change(html.baseElement.querySelector('input.ant-select-selection-search-input')!, {
+        target: {
+          value: 'Node5',
+        },
+      });
     });
 
     const selectTreeTitle = html.baseElement.querySelectorAll<HTMLSpanElement>(
       'span.ant-select-tree-title',
     );
 
-    selectTreeTitle[0]?.click();
-
+    act(() => {
+      selectTreeTitle[0]?.click();
+    });
     expect(html.queryAllByText('Node2').length > 0).toBeTruthy();
 
     selectTreeTitle[selectTreeTitle.length - 1]?.click();
@@ -633,6 +638,7 @@ describe('Field', () => {
     expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
 
     expect(onChangeFn).toHaveBeenCalledWith(false);
+    jest.useRealTimers();
     html.unmount();
   });
 
@@ -642,6 +648,8 @@ describe('Field', () => {
       onBlurFn = jest.fn(),
       loadDataFn = jest.fn(),
       onClearFn = jest.fn();
+
+    jest.useFakeTimers();
 
     const TreeSelectChangeDemo = () => {
       const [value, setValue] = useState();
@@ -665,9 +673,15 @@ describe('Field', () => {
 
     const html = render(<TreeSelectChangeDemo />);
 
-    await waitTime(200);
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
-    expect(requestFn).toBeCalledTimes(1);
+    await waitFor(() => {
+      expect(requestFn).toBeCalledTimes(1);
+    });
+
+    await html.findAllByText('Node2');
 
     act(() => {
       html.baseElement
@@ -682,11 +696,11 @@ describe('Field', () => {
         ].click();
     });
 
-    await waitTime(200);
-
-    expect(
-      !!html.baseElement.querySelector('input.ant-select-selection-search-input'),
-    ).toBeTruthy();
+    await waitFor(() => {
+      expect(
+        !!html.baseElement.querySelector('input.ant-select-selection-search-input'),
+      ).toBeTruthy();
+    });
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input.ant-select-selection-search-input')!, {
@@ -696,9 +710,9 @@ describe('Field', () => {
       });
     });
 
-    await waitTime(200);
-
-    expect(onSearchFn).toBeCalled();
+    await waitFor(() => {
+      expect(onSearchFn).toBeCalled();
+    });
 
     act(() => {
       html.baseElement
@@ -706,27 +720,28 @@ describe('Field', () => {
         .forEach((item) => item.click());
     });
 
-    await waitTime(200);
-
-    const selectTreeTitle =
-      html.baseElement.querySelectorAll<HTMLSpanElement>('.ant-select-tree-title');
-
-    expect(selectTreeTitle.length).toBe(2);
-
-    await waitTime(200);
+    await waitFor(() => {
+      const selectTreeTitle =
+        html.baseElement.querySelectorAll<HTMLSpanElement>('.ant-select-tree-title');
+      expect(selectTreeTitle.length).toBe(2);
+    });
 
     act(() => {
+      const selectTreeTitle =
+        html.baseElement.querySelectorAll<HTMLSpanElement>('.ant-select-tree-title');
       selectTreeTitle[0]?.click();
     });
 
-    await waitTime(200);
     act(() => {
+      const selectTreeTitle =
+        html.baseElement.querySelectorAll<HTMLSpanElement>('.ant-select-tree-title');
       selectTreeTitle[selectTreeTitle.length - 1]?.click();
     });
-    await waitTime(200);
 
-    expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
-    expect(html.queryAllByText('Node2').length > 0).toBeTruthy();
+    await waitFor(() => {
+      expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
+      expect(html.queryAllByText('Node2').length > 0).toBeTruthy();
+    });
 
     expect(
       html.baseElement.querySelector<HTMLInputElement>('input.ant-select-selection-search-input')
@@ -737,8 +752,11 @@ describe('Field', () => {
       fireEvent.click(html.baseElement.querySelector('span.ant-select-clear')!, {});
       fireEvent.mouseDown(html.baseElement.querySelector('span.ant-select-clear')!, {});
     });
-    expect(onClearFn).toBeCalled();
-    expect(html.baseElement.textContent).toContain('');
+
+    await waitFor(() => {
+      expect(onClearFn).toBeCalled();
+      expect(html.baseElement.textContent).toContain('');
+    });
 
     act(() => {
       fireEvent.blur(
@@ -749,30 +767,27 @@ describe('Field', () => {
 
     expect(onBlurFn).toBeCalledTimes(1);
     html.unmount();
+    jest.useRealTimers();
   });
 
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
   });
 
   it('🐴 edit and plain', async () => {
     const html = render(<Demo plain state="edit" />);
     expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
   });
 
   it('🐴 read and plain', async () => {
     const html = render(<Demo plain state="read" />);
     expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
   });
 
   it('🐴 read ant no plain', async () => {
     const html = render(<Demo plain={false} state="read" />);
     expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
   });
 
   const valueTypes = [
@@ -813,8 +828,10 @@ describe('Field', () => {
           render={() => <>qixian</>}
         />,
       );
-      expect(html.baseElement.textContent).toBe('qixian');
-      html.unmount();
+
+      await waitFor(() => {
+        expect(html.baseElement.textContent).toBe('qixian');
+      });
     });
 
     it(`🐴 valueType renderFormItem ${valueType}`, async () => {
@@ -827,8 +844,9 @@ describe('Field', () => {
           renderFormItem={() => <>qixian</>}
         />,
       );
-      expect(html.baseElement.textContent).toBe('qixian');
-      html.unmount();
+      await waitFor(() => {
+        expect(html.baseElement.textContent).toBe('qixian');
+      });
     });
 
     it(`🐴 ${valueType} mode="error"`, async () => {
@@ -841,8 +859,9 @@ describe('Field', () => {
           valueType={valueType as 'text'}
         />,
       );
-      expect(html.baseElement.textContent).toBeFalsy();
-      html.unmount();
+      await waitFor(() => {
+        expect(html.baseElement.textContent).toBeFalsy();
+      });
     });
 
     it(`🐴 valueType render ${valueType} when text is null`, async () => {
@@ -853,8 +872,9 @@ describe('Field', () => {
           valueType={valueType}
         />,
       );
-      expect(html.baseElement.textContent).toBe('-');
-      html.unmount();
+      await waitFor(() => {
+        expect(html.baseElement.textContent).toBe('-');
+      });
     });
 
     it(`🐴 valueType support render ${valueType} when text is null`, async () => {
@@ -866,8 +886,9 @@ describe('Field', () => {
           valueType={valueType}
         />,
       );
-      expect(html.baseElement.textContent).toBe('qixian');
-      html.unmount();
+      await waitFor(() => {
+        expect(html.baseElement.textContent).toBe('qixian');
+      });
     });
   });
 
@@ -885,17 +906,20 @@ describe('Field', () => {
       );
       expect(html.asFragment()).toMatchSnapshot();
 
-      html.rerender(
-        <Field
-          text="100"
-          valueType={{
-            type: 'money',
-            moneySymbol: false,
-            locale,
-          }}
-          mode="read"
-        />,
-      );
+      act(() => {
+        html.rerender(
+          <Field
+            text="100"
+            valueType={{
+              type: 'money',
+              moneySymbol: false,
+              locale,
+            }}
+            mode="read"
+          />,
+        );
+      });
+
       expect(html.asFragment()).toMatchSnapshot();
 
       html.rerender(
@@ -953,7 +977,7 @@ describe('Field', () => {
       });
     });
 
-    html.unmount();
+    await html.findByDisplayValue('% 100');
   });
 
   it('🐴 percent valueType is Object', async () => {
@@ -968,19 +992,23 @@ describe('Field', () => {
       />,
     );
     expect(html.asFragment()).toMatchSnapshot();
-    html.rerender(
-      <Field
-        text="100"
-        valueType={{
-          type: 'percent',
-          showSymbol: true,
-        }}
-        showColor
-        mode="read"
-      />,
-    );
+    act(() => {
+      html.rerender(
+        <Field
+          text="100"
+          valueType={{
+            type: 'percent',
+            showSymbol: true,
+          }}
+          showColor
+          mode="read"
+        />,
+      );
+    });
 
-    expect(html.baseElement.querySelector('span')?.textContent).toBe('+ 100.00%');
+    await waitFor(() => {
+      expect(html.baseElement.querySelector('span')?.textContent).toBe('+ 100.00%');
+    });
 
     html.rerender(
       <Field
@@ -993,8 +1021,9 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement.textContent).toBe('+ 100.0%');
-
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('+ 100.0%');
+    });
     html.rerender(
       <Field
         text="100"
@@ -1006,8 +1035,10 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement.textContent).toBe('+ 100%');
 
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('+ 100%');
+    });
     html.rerender(
       <Field
         text="100.01"
@@ -1019,8 +1050,9 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement.textContent).toBe('+ 100%');
-
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('+ 100%');
+    });
     html.rerender(
       <Field
         text="100"
@@ -1032,8 +1064,9 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement.textContent).toBe('+ 100%');
-
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('+ 100%');
+    });
     html.rerender(
       <Field
         text={-100}
@@ -1046,7 +1079,9 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.baseElement.textContent).toBe('- 100.0%');
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('- 100.0%');
+    });
   });
   it('🐴 percent prefix="???" onchange values', async () => {
     const html = render(
@@ -1059,9 +1094,10 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    // read test
-    expect(html.baseElement.textContent).toBe('???100.00%');
-
+    await waitFor(() => {
+      // read test
+      expect(html.baseElement.textContent).toBe('???100.00%');
+    });
     act(() => {
       html.rerender(
         <Field
@@ -1082,7 +1118,9 @@ describe('Field', () => {
         },
       });
     });
-    expect(html.baseElement.querySelector('input')?.value).toBe('??? 123');
+    await waitFor(() => {
+      expect(html.baseElement.querySelector('input')?.value).toBe('??? 123');
+    });
     act(() => {
       fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
         target: {
@@ -1090,8 +1128,9 @@ describe('Field', () => {
         },
       });
     });
-    expect(html.baseElement.querySelector('input')?.value).toBe('??? 123,456');
-    html.unmount();
+    await waitFor(() => {
+      expect(html.baseElement.querySelector('input')?.value).toBe('??? 123,456');
+    });
   });
   it('🐴 percent magic prefix onchange values', async () => {
     const words = '1234567890 ~!@#$%^&*()_+{}:"?> <?>L:'.split('');
@@ -1108,9 +1147,10 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    // read test
-    expect(html.baseElement.textContent).toBe(`${magicPrefix}100.00%`);
-
+    await waitFor(() => {
+      // read test
+      expect(html.baseElement.textContent).toBe(`${magicPrefix}100.00%`);
+    });
     act(() => {
       html.rerender(
         <Field
@@ -1131,7 +1171,11 @@ describe('Field', () => {
         },
       });
     });
-    expect(html.baseElement.querySelector('input')?.value).toBe(`${magicPrefix} 123`);
+
+    await waitFor(() => {
+      expect(html.baseElement.querySelector('input')?.value).toBe(`${magicPrefix} 123`);
+    });
+
     act(() => {
       fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
         target: {
@@ -1139,18 +1183,24 @@ describe('Field', () => {
         },
       });
     });
-    expect(html.baseElement.querySelector('input')?.value).toBe(`${magicPrefix} 123,456`);
-    html.unmount();
+
+    await waitFor(() => {
+      expect(html.baseElement.querySelector('input')?.value).toBe(`${magicPrefix} 123,456`);
+    });
   });
 
   it('🐴 password support visible', async () => {
     const html = render(<Field text={123456} valueType="password" mode="read" />);
-    await waitTime(100);
+    await html.findByText('＊ ＊ ＊ ＊ ＊');
+
     act(() => {
       fireEvent.click(html.baseElement.querySelector('span.anticon-eye-invisible')!);
     });
-    await waitTime(100);
-    expect(!!html.baseElement.querySelector('span.anticon-eye')).toBeTruthy();
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('span.anticon-eye')).toBeTruthy();
+    });
+
+    await html.findByText('123456');
     html.unmount();
   });
 
@@ -1165,13 +1215,17 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    await waitTime(100);
+    await html.findByText('123456');
     act(() => {
       fireEvent.click(html.baseElement.querySelector('span.anticon-eye')!);
     });
-    await waitTime(100);
-    expect(!!html.baseElement.querySelector('span.anticon-eye-invisible')).toBeFalsy();
-    expect(fn).toBeCalledWith(false);
+    await html.findByText('123456');
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('span.anticon-eye-invisible')).toBeFalsy();
+      expect(fn).toBeCalledWith(false);
+    });
+
     html.unmount();
   });
 
@@ -1186,13 +1240,16 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    await waitTime(100);
+    await html.findByText('123456');
     act(() => {
       fireEvent.click(html.baseElement.querySelector('span.anticon-eye')!);
     });
-    await waitTime(100);
-    expect(!!html.baseElement.querySelector('span.anticon-eye-invisible')).toBeFalsy();
-    expect(fn).toBeCalledWith(false);
+    await html.findByText('123456');
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('span.anticon-eye-invisible')).toBeFalsy();
+      expect(fn).toBeCalledWith(false);
+    });
     html.unmount();
   });
 
@@ -1270,18 +1327,20 @@ describe('Field', () => {
 
   it('🐴 keypress simulate', async () => {
     const html = render(<Field text="qixian" valueType="textarea" mode="edit" />);
-    await waitTime(100);
+    await html.findByPlaceholderText('请输入');
+
     act(() => {
       fireEvent.keyPress(html.baseElement.querySelector('textarea')!, {
         key: 'Enter',
         keyCode: 13,
       });
     });
-    await waitTime(100);
+
     act(() => {
       html.rerender(<Field text="qixian" valueType="textarea" mode="read" />);
     });
-    await waitTime(100);
+    await html.findAllByText('qixian');
+
     expect(html.baseElement.textContent).toBe('qixian');
     html.unmount();
   });
@@ -1350,8 +1409,10 @@ describe('Field', () => {
         },
       });
     });
-    await waitTime(100);
-    expect(change).toBeCalledWith(1.00000000000007);
+
+    await waitFor(() => {
+      expect(change).toBeCalledWith(1.00000000000007);
+    });
   });
 
   it(`🐴 valueType digitRange base use`, async () => {
@@ -1362,29 +1423,28 @@ describe('Field', () => {
 
   it(`🐴 valueType digitRange placeholder use`, async () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
-    await waitTime(100);
-    expect(
-      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.placeholder,
-    ).toBe('请输入');
-    expect(
-      html.baseElement.querySelectorAll<HTMLInputElement>('.ant-input-number-input')[1]
-        ?.placeholder,
-    ).toBe('请输入');
-
-    html.unmount();
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.placeholder,
+      ).toBe('请输入');
+      expect(
+        html.baseElement.querySelectorAll<HTMLInputElement>('.ant-input-number-input')[1]
+          ?.placeholder,
+      ).toBe('请输入');
+    });
   });
 
   it(`🐴 valueType digitRange placeholder use`, async () => {
     const html = render(<Field mode="edit" valueType="digitRange" placeholder={['Min', 'Max']} />);
-    await waitTime(100);
-    expect(
-      html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.placeholder,
-    ).toBe('Min');
-    expect(
-      html.baseElement.querySelectorAll<HTMLInputElement>('.ant-input-number-input')[1]
-        ?.placeholder,
-    ).toBe('Max');
-    html.unmount();
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.placeholder,
+      ).toBe('Min');
+      expect(
+        html.baseElement.querySelectorAll<HTMLInputElement>('.ant-input-number-input')[1]
+          ?.placeholder,
+      ).toBe('Max');
+    });
   });
 
   it(`🐴 valueType digitRange normal input simulate`, async () => {
@@ -1398,11 +1458,11 @@ describe('Field', () => {
       });
     });
 
-    await waitTime(100);
-
-    expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
-      '12.34',
-    );
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value,
+      ).toBe('12.34');
+    });
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
@@ -1411,15 +1471,17 @@ describe('Field', () => {
         },
       });
     });
-    expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
-      '56.78',
-    );
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value,
+      ).toBe('56.78');
+    });
     html.unmount();
   });
 
   it(`🐴 valueType digitRange will exchange when value1 > valu2`, async () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
-    await waitTime(100);
     act(() => {
       fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
         target: {
@@ -1428,11 +1490,11 @@ describe('Field', () => {
       });
     });
 
-    await waitTime(100);
-
-    expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
-      '56.78',
-    );
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value,
+      ).toBe('56.78');
+    });
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('.ant-input-number-input')!, {
@@ -1442,17 +1504,15 @@ describe('Field', () => {
       });
     });
 
-    await waitTime(100);
-
     act(() => {
       fireEvent.blur(html.baseElement.querySelector('.ant-input-number-input')!);
     });
 
-    await waitTime(100);
-
-    expect(html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value).toBe(
-      '12.34',
-    );
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelector<HTMLInputElement>('.ant-input-number-input')?.value,
+      ).toBe('12.34');
+    });
 
     html.unmount();
   });
@@ -1482,8 +1542,9 @@ describe('Field', () => {
         }}
       />,
     );
-    await waitTime(200);
-    expect(html.baseElement.textContent).toBe('2000');
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('2000');
+    });
 
     act(() => {
       html.rerender(
@@ -1497,9 +1558,9 @@ describe('Field', () => {
         />,
       );
     });
-    await waitTime(200);
-    expect(html.baseElement.textContent).toBe('20000');
-
+    await waitFor(() => {
+      expect(html.baseElement.textContent).toBe('20000');
+    });
     html.unmount();
   });
 
@@ -1565,21 +1626,22 @@ describe('Field', () => {
       fireEvent.click(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       fireEvent.mouseUp(html.baseElement.querySelector('.ant-pro-core-field-label')!);
     });
-    await waitTime(100);
-    expect(html.baseElement.querySelectorAll('.ant-select-dropdown').length).toEqual(1);
-    expect(
-      html.baseElement.querySelectorAll('.ant-select-dropdown.ant-select-dropdown-hidden').length,
-    ).toEqual(0);
-
+    await waitFor(() => {
+      expect(html.baseElement.querySelectorAll('.ant-select-dropdown').length).toEqual(1);
+      expect(
+        html.baseElement.querySelectorAll('.ant-select-dropdown.ant-select-dropdown-hidden').length,
+      ).toEqual(0);
+    });
     act(() => {
       fireEvent.mouseDown(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       fireEvent.click(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       fireEvent.mouseUp(html.baseElement.querySelector('.ant-pro-core-field-label')!);
     });
-    await waitTime(1000);
-    expect(
-      html.baseElement.querySelectorAll('.ant-select-dropdown.ant-select-dropdown-hidden').length,
-    ).toEqual(1);
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('.ant-select-dropdown.ant-select-dropdown-hidden').length,
+      ).toEqual(1);
+    });
   });
 
   ['date', 'time'].forEach((valueType) => {
@@ -1587,7 +1649,6 @@ describe('Field', () => {
       const html = render(
         <Field text="default" valueType={valueType as 'date'} mode="edit" light />,
       );
-      await waitTime(100);
 
       act(() => {
         // 点击label打开DatePicker
@@ -1596,21 +1657,25 @@ describe('Field', () => {
         fireEvent.click(html.baseElement.querySelector('.ant-pro-core-field-label')!);
         fireEvent.mouseUp(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       });
-      await waitTime(100);
-      expect(html.baseElement.querySelectorAll('.ant-picker-dropdown').length).toEqual(1);
-      expect(
-        html.baseElement.querySelectorAll('.ant-picker-dropdown.ant-picker-dropdown-hidden').length,
-      ).toEqual(0);
+      await waitFor(() => {
+        expect(html.baseElement.querySelectorAll('.ant-picker-dropdown').length).toEqual(1);
+        expect(
+          html.baseElement.querySelectorAll('.ant-picker-dropdown.ant-picker-dropdown-hidden')
+            .length,
+        ).toEqual(0);
+      });
 
       act(() => {
         fireEvent.mouseDown(html.baseElement.querySelector('.ant-pro-core-field-label')!);
         fireEvent.click(html.baseElement.querySelector('.ant-pro-core-field-label')!);
         fireEvent.mouseUp(html.baseElement.querySelector('.ant-pro-core-field-label')!);
       });
-      await waitTime(100);
-      expect(
-        html.baseElement.querySelectorAll('.ant-picker-dropdown.ant-picker-dropdown-hidden').length,
-      ).toEqual(1);
+      await waitFor(() => {
+        expect(
+          html.baseElement.querySelectorAll('.ant-picker-dropdown.ant-picker-dropdown-hidden')
+            .length,
+        ).toEqual(1);
+      });
 
       html.unmount();
     });
