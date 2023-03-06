@@ -8,7 +8,6 @@ import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useRef } from 'react';
-import { waitTime } from '../util';
 
 type DataSourceType = {
   id: number;
@@ -285,7 +284,8 @@ describe('Descriptions', () => {
 
   it('📝 support editorRowKeys', async () => {
     const wrapper = render(<DescriptionsDemo editorRowKeys={['title']} />);
-    await waitTime(1000);
+
+    await wrapper.findAllByDisplayValue('🐛 [BUG]yarn install命令 antd2.4.5会报错');
     // 第一行应该编辑态
     expect(
       wrapper.baseElement
