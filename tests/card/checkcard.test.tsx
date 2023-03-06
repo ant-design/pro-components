@@ -1,7 +1,6 @@
 import { CheckCard } from '@ant-design/pro-components';
 import { render, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { waitTime } from '../util';
 
 describe('CheckCard', () => {
   it('should invoke onChange and onClick function when click option', async () => {
