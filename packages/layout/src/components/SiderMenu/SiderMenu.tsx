@@ -395,7 +395,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             className={`${baseClassName}-link-menu ${hashId}`}
             selectedKeys={[]}
             openKeys={[]}
-            theme="light"
+            theme={theme}
             mode="inline"
             items={linksMenuItems}
           />
@@ -457,7 +457,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         collapsedWidth={collapsedWidth}
         style={style}
-        theme="light"
+        theme={theme}
         width={siderWidth}
         className={classNames(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >
