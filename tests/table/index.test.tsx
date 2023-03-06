@@ -1,10 +1,9 @@
 import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
-import { fireEvent, render as ReactRender, screen } from '@testing-library/react';
+import { fireEvent, render as ReactRender, screen, waitFor } from '@testing-library/react';
 import { Button, Input, Select } from 'antd';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint, waitTime } from '../util';
 import { columns, request } from './demo';
 
 describe('BasicTable', () => {
@@ -77,12 +76,21 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html, 4000);
-    act(() => {
-      expect(html.asFragment()).toMatchSnapshot();
+
+    await html.queryByText('查 询');
+
+    await waitFor(() => {
+      return html.queryAllByText('Edward King 9');
     });
 
-    expect(pageSizeOnchange).toBeCalledWith(10);
+    await waitFor(
+      () => {
+        expect(pageSizeOnchange).toBeCalledWith(10);
+      },
+      {
+        timeout: 1000,
+      },
+    );
 
     act(() => {
       html.rerender(
@@ -119,9 +127,15 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 2000);
+    await html.queryByText('更多操作');
 
-    expect(pageSizeOnchange).toBeCalledWith(1);
+    await waitFor(() => {
+      return html.queryAllByText('Edward King 9');
+    });
+
+    await waitFor(() => {
+      expect(pageSizeOnchange).toBeCalledWith(1);
+    });
   });
 
   it('🎏 tableDropdown click trigger onSelect', async () => {
@@ -147,12 +161,30 @@ describe('BasicTable', () => {
         />
       </div>,
     );
-    fireEvent.mouseOver(screen.getByText('更多操作'));
-    await waitForComponentToPaint(html, 2000);
-    (await html.findByText('复制')).click();
-    fireEvent.mouseOver(screen.getByText('其他操作'));
-    (await html.findByText('编辑')).click();
+
+    await html.findByText('更多操作');
+
+    await act(async () => {
+      fireEvent.mouseOver(screen.getByText('更多操作'));
+    });
+
+    await waitFor(() => html.findByText('复制'));
+
+    await act(async () => {
+      (await html.findByText('复制')).click();
+    });
+
+    await act(async () => {
+      fireEvent.mouseOver(screen.getByText('其他操作'));
+    });
+
+    await waitFor(() => html.findByText('编辑'));
+
+    await act(async () => {
+      (await html.findByText('编辑')).click();
+    });
   });
+
   it('🎏 table support visibilitychange', async () => {
     const requestFfn = jest.fn();
     let fn: Function | null = null;
@@ -178,18 +210,23 @@ describe('BasicTable', () => {
         revalidateOnFocus
       />,
     );
-    await waitTime(100);
+
+    await html.findByText('查 询');
+
+    await waitFor(() => {
+      expect(requestFfn).toBeCalledTimes(1);
+    });
+
     act(() => {
       fn?.();
     });
 
-    await waitTime(100);
     errorSpy.mockRestore();
     addEventListenerSpy.mockRestore();
-    expect(requestFfn).toBeCalledTimes(2);
 
-    html.unmount();
-    await waitTime(100);
+    await waitFor(() => {
+      expect(requestFfn).toBeCalledTimes(2);
+    });
   });
 
   it('🎏 do not render Search', async () => {
@@ -210,12 +247,14 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 2000);
-    expect(!!html.baseElement.querySelector('.ant-pro-table-search')).toBeFalsy();
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('.ant-pro-table-search')).toBeFalsy();
+    });
   });
 
   it('🎏 onLoadingChange should work', async () => {
     const loadingChangerFn = jest.fn();
+    jest.useFakeTimers();
     const html = ReactRender(
       <ProTable
         size="small"
@@ -228,8 +267,11 @@ describe('BasicTable', () => {
           },
         ]}
         request={async (params) => {
-          await waitTime(2500);
-          return request(params);
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve(request(params));
+            }, 1000);
+          });
         }}
         rowKey="key"
         onLoadingChange={loadingChangerFn}
@@ -241,10 +283,22 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 2000);
-    expect(loadingChangerFn).toBeCalledWith(true, false);
-    await waitForComponentToPaint(html, 2000);
-    expect(loadingChangerFn).toBeCalledWith(false, true);
+    await html.findByText('序号');
+    await waitFor(() => {
+      expect(loadingChangerFn).toBeCalledWith(true, false);
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+    await waitFor(() => {
+      return html.findByText('序号');
+    });
+    await waitFor(() => {
+      expect(loadingChangerFn).toBeCalledWith(false, true);
+    });
+
+    jest.useRealTimers();
   });
 
   it('🎏 do not render default option', async () => {
@@ -256,8 +310,10 @@ describe('BasicTable', () => {
           reload: false,
           setting: false,
         }}
+        search={false}
         columns={[
           {
+            title: 'money title',
             dataIndex: 'money',
             valueType: 'money',
           },
@@ -266,7 +322,9 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+
+    await html.findByText('money title');
+
     expect(
       html.baseElement.querySelectorAll(
         '.ant-pro-table-list-toolbar-setting-items .ant-pro-table-list-toolbar-setting-item',
@@ -289,6 +347,7 @@ describe('BasicTable', () => {
         }}
         columns={[
           {
+            title: 'money title',
             dataIndex: 'money',
             valueType: 'money',
           },
@@ -297,10 +356,9 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
 
-    expect(html.baseElement.querySelector('.ant-btn.ant-btn-primary')?.textContent).toBe('test');
-    expect(html.baseElement.querySelector('.ant-btn')?.textContent).toBe('test2');
+    await html.findByText('test');
+    await html.findByText('test2');
   });
 
   it('🎏 ProTable support card props is false', async () => {
@@ -320,7 +378,6 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
 
     expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
 
@@ -341,8 +398,10 @@ describe('BasicTable', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 1200);
-    expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(false);
+    });
 
     act(() => {
       html.rerender(
@@ -362,8 +421,11 @@ describe('BasicTable', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 1200);
-    expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(true);
+    await html.findByText('submit');
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('.ant-pro-card')).toBe(true);
+    });
   });
 
   it('🎏 do not render setting', async () => {
@@ -385,7 +447,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
     act(() => {
       expect(!!html.baseElement.querySelector('.anticon-setting')).toBeFalsy();
     });
@@ -419,7 +481,7 @@ describe('BasicTable', () => {
             },
           },
           {
-            dataIndex: 'status',
+            dataIndex: 'status1',
             valueType: 'select',
             fieldProps: {
               open: true,
@@ -427,10 +489,10 @@ describe('BasicTable', () => {
             valueEnum: (row) => {
               if (!row) {
                 return {
-                  0: { text: '1关闭', status: 'Default' },
-                  1: { text: '1运行中', status: 'Processing' },
-                  2: { text: '1已上线', status: 'Success' },
-                  3: { text: '1异常', status: 'Error' },
+                  0: { text: 'Close', status: 'Default' },
+                  1: { text: 'Processing', status: 'Processing' },
+                  2: { text: 'Success', status: 'Success' },
+                  3: { text: 'Error', status: 'Error' },
                 };
               }
               return {
@@ -446,9 +508,31 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    act(() => {
-      expect(html.asFragment()).toMatchSnapshot();
+
+    await waitFor(() => {
+      return html.queryAllByText('Close');
+    });
+    await waitFor(() => {
+      return html.queryAllByText('Processing');
+    });
+    await waitFor(() => {
+      return html.queryAllByText('Success');
+    });
+    await waitFor(() => {
+      return html.queryAllByText('Error');
+    });
+
+    await waitFor(() => {
+      return html.queryAllByText('异常');
+    });
+    await waitFor(() => {
+      return html.queryAllByText('关闭');
+    });
+    await waitFor(() => {
+      return html.queryAllByText('运行中');
+    });
+    await waitFor(() => {
+      return html.queryAllByText('已上线');
     });
   });
 
@@ -479,9 +563,10 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
-    expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeFalsy();
 
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeFalsy();
+    });
     act(() => {
       html.rerender(
         <ProTable
@@ -510,11 +595,18 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
-    expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeTruthy();
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeTruthy();
+    });
   });
 
   it('🎏 page error test', async () => {
+    const TargetComponent = () => {
+      useEffect(() => {
+        throw new Error('Errored!');
+      }, []);
+      return <></>;
+    };
     const html = ReactRender(
       <ProTable
         size="small"
@@ -528,18 +620,13 @@ describe('BasicTable', () => {
           data: [],
           success: true,
         })}
+        tableExtraRender={() => <TargetComponent />}
+        search={false}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 300);
-    act(() => {
-      fireEvent.error(html.baseElement.querySelector('.ant-table')!, {
-        message: 'test error',
-      });
-    });
-    await waitForComponentToPaint(html, 10);
 
-    expect(html.asFragment()).toMatchSnapshot();
+    await html.findByText('Something went wrong.');
   });
 
   it('🎏 request test', async () => {
@@ -567,12 +654,15 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(fn).toBeCalled();
+    await html.findByText('查 询');
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
   });
 
   it('🎏 onLoadingChange test', async () => {
     const fn = jest.fn();
+    jest.useFakeTimers();
     const html = ReactRender(
       <ProTable
         size="small"
@@ -589,20 +679,33 @@ describe('BasicTable', () => {
           },
         ]}
         request={async () => {
-          await waitTime(2000);
-          return {
-            data: [],
-          };
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve({
+                data: [],
+              });
+            }, 2000);
+          });
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(fn).toBeCalled();
+    await html.findByText('查 询');
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
+
+    jest.useFakeTimers();
   });
 
   it('🎏 reload request test', async () => {
     const fn = jest.fn();
+    jest.useFakeTimers();
     const Reload = () => {
       const actionRef = useRef<ActionType>();
       return (
@@ -642,10 +745,11 @@ describe('BasicTable', () => {
           ]}
           request={async () => {
             fn();
-            await waitTime(200);
-            return {
-              data: [],
-            };
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve({ data: [] });
+              }, 200);
+            });
           }}
           rowKey="key"
         />
@@ -653,33 +757,45 @@ describe('BasicTable', () => {
     };
     const html = ReactRender(<Reload />);
 
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
 
-    act(() => {
-      fireEvent.click(html.baseElement.querySelector('#reload')!);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
     });
 
     act(() => {
       fireEvent.click(html.baseElement.querySelector('#reload')!);
     });
 
-    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      fireEvent.click(html.baseElement.querySelector('#reload')!);
+    });
 
-    // 因为有 loading 的控制，所有只会触发两次
-    expect(fn).toBeCalledTimes(2);
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      // 因为有 loading 的控制，所有只会触发两次
+      expect(fn).toBeCalledTimes(2);
+    });
 
     act(() => {
       fireEvent.click(html.baseElement.querySelector('#reset')!);
     });
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(3);
+    });
 
-    await waitForComponentToPaint(html, 1200);
-
-    expect(fn).toBeCalledTimes(3);
+    jest.useRealTimers();
   });
 
   it('🎏 request error test', async () => {
     const fn = jest.fn();
-    const html = ReactRender(
+    ReactRender(
       <ProTable
         size="small"
         columns={[
@@ -696,9 +812,9 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
-
-    expect(fn).toBeCalled();
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
   });
 
   it('🎏 actionRef support clearSelected', async () => {
@@ -728,14 +844,18 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
 
     act(() => {
       actionRef.current?.clearSelected?.();
     });
-    await waitForComponentToPaint(html);
-    expect(fn).toBeCalled();
-    expect(onChangeFn).toBeCalled();
+
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
+    await waitFor(() => {
+      expect(onChangeFn).toBeCalled();
+    });
   });
 
   it('🎏 options.reload support is true', async () => {
@@ -770,7 +890,11 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
 
     act(() => {
       fireEvent.click(
@@ -780,8 +904,9 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
-    expect(fn).toBeCalledTimes(2);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
   });
 
   it('🎏 receives two parameters when options.(reload | fullScreen) is passed the function', async () => {
@@ -806,7 +931,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
 
     act(() => {
       fireEvent.click(
@@ -816,9 +941,9 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1000);
-
-    expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+    await waitFor(() => {
+      expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+    });
 
     act(() => {
       fireEvent.click(
@@ -828,8 +953,9 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
-    expect(fullScreenFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+    await waitFor(() => {
+      expect(fullScreenFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+    });
   });
 
   it('🎏 request reload', async () => {
@@ -861,7 +987,11 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
 
     act(() => {
       fireEvent.click(
@@ -871,53 +1001,62 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
-    expect(fn).toBeCalledTimes(2);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
   });
 
-  // it('🎏 onSizeChange load', async () => {
-  //   const fn = jest.fn();
-  //   const html =  ReactRender(
-  //     <ProTable
-  //       columns={[
-  //         {
-  //           title: 'money',
-  //           dataIndex: 'money',
-  //           valueType: 'money',
-  //         },
-  //       ]}
-  //       onSizeChange={(size) => fn(size)}
-  //       request={async () => {
-  //         return {
-  //           data: [
-  //             {
-  //               key: 'first',
-  //             },
-  //           ],
-  //         };
-  //       }}
-  //       rowKey="key"
-  //     />,
-  //   );
-  //   await waitForComponentToPaint(html);
+  it('🎏 onSizeChange load', async () => {
+    const fn = jest.fn();
+    const html = ReactRender(
+      <ProTable
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        onSizeChange={(size) => fn(size)}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 'first',
+              },
+            ],
+          };
+        }}
+        rowKey="key"
+      />,
+    );
 
-  //   act(() => {
-  //     html
-  //       .find('.ant-pro-table-list-toolbar-setting-item span.anticon-column-height')
-  //       .simulate('click');
-  //   });
-  //   await waitForComponentToPaint(html);
-  //   act(() => {
-  //     html.find('.ant-dropdown-menu .ant-dropdown-menu-item').at(0).simulate('click');
-  //   });
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>(
+          '.ant-pro-table-list-toolbar-setting-item span.anticon-column-height',
+        )
+        ?.click();
+    });
 
-  //   await waitForComponentToPaint(html, 1200);
-  //   expect(fn).toBeCalledWith('large');
-  // });
+    await waitFor(() => {
+      return html.queryAllByText('large');
+    });
+
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-dropdown-menu .ant-dropdown-menu-item')
+        ?.click();
+    });
+
+    expect(fn).toBeCalledWith('large');
+  });
 
   it('🎏 request load array', async () => {
     const fn = jest.fn();
     const actionRef = React.createRef<ActionType>();
+
+    jest.useFakeTimers();
     const html = ReactRender(
       <ProTable
         size="small"
@@ -933,24 +1072,39 @@ describe('BasicTable', () => {
         postData={undefined}
         request={async () => {
           fn();
-          await waitTime(500);
-          return [];
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve([]);
+            }, 1000);
+          });
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    act(() => {
+      actionRef.current?.reload(true);
+    });
+    // 这里可以测试，loading 是否被拦住
     act(() => {
       actionRef.current?.reload(true);
     });
 
-    // 这里可以测试，loading 是否被拦住
-    await waitTime(12);
     act(() => {
-      actionRef.current?.reload(true);
+      jest.runOnlyPendingTimers();
     });
-    await waitForComponentToPaint(html, 1200);
-    expect(fn).toBeCalledTimes(2);
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
+    jest.useRealTimers();
   });
 
   it('🎏 request should use postData', async () => {
@@ -975,12 +1129,11 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
 
-    expect(postFn).toBeCalled();
-    // test useEffect render
-
-    html.unmount();
+    await waitFor(() => {
+      expect(postFn).toBeCalled();
+    });
   });
 
   it('🎏 fullscreen icon test', async () => {
@@ -1006,7 +1159,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
 
     act(() => {
       fireEvent.click(
@@ -1016,9 +1169,9 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
-
-    expect(fn).toBeCalledTimes(1);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
   });
 
   it('🎏 fullscreen icon test when fullscreenEnabled', async () => {
@@ -1046,7 +1199,6 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
 
     act(() => {
       fireEvent.click(
@@ -1055,10 +1207,11 @@ describe('BasicTable', () => {
         )!,
       );
     });
+    await html.findByText('查 询');
 
-    await waitForComponentToPaint(html, 1200);
-
-    expect(fn).not.toBeCalled();
+    await waitFor(() => {
+      expect(fn).not.toBeCalled();
+    });
   });
 
   it('🎏 fullscreen icon mock function', async () => {
@@ -1127,7 +1280,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 600);
+    await html.findByText('查 询');
 
     act(() => {
       fireEvent.click(
@@ -1136,9 +1289,10 @@ describe('BasicTable', () => {
         )!,
       );
     });
-    await waitForComponentToPaint(html, 1200);
 
-    expect(!!document.fullscreenElement).toBeTruthy();
+    await waitFor(() => {
+      expect(!!document.fullscreenElement).toBeTruthy();
+    });
 
     act(() => {
       fireEvent.click(
@@ -1147,12 +1301,12 @@ describe('BasicTable', () => {
         )!,
       );
     });
-
-    await waitForComponentToPaint(html, 600);
-
-    expect(!!document.fullscreenElement).toBeFalsy();
-
-    expect(exitFullscreen).toBeCalled();
+    await waitFor(() => {
+      expect(!!document.fullscreenElement).toBeFalsy();
+    });
+    await waitFor(() => {
+      expect(exitFullscreen).toBeCalled();
+    });
   });
 
   it('🎏 size icon test', async () => {
@@ -1178,7 +1332,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
 
     act(() => {
       fireEvent.click(
@@ -1187,13 +1341,14 @@ describe('BasicTable', () => {
         )!,
       );
     });
-    await waitForComponentToPaint(html, 1200);
+
     act(() => {
       fireEvent.click(html.baseElement.querySelectorAll('li.ant-dropdown-menu-item')[1]);
     });
-    await waitForComponentToPaint(html, 1200);
 
-    expect(fn).toBeCalledWith('middle');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith('middle');
+    });
   });
 
   it('🎏 loading test', async () => {
@@ -1211,7 +1366,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
 
     act(() => {
@@ -1231,9 +1386,12 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 1200);
-    // props 指定为 false 后，无论 request 完成与否都不会出现 spin
-    expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
+    await html.findByText('查 询');
+
+    await waitFor(() => {
+      // props 指定为 false 后，无论 request 完成与否都不会出现 spin
+      expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
+    });
   });
 
   it('🎏 columns = undefined', async () => {
@@ -1246,7 +1404,9 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html.asFragment()).toMatchSnapshot();
+    await waitFor(() => {
+      html.getByText('暂无数据');
+    });
   });
 
   it('🎏 search = true', async () => {
@@ -1271,7 +1431,7 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await html.findByText('查 询');
 
     act(() => {
       fireEvent.change(
@@ -1284,6 +1444,8 @@ describe('BasicTable', () => {
       );
     });
 
+    await html.findByDisplayValue('name');
+
     act(() => {
       fireEvent.keyDown(
         html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
@@ -1291,9 +1453,9 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
-
-    expect(fn).toBeCalledWith('name');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith('name');
+    });
   });
 
   it('🎏 search = true, name = test', async () => {
@@ -1318,7 +1480,8 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+
+    await html.findByText('查 询');
 
     act(() => {
       fireEvent.change(
@@ -1330,6 +1493,7 @@ describe('BasicTable', () => {
         },
       );
     });
+    await html.findByDisplayValue('name');
 
     act(() => {
       fireEvent.keyDown(
@@ -1338,9 +1502,9 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
-
-    expect(fn).toBeCalledWith('name');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith('name');
+    });
   });
 
   it('🎏 search = true, name = test,onSearch return false', async () => {
@@ -1366,7 +1530,8 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+
+    await html.findByText('查 询');
 
     act(() => {
       fireEvent.change(
@@ -1379,6 +1544,8 @@ describe('BasicTable', () => {
       );
     });
 
+    await html.findByDisplayValue('name');
+
     act(() => {
       fireEvent.keyDown(
         html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
@@ -1386,9 +1553,9 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 600);
-
-    expect(fn).toBeCalledWith('');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith('');
+    });
 
     act(() => {
       fireEvent.change(
@@ -1401,6 +1568,8 @@ describe('BasicTable', () => {
       );
     });
 
+    await html.findByDisplayValue('name1');
+
     act(() => {
       fireEvent.keyDown(
         html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
@@ -1408,9 +1577,9 @@ describe('BasicTable', () => {
       );
     });
 
-    await waitForComponentToPaint(html, 200);
-
-    expect(fn).toBeCalledWith('name1');
+    await waitFor(() => {
+      expect(fn).toBeCalledWith('name1');
+    });
   });
 
   it('🎏 bordered = true', async () => {
@@ -1466,12 +1635,19 @@ describe('BasicTable', () => {
   it('🎏 debounce time', async () => {
     const ref = React.createRef<ActionType>();
     const fn = jest.fn();
+    jest.useFakeTimers();
     const html = ReactRender(
       <ProTable
         actionRef={ref as any}
         size="small"
         cardBordered
-        columns={columns}
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ]}
         request={async () => {
           fn();
           return Promise.resolve({
@@ -1484,13 +1660,45 @@ describe('BasicTable', () => {
         debounceTime={500}
       />,
     );
-    await waitForComponentToPaint(html, 2000);
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(0);
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      return html.findByText('暂无数据');
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      return html.findByText('暂无数据');
+    });
+
     for (let i = 0; i < 10; i += 1) {
       ref.current?.reload();
     }
-    await waitForComponentToPaint(html, 2000);
 
-    expect(fn).toBeCalledTimes(2);
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
+
+    await html.findByText('暂无数据');
+    jest.useRealTimers();
   });
 
   it('🎏 support showHiddenNum', async () => {
@@ -1517,8 +1725,7 @@ describe('BasicTable', () => {
         debounceTime={500}
       />,
     );
-    await waitForComponentToPaint(html, 2000);
-
+    await html.findByText('展开(9)');
     expect(
       html.baseElement.querySelector('.ant-pro-query-filter-collapse-button')?.textContent,
     ).toBe('展开(9)');

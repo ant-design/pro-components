@@ -405,19 +405,3 @@ export const token = {
 };
 
 export const useToken = () => token;
-
-export const darkAlgorithm = () =>
-  ({
-    ...defaultToken,
-    ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
-  } as GlobalToken);
-export const defaultAlgorithm = () =>
-  ({
-    ...defaultToken,
-    ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
-  } as GlobalToken);
-export const compactAlgorithm = () =>
-  ({
-    ...defaultToken,
-    ...(theme?.defaultAlgorithm?.(theme?.defaultSeed) as any),
-  } as GlobalToken);

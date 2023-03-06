@@ -2,7 +2,7 @@ import { FooterToolbar, PageContainer, ProLayout } from '@ant-design/pro-compone
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React, { useEffect, useMemo, useState } from 'react';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {
@@ -309,14 +309,14 @@ describe('PageContainer', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       expect(wrapper.asFragment()).toMatchSnapshot();
     });
     act(() => {
       wrapper.rerender(<PageContainer />);
     });
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     act(() => {
       expect(wrapper.asFragment()).toMatchSnapshot();
     });
@@ -457,10 +457,10 @@ describe('PageContainer', () => {
     };
 
     const wrapper = render(<App />);
-    await waitForComponentToPaint(wrapper);
+    await waitTime(100);
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(1);
     expect(wrapper.asFragment()).toMatchSnapshot();
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitTime(1000);
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(0);
   });
 

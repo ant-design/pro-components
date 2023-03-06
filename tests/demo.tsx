@@ -1,7 +1,6 @@
-import { act, cleanup, render as reactRender } from '@testing-library/react';
+import { cleanup, render as reactRender, waitFor } from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { waitTime } from './util';
 type Options = {
   skip?: boolean;
 };
@@ -62,11 +61,20 @@ function demoTest(component: string, options: Options = {}) {
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
         const Demo = require(`.${file}`).default;
-        const wrapper = reactRender(<Demo />);
+        const wrapper = reactRender(
+          <>
+            <div>test</div>
+            <Demo />
+          </>,
+        );
 
-        await act(async () => {
-          await waitTime(300);
-        });
+        await waitFor(
+          () => {
+            return wrapper.findAllByText('test');
+          },
+          { timeout: 3000 },
+        );
+
         expect(wrapper.asFragment()).toMatchSnapshot();
 
         wrapper.unmount();

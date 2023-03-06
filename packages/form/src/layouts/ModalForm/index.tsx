@@ -223,7 +223,7 @@ function ModalForm<T = Record<string, any>>({
           modalProps?.afterClose?.();
         }}
         footer={
-          rest.submitter !== false && (
+          rest.submitter !== false ? (
             <div
               ref={footerDomRef}
               style={{
@@ -231,7 +231,7 @@ function ModalForm<T = Record<string, any>>({
                 justifyContent: 'flex-end',
               }}
             />
-          )
+          ) : null
         }
       >
         <BaseForm

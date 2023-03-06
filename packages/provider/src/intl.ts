@@ -126,11 +126,8 @@ const intlMapKeys = Object.keys(intlMap);
  *
  * @param localeKey
  */
-export const findIntlKeyByAntdLocaleKey = <T extends string | undefined>(localeKey: T) => {
-  if (!localeKey) {
-    return 'zh-CN' as T;
-  }
-  const localeName = localeKey.toLocaleLowerCase();
+export const findIntlKeyByAntdLocaleKey = <T extends string>(localeKey?: T) => {
+  const localeName = (localeKey || 'zh-CN').toLocaleLowerCase();
   return intlMapKeys.find((intlKey) => {
     const LowerCaseKey = intlKey.toLocaleLowerCase();
     return LowerCaseKey.includes(localeName);

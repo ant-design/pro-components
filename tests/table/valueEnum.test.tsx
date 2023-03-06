@@ -1,10 +1,10 @@
 import ProProvider from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { Input } from 'antd';
 import { useContext } from 'react';
 import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 
 const Demo = () => {
   const values = useContext(ProProvider);
@@ -74,7 +74,7 @@ describe('Table valueEnum', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
 
     act(() => {
       html.rerender(
@@ -107,7 +107,7 @@ describe('Table valueEnum', () => {
         />,
       );
     });
-    await waitForComponentToPaint(html, 200);
+    await waitTime(200);
     act(() => {
       html.baseElement.querySelector<HTMLDivElement>('form.ant-form div.ant-select')?.click();
     });
@@ -123,13 +123,13 @@ describe('Table valueEnum', () => {
 
   it('🎏 customization valueType', async () => {
     const html = render(<Demo />);
-    await waitForComponentToPaint(html, 1200);
+    await waitTime(1200);
     expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🎏 dynamic request', async () => {
     const request = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -159,8 +159,9 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
 
-    expect(request).toHaveBeenCalledTimes(1);
+    await waitFor(() => {
+      expect(request).toHaveBeenCalledTimes(1);
+    });
   });
 });

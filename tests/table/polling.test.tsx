@@ -1,12 +1,12 @@
 import ProTable from '@ant-design/pro-table';
 import { render } from '@testing-library/react';
-import { waitForComponentToPaint } from '../util';
+import { waitTime } from '../util';
 import { columns } from './demo';
 
 describe('polling', () => {
   it('⏱️ polling should clearTime', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         cardBordered
@@ -23,20 +23,20 @@ describe('polling', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(fn).toBeCalledTimes(1);
-    await waitForComponentToPaint(html, 1800);
+    await waitTime(1800);
 
     expect(fn).toBeCalledTimes(2);
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
-    // expect(fn).toBeCalledTimes(2);
+    expect(fn).toBeCalledTimes(2);
   });
 
   it('⏱️ polling min time is 2000', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         cardBordered
@@ -53,17 +53,17 @@ describe('polling', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(fn).toBeCalledTimes(1);
 
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
 
     expect(fn).toBeCalledTimes(2);
   });
 
   it('⏱️ polling time=3000', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         cardBordered
@@ -80,20 +80,20 @@ describe('polling', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(fn).toBeCalledTimes(1);
 
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
 
     expect(fn).toBeCalledTimes(1);
 
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
     expect(fn).toBeCalledTimes(2);
   });
 
   it('⏱️ polling support function', async () => {
     const fn = jest.fn();
-    const html = render(
+    render(
       <ProTable
         size="small"
         cardBordered
@@ -112,10 +112,10 @@ describe('polling', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitTime(1000);
     expect(fn).toBeCalledTimes(1);
 
-    await waitForComponentToPaint(html, 2000);
+    await waitTime(2000);
 
     expect(fn).toBeCalledTimes(2);
   });
