@@ -396,7 +396,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     openKeys: propsOpenKeys,
   } = props;
 
-  const { token: designToken } = useContext(ProProvider);
+  const { dark, token: designToken } = useContext(ProProvider);
 
   const baseClassName = `${prefixCls}-base-menu`;
   // 用于减少 defaultOpenKeys 计算的组件
@@ -536,7 +536,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       mode={mode}
       inlineIndent={16}
       defaultOpenKeys={defaultOpenKeysRef.current}
-      theme="light"
+      theme={dark ? 'dark' : 'light'}
       selectedKeys={selectedKeys}
       style={{
         backgroundColor: 'transparent',

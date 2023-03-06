@@ -29,7 +29,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => 
     actionsRender,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const { token } = useContext(ProProvider);
+  const { dark, token } = useContext(ProProvider);
 
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
@@ -69,7 +69,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => 
         }}
       >
         <BaseMenu
-          theme="light"
+          theme={dark ? 'dark' : 'light'}
           {...props}
           className={`${prefixCls}-base-menu ${hashId}`}
           {...props.menuProps}
