@@ -570,9 +570,10 @@ const FieldSelect: ProFieldFC<
           loading={loading}
           ref={inputRef}
           allowClear
+          defaultSearchValue={(props as any).defaultKeyWords}
           notFoundContent={loading ? <Spin size="small" /> : fieldProps?.notFoundContent}
           fetchData={(keyWord) => {
-            keyWordsRef.current = keyWord;
+            keyWordsRef.current = keyWord ?? '';
             fetchData(keyWord);
           }}
           resetData={resetData}
