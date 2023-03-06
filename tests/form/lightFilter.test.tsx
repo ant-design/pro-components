@@ -226,7 +226,8 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 multiple select showSearch', async () => {
-    const { container, unmount } = render(
+    jest.useFakeTimers();
+    const { container } = render(
       <LightFilter
         initialValues={{
           name: ['Jack2'],
@@ -247,44 +248,97 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
-    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
-      1,
-    );
-
-    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
-
-    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
-      1,
-    );
-
-    fireEvent.change(await screen.findByRole('textbox'), {
-      target: {
-        value: 'tech',
-      },
-    });
-    await userEvent.click(await screen.findByTitle('TechUI'));
-    fireEvent.change(await screen.findByRole('textbox'), {
-      target: {
-        value: 'YES',
-      },
-    });
-    await userEvent.click(await screen.findByTitle('YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKLM'));
-
-    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
-      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
-    );
-
-    fireEvent.keyDown(await screen.findByRole('textbox'), {
-      target: {
-        which: KeyCode.BACKSPACE,
-      },
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
+      expect(
+        container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down'),
+      ).toHaveLength(1);
     });
 
-    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
-      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
-    );
-    unmount();
+    await act(async () => {
+      userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+    });
+
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(
+        container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down'),
+      ).toHaveLength(1);
+    });
+
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await act(async () => {
+      fireEvent.change(await screen.findByRole('textbox'), {
+        target: {
+          value: 'tech',
+        },
+      });
+    });
+
+    await act(async () => {
+      userEvent.click(await screen.findByTitle('TechUI'));
+    });
+
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
+        '名称: 杰克2,TechUI',
+      );
+    });
+
+    await act(async () => {
+      fireEvent.change(await screen.findByRole('textbox'), {
+        target: {
+          value: 'YES',
+        },
+      });
+    });
+
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await act(async () => {
+      userEvent.click(await screen.findByTitle('YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKLM'));
+    });
+
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
+        '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
+      );
+    });
+
+    await act(async () => {
+      fireEvent.keyDown(await screen.findByRole('textbox'), {
+        target: {
+          which: KeyCode.BACKSPACE,
+        },
+      });
+    });
+
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
+        '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
+      );
+    });
+    jest.useRealTimers();
   });
 
   it(' 🪕 DateRangePicker', async () => {
