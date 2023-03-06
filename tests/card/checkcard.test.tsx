@@ -15,13 +15,21 @@ describe('CheckCard', () => {
         onClick={onClick}
       />,
     );
-
+    /**
+     * 执行 React Testing Library 中的 act 方法。
+     */
     act(() => {
+      // 从组件渲染后生成的容器中选择 `.ant-pro-checkcard` 元素，并模拟点击事件。
       wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
     });
 
+    /**
+     * 等待直到满足条件，然后执行一系列断言。
+     */
     await waitFor(() => {
+      // 断言 onChange 回调函数已被调用，并且传入参数为 true。
       expect(onChange).toBeCalledWith(true);
+      // 断言 onClick 回调函数已被调用。
       expect(onClick).toHaveBeenCalled();
     });
   });
