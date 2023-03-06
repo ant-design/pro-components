@@ -184,7 +184,7 @@ describe('descriptions', () => {
     const html = render(
       <ProDescriptions
         title="高级定义列表 request"
-        request={async (params) => {
+        request={async () => {
           fn();
           return Promise.resolve({
             success: true,
@@ -217,7 +217,7 @@ describe('descriptions', () => {
       html.rerender(
         <ProDescriptions
           title="高级定义列表 request"
-          request={async (params) => {
+          request={async () => {
             fn();
             return Promise.resolve({
               success: true,
