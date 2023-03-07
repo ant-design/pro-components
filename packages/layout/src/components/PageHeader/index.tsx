@@ -9,7 +9,7 @@ import * as React from 'react';
 import useStyle from './style/index';
 import type { ContentWidth } from '../../defaultSettings';
 import 'antd/es/breadcrumb/style';
-import { LegacyBreadcrumbProps, NewBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
+import type { LegacyBreadcrumbProps, NewBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;

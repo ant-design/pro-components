@@ -6,13 +6,7 @@ import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
 import usePagination from 'antd/es/table/hooks/usePagination';
 import useSelection from 'antd/es/table/hooks/useSelection';
-import type {
-  ExpandType,
-  GetPopupContainer,
-  GetRowKey,
-  TableLocale,
-  TableRowSelection,
-} from 'antd/es/table/interface';
+import type { GetRowKey, TableRowSelection } from 'antd/es/table/interface';
 import classNames from 'classnames';
 import get from 'rc-util/es/utils/get';
 import React, { useContext } from 'react';
@@ -21,7 +15,7 @@ import type { GetComponentProps } from './index';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
 import { ConfigContext } from 'antd/lib/config-provider';
-import { PaginationConfig } from 'antd/es/pagination';
+import type { PaginationConfig } from 'antd/es/pagination';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;

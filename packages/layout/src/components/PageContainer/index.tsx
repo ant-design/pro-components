@@ -21,7 +21,7 @@ import { useStylish } from './style/stylish';
 
 import 'antd/es/breadcrumb/style';
 import { ConfigContext } from 'antd/lib/config-provider';
-import { NewBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
+import type { NewBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */

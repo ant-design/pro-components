@@ -1,6 +1,6 @@
 import { compareVersions } from '@ant-design/pro-utils';
 import { version } from 'antd';
-import {
+import type {
   BreadcrumbItemType,
   ItemType,
   NewBreadcrumbProps as AntdBreadcrumbProps,
