@@ -151,14 +151,14 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
         </div>
       );
     }
-    if (item.valueType == 'inlineLink') {
+    if (item.valueType === 'inlineLink') {
       return (
         <Typography.Text key={index}>
           <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
         </Typography.Text>
       );
     }
-    if (item.valueType == 'link') {
+    if (item.valueType === 'link') {
       return (
         <div key={index}>
           <Typography.Text key={index}>
