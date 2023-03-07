@@ -36,7 +36,7 @@ export default () => {
         <ProDescriptions.Item
           label="时间日期"
           fieldProps={{
-            format: 'YYYY.MM.DD HH:mm:SS',
+            format: 'YYYY.MM.DD HH:mm:ss',
           }}
           valueType="dateTime"
         >

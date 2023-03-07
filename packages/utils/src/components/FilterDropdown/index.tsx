@@ -1,10 +1,10 @@
 import { ConfigProvider, Popover } from 'antd';
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
 import { ConfigContext } from 'antd/lib/config-provider';
 import { useStyle } from './style';
-
+import classNames from 'classnames';
 import 'antd/es/dropdown/style';
 import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import type { TooltipPlacement } from 'antd/es/tooltip';
@@ -56,7 +56,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     open || visible || false,
     onOpenChange || onVisibleChange,
   );
-
+  const htmlRef = useRef<HTMLDivElement>(null);
   return wrapSSR(
     <Popover
       placement={placement}
@@ -66,8 +66,20 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
         padding: 0,
       }}
       content={
-        <div className={`${prefixCls}-overlay ${prefixCls}-overlay-${placement} ${hashId}`}>
-          <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
+        <div
+          ref={htmlRef}
+          className={classNames(`${prefixCls}-overlay`, {
+            [`${prefixCls}-overlay-${placement}`]: placement,
+            hashId,
+          })}
+        >
+          <ConfigProvider
+            getPopupContainer={() => {
+              return htmlRef.current || document.body;
+            }}
+          >
+            <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
+          </ConfigProvider>
           {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>
       }

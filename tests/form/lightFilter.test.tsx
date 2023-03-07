@@ -730,12 +730,13 @@ describe('LightFilter', () => {
     );
 
     await wrapper.findByText('名称');
+
     act(() => {
       wrapper.baseElement
         .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-dropdown-label')[0]
         .click?.();
     });
-
+    await wrapper.findByText('名称');
     expect(
       !!wrapper.baseElement.querySelector('.ant-pro-core-field-dropdown-overlay-bottomLeft'),
     ).toBeTruthy();

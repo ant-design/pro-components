@@ -73,7 +73,6 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
       const prefix = aLabel ? (
         <span
           onClick={() => {
-            console.log('run');
             onLabelClick?.();
           }}
           className={`${prefixCls}-text`}

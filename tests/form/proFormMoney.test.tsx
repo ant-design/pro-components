@@ -2,6 +2,7 @@ import ProForm, { ProFormMoney } from '@ant-design/pro-form';
 import { ConfigProvider } from 'antd';
 import enGBIntl from 'antd/es/locale/en_GB';
 import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 describe('💵 ProFormMoney', () => {
   it('💵 ProFormMoney value expect number', async () => {
@@ -18,7 +19,9 @@ describe('💵 ProFormMoney', () => {
 
     expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '￥ 44.33');
 
-    fireEvent.click(container.querySelector('button.ant-btn-primary')!);
+    act(() => {
+      fireEvent.click(container.querySelector('button.ant-btn-primary')!);
+    });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
@@ -42,7 +45,9 @@ describe('💵 ProFormMoney', () => {
 
     expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '£ 44.33');
 
-    fireEvent.click(container.querySelector('button.ant-btn-primary')!);
+    act(() => {
+      fireEvent.click(container.querySelector('button.ant-btn-primary')!);
+    });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
@@ -84,9 +89,9 @@ describe('💵 ProFormMoney', () => {
     );
 
     expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '💰 44.33');
-
-    fireEvent.click(container.querySelector('button.ant-btn-primary')!);
-
+    act(() => {
+      fireEvent.click(container.querySelector('button.ant-btn-primary')!);
+    });
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(44.33);
     });
@@ -111,8 +116,9 @@ describe('💵 ProFormMoney', () => {
         value: '-55.33',
       },
     });
-    fireEvent.click(container.querySelector('button.ant-btn-primary')!);
-
+    act(() => {
+      fireEvent.click(container.querySelector('button.ant-btn-primary')!);
+    });
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(undefined);
     });

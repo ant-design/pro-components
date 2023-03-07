@@ -944,7 +944,7 @@ describe('BasicLayout', () => {
         ]}
       />,
     );
-    await waitTime(100);
+    await wrapper.findAllByText('列表页');
     expect(wrapper.baseElement).toMatchSnapshot();
   });
 
