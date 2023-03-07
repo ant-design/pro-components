@@ -36,7 +36,8 @@ const FieldTimePicker: ProFieldFC<
   ref,
 ) => {
   const [open, setOpen] = useState<boolean>(false);
-  const size = useContext(ConfigProvider.SizeContext);
+  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const size = componentSize;
   const { hashId, prefixCls, wrapSSR } = useDatePickerStyle();
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
 

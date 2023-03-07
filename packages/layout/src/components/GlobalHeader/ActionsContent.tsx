@@ -1,5 +1,6 @@
 ﻿import { useDebounceFn } from '@ant-design/pro-utils';
 import { Avatar, ConfigProvider } from 'antd';
+import { ConfigContext } from 'antd/lib/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useContext, useMemo, useState } from 'react';
@@ -17,7 +18,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
   headerContentRender,
   ...props
 }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const prefixCls = `${getPrefixCls()}-pro-global-header`;
   const { wrapSSR, hashId } = useStyle(prefixCls);
 

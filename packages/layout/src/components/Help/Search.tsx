@@ -3,6 +3,7 @@ import { useStyle } from '@ant-design/pro-provider';
 import { useDebounceFn } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
+import { ConfigContext } from 'antd/lib/config-provider';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { ProHelpProvide } from './HelpProvide';
@@ -22,7 +23,7 @@ export const Highlight: React.FC<{
    */
   words: string[];
 }> = ({ label, words }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const lightCls = getPrefixCls('pro-help-search-list-item-content-light');
   const optionCls = getPrefixCls('pro-help-search-list-item-content');
 

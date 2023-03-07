@@ -11,6 +11,7 @@ import { useStyle } from './style';
 
 import 'antd/es/divider/style';
 import 'antd/es/statistic/style';
+import { ConfigContext } from 'antd/lib/config-provider';
 
 export type StatisticCardProps = {
   /** 图表配置 */
@@ -34,7 +35,7 @@ const StatisticCard: React.FC<StatisticCardProps> & {
   Group: typeof Group;
 } = (props) => {
   const { children, statistic, className, chart, chartPlacement, footer, ...others } = props;
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-statistic-card');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const classString = classNames(prefixCls, className, hashId);

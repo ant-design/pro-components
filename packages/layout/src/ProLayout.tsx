@@ -2,7 +2,7 @@ import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
 import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
 import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
-import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
+import { NewBreadcrumbProps as AntdBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
@@ -30,7 +30,7 @@ import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
 import { useStyle } from './style';
 import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from './typing';
-import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
+import { BreadcrumbProLayoutProps, getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
 import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
@@ -139,7 +139,7 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 不显示面包屑 breadcrumbRender={false}
    */
   breadcrumbRender?: WithFalse<
-    (routers: AntdBreadcrumbProps['routes']) => AntdBreadcrumbProps['routes']
+    (routers: AntdBreadcrumbProps['items']) => AntdBreadcrumbProps['items']
   >;
 
   /**
@@ -547,7 +547,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   // gen breadcrumbProps, parameter for pageHeader
   const breadcrumbProps = getBreadcrumbProps(
     {
-      ...defaultProps,
+      ...(defaultProps as BreadcrumbProLayoutProps),
       breadcrumbRender: props.breadcrumbRender,
       breadcrumbMap,
     },

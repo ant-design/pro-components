@@ -5,7 +5,7 @@ import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/es/interface';
 import React, { useContext, useEffect, useState } from 'react';
 import { useStyle } from './style';
-
+import { ConfigContext } from 'antd/lib/config-provider';
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   popoverProps?: PopoverProps;
@@ -34,7 +34,7 @@ const InlineErrorFormItemPopover: React.FC<{
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
   const [open, setOpen] = useState<boolean | undefined>(false);
   const [errorStringList, setErrorList] = useState<string[]>([]);
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls();
 
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);

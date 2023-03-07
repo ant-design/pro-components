@@ -2511,7 +2511,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                             style="min-width: 100px;"
                           >
                             <div
@@ -2636,6 +2636,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                                 </div>
                               </div>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              class="ant-select-arrow"
+                              style="user-select: none;"
+                              unselectable="on"
+                            >
+                              <span
+                                aria-label="down"
+                                class="anticon anticon-down ant-select-suffix"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
                             <span
                               aria-hidden="true"
                               class="ant-select-clear"
@@ -16645,7 +16671,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-undefined"
                           >
                             <div
-                              class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                              class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                             >
                               <div
                                 class="ant-select-selector"
@@ -16811,6 +16837,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                   </div>
                                 </div>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select: none;"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down ant-select-suffix"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                               <span
                                 aria-hidden="true"
                                 class="ant-select-clear"
@@ -16993,7 +17045,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 class="ant-spin-container"
                               >
                                 <div
-                                  class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
+                                  class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
                                   style="min-width: 60px;"
                                 >
                                   <div
@@ -17052,6 +17104,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                       </div>
                                     </div>
                                   </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-arrow"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  >
+                                    <span
+                                      aria-label="down"
+                                      class="anticon anticon-down ant-select-suffix"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="down"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -18588,7 +18666,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               class="ant-spin-container ant-spin-blur"
                             >
                               <div
-                                class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
+                                class="ant-select ant-tree-select ant-select-borderless ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
                                 style="min-width: 60px;"
                               >
                                 <div
@@ -18647,6 +18725,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                     </div>
                                   </div>
                                 </div>
+                                <span
+                                  aria-hidden="true"
+                                  class="ant-select-arrow"
+                                  style="user-select: none;"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-select-suffix"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -19518,7 +19622,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-topLeft"
                           >
                             <div
-                              class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                              class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                             >
                               <div
                                 class="ant-select-selector"
@@ -19566,6 +19670,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                   请选择
                                 </span>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select: none;"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down ant-select-suffix"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
                             <span
                               class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -20557,7 +20687,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-undefined"
                           >
                             <div
-                              class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                              class="ant-select ant-select-in-form-item ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                             >
                               <div
                                 class="ant-select-selector"
@@ -20605,6 +20735,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                   请选择
                                 </span>
                               </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-arrow"
+                                style="user-select: none;"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down ant-select-suffix"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
                             </div>
                             <span
                               class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -29527,7 +29683,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                   style="min-width: 100px;"
                 >
                   <div
@@ -29575,6 +29731,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       Please select favorite colors
                     </span>
                   </div>
+                  <span
+                    aria-hidden="true"
+                    class="ant-select-arrow"
+                    style="user-select: none;"
+                    unselectable="on"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down ant-select-suffix"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -36644,7 +36826,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               class="ant-form-item-control-input-content"
                             >
                               <div
-                                class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-lg ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                                class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-lg ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                                 style="min-width: 100px;"
                               >
                                 <div
@@ -36766,6 +36948,32 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                     </div>
                                   </div>
                                 </div>
+                                <span
+                                  aria-hidden="true"
+                                  class="ant-select-arrow"
+                                  style="user-select: none;"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-select-suffix"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
                                 <span
                                   aria-hidden="true"
                                   class="ant-select-clear"
@@ -41348,7 +41556,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                     class="ant-spin-container ant-spin-blur"
                   >
                     <div
-                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-search"
+                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
                       style="min-width: 60px; width: 600px;"
                     >
                       <div
@@ -41396,6 +41604,32 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                           Please select
                         </span>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-arrow"
+                        style="user-select: none;"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-select-suffix"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -45172,7 +45406,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
           style="width: 60px; overflow: hidden; flex: 0 0 60px; max-width: 60px; min-width: 60px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-collapsed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-collapsed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
         >
           <div
@@ -45391,34 +45625,31 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                 >
                   <ol>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#/one"
+                      />
+                      <a
+                        href="/one"
                       >
-                        <a
-                          href="/one"
-                        >
-                          一级名称
-                        </a>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                        一级名称
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
                     </li>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#/one/one/two"
                       >
                         <span>
                           二级名称
                         </span>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                      </a>
                     </li>
                   </ol>
                 </nav>

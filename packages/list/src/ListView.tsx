@@ -6,7 +6,13 @@ import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/es/table/hooks/useLazyKVMap';
 import usePagination from 'antd/es/table/hooks/usePagination';
 import useSelection from 'antd/es/table/hooks/useSelection';
-import type { GetRowKey } from 'antd/es/table/interface';
+import type {
+  ExpandType,
+  GetPopupContainer,
+  GetRowKey,
+  TableLocale,
+  TableRowSelection,
+} from 'antd/es/table/interface';
 import classNames from 'classnames';
 import get from 'rc-util/es/utils/get';
 import React, { useContext } from 'react';
@@ -14,17 +20,19 @@ import { PRO_LIST_KEYS_MAP } from './constants';
 import type { GetComponentProps } from './index';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
+import { ConfigContext } from 'antd/lib/config-provider';
+import { PaginationConfig } from 'antd/es/pagination';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
 type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
 export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderItem'> &
-  Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> & {
+  Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable' | 'pagination'> & {
     rowKey?: string | GetRowKey<RecordType>;
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
-    rowSelection?: TableProps<RecordType>['rowSelection'];
+    rowSelection?: TableRowSelection<RecordType>;
     prefixCls?: string;
     dataSource: readonly RecordType[];
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
@@ -38,6 +46,7 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
     itemCardProps?: ProCardProps;
+    pagination?: PaginationConfig;
   };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -64,7 +73,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   const { hashId } = useContext(ProProvider);
 
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
     if (typeof rowKey === 'function') {
@@ -77,11 +86,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
   // 合并分页的的配置
-  const [mergedPagination] = usePagination(
-    dataSource.length,
-    { responsive: true, ...pagination } as any,
-    () => {},
-  );
+  const [mergedPagination] = usePagination(dataSource.length, () => {}, pagination);
   /** 根据分页来返回不同的数据，模拟 table */
   const pageData = React.useMemo<readonly RecordType[]>(() => {
     if (
@@ -99,16 +104,19 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
 
   /** 提供和 table 一样的 rowSelection 配置 */
-  const [selectItemRender, selectedKeySet] = useSelection(rowSelection, {
-    getRowKey,
-    getRecordByKey,
-    prefixCls,
-    data: dataSource as RecordType[],
-    pageData: pageData as RecordType[],
-    expandType: 'row',
-    childrenColumnName: 'children',
-    locale: {},
-  });
+  const [selectItemRender, selectedKeySet] = useSelection(
+    {
+      getRowKey,
+      getRecordByKey,
+      prefixCls,
+      data: dataSource as RecordType[],
+      pageData: pageData as RecordType[],
+      expandType: 'row',
+      childrenColumnName: 'children',
+      locale: {},
+    },
+    rowSelection,
+  );
 
   // 提供和 Table 一样的 expand 支持
   const {

@@ -4,7 +4,7 @@ import type { MenuItemProps } from 'antd';
 import { Button, ConfigProvider, Dropdown } from 'antd';
 import classnames from 'classnames';
 import React, { useContext } from 'react';
-
+import { ConfigContext } from 'antd/lib/config-provider';
 interface MenuItems extends MenuItemProps {
   name: React.ReactNode;
   key: string;
@@ -31,7 +31,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
   className,
   style,
 }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
 
   const tempClassName = getPrefixCls('pro-table-dropdown');
 
@@ -55,7 +55,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
 const TableDropdown: React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
 } = ({ className: propsClassName, style, onSelect, menus = [], children }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
   const dropdownProps = menuOverlayCompatible({
     onClick: (params) => {

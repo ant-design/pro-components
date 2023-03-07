@@ -147,10 +147,10 @@ describe('PageContainer', () => {
       <PageContainer
         title="期贤"
         breadcrumb={{
-          routes: [
+          items: [
             {
               path: '/',
-              breadcrumbName: 'home',
+              title: 'home',
             },
           ],
         }}
@@ -327,32 +327,32 @@ describe('PageContainer', () => {
       <ProLayout
         breadcrumbProps={{
           separator: '>',
-          routes: [
+          items: [
             {
               path: 'index',
-              breadcrumbName: 'home',
+              title: 'home',
             },
             {
               path: 'first',
-              breadcrumbName: 'first',
+              title: 'first',
               children: [
                 {
                   path: '/general',
-                  breadcrumbName: 'General',
+                  title: 'General',
                 },
                 {
                   path: '/layout',
-                  breadcrumbName: 'Layout',
+                  title: 'Layout',
                 },
                 {
                   path: '/navigation',
-                  breadcrumbName: 'Navigation',
+                  title: 'Navigation',
                 },
               ],
             },
             {
               path: 'second',
-              breadcrumbName: 'second',
+              title: 'second',
             },
           ],
         }}

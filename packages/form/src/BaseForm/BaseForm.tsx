@@ -22,6 +22,7 @@ import {
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
+import { ConfigContext } from 'antd/lib/config-provider';
 import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
@@ -253,7 +254,7 @@ function BaseFormComponents<T = Record<string, any>>(
    */
   const formInstance = Form.useFormInstance();
 
-  const sizeContextValue = useContext(ConfigProvider.SizeContext);
+  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
 
   /** 同步 url 上的参数 */
   const formRef = useRef<ProFormInstance<any>>((form || formInstance) as any);
@@ -431,7 +432,7 @@ function BaseFormComponents<T = Record<string, any>>(
 
   return (
     <ProFormContext.Provider value={formatValues}>
-      <ConfigProvider.SizeContext.Provider value={rest.size || sizeContextValue}>
+      <ConfigProvider componentSize={rest.size || componentSize}>
         <GridContext.Provider value={{ grid, colProps }}>
           {rest.component !== false && (
             <input
@@ -443,7 +444,7 @@ function BaseFormComponents<T = Record<string, any>>(
           )}
           {content}
         </GridContext.Provider>
-      </ConfigProvider.SizeContext.Provider>
+      </ConfigProvider>
     </ProFormContext.Provider>
   );
 }
@@ -495,7 +496,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     proFieldKey: formKey,
   });
 
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   // css
   const { wrapSSR, hashId } = useStyle('ProForm', (token) => {

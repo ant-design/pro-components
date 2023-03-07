@@ -4,7 +4,7 @@ import type { LabelTooltipType, WrapperTooltipProps } from 'antd/es/form/FormIte
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
-
+import { ConfigContext } from 'antd/lib/config-provider';
 /**
  * 在 form 的 label 后面增加一个 tips 来展示一些说明文案
  *
@@ -17,7 +17,7 @@ export const LabelIconTip: React.FC<{
   ellipsis?: boolean | { showTitle?: boolean };
 }> = React.memo((props) => {
   const { label, tooltip, ellipsis, subTitle } = props;
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-core-label-tip');
 
   const { wrapSSR, hashId } = useStyle(className);

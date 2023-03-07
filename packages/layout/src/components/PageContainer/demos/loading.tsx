@@ -37,18 +37,18 @@ export default () => {
           header={{
             title: '默认loading',
             breadcrumb: {
-              routes: [
+              items: [
                 {
                   path: '',
-                  breadcrumbName: '一级页面',
+                  title: '一级页面',
                 },
                 {
                   path: '',
-                  breadcrumbName: '二级页面',
+                  title: '二级页面',
                 },
                 {
                   path: '',
-                  breadcrumbName: '当前页面',
+                  title: '当前页面',
                 },
               ],
             },
@@ -74,18 +74,18 @@ export default () => {
           header={{
             title: '自定义loading属性',
             breadcrumb: {
-              routes: [
+              items: [
                 {
                   path: '',
-                  breadcrumbName: '一级页面',
+                  title: '一级页面',
                 },
                 {
                   path: '',
-                  breadcrumbName: '二级页面',
+                  title: '二级页面',
                 },
                 {
                   path: '',
-                  breadcrumbName: '当前页面',
+                  title: '当前页面',
                 },
               ],
             },
@@ -107,18 +107,18 @@ export default () => {
           header={{
             title: '自定义loading，3s后显示内容',
             breadcrumb: {
-              routes: [
+              items: [
                 {
                   path: '',
-                  breadcrumbName: '一级页面',
+                  title: '一级页面',
                 },
                 {
                   path: '',
-                  breadcrumbName: '二级页面',
+                  title: '二级页面',
                 },
                 {
                   path: '',
-                  breadcrumbName: '当前页面',
+                  title: '当前页面',
                 },
               ],
             },

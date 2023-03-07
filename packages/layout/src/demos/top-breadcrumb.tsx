@@ -16,11 +16,11 @@ export default () => (
       breadcrumbRender={(routers = []) => [
         {
           path: '/',
-          breadcrumbName: '主页',
+          title: '主页',
         },
         {
           path: '/',
-          breadcrumbName: '测试页',
+          title: '测试页',
         },
         ...routers,
       ]}

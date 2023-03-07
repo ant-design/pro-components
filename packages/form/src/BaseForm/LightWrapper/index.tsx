@@ -11,7 +11,7 @@ import React, { useContext, useMemo, useState } from 'react';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 import type { TooltipPlacement } from 'antd/es/tooltip';
-
+import { ConfigContext } from 'antd/lib/config-provider';
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
 export type LightWrapperProps = {
@@ -64,7 +64,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     ...rest
   } = props;
 
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);

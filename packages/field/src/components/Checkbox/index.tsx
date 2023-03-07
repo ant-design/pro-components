@@ -10,6 +10,7 @@ export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
 } & FieldSelectProps;
+import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
 import 'antd/es/checkbox/style';
 //----------------------
@@ -23,7 +24,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   { layout = 'horizontal', renderFormItem, mode, render, ...rest },
   ref,
 ) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-checkbox');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   // css
