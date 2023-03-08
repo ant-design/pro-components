@@ -1,25 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [7.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.8.3...@ant-design/pro-layout@7.9.0) (2023-03-08)
 
-
 ### Bug Fixes
 
-* **layout:** avatarProps not work when actionsRender is falsy ([#6695](https://github.com/ant-design/pro-components/issues/6695)) ([63a0829](https://github.com/ant-design/pro-components/commit/63a082931195efe60894178b72adbd7261de665b))
-* **layout:** siderMenu 中的 subMenu 在 dark 模式下显示不正常 ([#6721](https://github.com/ant-design/pro-components/issues/6721)) ([a10a6a1](https://github.com/ant-design/pro-components/commit/a10a6a1135dca8bfe6a7e31acd92dae94031fb45))
-
+- **layout:** avatarProps not work when actionsRender is falsy ([#6695](https://github.com/ant-design/pro-components/issues/6695)) ([63a0829](https://github.com/ant-design/pro-components/commit/63a082931195efe60894178b72adbd7261de665b))
+- **layout:** siderMenu 中的 subMenu 在 dark 模式下显示不正常 ([#6721](https://github.com/ant-design/pro-components/issues/6721)) ([a10a6a1](https://github.com/ant-design/pro-components/commit/a10a6a1135dca8bfe6a7e31acd92dae94031fb45))
 
 ### Features
 
-* **components:** support antd@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
-* **layout:** add ProHelp components ([#6654](https://github.com/ant-design/pro-components/issues/6654)) ([b1a175c](https://github.com/ant-design/pro-components/commit/b1a175c9ecbdf24a26f1cf34e10a92da05ab2b9c)), closes [#6671](https://github.com/ant-design/pro-components/issues/6671) [#6676](https://github.com/ant-design/pro-components/issues/6676)
-
-
-
-
+- **components:** support antd@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
+- **layout:** add ProHelp components ([#6654](https://github.com/ant-design/pro-components/issues/6654)) ([b1a175c](https://github.com/ant-design/pro-components/commit/b1a175c9ecbdf24a26f1cf34e10a92da05ab2b9c)), closes [#6671](https://github.com/ant-design/pro-components/issues/6671) [#6676](https://github.com/ant-design/pro-components/issues/6676)
 
 ## [7.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.8.2...@ant-design/pro-layout@7.8.3) (2023-02-28)
 
