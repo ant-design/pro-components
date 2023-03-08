@@ -1,6 +1,7 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
+import { ConfigContext } from 'antd/es/config-provider';
 import zh_CN from 'antd/es/locale/zh_CN';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
@@ -184,7 +185,9 @@ const ConfigProviderContainer: React.FC<{
     token: propsToken,
     prefixCls,
   } = props;
-  const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
+  const { locale, getPrefixCls, ...restConfig } = useContext(
+    ConfigContext || AntdConfigProvider.ConfigContext,
+  );
   const tokenContext = proTheme.useToken?.();
   const containerDomRef = useRef<HTMLDivElement>(null);
   const proProvide = useContext(ProConfigContext);
@@ -200,7 +203,6 @@ const ConfigProviderContainer: React.FC<{
   const antCls = '.' + getPrefixCls();
 
   const salt = `${proComponentsCls}`;
-
   /**
    * 合并一下token，不然导致嵌套 token 失效
    */

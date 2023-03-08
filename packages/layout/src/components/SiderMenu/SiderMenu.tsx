@@ -474,6 +474,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
                 colorActiveBarWidth: 0,
                 colorActiveBarHeight: 0,
                 colorActiveBarBorderSize: 0,
+                controlHeightLG: 35,
                 colorItemText: token?.layout?.sider?.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
                 colorItemTextHover:
                   token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',

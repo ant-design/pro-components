@@ -4,6 +4,7 @@ import { ProProvider } from '@ant-design/pro-provider';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton } from 'antd';
+import { theme as antdTheme } from 'antd';
 import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
@@ -159,7 +160,7 @@ class MenuUtil {
       const iconDom = getIcon(
         item.icon,
         iconPrefixes,
-        `action ${baseClassName}-icon ${this.props?.hashId}`,
+        `${baseClassName}-icon ${this.props?.hashId}`,
       );
       /**
        * 如果没有icon在收起的时候用首字母代替
@@ -176,9 +177,7 @@ class MenuUtil {
         >
           {/* 收起的时候group模式就不要展示icon了，放不下 */}
           {menuType === 'group' && collapsed ? null : shouldHasIcon && iconDom ? (
-            <span className={`anticon ${baseClassName}-item-icon ${this.props?.hashId}`}>
-              {iconDom}
-            </span>
+            <span className={`${baseClassName}-item-icon ${this.props?.hashId}`}>{iconDom}</span>
           ) : (
             defaultIcon
           )}
@@ -289,7 +288,7 @@ class MenuUtil {
         })}
       >
         {icon ? (
-          <span className={`anticon ${baseClassName}-item-icon ${this.props?.hashId}`}>{icon}</span>
+          <span className={`${baseClassName}-item-icon ${this.props?.hashId}`}>{icon}</span>
         ) : (
           defaultIcon
         )}
@@ -319,9 +318,7 @@ class MenuUtil {
           })}
         >
           {icon ? (
-            <span className={`anticon ${baseClassName}-item-icon ${this.props?.hashId}`}>
-              {icon}
-            </span>
+            <span className={`${baseClassName}-item-icon ${this.props?.hashId}`}>{icon}</span>
           ) : (
             defaultIcon
           )}
