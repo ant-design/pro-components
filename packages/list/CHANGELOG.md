@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.1.2...@ant-design/pro-list@2.2.0) (2023-03-08)
+
+
+### Features
+
+* **components:** support antd@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
+
+
+
+
 
 ## [2.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.1.1...@ant-design/pro-list@2.1.2) (2023-02-28)
 

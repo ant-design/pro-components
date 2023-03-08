@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.3.0...@ant-design/pro-field@2.4.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **form:** lightSelect默认转小写 [#6692](https://github.com/ant-design/pro-components/issues/6692) ([#6696](https://github.com/ant-design/pro-components/issues/6696)) ([90ad382](https://github.com/ant-design/pro-components/commit/90ad3821b57306c8a798086d26ce3a8e117e2839))
+
+
+### Features
+
+* **components:** support antd@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
+* **layout:** add ProHelp components ([#6654](https://github.com/ant-design/pro-components/issues/6654)) ([b1a175c](https://github.com/ant-design/pro-components/commit/b1a175c9ecbdf24a26f1cf34e10a92da05ab2b9c)), closes [#6671](https://github.com/ant-design/pro-components/issues/6671) [#6676](https://github.com/ant-design/pro-components/issues/6676)
+
+
+
+
 
 # [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.9...@ant-design/pro-field@2.3.0) (2023-02-28)
 

@@ -1,6 +1,30 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.3.2...@ant-design/pro-table@3.4.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **table:** 修复maxLength选项配置为0时逻辑不符合预期的问题 ([#6719](https://github.com/ant-design/pro-components/issues/6719)) ([6983804](https://github.com/ant-design/pro-components/commit/69838042971b5869b90b01e50cfb2ba85b258050))
+* slove toolbar wrap problem ([#6694](https://github.com/ant-design/pro-components/issues/6694)) ([1ffd5bf](https://github.com/ant-design/pro-components/commit/1ffd5bfd11d8e8c2c0f26eeaf0ab88b0539a0a2a))
+
+
+### Features
+
+* **components:** support antd@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
+* **layout:** add ProHelp components ([#6654](https://github.com/ant-design/pro-components/issues/6654)) ([b1a175c](https://github.com/ant-design/pro-components/commit/b1a175c9ecbdf24a26f1cf34e10a92da05ab2b9c)), closes [#6671](https://github.com/ant-design/pro-components/issues/6671) [#6676](https://github.com/ant-design/pro-components/issues/6676)
+
+
+### Reverts
+
+* Revert "chore: remove useless code (#6690)" (#6701) ([4c6d070](https://github.com/ant-design/pro-components/commit/4c6d0702a4312edac0347d24e5f855435286a0cb)), closes [#6690](https://github.com/ant-design/pro-components/issues/6690) [#6701](https://github.com/ant-design/pro-components/issues/6701)
+
+
+
+
 
 ## [3.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.3.1...@ant-design/pro-table@3.3.2) (2023-02-28)
 

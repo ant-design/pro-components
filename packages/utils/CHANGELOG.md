@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.9...@ant-design/pro-utils@2.6.0) (2023-03-08)
+
+
+### Bug Fixes
+
+* **form:** 修复label属性没有传值的问题 ([#6728](https://github.com/ant-design/pro-components/issues/6728)) ([99a7d53](https://github.com/ant-design/pro-components/commit/99a7d53ef42898f7206f93f58d10fcca841d417d))
+
+
+### Features
+
+* **components:** support antd@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
+* **layout:** add ProHelp components ([#6654](https://github.com/ant-design/pro-components/issues/6654)) ([b1a175c](https://github.com/ant-design/pro-components/commit/b1a175c9ecbdf24a26f1cf34e10a92da05ab2b9c)), closes [#6671](https://github.com/ant-design/pro-components/issues/6671) [#6676](https://github.com/ant-design/pro-components/issues/6676)
+
+
+
+
 
 ## [2.5.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.8...@ant-design/pro-utils@2.5.9) (2023-02-28)
 
