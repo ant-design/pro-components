@@ -22,50 +22,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           >
             <ol>
               <li>
-                <span
+                <a
                   class="ant-breadcrumb-link"
+                  href="#/"
                 >
-                  <a
-                    href="#/"
-                  >
-                    一级页面
-                  </a>
-                </span>
-                <span
-                  class="ant-breadcrumb-separator"
-                >
-                  /
-                </span>
+                  一级页面
+                </a>
+              </li>
+              <li
+                aria-hidden="true"
+                class="ant-breadcrumb-separator"
+              >
+                /
               </li>
               <li>
-                <span
+                <a
                   class="ant-breadcrumb-link"
+                  href="#//"
                 >
-                  <a
-                    href="#/"
-                  >
-                    二级页面
-                  </a>
-                </span>
-                <span
-                  class="ant-breadcrumb-separator"
-                >
-                  /
-                </span>
+                  二级页面
+                </a>
+              </li>
+              <li
+                aria-hidden="true"
+                class="ant-breadcrumb-separator"
+              >
+                /
               </li>
               <li>
-                <span
+                <a
                   class="ant-breadcrumb-link"
+                  href="#///"
                 >
-                  <span>
-                    当前页面
-                  </span>
-                </span>
-                <span
-                  class="ant-breadcrumb-separator"
-                >
-                  /
-                </span>
+                  当前页面
+                </a>
               </li>
             </ol>
           </nav>
@@ -432,50 +422,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 >
                   <ol>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#/"
                       >
-                        <a
-                          href="#/"
-                        >
-                          一级页面
-                        </a>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                        一级页面
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
                     </li>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#//"
                       >
-                        <a
-                          href="#/"
-                        >
-                          二级页面
-                        </a>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                        二级页面
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
                     </li>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#///"
                       >
-                        <span>
-                          当前页面
-                        </span>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                        当前页面
+                      </a>
                     </li>
                   </ol>
                 </nav>
@@ -991,50 +971,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               >
                 <ol>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#/"
                     >
-                      <a
-                        href="#/"
-                      >
-                        一级页面
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      一级页面
+                    </a>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
                   </li>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#//"
                     >
-                      <a
-                        href="#/"
-                      >
-                        二级页面
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      二级页面
+                    </a>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
                   </li>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#///"
                     >
-                      <span>
-                        当前页面
-                      </span>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      当前页面
+                    </a>
                   </li>
                 </ol>
               </nav>
@@ -1111,50 +1081,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               >
                 <ol>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#/"
                     >
-                      <a
-                        href="#/"
-                      >
-                        一级页面
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      一级页面
+                    </a>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
                   </li>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#//"
                     >
-                      <a
-                        href="#/"
-                      >
-                        二级页面
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      二级页面
+                    </a>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
                   </li>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#///"
                     >
-                      <span>
-                        当前页面
-                      </span>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      当前页面
+                    </a>
                   </li>
                 </ol>
               </nav>
@@ -1236,50 +1196,40 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               >
                 <ol>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#/"
                     >
-                      <a
-                        href="#/"
-                      >
-                        一级页面
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      一级页面
+                    </a>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
                   </li>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#//"
                     >
-                      <a
-                        href="#/"
-                      >
-                        二级页面
-                      </a>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      二级页面
+                    </a>
+                  </li>
+                  <li
+                    aria-hidden="true"
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
                   </li>
                   <li>
-                    <span
+                    <a
                       class="ant-breadcrumb-link"
+                      href="#///"
                     >
-                      <span>
-                        当前页面
-                      </span>
-                    </span>
-                    <span
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </span>
+                      当前页面
+                    </a>
                   </li>
                 </ol>
               </nav>
@@ -4168,66 +4118,65 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/"
+                        />
+                        <a
+                          href="/"
                         >
-                          <a
-                            href="/"
-                          >
-                            主页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          主页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#//admin"
+                        />
+                        <a
+                          href="/admin"
                         >
-                          <a
-                            href="/admin"
-                          >
-                            管理
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          管理
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#//admin/admin/process"
+                        />
+                        <a
+                          href="/admin/process"
                         >
-                          <a
-                            href="/admin/process"
-                          >
-                            申请单列表
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          申请单列表
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#//admin/admin/process/admin/process/edit/123"
                         >
                           <span>
                             编辑申请单
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -5323,34 +5272,31 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/config"
+                        />
+                        <a
+                          href="/config"
                         >
-                          <a
-                            href="/config"
-                          >
-                            配置中心
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          配置中心
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/config/config/template"
                         >
                           <span>
                             产品模板管理
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -5717,34 +5663,31 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                             >
                               <ol>
                                 <li>
-                                  <span
+                                  <a
                                     class="ant-breadcrumb-link"
+                                    href="#/home"
+                                  />
+                                  <a
+                                    href="/home"
                                   >
-                                    <a
-                                      href="/home"
-                                    >
-                                      首页
-                                    </a>
-                                  </span>
-                                  <span
-                                    class="ant-breadcrumb-separator"
-                                  >
-                                    /
-                                  </span>
+                                    首页
+                                  </a>
+                                </li>
+                                <li
+                                  aria-hidden="true"
+                                  class="ant-breadcrumb-separator"
+                                >
+                                  /
                                 </li>
                                 <li>
-                                  <span
+                                  <a
                                     class="ant-breadcrumb-link"
+                                    href="#/home/home/overview"
                                   >
                                     <span>
                                       概述
                                     </span>
-                                  </span>
-                                  <span
-                                    class="ant-breadcrumb-separator"
-                                  >
-                                    /
-                                  </span>
+                                  </a>
                                 </li>
                               </ol>
                             </nav>
@@ -6104,34 +6047,31 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                             >
                               <ol>
                                 <li>
-                                  <span
+                                  <a
                                     class="ant-breadcrumb-link"
+                                    href="#/home"
+                                  />
+                                  <a
+                                    href="/home"
                                   >
-                                    <a
-                                      href="/home"
-                                    >
-                                      首页
-                                    </a>
-                                  </span>
-                                  <span
-                                    class="ant-breadcrumb-separator"
-                                  >
-                                    /
-                                  </span>
+                                    首页
+                                  </a>
+                                </li>
+                                <li
+                                  aria-hidden="true"
+                                  class="ant-breadcrumb-separator"
+                                >
+                                  /
                                 </li>
                                 <li>
-                                  <span
+                                  <a
                                     class="ant-breadcrumb-link"
+                                    href="#/home/home/overview"
                                   >
                                     <span>
                                       概述
                                     </span>
-                                  </span>
-                                  <span
-                                    class="ant-breadcrumb-separator"
-                                  >
-                                    /
-                                  </span>
+                                  </a>
                                 </li>
                               </ol>
                             </nav>
@@ -6428,34 +6368,31 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                 >
                   <ol>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#/welcome"
+                      />
+                      <a
+                        href="/welcome"
                       >
-                        <a
-                          href="/welcome"
-                        >
-                          one
-                        </a>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                        one
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
                     </li>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#/welcome/welcome/welcome"
                       >
                         <span>
                           two
                         </span>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                      </a>
                     </li>
                   </ol>
                 </nav>
@@ -8120,50 +8057,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -8642,50 +8577,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     >
                       <ol>
                         <li>
-                          <span
+                          <a
                             class="ant-breadcrumb-link"
+                            href="#/list"
+                          />
+                          <a
+                            href="/list"
                           >
-                            <a
-                              href="/list"
-                            >
-                              列表页
-                            </a>
-                          </span>
-                          <span
-                            class="ant-breadcrumb-separator"
-                          >
-                            /
-                          </span>
+                            列表页
+                          </a>
+                        </li>
+                        <li
+                          aria-hidden="true"
+                          class="ant-breadcrumb-separator"
+                        >
+                          /
                         </li>
                         <li>
-                          <span
+                          <a
                             class="ant-breadcrumb-link"
+                            href="#/list/list/sub-page"
+                          />
+                          <a
+                            href="/list/sub-page"
                           >
-                            <a
-                              href="/list/sub-page"
-                            >
-                              列表页面
-                            </a>
-                          </span>
-                          <span
-                            class="ant-breadcrumb-separator"
-                          >
-                            /
-                          </span>
+                            列表页面
+                          </a>
+                        </li>
+                        <li
+                          aria-hidden="true"
+                          class="ant-breadcrumb-separator"
+                        >
+                          /
                         </li>
                         <li>
-                          <span
+                          <a
                             class="ant-breadcrumb-link"
+                            href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                           >
                             <span>
                               一一级列表页面
                             </span>
-                          </span>
-                          <span
-                            class="ant-breadcrumb-separator"
-                          >
-                            /
-                          </span>
+                          </a>
                         </li>
                       </ol>
                     </nav>
@@ -11363,50 +11296,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -12407,50 +12338,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -13006,50 +12935,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -13569,50 +13496,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -16191,50 +16116,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -19925,50 +19848,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -20444,50 +20365,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -20841,34 +20760,31 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/home"
+                        />
+                        <a
+                          href="/home"
                         >
-                          <a
-                            href="/home"
-                          >
-                            首页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          首页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/home/home/overview"
                         >
                           <span>
                             概述
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -21298,50 +21214,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -21840,50 +21754,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>
@@ -23427,50 +23339,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 >
                   <ol>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#/list"
+                      />
+                      <a
+                        href="/list"
                       >
-                        <a
-                          href="/list"
-                        >
-                          列表页
-                        </a>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                        列表页
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
                     </li>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#/list/list/sub-page"
+                      />
+                      <a
+                        href="/list/sub-page"
                       >
-                        <a
-                          href="/list/sub-page"
-                        >
-                          列表页面
-                        </a>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                        列表页面
+                      </a>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
                     </li>
                     <li>
-                      <span
+                      <a
                         class="ant-breadcrumb-link"
+                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </span>
-                      <span
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </span>
+                      </a>
                     </li>
                   </ol>
                 </nav>
@@ -23834,82 +23744,82 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                     >
                       <ol>
                         <li>
-                          <span
+                          <a
                             class="ant-breadcrumb-link"
+                            href="#/"
+                          />
+                          <a
+                            href="/"
                           >
-                            <a
-                              href="/"
-                            >
-                              主页
-                            </a>
-                          </span>
-                          <span
-                            class="ant-breadcrumb-separator"
-                          >
-                            /
-                          </span>
+                            主页
+                          </a>
+                        </li>
+                        <li
+                          aria-hidden="true"
+                          class="ant-breadcrumb-separator"
+                        >
+                          /
                         </li>
                         <li>
-                          <span
+                          <a
                             class="ant-breadcrumb-link"
+                            href="#//"
+                          />
+                          <a
+                            href="/"
                           >
-                            <a
-                              href="/"
-                            >
-                              测试页
-                            </a>
-                          </span>
-                          <span
-                            class="ant-breadcrumb-separator"
-                          >
-                            /
-                          </span>
+                            测试页
+                          </a>
+                        </li>
+                        <li
+                          aria-hidden="true"
+                          class="ant-breadcrumb-separator"
+                        >
+                          /
                         </li>
                         <li>
-                          <span
+                          <a
                             class="ant-breadcrumb-link"
+                            href="#///admin"
+                          />
+                          <a
+                            href="/admin"
                           >
-                            <a
-                              href="/admin"
-                            >
-                              管理
-                            </a>
-                          </span>
-                          <span
-                            class="ant-breadcrumb-separator"
-                          >
-                            /
-                          </span>
+                            管理
+                          </a>
+                        </li>
+                        <li
+                          aria-hidden="true"
+                          class="ant-breadcrumb-separator"
+                        >
+                          /
                         </li>
                         <li>
-                          <span
+                          <a
                             class="ant-breadcrumb-link"
+                            href="#///admin/admin/process"
+                          />
+                          <a
+                            href="/admin/process"
                           >
-                            <a
-                              href="/admin/process"
-                            >
-                              申请单列表
-                            </a>
-                          </span>
-                          <span
-                            class="ant-breadcrumb-separator"
-                          >
-                            /
-                          </span>
+                            申请单列表
+                          </a>
+                        </li>
+                        <li
+                          aria-hidden="true"
+                          class="ant-breadcrumb-separator"
+                        >
+                          /
                         </li>
                         <li>
-                          <span
+                          <a
                             class="ant-breadcrumb-link"
+                            href="#///admin/admin/process/admin/process/edit/123"
                           >
                             <span>
                               编辑申请单
                             </span>
-                          </span>
-                          <span
-                            class="ant-breadcrumb-separator"
-                          >
-                            /
-                          </span>
+                          </a>
                         </li>
                       </ol>
                     </nav>
@@ -24337,50 +24247,48 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                   >
                     <ol>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list"
+                        />
+                        <a
+                          href="/list"
                         >
-                          <a
-                            href="/list"
-                          >
-                            列表页
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page"
+                        />
+                        <a
+                          href="/list/sub-page"
                         >
-                          <a
-                            href="/list/sub-page"
-                          >
-                            列表页面
-                          </a>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                          列表页面
+                        </a>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
                       </li>
                       <li>
-                        <span
+                        <a
                           class="ant-breadcrumb-link"
+                          href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                         >
                           <span>
                             一一级列表页面
                           </span>
-                        </span>
-                        <span
-                          class="ant-breadcrumb-separator"
-                        >
-                          /
-                        </span>
+                        </a>
                       </li>
                     </ol>
                   </nav>

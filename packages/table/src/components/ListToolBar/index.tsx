@@ -10,7 +10,7 @@ import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
 import ResizeObserver from 'rc-resize-observer';
 import { useStyle } from './style';
-
+import { ConfigContext } from 'antd/lib/config-provider';
 export type ListToolBarSetting = {
   icon: React.ReactNode;
   tooltip?: LabelTooltipType | string;
@@ -148,7 +148,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   tabs = {},
   menu,
 }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
 
   const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
 

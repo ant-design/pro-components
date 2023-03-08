@@ -1,7 +1,7 @@
 import { FieldLabel, parseValueToDay } from '@ant-design/pro-utils';
 import { ConfigProvider, DatePicker, TimePicker } from 'antd';
 import dayjs from 'dayjs';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 // 兼容代码-----------
@@ -36,7 +36,8 @@ const FieldTimePicker: ProFieldFC<
   ref,
 ) => {
   const [open, setOpen] = useState<boolean>(false);
-  const size = useContext(ConfigProvider.SizeContext);
+  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const size = componentSize;
   const { hashId, prefixCls, wrapSSR } = useDatePickerStyle();
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
 

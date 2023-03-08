@@ -20,6 +20,8 @@ import { useStyle } from './style';
 import { useStylish } from './style/stylish';
 
 import 'antd/es/breadcrumb/style';
+import { ConfigContext } from 'antd/lib/config-provider';
+import type { NewBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -255,11 +257,11 @@ const memoRenderPageHeader = (
   };
 
   const { breadcrumb } = pageHeaderProps as {
-    breadcrumb: BreadcrumbProps;
+    breadcrumb: NewBreadcrumbProps;
   };
 
   const noHasBreadCrumb =
-    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) && !breadcrumbRender;
+    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.items?.length)) && !breadcrumbRender;
 
   if (
     ['title', 'subTitle', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
@@ -317,7 +319,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const { token } = useContext(ProProvider);
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
   const basePageContainer = `${prefixCls}-page-container`;

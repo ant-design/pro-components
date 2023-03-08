@@ -11,6 +11,7 @@ import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide
 import { ProHelpProvide } from './HelpProvide';
 import { useStyle } from './style';
 import { ProHelpSelect } from './Search';
+import { ConfigContext } from 'antd/lib/config-provider';
 
 export type { ProHelpDataSource, ProHelpDataSourceChildren };
 export { ProHelpProvide, ProHelpSelect };
@@ -186,7 +187,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   height,
   ...props
 }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-help');
   const { wrapSSR } = useStyle(className);
   const { dataSource } = useContext(ProHelpProvide);
@@ -367,7 +368,7 @@ export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
  * @param props 要传递给 ProHelpPanel 组件的属性。
  */
 export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-help');
   const { wrapSSR } = useStyle(className);
   return wrapSSR(

@@ -8,6 +8,7 @@ import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 // 兼容代码-----------
 import 'antd/es/radio/style';
+import { ConfigContext } from 'antd/lib/config-provider';
 //------------
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -24,7 +25,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   { radioType, renderFormItem, mode, render, ...rest },
   ref,
 ) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-radio');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const radioRef = useRef();

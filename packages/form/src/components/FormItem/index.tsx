@@ -232,7 +232,8 @@ export type ProFormItemProps = FormItemProps & {
 
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   /** 从 context 中拿到的值 */
-  const size = useContext(ConfigProvider.SizeContext);
+  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const size = componentSize;
   const {
     valueType,
     transform,

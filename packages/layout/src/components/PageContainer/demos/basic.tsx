@@ -13,18 +13,18 @@ export default () => (
         title: '页面标题',
         ghost: true,
         breadcrumb: {
-          routes: [
+          items: [
             {
               path: '',
-              breadcrumbName: '一级页面',
+              title: '一级页面',
             },
             {
               path: '',
-              breadcrumbName: '二级页面',
+              title: '二级页面',
             },
             {
               path: '',
-              breadcrumbName: '当前页面',
+              title: '当前页面',
             },
           ],
         },

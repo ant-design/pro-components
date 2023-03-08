@@ -1,14 +1,15 @@
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
-import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
+import type { AvatarProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
-import type { DirectionType } from 'antd/es/config-provider';
+import type { DirectionType } from 'antd/lib/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import * as React from 'react';
 import useStyle from './style/index';
 import type { ContentWidth } from '../../defaultSettings';
 import 'antd/es/breadcrumb/style';
+import type { LegacyBreadcrumbProps, NewBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -17,7 +18,7 @@ export interface PageHeaderProps {
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
   childrenContentStyle?: React.CSSProperties;
-  breadcrumb?: BreadcrumbProps | React.ReactElement<typeof Breadcrumb>;
+  breadcrumb?: Partial<NewBreadcrumbProps> | React.ReactElement<typeof Breadcrumb>;
   breadcrumbRender?: (props: PageHeaderProps, defaultDom: React.ReactNode) => React.ReactNode;
   tags?: React.ReactElement<TagType> | React.ReactElement<TagType>[];
   footer?: React.ReactNode;
@@ -55,8 +56,8 @@ const renderBack = (
   );
 };
 
-const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
-  if (!breadcrumb.routes?.length) return null;
+const renderBreadcrumb = (breadcrumb: NewBreadcrumbProps, prefixCls: string) => {
+  if (!breadcrumb.items?.length) return null;
   return (
     <Breadcrumb
       {...breadcrumb}
@@ -161,8 +162,17 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const getDefaultBreadcrumbDom = () => {
-    if ((breadcrumb as BreadcrumbProps)?.routes) {
-      return renderBreadcrumb(breadcrumb as BreadcrumbProps, prefixCls);
+    if (
+      breadcrumb &&
+      !(breadcrumb as NewBreadcrumbProps)?.items &&
+      (breadcrumb as unknown as LegacyBreadcrumbProps)?.routes
+    ) {
+      // @ts-ignore
+      breadcrumb.items = breadcrumb.routes;
+    }
+
+    if ((breadcrumb as NewBreadcrumbProps)?.items) {
+      return renderBreadcrumb(breadcrumb as NewBreadcrumbProps, prefixCls);
     }
     return null;
   };
@@ -170,6 +180,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const defaultBreadcrumbDom = getDefaultBreadcrumbDom();
 
   const isBreadcrumbComponent = breadcrumb && 'props' in breadcrumb;
+
   // support breadcrumbRender function
   const breadcrumbRenderDomFromProps =
     breadcrumbRender?.({ ...props, prefixCls }, defaultBreadcrumbDom) ?? defaultBreadcrumbDom;

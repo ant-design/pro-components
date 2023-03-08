@@ -22,6 +22,7 @@ import {
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
+import { ConfigContext } from 'antd/lib/config-provider';
 import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
@@ -74,6 +75,15 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    * @example onFinish={async (values) => { await save(values); return true }}
    */
   onFinish?: (formData: T) => Promise<boolean | void>;
+  /**
+   * @name 表单按钮的 loading 状态
+   */
+  loading?: boolean;
+  /**
+   * @name 这是一个可选的属性(onLoadingChange)，它接受一个名为loading的参数，类型为boolean，表示加载状态是否改变。
+   * 当loading状态发生变化时，将会调用一个函数，这个函数接受这个loading状态作为参数，并且没有返回值(void)。
+   */
+  onLoadingChange?: (loading: boolean) => void;
 
   /**
    * @name 获取 ProFormInstance
@@ -253,7 +263,7 @@ function BaseFormComponents<T = Record<string, any>>(
    */
   const formInstance = Form.useFormInstance();
 
-  const sizeContextValue = useContext(ConfigProvider.SizeContext);
+  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
 
   /** 同步 url 上的参数 */
   const formRef = useRef<ProFormInstance<any>>((form || formInstance) as any);
@@ -431,7 +441,7 @@ function BaseFormComponents<T = Record<string, any>>(
 
   return (
     <ProFormContext.Provider value={formatValues}>
-      <ConfigProvider.SizeContext.Provider value={rest.size || sizeContextValue}>
+      <ConfigProvider componentSize={rest.size || componentSize}>
         <GridContext.Provider value={{ grid, colProps }}>
           {rest.component !== false && (
             <input
@@ -443,7 +453,7 @@ function BaseFormComponents<T = Record<string, any>>(
           )}
           {content}
         </GridContext.Provider>
-      </ConfigProvider.SizeContext.Provider>
+      </ConfigProvider>
     </ProFormContext.Provider>
   );
 }
@@ -479,10 +489,16 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     initialValues,
     formKey = requestFormCacheId,
     readonly,
+    onLoadingChange,
+    loading: propsLoading,
     ...propRest
   } = props;
   const formRef = useRef<ProFormInstance<any>>({} as any);
-  const [loading, setLoading] = useMountMergeState<boolean>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false, {
+    onChange: onLoadingChange,
+    value: propsLoading,
+  });
+
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
   const curFormKey = useRef<string>(nanoid());
 
@@ -495,7 +511,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     proFieldKey: formKey,
   });
 
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   // css
   const { wrapSSR, hashId } = useStyle('ProForm', (token) => {
@@ -611,7 +627,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     try {
       const finalValues = formRef?.current?.getFieldsFormatValue?.();
       await propRest.onFinish(finalValues);
-
       if (syncToUrl) {
         // 把没有的值设置为未定义可以删掉 url 的参数
         const syncToUrlParams = Object.keys(

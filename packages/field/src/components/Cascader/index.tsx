@@ -8,7 +8,7 @@ import React, { useContext, useImperativeHandle, useMemo, useRef, useState } fro
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
-
+import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
 import 'antd/es/cascader/style';
 //----------------------
@@ -28,12 +28,13 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   { radioType, renderFormItem, mode, render, label, light, ...rest },
   ref,
 ) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
   const layoutClassName = getPrefixCls('pro-field-cascader');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
   const cascaderRef = useRef();
-  const size = useContext(ConfigProvider.SizeContext);
+  const size = componentSize;
   const [open, setOpen] = useState(false);
 
   useImperativeHandle(ref, () => ({
