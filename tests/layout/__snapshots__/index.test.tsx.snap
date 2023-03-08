@@ -19,7 +19,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
           style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
           style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
@@ -434,7 +434,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -668,7 +668,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
           style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
           style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
@@ -888,7 +888,7 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
           style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
           style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
@@ -1110,7 +1110,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
           style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
@@ -1332,7 +1332,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
           />
           <aside
-            class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
+            class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
             style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
           >
             <div

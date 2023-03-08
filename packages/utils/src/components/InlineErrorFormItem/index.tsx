@@ -78,7 +78,6 @@ const InlineErrorFormItemPopover: React.FC<{
 };
 
 const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
-  label,
   rules,
   name,
   children,
