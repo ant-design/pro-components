@@ -13,6 +13,7 @@ import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
+import { waitTime } from '../../tests/util';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -341,113 +342,131 @@ describe('LightFilter', () => {
     jest.useRealTimers();
   });
 
-  // it(' 🪕 DateRangePicker', async () => {
-  //   const onFinish = jest.fn();
+  it(' 🪕 DateRangePicker', async () => {
+    const onFinish = jest.fn();
+    const onOpenChange = jest.fn();
+    const onLoadingChange = jest.fn();
+    const { baseElement, container } = render(
+      <LightFilter
+        onFinish={async (e) => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              onFinish(e);
+              resolve(true);
+            }, 1000);
+          });
+        }}
+        onLoadingChange={(e) => {
+          onLoadingChange(e);
+        }}
+      >
+        <ProFormDateRangePicker
+          name="date"
+          fieldProps={{
+            onOpenChange(open) {
+              onOpenChange(open);
+            },
+          }}
+          label="日期范围"
+        />
+      </LightFilter>,
+    );
 
-  //   jest.useFakeTimers();
-  //   const { baseElement, container, unmount } = render(
-  //     <LightFilter onFinish={onFinish}>
-  //       <ProFormDateRangePicker name="date" label="日期范围" />
-  //     </LightFilter>,
-  //   );
+    await screen.findAllByText('日期范围');
 
-  //   await screen.findAllByText('日期范围');
+    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('日期范围');
 
-  //   expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('日期范围');
+    await act(async () => {
+      userEvent.click(await screen.findByText('日期范围'));
+    });
 
-  //   await act(async () => {
-  //     userEvent.click(await screen.findByText('日期范围'));
-  //   });
+    await screen.findAllByPlaceholderText('请选择');
 
-  //   act(() => {
-  //     jest.runOnlyPendingTimers();
-  //   });
+    act(() => {
+      userEvent.click(screen.getAllByPlaceholderText('请选择')[0]?.parentElement!);
+    });
 
-  //   await screen.findAllByPlaceholderText('请选择');
+    await waitFor(
+      () => {
+        expect(onOpenChange).toBeCalledWith(true);
+      },
+      {
+        timeout: 2000,
+      },
+    );
 
-  //   act(() => {
-  //     userEvent.click(screen.getAllByPlaceholderText('请选择')[0]?.parentElement!);
-  //   });
-  //   act(() => {
-  //     jest.runOnlyPendingTimers();
-  //   });
+    // 随便找个日期，等日期存在了
+    await screen.findAllByText('12');
 
-  //   act(() => {
-  //     userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
-  //   });
+    act(() => {
+      userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
+    });
 
-  //   act(() => {
-  //     userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
-  //   });
+    act(() => {
+      userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
+    });
 
-  //   act(() => {
-  //     jest.runOnlyPendingTimers();
-  //   });
+    await waitFor(
+      () => {
+        expect(onOpenChange).toBeCalledWith(false);
+      },
+      {
+        timeout: 1000,
+      },
+    );
 
-  //   await screen.findByText('确 认');
-  //   await act(async () => {
-  //     userEvent.click(await screen.findByText('确 认'));
-  //   });
+    await act(async () => {
+      userEvent.click(
+        await baseElement.querySelector('.ant-pro-core-dropdown-footer .ant-btn-primary')!,
+      );
+    });
 
-  //   act(() => {
-  //     jest.runOnlyPendingTimers();
-  //   });
+    await waitFor(() => {
+      expect(onLoadingChange).toBeCalledWith(true);
+    });
 
-  //   await screen.findAllByText('2016-11-01 ~ 2016-11-11');
+    await waitFor(
+      () => {
+        expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
+      },
+      {
+        timeout: 2000,
+      },
+    );
 
-  //   await waitFor(() => {
-  //     expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toMatchSnapshot();
-  //     expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
-  //   });
+    await waitFor(() => {
+      expect(onLoadingChange).toBeCalledWith(false);
+    });
 
-  //   act(async () => {
-  //     userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
-  //   });
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toBe(
+        '日期范围: 2016-11-01 ~ 2016-11-11',
+      );
+    });
 
-  //   act(() => {
-  //     jest.runOnlyPendingTimers();
-  //   });
+    await act(async () => {
+      userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+    });
 
-  //   await waitFor(() => {
-  //     expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual('日期范围');
-  //   });
-  //   act(() => {
-  //     // 测试第二次再打开的情况
-  //     userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
-  //   });
-  //   act(() => {
-  //     userEvent.click(screen.getAllByPlaceholderText('请选择')[0]);
-  //   });
+    await waitFor(() => {
+      expect(onLoadingChange).toBeCalledWith(true);
+    });
 
-  //   act(() => {
-  //     jest.runOnlyPendingTimers();
-  //   });
+    await waitFor(
+      () => {
+        expect(onLoadingChange).toBeCalledWith(false);
+      },
+      {
+        timeout: 2000,
+      },
+    );
 
-  //   act(() => {
-  //     userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
-  //   });
-  //   act(() => {
-  //     userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
-  //   });
+    await waitTime(1000);
 
-  //   act(() => {
-  //     jest.runOnlyPendingTimers();
-  //   });
-
-  //   act(async () => {
-  //     userEvent.click(await screen.findByText('确 认'));
-  //   });
-
-  //   act(() => {
-  //     jest.runOnlyPendingTimers();
-  //   });
-
-  //   await waitFor(() => {
-  //     expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toMatchSnapshot();
-  //   });
-  //   jest.useRealTimers();
-  //   unmount();
-  // });
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toBe('日期范围');
+    });
+  });
 
   it(' 🪕 DateTimePicker', async () => {
     const onFinish = jest.fn();

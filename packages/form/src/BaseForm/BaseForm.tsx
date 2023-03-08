@@ -75,6 +75,15 @@ export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = 
    * @example onFinish={async (values) => { await save(values); return true }}
    */
   onFinish?: (formData: T) => Promise<boolean | void>;
+  /**
+   * @name 表单按钮的 loading 状态
+   */
+  loading?: boolean;
+  /**
+   * @name 这是一个可选的属性(onLoadingChange)，它接受一个名为loading的参数，类型为boolean，表示加载状态是否改变。
+   * 当loading状态发生变化时，将会调用一个函数，这个函数接受这个loading状态作为参数，并且没有返回值(void)。
+   */
+  onLoadingChange?: (loading: boolean) => void;
 
   /**
    * @name 获取 ProFormInstance
@@ -480,10 +489,16 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     initialValues,
     formKey = requestFormCacheId,
     readonly,
+    onLoadingChange,
+    loading: propsLoading,
     ...propRest
   } = props;
   const formRef = useRef<ProFormInstance<any>>({} as any);
-  const [loading, setLoading] = useMountMergeState<boolean>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false, {
+    onChange: onLoadingChange,
+    value: propsLoading,
+  });
+
   const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
   const curFormKey = useRef<string>(nanoid());
 
@@ -612,7 +627,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     try {
       const finalValues = formRef?.current?.getFieldsFormatValue?.();
       await propRest.onFinish(finalValues);
-
       if (syncToUrl) {
         // 把没有的值设置为未定义可以删掉 url 的参数
         const syncToUrlParams = Object.keys(
