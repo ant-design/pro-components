@@ -383,7 +383,7 @@ describe('LightFilter', () => {
     await screen.findAllByPlaceholderText('请选择');
 
     act(() => {
-      userEvent.click(screen.getAllByPlaceholderText('请选择')[0]?.parentElement!);
+      userEvent.click(screen.getAllByPlaceholderText('请选择')[0]!.parentElement!);
     });
 
     await waitFor(
