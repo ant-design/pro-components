@@ -90,15 +90,15 @@ async function release() {
         )
       : [];
 
+    const major = args.major ? ['major'] : [];
+    const minor = args.minor ? ['minor'] : [];
     await exec(
       'node',
       [
         [lernaCli],
         'version',
-        '--exact',
-        // '--no-commit-hooks',
-        // '--no-git-tag-version',
-        // '--no-push',
+        ...major,
+        ...minor,
         '--message',
         '🎨 chore(release): Publish',
         '--conventional-commits',
