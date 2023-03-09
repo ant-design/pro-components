@@ -70,7 +70,7 @@ export interface SearchSelectProps<T = Record<string, any>>
   prefixCls?: string;
 
   /** 刷新数据 */
-  fetchData: (keyWord: string) => void;
+  fetchData: (keyWord?: string) => void;
 
   /** 清空数据 */
   resetData: () => void;
@@ -81,6 +81,9 @@ export interface SearchSelectProps<T = Record<string, any>>
    * @default true
    */
   fetchDataOnSearch?: boolean;
+
+  /** 默认搜索关键词 */
+  defaultSearchValue?: string;
 }
 
 const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
@@ -106,6 +109,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     searchValue: propsSearchValue,
     showSearch,
     fieldNames,
+    defaultSearchValue,
     ...restProps
   } = props;
 
@@ -115,7 +119,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     options: optionsPropsName = 'options',
   } = fieldNames || {};
 
-  const [searchValue, setSearchValue] = useState(propsSearchValue);
+  const [searchValue, setSearchValue] = useState(propsSearchValue ?? defaultSearchValue);
 
   const selectRef = useRef<any>();
 
@@ -205,7 +209,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       optionLabelProp={optionLabelProp}
       onClear={() => {
         onClear?.();
-        fetchData('');
+        fetchData(undefined);
         if (showSearch) {
           setSearchValue(undefined);
         }
@@ -225,7 +229,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && autoClearSearchValue) {
-          fetchData('');
+          fetchData(undefined);
           onSearch?.('');
           setSearchValue(undefined);
         }
@@ -255,7 +259,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       }}
       onFocus={(e) => {
         if (searchOnFocus) {
-          fetchData('');
+          fetchData(searchValue);
         }
         onFocus?.(e);
       }}
