@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.6.0...@ant-design/pro-utils@2.7.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* **layout:** fix menu item icon style error ([#6745](https://github.com/ant-design/pro-components/issues/6745)) ([87f9656](https://github.com/ant-design/pro-components/commit/87f965682e81d9ce166d140dd418a37a6020abcf))
+
+
+
+
 
 # [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.5.9...@ant-design/pro-utils@2.6.0) (2023-03-08)
 

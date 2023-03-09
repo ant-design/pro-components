@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.5.0...@ant-design/pro-provider@2.6.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* **layout:** fix colorBgPageContainerFixed no use colorBgElevated error ([712bc82](https://github.com/ant-design/pro-components/commit/712bc820fccb8f4db481d96918430696b9a62f54))
+* **layout:** fix menu item icon style error ([#6745](https://github.com/ant-design/pro-components/issues/6745)) ([87f9656](https://github.com/ant-design/pro-components/commit/87f965682e81d9ce166d140dd418a37a6020abcf))
+
+
+
+
 
 # [2.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.4.3...@ant-design/pro-provider@2.5.0) (2023-03-08)
 

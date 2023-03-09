@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.9.0...@ant-design/pro-layout@7.10.0) (2023-03-09)
+
+
+### Bug Fixes
+
+* **layout:** fix menu item icon style error ([#6745](https://github.com/ant-design/pro-components/issues/6745)) ([87f9656](https://github.com/ant-design/pro-components/commit/87f965682e81d9ce166d140dd418a37a6020abcf))
+* **layout:** fix sider menu Drawer  onCollapse no work error ([7d638f4](https://github.com/ant-design/pro-components/commit/7d638f4c519c412503b021e07848243e940f1145))
+
+
+
+
 
 # [7.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.8.3...@ant-design/pro-layout@7.9.0) (2023-03-08)
 
