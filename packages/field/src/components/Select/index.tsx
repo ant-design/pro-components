@@ -31,7 +31,7 @@ import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
-
+import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
 import 'antd/es/select/style';
 //------------
@@ -132,7 +132,7 @@ const Highlight: React.FC<{
   label: string;
   words: string[];
 }> = ({ label, words }) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const lightCls = getPrefixCls('pro-select-item-option-content-light');
   const optionCls = getPrefixCls('pro-select-item-option-content');
 
@@ -487,7 +487,7 @@ const FieldSelect: ProFieldFC<
   }, [fieldProps?.searchValue]);
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
-  const size = useContext(ConfigProvider.SizeContext);
+  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: (keyWord: string) => fetchData(keyWord),
@@ -547,7 +547,7 @@ const FieldSelect: ProFieldFC<
             loading={loading}
             ref={inputRef}
             allowClear
-            size={size}
+            size={componentSize}
             options={options}
             label={label}
             placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}

@@ -3,6 +3,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider, Space } from 'antd';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
+import { ConfigContext } from 'antd/lib/config-provider';
 
 export type AlertRenderType<T> =
   | ((props: {
@@ -56,7 +57,7 @@ function TableAlert<T>({
       intl,
     });
 
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-alert');
   const { wrapSSR, hashId } = useStyle(className);
   if (alertInfoRender === false) {

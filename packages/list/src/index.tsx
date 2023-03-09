@@ -13,6 +13,7 @@ import { ProConfigProvider } from '@ant-design/pro-provider';
 
 // 兼容性代码
 import 'antd/es/list/style';
+import { ConfigContext } from 'antd/lib/config-provider';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
@@ -117,7 +118,7 @@ function NoProVideProList<
 
   useImperativeHandle(rest.actionRef, () => actionRef.current);
 
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
 
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
     const columns: ProColumnType<RecordType>[] = [];

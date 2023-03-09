@@ -54,6 +54,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                   >
                     <div
                       class="ant-progress-outer"
+                      style="width: 100%; height: 6px;"
                     >
                       <div
                         class="ant-progress-inner"
@@ -96,6 +97,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                   >
                     <div
                       class="ant-progress-outer"
+                      style="width: 100%; height: 6px;"
                     >
                       <div
                         class="ant-progress-inner"
@@ -159,6 +161,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                   >
                     <div
                       class="ant-progress-outer"
+                      style="width: 100%; height: 6px;"
                     >
                       <div
                         class="ant-progress-inner"

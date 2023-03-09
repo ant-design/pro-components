@@ -15,6 +15,7 @@ import { TopNavHeader } from '../TopNavHeader';
 import { ActionsContent as ActionsContent } from './ActionsContent';
 import { useStyle } from './style';
 import type { AppListProps, AppItemProps } from '../AppsLogoComponents/types';
+import { ConfigContext } from 'antd/lib/config-provider';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -98,8 +99,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     menuData,
     prefixCls,
   } = props;
-  const { direction } = useContext(ConfigProvider.ConfigContext);
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, direction } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls || getPrefixCls('pro')}-global-header`;
 
   const { wrapSSR, hashId } = useStyle(baseClassName);

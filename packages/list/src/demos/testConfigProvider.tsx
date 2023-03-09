@@ -19,7 +19,7 @@ export default () => {
   };
 
   return (
-    <ConfigProvider prefixCls="qixian-pro">
+    <ConfigProvider prefixCls="qixian">
       <ProList<{ title: string }>
         metas={{
           title: {},

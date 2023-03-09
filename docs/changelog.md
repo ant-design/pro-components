@@ -1,4 +1,17 @@
-﻿## @ant-design/pro-components@2.3.58
+﻿## @ant-design/pro-components@2.3.59
+
+`2023-03-08`
+
+- feat(components): support antd@5.4.0 (#6730). [#6730](https://github.com/ant-design/pro-components/pull/#6730) [@chenshuai2144](https://github.com/chenshuai2144)
+- chore(layout):change == to === (#6735). [#6735](https://github.com/ant-design/pro-components/pull/#6735) [@dingxyang](https://github.com/dingxyang)
+- fix(layout): siderMenu 中的 subMenu 在 dark 模式下显示不正常 (#6721). [#6721](https://github.com/ant-design/pro-components/pull/#6721) [@crazyurus](https://github.com/crazyurus)
+- fix(layout): avatarProps not work when actionsRender is falsy (#6695). [#6695](https://github.com/ant-design/pro-components/pull/#6695) [@xliez](https://github.com/xliez)
+- feat(layout): add ProHelp components (#6654). [#6654](https://github.com/ant-design/pro-components/pull/#6654) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): 修复 label 属性没有传值的问题 (#6728). [#6728](https://github.com/ant-design/pro-components/pull/#6728) [@hans000](https://github.com/hans000)
+- fix(form): lightSelect 默认转小写 #6692 (#6696). [#6696](https://github.com/ant-design/pro-components/pull/#6696) [@XueMeijing](https://github.com/XueMeijing)
+- fix(table): 修复 maxLength 选项配置为 0 时逻辑不符合预期的问题 (#6719). [#6719](https://github.com/ant-design/pro-components/pull/#6719) [@hans000](https://github.com/hans000)
+
+## @ant-design/pro-components@2.3.58
 
 `2023-02-28`
 

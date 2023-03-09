@@ -20,7 +20,7 @@ const TimeRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> = React
         filedConfig={
           {
             valueType: 'timeRange',
-            lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
+            lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:ss'),
           } as const
         }
         {...rest}

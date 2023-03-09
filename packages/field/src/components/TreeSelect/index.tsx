@@ -7,7 +7,7 @@ import React, { useContext, useImperativeHandle, useMemo, useRef, useState } fro
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
-
+import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
 import 'antd/es/spin/style';
 import 'antd/es/tree-select/style';
@@ -35,7 +35,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   { radioType, renderFormItem, mode, light, label, render, fetchDataOnSearch = true, ...rest },
   ref,
 ) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-tree-select');
   const treeSelectRef = useRef(null);
   const [open, setOpen] = useState(false);
@@ -54,7 +54,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   } = rest.fieldProps as TreeSelectProps<any> & {
     fetchDataOnSearch?: boolean;
   };
-  const size = useContext(ConfigProvider.SizeContext);
+  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const size = componentSize;
   const intl = useIntl();
 
   const [loading, options, fetchData] = useFieldFetchData({

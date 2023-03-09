@@ -1,4 +1,5 @@
 import { ConfigProvider } from 'antd';
+import { ConfigContext } from 'antd/lib/config-provider';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext } from 'react';
@@ -24,7 +25,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const value = useContext(RouteContext);
   const { children, contentWidth: propsContentWidth, className: propsClassName, style } = props;
 
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
   const contentWidth = propsContentWidth || value.contentWidth;
   const className = `${prefixCls}-grid-content`;

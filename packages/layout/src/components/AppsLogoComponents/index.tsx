@@ -92,7 +92,7 @@ export const AppsLogoComponents: React.FC<{
         placement="bottomRight"
         trigger={['click']}
         zIndex={9999}
-        arrowPointAtCenter
+        arrow={false}
         {...popoverOpenProps}
         overlayClassName={`${baseClassName}-popover ${hashId}`}
         content={popoverContent}

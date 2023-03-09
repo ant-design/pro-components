@@ -39,7 +39,7 @@ const RoutesPlugin = (api: IApi) => {
   // add ssr css file to html
   api.modifyConfig((memo) => {
     memo.styles ??= [];
-    memo.styles.push(`/${ssrCssFileName}`);
+    memo.styles.push(`${memo.publicPath ?? '/'}${ssrCssFileName}`);
     return memo;
   });
 

@@ -13,6 +13,7 @@ import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
+import { waitTime } from '../../tests/util';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -343,36 +344,128 @@ describe('LightFilter', () => {
 
   it(' 🪕 DateRangePicker', async () => {
     const onFinish = jest.fn();
-    const { baseElement, container, unmount } = render(
-      <LightFilter onFinish={onFinish}>
-        <ProFormDateRangePicker name="date" label="日期范围" />
+    const onOpenChange = jest.fn();
+    const onLoadingChange = jest.fn();
+    const { baseElement, container } = render(
+      <LightFilter
+        onFinish={async (e) => {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              onFinish(e);
+              resolve(true);
+            }, 1000);
+          });
+        }}
+        onLoadingChange={(e) => {
+          onLoadingChange(e);
+        }}
+      >
+        <ProFormDateRangePicker
+          name="date"
+          fieldProps={{
+            onOpenChange(open) {
+              onOpenChange(open);
+            },
+          }}
+          label="日期范围"
+        />
       </LightFilter>,
     );
 
+    await screen.findAllByText('日期范围');
+
     expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('日期范围');
 
-    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
-    await userEvent.click(screen.getAllByPlaceholderText('请选择')[0]);
-    await userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
-    await userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
-    await userEvent.click(await screen.findByText('确 认'));
+    await act(async () => {
+      userEvent.click(await screen.findByText('日期范围'));
+    });
 
-    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toMatchSnapshot();
-    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
+    await screen.findAllByPlaceholderText('请选择');
 
-    await userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+    act(() => {
+      userEvent.click(screen.getAllByPlaceholderText('请选择')[0]!.parentElement!);
+    });
 
-    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual('日期范围');
+    await waitFor(
+      () => {
+        expect(onOpenChange).toBeCalledWith(true);
+      },
+      {
+        timeout: 2000,
+      },
+    );
 
-    // 测试第二次再打开的情况
-    await userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
-    await userEvent.click(screen.getAllByPlaceholderText('请选择')[0]);
-    await userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
-    await userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
-    await userEvent.click(await screen.findByText('确 认'));
+    // 随便找个日期，等日期存在了
+    await screen.findAllByText('12');
 
-    expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toMatchSnapshot();
-    unmount();
+    act(() => {
+      userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
+    });
+
+    act(() => {
+      userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
+    });
+
+    await waitFor(
+      () => {
+        expect(onOpenChange).toBeCalledWith(false);
+      },
+      {
+        timeout: 1000,
+      },
+    );
+
+    await act(async () => {
+      userEvent.click(
+        await baseElement.querySelector('.ant-pro-core-dropdown-footer .ant-btn-primary')!,
+      );
+    });
+
+    await waitFor(() => {
+      expect(onLoadingChange).toBeCalledWith(true);
+    });
+
+    await waitFor(
+      () => {
+        expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
+      },
+      {
+        timeout: 2000,
+      },
+    );
+
+    await waitFor(() => {
+      expect(onLoadingChange).toBeCalledWith(false);
+    });
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toBe(
+        '日期范围: 2016-11-01 ~ 2016-11-11',
+      );
+    });
+
+    await act(async () => {
+      userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+    });
+
+    await waitFor(() => {
+      expect(onLoadingChange).toBeCalledWith(true);
+    });
+
+    await waitFor(
+      () => {
+        expect(onLoadingChange).toBeCalledWith(false);
+      },
+      {
+        timeout: 2000,
+      },
+    );
+
+    await waitTime(1000);
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toBe('日期范围');
+    });
   });
 
   it(' 🪕 DateTimePicker', async () => {
@@ -656,12 +749,13 @@ describe('LightFilter', () => {
     );
 
     await wrapper.findByText('名称');
+
     act(() => {
       wrapper.baseElement
         .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-dropdown-label')[0]
         .click?.();
     });
-
+    await wrapper.findByText('名称');
     expect(
       !!wrapper.baseElement.querySelector('.ant-pro-core-field-dropdown-overlay-bottomLeft'),
     ).toBeTruthy();

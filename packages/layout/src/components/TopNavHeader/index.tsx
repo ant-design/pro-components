@@ -1,5 +1,6 @@
 import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
+import { ConfigContext } from 'antd/lib/config-provider';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useRef } from 'react';
 import { AppsLogoComponents } from '../AppsLogoComponents';
@@ -28,7 +29,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => 
     layout,
     actionsRender,
   } = props;
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
   const { dark, token } = useContext(ProProvider);
 
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
