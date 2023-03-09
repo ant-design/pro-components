@@ -4,7 +4,6 @@ import { ProProvider } from '@ant-design/pro-provider';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
 import type { MenuProps } from 'antd';
 import { Menu, Skeleton } from 'antd';
-import { theme as antdTheme } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';

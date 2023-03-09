@@ -5,9 +5,9 @@ import { ConfigContext } from 'antd/lib/config-provider';
 import { theme as antdTheme } from 'antd';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import type React from 'react';
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import { ProProvider } from '../index';
-import { ProTokenType } from '../typing/layoutToken';
+import type { ProTokenType } from '../typing/layoutToken';
 import type { GlobalToken } from 'antd/lib/theme/interface';
 import * as batToken from './token';
 
