@@ -455,7 +455,8 @@ export const useFieldFetchData = (
  * @param
  */
 const FieldSelect: ProFieldFC<
-  FieldSelectProps & Pick<SelectProps, 'fieldNames' | 'style' | 'className'>
+  FieldSelectProps &
+    Pick<SelectProps, 'fieldNames' | 'style' | 'className'> & { defaultKeyWords?: string }
 > = (props, ref) => {
   const {
     mode,
@@ -570,7 +571,7 @@ const FieldSelect: ProFieldFC<
           loading={loading}
           ref={inputRef}
           allowClear
-          defaultSearchValue={(props as any).defaultKeyWords}
+          defaultSearchValue={props.defaultKeyWords}
           notFoundContent={loading ? <Spin size="small" /> : fieldProps?.notFoundContent}
           fetchData={(keyWord) => {
             keyWordsRef.current = keyWord ?? '';

@@ -119,7 +119,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     options: optionsPropsName = 'options',
   } = fieldNames || {};
 
-  const [searchValue, setSearchValue] = useState(propsSearchValue);
+  const [searchValue, setSearchValue] = useState(propsSearchValue ?? defaultSearchValue);
 
   const selectRef = useRef<any>();
 
@@ -209,9 +209,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       optionLabelProp={optionLabelProp}
       onClear={() => {
         onClear?.();
-        fetchData(defaultSearchValue);
+        fetchData(undefined);
         if (showSearch) {
-          setSearchValue(defaultSearchValue);
+          setSearchValue(undefined);
         }
       }}
       {...restProps}
@@ -229,9 +229,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
         if (showSearch && autoClearSearchValue) {
-          fetchData(defaultSearchValue);
-          onSearch?.(defaultSearchValue ?? '');
-          setSearchValue(defaultSearchValue);
+          fetchData(undefined);
+          onSearch?.('');
+          setSearchValue(undefined);
         }
 
         if (!props.labelInValue) {
@@ -259,7 +259,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       }}
       onFocus={(e) => {
         if (searchOnFocus) {
-          fetchData('');
+          fetchData(searchValue);
         }
         onFocus?.(e);
       }}
