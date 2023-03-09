@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.4.0...@ant-design/pro-field@2.5.0) (2023-03-09)
 
-
 ### Bug Fixes
 
-* **form:** Select request not trigger twice when keywords not change … ([#6717](https://github.com/ant-design/pro-components/issues/6717)) ([7828d57](https://github.com/ant-design/pro-components/commit/7828d579cdb74761224347a145b989783f268606)), closes [#6716](https://github.com/ant-design/pro-components/issues/6716) [#6716](https://github.com/ant-design/pro-components/issues/6716)
-* **layout:** fix menu item icon style error ([#6745](https://github.com/ant-design/pro-components/issues/6745)) ([87f9656](https://github.com/ant-design/pro-components/commit/87f965682e81d9ce166d140dd418a37a6020abcf))
-
-
-
-
+- **form:** Select request not trigger twice when keywords not change … ([#6717](https://github.com/ant-design/pro-components/issues/6717)) ([7828d57](https://github.com/ant-design/pro-components/commit/7828d579cdb74761224347a145b989783f268606)), closes [#6716](https://github.com/ant-design/pro-components/issues/6716) [#6716](https://github.com/ant-design/pro-components/issues/6716)
+- **layout:** fix menu item icon style error ([#6745](https://github.com/ant-design/pro-components/issues/6745)) ([87f9656](https://github.com/ant-design/pro-components/commit/87f965682e81d9ce166d140dd418a37a6020abcf))
 
 # [2.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.3.0...@ant-design/pro-field@2.4.0) (2023-03-08)
 

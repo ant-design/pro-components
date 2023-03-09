@@ -1,4 +1,13 @@
-﻿## @ant-design/pro-components@2.3.59
+﻿## @ant-design/pro-components@2.4.0
+
+`2023-03-09`
+
+- fix(layout): fix menu item icon style error (#6745). [#6745](https://github.com/ant-design/pro-components/pull/#6745) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(layout): fix colorBgPageContainerFixed no use colorBgElevated error. [712bc82](https://github.com/ant-design/pro-components/commit/712bc82)
+- fix(layout): fix sider menu Drawer onCollapse no work error. [7d638f4](https://github.com/ant-design/pro-components/commit/7d638f4)
+- fix(form): Select request not trigger twice when keywords not change … (#6717). [#6717](https://github.com/ant-design/pro-components/pull/#6717) [@zd5043039119](https://github.com/zd5043039119)
+
+## @ant-design/pro-components@2.3.59
 
 `2023-03-08`
 
