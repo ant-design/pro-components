@@ -4,7 +4,7 @@ import type {
   BreadcrumbItemType,
   ItemType,
   NewBreadcrumbProps as AntdBreadcrumbProps,
-} from 'antd/es/breadcrumb/Breadcrumb';
+} from 'antd/lib/breadcrumb/Breadcrumb';
 import type H from 'history';
 import pathToRegexp from 'path-to-regexp';
 import type { ProSettings } from '../defaultSettings';
@@ -42,7 +42,17 @@ const defaultItemRender: AntdBreadcrumbProps['itemRender'] = (route, _, routes) 
   return last ? (
     <span>{title || breadcrumbName}</span>
   ) : (
-    <a href={path}>{title || breadcrumbName}</a>
+    <span
+      onClick={
+        path
+          ? () => {
+              location.href = path;
+            }
+          : undefined
+      }
+    >
+      {title || breadcrumbName}
+    </span>
   );
 };
 

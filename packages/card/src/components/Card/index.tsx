@@ -3,7 +3,7 @@ import { LabelIconTip } from '@ant-design/pro-utils';
 import { ConfigProvider, Grid, Tabs } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext } from 'react';
 import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';

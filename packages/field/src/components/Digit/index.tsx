@@ -5,7 +5,7 @@ import omit from 'omit.js';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/input-number/style';
+import 'antd/lib/input-number/style';
 import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 

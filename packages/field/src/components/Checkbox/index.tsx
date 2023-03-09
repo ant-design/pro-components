@@ -1,6 +1,6 @@
 ﻿import { useStyle } from '@ant-design/pro-utils';
 import { Checkbox, ConfigProvider, Space, Spin } from 'antd';
-import type { CheckboxGroupProps } from 'antd/es/checkbox';
+import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
@@ -12,7 +12,7 @@ export type GroupProps = {
 } & FieldSelectProps;
 import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
-import 'antd/es/checkbox/style';
+import 'antd/lib/checkbox/style';
 //----------------------
 /**
  * 多选组件

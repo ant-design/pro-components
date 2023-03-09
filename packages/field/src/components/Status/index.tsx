@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react';
 import React from 'react';
 
 // 兼容代码-----------
-import 'antd/es/badge/style';
+import 'antd/lib/badge/style';
 //------------
 
 type StatusProps = {

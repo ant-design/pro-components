@@ -6,7 +6,6 @@ export interface ProLayoutBaseMenuToken extends ProAliasToken {
 }
 
 const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token) => {
-  console.log(token.Menu);
   return {
     [`${token.componentCls}`]: {
       background: 'transparent',
@@ -58,12 +57,21 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 4,
+        gap: 8,
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
           width: 35,
           height: 35,
+          [`${token.componentCls}-item-icon`]: {
+            height: '16px',
+            width: '16px',
+            lineHeight: '16px !important',
+            '.anticon': {
+              lineHeight: '16px',
+              height: '16px',
+            },
+          },
           [`${token.componentCls}-item-text`]: {
             maxWidth: '100%',
           },
@@ -83,6 +91,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
             display: 'flex',
             [`${token.componentCls}-item-icon`]: {
               height: '16px',
+              width: '16px',
               lineHeight: '16px !important',
               '.anticon': {
                 lineHeight: '16px',

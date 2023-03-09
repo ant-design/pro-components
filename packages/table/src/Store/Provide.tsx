@@ -1,6 +1,6 @@
 ﻿import type { TableColumnType } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
-import { noteOnce } from 'rc-util/es/warning';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { noteOnce } from 'rc-util/lib/warning';
 import { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { DensitySize } from '../components/ToolBar/DensityIcon';
 import type { ProTableProps } from '../index';

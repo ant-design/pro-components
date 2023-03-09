@@ -1,8 +1,8 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import { ConfigContext } from 'antd/es/config-provider';
-import zh_CN from 'antd/es/locale/zh_CN';
+import { ConfigContext } from 'antd/lib/config-provider';
+import zh_CN from 'antd/lib/locale/zh_CN';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import type { IntlType } from './intl';

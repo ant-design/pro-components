@@ -3,7 +3,7 @@ import React, { useContext, useImperativeHandle } from 'react';
 import type { ProFieldFC } from '../../index';
 import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
-import 'antd/es/space/style';
+import 'antd/lib/space/style';
 //----------------------
 
 const addArrayKeys = (doms: React.ReactNode[]) =>

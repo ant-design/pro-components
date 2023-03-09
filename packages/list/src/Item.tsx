@@ -4,10 +4,10 @@ import ProCard from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, List, Skeleton } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider';
-import type { ListGridType } from 'antd/es/list';
-import type { ExpandableConfig } from 'antd/es/table/interface';
+import type { ListGridType } from 'antd/lib/list';
+import type { ExpandableConfig } from 'antd/lib/table/interface';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useMemo } from 'react';
 import type { GetComponentProps } from './index';
 

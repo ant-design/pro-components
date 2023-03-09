@@ -5,8 +5,8 @@ import omit from 'omit.js';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
-import 'antd/es/segmented/style';
-import 'antd/es/spin/style';
+import 'antd/lib/segmented/style';
+import 'antd/lib/spin/style';
 
 /**
  * Segmented https://ant.design/components/segmented-cn/

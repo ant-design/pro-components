@@ -4,7 +4,7 @@ import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/input/style';
+import 'antd/lib/input/style';
 //------------
 
 /**

@@ -6,7 +6,7 @@ import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/switch/style';
+import 'antd/lib/switch/style';
 //------------
 
 /**

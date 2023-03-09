@@ -1,7 +1,7 @@
 ﻿import { createTheme } from '@ant-design/cssinjs';
 
 import { theme } from 'antd';
-import type { GlobalToken } from 'antd/es/theme/interface';
+import type { GlobalToken } from 'antd/lib/theme/interface';
 
 export const defaultToken = {
   blue: '#1677ff',

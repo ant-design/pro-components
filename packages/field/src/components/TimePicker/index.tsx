@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/date-picker/style';
+import 'antd/lib/date-picker/style';
 import { useDatePickerStyle } from '../DatePicker';
 //----------------------;
 

@@ -3,7 +3,7 @@ import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/rate/style';
+import 'antd/lib/rate/style';
 //------------
 
 /**

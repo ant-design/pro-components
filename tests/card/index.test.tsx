@@ -2,7 +2,7 @@ import { ProCard } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
-jest.mock('antd/es/grid/hooks/useBreakpoint');
+jest.mock('antd/lib/grid/hooks/useBreakpoint');
 
 describe('Card', () => {
   it('🥩 collapsible onCollapse', async () => {

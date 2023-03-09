@@ -1,14 +1,14 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { ConfigContext } from 'antd/es/config-provider';
+import { ConfigContext } from 'antd/lib/config-provider';
 import { theme as antdTheme } from 'antd';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import type React from 'react';
 import { useContext, useMemo } from 'react';
 import { ProProvider } from '../index';
 import { ProTokenType } from '../typing/layoutToken';
-import type { GlobalToken } from 'antd/es/theme/interface';
+import type { GlobalToken } from 'antd/lib/theme/interface';
 import * as batToken from './token';
 
 /**

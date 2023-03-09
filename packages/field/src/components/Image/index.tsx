@@ -4,7 +4,7 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import { useIntl } from '@ant-design/pro-provider';
-import 'antd/es/image/style';
+import 'antd/lib/image/style';
 //----------------------
 
 export type FieldImageProps = {

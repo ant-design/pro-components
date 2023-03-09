@@ -19,16 +19,16 @@ import {
 } from '@ant-design/pro-utils';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Descriptions, Space } from 'antd';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
-import toArray from 'rc-util/es/Children/toArray';
-import get from 'rc-util/es/utils/get';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import toArray from 'rc-util/lib/Children/toArray';
+import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect } from 'react';
 import { stringify } from 'use-json-comparison';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
 // 兼容代码-----------
-import 'antd/es/descriptions/style';
+import 'antd/lib/descriptions/style';
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
 //----------------------
 

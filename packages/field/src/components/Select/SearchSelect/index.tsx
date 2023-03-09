@@ -2,7 +2,7 @@ import type { RequestOptionsType } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider';
-import type { LabeledValue } from 'antd/es/select';
+import type { LabeledValue } from 'antd/lib/select';
 import classNames from 'classnames';
 import React, { useContext, useEffect, useImperativeHandle, useRef, useState } from 'react';
 

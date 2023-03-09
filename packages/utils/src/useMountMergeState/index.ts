@@ -1,3 +1,3 @@
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export { useMergedState as useMountMergeState };

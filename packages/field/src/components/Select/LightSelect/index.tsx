@@ -4,7 +4,7 @@ import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider';
 import classNames from 'classnames';
-import toArray from 'rc-util/es/Children/toArray';
+import toArray from 'rc-util/lib/Children/toArray';
 import React, { useContext, useMemo, useState } from 'react';
 import type { ProFieldLightProps } from '../../../index';
 
