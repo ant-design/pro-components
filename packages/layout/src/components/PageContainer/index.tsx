@@ -19,9 +19,9 @@ import type { PageContainerToken, pageContainerToken } from './style';
 import { useStyle } from './style';
 import { useStylish } from './style/stylish';
 
-import 'antd/es/breadcrumb/style';
+import 'antd/lib/breadcrumb/style';
 import { ConfigContext } from 'antd/lib/config-provider';
-import type { NewBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
+import type { NewBreadcrumbProps } from 'antd/lib/breadcrumb/Breadcrumb';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */

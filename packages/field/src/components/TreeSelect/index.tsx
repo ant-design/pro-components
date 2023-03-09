@@ -2,15 +2,15 @@ import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
-import 'antd/es/spin/style';
-import 'antd/es/tree-select/style';
+import 'antd/lib/spin/style';
+import 'antd/lib/tree-select/style';
 import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 

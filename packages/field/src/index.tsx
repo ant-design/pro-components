@@ -13,7 +13,7 @@ import type {
 import { omitUndefined, pickProProps } from '@ant-design/pro-utils';
 import { Avatar } from 'antd';
 // import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
-import { noteOnce } from 'rc-util/es/warning';
+import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext } from 'react';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';

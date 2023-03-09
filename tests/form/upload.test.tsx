@@ -1,7 +1,7 @@
 ﻿import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
 import { fireEvent, render } from '@testing-library/react';
 import { Form } from 'antd';
-import type { UploadFile } from 'antd/es/upload/interface';
+import type { UploadFile } from 'antd/lib/upload/interface';
 import { act } from 'react-dom/test-utils';
 import mock from 'xhr-mock';
 import { waitTime } from '../util';

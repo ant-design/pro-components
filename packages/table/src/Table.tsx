@@ -1,6 +1,6 @@
 // 兼容代码-----------
-import 'antd/es/table/style';
-import 'antd/es/typography/style';
+import 'antd/lib/table/style';
+import 'antd/lib/typography/style';
 //----------------------
 import { ConfigContext } from 'antd/lib/config-provider';
 import ProCard from '@ant-design/pro-card';
@@ -19,7 +19,7 @@ import {
 } from '@ant-design/pro-utils';
 import type { TablePaginationConfig } from 'antd';
 import { ConfigProvider, Table } from 'antd';
-import type { GetRowKey, SortOrder, TableCurrentDataSource } from 'antd/es/table/interface';
+import type { GetRowKey, SortOrder, TableCurrentDataSource } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 import React, {
   useCallback,
@@ -54,7 +54,7 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import type Summary from 'rc-table/es/Footer/Summary';
+import type Summary from 'rc-table/lib/Footer/Summary';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {

@@ -33,7 +33,7 @@ import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
 import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
-import 'antd/es/select/style';
+import 'antd/lib/select/style';
 //------------
 
 type SelectOptionType = Partial<RequestOptionsType>[];

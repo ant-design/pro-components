@@ -8,7 +8,7 @@ import type { ProCardProps } from './ProCard';
 import ProCard from './ProCard';
 import type { ProCardTabsProps } from './typing';
 
-import 'antd/es/card/style';
+import 'antd/lib/card/style';
 
 export type {
   ProCardTabsProps,

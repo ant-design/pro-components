@@ -18,6 +18,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
           paddingInlineStart: 10,
         },
       },
+      [`${token.antCls}-menu-title-content`]: {
+        width: '100%',
+        height: '100%',
+        display: 'inline-flex',
+      },
       [`&&-collapsed`]: {
         [`${token.antCls}-menu-item, 
         ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item, 
@@ -37,12 +42,14 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
           },
         },
       },
+
       [`${token.componentCls}-item-icon`]: {
         height: '14px',
         width: '14px',
         opacity: '0.85',
-        '.anticon': {
-          lineHeight: '14px',
+        lineHeight: '14px',
+        '> span.anticon': {
+          lineHeight: '14px!important',
           height: '14px',
         },
       },
@@ -50,9 +57,21 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        gap: 8,
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
+          width: 35,
+          height: 35,
+          [`${token.componentCls}-item-icon`]: {
+            height: '16px',
+            width: '16px',
+            lineHeight: '16px !important',
+            '.anticon': {
+              lineHeight: '16px',
+              height: '16px',
+            },
+          },
           [`${token.componentCls}-item-text`]: {
             maxWidth: '100%',
           },
@@ -72,6 +91,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
             display: 'flex',
             [`${token.componentCls}-item-icon`]: {
               height: '16px',
+              width: '16px',
               lineHeight: '16px !important',
               '.anticon': {
                 lineHeight: '16px',

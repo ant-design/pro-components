@@ -6,7 +6,7 @@ import type { ImageProps, PopoverProps, ModalProps, DrawerProps } from 'antd';
 import { Popover, Menu, Image, Typography, ConfigProvider, Drawer, Modal } from 'antd';
 import type { AnchorHTMLAttributes } from 'react';
 import React, { useContext, useMemo, useState } from 'react';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { useStyle } from './style';

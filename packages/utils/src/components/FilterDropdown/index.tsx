@@ -5,9 +5,9 @@ import { DropdownFooter } from '../DropdownFooter';
 import { ConfigContext } from 'antd/lib/config-provider';
 import { useStyle } from './style';
 import classNames from 'classnames';
-import 'antd/es/dropdown/style';
+import 'antd/lib/dropdown/style';
 import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
-import type { TooltipPlacement } from 'antd/es/tooltip';
+import type { TooltipPlacement } from 'antd/lib/tooltip';
 
 export type FooterRender =
   | ((

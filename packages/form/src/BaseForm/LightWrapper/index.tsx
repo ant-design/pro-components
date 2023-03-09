@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
-import type { TooltipPlacement } from 'antd/es/tooltip';
+import type { TooltipPlacement } from 'antd/lib/tooltip';
 import { ConfigContext } from 'antd/lib/config-provider';
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 

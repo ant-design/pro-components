@@ -7,7 +7,7 @@ import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 // 兼容代码-----------
-import 'antd/es/radio/style';
+import 'antd/lib/radio/style';
 import { ConfigContext } from 'antd/lib/config-provider';
 //------------
 export type GroupProps = {

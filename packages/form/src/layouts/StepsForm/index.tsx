@@ -4,10 +4,10 @@ import type { FormInstance, StepsProps } from 'antd';
 import { version } from 'antd';
 import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
 import { ConfigContext } from 'antd/lib/config-provider';
-import type { FormProviderProps } from 'antd/es/form/context';
+import type { FormProviderProps } from 'antd/lib/form/context';
 import classNames from 'classnames';
-import toArray from 'rc-util/es/Children/toArray';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import toArray from 'rc-util/lib/Children/toArray';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, {
   useCallback,
   useContext,

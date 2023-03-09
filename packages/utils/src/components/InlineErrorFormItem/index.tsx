@@ -2,7 +2,7 @@
 import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
-import type { NamePath } from 'rc-field-form/es/interface';
+import type { NamePath } from 'rc-field-form/lib/interface';
 import React, { useContext, useEffect, useState } from 'react';
 import { useStyle } from './style';
 import { ConfigContext } from 'antd/lib/config-provider';

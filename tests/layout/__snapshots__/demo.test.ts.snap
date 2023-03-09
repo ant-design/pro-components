@@ -4121,11 +4121,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                         <a
                           class="ant-breadcrumb-link"
                           href="#/"
-                        />
-                        <a
-                          href="/"
                         >
-                          主页
+                          <span>
+                            主页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -4138,11 +4137,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                         <a
                           class="ant-breadcrumb-link"
                           href="#//admin"
-                        />
-                        <a
-                          href="/admin"
                         >
-                          管理
+                          <span>
+                            管理
+                          </span>
                         </a>
                       </li>
                       <li
@@ -4155,11 +4153,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                         <a
                           class="ant-breadcrumb-link"
                           href="#//admin/admin/process"
-                        />
-                        <a
-                          href="/admin/process"
                         >
-                          申请单列表
+                          <span>
+                            申请单列表
+                          </span>
                         </a>
                       </li>
                       <li
@@ -5275,11 +5272,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         <a
                           class="ant-breadcrumb-link"
                           href="#/config"
-                        />
-                        <a
-                          href="/config"
                         >
-                          配置中心
+                          <span>
+                            配置中心
+                          </span>
                         </a>
                       </li>
                       <li
@@ -5666,11 +5662,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                                   <a
                                     class="ant-breadcrumb-link"
                                     href="#/home"
-                                  />
-                                  <a
-                                    href="/home"
                                   >
-                                    首页
+                                    <span>
+                                      首页
+                                    </span>
                                   </a>
                                 </li>
                                 <li
@@ -6050,11 +6045,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                                   <a
                                     class="ant-breadcrumb-link"
                                     href="#/home"
-                                  />
-                                  <a
-                                    href="/home"
                                   >
-                                    首页
+                                    <span>
+                                      首页
+                                    </span>
                                   </a>
                                 </li>
                                 <li
@@ -6371,11 +6365,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                       <a
                         class="ant-breadcrumb-link"
                         href="#/welcome"
-                      />
-                      <a
-                        href="/welcome"
                       >
-                        one
+                        <span>
+                          one
+                        </span>
                       </a>
                     </li>
                     <li
@@ -8060,11 +8053,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -8077,11 +8069,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -8580,11 +8571,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           <a
                             class="ant-breadcrumb-link"
                             href="#/list"
-                          />
-                          <a
-                            href="/list"
                           >
-                            列表页
+                            <span>
+                              列表页
+                            </span>
                           </a>
                         </li>
                         <li
@@ -8597,11 +8587,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           <a
                             class="ant-breadcrumb-link"
                             href="#/list/list/sub-page"
-                          />
-                          <a
-                            href="/list/sub-page"
                           >
-                            列表页面
+                            <span>
+                              列表页面
+                            </span>
                           </a>
                         </li>
                         <li
@@ -11299,11 +11288,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -11316,11 +11304,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -12341,11 +12328,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -12358,11 +12344,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -12938,11 +12923,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -12955,11 +12939,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -13499,11 +13482,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -13516,11 +13498,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -16119,11 +16100,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -16136,11 +16116,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -19851,11 +19830,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -19868,11 +19846,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -20368,11 +20345,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -20385,11 +20361,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -20763,11 +20738,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                         <a
                           class="ant-breadcrumb-link"
                           href="#/home"
-                        />
-                        <a
-                          href="/home"
                         >
-                          首页
+                          <span>
+                            首页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -21217,11 +21191,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -21234,11 +21207,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -21757,11 +21729,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -21774,11 +21745,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li
@@ -23342,11 +23312,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                       <a
                         class="ant-breadcrumb-link"
                         href="#/list"
-                      />
-                      <a
-                        href="/list"
                       >
-                        列表页
+                        <span>
+                          列表页
+                        </span>
                       </a>
                     </li>
                     <li
@@ -23359,11 +23328,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                       <a
                         class="ant-breadcrumb-link"
                         href="#/list/list/sub-page"
-                      />
-                      <a
-                        href="/list/sub-page"
                       >
-                        列表页面
+                        <span>
+                          列表页面
+                        </span>
                       </a>
                     </li>
                     <li
@@ -23747,11 +23715,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                           <a
                             class="ant-breadcrumb-link"
                             href="#/"
-                          />
-                          <a
-                            href="/"
                           >
-                            主页
+                            <span>
+                              主页
+                            </span>
                           </a>
                         </li>
                         <li
@@ -23764,11 +23731,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                           <a
                             class="ant-breadcrumb-link"
                             href="#//"
-                          />
-                          <a
-                            href="/"
                           >
-                            测试页
+                            <span>
+                              测试页
+                            </span>
                           </a>
                         </li>
                         <li
@@ -23781,11 +23747,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                           <a
                             class="ant-breadcrumb-link"
                             href="#///admin"
-                          />
-                          <a
-                            href="/admin"
                           >
-                            管理
+                            <span>
+                              管理
+                            </span>
                           </a>
                         </li>
                         <li
@@ -23798,11 +23763,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                           <a
                             class="ant-breadcrumb-link"
                             href="#///admin/admin/process"
-                          />
-                          <a
-                            href="/admin/process"
                           >
-                            申请单列表
+                            <span>
+                              申请单列表
+                            </span>
                           </a>
                         </li>
                         <li
@@ -24250,11 +24214,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list"
-                        />
-                        <a
-                          href="/list"
                         >
-                          列表页
+                          <span>
+                            列表页
+                          </span>
                         </a>
                       </li>
                       <li
@@ -24267,11 +24230,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                         <a
                           class="ant-breadcrumb-link"
                           href="#/list/list/sub-page"
-                        />
-                        <a
-                          href="/list/sub-page"
                         >
-                          列表页面
+                          <span>
+                            列表页面
+                          </span>
                         </a>
                       </li>
                       <li

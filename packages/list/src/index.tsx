@@ -3,7 +3,7 @@ import type { ActionType, ProColumnType, ProTableProps } from '@ant-design/pro-t
 import ProTable from '@ant-design/pro-table';
 import type { ListProps, PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ItemProps } from './Item';
@@ -12,7 +12,7 @@ import { useStyle } from './style/index';
 import { ProConfigProvider } from '@ant-design/pro-provider';
 
 // 兼容性代码
-import 'antd/es/list/style';
+import 'antd/lib/list/style';
 import { ConfigContext } from 'antd/lib/config-provider';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;

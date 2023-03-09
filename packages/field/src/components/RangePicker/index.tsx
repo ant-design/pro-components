@@ -6,7 +6,7 @@ import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/date-picker/style';
+import 'antd/lib/date-picker/style';
 //------------
 
 /**

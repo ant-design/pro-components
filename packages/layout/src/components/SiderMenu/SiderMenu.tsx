@@ -2,7 +2,7 @@ import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
-import type { ItemType } from 'antd/es/menu/hooks/useItems';
+import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
 import React, { useContext, useMemo } from 'react';
@@ -474,6 +474,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
                 colorActiveBarWidth: 0,
                 colorActiveBarHeight: 0,
                 colorActiveBarBorderSize: 0,
+                controlHeightLG: 35,
                 colorItemText: token?.layout?.sider?.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
                 colorItemTextHover:
                   token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',

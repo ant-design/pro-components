@@ -1,5 +1,5 @@
 import type { InputProps } from 'antd';
-import type { InputRef, PasswordProps } from 'antd/es/input';
+import type { InputRef, PasswordProps } from 'antd/lib/input';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';

@@ -1065,11 +1065,10 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
                       <a
                         class="ant-breadcrumb-link"
                         href="#/index"
-                      />
-                      <a
-                        href="index"
                       >
-                        home
+                        <span>
+                          home
+                        </span>
                       </a>
                     </li>
                     <li
@@ -1082,11 +1081,10 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
                       <a
                         class="ant-breadcrumb-link"
                         href="#/index/first"
-                      />
-                      <a
-                        href="first"
                       >
-                        first
+                        <span>
+                          first
+                        </span>
                       </a>
                     </li>
                     <li

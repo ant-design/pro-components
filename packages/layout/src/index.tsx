@@ -1,21 +1,21 @@
 // 兼容代码-----------
-import 'antd/es/anchor/style';
-import 'antd/es/avatar/style';
-import 'antd/es/breadcrumb/style';
-import 'antd/es/divider/style';
-import 'antd/es/drawer/style';
-import 'antd/es/layout/style';
-import 'antd/es/list/style';
-import 'antd/es/menu/style';
-import 'antd/es/message/style';
-import 'antd/es/popover/style';
-import 'antd/es/select/style';
-import 'antd/es/space/style';
-import 'antd/es/spin/style';
-import 'antd/es/switch/style';
-import 'antd/es/tabs/style';
-import 'antd/es/tooltip/style';
-import 'antd/es/typography/style';
+import 'antd/lib/anchor/style';
+import 'antd/lib/avatar/style';
+import 'antd/lib/breadcrumb/style';
+import 'antd/lib/divider/style';
+import 'antd/lib/drawer/style';
+import 'antd/lib/layout/style';
+import 'antd/lib/list/style';
+import 'antd/lib/menu/style';
+import 'antd/lib/message/style';
+import 'antd/lib/popover/style';
+import 'antd/lib/select/style';
+import 'antd/lib/space/style';
+import 'antd/lib/spin/style';
+import 'antd/lib/switch/style';
+import 'antd/lib/tabs/style';
+import 'antd/lib/tooltip/style';
+import 'antd/lib/typography/style';
 //----------------------
 
 import { FooterToolbar } from './components/FooterToolbar';

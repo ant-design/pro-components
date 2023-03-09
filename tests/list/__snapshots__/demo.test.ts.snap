@@ -7685,18 +7685,18 @@ exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.ts
                           class="qixian-pro-list-row-checkbox "
                         >
                           <label
-                            class="ant-checkbox-wrapper"
+                            class="qixian-checkbox-wrapper"
                           >
                             <span
-                              class="ant-checkbox"
+                              class="qixian-checkbox"
                             >
                               <input
-                                class="ant-checkbox-input"
+                                class="qixian-checkbox-input"
                                 type="checkbox"
                                 value=""
                               />
                               <span
-                                class="ant-checkbox-inner"
+                                class="qixian-checkbox-inner"
                               />
                             </span>
                           </label>

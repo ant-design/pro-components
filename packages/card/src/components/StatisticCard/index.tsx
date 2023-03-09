@@ -9,8 +9,8 @@ import type { StatisticProps } from '../Statistic';
 import Statistic from '../Statistic';
 import { useStyle } from './style';
 
-import 'antd/es/divider/style';
-import 'antd/es/statistic/style';
+import 'antd/lib/divider/style';
+import 'antd/lib/statistic/style';
 import { ConfigContext } from 'antd/lib/config-provider';
 
 export type StatisticCardProps = {

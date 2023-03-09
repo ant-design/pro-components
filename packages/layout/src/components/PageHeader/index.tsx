@@ -8,8 +8,8 @@ import ResizeObserver from 'rc-resize-observer';
 import * as React from 'react';
 import useStyle from './style/index';
 import type { ContentWidth } from '../../defaultSettings';
-import 'antd/es/breadcrumb/style';
-import type { LegacyBreadcrumbProps, NewBreadcrumbProps } from 'antd/es/breadcrumb/Breadcrumb';
+import 'antd/lib/breadcrumb/style';
+import type { LegacyBreadcrumbProps, NewBreadcrumbProps } from 'antd/lib/breadcrumb/Breadcrumb';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;

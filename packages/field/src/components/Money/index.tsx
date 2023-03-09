@@ -2,13 +2,13 @@ import { intlMap as allIntlMap, useIntl } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
 import omit from 'omit.js';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useCallback, useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/input-number/style';
-import 'antd/es/popover/style';
+import 'antd/lib/input-number/style';
+import 'antd/lib/popover/style';
 //----------------------
 
 import { openVisibleCompatible } from '@ant-design/pro-utils';

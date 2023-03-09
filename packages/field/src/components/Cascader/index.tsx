@@ -10,7 +10,7 @@ import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 import { ConfigContext } from 'antd/lib/config-provider';
 // 兼容代码-----------
-import 'antd/es/cascader/style';
+import 'antd/lib/cascader/style';
 //----------------------
 
 export type GroupProps = {
