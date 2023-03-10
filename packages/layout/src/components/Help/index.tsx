@@ -1,9 +1,8 @@
 ﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
-import ProCard from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import type { ImageProps, PopoverProps, ModalProps, DrawerProps } from 'antd';
-import { Popover, Menu, Image, Typography, ConfigProvider, Drawer, Modal } from 'antd';
+import { Popover, Menu, Image, Typography, Card, ConfigProvider, Drawer, Modal } from 'antd';
 import type { AnchorHTMLAttributes } from 'react';
 import React, { useContext, useMemo, useState } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -204,9 +203,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   });
 
   return wrapSSR(
-    <ProCard
+    <Card
       bordered={bordered}
-      headerBordered
       title="帮助中心"
       bodyStyle={{
         display: 'flex',
@@ -318,7 +316,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       >
         {selectedKey ? <ProHelpContentPanel selectedKey={selectedKey} /> : null}
       </div>
-    </ProCard>,
+    </Card>,
   );
 };
 
