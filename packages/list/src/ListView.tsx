@@ -1,7 +1,7 @@
 import type { ProCardProps } from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { ActionType } from '@ant-design/pro-table';
-import type { ListProps, TableColumnType, TableProps } from 'antd';
+import { ListProps, TableColumnType, TableProps, version } from 'antd';
 import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import usePagination from 'antd/lib/table/hooks/usePagination';
@@ -16,6 +16,7 @@ import type { ItemProps } from './Item';
 import ProListItem from './Item';
 import { ConfigContext } from 'antd/lib/config-provider';
 import type { PaginationConfig } from 'antd/lib/pagination';
+import { compareVersions } from '@ant-design/pro-utils';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
@@ -79,8 +80,15 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
+  const usePaginationArgs = [() => {}, pagination];
+  // 兼容 5.2.0 以下的版本
+  if (compareVersions(version, '5.2.0') < 0) usePaginationArgs.reverse();
   // 合并分页的的配置
-  const [mergedPagination] = usePagination(dataSource.length, () => {}, pagination);
+  const [mergedPagination] = usePagination(
+    dataSource.length,
+    usePaginationArgs[0],
+    usePaginationArgs[1],
+  );
   /** 根据分页来返回不同的数据，模拟 table */
   const pageData = React.useMemo<readonly RecordType[]>(() => {
     if (
@@ -98,7 +106,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
 
   /** 提供和 table 一样的 rowSelection 配置 */
-  const [selectItemRender, selectedKeySet] = useSelection(
+  const useSelectionArgs = [
     {
       getRowKey,
       getRecordByKey,
@@ -110,7 +118,12 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       locale: {},
     },
     rowSelection,
-  );
+  ];
+
+  // 兼容 5.2.0 以下的版本
+  if (compareVersions(version, '5.2.0') < 0) useSelectionArgs.reverse();
+
+  const [selectItemRender, selectedKeySet] = useSelection(...useSelectionArgs);
 
   // 提供和 Table 一样的 expand 支持
   const {
