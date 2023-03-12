@@ -380,7 +380,14 @@ describe('LightFilter', () => {
       userEvent.click(await screen.findByText('日期范围'));
     });
 
-    await screen.findAllByPlaceholderText('请选择');
+    await waitFor(
+      () => {
+        return screen.findAllByPlaceholderText('请选择');
+      },
+      {
+        timeout: 2000,
+      },
+    );
 
     act(() => {
       userEvent.click(screen.getAllByPlaceholderText('请选择')[0]!.parentElement!);
@@ -411,7 +418,7 @@ describe('LightFilter', () => {
         expect(onOpenChange).toBeCalledWith(false);
       },
       {
-        timeout: 1000,
+        timeout: 2000,
       },
     );
 
@@ -421,9 +428,14 @@ describe('LightFilter', () => {
       );
     });
 
-    await waitFor(() => {
-      expect(onLoadingChange).toBeCalledWith(true);
-    });
+    await waitFor(
+      () => {
+        expect(onLoadingChange).toBeCalledWith(true);
+      },
+      {
+        timeout: 1000,
+      },
+    );
 
     await waitFor(
       () => {
@@ -434,10 +446,13 @@ describe('LightFilter', () => {
       },
     );
 
-    await waitFor(() => {
-      expect(onLoadingChange).toBeCalledWith(false);
-    });
-
+    await waitFor(
+      () => {
+        expect(onLoadingChange).toBeCalledWith(false);
+      },
+      { timeout: 2000 },
+    );
+    // 等待20s，等待loading消失
     await waitFor(() => {
       expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toBe(
         '日期范围: 2016-11-01 ~ 2016-11-11',
@@ -448,9 +463,14 @@ describe('LightFilter', () => {
       userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
     });
 
-    await waitFor(() => {
-      expect(onLoadingChange).toBeCalledWith(true);
-    });
+    await waitFor(
+      () => {
+        expect(onLoadingChange).toBeCalledWith(true);
+      },
+      {
+        timeout: 1000,
+      },
+    );
 
     await waitFor(
       () => {

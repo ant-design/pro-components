@@ -205,10 +205,13 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const baseClassName = `${prefixCls}-sider`;
 
+  // 收起的宽度
+  const collapsedWidth = 64;
+
   // 之所以这样写是为了提升样式优先级，不然会被sider 自带的覆盖掉
   const stylishClassName = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
     stylish,
-    proLayoutCollapsedWidth: 64,
+    proLayoutCollapsedWidth: collapsedWidth,
   });
 
   const siderClassName = classNames(`${baseClassName}`, hashId, {
@@ -337,8 +340,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       </div>
     );
   }, [actionsDom, avatarDom, baseClassName, collapsed, hashId]);
-
-  const collapsedWidth = 60;
 
   /* Using the useMemo hook to create a CSS class that will hide the menu when the menu is collapsed. */
   const hideMenuWhenCollapsedClassName = useMemo(() => {
@@ -474,7 +475,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
                 colorActiveBarWidth: 0,
                 colorActiveBarHeight: 0,
                 colorActiveBarBorderSize: 0,
-                controlHeightLG: 35,
                 colorItemText: token?.layout?.sider?.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
                 colorItemTextHover:
                   token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',

@@ -61,8 +61,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
-          width: 35,
-          height: 35,
+          minWidth: 40,
+          height: 40,
           [`${token.componentCls}-item-icon`]: {
             height: '16px',
             width: '16px',

@@ -46,6 +46,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingInline: token.layout?.sider?.paddingInlineLayoutMenu,
             paddingBlock: token.layout?.sider?.paddingBlockLayoutMenu,
             borderInlineEnd: `1px solid ${token.colorSplit}`,
+            marginInlineEnd: -1,
           },
           [`${token.antCls}-menu`]: {
             [`${token.antCls}-menu-item-group-title`]: {
