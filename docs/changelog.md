@@ -1,4 +1,12 @@
-﻿## @ant-design/pro-components@2.4.0
+﻿## @ant-design/pro-components@2.4.1
+
+`2023-03-13`
+
+- fix(layout): fix sider menu height. [e8963cc](https://github.com/ant-design/pro-components/commit/e8963cc)
+- fix(layout): remove procard use antd card. [02e1830](https://github.com/ant-design/pro-components/commit/02e1830)
+- fix(form): Select request not trigger twice when keywords not change … (#6717). [#6717](https://github.com/ant-design/pro-components/pull/#6717) [@zd5043039119](https://github.com/zd5043039119)
+
+## @ant-design/pro-components@2.4.0
 
 `2023-03-09`
 
