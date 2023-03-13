@@ -366,7 +366,7 @@ const QueryFilterContent: React.FC<{
         <Col
           key={itemKey}
           span={colSpan}
-          className={`${props.baseClassName}-row-split-line ${hashId}`}
+          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`}
         >
           {itemDom}
         </Col>
@@ -374,7 +374,7 @@ const QueryFilterContent: React.FC<{
     }
 
     return (
-      <Col key={itemKey} span={colSpan}>
+      <Col key={itemKey} className={`${props.baseClassName}-row-split ${hashId}`} span={colSpan}>
         {itemDom}
       </Col>
     );

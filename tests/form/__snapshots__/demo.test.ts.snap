@@ -21008,7 +21008,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -21088,7 +21088,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -21652,7 +21652,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -21732,7 +21732,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22238,7 +22238,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22318,7 +22318,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22398,7 +22398,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split-line "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split-line ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22478,7 +22478,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22834,7 +22834,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-24"
+        class="ant-col ant-col-24 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -23786,7 +23786,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-6"
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -23831,7 +23831,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-6"
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -23911,7 +23911,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-6"
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24079,7 +24079,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-6"
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24159,7 +24159,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-6"
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24239,7 +24239,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-6"
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24407,7 +24407,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24487,7 +24487,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24567,7 +24567,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24647,7 +24647,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24727,7 +24727,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24807,7 +24807,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25005,7 +25005,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25085,7 +25085,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25165,7 +25165,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25245,7 +25245,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25325,7 +25325,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25405,7 +25405,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-24"
+        class="ant-col ant-col-24 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25603,7 +25603,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25683,7 +25683,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25763,7 +25763,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25843,7 +25843,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25923,7 +25923,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26003,7 +26003,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-24"
+        class="ant-col ant-col-24 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26201,7 +26201,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26281,7 +26281,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26361,7 +26361,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26441,7 +26441,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26521,7 +26521,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4"
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26601,7 +26601,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12"
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26807,7 +26807,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26884,7 +26884,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8"
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -27353,287 +27353,286 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     test
   </div>
   <div
-    class="ant-card"
+    style="padding: 24px;"
   >
     <div
-      class="ant-card-body"
-      style="padding-block-end: 0;"
+      style="display: flex; flex-direction: column; gap: 8px;"
     >
-      <div>
+      <span
+        class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
+        style="max-width: 522px; width: 100%;"
+      >
         <span
-          class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
-          style="max-width: 522px; width: 100%;"
+          class="ant-input-wrapper ant-input-group"
         >
+          <input
+            class="ant-input"
+            placeholder="请输入"
+            type="text"
+            value=""
+          />
           <span
-            class="ant-input-wrapper ant-input-group"
+            class="ant-input-group-addon"
           >
-            <input
-              class="ant-input ant-input-lg"
-              placeholder="请输入"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-input-group-addon"
+            <button
+              class="ant-btn ant-btn-primary ant-input-search-button"
+              type="button"
             >
-              <button
-                class="ant-btn ant-btn-primary ant-btn-lg ant-input-search-button"
-                type="button"
-              >
-                <span>
-                  搜 索
-                </span>
-              </button>
-            </span>
+              <span>
+                搜 索
+              </span>
+            </button>
           </span>
         </span>
-        <div>
-          <span>
-            小程序开发
-          </span>
-          <span>
-            入驻
-          </span>
-          <span>
-            ISV 权限
-          </span>
+      </span>
+      <div
+        style="display: flex; gap: 12px;"
+      >
+        <a>
+          小程序开发
+        </a>
+        <a>
+          入驻
+        </a>
+        <a>
+          ISV 权限
+        </a>
+      </div>
+    </div>
+    <div
+      class="ant-tabs ant-tabs-top"
+    >
+      <div
+        class="ant-tabs-nav"
+        role="tablist"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-list"
+            style="transform: translate(0px, 0px);"
+          >
+            <div
+              class="ant-tabs-tab ant-tabs-tab-active"
+              data-node-key="articles"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-articles"
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-articles"
+                role="tab"
+                tabindex="0"
+              >
+                文章
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+              data-node-key="projects"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-projects"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-projects"
+                role="tab"
+                tabindex="0"
+              >
+                项目
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+              data-node-key="applications"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-applications"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-applications"
+                role="tab"
+                tabindex="0"
+              >
+                应用
+              </div>
+            </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+        >
+          <button
+            aria-controls="rc-tabs-test-more-popup"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-hidden="true"
+            class="ant-tabs-nav-more"
+            id="rc-tabs-test-more"
+            style="visibility: hidden; order: 1;"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-tabs-extra-content"
+        >
+          <a
+            style="display: flex; gap: 4px;"
+          >
+            高级筛选 
+            <span
+              aria-label="up"
+              class="anticon anticon-up"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="up"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                />
+              </svg>
+            </span>
+          </a>
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top"
+        class="ant-tabs-content-holder"
       >
         <div
-          class="ant-tabs-nav"
-          role="tablist"
+          class="ant-tabs-content ant-tabs-content-top"
         >
           <div
-            class="ant-tabs-nav-wrap"
-          >
-            <div
-              class="ant-tabs-nav-list"
-              style="transform: translate(0px, 0px);"
-            >
-              <div
-                class="ant-tabs-tab ant-tabs-tab-active"
-                data-node-key="articles"
-              >
-                <div
-                  aria-controls="rc-tabs-test-panel-articles"
-                  aria-selected="true"
-                  class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-articles"
-                  role="tab"
-                  tabindex="0"
-                >
-                  文章
-                </div>
-              </div>
-              <div
-                class="ant-tabs-tab"
-                data-node-key="projects"
-              >
-                <div
-                  aria-controls="rc-tabs-test-panel-projects"
-                  aria-selected="false"
-                  class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-projects"
-                  role="tab"
-                  tabindex="0"
-                >
-                  项目
-                </div>
-              </div>
-              <div
-                class="ant-tabs-tab"
-                data-node-key="applications"
-              >
-                <div
-                  aria-controls="rc-tabs-test-panel-applications"
-                  aria-selected="false"
-                  class="ant-tabs-tab-btn"
-                  id="rc-tabs-test-tab-applications"
-                  role="tab"
-                  tabindex="0"
-                >
-                  应用
-                </div>
-              </div>
-              <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-              />
-            </div>
-          </div>
-          <div
-            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-          >
-            <button
-              aria-controls="rc-tabs-test-more-popup"
-              aria-expanded="false"
-              aria-haspopup="listbox"
-              aria-hidden="true"
-              class="ant-tabs-nav-more"
-              id="rc-tabs-test-more"
-              style="visibility: hidden; order: 1;"
-              tabindex="-1"
-              type="button"
-            >
-              <span
-                aria-label="ellipsis"
-                class="anticon anticon-ellipsis"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="ellipsis"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
-          <div
-            class="ant-tabs-extra-content"
-          >
-            <a
-              style="display: flex; gap: 4px;"
-            >
-              高级筛选 
-              <span
-                aria-label="up"
-                class="anticon anticon-up"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="up"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                  />
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
-        <div
-          class="ant-tabs-content-holder"
-        >
-          <div
-            class="ant-tabs-content ant-tabs-content-top"
-          >
-            <div
-              aria-hidden="false"
-              aria-labelledby="rc-tabs-test-tab-articles"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
-              id="rc-tabs-test-panel-articles"
-              role="tabpanel"
-              tabindex="0"
-            />
-          </div>
+            aria-hidden="false"
+            aria-labelledby="rc-tabs-test-tab-articles"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            id="rc-tabs-test-panel-articles"
+            role="tabpanel"
+            tabindex="0"
+          />
         </div>
       </div>
-      <form
-        autocomplete="off"
-        class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
+    </div>
+    <form
+      autocomplete="off"
+      class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
+    >
+      <input
+        style="display: none;"
+        type="text"
+      />
+      <div
+        class="ant-row ant-row-start ant-pro-query-filter-row "
+        style="margin-left: -12px; margin-right: -12px;"
       >
-        <input
-          style="display: none;"
-          type="text"
-        />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
-          style="margin-left: -12px; margin-right: -12px;"
+          class="ant-col ant-col-24 ant-pro-query-filter-row-split-line ant-pro-query-filter-row-split "
+          style="padding-left: 12px; padding-right: 12px;"
         >
           <div
-            class="ant-col ant-col-24 ant-pro-query-filter-row-split-line "
-            style="padding-left: 12px; padding-right: 12px;"
+            class="ant-pro-form-group"
           >
             <div
-              class="ant-pro-form-group"
+              class="ant-pro-form-group-title "
+              style="display: inline-block; margin-inline-end: 16px;"
             >
+              姓名
+            </div>
+            <div>
               <div
-                class="ant-pro-form-group-title "
-                style="display: inline-block; margin-inline-end: 16px;"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
+                style="row-gap: 0;"
               >
-                姓名
-              </div>
-              <div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                  style="row-gap: 0;"
+                  class="ant-space-item"
                 >
                   <div
-                    class="ant-space-item"
+                    class="ant-form-item"
                   >
                     <div
-                      class="ant-form-item"
+                      class="ant-row ant-form-item-row"
                     >
                       <div
-                        class="ant-row ant-form-item-row"
+                        class="ant-col ant-form-item-control"
                       >
                         <div
-                          class="ant-col ant-form-item-control"
+                          class="ant-form-item-control-input"
                         >
                           <div
-                            class="ant-form-item-control-input"
+                            class="ant-form-item-control-input-content"
                           >
-                            <div
-                              class="ant-form-item-control-input-content"
+                            <span
+                              class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
+                              style="width: 100%;"
                             >
+                              <input
+                                class="ant-input"
+                                id="name"
+                                placeholder="请输入"
+                                type="text"
+                                value=""
+                              />
                               <span
-                                class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
-                                style="width: 100%;"
+                                class="ant-input-suffix"
                               >
-                                <input
-                                  class="ant-input"
-                                  id="name"
-                                  placeholder="请输入"
-                                  type="text"
-                                  value=""
-                                />
                                 <span
-                                  class="ant-input-suffix"
+                                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                  role="button"
+                                  tabindex="-1"
                                 >
                                   <span
-                                    class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                    role="button"
-                                    tabindex="-1"
+                                    aria-label="close-circle"
+                                    class="anticon anticon-close-circle"
+                                    role="img"
                                   >
-                                    <span
-                                      aria-label="close-circle"
-                                      class="anticon anticon-close-circle"
-                                      role="img"
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="close-circle"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="close-circle"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                        />
-                                      </svg>
-                                    </span>
+                                      <path
+                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                      />
+                                    </svg>
                                   </span>
                                 </span>
                               </span>
-                            </div>
+                            </span>
                           </div>
                         </div>
                       </div>
@@ -27643,170 +27642,170 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               </div>
             </div>
           </div>
+        </div>
+        <div
+          class="ant-col ant-col-24 ant-pro-query-filter-row-split "
+          style="padding-left: 12px; padding-right: 12px;"
+        >
           <div
-            class="ant-col ant-col-24"
-            style="padding-left: 12px; padding-right: 12px;"
+            class="ant-pro-form-group"
           >
             <div
-              class="ant-pro-form-group"
+              class="ant-pro-form-group-title "
+              style="display: inline-block; margin-inline-end: 16px;"
             >
+              详情
+            </div>
+            <div>
               <div
-                class="ant-pro-form-group-title "
-                style="display: inline-block; margin-inline-end: 16px;"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
+                style="row-gap: 0;"
               >
-                详情
-              </div>
-              <div>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                  style="row-gap: 0;"
+                  class="ant-space-item"
+                  style="margin-right: 32px;"
                 >
                   <div
-                    class="ant-space-item"
-                    style="margin-right: 32px;"
+                    class="ant-form-item"
                   >
                     <div
-                      class="ant-form-item"
+                      class="ant-row ant-form-item-row"
                     >
                       <div
-                        class="ant-row ant-form-item-row"
+                        class="ant-col ant-form-item-label"
+                      >
+                        <label
+                          class=""
+                          for="age"
+                          title="年龄"
+                        >
+                          年龄
+                        </label>
+                      </div>
+                      <div
+                        class="ant-col ant-form-item-control"
                       >
                         <div
-                          class="ant-col ant-form-item-label"
-                        >
-                          <label
-                            class=""
-                            for="age"
-                            title="年龄"
-                          >
-                            年龄
-                          </label>
-                        </div>
-                        <div
-                          class="ant-col ant-form-item-control"
+                          class="ant-form-item-control-input"
                         >
                           <div
-                            class="ant-form-item-control-input"
+                            class="ant-form-item-control-input-content"
                           >
-                            <div
-                              class="ant-form-item-control-input-content"
+                            <span
+                              class="ant-input-affix-wrapper"
+                              style="width: 100%;"
                             >
+                              <input
+                                class="ant-input"
+                                id="age"
+                                placeholder="请输入"
+                                type="text"
+                                value=""
+                              />
                               <span
-                                class="ant-input-affix-wrapper"
-                                style="width: 100%;"
+                                class="ant-input-suffix"
                               >
-                                <input
-                                  class="ant-input"
-                                  id="age"
-                                  placeholder="请输入"
-                                  type="text"
-                                  value=""
-                                />
                                 <span
-                                  class="ant-input-suffix"
+                                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                  role="button"
+                                  tabindex="-1"
                                 >
                                   <span
-                                    class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                    role="button"
-                                    tabindex="-1"
+                                    aria-label="close-circle"
+                                    class="anticon anticon-close-circle"
+                                    role="img"
                                   >
-                                    <span
-                                      aria-label="close-circle"
-                                      class="anticon anticon-close-circle"
-                                      role="img"
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="close-circle"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="close-circle"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                        />
-                                      </svg>
-                                    </span>
+                                      <path
+                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                      />
+                                    </svg>
                                   </span>
                                 </span>
                               </span>
-                            </div>
+                            </span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
                   <div
-                    class="ant-space-item"
+                    class="ant-form-item"
                   >
                     <div
-                      class="ant-form-item"
+                      class="ant-row ant-form-item-row"
                     >
                       <div
-                        class="ant-row ant-form-item-row"
+                        class="ant-col ant-form-item-label"
+                      >
+                        <label
+                          class=""
+                          for="birth"
+                          title="生日"
+                        >
+                          生日
+                        </label>
+                      </div>
+                      <div
+                        class="ant-col ant-form-item-control"
                       >
                         <div
-                          class="ant-col ant-form-item-label"
-                        >
-                          <label
-                            class=""
-                            for="birth"
-                            title="生日"
-                          >
-                            生日
-                          </label>
-                        </div>
-                        <div
-                          class="ant-col ant-form-item-control"
+                          class="ant-form-item-control-input"
                         >
                           <div
-                            class="ant-form-item-control-input"
+                            class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-form-item-control-input-content"
+                              class="ant-picker"
+                              style="width: 100%;"
                             >
                               <div
-                                class="ant-picker"
-                                style="width: 100%;"
+                                class="ant-picker-input"
                               >
-                                <div
-                                  class="ant-picker-input"
+                                <input
+                                  autocomplete="off"
+                                  id="birth"
+                                  placeholder="请选择"
+                                  readonly=""
+                                  size="12"
+                                  title=""
+                                  value=""
+                                />
+                                <span
+                                  class="ant-picker-suffix"
                                 >
-                                  <input
-                                    autocomplete="off"
-                                    id="birth"
-                                    placeholder="请选择"
-                                    readonly=""
-                                    size="12"
-                                    title=""
-                                    value=""
-                                  />
                                   <span
-                                    class="ant-picker-suffix"
+                                    aria-label="calendar"
+                                    class="anticon anticon-calendar"
+                                    role="img"
                                   >
-                                    <span
-                                      aria-label="calendar"
-                                      class="anticon anticon-calendar"
-                                      role="img"
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="calendar"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="calendar"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                        />
-                                      </svg>
-                                    </span>
+                                      <path
+                                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                      />
+                                    </svg>
                                   </span>
-                                </div>
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -27819,8 +27818,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
 </DocumentFragment>
 `;

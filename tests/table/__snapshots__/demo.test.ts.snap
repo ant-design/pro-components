@@ -24,7 +24,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -104,7 +104,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -774,7 +774,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -854,7 +854,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -15268,7 +15268,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="qixian-col qixian-col-8"
+            class="qixian-col qixian-col-8 qixian-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -15394,7 +15394,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
             </div>
           </div>
           <div
-            class="qixian-col qixian-col-8"
+            class="qixian-col qixian-col-8 qixian-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -16049,7 +16049,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
-                class="ant-col ant-col-8"
+                class="ant-col ant-col-8 ant-pro-query-filter-row-split "
                 style="padding-left: 12px; padding-right: 12px;"
               >
                 <div
@@ -16175,7 +16175,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                 </div>
               </div>
               <div
-                class="ant-col ant-col-8"
+                class="ant-col ant-col-8 ant-pro-query-filter-row-split "
                 style="padding-left: 12px; padding-right: 12px;"
               >
                 <div
@@ -16797,7 +16797,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -16844,7 +16844,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -17222,7 +17222,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -17299,7 +17299,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -17395,7 +17395,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -17518,7 +17518,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -18132,7 +18132,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -18212,7 +18212,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -18544,7 +18544,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -18624,7 +18624,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -18956,7 +18956,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -19036,7 +19036,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -19375,7 +19375,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -19452,7 +19452,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -19529,7 +19529,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -19609,7 +19609,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -19709,7 +19709,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -20276,7 +20276,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     style="margin-left: -12px; margin-right: -12px;"
                   >
                     <div
-                      class="ant-col ant-col-12"
+                      class="ant-col ant-col-12 ant-pro-query-filter-row-split "
                       style="padding-left: 12px; padding-right: 12px;"
                     >
                       <div
@@ -23772,7 +23772,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -23852,7 +23852,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -24192,7 +24192,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -24304,7 +24304,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -25280,7 +25280,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -25360,7 +25360,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -25456,7 +25456,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -26668,7 +26668,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -26748,7 +26748,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -26828,7 +26828,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -28346,7 +28346,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -28446,7 +28446,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -28936,7 +28936,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -29036,7 +29036,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -29534,7 +29534,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -29660,7 +29660,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -30360,7 +30360,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -30440,7 +30440,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -31173,7 +31173,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8 ant-col-rtl"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split  ant-col-rtl"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -31296,7 +31296,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
             </div>
           </div>
           <div
-            class="ant-col ant-col-8 ant-col-rtl"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split  ant-col-rtl"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -32093,7 +32093,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -32170,7 +32170,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -32663,7 +32663,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -32763,7 +32763,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -33885,7 +33885,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="canvas-col canvas-col-8"
+            class="canvas-col canvas-col-8 canvas-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -33965,7 +33965,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             </div>
           </div>
           <div
-            class="canvas-col canvas-col-8"
+            class="canvas-col canvas-col-8 canvas-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -34404,7 +34404,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="canvas-col canvas-col-8"
+            class="canvas-col canvas-col-8 canvas-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -34530,7 +34530,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             </div>
           </div>
           <div
-            class="canvas-col canvas-col-8"
+            class="canvas-col canvas-col-8 canvas-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -37232,7 +37232,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
-              class="ant-col ant-col-8"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split "
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
@@ -37332,7 +37332,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
               </div>
             </div>
             <div
-              class="ant-col ant-col-8"
+              class="ant-col ant-col-8 ant-pro-query-filter-row-split "
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
@@ -38103,7 +38103,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -38183,7 +38183,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -38691,7 +38691,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-12"
+            class="ant-col ant-col-12 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -38814,7 +38814,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
           </div>
           <div
-            class="ant-col ant-col-12"
+            class="ant-col ant-col-12 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -38931,7 +38931,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
           </div>
           <div
-            class="ant-col ant-col-12"
+            class="ant-col ant-col-12 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -39048,7 +39048,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
           </div>
           <div
-            class="ant-col ant-col-12"
+            class="ant-col ant-col-12 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -39167,7 +39167,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
           </div>
           <div
-            class="ant-col ant-col-12"
+            class="ant-col ant-col-12 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -39263,7 +39263,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
           </div>
           <div
-            class="ant-col ant-col-12"
+            class="ant-col ant-col-12 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -39384,7 +39384,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
           </div>
           <div
-            class="ant-col ant-col-12"
+            class="ant-col ant-col-12 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -39903,7 +39903,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -39983,7 +39983,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -40955,7 +40955,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -41070,7 +41070,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div

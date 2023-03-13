@@ -21,7 +21,7 @@ exports[`BasicTable valueType 🎏 table support filter when valueType is treeSe
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -102,7 +102,7 @@ exports[`BasicTable valueType 🎏 table support filter when valueType is treeSe
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div

@@ -109,6 +109,7 @@ export function useStyle(
   const { token = {} as ProAliasToken, hashId = '', theme } = useContext(ProProvider);
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   token.antCls = `.${getPrefixCls()}`;
+  token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
 
   return {
     wrapSSR: useStyleRegister(

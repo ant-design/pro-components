@@ -17,6 +17,16 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       },
       '&-row': {
         rowGap: 24,
+        '&-split': {
+          [`${token.proComponentsCls}-form-group`]: {
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+          },
+          '&:last-child': {
+            marginBlockEnd: 12,
+          },
+        },
         '&-split-line': {
           '&:after': {
             position: 'absolute',

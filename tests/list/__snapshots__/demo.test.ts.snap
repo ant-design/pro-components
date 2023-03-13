@@ -5284,7 +5284,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -5364,7 +5364,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div

@@ -327,7 +327,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
-                class="ant-col ant-col-8"
+                class="ant-col ant-col-8 ant-pro-query-filter-row-split "
                 style="padding-left: 12px; padding-right: 12px;"
               >
                 <div
@@ -374,7 +374,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
                 </div>
               </div>
               <div
-                class="ant-col ant-col-8"
+                class="ant-col ant-col-8 ant-pro-query-filter-row-split "
                 style="padding-left: 12px; padding-right: 12px;"
               >
                 <div

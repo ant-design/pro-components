@@ -221,7 +221,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
     [`${token.antCls}-layout`]: {
       backgroundColor: 'transparent !important',
     },
-    [`& ${token.componentCls}`]: {
+    [token.componentCls]: {
       [`& ${token.antCls}-layout`]: {
         display: 'flex',
         backgroundColor: 'transparent',

@@ -29,7 +29,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -431,7 +431,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="qixian-col qixian-col-8"
+            class="qixian-col qixian-col-8 qixian-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -814,7 +814,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8"
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div

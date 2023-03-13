@@ -150,7 +150,6 @@ export default () => {
     <div
       style={{
         backgroundColor: 'hsl(218,22%,7%)',
-        height: '100vh',
       }}
     >
       <ConfigProvider theme={themeConfig}>
