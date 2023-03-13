@@ -2,7 +2,7 @@ import { useStyle } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 import classnames from 'classnames';
 import React, { useContext } from 'react';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 /**
  * 默认的 index 列容器，提供一个好看的 index
  *
@@ -12,7 +12,7 @@ const IndexColumn: React.ForwardRefRenderFunction<any, { border?: boolean; child
   { border = false, children },
   ref,
 ) => {
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const className = getPrefixCls('pro-field-index-column');
 

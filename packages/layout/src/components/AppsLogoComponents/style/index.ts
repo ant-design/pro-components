@@ -49,10 +49,6 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
         [`${token.antCls}-popover-arrow`]: {
           display: 'none',
         },
-        '*': {
-          boxSizing: 'border-box',
-          fontFamily: token.fontFamily,
-        },
       },
       '&-simple': genAppsLogoComponentsSimpleListStyle(token),
       '&-default': genAppsLogoComponentsDefaultListStyle(token),

@@ -10,7 +10,7 @@ import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
 import ResizeObserver from 'rc-resize-observer';
 import { useStyle } from './style';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 export type ListToolBarSetting = {
   icon: React.ReactNode;
   tooltip?: LabelTooltipType | string;
@@ -148,7 +148,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   tabs = {},
   menu,
 }) => {
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
 
@@ -258,13 +258,23 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       );
     }
     return (
-      <div className={`${prefixCls}-left ${hashId}`}>
+      <div
+        className={classNames(`${prefixCls}-left`, hashId, {
+          [`${prefixCls}-left-has-tabs`]: menu?.type === 'tab',
+          [`${prefixCls}-left-has-dropdown`]: menu?.type === 'dropdown',
+          [`${prefixCls}-left-has-inline-menu`]: menu?.type === 'inline',
+        })}
+      >
         {hasTitle && !menu && (
           <div className={`${prefixCls}-title ${hashId}`}>
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
           </div>
         )}
-        {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
+
+        {menu && (
+          // 这里面实现了 tabs 的逻辑
+          <HeaderMenu {...menu} prefixCls={prefixCls} />
+        )}
         {!hasTitle && searchNode ? (
           <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
         ) : null}
@@ -328,7 +338,9 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   return wrapSSR(
     <ResizeObserver
       onResize={(size) => {
-        setIsMobile(size.width < 375);
+        if (size.width < 375 !== isMobile) {
+          setIsMobile(size.width < 375);
+        }
       }}
     >
       <div style={style} className={classNames(prefixCls, hashId, className)}>

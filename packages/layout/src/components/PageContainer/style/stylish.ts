@@ -22,9 +22,7 @@ export function useStylish(
 
     return [
       {
-        [token.proComponentsCls]: {
-          [`${stylishToken.componentCls}`]: stylish?.(stylishToken),
-        },
+        [`div${stylishToken.componentCls}`]: stylish?.(stylishToken),
       },
     ];
   });

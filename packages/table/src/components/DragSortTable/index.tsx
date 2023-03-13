@@ -8,7 +8,7 @@ import ProTable from '../../Table';
 import type { ProColumns, ProTableProps } from '../../typing';
 import { useDragSort } from '../../utils/useDragSort';
 import { useStyle } from './style';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 export type DragTableProps<T, U> = {
   /** @name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 */
   dragSortKey?: string;
@@ -38,7 +38,7 @@ function DragSortTable<
     onLoad,
     ...otherProps
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const [dataSource, setMergedDs] = useMergedState<T[]>(() => defaultData || [], {
     value: originDataSource as T[],
     onChange: onDataSourceChange,

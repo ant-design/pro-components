@@ -3,123 +3,242 @@
 exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro-table"
   >
     <div
-      class="ant-pro-table"
+      class="ant-pro-card"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card-body"
+        style="padding-block-start: 0;"
       >
         <div
-          class="ant-pro-card-body"
-          style="padding-block-start: 0;"
+          class="ant-table-wrapper"
         >
           <div
-            class="ant-table-wrapper"
+            class="ant-spin-nested-loading"
           >
             <div
-              class="ant-spin-nested-loading"
+              class="ant-spin-container"
             >
               <div
-                class="ant-spin-container"
+                class="ant-table ant-table-middle ant-table-layout-fixed"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-layout-fixed"
+                  class="ant-table-container"
                 >
                   <div
-                    class="ant-table-container"
+                    class="ant-table-content"
                   >
-                    <div
-                      class="ant-table-content"
+                    <table
+                      style="table-layout: fixed;"
                     >
-                      <table
-                        style="table-layout: fixed;"
+                      <colgroup>
+                        <col
+                          style="width: 48px;"
+                        />
+                        <col
+                          style="width: 30%;"
+                        />
+                        <col
+                          style="width: 120px;"
+                        />
+                      </colgroup>
+                      <thead
+                        class="ant-table-thead"
                       >
-                        <colgroup>
-                          <col
-                            style="width: 48px;"
+                        <tr>
+                          <th
+                            class="ant-table-cell"
+                            scope="col"
                           />
-                          <col
-                            style="width: 30%;"
-                          />
-                          <col
-                            style="width: 120px;"
-                          />
-                        </colgroup>
-                        <thead
-                          class="ant-table-thead"
+                          <th
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            scope="col"
+                          >
+                            <div
+                              class="ant-pro-core-label-tip"
+                            >
+                              <div
+                                class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
+                              >
+                                标题
+                              </div>
+                              <span
+                                class="ant-pro-core-label-tip-icon "
+                              >
+                                <span
+                                  aria-label="info-circle"
+                                  class="anticon anticon-info-circle"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="info-circle"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                    />
+                                    <path
+                                      d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                            scope="col"
+                          >
+                            <div
+                              class="ant-table-filter-column"
+                            >
+                              <span
+                                class="ant-table-column-title"
+                              >
+                                状态
+                              </span>
+                              <span
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
+                                role="button"
+                                tabindex="-1"
+                              >
+                                <span
+                                  aria-label="filter"
+                                  class="anticon anticon-filter"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="filter"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                            scope="col"
+                          >
+                            创建时间
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                            scope="col"
+                          >
+                            操作
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="ant-table-tbody"
+                      >
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624748504"
                         >
-                          <tr>
-                            <th
-                              class="ant-table-cell"
-                              scope="col"
+                          <td
+                            class="ant-table-cell ant-table-cell-with-append"
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left: 0px;"
                             />
-                            <th
-                              class="ant-table-cell ant-table-cell-ellipsis"
-                              scope="col"
+                            <button
+                              aria-expanded="false"
+                              aria-label="展开行"
+                              class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                              type="button"
+                            />
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
                             >
+                              1
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                          >
+                            <span
+                              aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🐛 [BUG]yarn install命令 antd2.4.5会报错
                               <div
-                                class="ant-pro-core-label-tip"
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
                               >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                              >
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
                                 <div
-                                  class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
-                                >
-                                  标题
-                                </div>
-                                <span
-                                  class="ant-pro-core-label-tip-icon "
-                                >
-                                  <span
-                                    aria-label="info-circle"
-                                    class="anticon anticon-info-circle"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="info-circle"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                      />
-                                      <path
-                                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                              </div>
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                              scope="col"
-                            >
-                              <div
-                                class="ant-table-filter-column"
-                              >
-                                <span
-                                  class="ant-table-column-title"
-                                >
-                                  状态
-                                </span>
-                                <span
-                                  class="ant-dropdown-trigger ant-table-filter-trigger"
+                                  aria-label="复制"
+                                  class="ant-typography-copy"
                                   role="button"
-                                  tabindex="-1"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
                                 >
                                   <span
-                                    aria-label="filter"
-                                    class="anticon anticon-filter"
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
                                     role="img"
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      data-icon="filter"
+                                      data-icon="copy"
                                       fill="currentColor"
                                       focusable="false"
                                       height="1em"
@@ -127,64 +246,125 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                       width="1em"
                                     >
                                       <path
-                                        d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
                                       />
                                     </svg>
                                   </span>
-                                </span>
-                              </div>
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                              scope="col"
+                                </div>
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              创建时间
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                              scope="col"
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                解决中
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            1594-02-02
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                             >
-                              操作
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody
-                          class="ant-table-tbody"
+                              <a
+                                id="editor"
+                              >
+                                编辑
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624691229"
                         >
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="624748504"
+                          <td
+                            class="ant-table-cell ant-table-cell-with-append"
                           >
-                            <td
-                              class="ant-table-cell ant-table-cell-with-append"
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left: 0px;"
+                            />
+                            <button
+                              aria-expanded="false"
+                              aria-label="展开行"
+                              class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                              type="button"
+                            />
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
                             >
-                              <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
-                              />
-                              <button
-                                aria-expanded="false"
-                                aria-label="展开行"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                                type="button"
-                              />
+                              2
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🐛 [BUG]无法创建工程npm create umi"
+                          >
+                            <span
+                              aria-label="🐛 [BUG]无法创建工程npm create umi"
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🐛 [BUG]无法创建工程npm create umi
                               <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
                               >
-                                1
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
                               </div>
-                            </td>
-                            <td
-                              class="ant-table-cell ant-table-cell-ellipsis"
-                              title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                            >
                               <span
-                                aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                                style="width: 100%; margin: 0px; padding: 0px;"
-                                title=""
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                               >
-                                🐛 [BUG]yarn install命令 antd2.4.5会报错
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
                                 <div
                                   aria-label="复制"
                                   class="ant-typography-copy"
@@ -212,120 +392,120 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                     </svg>
                                   </span>
                                 </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-processing"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  解决中
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              1594-02-02
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <div
-                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
-                              >
-                                <a
-                                  id="editor"
-                                >
-                                  编辑
-                                </a>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="624691229"
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
                           >
-                            <td
-                              class="ant-table-cell ant-table-cell-with-append"
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
                               <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
+                                class="ant-badge-status-dot ant-badge-status-success"
                               />
-                              <button
-                                aria-expanded="false"
-                                aria-label="展开行"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                                type="button"
-                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已解决
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            1593-12-13
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
+                            >
+                              <a
+                                id="editor"
+                              >
+                                编辑
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624674790"
+                        >
+                          <td
+                            class="ant-table-cell ant-table-cell-with-append"
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left: 0px;"
+                            />
+                            <button
+                              aria-expanded="false"
+                              aria-label="展开行"
+                              class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                              type="button"
+                            />
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                            >
+                              3
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                          >
+                            <span
+                              aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                               <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
                               >
-                                2
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
                               </div>
-                            </td>
-                            <td
-                              class="ant-table-cell ant-table-cell-ellipsis"
-                              title="🐛 [BUG]无法创建工程npm create umi"
-                            >
                               <span
-                                aria-label="🐛 [BUG]无法创建工程npm create umi"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                                style="width: 100%; margin: 0px; padding: 0px;"
-                                title=""
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                               >
-                                🐛 [BUG]无法创建工程npm create umi
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
                                 <div
                                   aria-label="复制"
                                   class="ant-typography-copy"
@@ -353,270 +533,86 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                                     </svg>
                                   </span>
                                 </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-success"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  已解决
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              1593-12-13
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <div
-                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
-                              >
-                                <a
-                                  id="editor"
-                                >
-                                  编辑
-                                </a>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="624674790"
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
                           >
-                            <td
-                              class="ant-table-cell ant-table-cell-with-append"
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
                               <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
+                                class="ant-badge-status-dot ant-badge-status-error"
                               />
-                              <button
-                                aria-expanded="false"
-                                aria-label="展开行"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                                type="button"
-                              />
-                              <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                              >
-                                3
-                              </div>
-                            </td>
-                            <td
-                              class="ant-table-cell ant-table-cell-ellipsis"
-                              title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                            >
                               <span
-                                aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                                style="width: 100%; margin: 0px; padding: 0px;"
-                                title=""
+                                class="ant-badge-status-text"
                               >
-                                🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                                <div
-                                  aria-label="复制"
-                                  class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                  tabindex="0"
-                                >
-                                  <span
-                                    aria-label="copy"
-                                    class="anticon anticon-copy"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="copy"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
+                                未解决
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            1594-02-06
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              <a
+                                id="editor"
                               >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-error"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  未解决
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              1594-02-06
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <div
-                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
-                              >
-                                <a
-                                  id="editor"
-                                >
-                                  编辑
-                                </a>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                                编辑
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <button
-            class="ant-btn ant-btn-dashed"
-            style="display: block; margin: 10px 0px; width: 100%;"
-            type="button"
-          >
-            <span
-              aria-label="plus"
-              class="anticon anticon-plus"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="plus"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <defs>
-                  <style />
-                </defs>
-                <path
-                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                />
-                <path
-                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                />
-              </svg>
-            </span>
-            <span>
-              测试添加数据
-            </span>
-          </button>
         </div>
+        <button
+          class="ant-btn ant-btn-dashed"
+          style="display: block; margin: 10px 0px; width: 100%;"
+          type="button"
+        >
+          <span
+            aria-label="plus"
+            class="anticon anticon-plus"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="plus"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <defs>
+                <style />
+              </defs>
+              <path
+                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+              />
+              <path
+                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+              />
+            </svg>
+          </span>
+          <span>
+            测试添加数据
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -626,123 +622,242 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
 exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro"
+    class="ant-pro-table"
   >
     <div
-      class="ant-pro-table"
+      class="ant-pro-card"
     >
       <div
-        class="ant-pro-card"
+        class="ant-pro-card-body"
+        style="padding-block-start: 0;"
       >
         <div
-          class="ant-pro-card-body"
-          style="padding-block-start: 0;"
+          class="ant-table-wrapper"
         >
           <div
-            class="ant-table-wrapper"
+            class="ant-spin-nested-loading"
           >
             <div
-              class="ant-spin-nested-loading"
+              class="ant-spin-container"
             >
               <div
-                class="ant-spin-container"
+                class="ant-table ant-table-middle ant-table-layout-fixed"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-layout-fixed"
+                  class="ant-table-container"
                 >
                   <div
-                    class="ant-table-container"
+                    class="ant-table-content"
                   >
-                    <div
-                      class="ant-table-content"
+                    <table
+                      style="table-layout: fixed;"
                     >
-                      <table
-                        style="table-layout: fixed;"
+                      <colgroup>
+                        <col
+                          style="width: 48px;"
+                        />
+                        <col
+                          style="width: 30%;"
+                        />
+                        <col
+                          style="width: 120px;"
+                        />
+                      </colgroup>
+                      <thead
+                        class="ant-table-thead"
                       >
-                        <colgroup>
-                          <col
-                            style="width: 48px;"
+                        <tr>
+                          <th
+                            class="ant-table-cell"
+                            scope="col"
                           />
-                          <col
-                            style="width: 30%;"
-                          />
-                          <col
-                            style="width: 120px;"
-                          />
-                        </colgroup>
-                        <thead
-                          class="ant-table-thead"
+                          <th
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            scope="col"
+                          >
+                            <div
+                              class="ant-pro-core-label-tip"
+                            >
+                              <div
+                                class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
+                              >
+                                标题
+                              </div>
+                              <span
+                                class="ant-pro-core-label-tip-icon "
+                              >
+                                <span
+                                  aria-label="info-circle"
+                                  class="anticon anticon-info-circle"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="info-circle"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                    />
+                                    <path
+                                      d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                            scope="col"
+                          >
+                            <div
+                              class="ant-table-filter-column"
+                            >
+                              <span
+                                class="ant-table-column-title"
+                              >
+                                状态
+                              </span>
+                              <span
+                                class="ant-dropdown-trigger ant-table-filter-trigger"
+                                role="button"
+                                tabindex="-1"
+                              >
+                                <span
+                                  aria-label="filter"
+                                  class="anticon anticon-filter"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="filter"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                            scope="col"
+                          >
+                            创建时间
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                            scope="col"
+                          >
+                            操作
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        class="ant-table-tbody"
+                      >
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624748504"
                         >
-                          <tr>
-                            <th
-                              class="ant-table-cell"
-                              scope="col"
+                          <td
+                            class="ant-table-cell ant-table-cell-with-append"
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left: 0px;"
                             />
-                            <th
-                              class="ant-table-cell ant-table-cell-ellipsis"
-                              scope="col"
+                            <button
+                              aria-expanded="false"
+                              aria-label="展开行"
+                              class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                              type="button"
+                            />
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
                             >
+                              1
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                          >
+                            <span
+                              aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🐛 [BUG]yarn install命令 antd2.4.5会报错
                               <div
-                                class="ant-pro-core-label-tip"
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
                               >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                              >
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
                                 <div
-                                  class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
-                                >
-                                  标题
-                                </div>
-                                <span
-                                  class="ant-pro-core-label-tip-icon "
-                                >
-                                  <span
-                                    aria-label="info-circle"
-                                    class="anticon anticon-info-circle"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="info-circle"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                      />
-                                      <path
-                                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                              </div>
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                              scope="col"
-                            >
-                              <div
-                                class="ant-table-filter-column"
-                              >
-                                <span
-                                  class="ant-table-column-title"
-                                >
-                                  状态
-                                </span>
-                                <span
-                                  class="ant-dropdown-trigger ant-table-filter-trigger"
+                                  aria-label="复制"
+                                  class="ant-typography-copy"
                                   role="button"
-                                  tabindex="-1"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
                                 >
                                   <span
-                                    aria-label="filter"
-                                    class="anticon anticon-filter"
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
                                     role="img"
                                   >
                                     <svg
                                       aria-hidden="true"
-                                      data-icon="filter"
+                                      data-icon="copy"
                                       fill="currentColor"
                                       focusable="false"
                                       height="1em"
@@ -750,64 +865,125 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                       width="1em"
                                     >
                                       <path
-                                        d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
                                       />
                                     </svg>
                                   </span>
-                                </span>
-                              </div>
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                              scope="col"
+                                </div>
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
-                              创建时间
-                            </th>
-                            <th
-                              class="ant-table-cell"
-                              scope="col"
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-processing"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                解决中
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            1594-02-02
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                             >
-                              操作
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody
-                          class="ant-table-tbody"
+                              <a
+                                id="editor"
+                              >
+                                编辑
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624691229"
                         >
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="624748504"
+                          <td
+                            class="ant-table-cell ant-table-cell-with-append"
                           >
-                            <td
-                              class="ant-table-cell ant-table-cell-with-append"
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left: 0px;"
+                            />
+                            <button
+                              aria-expanded="false"
+                              aria-label="展开行"
+                              class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                              type="button"
+                            />
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
                             >
-                              <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
-                              />
-                              <button
-                                aria-expanded="false"
-                                aria-label="展开行"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                                type="button"
-                              />
+                              2
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🐛 [BUG]无法创建工程npm create umi"
+                          >
+                            <span
+                              aria-label="🐛 [BUG]无法创建工程npm create umi"
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🐛 [BUG]无法创建工程npm create umi
                               <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
                               >
-                                1
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
                               </div>
-                            </td>
-                            <td
-                              class="ant-table-cell ant-table-cell-ellipsis"
-                              title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                            >
                               <span
-                                aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                                style="width: 100%; margin: 0px; padding: 0px;"
-                                title=""
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                               >
-                                🐛 [BUG]yarn install命令 antd2.4.5会报错
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
                                 <div
                                   aria-label="复制"
                                   class="ant-typography-copy"
@@ -835,120 +1011,120 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                     </svg>
                                   </span>
                                 </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-processing"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  解决中
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              1594-02-02
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <div
-                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
-                              >
-                                <a
-                                  id="editor"
-                                >
-                                  编辑
-                                </a>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="624691229"
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
                           >
-                            <td
-                              class="ant-table-cell ant-table-cell-with-append"
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
                               <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
+                                class="ant-badge-status-dot ant-badge-status-success"
                               />
-                              <button
-                                aria-expanded="false"
-                                aria-label="展开行"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
-                                type="button"
-                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                已解决
+                              </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            1593-12-13
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
+                            >
+                              <a
+                                id="editor"
+                              >
+                                编辑
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="624674790"
+                        >
+                          <td
+                            class="ant-table-cell ant-table-cell-with-append"
+                          >
+                            <span
+                              class="ant-table-row-indent indent-level-0"
+                              style="padding-left: 0px;"
+                            />
+                            <button
+                              aria-expanded="false"
+                              aria-label="展开行"
+                              class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                              type="button"
+                            />
+                            <div
+                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                            >
+                              3
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                          >
+                            <span
+                              aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
+                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              style="width: 100%; margin: 0px; padding: 0px;"
+                              title=""
+                            >
+                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                               <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
                               >
-                                2
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
                               </div>
-                            </td>
-                            <td
-                              class="ant-table-cell ant-table-cell-ellipsis"
-                              title="🐛 [BUG]无法创建工程npm create umi"
-                            >
                               <span
-                                aria-label="🐛 [BUG]无法创建工程npm create umi"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                                style="width: 100%; margin: 0px; padding: 0px;"
-                                title=""
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
                               >
-                                🐛 [BUG]无法创建工程npm create umi
+                                lg
+                              </span>
+                              <span
+                                aria-hidden="true"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  ...
+                                </span>
                                 <div
                                   aria-label="复制"
                                   class="ant-typography-copy"
@@ -976,230 +1152,46 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                                     </svg>
                                   </span>
                                 </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-success"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  已解决
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              1593-12-13
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <div
-                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
-                              >
-                                <a
-                                  id="editor"
-                                >
-                                  编辑
-                                </a>
-                              </div>
-                            </td>
-                          </tr>
-                          <tr
-                            class="ant-table-row ant-table-row-level-0"
-                            data-row-key="624674790"
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
                           >
-                            <td
-                              class="ant-table-cell ant-table-cell-with-append"
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                             >
                               <span
-                                class="ant-table-row-indent indent-level-0"
-                                style="padding-left: 0px;"
+                                class="ant-badge-status-dot ant-badge-status-error"
                               />
-                              <button
-                                aria-expanded="false"
-                                aria-label="展开行"
-                                class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
-                                type="button"
-                              />
-                              <div
-                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                              >
-                                3
-                              </div>
-                            </td>
-                            <td
-                              class="ant-table-cell ant-table-cell-ellipsis"
-                              title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                            >
                               <span
-                                aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                                style="width: 100%; margin: 0px; padding: 0px;"
-                                title=""
+                                class="ant-badge-status-text"
                               >
-                                🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                                <div
-                                  aria-label="复制"
-                                  class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                  tabindex="0"
-                                >
-                                  <span
-                                    aria-label="copy"
-                                    class="anticon anticon-copy"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="copy"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
-                                >
-                                  lg
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                                >
-                                  <span
-                                    aria-hidden="true"
-                                  >
-                                    ...
-                                  </span>
-                                  <div
-                                    aria-label="复制"
-                                    class="ant-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                    tabindex="0"
-                                  >
-                                    <span
-                                      aria-label="copy"
-                                      class="anticon anticon-copy"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="copy"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </div>
-                                </span>
+                                未解决
                               </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            1594-02-06
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              <a
+                                id="editor"
                               >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-error"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  未解决
-                                </span>
-                              </span>
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              1594-02-06
-                            </td>
-                            <td
-                              class="ant-table-cell"
-                            >
-                              <div
-                                style="display: flex; align-items: center; justify-content: flex-start; gap: 8px;"
-                              >
-                                <a
-                                  id="editor"
-                                >
-                                  编辑
-                                </a>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                                编辑
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>

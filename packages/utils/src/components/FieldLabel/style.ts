@@ -21,9 +21,6 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&:hover': {
         backgroundColor: token.colorBgTextHover,
       },
-      '*': {
-        boxSizing: 'border-box',
-      },
       '&-active': {
         paddingBlock: 0,
         paddingInline: 12,

@@ -1,6 +1,6 @@
 import { useMountMergeState } from '@ant-design/pro-utils';
 import { Avatar, ConfigProvider } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import classNames from 'classnames';
 import React, { useContext, useEffect, useMemo } from 'react';
 import type { CheckCardGroupProps } from './Group';
@@ -128,7 +128,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     },
   );
   const checkCardGroup = useContext(CheckCardGroupConnext);
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const handleClick = (e: any) => {
     props?.onClick?.(e);

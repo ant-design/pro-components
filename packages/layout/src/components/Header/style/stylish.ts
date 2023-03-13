@@ -25,10 +25,8 @@ export function useStylish(
 
     return [
       {
-        [token.proComponentsCls]: {
-          [`${token.proComponentsCls}-layout`]: {
-            [`${stylishToken.componentCls}`]: stylish?.(stylishToken),
-          },
+        [`div${token.proComponentsCls}-layout`]: {
+          [`${stylishToken.componentCls}`]: stylish?.(stylishToken),
         },
       },
     ];

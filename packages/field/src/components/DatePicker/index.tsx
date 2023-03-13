@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import React, { useContext, useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 // 兼容代码-----------
 import 'antd/lib/date-picker/style';
 //----------------------
@@ -25,7 +25,7 @@ const formatDate = (text: any, format: any) => {
 };
 
 export const useDatePickerStyle = () => {
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const prefixCls = getPrefixCls('pro-field-date-picker');
 

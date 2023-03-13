@@ -1,7 +1,7 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
-import { ConfigProvider as AntdConfigProvider } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+import { App, ConfigProvider as AntdConfigProvider } from 'antd';
+
 import zh_CN from 'antd/lib/locale/zh_CN';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
@@ -126,7 +126,6 @@ export type ConfigContextPropsType = {
   hashed?: boolean;
   dark?: boolean;
   theme?: Theme<any, any>;
-  containerDomRef?: React.RefObject<HTMLDivElement>;
 };
 
 /* Creating a context object with the default values. */
@@ -185,11 +184,8 @@ const ConfigProviderContainer: React.FC<{
     token: propsToken,
     prefixCls,
   } = props;
-  const { locale, getPrefixCls, ...restConfig } = useContext(
-    ConfigContext || AntdConfigProvider.ConfigContext,
-  );
+  const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
   const tokenContext = proTheme.useToken?.();
-  const containerDomRef = useRef<HTMLDivElement>(null);
   const proProvide = useContext(ProConfigContext);
 
   /**
@@ -276,14 +272,13 @@ const ConfigProviderContainer: React.FC<{
         proProvide.hashed !== false,
     };
 
-    const provide = (
+    return (
       <AntdConfigProvider {...restConfig} theme={{ ...themeConfig }}>
         <ProConfigContext.Provider
           value={{
             ...proProvideValue!,
             valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
             token,
-            containerDomRef,
             theme: tokenContext.theme,
             hashed: props.hashed,
             hashId,
@@ -297,16 +292,6 @@ const ConfigProviderContainer: React.FC<{
       </AntdConfigProvider>
     );
 
-    return (
-      <div
-        ref={containerDomRef}
-        className={`${prefixCls || getPrefixCls?.('pro') || 'ant-pro'}${
-          hashId ? ' ' + hashId : ''
-        }`}
-      >
-        {provide}
-      </div>
-    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoClearCache, children, getPrefixCls, hashId, locale, proProvideValue, token]);
 

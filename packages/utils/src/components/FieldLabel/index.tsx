@@ -5,7 +5,7 @@ import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { useStyle } from './style';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 export type FieldLabelProps = {
   label?: React.ReactNode;
   value?: any;
@@ -41,7 +41,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
     bordered,
     allowClear = true,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const intl = useIntl();

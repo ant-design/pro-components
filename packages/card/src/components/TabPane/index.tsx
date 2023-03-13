@@ -6,7 +6,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext } from 'react';
 import type { ProCardTabPaneProps, ProCardTabsProps } from '../../typing';
 import Card from '../Card';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 function filter<T>(items: (T | null)[]): T[] {
   return items.filter((item) => item) as T[];
 }
@@ -49,7 +49,7 @@ export function useLegacyItems(
  * @deprecated ProComponets 3.0
  */
 const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   // 如果是antd v5 则返回为空
   if (version.startsWith('5')) {
     return <></>;

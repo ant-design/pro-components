@@ -16,10 +16,6 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         height: '32px',
       },
       '&-overlay': {
-        '*': {
-          fontFamily: token.fontFamily,
-          boxSizing: 'border-box',
-        },
         [`${token.antCls}-popover-inner-content`]: {
           width: '200px',
           paddingBlock: 0,
@@ -44,6 +40,9 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         },
       },
     },
+    [`${token.componentCls}-action-rest-button`]: {
+      color: token.colorPrimary,
+    },
     [`${token.componentCls}-list`]: {
       display: 'flex',
       flexDirection: 'column',
@@ -59,6 +58,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         color: token.colorTextSecondary,
         fontSize: '12px',
       },
+
       '&-item': {
         display: 'flex',
         alignItems: 'center',

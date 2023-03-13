@@ -2,7 +2,7 @@ import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 export interface ProCardOperationProps {
   /**
    * 样式
@@ -23,7 +23,7 @@ export interface ProCardOperationProps {
 const ProCardOperation: React.FC<ProCardOperationProps> = (props) => {
   const { className, style = {}, children } = props;
 
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-operation');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const classString = classNames(prefixCls, className, hashId);

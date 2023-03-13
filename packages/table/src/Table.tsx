@@ -2,7 +2,7 @@
 import 'antd/lib/table/style';
 import 'antd/lib/typography/style';
 //----------------------
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import ProCard from '@ant-design/pro-card';
 import ProForm from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
@@ -859,7 +859,7 @@ const ProviderTableContainer = <
 >(
   props: ProTableProps<DataType, Params, ValueType>,
 ) => {
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const ErrorComponent =
     props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
 

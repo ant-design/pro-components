@@ -14,7 +14,6 @@ const genAppsLogoComponentsSimpleListStyle: GenerateStyle<AppsLogoComponentsToke
         paddingBlock: 0,
         paddingInline: 0,
         listStyle: 'none',
-        '*': { boxSizing: 'border-box', fontFamily: token.fontFamily },
         '&-item': {
           position: 'relative',
           display: 'inline-block',

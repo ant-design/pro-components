@@ -24,10 +24,8 @@ export function useStylish(
     if (!stylish) return [];
     return [
       {
-        [token.proComponentsCls]: {
-          [`${token.proComponentsCls}-layout`]: {
-            [`${siderMenuToken.componentCls}`]: stylish?.(siderMenuToken),
-          },
+        [`div${token.proComponentsCls}-layout`]: {
+          [`${siderMenuToken.componentCls}`]: stylish?.(siderMenuToken),
         },
       },
     ];

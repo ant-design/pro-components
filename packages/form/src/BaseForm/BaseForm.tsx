@@ -22,7 +22,7 @@ import {
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import type { NamePath } from 'antd/lib/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
@@ -511,13 +511,12 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     proFieldKey: formKey,
   });
 
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   // css
   const { wrapSSR, hashId } = useStyle('ProForm', (token) => {
     return {
       [`.${prefixCls}`]: {
-        '*': { boxSizing: 'border-box' },
         [`> div:not(${token.proComponentsCls}-form-light-filter)`]: {
           '.pro-field': {
             maxWidth: '100%',

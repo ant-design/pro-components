@@ -18,7 +18,6 @@ import { TableContext } from '../../Store/Provide';
 import type { ProColumns } from '../../typing';
 import { genColumnKey } from '../../utils/index';
 import { useStyle } from './style';
-import { ConfigContext } from 'antd/lib/config-provider';
 
 type ColumnSettingProps<T = any> = {
   columns: TableColumnType<T>[];
@@ -409,7 +408,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const indeterminate = unCheckedKeys.length > 0 && unCheckedKeys.length !== localColumns.length;
 
   const intl = useIntl();
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-column-setting');
   const { wrapSSR, hashId } = useStyle(className);
   return wrapSSR(
@@ -427,7 +426,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
             {intl.getMessage('tableToolBar.columnDisplay', '列展示')}
           </Checkbox>
           {checkedReset ? (
-            <a onClick={clearClick} className={`${className}-action-rest-button`}>
+            <a onClick={clearClick} className={`${className}-action-rest-button ${hashId}`}>
               {intl.getMessage('tableToolBar.reset', '重置')}
             </a>
           ) : null}

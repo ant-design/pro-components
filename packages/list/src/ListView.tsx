@@ -1,7 +1,7 @@
 import type { ProCardProps } from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { ActionType } from '@ant-design/pro-table';
-import { ListProps, TableColumnType, TableProps, version } from 'antd';
+import { ListProps, TableColumnType, TablePaginationConfig, TableProps, version } from 'antd';
 import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import usePagination from 'antd/lib/table/hooks/usePagination';
@@ -14,7 +14,7 @@ import { PRO_LIST_KEYS_MAP } from './constants';
 import type { GetComponentProps } from './index';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { compareVersions } from '@ant-design/pro-utils';
 
@@ -68,7 +68,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   const { hashId } = useContext(ProProvider);
 
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
     if (typeof rowKey === 'function') {
@@ -80,10 +80,13 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
-  const usePaginationArgs = [() => {}, pagination];
+  const usePaginationArgs = [() => {}, pagination] as [
+    onChange: (current: number, pageSize: number) => void,
+    pagination?: TablePaginationConfig | false,
+  ];
   // 兼容 5.2.0 以下的版本
   if (compareVersions(version, '5.2.0') < 0) usePaginationArgs.reverse();
-  // 合并分页的的配置
+  // 合并分页的的配置，这里是为了兼容 antd 的分页
   const [mergedPagination] = usePagination(
     dataSource.length,
     usePaginationArgs[0],
@@ -118,7 +121,8 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       locale: {},
     },
     rowSelection,
-  ];
+    // 这个 API 用的不好，先 any 一下
+  ] as [any, TableRowSelection<RecordType>];
 
   // 兼容 5.2.0 以下的版本
   if (compareVersions(version, '5.2.0') < 0) useSelectionArgs.reverse();

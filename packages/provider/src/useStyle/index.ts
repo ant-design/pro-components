@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import { theme as antdTheme } from 'antd';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import type React from 'react';
@@ -107,7 +107,7 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
   const { token = {} as ProAliasToken, hashId = '', theme } = useContext(ProProvider);
-  const { getPrefixCls } = useContext(ConfigContext || AntdConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
   token.antCls = `.${getPrefixCls()}`;
 
   return {

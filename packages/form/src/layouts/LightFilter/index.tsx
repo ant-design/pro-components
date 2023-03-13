@@ -3,7 +3,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, FilterDropdown } from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
 import { ConfigProvider } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import classNames from 'classnames';
@@ -236,7 +236,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     footerRender,
     ...reset
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   const [values, setValues] = useState<Record<string, any>>(() => {
     return { ...initialValues };

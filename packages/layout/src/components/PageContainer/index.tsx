@@ -20,7 +20,7 @@ import { useStyle } from './style';
 import { useStylish } from './style/stylish';
 
 import 'antd/lib/breadcrumb/style';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import type { NewBreadcrumbProps } from 'antd/lib/breadcrumb/Breadcrumb';
 
 export type PageHeaderTabConfig = {
@@ -319,7 +319,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const { token } = useContext(ProProvider);
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
   const basePageContainer = `${prefixCls}-page-container`;

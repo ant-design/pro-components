@@ -2,7 +2,7 @@ import { ConfigProvider, Popover } from 'antd';
 import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import { useStyle } from './style';
 import classNames from 'classnames';
 import 'antd/lib/dropdown/style';
@@ -48,7 +48,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     footerRender,
     placement,
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 

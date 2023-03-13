@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import React, { useContext, useMemo } from 'react';
 import type { ActionType, ProColumns, ProTableProps } from '../../typing';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 function toLowerLine(str: string) {
   let temp = str.replace(/[A-Z]/g, (match) => {
     return `-${match.toLowerCase()}`;
@@ -137,7 +137,7 @@ const FormRender = <T, U = any>({
     }
   };
 
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const columnsList = useMemo(() => {
     return columns

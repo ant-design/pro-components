@@ -31,7 +31,7 @@ import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 // 兼容代码-----------
 import 'antd/lib/select/style';
 //------------
@@ -132,7 +132,7 @@ const Highlight: React.FC<{
   label: string;
   words: string[];
 }> = ({ label, words }) => {
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const lightCls = getPrefixCls('pro-select-item-option-content-light');
   const optionCls = getPrefixCls('pro-select-item-option-content');
 

@@ -4,7 +4,7 @@ import { Badge, ConfigProvider, Statistic as AntdStatistic, Tooltip } from 'antd
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 export interface StatisticProps extends AntdStatisticProps {
   /**
    * 样式
@@ -50,7 +50,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     ...others
   } = props;
 
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-statistic');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const classString = classNames(prefixCls, className, hashId);

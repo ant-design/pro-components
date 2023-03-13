@@ -4,7 +4,7 @@ import { ProProvider } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import { omitBoolean } from '@ant-design/pro-utils';
 import { ConfigProvider, Space } from 'antd';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 import React, { useContext } from 'react';
 
 export type ActionsProps = {
@@ -68,7 +68,7 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
  */
 const Actions: React.FC<ActionsProps> = (props) => {
   const { setCollapsed, collapsed = false, submitter, style, hiddenNum } = props;
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
   const { hashId } = useContext(ProProvider);
   const collapseRender = omitBoolean(props.collapseRender) || defaultCollapseRender;

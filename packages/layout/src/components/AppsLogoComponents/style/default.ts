@@ -14,8 +14,6 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
         paddingBlock: 0,
         paddingInline: 0,
         listStyle: 'none',
-        '> *': { boxSizing: 'border-box', fontFamily: token.fontFamily },
-
         '&-item': {
           position: 'relative',
           display: 'inline-block',
@@ -45,7 +43,6 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
           '&:hover': {
             backgroundColor: token.colorBgTextHover,
           },
-          '*': { boxSizing: 'border-box', fontFamily: token.fontFamily },
           '* div': resetComponent?.(token),
           a: {
             display: 'flex',

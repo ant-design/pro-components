@@ -242,6 +242,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           },
         },
       },
+      // 这里是为了保证 tabs 的高度和左侧的一致
       [`${token.antCls}-tabs-left > ${token.antCls}-tabs-nav`]: {
         marginInlineEnd: 0,
         [`${token.antCls}-tabs-nav-list`]: {

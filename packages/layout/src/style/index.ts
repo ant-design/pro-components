@@ -23,7 +23,6 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
     return {};
   }
   return {
-    [token.proComponentsCls]: { width: '100%', height: '100%' },
     [token.componentCls]: {
       width: '100%',
       height: '100%',
@@ -219,61 +218,51 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
 
 const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
   return {
-    body: {
-      paddingBlock: 0,
-      paddingInline: 0,
-      marginBlock: 0,
-      marginInline: 0,
-      fontFamily: token.fontFamily,
+    [`${token.antCls}-layout`]: {
+      backgroundColor: 'transparent !important',
     },
-    [token.proComponentsCls]: {
-      [`${token.antCls}-layout`]: {
-        backgroundColor: 'transparent !important',
+    [`& ${token.componentCls}`]: {
+      [`& ${token.antCls}-layout`]: {
+        display: 'flex',
+        backgroundColor: 'transparent',
+        width: '100%',
       },
-      [`& ${token.componentCls}`]: {
-        [`& ${token.antCls}-layout`]: {
-          display: 'flex',
-          backgroundColor: 'transparent',
-          width: '100%',
-        },
-        [`${token.componentCls}-content`]: {
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          backgroundColor: token?.layout?.pageContainer?.colorBgPageContainer || 'transparent',
-          position: 'relative',
-          '*': { boxSizing: 'border-box' },
-          paddingBlock: token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-          paddingInline: token?.layout?.pageContainer?.paddingInlinePageContainerContent,
-          '&-has-page-container': {
-            padding: 0,
-          },
-        },
-        [`${token.componentCls}-container`]: {
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          minWidth: 0,
-          minHeight: 0,
-          backgroundColor: 'transparent',
-        },
-        [`${token.componentCls}-bg-list`]: {
-          pointerEvents: 'none',
-          position: 'fixed',
-          overflow: 'hidden',
-          insetBlockStart: 0,
-          insetInlineStart: 0,
-          zIndex: 0,
-          height: '100%',
-          width: '100%',
-          background: token?.layout?.bgLayout,
+      [`${token.componentCls}-content`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        backgroundColor: token?.layout?.pageContainer?.colorBgPageContainer || 'transparent',
+        position: 'relative',
+        paddingBlock: token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+        paddingInline: token?.layout?.pageContainer?.paddingInlinePageContainerContent,
+        '&-has-page-container': {
+          padding: 0,
         },
       },
-      [`${token.antCls}-menu-submenu-popup`]: {
-        backgroundColor: 'rgba(255, 255, 255, 0.42)',
-        '-webkit-backdrop-filter': 'blur(8px)',
-        backdropFilter: 'blur(8px)',
+      [`${token.componentCls}-container`]: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        minWidth: 0,
+        minHeight: 0,
+        backgroundColor: 'transparent',
       },
+      [`${token.componentCls}-bg-list`]: {
+        pointerEvents: 'none',
+        position: 'fixed',
+        overflow: 'hidden',
+        insetBlockStart: 0,
+        insetInlineStart: 0,
+        zIndex: 0,
+        height: '100%',
+        width: '100%',
+        background: token?.layout?.bgLayout,
+      },
+    },
+    [`${token.antCls}-menu-submenu-popup`]: {
+      backgroundColor: 'rgba(255, 255, 255, 0.42)',
+      '-webkit-backdrop-filter': 'blur(8px)',
+      backdropFilter: 'blur(8px)',
     },
   };
 };

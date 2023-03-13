@@ -3,7 +3,7 @@ import { Button, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
-import { ConfigContext } from 'antd/lib/config-provider';
+
 type LightFilterFooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
@@ -24,7 +24,7 @@ export type DropdownFooterProps = {
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const intl = useIntl();
   const { onClear, onConfirm, disabled, footerRender } = props;
-  const { getPrefixCls } = useContext(ConfigContext || ConfigProvider.ConfigContext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-dropdown-footer');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const defaultFooter = [

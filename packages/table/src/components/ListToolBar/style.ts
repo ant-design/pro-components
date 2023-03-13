@@ -51,6 +51,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         [`${token.antCls}-tabs`]: {
           width: '100%',
         },
+        '&-has-tabs': {
+          overflow: 'hidden',
+        },
       },
       '&-right': {
         flex: 1,
@@ -70,7 +73,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&:not(:last-child)': { marginInlineEnd: token.margin },
         display: 'flex',
         alignItems: 'center',
-        [`div.$${token.antCls}-pro-table-search`]: {
+        [`div$${token.antCls}-pro-table-search`]: {
           marginBlock: 0,
           marginInline: 0,
           paddingBlock: 0,

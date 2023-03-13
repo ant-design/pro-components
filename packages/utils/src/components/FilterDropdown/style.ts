@@ -11,10 +11,6 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
     [`${token.componentCls}-overlay`]: {
       minWidth: '200px',
       marginBlockStart: '4px',
-      '*': {
-        fontFamily: token.fontFamily,
-        boxSizing: 'border-box',
-      },
     },
     [`${token.componentCls}-content`]: { paddingBlock: 16, paddingInline: 16 },
   };
