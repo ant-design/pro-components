@@ -5,7 +5,7 @@
     "public/icon.png": "/icon.png",
     "public/sitemap.xml": "/sitemap.xml",
     "umi.css": "/umi.d77ad6e0.css",
-    "umi.js": "/umi.f745104a.js",
+    "umi.js": "/umi.cdc0d5ca.js",
     "nm__dumi__dist__client__pages__404.js": "/nm__dumi__dist__client__pages__404.1f6c8805.async.js",
     "dumi__theme__layouts__GlobalLayout.js": "/dumi__theme__layouts__GlobalLayout.bdbdd8ce.async.js",
     "dumi__tmp-production__dumi__theme__ContextWrapper.js": "/dumi__tmp-production__dumi__theme__ContextWrapper.896a0683.async.js",
@@ -24,7 +24,7 @@
     "docs__docs__index.en-US.md.js": "/docs__docs__index.en-US.md.9dad5a61.async.js",
     "docs__docs__intro.en-US.md.js": "/docs__docs__intro.en-US.md.b9123dc4.async.js",
     "docs__playground__index.md.js": "/docs__playground__index.md.73054872.async.js",
-    "docs__changelog.en-US.md.js": "/docs__changelog.en-US.md.02e631d4.async.js",
+    "docs__changelog.en-US.md.js": "/docs__changelog.en-US.md.4bd99a4b.async.js",
     "docs__docs__faq.en-US.md.js": "/docs__docs__faq.en-US.md.2e439a61.async.js",
     "docs__index.en-US.md.js": "/docs__index.en-US.md.40943d30.async.js",
     "docs__components.md.js": "/docs__components.md.cfb791ea.async.js",
@@ -32,7 +32,7 @@
     "docs__components__schema.md.js": "/docs__components__schema.md.99269fef.async.js",
     "docs__docs__index.md.js": "/docs__docs__index.md.11522123.async.js",
     "docs__docs__intro.md.js": "/docs__docs__intro.md.d9975c9b.async.js",
-    "docs__changelog.md.js": "/docs__changelog.md.259340c6.async.js",
+    "docs__changelog.md.js": "/docs__changelog.md.a56c31e9.async.js",
     "docs__docs__faq.md.js": "/docs__docs__faq.md.6a6fba5f.async.js",
     "docs__index.md.js": "/docs__index.md.b65939b1.async.js",
     "packages__card__src__components__StatisticCard__index.en-US.md.js": "/packages__card__src__components__StatisticCard__index.en-US.md.42efa480.async.js",
@@ -93,6 +93,6 @@
     "packages__table__src__components__table.en-US.md.js": "/packages__table__src__components__table.en-US.md.78b49904.async.js",
     "packages__table__src__components__table.md.js": "/packages__table__src__components__table.md.3131b9b8.async.js",
     "nm__dumi__dist__client__pages__Demo__index.js": "/nm__dumi__dist__client__pages__Demo__index.0d528977.async.js",
-    "demos.js": "/demos.a1f9ab9f.async.js"
+    "demos.js": "/demos.6de56249.async.js"
   }
 }
