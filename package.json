@@ -162,5 +162,6 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
   },
+  "packageManager": "pnpm@6.0.2",
   "name": "pro-components"
 }
