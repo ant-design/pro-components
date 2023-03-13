@@ -1,5 +1,5 @@
 import { useLocation } from '@@/exports';
-import { useNavData, useRouteMeta, useSidebarData, useSiteData } from 'dumi';
+import { useNavData, useRouteMeta, useSidebarData, useSiteData, useTabMeta } from 'dumi';
 import isEqual from 'fast-deep-equal';
 import { memo, useEffect } from 'react';
 import { useSiteStore } from '../../store/useSiteStore';
@@ -7,7 +7,8 @@ import { useSiteStore } from '../../store/useSiteStore';
 export const StoreUpdater = memo(() => {
   const siteData = useSiteData();
   const sidebar = useSidebarData();
-  const routeMeta = useRouteMeta();
+  const routeMeta = useRouteMeta() as any;
+  const tabsMeta = useTabMeta();
   const navData = useNavData();
   const location = useLocation();
 
@@ -27,8 +28,8 @@ export const StoreUpdater = memo(() => {
   }, [sidebar]);
 
   useEffect(() => {
-    useSiteStore.setState({ routeMeta });
-  }, [routeMeta]);
+    useSiteStore.setState({ routeMeta: tabsMeta || routeMeta });
+  }, [routeMeta, routeMeta]);
 
   useEffect(() => {
     useSiteStore.setState({ navData });

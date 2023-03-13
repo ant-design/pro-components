@@ -1,7 +1,7 @@
 import { ArrowDownOutlined, MenuOutlined } from '@ant-design/icons';
 import { Anchor, Collapse, ConfigProvider } from 'antd';
 import { useResponsive } from 'antd-style';
-import { useLocation, useRouteMeta } from 'dumi';
+import { useLocation, useTabMeta, useRouteMeta } from 'dumi';
 import { useMemo, useState, type FC } from 'react';
 
 import { useStyles } from './style';
@@ -17,12 +17,13 @@ const Toc: FC = () => {
 
   const [activeLink, setActiveLink] = useState<string>();
   const meta = useRouteMeta();
+  const tabsMeta = useTabMeta();
   const { styles } = useStyles();
   const { mobile } = useResponsive();
 
   const anchorItems = useMemo(
     () =>
-      meta.toc.reduce<AnchorItem[]>((result, item) => {
+      (tabsMeta?.toc || meta.toc).reduce<AnchorItem[]>((result, item) => {
         if (item.depth === 2) {
           result.push({ ...item });
         } else if (item.depth === 3) {
@@ -34,7 +35,7 @@ const Toc: FC = () => {
         }
         return result;
       }, []),
-    [meta.toc],
+    [meta.toc || tabsMeta?.toc],
   );
 
   const activeAnchor = meta.toc.find((item) => item.id === activeLink);
