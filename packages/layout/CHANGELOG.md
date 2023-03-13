@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.10.0...@ant-design/pro-layout@7.10.1) (2023-03-13)
+
+
+### Bug Fixes
+
+* **layout:** fix sider menu height ([e8963cc](https://github.com/ant-design/pro-components/commit/e8963cc28a7434ac8476e3d8321a9a74101a8ff4))
+* **layout:** remove procard use antd card ([02e1830](https://github.com/ant-design/pro-components/commit/02e1830aba699516898038adfb75b32ae68a5c53))
+
+
+
+
 
 # [7.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.9.0...@ant-design/pro-layout@7.10.0) (2023-03-09)
 
