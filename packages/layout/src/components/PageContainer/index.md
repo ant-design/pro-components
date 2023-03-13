@@ -49,7 +49,7 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 固定表头
 
-<code src="./demos/fixHeader.tsx" title="固定表头" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"></code>
+<code src="./demos/fixHeader.tsx" title="固定表头" iframe="650px" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"></code>
 
 ### 隐藏面包屑
 
