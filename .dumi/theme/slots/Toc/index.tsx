@@ -19,6 +19,7 @@ const Toc: FC = () => {
   const meta = useRouteMeta();
   const { styles } = useStyles();
   const { mobile } = useResponsive();
+
   const anchorItems = useMemo(
     () =>
       meta.toc.reduce<AnchorItem[]>((result, item) => {

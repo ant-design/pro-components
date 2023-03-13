@@ -69,16 +69,15 @@ export default defineConfig({
       min-width: 260px;
     }
     .dumi-default-previewer-demo {
-      min-height: 580px;
-      max-height: 580px;
+      min-height: 120px;
       display: flex;
       overflow: auto;
       flex-direction: column;
     }
-    .dumi-default-previewer-demo > iframe {
-      height: 100%!important;
-      flex:1;
+    .dumi-default-content-tabs{
+      margin: -24px -48px 48px !important;
     }
+    
     .dumi-default-header:not([data-static]){
       border-bottom: 1px solid #ddd;
     }
