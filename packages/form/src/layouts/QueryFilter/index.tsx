@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { ProProvider, useIntl } from '@ant-design/pro-provider';
 import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
-import type { FormItemProps, RowProps } from 'antd';
+import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import classNames from 'classnames';
@@ -175,6 +175,13 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
    * @name 是否显示 collapse 隐藏个数
    */
   showHiddenNum?: boolean;
+
+  // submitterColSpanProps 是一个可选属性，类型为一个对象。
+  // 该对象使用 Omit 泛型去除了 ColProps 中的 'span' 属性，并新增了一个 'span' 属性，类型为 number 类型。
+  // 也就是说，submitterColSpanProps 对象除了 'span' 属性外，还可以包含 ColProps 中的其他所有属性。
+  submitterColSpanProps?: Omit<ColProps, 'span'> & {
+    span: number;
+  };
 };
 
 const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.ReactNode[] => {
@@ -217,6 +224,12 @@ const QueryFilterContent: React.FC<{
   spanSize: {
     span: number;
     layout: FormProps['layout'];
+  };
+  // submitterColSpanProps 是一个可选属性，类型为一个对象。
+  // 该对象使用 Omit 泛型去除了 ColProps 中的 'span' 属性，并新增了一个 'span' 属性，类型为 number 类型。
+  // 也就是说，submitterColSpanProps 对象除了 'span' 属性外，还可以包含 ColProps 中的其他所有属性。
+  submitterColSpanProps?: Omit<ColProps, 'span'> & {
+    span: number;
   };
   baseClassName: string;
   optionRender: BaseQueryFilterProps['optionRender'];
@@ -391,16 +404,24 @@ const QueryFilterContent: React.FC<{
   }, [totalSize, showLength, totalSpan]);
 
   const offset = useMemo(() => {
-    const offsetSpan = (currentSpan % 24) + spanSize.span;
+    const offsetSpan = (currentSpan % 24) + (props.submitterColSpanProps?.span ?? spanSize.span);
+    if (offsetSpan > 24) {
+      return 24 - (props.submitterColSpanProps?.span ?? spanSize.span);
+    }
     return 24 - offsetSpan;
-  }, [currentSpan, spanSize.span]);
+  }, [
+    currentSpan,
+    (currentSpan % 24) + (props.submitterColSpanProps?.span ?? spanSize.span),
+    props.submitterColSpanProps?.span,
+  ]);
+
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-query-filter');
   return (
     <Row
       gutter={searchGutter}
-      className={`${baseClassName}-row ${hashId}`}
       justify="start"
+      className={classNames(`${baseClassName}-row`, hashId)}
       key="resize-observer-row"
     >
       {doms}
@@ -409,6 +430,8 @@ const QueryFilterContent: React.FC<{
           key="submitter"
           span={spanSize.span}
           offset={offset}
+          className={classNames(props.submitterColSpanProps?.className)}
+          {...props.submitterColSpanProps}
           style={{
             textAlign: 'end',
           }}
@@ -451,6 +474,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     preserve = true,
     ignoreRules,
     showHiddenNum = false,
+    submitterColSpanProps,
     ...rest
   } = props;
 
@@ -526,6 +550,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             spanSize={spanSize}
             collapsed={controlCollapsed}
             form={form}
+            submitterColSpanProps={submitterColSpanProps}
             collapseRender={collapseRender}
             defaultCollapsed={defaultCollapsed}
             onCollapse={onCollapse}

@@ -51,6 +51,7 @@ QueryFilter supports the following properties in addition to the API inherited f
 | defaultCollapsed | Whether or not to collapse out-of-order form items in default state | `boolean` | true |
 | onCollapse | Callback when toggling the collapsed state of the form | `(collapsed)=>void` | - |
 | hideRequiredMark | Hide the required markers for all form items, **hide by default** | `boolean` | true |
+| submitterColSpanProps | Props of the col where the submit button is located. | ColProps | - |
 | defaultColsNumber | The default number of controls to be displayed in the collapsed state, if not set or less than 0, one line of controls will be displayed; if the number is greater than or equal to the number of controls, the expand button will be hidden | `number` | - |
 | labelWidth | label width | `number` \| `'auto'` | `98` |
 | span | width of form items | `number[0 - 24]` | - |

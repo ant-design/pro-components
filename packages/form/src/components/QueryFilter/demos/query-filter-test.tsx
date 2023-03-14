@@ -109,6 +109,7 @@ export default () => {
           console.log(values.name);
         }}
         span={4}
+        submitterColSpanProps={{ span: 12 }}
         defaultColsNumber={1}
         defaultCollapsed={false}
       >
