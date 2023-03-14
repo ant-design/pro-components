@@ -85,7 +85,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     pagination?: TablePaginationConfig | false,
   ];
   // 兼容 5.2.0 以下的版本
-  if (compareVersions(version, '5.2.0') < 0) usePaginationArgs.reverse();
+  if (compareVersions(version, '5.3.0') < 0) usePaginationArgs.reverse();
   // 合并分页的的配置，这里是为了兼容 antd 的分页
   const [mergedPagination] = usePagination(
     dataSource.length,
@@ -125,8 +125,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   ] as [any, TableRowSelection<RecordType>];
 
   // 兼容 5.2.0 以下的版本
-  if (compareVersions(version, '5.2.0') < 0) useSelectionArgs.reverse();
-
+  if (compareVersions(version, '5.3.0') < 0) useSelectionArgs.reverse();
   const [selectItemRender, selectedKeySet] = useSelection(...useSelectionArgs);
 
   // 提供和 Table 一样的 expand 支持

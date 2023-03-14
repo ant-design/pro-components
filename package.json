@@ -90,7 +90,7 @@
     "@umijs/test-utils": "^3.5.37",
     "@umijs/utils": "^4.0.57",
     "animated-scroll-to": "^2.3.0",
-    "antd": "^5.3.0",
+    "antd": "^5.2.2",
     "antd-style": "alpha",
     "babel-loader": "^9.1.2",
     "babel-types": "^6.26.0",
