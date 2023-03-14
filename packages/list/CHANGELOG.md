@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.3.1...@ant-design/pro-list@2.3.2) (2023-03-14)
+
+
+### Bug Fixes
+
+* **compoments:** remove .ant-pro dom ([403319f](https://github.com/ant-design/pro-components/commit/403319f2b80489d04101f51d65c3cb4dcbe4595d))
+* **list:** fix usePaginationArgs and useSelection args error ([fe331b9](https://github.com/ant-design/pro-components/commit/fe331b936586d3377cbfa3f835241eeaba3fbde4))
+
+
+
+
 
 ## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.3.0...@ant-design/pro-list@2.3.1) (2023-03-13)
 

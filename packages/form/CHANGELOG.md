@@ -1,6 +1,25 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.8.0...@ant-design/pro-form@2.9.0) (2023-03-14)
+
+
+### Bug Fixes
+
+* **compoments:** remove .ant-pro dom ([403319f](https://github.com/ant-design/pro-components/commit/403319f2b80489d04101f51d65c3cb4dcbe4595d))
+* **form:** fix AdvancedSearch demo no work error ([226fbac](https://github.com/ant-design/pro-components/commit/226fbac4e214a912a84973f69ccdd1183ffd34f0))
+* **form:** fix collapse button unuse colorPrimary txt ([55b8aab](https://github.com/ant-design/pro-components/commit/55b8aabbc0d65ca7a50072e9c6e41dc91338e3a5))
+
+
+### Features
+
+* **form:** QueryFilter support submitterColSpanProps ([11dbc0c](https://github.com/ant-design/pro-components/commit/11dbc0cc989602a1c067bec8a9dcd01c1c9d2bec))
+
+
+
+
 
 # [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.7.0...@ant-design/pro-form@2.8.0) (2023-03-09)
 
