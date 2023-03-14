@@ -20,7 +20,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -770,7 +770,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -15264,7 +15264,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
           type="text"
         />
         <div
-          class="qixian-row qixian-row-start qixian-pro-query-filter-row "
+          class="qixian-row qixian-row-start qixian-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -16045,7 +16045,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               type="text"
             />
             <div
-              class="ant-row ant-row-start ant-pro-query-filter-row "
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
@@ -16793,7 +16793,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -17218,7 +17218,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -18128,7 +18128,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -18540,7 +18540,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -18952,7 +18952,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -19371,7 +19371,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -20272,7 +20272,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     type="text"
                   />
                   <div
-                    class="ant-row ant-row-start ant-pro-query-filter-row "
+                    class="ant-row ant-row-start ant-pro-query-filter-row"
                     style="margin-left: -12px; margin-right: -12px;"
                   >
                     <div
@@ -23768,7 +23768,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -24188,7 +24188,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -25276,7 +25276,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -26664,7 +26664,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -28342,7 +28342,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -28932,7 +28932,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -29530,7 +29530,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -30356,7 +30356,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -31169,7 +31169,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-row-rtl ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-row-rtl ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -32089,7 +32089,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -32659,7 +32659,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -33881,7 +33881,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           type="text"
         />
         <div
-          class="canvas-row canvas-row-start canvas-pro-query-filter-row "
+          class="canvas-row canvas-row-start canvas-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -34400,7 +34400,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           type="text"
         />
         <div
-          class="canvas-row canvas-row-start canvas-pro-query-filter-row "
+          class="canvas-row canvas-row-start canvas-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -37211,7 +37211,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
     test
   </div>
   <div
-    style="background-color: rgb(14, 14, 14); height: 100vh;"
+    style="background-color: rgb(14, 14, 14);"
   >
     <div
       class="ant-pro-table"
@@ -37228,7 +37228,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
             type="text"
           />
           <div
-            class="ant-row ant-row-start ant-pro-query-filter-row "
+            class="ant-row ant-row-start ant-pro-query-filter-row"
             style="margin-left: -12px; margin-right: -12px;"
           >
             <div
@@ -38099,7 +38099,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -38687,7 +38687,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -39899,7 +39899,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
@@ -40951,7 +40951,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
           type="text"
         />
         <div
-          class="ant-row ant-row-start ant-pro-query-filter-row "
+          class="ant-row ant-row-start ant-pro-query-filter-row"
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div

@@ -1,9 +1,7 @@
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import { ProForm, ProFormDatePicker, ProFormText, QueryFilter } from '@ant-design/pro-components';
-import { Card, Input, Space, Tabs } from 'antd';
+import { Input, Tabs } from 'antd';
 import React, { useState } from 'react';
-
-const { TabPane } = Tabs;
 
 type AdvancedSearchProps = {
   onFilterChange?: (allValues: any) => void;

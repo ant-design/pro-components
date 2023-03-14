@@ -21004,7 +21004,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -21648,7 +21648,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -22234,7 +22234,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -22830,7 +22830,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -23782,7 +23782,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -24075,7 +24075,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -24403,7 +24403,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -25001,7 +25001,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -25599,7 +25599,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -26197,7 +26197,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -26681,7 +26681,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4 ant-col-offset-8"
+        class="ant-col ant-col-12"
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
@@ -26803,7 +26803,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       type="text"
     />
     <div
-      class="ant-row ant-row-start ant-pro-query-filter-row "
+      class="ant-row ant-row-start ant-pro-query-filter-row"
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
@@ -27553,7 +27553,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         type="text"
       />
       <div
-        class="ant-row ant-row-start ant-pro-query-filter-row "
+        class="ant-row ant-row-start ant-pro-query-filter-row"
         style="margin-left: -12px; margin-right: -12px;"
       >
         <div

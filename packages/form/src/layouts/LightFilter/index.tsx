@@ -113,7 +113,7 @@ const LightFilterContainer: React.FC<{
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.items]);
 
-  const collapseLabelRender = () => {
+  const renderCollapseLabelRender = () => {
     if (collapseLabel) {
       return collapseLabel;
     }
@@ -163,9 +163,11 @@ const LightFilterContainer: React.FC<{
             <FilterDropdown
               padding={24}
               open={open}
-              onOpenChange={setOpen}
+              onOpenChange={(changeOpen) => {
+                setOpen(changeOpen);
+              }}
               placement={placement}
-              label={collapseLabelRender()}
+              label={renderCollapseLabelRender()}
               footerRender={footerRender}
               footer={{
                 onConfirm: () => {
@@ -180,7 +182,6 @@ const LightFilterContainer: React.FC<{
                     const { name } = child.props;
                     clearValues[name] = undefined;
                   });
-
                   onValuesChange(clearValues);
                 },
               }}

@@ -323,7 +323,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
               type="text"
             />
             <div
-              class="ant-row ant-row-start ant-pro-query-filter-row "
+              class="ant-row ant-row-start ant-pro-query-filter-row"
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
