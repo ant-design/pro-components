@@ -180,7 +180,7 @@ export type ProLayoutProps = GlobalTypes & {
    * @description (route: Route, params: any, routes: Array<Route>, paths: Array<string>) => React.ReactNode
    *
    * @example 设置 disabled： itemRender={(route, params, routes, paths) => { return <Button disabled>{route.breadcrumbName}</Button> }}
-   * @example 拼接 path： itemRender={(route, params, routes, paths) => { return <a href={paths.join('/')}>{route.breadcrumbName}</Button> }}
+   * @example 拼接 path： itemRender={(route, params, routes, paths) => { return <a href={paths.join('/')}>{route.breadcrumbName}</a> }}
    */
   itemRender?: AntdBreadcrumbProps['itemRender'];
 
