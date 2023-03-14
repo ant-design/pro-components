@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.3.0...@ant-design/pro-card@2.3.1) (2023-03-14)
 
-
 ### Bug Fixes
 
-* **compoments:** remove .ant-pro dom ([403319f](https://github.com/ant-design/pro-components/commit/403319f2b80489d04101f51d65c3cb4dcbe4595d))
-
-
-
-
+- **compoments:** remove .ant-pro dom ([403319f](https://github.com/ant-design/pro-components/commit/403319f2b80489d04101f51d65c3cb4dcbe4595d))
 
 # [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.2.0...@ant-design/pro-card@2.3.0) (2023-03-09)
 

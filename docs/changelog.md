@@ -1,4 +1,13 @@
-﻿## @ant-design/pro-components@2.4.1
+﻿## @ant-design/pro-components@2.4.2
+
+`2023-03-14`
+
+- feat(form): QueryFilter support submitterColSpanProps. [11dbc0c](https://github.com/ant-design/pro-components/commit/11dbc0c)
+- fix(form): fix AdvancedSearch demo no work error. [226fbac](https://github.com/ant-design/pro-components/commit/226fbac)
+- fix(form): fix collapse button unuse colorPrimary txt. [55b8aab](https://github.com/ant-design/pro-components/commit/55b8aab)
+- fix(list): fix usePaginationArgs and useSelection args error. [fe331b9](https://github.com/ant-design/pro-components/commit/fe331b9)
+
+## @ant-design/pro-components@2.4.1
 
 `2023-03-13`
 
