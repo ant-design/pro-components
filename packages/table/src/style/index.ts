@@ -60,7 +60,6 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
 
       '& &-search': {
-        padding: token.paddingMD,
         marginBlockEnd: '16px',
         background: token.colorBgContainer,
         '&-ghost': {
