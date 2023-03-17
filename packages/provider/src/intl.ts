@@ -1,5 +1,6 @@
 ﻿import arEG from './locale/ar_EG';
 import caES from './locale/ca_ES';
+import csCZ from './locale/cs_CZ';
 import deDE from './locale/de_DE';
 import enGB from './locale/en_GB';
 import enUS from './locale/en_US';
@@ -16,6 +17,7 @@ import msMY from './locale/ms_MY';
 import plPL from './locale/pl_PL';
 import ptBR from './locale/pt_BR';
 import ruRU from './locale/ru_RU';
+import skSK from './locale/sk_SK';
 import srRS from './locale/sr_RS';
 import thTH from './locale/th_TH';
 import trTR from './locale/tr_TR';
@@ -91,6 +93,8 @@ const trTRIntl = createIntl('tr_TR', trTR);
 const plPLIntl = createIntl('pl_PL', plPL);
 const hrHRIntl = createIntl('hr_', hrHR);
 const thTHIntl = createIntl('th_TH', thTH);
+const csCZIntl = createIntl('cs_cz', csCZ);
+const skSKIntl = createIntl('sk_SK', skSK);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -117,6 +121,8 @@ const intlMap = {
   'pl-PL': plPLIntl,
   'hr-HR': hrHRIntl,
   'th-TH': thTHIntl,
+  'cs-CZ': csCZIntl,
+  'sk-SK': skSKIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -159,6 +165,8 @@ export {
   plPLIntl,
   hrHRIntl,
   thTHIntl,
+  csCZIntl,
+  skSKIntl,
   intlMap,
   intlMapKeys,
 };
