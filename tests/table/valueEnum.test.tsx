@@ -113,8 +113,8 @@ describe('Table valueEnum', () => {
     });
     act(() => {
       expect(
-        html.baseElement.querySelector<HTMLDivElement>('div.ant-select-dropdown'),
-      ).toMatchSnapshot();
+        html.baseElement.querySelector<HTMLDivElement>('div.ant-select-dropdown')?.textContent,
+      ).toBe('01关闭运行中已上线异常');
     });
     expect(html.baseElement.querySelector<HTMLDivElement>('td.ant-table-cell')?.textContent).toBe(
       '已上线',
