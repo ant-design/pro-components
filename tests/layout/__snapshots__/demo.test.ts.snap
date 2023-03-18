@@ -4095,14 +4095,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#//admin"
                       >
                         <span>
                           管理
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -4111,14 +4110,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#//admin/admin/process"
                       >
                         <span>
                           申请单列表
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -4127,14 +4125,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#//admin/admin/process/admin/process/edit/123"
                       >
                         <span>
                           编辑申请单
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -5214,14 +5211,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/config"
                       >
                         <span>
                           配置中心
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -5230,14 +5226,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/config/config/template"
                       >
                         <span>
                           产品模板管理
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -5597,14 +5592,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         >
                           <ol>
                             <li>
-                              <a
+                              <span
                                 class="ant-breadcrumb-link"
-                                href="#/home"
                               >
                                 <span>
                                   首页
                                 </span>
-                              </a>
+                              </span>
                             </li>
                             <li
                               aria-hidden="true"
@@ -5613,14 +5607,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                               /
                             </li>
                             <li>
-                              <a
+                              <span
                                 class="ant-breadcrumb-link"
-                                href="#/home/home/overview"
                               >
                                 <span>
                                   概述
                                 </span>
-                              </a>
+                              </span>
                             </li>
                           </ol>
                         </nav>
@@ -5972,14 +5965,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                         >
                           <ol>
                             <li>
-                              <a
+                              <span
                                 class="ant-breadcrumb-link"
-                                href="#/home"
                               >
                                 <span>
                                   首页
                                 </span>
-                              </a>
+                              </span>
                             </li>
                             <li
                               aria-hidden="true"
@@ -5988,14 +5980,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                               /
                             </li>
                             <li>
-                              <a
+                              <span
                                 class="ant-breadcrumb-link"
-                                href="#/home/home/overview"
                               >
                                 <span>
                                   概述
                                 </span>
-                              </a>
+                              </span>
                             </li>
                           </ol>
                         </nav>
@@ -6287,14 +6278,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               >
                 <ol>
                   <li>
-                    <a
+                    <span
                       class="ant-breadcrumb-link"
-                      href="#/welcome"
                     >
                       <span>
                         one
                       </span>
-                    </a>
+                    </span>
                   </li>
                   <li
                     aria-hidden="true"
@@ -6303,14 +6293,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                     /
                   </li>
                   <li>
-                    <a
+                    <span
                       class="ant-breadcrumb-link"
-                      href="#/welcome/welcome/welcome"
                     >
                       <span>
                         two
                       </span>
-                    </a>
+                    </span>
                   </li>
                 </ol>
               </nav>
@@ -7951,14 +7940,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -7967,14 +7955,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -7983,14 +7970,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -8462,14 +8448,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -8478,14 +8463,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -8494,14 +8478,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -11162,14 +11145,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -11178,14 +11160,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -11194,14 +11175,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -12187,14 +12167,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
               >
                 <ol>
                   <li>
-                    <a
+                    <span
                       class="ant-breadcrumb-link"
-                      href="#/list"
                     >
                       <span>
                         列表页
                       </span>
-                    </a>
+                    </span>
                   </li>
                   <li
                     aria-hidden="true"
@@ -12203,14 +12182,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                     /
                   </li>
                   <li>
-                    <a
+                    <span
                       class="ant-breadcrumb-link"
-                      href="#/list/list/sub-page"
                     >
                       <span>
                         列表页面
                       </span>
-                    </a>
+                    </span>
                   </li>
                   <li
                     aria-hidden="true"
@@ -12219,14 +12197,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                     /
                   </li>
                   <li>
-                    <a
+                    <span
                       class="ant-breadcrumb-link"
-                      href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                     >
                       <span>
                         一一级列表页面
                       </span>
-                    </a>
+                    </span>
                   </li>
                 </ol>
               </nav>
@@ -12777,14 +12754,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -12793,14 +12769,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -12809,14 +12784,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -13332,14 +13306,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -13348,14 +13321,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -13364,14 +13336,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -15930,14 +15901,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -15946,14 +15916,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -15962,14 +15931,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -19644,14 +19612,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -19660,14 +19627,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -19676,14 +19642,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -20155,14 +20120,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -20171,14 +20135,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -20187,14 +20150,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -20544,14 +20506,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/home"
                       >
                         <span>
                           首页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -20560,14 +20521,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/home/home/overview"
                       >
                         <span>
                           概述
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -20993,14 +20953,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -21009,14 +20968,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -21025,14 +20983,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -21527,14 +21484,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -21543,14 +21499,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -21559,14 +21514,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
@@ -23074,14 +23028,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               >
                 <ol>
                   <li>
-                    <a
+                    <span
                       class="ant-breadcrumb-link"
-                      href="#/list"
                     >
                       <span>
                         列表页
                       </span>
-                    </a>
+                    </span>
                   </li>
                   <li
                     aria-hidden="true"
@@ -23090,14 +23043,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     /
                   </li>
                   <li>
-                    <a
+                    <span
                       class="ant-breadcrumb-link"
-                      href="#/list/list/sub-page"
                     >
                       <span>
                         列表页面
                       </span>
-                    </a>
+                    </span>
                   </li>
                   <li
                     aria-hidden="true"
@@ -23106,14 +23058,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     /
                   </li>
                   <li>
-                    <a
+                    <span
                       class="ant-breadcrumb-link"
-                      href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                     >
                       <span>
                         一一级列表页面
                       </span>
-                    </a>
+                    </span>
                   </li>
                 </ol>
               </nav>
@@ -23505,14 +23456,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                         /
                       </li>
                       <li>
-                        <a
+                        <span
                           class="ant-breadcrumb-link"
-                          href="#///admin"
                         >
                           <span>
                             管理
                           </span>
-                        </a>
+                        </span>
                       </li>
                       <li
                         aria-hidden="true"
@@ -23521,14 +23471,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                         /
                       </li>
                       <li>
-                        <a
+                        <span
                           class="ant-breadcrumb-link"
-                          href="#///admin/admin/process"
                         >
                           <span>
                             申请单列表
                           </span>
-                        </a>
+                        </span>
                       </li>
                       <li
                         aria-hidden="true"
@@ -23537,14 +23486,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                         /
                       </li>
                       <li>
-                        <a
+                        <span
                           class="ant-breadcrumb-link"
-                          href="#///admin/admin/process/admin/process/edit/123"
                         >
                           <span>
                             编辑申请单
                           </span>
-                        </a>
+                        </span>
                       </li>
                     </ol>
                   </nav>
@@ -23968,14 +23916,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                 >
                   <ol>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list"
                       >
                         <span>
                           列表页
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -23984,14 +23931,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page"
                       >
                         <span>
                           列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                     <li
                       aria-hidden="true"
@@ -24000,14 +23946,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                       /
                     </li>
                     <li>
-                      <a
+                      <span
                         class="ant-breadcrumb-link"
-                        href="#/list/list/sub-page/list/sub-page/sub-sub-page1"
                       >
                         <span>
                           一一级列表页面
                         </span>
-                      </a>
+                      </span>
                     </li>
                   </ol>
                 </nav>
