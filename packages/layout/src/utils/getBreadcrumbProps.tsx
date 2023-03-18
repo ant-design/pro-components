@@ -31,7 +31,7 @@ export type BreadcrumbProLayoutProps = {
   breadcrumbRender?: WithFalse<
     (routers: AntdBreadcrumbProps['items']) => AntdBreadcrumbProps['items']
   >;
-  itemRender?: AntdBreadcrumbProps['items'];
+  itemRender?: AntdBreadcrumbProps['itemRender'];
 };
 
 // 渲染Breadcrumb 子节点
@@ -110,14 +110,14 @@ const conversionFromLocation = (
       const { hideInBreadcrumb } = currentBreadcrumb;
       return name && !hideInBreadcrumb
         ? {
-            path: url,
+            linkPath: url,
             breadcrumbName: name,
             title: name,
             component: currentBreadcrumb.component,
           }
-        : { path: '', breadcrumbName: '', title: '' };
+        : { linkPath: '', breadcrumbName: '', title: '' };
     })
-    .filter((item) => item && item.path);
+    .filter((item) => item && item.linkPath);
 
   return extraBreadcrumbItems;
 };
@@ -157,7 +157,18 @@ export const getBreadcrumbProps = (
   // 生成面包屑的路由数组，该数组中包含菜单项和面包屑项
   const routesArray = genBreadcrumbProps(props);
   // 如果props中有itemRender，则使用props中的itemRender，否则使用默认函数defaultItemRender
-  const itemRender = propsItemRender || defaultItemRender;
+  const itemRender: AntdBreadcrumbProps['itemRender'] = (item, ...rest) => {
+    const renderFunction = propsItemRender || defaultItemRender;
+    return renderFunction?.(
+      {
+        ...item,
+        // 如果item.linkPath存在，则使用item.linkPath，否则使用item.path
+        // @ts-ignore
+        path: item.linkPath || item.path,
+      },
+      ...rest,
+    );
+  };
   let items = routesArray as ItemType[] | undefined;
   // 如果面包屑渲染函数breadcrumbRender存在，则使用其渲染数组items
   if (breadcrumbRender) {
