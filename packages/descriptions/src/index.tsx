@@ -231,7 +231,7 @@ export const FieldRender: React.FC<
         )
       : undefined;
     return (
-      <Space style={{ alignItems: 'baseline' }}>
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
         <InlineErrorFormItem
           name={dataIndex}
           {...formItemProps}
@@ -255,7 +255,7 @@ export const FieldRender: React.FC<
           saveText: <CheckOutlined />,
           deleteText: false,
         })}
-      </Space>
+      </div>
     ) as React.ReactNode;
   };
 
