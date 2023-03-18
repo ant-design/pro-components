@@ -111,6 +111,7 @@ const Demo = () => {
               </ProCard>
             );
           }}
+          actionRef={actionRef}
         >
           <ProFormGroup key="group">
             <ProFormText name="name" label="姓名" />
