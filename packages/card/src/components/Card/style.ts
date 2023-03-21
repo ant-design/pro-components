@@ -26,10 +26,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       backgroundColor: token.colorBgContainer,
       borderRadius: token.borderRadius,
       ...resetComponent?.(token),
-      '*': {
-        boxSizing: 'border-box',
-        fontFamily: token.fontFamily,
-      },
+
       '&-box-shadow': {
         boxShadow: '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
         borderColor: 'transparent',
