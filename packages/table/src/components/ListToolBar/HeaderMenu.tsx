@@ -15,6 +15,7 @@ export type ListToolBarMenuItem = {
 export type ListToolBarHeaderMenuProps = {
   type?: 'inline' | 'dropdown' | 'tab';
   activeKey?: React.Key;
+  defaultActiveKey?: React.Key;
   items?: ListToolBarMenuItem[];
   onChange?: (activeKey?: React.Key) => void;
   prefixCls?: string;
@@ -22,12 +23,21 @@ export type ListToolBarHeaderMenuProps = {
 
 const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   const { hashId } = useContext(ProProvider);
-  const { items = [], type = 'inline', prefixCls, activeKey: propActiveKey } = props;
+  const {
+    items = [],
+    type = 'inline',
+    prefixCls,
+    activeKey: propActiveKey,
+    defaultActiveKey,
+  } = props;
 
-  const [activeKey, setActiveKey] = useMergedState<React.Key>(propActiveKey as React.Key, {
-    value: propActiveKey,
-    onChange: props.onChange,
-  });
+  const [activeKey, setActiveKey] = useMergedState<React.Key>(
+    propActiveKey || (defaultActiveKey as React.Key),
+    {
+      value: propActiveKey,
+      onChange: props.onChange,
+    },
+  );
 
   if (items.length < 1) {
     return null;
