@@ -25,6 +25,7 @@ type TabPane = TabPaneProps & {
 
 export type ListToolBarTabs = {
   activeKey?: string;
+  defaultActiveKey?: string;
   onChange?: (activeKey: string) => void;
   items?: TabPane[];
 };
@@ -112,6 +113,7 @@ const ListToolBarTabBar: React.FC<{
           style={{
             width: '100%',
           }}
+          defaultActiveKey={tabs.defaultActiveKey}
           activeKey={tabs.activeKey}
           //@ts-ignore
           items={tabs.items.map((item, index) => ({
