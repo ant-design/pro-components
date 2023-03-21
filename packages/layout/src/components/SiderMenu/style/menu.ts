@@ -23,6 +23,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
         height: '100%',
         display: 'inline-flex',
       },
+      [`${token.antCls}-menu-title-content`]: {
+        '&:first-child': {
+          width: '100%',
+        },
+      },
       [`&&-collapsed`]: {
         [`${token.antCls}-menu-item, 
         ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item, 
