@@ -63,6 +63,9 @@ export default defineConfig({
       content: '9LDp--DeEC-xOggsHl_t1MlR_1_2O972JpSUu8NZKMU',
     },
   ],
+  analytics: {
+    ga_v2: 'UA-72788897-1',
+  },
   styles: [
     `
     .dumi-default-sidebar {
