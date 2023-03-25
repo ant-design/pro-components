@@ -232,6 +232,7 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     const fieldProFieldProps = useMemo(() => {
       return omitUndefined({
+        ...contextValue.proFieldProps,
         mode: rest?.mode,
         readonly,
         params: rest.params,

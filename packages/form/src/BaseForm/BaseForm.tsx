@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ProConfigProvider } from '@ant-design/pro-provider';
 import type {
+  ProFieldProps,
   ProFieldValueType,
   ProFormInstanceType,
   ProRequestData,
@@ -187,6 +188,7 @@ export type BaseFormProps<T = Record<string, any>> = {
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps<unknown>;
+  proFieldProps?: ProFieldProps;
   /** 表单初始化完成，form已经存在，可以进行赋值的操作了 */
   onInit?: (values: T, form: ProFormInstance<any>) => void;
   formItemProps?: FormItemProps;
@@ -472,6 +474,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     contentRender,
     submitter,
     fieldProps,
+    proFieldProps,
     formItemProps,
     groupProps,
     dateFormatter = 'string',
@@ -685,6 +688,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           value={{
             formRef,
             fieldProps,
+            proFieldProps,
             formItemProps,
             groupProps,
             formComponentType,
