@@ -64,7 +64,7 @@ export default defineConfig({
     },
   ],
   analytics: {
-    ga_v2: 'UA-72788897-1',
+    ga_v2: 'UA-173569162-1',
   },
   styles: [
     `
