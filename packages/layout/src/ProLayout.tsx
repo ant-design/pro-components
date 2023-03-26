@@ -718,12 +718,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 };
 
-BaseProLayout.defaultProps = {
-  logo: <Logo />,
-  ...defaultSettings,
-  location: isBrowser() ? window.location : undefined,
-};
-
 const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const { colorPrimary } = props;
 
@@ -752,7 +746,12 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
         token={props.token}
         prefixCls={props.prefixCls}
       >
-        <BaseProLayout {...props} />
+        <BaseProLayout
+          logo={<Logo />}
+          {...defaultSettings}
+          location={isBrowser() ? window.location : undefined}
+          {...props}
+        />
       </ProConfigProvider>
     </ConfigProvider>
   );
