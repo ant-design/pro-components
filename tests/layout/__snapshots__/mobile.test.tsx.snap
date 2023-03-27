@@ -37,7 +37,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
             >
               <div
                 class="ant-drawer-body"
-                style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
+                style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
@@ -306,7 +306,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
             >
               <div
                 class="ant-drawer-body"
-                style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
+                style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
@@ -781,7 +781,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
             >
               <div
                 class="ant-drawer-body"
-                style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
+                style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
@@ -1069,7 +1069,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
             >
               <div
                 class="ant-drawer-body"
-                style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
+                style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
