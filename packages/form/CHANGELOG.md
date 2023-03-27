@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.10.0...@ant-design/pro-form@2.10.1) (2023-03-27)
+
+
+### Bug Fixes
+
+* **form:** slove padding was not use ([#6857](https://github.com/ant-design/pro-components/issues/6857)) ([4a5f4e6](https://github.com/ant-design/pro-components/commit/4a5f4e6f27c208d2bcea4eaa9319b422bc708f3a))
+
+
+
+
 
 # [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.9.0...@ant-design/pro-form@2.10.0) (2023-03-27)
 
