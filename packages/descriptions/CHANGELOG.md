@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.2.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.2.1...@ant-design/pro-descriptions@2.2.2) (2023-03-27)
 
-
 ### Bug Fixes
 
-* **descriptions:** fix Descriptions action no center error ([11c1166](https://github.com/ant-design/pro-components/commit/11c11661ce5139b8c4794726cb1df1b760865a27))
-
-
-
-
+- **descriptions:** fix Descriptions action no center error ([11c1166](https://github.com/ant-design/pro-components/commit/11c11661ce5139b8c4794726cb1df1b760865a27))
 
 ## [2.2.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.2.0...@ant-design/pro-descriptions@2.2.1) (2023-03-14)
 

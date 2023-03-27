@@ -1,4 +1,19 @@
-﻿## @ant-design/pro-components@2.4.2
+﻿## @ant-design/pro-components@2.4.3
+
+`2023-03-27`
+
+- feat(components): Add translation for Slovak and Czech (#6802). [#6802](https://github.com/ant-design/pro-components/pull/#6802) [@craftedsro](https://github.com/craftedsro)
+- fix(layout):fix drawer bgColor error. [907bead](https://github.com/ant-design/pro-components/commit/907bead)
+- fix(layout): remove ProLayout defaultProps. [7d1891f](https://github.com/ant-design/pro-components/commit/7d1891f)
+- fix(layout): slove menu content inlineflex & child not 100% problem (#6819). [#6819](https://github.com/ant-design/pro-components/pull/#6819) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(layout): Provide a hack method to bypass the breadcrumb error check of antd and remove the error message.. [bcb32b9](https://github.com/ant-design/pro-components/commit/bcb32b9)
+- feat(form): introduce proFieldProps in BaseFormProps and pass it to all Fields with the lowest priority (#6847). [#6847](https://github.com/ant-design/pro-components/pull/#6847) [@shijistar](https://github.com/shijistar)
+- feat(table): ProTable 的 toolbar.tabs 和 toolbar.menu 配置下增加 defaultActiveKey 选项 (#6818). [#6818](https://github.com/ant-design/pro-components/pull/#6818) [@hans000](https://github.com/hans000)
+- fix(card): remove reset fontFamily. [b33dfef](https://github.com/ant-design/pro-components/commit/b33dfef)
+- fix(card): fix StatisticCard value style error. [5de24b7](https://github.com/ant-design/pro-components/commit/5de24b7)
+- fix(descriptions): fix Descriptions action no center error. [11c1166](https://github.com/ant-design/pro-components/commit/11c1166)
+
+## @ant-design/pro-components@2.4.2
 
 `2023-03-14`
 

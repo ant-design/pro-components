@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.9.0...@ant-design/pro-form@2.10.0) (2023-03-27)
 
-
 ### Bug Fixes
 
-* **from:** solve queryfilter padding problem ([#6797](https://github.com/ant-design/pro-components/issues/6797)) ([fa92aae](https://github.com/ant-design/pro-components/commit/fa92aae5dc7b43e230b540a5215112c967dfb3cd))
-
+- **from:** solve queryfilter padding problem ([#6797](https://github.com/ant-design/pro-components/issues/6797)) ([fa92aae](https://github.com/ant-design/pro-components/commit/fa92aae5dc7b43e230b540a5215112c967dfb3cd))
 
 ### Features
 
-* **form:** introduce proFieldProps in BaseFormProps and pass it to all Fields with the lowest priority ([#6847](https://github.com/ant-design/pro-components/issues/6847)) ([ff96751](https://github.com/ant-design/pro-components/commit/ff967518d81eb7200ffc570e4b41122f8f25e7eb))
-
-
-
-
+- **form:** introduce proFieldProps in BaseFormProps and pass it to all Fields with the lowest priority ([#6847](https://github.com/ant-design/pro-components/issues/6847)) ([ff96751](https://github.com/ant-design/pro-components/commit/ff967518d81eb7200ffc570e4b41122f8f25e7eb))
 
 # [2.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.8.0...@ant-design/pro-form@2.9.0) (2023-03-14)
 
