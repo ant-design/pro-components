@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.6.1...@ant-design/pro-provider@2.7.0) (2023-03-27)
+
+
+### Features
+
+* **components:** Add translation for Slovak and Czech ([#6802](https://github.com/ant-design/pro-components/issues/6802)) ([d86638b](https://github.com/ant-design/pro-components/commit/d86638bb611de6e71616462979710d72bca7d5d6))
+
+
+
+
 
 ## [2.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.6.0...@ant-design/pro-provider@2.6.1) (2023-03-14)
 
