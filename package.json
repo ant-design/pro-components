@@ -1,4 +1,5 @@
 {
+  "name": "pro-components",
   "private": true,
   "license": "MIT",
   "workspaces": [
@@ -43,8 +44,13 @@
   },
   "devDependencies": {
     "@ant-design/antd-theme-variable": "^1.0.0",
+<<<<<<< Updated upstream
     "@ant-design/cssinjs": "^1.7.1",
     "@ant-design/icons": "^4.8.0",
+=======
+    "@ant-design/cssinjs": "^1.6.1",
+    "@ant-design/icons": "^5.0.0",
+>>>>>>> Stashed changes
     "@babel/core": "^7.21.3",
     "@babel/parser": "^7.21.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
@@ -162,6 +168,5 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
   },
-  "packageManager": "pnpm@6.0.2",
-  "name": "pro-components"
+  "packageManager": "pnpm@6.0.2"
 }

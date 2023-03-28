@@ -24,15 +24,15 @@
     "dist",
     "lib"
   ],
+  "scripts": {
+    "build": "father build"
+  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
   ],
-  "scripts": {
-    "build": "father build"
-  },
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
     "@ant-design/pro-card": "^2.3.2",
@@ -52,8 +52,8 @@
   "peerDependencies": {
     "antd": ">=4.23.0",
     "rc-field-form": "^1.22.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "publishConfig": {
     "access": "public"
