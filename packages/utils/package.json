@@ -34,13 +34,8 @@
     "ie >= 11"
   ],
   "dependencies": {
-<<<<<<< Updated upstream
-    "@ant-design/icons": "^4.3.0",
-    "@ant-design/pro-provider": "^2.7.0",
-=======
     "@ant-design/icons": "^5.0.0",
-    "@ant-design/pro-provider": "^2.6.1",
->>>>>>> Stashed changes
+    "@ant-design/pro-provider": "^2.7.0",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",
