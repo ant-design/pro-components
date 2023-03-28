@@ -121,7 +121,7 @@ function useContainer(props: UseContainerProps = {}) {
   noteOnce(!props.columnsStateMap, 'columnsStateMap已经废弃，请使用 columnsState.value 替换');
   noteOnce(
     !props.columnsStateMap,
-    'columnsStateMap has been discarded, please use columnSstate.value replacement',
+    'columnsStateMap has been discarded, please use columnsState.value replacement',
   );
 
   /** 清空一下当前的 key */
