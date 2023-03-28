@@ -1,5 +1,8 @@
 import dayjs from 'dayjs';
 import { isNil } from '../isNil';
+import customParseFormat from "dayjs/plugin/customParseFormat";
+
+dayjs.extend(customParseFormat);
 
 type DateValue = dayjs.Dayjs | dayjs.Dayjs[] | string | string[] | number | number[];
 
