@@ -9,8 +9,8 @@ nav:
 
 ## Layout 自定义
 
-<code src="../../packages/layout/src/demos/dynamic-settings.tsx" background="hsl(220,23%,97%)" title="属性展示"></code>
+<code src="../../packages/layout/src/demos/dynamic-settings.tsx"  background="var(--main-bg-color)" title="属性展示"></code>
 
 ## 水印自定义
 
-<code src="../../packages/layout/src/components/WaterMark/demos/custom.tsx" background="#f7f8fa"></code>
+<code src="../../packages/layout/src/components/WaterMark/demos/custom.tsx" background="var(--main-bg-color)"></code>

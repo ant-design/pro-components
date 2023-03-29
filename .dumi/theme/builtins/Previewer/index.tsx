@@ -6,7 +6,9 @@ import DemoProvider from '../../components/DemoProvider';
 const Page: React.FC = (props) => (
   <DemoProvider>
     <LazyLoad offset={300}>
-      <Previewer {...props} />
+      <div>
+        <Previewer {...props} />
+      </div>
     </LazyLoad>
   </DemoProvider>
 );

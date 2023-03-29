@@ -42,7 +42,7 @@ legacy: /layout
 
 这里给出一些通用配置项。如需进一步配置请联系我们。
 
-<code src="./demos/custom.tsx" background="#f7f8fa"></code>
+<code src="./demos/custom.tsx" background="var(--main-bg-color)"></code>
 
 ## API
 
