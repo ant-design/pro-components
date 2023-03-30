@@ -40,7 +40,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
     return {
       [`.${layoutClassName}-vertical`]: {
         [`${token.antCls}-radio-wrapper`]: {
-          display: 'block',
+          display: 'flex',
           marginInlineEnd: 0,
         },
       },
