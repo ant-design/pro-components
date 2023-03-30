@@ -14,7 +14,7 @@ import { omitUndefined, pickProProps } from '@ant-design/pro-utils';
 import { Avatar } from 'antd';
 // import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -470,15 +470,19 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
 ) => {
   const context = useContext(ProConfigContext);
 
-  const fieldProps = (value !== undefined || onChange || rest?.fieldProps) && {
-    value,
-    // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-    ...omitUndefined(rest?.fieldProps),
-    onChange: (...restParams: any[]) => {
-      rest?.fieldProps?.onChange?.(...restParams);
-      onChange?.(...restParams);
-    },
-  };
+  const fieldProps = useMemo(() => {
+    return (
+      (value !== undefined || onChange || rest?.fieldProps) && {
+        value,
+        // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
+        ...omitUndefined(rest?.fieldProps),
+        onChange: (...restParams: any[]) => {
+          rest?.fieldProps?.onChange?.(...restParams);
+          onChange?.(...restParams);
+        },
+      }
+    );
+  }, [value, onChange, rest?.fieldProps]);
 
   return (
     <React.Fragment>
