@@ -106,10 +106,17 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
-  const { token = {} as ProAliasToken, hashId = '', theme } = useContext(ProProvider);
+  let { token = {} as ProAliasToken, hashId = '', theme } = useContext(ProProvider);
+  const { token: antdToken } = useToken();
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
+
   token.antCls = `.${getPrefixCls()}`;
-  token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
+
+  // 如果不在 ProProvider 里面，就用 antd 的
+  if (!token.layout) {
+    token = { ...antdToken } as any;
+    token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
+  }
 
   return {
     wrapSSR: useStyleRegister(
