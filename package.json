@@ -76,7 +76,7 @@
     "@types/memoize-one": "^5.1.2",
     "@types/mockjs": "^1.0.7",
     "@types/node": "^14.18.42",
-    "@types/react": "^18.0.31",
+    "@types/react": "^18.0.32",
     "@types/react-dom": "^18.0.11",
     "@types/react-helmet": "^6.1.6",
     "@types/react-intl": "^3.0.0",
@@ -92,7 +92,7 @@
     "@umijs/test-utils": "^3.5.39",
     "@umijs/utils": "^4.0.64",
     "animated-scroll-to": "^2.3.0",
-    "antd": "^5.3.3",
+    "antd": "^5.4.0",
     "antd-style": "beta",
     "babel-loader": "^9.1.2",
     "babel-types": "^6.26.0",
@@ -101,8 +101,8 @@
     "copy-to-clipboard": "^3.3.3",
     "cross-env": "^7.0.3",
     "dayjs": "^1.11.7",
-    "dumi": "^2.1.17",
-    "dumi-theme-antd-style": "^0.21.0",
+    "dumi": "^2.1.19",
+    "dumi-theme-antd-style": "beta",
     "esbuild": "^0.15.18",
     "esbuild-jest": "^0.5.0",
     "eslint": "^7.32.0",
@@ -159,7 +159,7 @@
     "write-pkg": "^4.0.0",
     "xhr-mock": "^2.5.1",
     "yorkie": "^2.0.0",
-    "zustand": "^4.3.6"
+    "zustand": "^4.3.7"
   },
   "gitHooks": {
     "pre-commit": "pretty-quick --staged",
