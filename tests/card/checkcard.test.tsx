@@ -209,4 +209,12 @@ describe('CheckCard', () => {
       expect(onChange).not.toHaveBeenCalled();
     });
   });
+
+  it('should display when title is number zero', async () => {
+    const wrapper = render(<CheckCard title={0} />);
+
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard-title')?.innerHTML,
+    ).toBe('0');
+  });
 });
