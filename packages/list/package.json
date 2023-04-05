@@ -36,6 +36,7 @@
     "@ant-design/pro-card": "^2.3.2",
     "@ant-design/pro-field": "^2.5.2",
     "@ant-design/pro-table": "^3.6.1",
+    "@ant-design/pro-utils": "^2.7.2",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.2.6",
     "dayjs": "^1.11.4",
