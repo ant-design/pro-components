@@ -2,6 +2,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
+import type { SubmitterProps } from '../../components';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
 import { useStyle } from './style';
@@ -71,8 +72,10 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           },
           render: (_, dom) => {
             const loginButton = dom.pop();
-            if (typeof (proFormProps?.submitter as any)?.render === 'function') {
-              return (proFormProps?.submitter as any)?.render?.(_, dom);
+            if (typeof (proFormProps?.submitter as SubmitterProps)?.render === 'function') {
+              return (
+                proFormProps?.submitter as { render: Exclude<SubmitterProps['render'], false> }
+              )?.render?.(_, dom);
             }
             return loginButton;
           },
