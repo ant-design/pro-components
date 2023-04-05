@@ -6,8 +6,8 @@ import type { ProFieldFC } from '../../index';
 import { getColorByRealValue, getRealTextWithPrecision, getSymbolByRealValue } from './util';
 
 // 兼容代码-----------
-import 'antd/lib/input-number/style';
 import { useIntl } from '@ant-design/pro-provider';
+import 'antd/lib/input-number/style';
 //------------
 
 export type PercentPropInt = {
@@ -17,7 +17,7 @@ export type PercentPropInt = {
   precision?: number;
   showColor?: boolean;
   showSymbol?: boolean | ((value: any) => boolean);
-  placeholder?: any;
+  placeholder?: string;
 };
 
 /**

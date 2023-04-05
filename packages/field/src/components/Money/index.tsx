@@ -20,7 +20,7 @@ export type FieldMoneyProps = {
   /**
    * 输入框内容为空的提示内容
    */
-  placeholder?: any;
+  placeholder?: string;
   /**
    * 自定义 money 的 Symbol
    */
