@@ -1,6 +1,6 @@
 ---
 title: DragSortTable
-
+atomId: DragSortTable
 nav:
   title: component
 ---

@@ -1,6 +1,7 @@
 ---
 title: CheckCard - 多选卡片
 order: 1
+atomId: CheckCard
 ---
 
 # CheckCard 多选卡片

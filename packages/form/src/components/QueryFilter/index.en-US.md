@@ -1,6 +1,6 @@
 ---
 title: Query/LightFilter
-
+atomId: QueryFilter,LightFilter
 nav:
   title: Components
 ---

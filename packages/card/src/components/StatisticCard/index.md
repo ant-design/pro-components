@@ -1,6 +1,7 @@
 ---
 title: StatisticCard - 指标卡
 order: 1
+atomId: StatisticCard
 ---
 
 # StatisticCard 指标卡

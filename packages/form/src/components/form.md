@@ -1,5 +1,6 @@
 ---
 title: ProForm - 高级表单
+atomId: ProForm
 order: 1
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: ProSkeleton
-
+atomId: ProSkeleton
 nav:
   title: Components
 ---

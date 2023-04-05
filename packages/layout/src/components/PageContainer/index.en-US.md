@@ -1,6 +1,6 @@
 ---
 title: PageContainer
-
+atomId: PageContainer
 nav:
   title: Component
 ---

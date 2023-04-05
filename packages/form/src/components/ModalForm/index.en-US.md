@@ -1,6 +1,6 @@
 ---
 title: Modal/DrawerForm
-
+atomId: ModalForm,DrawerForm
 nav:
   title: Components
 ---

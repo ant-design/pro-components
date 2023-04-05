@@ -1,7 +1,7 @@
 ---
 title: LoginForm/Page
 Order: 2
-
+atomId: LoginForm,PageForm
 navigation:
   Title: Components
 ---

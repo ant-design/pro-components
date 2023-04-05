@@ -1,7 +1,7 @@
 ---
 title: StepsForm
 order: 1
-
+atomId: StepsForm
 nav:
   title: Components
 ---

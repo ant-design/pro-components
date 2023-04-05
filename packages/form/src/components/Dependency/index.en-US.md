@@ -1,7 +1,7 @@
 ---
 title: ProFormDependency
 order: 1
-
+atomId: ProFormDependency
 nav:
   title: component
 ---
