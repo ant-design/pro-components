@@ -1,6 +1,6 @@
+import type { ExampleBlockAsset } from 'dumi-assets-types';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import { IDumiTechStack } from 'dumi/dist/types';
-
 export default class DemoReactTechStack extends ReactTechStack implements IDumiTechStack {
   readonly antdVersion: string;
 
@@ -8,7 +8,7 @@ export default class DemoReactTechStack extends ReactTechStack implements IDumiT
     super();
     this.antdVersion = this.getAntdVersion();
   }
-  generateMetadata(asset: any) {
+  generateMetadata(asset: ExampleBlockAsset) {
     if (asset.type === 'BLOCK' && !asset.dependencies?.antd) {
       asset.dependencies.antd = {
         type: 'NPM',
