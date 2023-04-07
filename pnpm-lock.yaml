@@ -661,6 +661,9 @@ importers:
       '@ant-design/pro-table':
         specifier: ^3.6.1
         version: link:../table
+      '@ant-design/pro-utils':
+        specifier: ^2.7.2
+        version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
         version: 7.18.0

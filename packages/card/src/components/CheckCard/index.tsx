@@ -230,7 +230,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       </div>
     ) : null;
 
-    const headerDom = (title || extra) && (
+    const headerDom = (title ?? extra) != null && (
       <div className={`${prefixCls}-header ${hashId}`}>
         <div className={`${prefixCls}-title ${hashId}`}>{title}</div>
         {extra && <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>}
