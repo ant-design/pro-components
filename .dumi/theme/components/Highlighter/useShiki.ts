@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { getHighlighter, Highlighter, Theme } from 'shiki-es';
+import { getHighlighter, Highlighter, Lang, Theme } from 'shiki-es';
 
 import { languageMap } from './language';
 
@@ -22,7 +22,7 @@ export const useShiki = ({ onInit, onLoadingChange }: ShikiOptions) => {
   const initHighlighter = async () => {
     onLoadingChange?.(true);
     const instance = await getHighlighter({
-      langs: Object.keys(languageMap) as any,
+      langs: Object.keys(languageMap) as Lang[],
       themes: Object.values(THEME),
     });
 
@@ -38,7 +38,7 @@ export const useShiki = ({ onInit, onLoadingChange }: ShikiOptions) => {
   }, []);
 
   const codeToHtml = useCallback(
-    (text: string, language: any, isDarkMode: boolean) =>
+    (text: string, language: Lang, isDarkMode: boolean) =>
       shikiInstance?.codeToHtml(text, {
         lang: language,
         theme: isDarkMode ? THEME.dark : THEME.light,

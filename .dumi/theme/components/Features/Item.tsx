@@ -11,7 +11,7 @@ export type IFeature = {
   description?: string;
   avatar?: string;
   link?: string;
-  imageStyle?: any;
+  imageStyle?: React.CSSProperties;
   row?: number;
   column?: number;
   center?: boolean;
