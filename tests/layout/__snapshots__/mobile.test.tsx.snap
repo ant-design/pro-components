@@ -9,84 +9,9 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
       class="ant-pro-layout-bg-list "
     />
     <section
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
-      <div
-        class="ant-drawer ant-drawer-left ant-drawer-inline"
-        tabindex="-1"
-      >
-        <div
-          aria-hidden="true"
-          data-sentinel="start"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-          tabindex="0"
-        />
-        <div
-          class="ant-drawer-content-wrapper ant-drawer-content-wrapper-hidden"
-          style="width: 256px;"
-        >
-          <div
-            aria-modal="true"
-            class="ant-drawer-content ant-pro-drawer-sider"
-            role="dialog"
-            style="padding: 0px; height: 100vh;"
-          >
-            <div
-              class="ant-drawer-wrapper-body"
-            >
-              <div
-                class="ant-drawer-body"
-                style="height: 100vh; padding: 0px; display: flex; flex-direction: row; background-color: transparent;"
-              >
-                <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light"
-                  style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
-                >
-                  <div
-                    class="ant-layout-sider-children"
-                  >
-                    <div
-                      style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-                    >
-                      <div
-                        style="padding: 24px;"
-                      >
-                        <div
-                          class="ant-skeleton ant-skeleton-active"
-                        >
-                          <div
-                            class="ant-skeleton-content"
-                          >
-                            <ul
-                              class="ant-skeleton-paragraph"
-                            >
-                              <li />
-                              <li />
-                              <li />
-                              <li />
-                              <li />
-                              <li
-                                style="width: 61%;"
-                              />
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </aside>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          data-sentinel="end"
-          style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-          tabindex="0"
-        />
-      </div>
       <div
         class="ant-pro-layout-container "
         style="position: relative;"
