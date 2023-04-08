@@ -184,7 +184,9 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
-        />
+        >
+          welcome
+        </main>
       </div>
     </section>
   </div>
@@ -243,30 +245,84 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                     <div
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
-                      <div
-                        style="padding: 24px;"
+                      <ul
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                        data-menu-list="true"
+                        role="menu"
+                        style="background-color: transparent; width: 100%;"
+                        tabindex="0"
                       >
-                        <div
-                          class="ant-skeleton ant-skeleton-active"
+                        <li
+                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open"
+                          role="none"
                         >
                           <div
-                            class="ant-skeleton-content"
+                            aria-expanded="true"
+                            aria-haspopup="true"
+                            class="ant-menu-submenu-title"
+                            role="menuitem"
+                            style="padding-left: 16px;"
+                            tabindex="-1"
                           >
-                            <ul
-                              class="ant-skeleton-paragraph"
+                            <span
+                              class="ant-menu-title-content"
                             >
-                              <li />
-                              <li />
-                              <li />
-                              <li />
-                              <li />
-                              <li
-                                style="width: 61%;"
-                              />
-                            </ul>
+                              <div
+                                class="ant-pro-base-menu-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-item-text"
+                                >
+                                  welcome
+                                </span>
+                              </div>
+                            </span>
+                            <i
+                              class="ant-menu-submenu-arrow"
+                            />
                           </div>
-                        </div>
-                      </div>
+                          <ul
+                            class="ant-menu ant-menu-sub ant-menu-inline"
+                            data-menu-list="true"
+                            role="menu"
+                          >
+                            <li
+                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                              role="none"
+                            >
+                              <div
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="ant-menu-submenu-title"
+                                role="menuitem"
+                                style="padding-left: 32px;"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-menu-title-content"
+                                >
+                                  <div
+                                    class="ant-pro-base-menu-item-title"
+                                  >
+                                    <span
+                                      class="ant-pro-base-menu-item-text"
+                                    >
+                                      one
+                                    </span>
+                                  </div>
+                                </span>
+                                <i
+                                  class="ant-menu-submenu-arrow"
+                                />
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display: none;"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-collapsed-button ant-pro-sider-collapsed-button-is-mobile"
@@ -532,7 +588,9 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
-        />
+        >
+          welcome
+        </main>
       </div>
     </section>
   </div>
@@ -596,7 +654,9 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
-        />
+        >
+          welcome
+        </main>
       </div>
     </section>
   </div>
@@ -659,7 +719,9 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
         </header>
         <main
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
-        />
+        >
+          welcome
+        </main>
       </div>
     </section>
   </div>
@@ -718,30 +780,84 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                     <div
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
-                      <div
-                        style="padding: 24px;"
+                      <ul
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                        data-menu-list="true"
+                        role="menu"
+                        style="background-color: transparent; width: 100%;"
+                        tabindex="0"
                       >
-                        <div
-                          class="ant-skeleton ant-skeleton-active"
+                        <li
+                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open"
+                          role="none"
                         >
                           <div
-                            class="ant-skeleton-content"
+                            aria-expanded="true"
+                            aria-haspopup="true"
+                            class="ant-menu-submenu-title"
+                            role="menuitem"
+                            style="padding-left: 16px;"
+                            tabindex="-1"
                           >
-                            <ul
-                              class="ant-skeleton-paragraph"
+                            <span
+                              class="ant-menu-title-content"
                             >
-                              <li />
-                              <li />
-                              <li />
-                              <li />
-                              <li />
-                              <li
-                                style="width: 61%;"
-                              />
-                            </ul>
+                              <div
+                                class="ant-pro-base-menu-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-item-text"
+                                >
+                                  welcome
+                                </span>
+                              </div>
+                            </span>
+                            <i
+                              class="ant-menu-submenu-arrow"
+                            />
                           </div>
-                        </div>
-                      </div>
+                          <ul
+                            class="ant-menu ant-menu-sub ant-menu-inline"
+                            data-menu-list="true"
+                            role="menu"
+                          >
+                            <li
+                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                              role="none"
+                            >
+                              <div
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="ant-menu-submenu-title"
+                                role="menuitem"
+                                style="padding-left: 32px;"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-menu-title-content"
+                                >
+                                  <div
+                                    class="ant-pro-base-menu-item-title"
+                                  >
+                                    <span
+                                      class="ant-pro-base-menu-item-text"
+                                    >
+                                      one
+                                    </span>
+                                  </div>
+                                </span>
+                                <i
+                                  class="ant-menu-submenu-arrow"
+                                />
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display: none;"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-collapsed-button ant-pro-sider-collapsed-button-is-mobile"
@@ -1006,30 +1122,84 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                     <div
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
-                      <div
-                        style="padding: 24px;"
+                      <ul
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                        data-menu-list="true"
+                        role="menu"
+                        style="background-color: transparent; width: 100%;"
+                        tabindex="0"
                       >
-                        <div
-                          class="ant-skeleton ant-skeleton-active"
+                        <li
+                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open"
+                          role="none"
                         >
                           <div
-                            class="ant-skeleton-content"
+                            aria-expanded="true"
+                            aria-haspopup="true"
+                            class="ant-menu-submenu-title"
+                            role="menuitem"
+                            style="padding-left: 16px;"
+                            tabindex="-1"
                           >
-                            <ul
-                              class="ant-skeleton-paragraph"
+                            <span
+                              class="ant-menu-title-content"
                             >
-                              <li />
-                              <li />
-                              <li />
-                              <li />
-                              <li />
-                              <li
-                                style="width: 61%;"
-                              />
-                            </ul>
+                              <div
+                                class="ant-pro-base-menu-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-item-text"
+                                >
+                                  welcome
+                                </span>
+                              </div>
+                            </span>
+                            <i
+                              class="ant-menu-submenu-arrow"
+                            />
                           </div>
-                        </div>
-                      </div>
+                          <ul
+                            class="ant-menu ant-menu-sub ant-menu-inline"
+                            data-menu-list="true"
+                            role="menu"
+                          >
+                            <li
+                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                              role="none"
+                            >
+                              <div
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="ant-menu-submenu-title"
+                                role="menuitem"
+                                style="padding-left: 32px;"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-menu-title-content"
+                                >
+                                  <div
+                                    class="ant-pro-base-menu-item-title"
+                                  >
+                                    <span
+                                      class="ant-pro-base-menu-item-text"
+                                    >
+                                      one
+                                    </span>
+                                  </div>
+                                </span>
+                                <i
+                                  class="ant-menu-submenu-arrow"
+                                />
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display: none;"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-collapsed-button ant-pro-sider-collapsed-button-is-mobile"
