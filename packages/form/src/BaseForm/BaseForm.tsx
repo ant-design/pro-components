@@ -750,5 +750,5 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   );
 }
 
-export type { FormProps, ProFormInstance, FormItemProps, FormInstance, CommonFormProps };
+export type { FormProps, ProFormInstance, FormItemProps, FormInstance };
 export { BaseForm };

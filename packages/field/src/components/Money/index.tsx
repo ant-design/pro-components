@@ -195,12 +195,12 @@ const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
     open?: boolean;
-    content?: (props: InputNumberProps) => React.ReactNode;
+    contentRender?: (props: InputNumberProps) => React.ReactNode;
   } & {
     numberFormatOptions?: any;
     numberPopoverRender?: any;
   }
->(({ content, numberFormatOptions, numberPopoverRender, open, ...rest }, ref) => {
+>(({ contentRender: content, numberFormatOptions, numberPopoverRender, open, ...rest }, ref) => {
   const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
     value: rest.value,
     onChange: rest.onChange,
@@ -336,9 +336,9 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   if (type === 'edit' || type === 'update') {
     const dom = (
       <InputNumberPopover
-        content={(props) => {
-          if (numberPopoverRender === false) return;
-          if (!props.value) return;
+        contentRender={(props) => {
+          if (numberPopoverRender === false) return null;
+          if (!props.value) return null;
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
             `${getFormateValue(props.value)}`,
@@ -350,7 +350,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           );
 
           if (typeof numberPopoverRender === 'function') {
-            return numberPopoverRender?.(props, localeText);
+            return numberPopoverRender?.(props, localeText) as React.ReactNode;
           }
           return localeText;
         }}
