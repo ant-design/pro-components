@@ -1,6 +1,7 @@
 ---
 title: Query/LightFilter - 筛选表单
 order: 1
+atomId: QueryFilter,LightFilter
 ---
 
 # QueryFilter / LightFilter 筛选表单

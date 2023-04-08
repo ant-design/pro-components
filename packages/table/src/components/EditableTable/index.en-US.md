@@ -1,6 +1,6 @@
 ---
 title: EditableProTable
-
+atomId: EditableProTable
 nav:
   title: Components
 ---

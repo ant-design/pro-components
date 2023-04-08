@@ -1,5 +1,6 @@
 ---
 title: ProDescriptions
+atomId: ProDescriptions
 nav:
   title: ProDescriptions - 高级定义列表
   order: 1

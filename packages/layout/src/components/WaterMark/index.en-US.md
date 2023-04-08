@@ -1,6 +1,7 @@
 ---
 title: WaterMark - 水印组件
 order: 0
+atomId: WaterMark
 legacy: /layout
 ---
 

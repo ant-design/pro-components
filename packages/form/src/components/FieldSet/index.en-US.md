@@ -1,7 +1,7 @@
 ---
 title: ProFormFields
 order: 1
-
+atomId: ProFormText
 nav:
   title: Components
 ---

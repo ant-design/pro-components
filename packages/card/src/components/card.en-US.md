@@ -1,5 +1,6 @@
 ---
 title: ProCard
+atomId: ProCard
 nav:
   title: Components
 ---

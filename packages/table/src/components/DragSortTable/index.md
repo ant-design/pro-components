@@ -1,5 +1,6 @@
 ﻿---
 title: DragSortTable - 拖动排序表格
+atomId: DragSortTable
 ---
 
 # DragSortTable - 拖动排序表格

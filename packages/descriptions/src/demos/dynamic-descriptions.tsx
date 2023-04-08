@@ -122,7 +122,7 @@ export default () => {
       split="vertical"
       headerBordered
       style={{
-        height: 500,
+        minHeight: 500,
       }}
     >
       <ProCard colSpan="calc(100% - 580px)">

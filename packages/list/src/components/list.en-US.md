@@ -1,7 +1,7 @@
 ---
 title: ProList
 order: 12
-
+atomId: ProList
 nav:
   title: Components
 ---

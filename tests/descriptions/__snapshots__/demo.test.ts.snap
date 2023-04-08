@@ -1437,7 +1437,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
   </div>
   <div
     class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
-    style="height: 500px;"
+    style="min-height: 500px;"
   >
     <div
       class="ant-pro-card-body"

@@ -1,7 +1,6 @@
 ﻿import { ProLayout } from '@ant-design/pro-components';
 import { render as reactRender, render, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import { waitTime } from '../util';
 import defaultProps from './defaultProps';
 
 describe('mobile BasicLayout', () => {

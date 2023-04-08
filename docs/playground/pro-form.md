@@ -1,5 +1,6 @@
 ---
 title: ProForm
+atomId: ProForm
 nav:
   title: Playground
   path: /playground

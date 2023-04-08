@@ -1,5 +1,6 @@
 ---
 title: EditableProTable - 可编辑表格
+atomId: EditableProTable
 ---
 
 # EditableProTable - 可编辑表格

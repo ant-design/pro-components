@@ -1,5 +1,6 @@
 ---
 title: ProTable
+atomId: ProTable
 nav:
   title: Playground
   path: /playground
