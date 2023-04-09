@@ -4,9 +4,9 @@ import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
+import { useIntl } from '@ant-design/pro-provider';
 import 'antd/lib/input-number/style';
 import 'antd/lib/progress/style';
-import { useIntl } from '@ant-design/pro-provider';
 //------------
 
 export function getProgressStatus(text: number): 'success' | 'exception' | 'normal' | 'active' {
@@ -30,7 +30,7 @@ export function getProgressStatus(text: number): 'success' | 'exception' | 'norm
  */
 const FieldProgress: ProFieldFC<{
   text: number | string;
-  placeholder?: any;
+  placeholder?: string;
 }> = ({ text, mode, render, plain, renderFormItem, fieldProps, placeholder }, ref) => {
   const intl = useIntl();
   const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
