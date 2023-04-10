@@ -1,6 +1,7 @@
 ---
 title: StatisticCard - 指标卡
 order: 1
+atomId: StatisticCard
 ---
 
 # StatisticCard 指标卡
@@ -22,13 +23,13 @@ order: 1
 
 使用数值统计配置 `statistic` 和 `chart` 完成基本的指标卡。
 
-<code src="./demos/basic.tsx" background="#f7f8fa"  oldtitle="基本使用"></code>
+<code src="./demos/basic.tsx" background="var(--main-bg-color)"  oldtitle="基本使用"></code>
 
 ### 只有图表
 
 当图表单独展示在卡片中时。
 
-<code src="./demos/chart.tsx" background="#f0f2f5"  oldtitle="只有图表" ></code>
+<code src="./demos/chart.tsx" background="var(--main-bg-color)" oldtitle="只有图表" ></code>
 
 ### 额外指标
 
@@ -37,11 +38,11 @@ order: 1
 
 ### 总分/主次关系
 
-<code src="./demos/total.tsx" background="#f0f2f5"  oldtitle="总分/主次关系" ></code>
+<code src="./demos/total.tsx" background="var(--main-bg-color)" oldtitle="总分/主次关系" ></code>
 
 ### 总分/业绩目标
 
-<code src="./demos/total-layout.tsx" background="#f0f2f5"  oldtitle="总分/业绩目标" ></code>
+<code src="./demos/total-layout.tsx" background="var(--main-bg-color)" oldtitle="总分/业绩目标" ></code>
 
 ### 分组指标
 
@@ -49,55 +50,55 @@ order: 1
 
 ### 分组指标带图表
 
-<code src="./demos/group-chart.tsx" background="#f7f8fa"  oldtitle="分组指标带图表"></code>
+<code src="./demos/group-chart.tsx" background="var(--main-bg-color)"  oldtitle="分组指标带图表"></code>
 
 ### 公式计算指标
 
 `Operation` 可以接受子元素，借此可以实现各种各样的公式计算指标。
 
-<code src="./demos/fomula.tsx" background="#f0f2f5"  oldtitle="公式计算指标" ></code>
+<code src="./demos/fomula.tsx" background="var(--main-bg-color)" oldtitle="公式计算指标" ></code>
 
 ### 状态展示
 
 你可以给每个数值统计配置 `status` 展示其状态。
 
-<code src="./demos/status.tsx" background="#f0f2f5"  oldtitle="状态展示" ></code>
+<code src="./demos/status.tsx" background="var(--main-bg-color)" oldtitle="状态展示" ></code>
 
 ### 图标展示
 
 你可以给每个数值统计配置 `icon` 展示其图标。
 
-<code src="./demos/icon.tsx" background="#f0f2f5"  oldtitle="图标展示" ></code>
+<code src="./demos/icon.tsx" background="var(--main-bg-color)" oldtitle="图标展示" ></code>
 
 ### 卡片布局
 
 配合 `ProCard` 的卡片切分能力可以实现复杂的卡片布局。
 
-<code src="./demos/layout.tsx" background="#f0f2f5"  oldtitle="卡片布局" ></code>
+<code src="./demos/layout.tsx" background="var(--main-bg-color)" oldtitle="卡片布局" ></code>
 
 ### 图表在右
 
 配置 `chartPlacement` 为 `right` 可以指定图表在数值统计的右边。默认为上下结构。
 
-<code src="./demos/horizontal.tsx" background="#f0f2f5"  oldtitle="图表在右" ></code>
+<code src="./demos/horizontal.tsx" background="var(--main-bg-color)" oldtitle="图表在右" ></code>
 
 ### 图表在左
 
 配置 `chartPlacement` 为 `left` 可以指定图表在数值统计的左边。
 
-<code src="./demos/horizontal-left.tsx" background="#f0f2f5"  oldtitle="图表在左" ></code>
+<code src="./demos/horizontal-left.tsx" background="var(--main-bg-color)" oldtitle="图表在左" ></code>
 
 ### 指标页签联动
 
 结合 `Statistic` 可以实现带指标统计的页签。
 
-<code src="./demos/tabs-statistic.tsx" background="#f0f2f5"  oldtitle="带指标页签" ></code>
+<code src="./demos/tabs-statistic.tsx" background="var(--main-bg-color)" oldtitle="带指标页签" ></code>
 
 ### 环比趋势
 
 你可以使用 `Statistic` 组件配置布局 `layout` 为 `inline` 以及 `trend` 来展示环比趋势。
 
-<code src="./demos/trend.tsx" background="#f0f2f5"  oldtitle="环比趋势" ></code>
+<code src="./demos/trend.tsx" background="var(--main-bg-color)" oldtitle="环比趋势" ></code>
 
 ## API
 

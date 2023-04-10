@@ -8,51 +8,51 @@ legacy: /table
 
 ## 查询表格
 
-<code src="../demos/single.tsx" background="hsl(220,23%,97%)" title="查询表格"></code>
+<code src="../demos/single.tsx"  background="var(--main-bg-color)" title="查询表格"></code>
 
-<code src="../demos/theme.tsx" background="hsl(218,22%,7%)" iframe="550" title="黑色主紧凑主题"></code>
+<code src="../demos/theme.tsx" background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
 
-<code src="../demos/single-test.tsx" debug background="hsl(220,23%,97%)" ></code>
+<code src="../demos/single-test.tsx" debug  background="var(--main-bg-color)" ></code>
 
-<code src="../demos/no-option.tsx" background="hsl(220,23%,97%)" title="查询（无按钮）表格"></code>
+<code src="../demos/no-option.tsx"  background="var(--main-bg-color)" title="查询（无按钮）表格"></code>
 
-<code src="../demos/dataSource.tsx" background="hsl(220,23%,97%)" title="使用 DataSource" ></code>
+<code src="../demos/dataSource.tsx"  background="var(--main-bg-color)" title="使用 DataSource" ></code>
 
-<code src="../demos/normal.tsx" background="hsl(220,23%,97%)" title="无查询表单"></code>
+<code src="../demos/normal.tsx"  background="var(--main-bg-color)" title="无查询表单"></code>
 
-<code src="../demos/lightfilter.tsx" background="hsl(220,23%,97%)" title="轻量筛选替换查询表单"></code>
+<code src="../demos/lightfilter.tsx"  background="var(--main-bg-color)" title="轻量筛选替换查询表单"></code>
 
-<code src="../demos/no-title.tsx" background="hsl(220,23%,97%)" title="无 ToolBar 的表格"></code>
+<code src="../demos/no-title.tsx"  background="var(--main-bg-color)" title="无 ToolBar 的表格"></code>
 
 ## 必填的查询表单
 
 尽量使用 initialValue 来解决问题，必填项挫败感比较强
 
-<code src="../demos/open-rules.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/open-rules.tsx"  background="var(--main-bg-color)" ></code>
 
-<code src="../demos/table-nested.tsx" background="hsl(220,23%,97%)" title="嵌套表格"></code>
+<code src="../demos/table-nested.tsx"  background="var(--main-bg-color)" title="嵌套表格"></code>
 
-<code src="../demos/split.tsx" background="hsl(220,23%,97%)" title="左右结构"></code>
+<code src="../demos/split.tsx"  background="var(--main-bg-color)" title="左右结构"></code>
 
-<code src="../demos/batchOption.tsx" background="hsl(220,23%,97%)" title="表格批量操作"></code>
+<code src="../demos/batchOption.tsx"  background="var(--main-bg-color)" title="表格批量操作"></code>
 
-<code src="../demos/form.tsx" background="hsl(220,23%,97%)" title="通过 formRef 来操作查询表单"></code>
+<code src="../demos/form.tsx"  background="var(--main-bg-color)" title="通过 formRef 来操作查询表单"></code>
 
 ## RTL (النسخة العربية)
 
 RTL means right-to-left.
 
-<code src="../demos/rtl_table.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/rtl_table.tsx"  background="var(--main-bg-color)" ></code>
 
 ## 受控的表格设置栏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="../demos/columnsStateMap.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/columnsStateMap.tsx"  background="var(--main-bg-color)" ></code>
 
-<code src="../demos/pollinga.tsx" background="hsl(220,23%,97%)" title="表格轮询"></code>
+<code src="../demos/pollinga.tsx"  background="var(--main-bg-color)" title="表格轮询"></code>
 
-<code src="../demos/dateFormatter.tsx" background="hsl(220,23%,97%)" title="dateFormatter-日期格式化"></code>
+<code src="../demos/dateFormatter.tsx"  background="var(--main-bg-color)" title="dateFormatter-日期格式化"></code>
 
 ## 搜索表单自定义
 
@@ -98,7 +98,7 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
   ) => JSX.Element | false | null;
 ```
 
-<code src="../demos/linkage_form.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/linkage_form.tsx"  background="var(--main-bg-color)" ></code>
 
 ### FAQ
 
@@ -116,21 +116,21 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
 
 因为 ProTable 子组件会转为受控模式。因而 defaultValue 不会生效。你需要在 Form 上通过 initialValues 设置默认值。
 
-<code src="../demos/search_option.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/search_option.tsx"  background="var(--main-bg-color)" ></code>
 
 ## Toolbar 自定义
 
 使用 `toolbar`属性扩展配置工具栏渲染。
 
-<code src="../demos/listToolBar.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/listToolBar.tsx"  background="var(--main-bg-color)" ></code>
 
-<code src="../demos/renderTable.tsx" background="hsl(220,23%,97%)" title="表格主体自定义"></code>
+<code src="../demos/renderTable.tsx"  background="var(--main-bg-color)" title="表格主体自定义"></code>
 
 ## 卡片表格
 
 有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现。如通过 `cardProps` 配置卡片属性，通过 `headTitle` 配置行动点在左侧。
 
-<code src="../demos/card-title.tsx" background="#f7f8fa" title="卡片表格" desc="使用卡片标题，行动点在左侧。"></code>
+<code src="../demos/card-title.tsx" background="var(--main-bg-color)" title="卡片表格" desc="使用卡片标题，行动点在左侧。"></code>
 
 ## 国际化相关的配置
 
@@ -187,39 +187,39 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 </ConfigProvider>;
 ```
 
-<code src="../demos/intl.tsx" background="hsl(220,23%,97%)" title="国际化相关的配置"></code>
+<code src="../demos/intl.tsx"  background="var(--main-bg-color)" title="国际化相关的配置"></code>
 
-<code src="../demos/search.tsx" background="hsl(220,23%,97%)" title="使用自带 keyWords 搜索的 table"></code>
+<code src="../demos/search.tsx"  background="var(--main-bg-color)" title="使用自带 keyWords 搜索的 table"></code>
 
 ## 值类型示例
 
 ### valueType - 日期类
 
-<code src="../demos/valueTypeDate.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/valueTypeDate.tsx"  background="var(--main-bg-color)" ></code>
 
 ### valueType - 数字类
 
-<code src="../demos/valueTypeNumber.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/valueTypeNumber.tsx"  background="var(--main-bg-color)" ></code>
 
 ### valueType - 样式类
 
-<code src="../demos/valueType.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/valueType.tsx"  background="var(--main-bg-color)" ></code>
 
 ### valueType - 选择类
 
-<code src="../demos/valueType_select.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/valueType_select.tsx"  background="var(--main-bg-color)" ></code>
 
 ### 自定义 valueType
 
-<code src="../demos/customization-value-type.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="../demos/customization-value-type.tsx"  background="var(--main-bg-color)" ></code>
 
 ## 自定义错误边界
 
-<code src="../demos/error-boundaries.tsx" background="hsl(220,23%,97%)" iframe="572"></code>
+<code src="../demos/error-boundaries.tsx"  background="var(--main-bg-color)" iframe="572"></code>
 
 <code src="../demos/error-boundaries-false.tsx" title="取消自定义错误边界" iframe="462"></code>
 
-<code src="../demos/config-provider.tsx" debug background="hsl(220,23%,97%)" ></code>
+<code src="../demos/config-provider.tsx" debug  background="var(--main-bg-color)" ></code>
 
 ## 列表工具栏
 
@@ -227,16 +227,16 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 ### 代码演示
 
-<code src="../demos/ListToolBar/basic.tsx" background="#f7f8fa" title="列表工具栏-基本使用"></code>
+<code src="../demos/ListToolBar/basic.tsx" background="var(--main-bg-color)" title="列表工具栏-基本使用"></code>
 
-<code src="../demos/ListToolBar/no-title.tsx" background="#f7f8fa" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
+<code src="../demos/ListToolBar/no-title.tsx" background="var(--main-bg-color)" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
 
-<code src="../demos/ListToolBar/multipleLine.tsx" background="#f7f8fa" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
+<code src="../demos/ListToolBar/multipleLine.tsx" background="var(--main-bg-color)" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
 
-<code src="../demos/ListToolBar/tabs.tsx" background="#f7f8fa" title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。"></code>
+<code src="../demos/ListToolBar/tabs.tsx" background="var(--main-bg-color)" title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。"></code>
 
-<code src="../demos/ListToolBar/menu.tsx" background="#f7f8fa" title="列表工具栏-标题下拉菜单"></code>
+<code src="../demos/ListToolBar/menu.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单"></code>
 
 #### TableDropdown
 
-<code src="../demos/edittable-rules.tsx" background="#f7f8fa" title="列表工具栏-标题下拉菜单" debug></code>
+<code src="../demos/edittable-rules.tsx" background="var(--main-bg-color)" title="列表工具栏-标题下拉菜单" debug></code>

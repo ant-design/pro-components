@@ -2,13 +2,13 @@ import { InputNumber } from 'antd';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 // 兼容代码-----------
-import 'antd/lib/input-number/style';
 import { useIntl } from '@ant-design/pro-provider';
+import 'antd/lib/input-number/style';
 //------------
 
 export type FieldDigitProps = {
   text: number;
-  placeholder?: any;
+  placeholder?: string;
 };
 
 /**

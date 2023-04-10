@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.3.1...@ant-design/pro-card@2.3.2) (2023-03-27)
 
-
 ### Bug Fixes
 
-* **card:** fix StatisticCard value style error ([5de24b7](https://github.com/ant-design/pro-components/commit/5de24b7010cf1eb9b57f0ef81ddd523803cd27f0))
-* **card:** remove reset fontFamily ([b33dfef](https://github.com/ant-design/pro-components/commit/b33dfef4786625fc393c85428671be82aa637a01))
-
-
-
-
+- **card:** fix StatisticCard value style error ([5de24b7](https://github.com/ant-design/pro-components/commit/5de24b7010cf1eb9b57f0ef81ddd523803cd27f0))
+- **card:** remove reset fontFamily ([b33dfef](https://github.com/ant-design/pro-components/commit/b33dfef4786625fc393c85428671be82aa637a01))
 
 ## [2.3.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.3.0...@ant-design/pro-card@2.3.1) (2023-03-14)
 

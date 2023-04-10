@@ -243,7 +243,7 @@ const ConfigProviderContainer: React.FC<{
   };
 
   const [token, nativeHashId] = useCacheToken<ProAliasToken>(
-    tokenContext.theme,
+    tokenContext.theme as unknown as Theme<any, any>,
     [tokenContext.token, finalToken ?? {}],
     {
       salt,
@@ -256,8 +256,7 @@ const ConfigProviderContainer: React.FC<{
     }
     if (proProvide.hashed === false) return '';
 
-    if (typeof process !== 'undefined' && process.env.NODE_ENV?.toLowerCase() !== 'test')
-      return nativeHashId;
+    if (process?.env.NODE_ENV?.toLowerCase() !== 'test') return nativeHashId;
     return '';
   }, [nativeHashId, proProvide.hashed, props.hashed]);
 
@@ -266,8 +265,7 @@ const ConfigProviderContainer: React.FC<{
       ...restConfig.theme,
       hashId: hashId,
       hashed:
-        typeof process !== 'undefined' &&
-        process.env.NODE_ENV?.toLowerCase() !== 'test' &&
+        process?.env?.NODE_ENV?.toLowerCase() !== 'test' &&
         props.hashed !== false &&
         proProvide.hashed !== false,
     };
@@ -279,7 +277,7 @@ const ConfigProviderContainer: React.FC<{
             ...proProvideValue!,
             valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
             token,
-            theme: tokenContext.theme,
+            theme: tokenContext.theme as unknown as Theme<any, any>,
             hashed: props.hashed,
             hashId,
           }}

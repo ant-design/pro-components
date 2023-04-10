@@ -1,23 +1,20 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.0...@ant-design/pro-table@3.6.1) (2023-03-27)
+
+**Note:** Version bump only for package @ant-design/pro-table
 
 # [3.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.5.2...@ant-design/pro-table@3.6.0) (2023-03-27)
 
-
 ### Bug Fixes
 
-* **from:** solve queryfilter padding problem ([#6797](https://github.com/ant-design/pro-components/issues/6797)) ([fa92aae](https://github.com/ant-design/pro-components/commit/fa92aae5dc7b43e230b540a5215112c967dfb3cd))
-
+- **from:** solve queryfilter padding problem ([#6797](https://github.com/ant-design/pro-components/issues/6797)) ([fa92aae](https://github.com/ant-design/pro-components/commit/fa92aae5dc7b43e230b540a5215112c967dfb3cd))
 
 ### Features
 
-* **table:** ProTable的toolbar.tabs和toolbar.menu配置下增加defaultActiveKey选项 ([#6818](https://github.com/ant-design/pro-components/issues/6818)) ([f87c0da](https://github.com/ant-design/pro-components/commit/f87c0dafcf8284f1b23674372def4adced6e6d62))
-
-
-
-
+- **table:** ProTable 的 toolbar.tabs 和 toolbar.menu 配置下增加 defaultActiveKey 选项 ([#6818](https://github.com/ant-design/pro-components/issues/6818)) ([f87c0da](https://github.com/ant-design/pro-components/commit/f87c0dafcf8284f1b23674372def4adced6e6d62))
 
 ## [3.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.5.1...@ant-design/pro-table@3.5.2) (2023-03-14)
 

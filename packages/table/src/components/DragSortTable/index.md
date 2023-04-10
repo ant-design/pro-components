@@ -1,5 +1,6 @@
 ﻿---
 title: DragSortTable - 拖动排序表格
+atomId: DragSortTable
 ---
 
 # DragSortTable - 拖动排序表格
@@ -10,11 +11,11 @@ title: DragSortTable - 拖动排序表格
 
 ### 拖拽排序
 
-<code src="./demos/drag.tsx" background="hsl(220,23%,97%)" title="拖拽排序"></code>
+<code src="./demos/drag.tsx"  background="var(--main-bg-color)" title="拖拽排序"></code>
 
 ### 拖拽排序编辑表格
 
-<code src="./demos/drag-sort-table.tsx" background="hsl(220,23%,97%)" title="可编辑表格"></code>
+<code src="./demos/drag-sort-table.tsx"  background="var(--main-bg-color)" title="可编辑表格"></code>
 
 ## API
 

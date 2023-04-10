@@ -501,12 +501,7 @@ export function useEditableArray<RecordType>(
     NewLineConfig<RecordType> | undefined
   >(undefined);
 
-  const dataSourceKeyIndexMapRef = useRef<Map<React.Key, React.Key>>(
-    new Map<React.Key, React.Key>(),
-  );
-  const newLineRecordRef = useRef<NewLineConfig<RecordType> | undefined>(undefined);
-
-  useDeepCompareEffectDebounce(() => {
+  const resetMapRef = () => {
     const map = new Map<React.Key, React.Key>();
     //存在children时会覆盖Map的key,导致使用数组索引查找key错误
     const loopGetKey = (dataSource: RecordType[], parentKey?: string) => {
@@ -523,7 +518,15 @@ export function useEditableArray<RecordType>(
       });
     };
     loopGetKey(props.dataSource);
-    dataSourceKeyIndexMapRef.current = map;
+    return map;
+  };
+  const initDataSourceKeyIndexMap = useMemo(() => resetMapRef(), []);
+
+  const dataSourceKeyIndexMapRef = useRef<Map<React.Key, React.Key>>(initDataSourceKeyIndexMap);
+  const newLineRecordRef = useRef<NewLineConfig<RecordType> | undefined>(undefined);
+
+  useDeepCompareEffectDebounce(() => {
+    dataSourceKeyIndexMapRef.current = resetMapRef();
   }, [props.dataSource]);
 
   // 这里这么做是为了存上次的状态，不然每次存一下再拿
@@ -680,6 +683,7 @@ export function useEditableArray<RecordType>(
           return key === recordKey;
         })
       : newLineRecordData;
+
     propsOnValuesChange.run(editRow || newLineRecordData, dataSource);
   });
 

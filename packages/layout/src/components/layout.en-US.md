@@ -1,5 +1,6 @@
 ---
 title: ProLayout
+atomId: ProLayout
 order: 0
 legacy: /layout
 

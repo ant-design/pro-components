@@ -1,17 +1,17 @@
-import { InputNumber } from 'antd';
 import { isNil } from '@ant-design/pro-utils';
-import React, { useCallback } from 'react';
+import { InputNumber } from 'antd';
 import omit from 'omit.js';
+import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/lib/input-number/style';
 import { useIntl } from '@ant-design/pro-provider';
+import 'antd/lib/input-number/style';
 //----------------------
 
 export type FieldDigitProps = {
   text: number;
-  placeholder?: any;
+  placeholder?: string;
 };
 
 /**

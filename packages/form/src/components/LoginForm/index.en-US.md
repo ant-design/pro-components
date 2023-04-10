@@ -1,7 +1,7 @@
 ---
 title: LoginForm/Page
 Order: 2
-
+atomId: LoginForm,PageForm
 navigation:
   Title: Components
 ---
@@ -12,11 +12,11 @@ LoginForm and LoginFormPage are variants of ProForm. They are specially implemen
 
 ## Login form
 
-<code src="./demos/login-form" background="hsl(220,23%,97%)" oldtitle="login-form"></code>
+<code src="./demos/login-form"  background="var(--main-bg-color)" oldtitle="login-form"></code>
 
 ## page level LoginForm
 
-<code src="./demos/login-form-page.tsx" background="hsl(220,23%,97%)" oldtitle="Page level form"></code>
+<code src="./demos/login-form-page.tsx"  background="var(--main-bg-color)" oldtitle="Page level form"></code>
 
 ### LoginForm
 

@@ -1437,7 +1437,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
   </div>
   <div
     class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
-    style="height: 500px;"
+    style="min-height: 500px;"
   >
     <div
       class="ant-pro-card-body"
@@ -1940,6 +1940,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                                   aria-activedescendant="layout_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="layout_list"
+                                                  aria-expanded="false"
                                                   aria-haspopup="listbox"
                                                   aria-owns="layout_list"
                                                   autocomplete="off"
@@ -2143,6 +2144,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                                   aria-activedescendant="size_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="size_list"
+                                                  aria-expanded="false"
                                                   aria-haspopup="listbox"
                                                   aria-owns="size_list"
                                                   autocomplete="off"

@@ -1,5 +1,6 @@
 ---
 title: ProCard
+atomId: ProCard
 nav:
   title: Components
 ---
@@ -24,19 +25,19 @@ In-page container cards that provide standard card styles, card segmentation and
 
 When used alone a `ProCard` is just a regular card.
 
-<code src="../demos/basic.tsx" background="#f0f2f5" oldtitle="Basic Card"></code>
+<code src="../demos/basic.tsx" background="var(--main-bg-color)" oldtitle="Basic Card"></code>
 
 ### Grid layout
 
 When nesting child cards, the component will automatically switch to `flex` flex box layout, you can set `direction` to `column` to specify the flex direction, you can also configure the `ghost` property to `true` to remove Background color and padding facilitate in-page layout.
 
-<code src="../demos/colspan.tsx" background="#f0f2f5" oldtitle="Grid Layout"></code>
+<code src="../demos/colspan.tsx" background="var(--main-bg-color)" oldtitle="Grid Layout"></code>
 
 ### Responsive
 
 `colSpan` supports [Grid Responsive Layout](https://ant.design/components/grid-cn/#components-grid-demo-responsive) defined by antd. There are six preset response sizes: `xs` `sm` `md` `lg` `xl` `xxl`. If you want to support responsiveness, you can write `{ xs: 4, sm: 8, md: 10, lg: 12 }`.
 
-<code src="../demos/responsive.tsx" background="#f0f2f5" oldtitle="responsive"></code>
+<code src="../demos/responsive.tsx" background="var(--main-bg-color)" oldtitle="responsive"></code>
 
 ### Card segmentation
 
@@ -45,80 +46,80 @@ In layout mode, by configuring `split`, you can easily split the card, and you c
 - The content `padding` of the parent card will be set to 0 when splitting.
 - `border-radius` of subcards will be set to 0 when splitting.
 
-<code src="../demos/split2.tsx" background="#f0f2f5" oldtitle="Card Splitting"></code>
+<code src="../demos/split2.tsx" background="var(--main-bg-color)" oldtitle="Card Splitting"></code>
 
 ### Left and right columns
 
 Through the card segmentation ability, we can easily achieve the effect of left and right columns, which is very suitable for the structure of the list on the left and the details on the right.
 
-<code src="../demos/split23.tsx" background="#f0f2f5" oldtitle="Left and right columns"></code>
+<code src="../demos/split23.tsx" background="var(--main-bg-color)" oldtitle="Left and right columns"></code>
 
 ### Complex segmentation
 
 Through the card segmentation capability, we can achieve more complex data presentation forms.
 
-<code src="../demos/split.tsx" background="#f0f2f5" oldtitle="Complex Split"></code>
+<code src="../demos/split.tsx" background="var(--main-bg-color)" oldtitle="Complex Split"></code>
 
 ### Grid interval
 
 The grid often needs to cooperate with the interval. You can use the `gutter` property. We recommend using `(16+8n)px` as the grid interval (n is a natural number). If you want to support responsiveness, you can write it as `{ xs: 8, sm: 16, md: 24, lg: 32 }`. If vertical spacing is required, it can be written in array form `[horizontal spacing, vertical spacing][16, { xs: 8, sm: 16, md: 24, lg: 32 }]`.
 
-<code src="../demos/gutter.tsx" background="#f0f2f5" oldtitle="Grid Gutter"></code>
+<code src="../demos/gutter.tsx" background="var(--main-bg-color)" oldtitle="Grid Gutter"></code>
 
 ### Multi-Line Cards
 
 The default card layout does not wrap, you can configure `wrap` to `true` to enable line wrapping between multiple cards, which is suitable for multiple card layouts.
 
-<code src="../demos/multipleLine.tsx" background="#f0f2f5" oldtitle="Multiple Line Cards"></code>
+<code src="../demos/multipleLine.tsx" background="var(--main-bg-color)" oldtitle="Multiple Line Cards"></code>
 
 ### group display
 
 You can nest card components to group content, and `Divider` subcomponents to separate those content.
 
-<code src="../demos/divider.tsx" background="#f0f2f5" oldtitle="Group Indicator"></code>
+<code src="../demos/divider.tsx" background="var(--main-bg-color)" oldtitle="Group Indicator"></code>
 
 ### Title with dividing line
 
 When adding a divider it automatically increases the height of the header to separate it from the content area.
 
-<code src="../demos/headerBordered.tsx" background="#f0f2f5" oldtitle="Title with dividing line"></code>
+<code src="../demos/headerBordered.tsx" background="var(--main-bg-color)" oldtitle="Title with dividing line"></code>
 
 ### Collapsible
 
 - You can use `collapsible` to configure whether the card is collapsible or not, and configure whether the card is collapsed by default through the `defaultCollapsed` property.
 - Or you can customize it by controlling the `collapsed` property.
 
-<code src="../demos/collapsible.tsx" background="#f0f2f5" oldtitle="collapsible"></code>
+<code src="../demos/collapsible.tsx" background="var(--main-bg-color)" oldtitle="collapsible"></code>
 
 ### Deck expansion
 
 With the `ghost` ghost mode and collapsible ability, the card deck can be expanded.
 
-<code src="../demos/group.tsx" background="#f0f2f5" oldtitle="Card group expansion"></code>
+<code src="../demos/group.tsx" background="var(--main-bg-color)" oldtitle="Card group expansion"></code>
 
 ### Content centered
 
 Configure the `layout` property to `center` to control the vertical centering of the content. When setting the centering, the content part is converted to a `flex` layout. You can use `direction` to control the `flex` direction.
 
-<code src="../demos/layout.tsx" background="#f0f2f5" oldtitle="Center content"></code>
+<code src="../demos/layout.tsx" background="var(--main-bg-color)" oldtitle="Center content"></code>
 
 ### Loading
 
 Configure the `loading` property to `true` to control the loading of the card. You can also pass the DOM to `loading` to customize the loading display.
 
-<code src="../demos/loading.tsx" background="#f0f2f5" oldtitle="Loading"></code>
+<code src="../demos/loading.tsx" background="var(--main-bg-color)" oldtitle="Loading"></code>
 
 ### Action items
 
 Configure the `actions` property to configure card actions.
 
-<code src="../demos/actions.tsx" background="#f0f2f5" oldtitle="Actions"></code>
+<code src="../demos/actions.tsx" background="var(--main-bg-color)" oldtitle="Actions"></code>
 
 ### Untitled
 
 The header is automatically hidden when there is no content.
 
-<code src="../demos/headless.tsx" background="#f0f2f5" oldtitle="Untitled"></code>
+<code src="../demos/headless.tsx" background="var(--main-bg-color)" oldtitle="Untitled"></code>
 
 ### with border
 
@@ -128,19 +129,19 @@ Configure the `bordered` property to control whether the card is bordered.
 
 ### floating effect
 
-<code src="../demos/hoverable.tsx" oldtitle="Flyover" desc="Configure popover via hoverable" background="#f0f2f5"></code>
+<code src="../demos/hoverable.tsx" oldtitle="Flyover" desc="Configure popover via hoverable" background="var(--main-bg-color)"></code>
 
 ### bookmark
 
 Configure the `tabs` property with the `ProCard.TabPane` subcomponent to configure the tab bar of the card.
 
-<code src="../demos/tabs.tsx" background="#f0f2f5" oldtitle="tabs"></code>
+<code src="../demos/tabs.tsx" background="var(--main-bg-color)" oldtitle="tabs"></code>
 
 ### Card Tab
 
 Set the `type` of `tab` to `card` to configure card-style tabs.
 
-<code src="../demos/tabs-card.tsx" background="#f0f2f5" oldtitle="Card Tabs"></code>
+<code src="../demos/tabs-card.tsx" background="var(--main-bg-color)" oldtitle="Card Tabs"></code>
 
 ### Internal Cards
 
@@ -152,7 +153,7 @@ Can be placed inside a card to display information in a multi-level structure.
 
 The `Steps` component is combined with the `ProCard` component to complete the vertical step example.
 
-<code src="../demos/steps-v.tsx" background="#f0f2f5" oldtitle="Example of vertical steps"></code>
+<code src="../demos/steps-v.tsx" background="var(--main-bg-color)" oldtitle="Example of vertical steps"></code>
 
 ## API
 

@@ -2,7 +2,6 @@ import chalk from 'chalk';
 import { readdirSync } from 'fs';
 import { join } from 'path';
 import { defineConfig } from 'dumi';
-const theme = require('@ant-design/antd-theme-variable');
 
 const headPkgList: string[] = [];
 // utils must build before core
@@ -66,30 +65,6 @@ export default defineConfig({
   analytics: {
     ga_v2: 'G-RMBLDHGL1N',
   },
-  styles: [
-    `
-    .dumi-default-sidebar {
-      min-width: 260px;
-    }
-    .dumi-default-previewer-demo {
-      min-height: 120px;
-      display: flex;
-      overflow: auto;
-      flex-direction: column;
-    }
-    .dumi-default-content-tabs{
-      margin: -24px -48px 48px !important;
-    }
-    
-    .dumi-default-header:not([data-static]){
-      border-bottom: 1px solid #ddd;
-    }
-    .dumi-default-header-left {
-      min-width: 230px;
-      margin-right: 32px;
-  }
-  `,
-  ],
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   alias,
   resolve: {
@@ -383,27 +358,14 @@ export default defineConfig({
         },
       ],
     },
+    apiHeader: {
+      // 组件库包名，可以从 package.json 中引入名称
+      pkg: '@ant-design/pro-components',
+      // 匹配路由，默认为 /api 或 /components
+      match: ['/api', '/components'],
+    },
   },
   hash: true,
-  theme: {
-    '@s-content-width': '1600px',
-    '@s-site-menu-width': '258px',
-    '@ant-prefix': 'ant',
-    '@root-entry-name': 'variable',
-    ...theme,
-    '@primary-color': '#1677FF',
-    '@warning-color': '#faad14',
-    '@heading-color': 'rgba(0, 0, 0, 0.85)',
-    '@text-color': 'rgba(0, 0, 0, 0.65)',
-    '@text-color-secondary': 'rgba(0, 0, 0, 0.45)',
-    '@border-color-base': '#d9d9d9',
-    '@border-color-split': 'rgba(0, 0, 0, 0.06)',
-    '@border-radius-base': '4px',
-    '@card-radius': '6px',
-    '@table-border-radius-base': '6px',
-    '@box-shadow-base':
-      '0 2px 8px -2px rgba(0,0,0,0.05), 0 1px 4px -1px rgba(25,15,15,0.07), 0 0 1px 0 rgba(0,0,0,0.08)',
-  },
   extraBabelPlugins: ['@emotion'],
   ignoreMomentLocale: true,
 });

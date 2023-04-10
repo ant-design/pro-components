@@ -2,6 +2,7 @@
 title: ProTable - 高级表格
 order: 0
 legacy: /table
+atomId: ProTable
 ---
 
 # ProTable - 高级表格
