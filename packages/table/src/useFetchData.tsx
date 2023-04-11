@@ -58,8 +58,6 @@ const useFetchData = <T extends RequestData<any>>(
     onChange: options?.onLoadingChange,
   });
 
-  const requesting = useRef(false);
-
   const [pageInfo, setPageInfoState] = useMountMergeState<PageInfo>(
     () => mergeOptionAndPageInfo(options),
     {

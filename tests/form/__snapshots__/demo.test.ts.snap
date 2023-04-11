@@ -6006,7 +6006,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        2023-04-11
+                        2016-11-22
                       </div>
                     </div>
                   </div>
@@ -6043,7 +6043,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        23-04
+                        16-11
                       </div>
                     </div>
                   </div>
@@ -6163,7 +6163,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        2023-15th
+                        2016-48th
                       </div>
                     </div>
                   </div>
@@ -6200,7 +6200,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        2023-04
+                        2016-11
                       </div>
                     </div>
                   </div>
@@ -6237,7 +6237,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        2023-Q2
+                        2016-Q4
                       </div>
                     </div>
                   </div>
@@ -6274,7 +6274,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        2023
+                        2016
                       </div>
                     </div>
                   </div>
@@ -6311,7 +6311,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        2023-04-11
+                        2016-11-22
                       </div>
                     </div>
                   </div>
@@ -6350,10 +6350,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       >
                         <div>
                           <div>
-                            2023-04-11
+                            2016-11-22
                           </div>
                           <div>
-                            2023-04-10
+                            2016-11-21
                           </div>
                         </div>
                       </div>
@@ -6393,10 +6393,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       >
                         <div>
                           <div>
-                            2023-04-11 07:07:08
+                            2016-11-22 15:22:44
                           </div>
                           <div>
-                            2023-04-10 07:07:08
+                            2016-11-21 15:22:44
                           </div>
                         </div>
                       </div>
@@ -6763,8 +6763,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               id="date"
                               placeholder="请选择"
                               size="12"
-                              title="2023-04-11"
-                              value="2023-04-11"
+                              title="2016-11-22"
+                              value="2016-11-22"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -6863,8 +6863,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              title="23-04"
-                              value="23-04"
+                              title="16-11"
+                              value="16-11"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7210,8 +7210,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              title="2023-15th"
-                              value="2023-15th"
+                              title="2016-48th"
+                              value="2016-48th"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7310,8 +7310,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              title="2023-04"
-                              value="2023-04"
+                              title="2016-11"
+                              value="2016-11"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7410,8 +7410,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              title="2023-Q2"
-                              value="2023-Q2"
+                              title="2016-Q4"
+                              value="2016-Q4"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7510,8 +7510,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              title="2023"
-                              value="2023"
+                              title="2016"
+                              value="2016"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7610,8 +7610,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              title="2023-04-11"
-                              value="2023-04-11"
+                              title="2016-11-22"
+                              value="2016-11-22"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7710,7 +7710,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              value="2023-04-10"
+                              value="2016-11-21"
                             />
                           </div>
                           <div
@@ -7749,7 +7749,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              value="2023-04-11"
+                              value="2016-11-22"
                             />
                           </div>
                           <div
@@ -7850,7 +7850,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="21"
-                              value="2023-04-10 07:07:08"
+                              value="2016-11-21 15:22:44"
                             />
                           </div>
                           <div
@@ -7889,7 +7889,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                               placeholder="请选择"
                               readonly=""
                               size="21"
-                              value="2023-04-11 07:07:08"
+                              value="2016-11-22 15:22:44"
                             />
                           </div>
                           <div
@@ -31091,7 +31091,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         placeholder="开始日期"
                         readonly=""
                         size="12"
-                        value="2023-04-11"
+                        value="2016-11-22"
                       />
                     </div>
                     <div
@@ -31130,7 +31130,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         placeholder="结束日期"
                         readonly=""
                         size="12"
-                        value="2023-04-11"
+                        value="2016-11-22"
                       />
                     </div>
                     <div
@@ -31232,7 +31232,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         placeholder="开始日期"
                         readonly=""
                         size="12"
-                        value="2023-04-11"
+                        value="2016-11-22"
                       />
                     </div>
                     <div
@@ -31271,7 +31271,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         placeholder="结束日期"
                         readonly=""
                         size="12"
-                        value="2023-04-11"
+                        value="2016-11-22"
                       />
                     </div>
                     <div
@@ -31821,8 +31821,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                               placeholder="请选择"
                                               readonly=""
                                               size="21"
-                                              title="2023-04-11 07:07:13"
-                                              value="2023-04-11 07:07:13"
+                                              title="2016-11-22 15:22:44"
+                                              value="2016-11-22 15:22:44"
                                             />
                                             <span
                                               class="ant-picker-suffix"
@@ -34420,7 +34420,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               id="step2_syncTableInfo_timeRange"
                               placeholder="请选择"
                               size="12"
-                              value="2023-04-11"
+                              value="2016-11-22"
                             />
                           </div>
                           <div
@@ -34459,7 +34459,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               placeholder="请选择"
                               readonly=""
                               size="12"
-                              value="2023-04-11"
+                              value="2016-11-22"
                             />
                           </div>
                           <div

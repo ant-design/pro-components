@@ -628,7 +628,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  2023-04-11 07:07:30
+                  2016-11-22 15:22:44
                 </span>
               </div>
             </td>
@@ -651,7 +651,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  2023-04-11
+                  2016-11-22
                 </span>
               </div>
             </td>
@@ -672,10 +672,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 >
                   <div>
                     <div>
-                      2023-04-10 07:07:30
+                      2016-11-21 15:22:44
                     </div>
                     <div>
-                      2023-04-11 07:07:30
+                      2016-11-22 15:22:44
                     </div>
                   </div>
                 </span>
@@ -701,7 +701,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    07:07:30
+                    15:22:44
                   </span>
                 </span>
               </div>
@@ -3144,7 +3144,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  2023.04.11
+                  2016.11.22
                 </span>
               </div>
             </td>
@@ -3165,10 +3165,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 >
                   <div>
                     <div>
-                      2023.04.10 07:07:31
+                      2016.11.21 15:22:44
                     </div>
                     <div>
-                      2023.04.11 07:07:31
+                      2016.11.22 15:22:44
                     </div>
                   </div>
                 </span>
@@ -3194,7 +3194,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    2023.04.11
+                    2016.11.22
                   </span>
                 </span>
               </div>
@@ -3214,7 +3214,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  2023.04.11 07:07:31
+                  2016.11.22 15:22:44
                 </span>
               </div>
             </td>

@@ -61,7 +61,10 @@ function demoTest(component: string, options: Options = {}) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        jest.useFakeTimers();
+        jest.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
+
+        Math.random = () => 0.8404419276253765;
+
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(
           <>
