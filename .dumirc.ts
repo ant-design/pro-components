@@ -224,7 +224,7 @@ export default defineConfig({
           children: [
             {
               title: 'Components - 组件设计',
-              link: 'components',
+              link: '/components',
             },
             {
               title: 'Schema - 通用配置',
