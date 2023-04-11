@@ -791,6 +791,8 @@ describe('BasicTable', () => {
     });
 
     jest.useRealTimers();
+
+    html.unmount();
   });
 
   it('🎏 request error test', async () => {

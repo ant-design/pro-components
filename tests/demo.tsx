@@ -1,6 +1,7 @@
 import { cleanup, render as reactRender, waitFor } from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';
+import { act } from 'react-dom/test-utils';
 type Options = {
   skip?: boolean;
 };
@@ -60,6 +61,10 @@ function demoTest(component: string, options: Options = {}) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
+        jest.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
+
+        Math.random = () => 0.8404419276253765;
+
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(
           <>
@@ -67,6 +72,21 @@ function demoTest(component: string, options: Options = {}) {
             <Demo />
           </>,
         );
+
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        await waitFor(
+          () => {
+            return wrapper.findAllByText('test');
+          },
+          { timeout: 3000 },
+        );
+
+        act(() => {
+          jest.runAllTimers();
+        });
 
         await waitFor(
           () => {
@@ -78,6 +98,7 @@ function demoTest(component: string, options: Options = {}) {
         expect(wrapper.asFragment()).toMatchSnapshot();
 
         wrapper.unmount();
+        jest.useRealTimers();
         cleanup();
       });
     });
