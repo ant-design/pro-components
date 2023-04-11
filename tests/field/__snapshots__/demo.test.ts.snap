@@ -1146,14 +1146,14 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                       style="margin-right: 8px;"
                     >
                       <span>
-                        in 3 years
+                        3 years ago
                       </span>
                     </div>
                     <div
                       class="ant-space-item"
                     >
                       <span>
-                        in 4 years
+                        2 years ago
                       </span>
                     </div>
                   </div>
@@ -4238,7 +4238,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-input"
                       placeholder="请输入"
                       type="password"
-                      value=""
                     />
                     <span
                       class="ant-input-suffix"
@@ -4665,9 +4664,13 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                   style="min-width: 100px;"
                 >
+                  <span
+                    aria-live="polite"
+                    style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
+                  />
                   <div
                     class="ant-select-selector"
                   >
@@ -4806,35 +4809,11 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                 <div
                   class="ant-spin-nested-loading"
                 >
-                  <div>
-                    <div
-                      aria-busy="true"
-                      aria-live="polite"
-                      class="ant-spin ant-spin-spinning"
-                    >
-                      <span
-                        class="ant-spin-dot ant-spin-dot-spin"
-                      >
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                      </span>
-                    </div>
-                  </div>
                   <div
-                    class="ant-spin-container ant-spin-blur"
+                    class="ant-spin-container"
                   >
                     <div
-                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
+                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
                       style="min-width: 60px; width: 330px;"
                     >
                       <div
@@ -4849,12 +4828,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                           >
                             <span
                               class="ant-select-selection-item"
-                              title="0-0"
+                              title="Node1"
                             >
                               <span
                                 class="ant-select-selection-item-content"
                               >
-                                0-0
+                                Node1
                               </span>
                               <span
                                 aria-hidden="true"
