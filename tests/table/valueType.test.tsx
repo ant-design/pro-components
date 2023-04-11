@@ -1,9 +1,8 @@
 import { ProProvider } from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { fireEvent, render as reactRender, render } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
 import { waitTime } from '../util';
-import { act } from 'react-dom/test-utils';
 
 const cascaderOptions = [
   {
@@ -83,7 +82,7 @@ const defaultProps = {
 
 describe('BasicTable valueType', () => {
   it('🎏 table support user valueType', async () => {
-    const html = reactRender(
+    const html = render(
       <ProProvider.Provider
         value={
           {
@@ -120,7 +119,7 @@ describe('BasicTable valueType', () => {
   });
 
   it('🎏 table valueType render support fieldProps', async () => {
-    const html = reactRender(
+    const html = render(
       <ProProvider.Provider
         value={
           {

@@ -1,11 +1,10 @@
 import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-design/icons';
 import { ProLayout } from '@ant-design/pro-components';
 import { LoginForm, ProFormText } from '@ant-design/pro-form';
-import { render, waitFor } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
 import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 import { bigDefaultProps } from './defaultProps';
 

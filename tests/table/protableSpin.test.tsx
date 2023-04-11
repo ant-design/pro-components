@@ -1,10 +1,9 @@
 // import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 
 export type TableListItem = {

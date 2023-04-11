@@ -1,8 +1,7 @@
 import ProForm, { ProFormCaptcha } from '@ant-design/pro-form';
 import { Button, message } from 'antd';
-import { fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 
 describe('ProFormCaptcha', () => {
   it('😊 ProFormCaptcha Manual open', async () => {

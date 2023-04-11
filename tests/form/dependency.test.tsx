@@ -1,6 +1,5 @@
 import { ProForm, ProFormDependency, ProFormText } from '@ant-design/pro-components';
-import { fireEvent, render } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, fireEvent, render } from '@testing-library/react';
 import { waitTime } from '../util';
 
 describe('ProForm Dependency component', () => {

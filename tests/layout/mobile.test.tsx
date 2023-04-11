@@ -1,6 +1,5 @@
 ﻿import { ProLayout } from '@ant-design/pro-components';
-import { render as reactRender, render, waitFor } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, render, waitFor } from '@testing-library/react';
 import defaultProps from './defaultProps';
 
 describe('mobile BasicLayout', () => {
@@ -129,7 +128,7 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout collapsedButtonRender', async () => {
     const onCollapse = jest.fn();
-    const html = reactRender(
+    const html = render(
       <ProLayout
         {...defaultProps}
         onCollapse={onCollapse}
