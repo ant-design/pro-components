@@ -33,6 +33,7 @@ const useFetchData = <T extends RequestData<any>>(
   options: UseFetchProps,
 ): UseFetchDataAction => {
   const umountRef = useRef<boolean>(false);
+  const abortRef = useRef<AbortController | null>(null);
   const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
 
   /** 是否首次加载的指示器 */
@@ -126,7 +127,6 @@ const useFetchData = <T extends RequestData<any>>(
       setPollingLoading(true);
     }
 
-    requesting.current = true;
     const { pageSize, current } = pageInfo || {};
     try {
       const pageParams =
@@ -155,7 +155,6 @@ const useFetchData = <T extends RequestData<any>>(
       if (tableDataList === undefined) setTableDataList([]);
       onRequestError(e as Error);
     } finally {
-      requesting.current = false;
       requestFinally();
     }
 
@@ -166,26 +165,44 @@ const useFetchData = <T extends RequestData<any>>(
     if (pollingSetTimeRef.current) {
       clearTimeout(pollingSetTimeRef.current);
     }
-
-    if ((tableLoading && typeof tableLoading === 'boolean') || requesting.current || !getData) {
+    abortRef.current?.abort();
+    if (!getData) {
       return;
     }
 
-    const msg = await fetchList(isPolling);
+    const abort = new AbortController();
+    abortRef.current = abort;
+    try {
+      const msg = (await Promise.race([
+        fetchList(isPolling),
+        new Promise((_, reject) => {
+          abortRef.current?.signal.addEventListener('abort', () => {
+            reject('aborted');
+            fetchListDebounce.cancel();
+            requestFinally();
+          });
+        }),
+      ])) as T[];
+      if (abort.signal.aborted) return;
+      // 放到请求前面会导致数据是上一次的
+      const needPolling = runFunction(polling, msg);
 
-    // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
-    // 放到请求前面会导致数据是上一次的
-    const needPolling = runFunction(polling, msg);
+      // 如果需要轮询，搞个一段时间后执行
+      // 如果解除了挂载，删除一下
+      if (needPolling && !umountRef.current) {
+        pollingSetTimeRef.current = setTimeout(() => {
+          fetchListDebounce.run(needPolling);
+          // 这里判断最小要2000ms，不然一直loading
+        }, Math.max(needPolling, 2000));
+      }
 
-    // 如果需要轮询，搞个一段时间后执行
-    // 如果解除了挂载，删除一下
-    if (needPolling && !umountRef.current) {
-      pollingSetTimeRef.current = setTimeout(() => {
-        fetchListDebounce.run(needPolling);
-        // 这里判断最小要2000ms，不然一直loading
-      }, Math.max(needPolling, 2000));
+      return msg;
+    } catch (error) {
+      if (error === 'aborted') {
+        return;
+      }
+      throw error;
     }
-    return msg;
   }, debounceTime || 30);
 
   // 如果轮询结束了，直接销毁定时器
@@ -229,6 +246,7 @@ const useFetchData = <T extends RequestData<any>>(
     // 在第一页大于 10
     // 第二页也应该是大于 10
     if (current !== undefined && tableDataList && tableDataList.length <= pageSize) {
+      abortRef.current?.abort();
       fetchListDebounce.run(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -239,17 +257,19 @@ const useFetchData = <T extends RequestData<any>>(
     if (!prePageSize) {
       return;
     }
+    abortRef.current?.abort();
     fetchListDebounce.run(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageInfo?.pageSize]);
 
   useDeepCompareEffect(() => {
+    abortRef.current?.abort();
     fetchListDebounce.run(false);
     if (!manual) {
       manualRequestRef.current = false;
     }
     return () => {
-      fetchListDebounce.cancel();
+      abortRef.current?.abort();
     };
   }, [...effects, manual]);
 
@@ -258,6 +278,7 @@ const useFetchData = <T extends RequestData<any>>(
     setDataSource: setTableDataList,
     loading: tableLoading,
     reload: async () => {
+      fetchListDebounce.cancel();
       return fetchListDebounce.run(false);
     },
     pageInfo,

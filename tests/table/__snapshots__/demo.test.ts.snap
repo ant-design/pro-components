@@ -15545,32 +15545,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="qixian-btn qixian-btn-primary qixian-btn-loading"
+                                class="qixian-btn qixian-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="qixian-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -16446,32 +16423,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   style="padding-bottom: 8px;"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-primary ant-btn-loading"
+                                    class="ant-btn ant-btn-primary"
                                     type="button"
                                   >
-                                    <span
-                                      class="ant-btn-loading-icon"
-                                    >
-                                      <span
-                                        aria-label="loading"
-                                        class="anticon anticon-loading anticon-spin"
-                                        role="img"
-                                      >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="loading"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="0 0 1024 1024"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                          />
-                                        </svg>
-                                      </span>
-                                    </span>
                                     <span>
                                       查 询
                                     </span>
@@ -17016,32 +16970,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -17740,32 +17671,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -18483,32 +18391,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -18918,32 +18803,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -19353,32 +19215,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -20023,32 +19862,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -24186,32 +24002,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -24658,32 +24451,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -25872,32 +25642,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                               style="margin-right: 8px; padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -28869,32 +28616,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -29483,32 +29207,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -30301,32 +30002,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -30953,32 +30631,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -31795,32 +31450,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading ant-btn-rtl"
+                                class="ant-btn ant-btn-primary ant-btn-rtl"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   ابحث
                                 </span>
@@ -32714,32 +32346,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                               style="margin-right: 8px; padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -33443,32 +33052,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -38038,32 +37624,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                                 style="padding-bottom: 8px;"
                               >
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-loading"
+                                  class="ant-btn ant-btn-primary"
                                   type="button"
                                 >
-                                  <span
-                                    class="ant-btn-loading-icon"
-                                  >
-                                    <span
-                                      aria-label="loading"
-                                      class="anticon anticon-loading anticon-spin"
-                                      role="img"
-                                    >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="loading"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="0 0 1024 1024"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                        />
-                                      </svg>
-                                    </span>
-                                  </span>
                                   <span>
                                     查 询
                                   </span>
@@ -38824,32 +38387,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -40045,32 +39585,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -41132,32 +40649,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
@@ -42106,32 +41600,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                               style="padding-bottom: 8px;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary"
                                 type="button"
                               >
-                                <span
-                                  class="ant-btn-loading-icon"
-                                >
-                                  <span
-                                    aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="loading"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="0 0 1024 1024"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                                 <span>
                                   查 询
                                 </span>
