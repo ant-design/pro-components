@@ -146,7 +146,10 @@ const getTextByLocale = (
 ) => {
   let moneyText: number | string | undefined = paramsText?.toString().replaceAll(',', '');
   if (typeof moneyText === 'string') {
-    moneyText = Number(moneyText);
+    const parsedNum = Number(moneyText);
+    // 转换数字为NaN时，返回原始值展示
+    if (Number.isNaN(parsedNum)) return moneyText;
+    moneyText = parsedNum;
   }
 
   if (!moneyText && moneyText !== 0) return '';
