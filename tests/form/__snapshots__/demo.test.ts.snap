@@ -43954,7 +43954,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
                 type="button"
               >
                 <span>
-                  Next
+                  Finish
                 </span>
               </button>
             </div>

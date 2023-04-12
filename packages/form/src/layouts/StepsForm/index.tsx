@@ -345,12 +345,12 @@ function StepsForm<T = Record<string, any>>(
     let buttons: (React.ReactElement | false)[] = [];
     const index = step || 0;
     if (index < 1) {
-        // 如果有且只有一个 StepForm 第一步就应该是提交按钮
-        if (formArray.length === 1){
-            buttons.push(submit);
-        }else{
-            buttons.push(next);
-        }
+      // 如果有且只有一个 StepForm 第一步就应该是提交按钮
+      if (formArray.length === 1) {
+        buttons.push(submit);
+      } else {
+        buttons.push(next);
+      }
     } else if (index + 1 === formArray.length) {
       buttons.push(pre, submit);
     } else {
