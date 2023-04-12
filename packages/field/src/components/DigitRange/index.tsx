@@ -1,11 +1,11 @@
-import { Input, InputNumber } from 'antd';
+import { Input, InputNumber, Space } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/lib/input-number/style';
 import { useIntl } from '@ant-design/pro-provider';
+import 'antd/lib/input-number/style';
 //----------------------
 
 export type Value = string | number | undefined | null;
@@ -91,7 +91,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
       ];
 
     const dom = (
-      <Input.Group compact onBlur={handleGroupBlur}>
+      <Space.Compact onBlur={handleGroupBlur}>
         <InputNumber<number>
           {...fieldProps}
           placeholder={Array.isArray(placeholderValue) ? placeholderValue[0] : placeholderValue}
@@ -122,7 +122,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           defaultValue={defaultValue?.[1]}
           onChange={(changedValue) => handleChange(1, changedValue)}
         />
-      </Input.Group>
+      </Space.Compact>
     );
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);

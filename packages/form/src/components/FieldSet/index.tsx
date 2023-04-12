@@ -1,9 +1,9 @@
 ﻿import { useRefFunction } from '@ant-design/pro-utils';
 import type { FormItemProps, SpaceProps } from 'antd';
-import { Input, Space } from 'antd';
+import { Space } from 'antd';
 import type { GroupProps } from 'antd/lib/input';
 import toArray from 'rc-util/lib/Children/toArray';
-import React, { useCallback, useImperativeHandle, useMemo } from 'react';
+import React, { useCallback, useImperativeHandle } from 'react';
 import { createField } from '../../BaseForm/createField';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormItemProps } from '../FormItem';
@@ -22,7 +22,7 @@ export type ProFormFieldSetProps<T = any> = {
 
 const FieldSetType = {
   space: Space,
-  group: Input.Group,
+  group: Space.Compact,
 };
 
 export function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
@@ -99,16 +99,13 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
 
   const { RowWrapper } = useGridHelpers(rest);
 
-  /** Input.Group 需要配置 compact */
-  const typeProps = useMemo(() => ({ ...(type === 'group' ? { compact: true } : {}) }), [type]);
-
   const Wrapper: React.FC = useCallback(
     ({ children: dom }: { children?: React.ReactNode }) => (
-      <Components {...typeProps} {...(space as SpaceProps)} align="start">
+      <Components {...(space as SpaceProps)} align="start">
         {dom}
       </Components>
     ),
-    [Components, space, typeProps],
+    [Components, space],
   );
 
   return <RowWrapper Wrapper={Wrapper}>{list}</RowWrapper>;

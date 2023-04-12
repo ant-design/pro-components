@@ -366,7 +366,7 @@ const Demo = () => (
 
         <ProFormFieldSet
           name="list"
-          label="组件列表- Input.Group"
+          label="组件列表- Space.Compact"
           type="group"
           rules={[
             {

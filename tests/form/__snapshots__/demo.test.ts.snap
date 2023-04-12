@@ -3189,11 +3189,11 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <span
-                          class="ant-input-group ant-input-group-compact"
+                        <div
+                          class="ant-space-compact"
                         >
                           <div
-                            class="ant-input-number"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-compact-item ant-input-number-compact-first-item"
                           >
                             <div
                               class="ant-input-number-handler-wrap"
@@ -3269,7 +3269,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             </div>
                           </div>
                           <input
-                            class="ant-input ant-input-disabled"
+                            class="ant-input ant-input-disabled ant-input-compact-item"
                             disabled=""
                             placeholder="-"
                             style="width: 60px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
@@ -3277,7 +3277,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             value=""
                           />
                           <div
-                            class="ant-input-number"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-compact-item ant-input-number-compact-last-item"
                             style="border-inline-start: 0;"
                           >
                             <div
@@ -3353,7 +3353,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                               />
                             </div>
                           </div>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -6536,9 +6536,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     <label
                       class=""
                       for="validate_other_list"
-                      title="组件列表- Input.Group"
+                      title="组件列表- Space.Compact"
                     >
-                      组件列表- Input.Group
+                      组件列表- Space.Compact
                     </label>
                   </div>
                   <div
@@ -6550,11 +6550,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <span
-                          class="ant-input-group ant-input-group-compact"
+                        <div
+                          align="start"
+                          class="ant-space-compact"
                         >
                           123
-                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -8293,9 +8294,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
             <label
               class=""
               for="list"
-              title="组件列表- Input.Group"
+              title="组件列表- Space.Compact"
             >
-              组件列表- Input.Group
+              组件列表- Space.Compact
             </label>
           </div>
           <div
@@ -8307,11 +8308,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
               <div
                 class="ant-form-item-control-input-content"
               >
-                <span
-                  class="ant-input-group ant-input-group-compact"
+                <div
+                  align="start"
+                  class="ant-space-compact"
                 >
                   <span
-                    class="ant-input-affix-wrapper pro-field pro-field-md"
+                    class="ant-input-affix-wrapper pro-field pro-field-md ant-input-compact-item ant-input-compact-first-item"
                   >
                     <input
                       class="ant-input"
@@ -8350,7 +8352,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
                     </span>
                   </span>
                   <span
-                    class="ant-input-affix-wrapper pro-field pro-field-md"
+                    class="ant-input-affix-wrapper pro-field pro-field-md ant-input-compact-item"
                   >
                     <input
                       class="ant-input"
@@ -8389,7 +8391,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
                     </span>
                   </span>
                   <span
-                    class="ant-input-affix-wrapper pro-field pro-field-md"
+                    class="ant-input-affix-wrapper pro-field pro-field-md ant-input-compact-item ant-input-compact-last-item"
                   >
                     <input
                       class="ant-input"
@@ -8427,7 +8429,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
                       </span>
                     </span>
                   </span>
-                </span>
+                </div>
               </div>
             </div>
           </div>
@@ -43954,7 +43956,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
                 type="button"
               >
                 <span>
-                  Next
+                  Finish
                 </span>
               </button>
             </div>
