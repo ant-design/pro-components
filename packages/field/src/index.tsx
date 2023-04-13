@@ -85,7 +85,7 @@ export type ProFieldLightProps = {
 /** Value type by function */
 export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProFieldValueObjectType;
 
-type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
+type RenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placeholder'> &
   ProRenderFieldPropsType & {
     /** 从服务器读取选项 */
     request?: ProFieldRequestData;
