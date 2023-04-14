@@ -17,6 +17,7 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
     [`${token.componentCls}-popover-text`]: {
       color: token.colorPrimary,
       cursor: 'pointer',
+      boxSizing: 'border-box',
     },
     [`${token.componentCls}-popover-content`]: {
       maxWidth: 300,
@@ -26,15 +27,18 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
       paddingInline: 20,
       paddingBlockStart: 24,
       paddingBlockEnd: 32,
+      boxSizing: 'border-box',
     },
     [`${token.componentCls}-left-panel`]: {
       overflow: 'auto',
+      boxSizing: 'border-box',
       borderInlineEnd: `${token?.lineWidth}px solid ${token?.colorBorderSecondary}`,
       minHeight: '648px',
       minWidth: 190,
       maxWidth: 190,
       '&-menu': {
         width: 190,
+        boxSizing: 'border-box',
         minWidth: 190,
         height: 'calc(100% - 40px)',
         marginBlock: 20,
@@ -43,18 +47,20 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
     [`${token.componentCls}-content-panel`]: {
       paddingBlock: 20,
       paddingInline: 24,
-      maxWidth: '800px',
-      minWidth: '400px',
+      minWidth: '200px',
       overflow: 'auto',
       flex: 1,
+      boxSizing: 'border-box',
       minHeight: '648px',
     },
     [`${token.componentCls}-actions`]: {
       display: 'flex',
+      boxSizing: 'border-box',
       gap: 12,
       '&-item': {
         display: 'flex',
-        alignContent: 'center',
+        boxSizing: 'border-box',
+        alignItems: 'center',
         justifyItems: 'center',
         padding: 4,
         height: 24,
@@ -70,6 +76,7 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
         maxWidth: 120,
         padding: 0,
         width: '120px',
+        boxSizing: 'border-box',
         borderRadius: token.borderRadius,
         backgroundColor: token.colorBgTextHover,
         animationName: actionsInputAnimal,

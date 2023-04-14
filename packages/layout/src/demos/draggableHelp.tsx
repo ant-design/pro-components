@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
+﻿import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
 import { ProHelp, ProHelpPanel, ProHelpSelect } from '@ant-design/pro-components';
+import Draggable from 'react-draggable';
 import { Typography, App } from 'antd';
 
 export default () => {
@@ -294,7 +294,7 @@ export default () => {
                     {
                       valueType: 'image',
                       children: {
-                        src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*NcPORK7kRWMAAAAAAAAAAAAADml6AQ/original',
+                        src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*Jj_qRqbIRqkAAAAAAAAAAAAADml6AQ/original',
                         style: {
                           maxWidth: 600,
                         },
@@ -323,13 +323,17 @@ export default () => {
           ]}
           valueTypeMap={map}
         >
-          <div
-            style={{
-              width: 800,
-            }}
-          >
-            <ProHelpPanel defaultSelectedKey="1" height={648} />
-          </div>
+          <ProHelpSelect />
+
+          <Draggable>
+            <div
+              style={{
+                width: 400,
+              }}
+            >
+              <ProHelpPanel defaultSelectedKey="1" height={448} />
+            </div>
+          </Draggable>
         </ProHelp>
       </div>
     </App>

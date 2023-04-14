@@ -1,9 +1,9 @@
 ﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
 import { ProProvider } from '@ant-design/pro-provider';
 import classNames from 'classnames';
-import type { ImageProps, PopoverProps, ModalProps, DrawerProps } from 'antd';
+import { ImageProps, PopoverProps, ModalProps, DrawerProps, Spin } from 'antd';
 import { Popover, Menu, Image, Typography, Card, ConfigProvider, Drawer, Modal } from 'antd';
-import type { AnchorHTMLAttributes } from 'react';
+import { AnchorHTMLAttributes, useEffect } from 'react';
 import React, { useContext, useMemo, useState } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide';
@@ -74,6 +74,14 @@ export type ProHelpProps<ValueType> = {
    * 帮助组件的子组件，用于渲染自定义的帮助内容。
    */
   children?: React.ReactNode;
+
+  /**
+   * 加载数据源的函数,如果把数据源设置为 async load就可以使用这个功能。
+   */
+  onLoadContext?: (
+    key: React.Key,
+    context: ProHelpDataSource<ValueType>['children'][number],
+  ) => Promise<ProHelpDataSourceChildren<ValueType>[]>;
 };
 
 export type ProHelpContentPanelProps = {
@@ -83,24 +91,10 @@ export type ProHelpContentPanelProps = {
   selectedKey: React.Key;
 };
 
-/**
- * 控制具体的帮助文档显示组件
- * selectedKey 来展示对应的内容。它会根据不同的item.valueType值来展示不同的内容，包括标题、图片、超链接等。
- * @param ProHelpContentPanelProps
- * @returns
- */
-export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ selectedKey }) => {
-  const { dataSource, valueTypeMap } = useContext(ProHelpProvide);
-
-  const dataSourceMap = useMemo(() => {
-    const map = new Map<React.Key, ProHelpDataSourceChildren[]>();
-    dataSource.forEach((page) => {
-      page.children.forEach((item) => {
-        map.set(item.key || item.title, item.children);
-      });
-    });
-    return map;
-  }, [dataSource]);
+const RenderContentPanel: React.FC<{
+  dataSourceChildren: ProHelpDataSourceChildren<any>[];
+}> = ({ dataSourceChildren }) => {
+  const { valueTypeMap } = useContext(ProHelpProvide);
   /**
    * itemRender 的定义
    * @param {ProHelpDataSourceChildren} item
@@ -169,7 +163,79 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
     return <Typography.Text key={index}>{item.children as string}</Typography.Text>;
   };
 
-  return <div>{dataSourceMap.get(selectedKey)?.map(itemRender)}</div>;
+  return <div>{dataSourceChildren?.map(itemRender)}</div>;
+};
+
+const AsyncContentPanel: React.FC<{
+  item: ProHelpDataSource<any>['children'][number];
+}> = ({ item }) => {
+  const { onLoadContext } = useContext(ProHelpProvide);
+  const [loading, setLoading] = useState(false);
+  const [content, setContent] = useState<ProHelpDataSourceChildren<any>[]>();
+
+  useEffect(() => {
+    if (!item.key) return;
+    setLoading(true);
+
+    onLoadContext?.(item.key, item).then((res) => {
+      setLoading(false);
+      setContent(res);
+    });
+  }, [item.key]);
+
+  if (!item.key) return null;
+
+  if (loading && item.key) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+          boxSizing: 'border-box',
+          padding: 24,
+        }}
+      >
+        <Spin />
+      </div>
+    );
+  }
+  return <RenderContentPanel dataSourceChildren={content!} />;
+};
+
+/**
+ * 控制具体的帮助文档显示组件
+ * selectedKey 来展示对应的内容。它会根据不同的item.valueType值来展示不同的内容，包括标题、图片、超链接等。
+ * @param ProHelpContentPanelProps
+ * @returns
+ */
+export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ selectedKey }) => {
+  const { dataSource } = useContext(ProHelpProvide);
+
+  const dataSourceMap = useMemo(() => {
+    const map = new Map<React.Key, ProHelpDataSource<any>['children'][number]>();
+    dataSource.forEach((page) => {
+      page.children.forEach((item) => {
+        map.set(item.key || item.title, item);
+      });
+    });
+    return map;
+  }, [dataSource]);
+
+  if (dataSourceMap.get(selectedKey)?.asyncLoad) {
+    return (
+      <AsyncContentPanel
+        key={dataSourceMap.get(selectedKey)?.key}
+        item={dataSourceMap.get(selectedKey)!}
+      />
+    );
+  }
+
+  return (
+    <div>
+      <RenderContentPanel dataSourceChildren={dataSourceMap.get(selectedKey)?.children!} />
+    </div>
+  );
 };
 
 /**
@@ -322,10 +388,11 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 export const ProHelp = <ValueTypeMap = { text: any },>({
   dataSource,
   valueTypeMap = new Map(),
+  onLoadContext,
   ...props
 }: ProHelpProps<ValueTypeMap>) => {
   return (
-    <ProHelpProvide.Provider value={{ dataSource, valueTypeMap }}>
+    <ProHelpProvide.Provider value={{ onLoadContext, dataSource, valueTypeMap }}>
       {props.children}
     </ProHelpProvide.Provider>
   );
@@ -359,6 +426,7 @@ export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
    */
   popoverProps?: PopoverProps;
 };
+
 /**
  * 渲染一个弹出式提示框，其中显示了一个ProHelpContentPanel，展示帮助文案的详情
  * @param popoverProps 要传递给 Drawer 组件的属性。
@@ -422,12 +490,14 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({ drawerProps, ...pr
     </Drawer>
   );
 };
+
 export type ProHelpModalProps = {
   /**
    * Ant Design Modal 组件的 props，可以传递一些选项，如位置、大小、关闭方式等等。
    */
   modalProps?: ModalProps;
 } & Omit<ProHelpPanelProps, 'onClose'>;
+
 /**
  * 渲染一个模态对话框，其中显示了一个 ProHelpPanel。
  * @param modalProps 要传递给 Modal 组件的属性。

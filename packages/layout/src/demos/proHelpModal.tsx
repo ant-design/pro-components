@@ -1,9 +1,11 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
-import { ProHelp, ProHelpPanel, ProHelpSelect } from '@ant-design/pro-components';
+import { ProHelp, ProHelpDrawer, ProHelpModal, ProHelpPopover } from '@ant-design/pro-components';
 import { Typography, App } from 'antd';
 
 export default () => {
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const map = new Map<
     string,
     (
@@ -294,7 +296,7 @@ export default () => {
                     {
                       valueType: 'image',
                       children: {
-                        src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*NcPORK7kRWMAAAAAAAAAAAAADml6AQ/original',
+                        src: 'https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*Jj_qRqbIRqkAAAAAAAAAAAAADml6AQ/original',
                         style: {
                           maxWidth: 600,
                         },
@@ -325,10 +327,29 @@ export default () => {
         >
           <div
             style={{
-              width: 800,
+              display: 'flex',
+              gap: 16,
+              width: 600,
+              justifyContent: 'space-between',
             }}
           >
-            <ProHelpPanel defaultSelectedKey="1" height={648} />
+            <button onClick={() => setDrawerOpen(!drawerOpen)}>打开</button>
+            <button onClick={() => setModalOpen(!modalOpen)}>打开</button>
+            <ProHelpModal
+              modalProps={{
+                open: modalOpen,
+                afterClose: () => setModalOpen(false),
+              }}
+            />
+            <ProHelpDrawer
+              drawerProps={{
+                open: drawerOpen,
+                afterOpenChange(open) {
+                  setDrawerOpen(open);
+                },
+              }}
+            />
+            <ProHelpPopover selectedKey="1">Morse</ProHelpPopover>
           </div>
         </ProHelp>
       </div>

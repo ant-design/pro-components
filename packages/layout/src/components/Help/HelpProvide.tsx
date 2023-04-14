@@ -44,6 +44,24 @@ type ProHelpDataSourceContentType = {
    * image 图片类型的数据源子项内容。
    */
   image: ImageProps;
+
+  /**
+   * markdown 类型的渲染，支持 基本的 markdown 语法
+   * 会包在一个叫 class name 为 markdown 的 div 中
+   */
+  markdown: {
+    className: string;
+    children: string;
+  };
+
+  /**
+   * markdown 类型的渲染，支持 基本的 markdown 语法
+   * 会包在一个叫 inner-html 为 markdown 的 div 中
+   */
+  html: {
+    className: string;
+    children: string;
+  };
 };
 
 /**
@@ -112,12 +130,20 @@ export type ProHelpDataSource<ValueType = 'text'> = {
    */
   title: string;
   /**
+   * 是否远程加载children
+   */
+  asyncLoad?: boolean;
+  /**
    * children 包含子项的数组，每个子项包含一个唯一标识，标题以及子子项数组。
    */
   children: {
     key: string;
     title: string;
-    children: ProHelpDataSourceChildren<ValueType>[];
+    /**
+     * 是否远程加载children
+     */
+    asyncLoad?: boolean;
+    children?: ProHelpDataSourceChildren<ValueType>[];
   }[];
 };
 
@@ -146,4 +172,11 @@ export const ProHelpProvide = React.createContext<{
     string,
     (item: ProHelpDataSourceChildren<any>, index: number) => React.ReactNode
   >;
+  /**
+   * 加载数据源的函数,如果把数据源设置为 async load就可以使用这个功能。
+   */
+  onLoadContext?: (
+    key: React.Key,
+    context: ProHelpDataSource<any>['children'][number],
+  ) => Promise<ProHelpDataSourceChildren<any>[]>;
 }>({ dataSource: [], valueTypeMap: new Map() });

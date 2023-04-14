@@ -165,5 +165,8 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
   },
-  "packageManager": "pnpm@6.0.2"
+  "packageManager": "pnpm@6.0.2",
+  "dependencies": {
+    "react-draggable": "^4.4.5"
+  }
 }

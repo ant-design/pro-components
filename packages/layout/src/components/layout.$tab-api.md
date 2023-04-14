@@ -9,6 +9,12 @@ order: 0
 
 <code src="../demos/help.tsx"  iframe="650" title="高级帮助"></code>
 
+<code src="../demos/draggableHelp.tsx"  iframe="650" title="支持拖动的高级帮助"></code>
+
+<code src="../demos/proHelpModal.tsx"  iframe="650" title="浮层高级帮助"></code>
+
+<code src="../demos/async-load-help.tsx"  iframe="650" title="远程加载帮助"></code>
+
 <code src="../demos/theme.tsx" iframe="650" title="通过 token 修改样式"></code>
 
 <code src="../demos/dark.tsx" iframe="650" title="黑色主题"></code>
