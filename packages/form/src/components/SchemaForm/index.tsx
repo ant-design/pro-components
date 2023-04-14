@@ -1,7 +1,7 @@
 ﻿import { LabelIconTip, omitUndefined, runFunction, useLatest } from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
 import { Form } from 'antd';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
@@ -59,10 +59,12 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   const oldValuesRef = useRef<T>();
   const propsRef = useLatest(props);
 
-  if (propsFormRef) {
-    (propsFormRef as React.MutableRefObject<ProFormInstance<any> | undefined | null>).current =
-      formRef.current;
-  }
+  useEffect(() => {
+    if (propsFormRef) {
+      (propsFormRef as React.MutableRefObject<ProFormInstance<any> | undefined | null>).current =
+        formRef.current;
+    }
+  }, []);
 
   /**
    * 生成子项，方便被 table 接入
