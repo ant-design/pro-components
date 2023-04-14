@@ -3,7 +3,7 @@ import { ProProvider } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import { ImageProps, PopoverProps, ModalProps, DrawerProps, Spin } from 'antd';
 import { Popover, Menu, Image, Typography, Card, ConfigProvider, Drawer, Modal } from 'antd';
-import { AnchorHTMLAttributes, useEffect } from 'react';
+import { AnchorHTMLAttributes, useEffect, useRef } from 'react';
 import React, { useContext, useMemo, useState } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide';
@@ -91,6 +91,17 @@ export type ProHelpContentPanelProps = {
   selectedKey: React.Key;
 };
 
+const HTMLRender: React.FC<{
+  html: string;
+  className?: string;
+}> = (props) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    ref.current?.innerHTML && (ref.current.innerHTML = props.html);
+  }, [props.html]);
+  return <div ref={ref} className={props.className || 'inner-html'} />;
+};
+
 const RenderContentPanel: React.FC<{
   dataSourceChildren: ProHelpDataSourceChildren<any>[];
 }> = ({ dataSourceChildren }) => {
@@ -106,6 +117,26 @@ const RenderContentPanel: React.FC<{
     if (valueTypeMap.has(item.valueType)) {
       return valueTypeMap.get(item.valueType)?.(item, index);
     }
+    if (item.valueType === 'html') {
+      return (
+        <HTMLRender
+          {...(item.children as {
+            className: string;
+            html: string;
+          })}
+        />
+      );
+    }
+    if (item.valueType === 'markdown') {
+      return (
+        <HTMLRender
+          {...(item.children as {
+            className: string;
+            html: string;
+          })}
+        />
+      );
+    }
     if (item.valueType === 'h1') {
       return (
         <Typography.Title
@@ -119,6 +150,7 @@ const RenderContentPanel: React.FC<{
         </Typography.Title>
       );
     }
+
     if (item.valueType === 'h2') {
       return (
         <Typography.Title

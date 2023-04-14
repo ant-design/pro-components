@@ -328,7 +328,7 @@ export default () => {
           <Draggable>
             <div
               style={{
-                width: 400,
+                width: 900,
               }}
             >
               <ProHelpPanel defaultSelectedKey="1" height={448} />
