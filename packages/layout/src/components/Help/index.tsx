@@ -91,14 +91,19 @@ export type ProHelpContentPanelProps = {
   selectedKey: React.Key;
 };
 
+// HTML渲染组件，接收一个字符串形式的html作为props
+// 可选接收className作为组件的样式类名
 const HTMLRender: React.FC<{
-  html: string;
+  children: string;
   className?: string;
 }> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
+
+  // 当html发生变化时，将其渲染到ref.current的innerHTML中
   useEffect(() => {
-    ref.current?.innerHTML && (ref.current.innerHTML = props.html);
-  }, [props.html]);
+    ref.current && (ref.current.innerHTML = props.children);
+  }, [props.children]);
+  // 返回一个div元素作为容器，并传递ref和className作为props
   return <div ref={ref} className={props.className || 'inner-html'} />;
 };
 
@@ -198,25 +203,31 @@ const RenderContentPanel: React.FC<{
   return <div>{dataSourceChildren?.map(itemRender)}</div>;
 };
 
+/**
+ * 异步加载内容的面板组件
+ * @param item 指向当前面板的 ProHelpDataSource
+ */
 const AsyncContentPanel: React.FC<{
   item: ProHelpDataSource<any>['children'][number];
 }> = ({ item }) => {
-  const { onLoadContext } = useContext(ProHelpProvide);
-  const [loading, setLoading] = useState(false);
-  const [content, setContent] = useState<ProHelpDataSourceChildren<any>[]>();
+  const { onLoadContext } = useContext(ProHelpProvide); // 获取上下文中的 onLoadContext
+  const [loading, setLoading] = useState(false); // 加载状态
+  const [content, setContent] = useState<ProHelpDataSourceChildren<any>[]>(); // 内容数据
 
   useEffect(() => {
-    if (!item.key) return;
-    setLoading(true);
-
+    if (!item.key) return; // 如果没有key则返回
+    setLoading(true); // 开始加载
     onLoadContext?.(item.key, item).then((res) => {
-      setLoading(false);
-      setContent(res);
+      // 调用加载方法
+      setLoading(false); // 加载完成
+      setContent(res); // 设置内容数据
     });
   }, [item.key]);
 
+  // 如果没有key，则返回null
   if (!item.key) return null;
 
+  // 如果正在加载并且有key，则显示加载中的状态
   if (loading && item.key) {
     return (
       <div
@@ -232,6 +243,8 @@ const AsyncContentPanel: React.FC<{
       </div>
     );
   }
+
+  // 加载完成后，渲染内容面板
   return <RenderContentPanel dataSourceChildren={content!} />;
 };
 

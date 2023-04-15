@@ -36,7 +36,7 @@ export default () => {
           };
         }>
           onLoadContext={async (key) => {
-            await waitTime(10000);
+            await waitTime(1000);
             if (key === '1') {
               return [
                 {
@@ -58,6 +58,16 @@ export default () => {
                   valueType: 'text',
                   children:
                     '节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。',
+                },
+                {
+                  valueType: 'html',
+                  children: {
+                    children: `<b>加粗文本</b><br><br>
+                    <i>斜体文本</i><br><br>
+                    <code>电脑自动输出</code><br><br>
+                    这是 <sub> 下标</sub> 和 <sup> 上标</sup>
+                    `,
+                  },
                 },
               ];
             }
