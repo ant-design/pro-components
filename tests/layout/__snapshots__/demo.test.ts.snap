@@ -10699,20 +10699,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
                 >
                   需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署
                 </span>
-                <span
-                  class="ant-typography"
-                >
-                  <a
-                    href="https://www.alipay.com"
-                  >
-                    摩斯产品
-                  </a>
-                </span>
-                <span
-                  class="ant-typography"
-                >
-                  节点。并将各自的摩斯计算节点、子账号等的版本信息、业务需求、数据量级（几行几列）等信息同步给到摩斯产运负责人。
-                </span>
                 <div
                   class="inner-html"
                 >
@@ -10722,21 +10708,21 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
                   <br />
                   <br />
                   
-                    
+  
                   <i>
                     斜体文本
                   </i>
                   <br />
                   <br />
                   
-                    
+  
                   <code>
                     电脑自动输出
                   </code>
                   <br />
                   <br />
                   
-                    这是 
+  这是 
                   <sub>
                      下标
                   </sub>
@@ -10745,7 +10731,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
                      上标
                   </sup>
                   
-                    
+  
                 </div>
               </div>
             </div>

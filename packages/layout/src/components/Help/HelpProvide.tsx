@@ -47,15 +47,6 @@ type ProHelpDataSourceContentType = {
 
   /**
    * markdown 类型的渲染，支持 基本的 markdown 语法
-   * 会包在一个叫 class name 为 markdown 的 div 中
-   */
-  markdown: {
-    className: string;
-    children: string;
-  };
-
-  /**
-   * markdown 类型的渲染，支持 基本的 markdown 语法
    * 会包在一个叫 inner-html 为 markdown 的 div 中
    */
   html: {
