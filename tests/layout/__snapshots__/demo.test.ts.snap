@@ -10654,12 +10654,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
                   role="none"
                 >
                   <div
                     aria-controls="rc-menu-uuid-test-default-popup"
-                    aria-expanded="false"
+                    aria-expanded="true"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
                     data-menu-id="rc-menu-uuid-test-default"
@@ -10676,6 +10676,39 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
                       class="ant-menu-submenu-arrow"
                     />
                   </div>
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    data-menu-list="true"
+                    id="rc-menu-uuid-test-default-popup"
+                    role="menu"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                      data-menu-id="rc-menu-uuid-test-1"
+                      role="menuitem"
+                      style="padding-left: 48px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        html 语法
+                      </span>
+                    </li>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      data-menu-id="rc-menu-uuid-test-2"
+                      role="menuitem"
+                      style="padding-left: 48px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        markdown 语法
+                      </span>
+                    </li>
+                  </ul>
                 </li>
               </ul>
               <div
@@ -10687,51 +10720,55 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
               class="ant-pro-help-content-panel"
               style="height: 448px;"
             >
-              <div>
-                <h3
-                  class="ant-typography"
-                  style="margin-top: 0px;"
-                >
-                  如何开始操作数据授权？
-                </h3>
-                <span
-                  class="ant-typography"
-                >
-                  需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署
-                </span>
-                <div
-                  class="inner-html"
-                >
-                  <b>
-                    加粗文本
-                  </b>
-                  <br />
-                  <br />
-                  
+              <div
+                class="ant-pro-help-content-render"
+              >
+                <div>
+                  <h3
+                    class="ant-typography"
+                    style="margin-top: 0px;"
+                  >
+                    如何开始操作数据授权？
+                  </h3>
+                  <span
+                    class="ant-typography"
+                  >
+                    需要进行数据合作的数据提供方（数据源）和数据需求方双方都需要先安装部署
+                  </span>
+                  <div
+                    class="inner-html"
+                  >
+                    <b>
+                      加粗文本
+                    </b>
+                    <br />
+                    <br />
+                    
   
-                  <i>
-                    斜体文本
-                  </i>
-                  <br />
-                  <br />
-                  
+                    <i>
+                      斜体文本
+                    </i>
+                    <br />
+                    <br />
+                    
   
-                  <code>
-                    电脑自动输出
-                  </code>
-                  <br />
-                  <br />
-                  
+                    <code>
+                      电脑自动输出
+                    </code>
+                    <br />
+                    <br />
+                    
   这是 
-                  <sub>
-                     下标
-                  </sub>
-                   和 
-                  <sup>
-                     上标
-                  </sup>
-                  
+                    <sub>
+                       下标
+                    </sub>
+                     和 
+                    <sup>
+                       上标
+                    </sup>
+                    
   
+                  </div>
                 </div>
               </div>
             </div>
@@ -20354,12 +20391,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/draggableHelp.tsx
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
                   role="none"
                 >
                   <div
                     aria-controls="rc-menu-uuid-test-default-popup"
-                    aria-expanded="false"
+                    aria-expanded="true"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
                     data-menu-id="rc-menu-uuid-test-default"
@@ -20376,6 +20413,39 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/draggableHelp.tsx
                       class="ant-menu-submenu-arrow"
                     />
                   </div>
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    data-menu-list="true"
+                    id="rc-menu-uuid-test-default-popup"
+                    role="menu"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                      data-menu-id="rc-menu-uuid-test-1"
+                      role="menuitem"
+                      style="padding-left: 48px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        如何开始操作数据授权？
+                      </span>
+                    </li>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      data-menu-id="rc-menu-uuid-test-2"
+                      role="menuitem"
+                      style="padding-left: 48px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        证据包内包含哪些内容，如何下载证据包？
+                      </span>
+                    </li>
+                  </ul>
                 </li>
               </ul>
               <div
@@ -20387,7 +20457,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/draggableHelp.tsx
               class="ant-pro-help-content-panel"
               style="height: 448px;"
             >
-              <div>
+              <div
+                class="ant-pro-help-content-render"
+              >
                 <div>
                   <h3
                     class="ant-typography"
@@ -25042,12 +25114,12 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-selected"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
                   role="none"
                 >
                   <div
                     aria-controls="rc-menu-uuid-test-default-popup"
-                    aria-expanded="false"
+                    aria-expanded="true"
                     aria-haspopup="true"
                     class="ant-menu-submenu-title"
                     data-menu-id="rc-menu-uuid-test-default"
@@ -25064,6 +25136,39 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
                       class="ant-menu-submenu-arrow"
                     />
                   </div>
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    data-menu-list="true"
+                    id="rc-menu-uuid-test-default-popup"
+                    role="menu"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                      data-menu-id="rc-menu-uuid-test-1"
+                      role="menuitem"
+                      style="padding-left: 48px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        如何开始操作数据授权？
+                      </span>
+                    </li>
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child"
+                      data-menu-id="rc-menu-uuid-test-2"
+                      role="menuitem"
+                      style="padding-left: 48px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        证据包内包含哪些内容，如何下载证据包？
+                      </span>
+                    </li>
+                  </ul>
                 </li>
               </ul>
               <div
@@ -25075,7 +25180,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
               class="ant-pro-help-content-panel"
               style="height: 648px;"
             >
-              <div>
+              <div
+                class="ant-pro-help-content-render"
+              >
                 <div>
                   <h3
                     class="ant-typography"
@@ -25302,6 +25409,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
                     src="https://mdn.alipayobjects.com/huamei_gcee1x/afts/file/A*oJOJRZwe00kAAAAAAAAAAAAADml6AQ"
                     style="width: 100%;"
                   />
+                </div>
+              </div>
+              <div
+                class="ant-pro-help-footer"
+              >
+                <div
+                  style="text-align: center; border-top: 1px solid #EEE; padding: 12px; margin-top: 24px;"
+                >
+                  <button
+                    class="ant-btn ant-btn-primary"
+                    type="button"
+                  >
+                    <span>
+                      提 交
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>

@@ -45,13 +45,18 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
       },
     },
     [`${token.componentCls}-content-panel`]: {
-      paddingBlock: 20,
-      paddingInline: 24,
       minWidth: '200px',
       overflow: 'auto',
       flex: 1,
       boxSizing: 'border-box',
       minHeight: '648px',
+    },
+    [`${token.componentCls}-content-render`]: {
+      paddingBlock: 20,
+      paddingInline: 24,
+    },
+    [`${token.componentCls}-content-footer`]: {
+      padding: 8,
     },
     [`${token.componentCls}-actions`]: {
       display: 'flex',

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
 import { ProHelp, ProHelpPanel, ProHelpSelect } from '@ant-design/pro-components';
-import { Typography, App } from 'antd';
+import { Typography, App, Button } from 'antd';
 
 export default () => {
   const map = new Map<
@@ -328,7 +328,22 @@ export default () => {
               width: 800,
             }}
           >
-            <ProHelpPanel defaultSelectedKey="1" height={648} />
+            <ProHelpPanel
+              defaultSelectedKey="1"
+              height={648}
+              footer={
+                <div
+                  style={{
+                    textAlign: 'center',
+                    borderTop: '1px solid #EEE',
+                    padding: 12,
+                    marginTop: 24,
+                  }}
+                >
+                  <Button type="primary">提交</Button>
+                </div>
+              }
+            />
           </div>
         </ProHelp>
       </div>

@@ -49,6 +49,11 @@ export type ProHelpPanelProps = {
    * 帮助面板的高度，可以是数字或字符串类型。
    */
   height?: number | string;
+
+  /**
+   * 帮助面板的页脚
+   */
+  footer?: React.ReactNode;
 };
 
 export type ProHelpProps<ValueType> = {
@@ -89,6 +94,7 @@ export type ProHelpContentPanelProps = {
    * 控制当前选中的帮助文档
    */
   selectedKey: React.Key;
+  className?: string;
 };
 
 // HTML渲染组件，接收一个字符串形式的html作为props
@@ -120,11 +126,16 @@ const RenderContentPanel: React.FC<{
   const itemRender = (item: ProHelpDataSourceChildren, index: number) => {
     // 自定义的渲染，优先级最高
     if (valueTypeMap.has(item.valueType)) {
-      return valueTypeMap.get(item.valueType)?.(item, index);
+      return (
+        <React.Fragment key={index}>
+          {valueTypeMap.get(item.valueType)?.(item, index)}
+        </React.Fragment>
+      );
     }
     if (item.valueType === 'html') {
       return (
         <HTMLRender
+          key={index}
           {...(item.children as {
             className: string;
             children: string;
@@ -222,6 +233,7 @@ const AsyncContentPanel: React.FC<{
   if (loading && item.key) {
     return (
       <div
+        key={item.key}
         style={{
           display: 'flex',
           justifyContent: 'center',
@@ -245,7 +257,10 @@ const AsyncContentPanel: React.FC<{
  * @param ProHelpContentPanelProps
  * @returns
  */
-export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ selectedKey }) => {
+export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
+  className,
+  selectedKey,
+}) => {
   const { dataSource } = useContext(ProHelpProvide);
 
   const dataSourceMap = useMemo(() => {
@@ -260,15 +275,17 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
 
   if (dataSourceMap.get(selectedKey)?.asyncLoad) {
     return (
-      <AsyncContentPanel
-        key={dataSourceMap.get(selectedKey)?.key}
-        item={dataSourceMap.get(selectedKey)!}
-      />
+      <div className={className}>
+        <AsyncContentPanel
+          key={dataSourceMap.get(selectedKey)?.key}
+          item={dataSourceMap.get(selectedKey)!}
+        />
+      </div>
     );
   }
 
   return (
-    <div>
+    <div className={className}>
       <RenderContentPanel dataSourceChildren={dataSourceMap.get(selectedKey)?.children!} />
     </div>
   );
@@ -284,6 +301,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
 export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   bordered = true,
   onClose,
+  footer,
   height,
   ...props
 }) => {
@@ -302,6 +320,25 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     value: props.showLeftPanel,
     onChange: props.onShowLeftPanelChange,
   });
+
+  const dataSourceKeyMap = useMemo(() => {
+    const map = new Map<
+      React.Key,
+      ProHelpDataSource<any> & {
+        parentKey?: React.Key;
+      }
+    >();
+    dataSource.forEach((page) => {
+      map.set(page.key, page);
+      page.children?.forEach((item) => {
+        map.set(item.key || item.title, {
+          parentKey: page.key,
+          ...item,
+        } as unknown as ProHelpDataSource<any>);
+      });
+    });
+    return map;
+  }, [dataSource]);
 
   return wrapSSR(
     <Card
@@ -384,7 +421,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           >
             <Menu
               className={`${className}-left-panel-menu`}
-              openKeys={[openKey]}
+              openKeys={[dataSourceKeyMap.get(selectedKey!)?.parentKey as string, openKey]}
               onOpenChange={(keys) => {
                 setOpenKey(keys.at(-1) || '');
               }}
@@ -415,7 +452,13 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           height,
         }}
       >
-        {selectedKey ? <ProHelpContentPanel selectedKey={selectedKey} /> : null}
+        {selectedKey ? (
+          <ProHelpContentPanel
+            className={`${className}-content-render`}
+            selectedKey={selectedKey}
+          />
+        ) : null}
+        {footer ? <div className={`${className}-footer`}>{footer}</div> : null}
       </div>
     </Card>,
   );
