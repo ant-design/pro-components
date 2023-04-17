@@ -127,21 +127,12 @@ const RenderContentPanel: React.FC<{
         <HTMLRender
           {...(item.children as {
             className: string;
-            html: string;
+            children: string;
           })}
         />
       );
     }
-    if (item.valueType === 'markdown') {
-      return (
-        <HTMLRender
-          {...(item.children as {
-            className: string;
-            html: string;
-          })}
-        />
-      );
-    }
+
     if (item.valueType === 'h1') {
       return (
         <Typography.Title
