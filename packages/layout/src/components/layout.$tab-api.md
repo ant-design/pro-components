@@ -7,13 +7,13 @@ order: 0
 
 <code src="../demos/base.tsx"  iframe="650" title="基础使用"></code>
 
-<code src="../demos/help.tsx"  iframe="650" title="高级帮助"></code>
+<code src="../demos/help.tsx"  debug iframe="650" title="高级帮助"></code>
 
-<code src="../demos/draggableHelp.tsx"  iframe="650" title="支持拖动的高级帮助"></code>
+<code src="../demos/draggableHelp.tsx"  debug iframe="650" title="支持拖动的高级帮助"></code>
 
-<code src="../demos/proHelpModal.tsx"  iframe="650" title="浮层高级帮助"></code>
+<code src="../demos/proHelpModal.tsx" debug  iframe="650" title="浮层高级帮助"></code>
 
-<code src="../demos/async-load-help.tsx"  iframe="650" title="远程加载帮助"></code>
+<code src="../demos/async-load-help.tsx" debug  iframe="650" title="远程加载帮助"></code>
 
 <code src="../demos/theme.tsx" iframe="650" title="通过 token 修改样式"></code>
 
