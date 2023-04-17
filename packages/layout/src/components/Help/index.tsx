@@ -54,6 +54,11 @@ export type ProHelpPanelProps = {
    * 帮助面板的页脚
    */
   footer?: React.ReactNode;
+
+  /**
+   * 在一页内加载所有的 children 内容
+   */
+  infiniteScrollFull?: boolean;
 };
 
 export type ProHelpProps<ValueType> = {
@@ -95,6 +100,7 @@ export type ProHelpContentPanelProps = {
    */
   selectedKey: React.Key;
   className?: string;
+  parentItem?: ProHelpDataSource<any>;
 };
 
 // HTML渲染组件，接收一个字符串形式的html作为props
@@ -259,36 +265,52 @@ const AsyncContentPanel: React.FC<{
  */
 export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
   className,
+  parentItem,
   selectedKey,
 }) => {
   const { dataSource } = useContext(ProHelpProvide);
 
   const dataSourceMap = useMemo(() => {
-    const map = new Map<React.Key, ProHelpDataSource<any>['children'][number]>();
+    const map = new Map<
+      React.Key,
+      ProHelpDataSource<any>['children'][number] & {
+        parentKey?: React.Key;
+      }
+    >();
     dataSource.forEach((page) => {
       page.children.forEach((item) => {
-        map.set(item.key || item.title, item);
+        map.set(item.key || item.title, { ...item, parentKey: page.key });
       });
     });
     return map;
   }, [dataSource]);
 
-  if (dataSourceMap.get(selectedKey)?.asyncLoad) {
+  const renderItem = (item: ProHelpDataSource<any>['children'][number]) => {
+    if (item?.asyncLoad) {
+      return (
+        <div className={className} id={item.title}>
+          <AsyncContentPanel key={item?.key} item={item!} />
+        </div>
+      );
+    }
+
     return (
-      <div className={className}>
-        <AsyncContentPanel
-          key={dataSourceMap.get(selectedKey)?.key}
-          item={dataSourceMap.get(selectedKey)!}
-        />
+      <div className={className} id={item.title}>
+        <RenderContentPanel dataSourceChildren={item?.children!} />
       </div>
     );
-  }
+  };
 
-  return (
-    <div className={className}>
-      <RenderContentPanel dataSourceChildren={dataSourceMap.get(selectedKey)?.children!} />
-    </div>
-  );
+  if (parentItem && parentItem.infiniteScrollFull) {
+    return (
+      <>
+        {parentItem.children?.map((item) => {
+          return <React.Fragment key={item.key}>{renderItem(item)}</React.Fragment>;
+        }) || null}
+      </>
+    );
+  }
+  return renderItem(dataSourceMap.get(selectedKey!)!);
 };
 
 /**
@@ -339,6 +361,11 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     });
     return map;
   }, [dataSource]);
+
+  const parentKey = useMemo(
+    () => dataSourceKeyMap.get(selectedKey!)?.parentKey as string,
+    [dataSourceKeyMap],
+  );
 
   return wrapSSR(
     <Card
@@ -421,7 +448,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           >
             <Menu
               className={`${className}-left-panel-menu`}
-              openKeys={[dataSourceKeyMap.get(selectedKey!)?.parentKey as string, openKey]}
+              openKeys={[parentKey, openKey]}
               onOpenChange={(keys) => {
                 setOpenKey(keys.at(-1) || '');
               }}
@@ -454,6 +481,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       >
         {selectedKey ? (
           <ProHelpContentPanel
+            parentItem={dataSourceKeyMap.get(parentKey)}
             className={`${className}-content-render`}
             selectedKey={selectedKey}
           />

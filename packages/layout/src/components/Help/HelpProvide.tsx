@@ -120,10 +120,11 @@ export type ProHelpDataSource<ValueType = 'text'> = {
    * title 数据源项的标题。
    */
   title: string;
+
   /**
-   * 是否远程加载children
+   * 在一页内加载所有的 children 内容
    */
-  asyncLoad?: boolean;
+  infiniteScrollFull?: boolean;
   /**
    * children 包含子项的数组，每个子项包含一个唯一标识，标题以及子子项数组。
    */
