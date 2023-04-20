@@ -256,6 +256,10 @@ export default defineConfig({
               link: '/components/statistic-card',
             },
             {
+              title: 'ResultCard - 结果卡片',
+              link: '/components/result-card',
+            },
+            {
               title: 'CheckCard - 多选卡片',
               link: '/components/check-card',
             },

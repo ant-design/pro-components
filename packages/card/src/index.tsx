@@ -7,6 +7,8 @@ import StatisticCard from './components/StatisticCard';
 import type { ProCardProps } from './ProCard';
 import ProCard from './ProCard';
 import type { ProCardTabsProps } from './typing';
+import type { ResultCardProps } from './components/ResultCard'
+import  ResultCard from './components/ResultCard'
 
 import 'antd/lib/card/style';
 
@@ -18,7 +20,8 @@ export type {
   CheckCardGroupProps,
   CheckCardProps,
   StatisticProps,
+  ResultCardProps,
 };
-export { StatisticCard, Statistic, CheckCard, ProCard };
+export { StatisticCard, Statistic, CheckCard, ProCard, ResultCard};
 
 export default ProCard;
