@@ -7,7 +7,7 @@ export default () => {
       style={{
         margin: '20px',
       }}
-      pipline={{
+      pipeline={{
         current: 2,
         items: [
           {

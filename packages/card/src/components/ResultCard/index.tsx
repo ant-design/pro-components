@@ -18,10 +18,11 @@ type piplineType = {
 
 export type ResultCardProps = {
   result: ResultProps;
-  pipline?: piplineType;
+  pipeline?: piplineType;
   onClose?: () => void;
   className?: string;
   style?: React.CSSProperties;
+  mode?: 'card' | 'pages';
 };
 
 const ResultCard: React.FC<ResultCardProps> = (props) => {
@@ -30,18 +31,19 @@ const ResultCard: React.FC<ResultCardProps> = (props) => {
     result = {
       status: 'success',
     },
-    pipline = { current: 1, style: {}, items: null },
+    mode = 'card',
+    pipeline = { current: 1, style: {}, items: null },
     onClose = () => {},
     style,
     ...rest
   } = props;
 
-  const { current = 1, style: piplineStyle, items } = pipline;
+  const { current = 1, style: pipelineStyle, items } = pipeline;
   const [open, setOpen] = useState(true);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-result-card');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const classString = classNames(prefixCls, className, hashId);
+  const classString = classNames(prefixCls, className, hashId, `${prefixCls}-${mode}-mode`);
 
   if (!open) {
     return <></>;
@@ -51,40 +53,42 @@ const ResultCard: React.FC<ResultCardProps> = (props) => {
     <Card
       className={classString}
       style={style}
-      {...rest}
-      bordered
+      bordered={mode === 'card'}
       bodyStyle={{
         padding: 0,
       }}
+      {...rest}
     >
       <div className={classNames(`${prefixCls}-contant`, className, hashId)}>
         {items && (
-          <Steps
-            direction="vertical"
-            progressDot={(dot) => {
-              return React.cloneElement(dot, { backgroundColor: '#fa8c16' });
-            }}
-            current={current}
-            className={classNames(`${prefixCls}-contant-steps`, hashId)}
-            style={{ ...piplineStyle }}
-          >
-            {items.map((step: any) => (
-              <Steps.Step key={step.id} title={step.title} description={step.description} />
-            ))}
-          </Steps>
+          <div className={classNames(`${prefixCls}-pipeline`, hashId)}>
+            <Steps
+              direction="vertical"
+              progressDot={(dot) => {
+                return React.cloneElement(dot, { backgroundColor: '#fa8c16' });
+              }}
+              current={current}
+              className={classNames(`${prefixCls}-pipeline-steps`, hashId)}
+              style={{ ...pipelineStyle }}
+            >
+              {items.map((step: any) => (
+                <Steps.Step key={step.id} title={step.title} description={step.description} />
+              ))}
+            </Steps>
+          </div>
         )}
-        <Card
-          extra={
+        <div className={classNames(`${prefixCls}-result`, hashId)}>
+          {mode === 'card' && (
             <CloseOutlined
+              className={classNames(`${prefixCls}-result-extra`, hashId)}
               onClick={() => {
                 setOpen(false);
                 onClose();
               }}
             />
-          }
-        >
+          )}
           <Result {...result} />
-        </Card>
+        </div>
       </div>
     </Card>,
   );

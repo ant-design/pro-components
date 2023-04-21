@@ -10,22 +10,42 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [componentCls]: {
       '&&': {
+        overflow: 'hidden',
+      },
+      '&&-pages-mode': {
+        width: '100%',
+      },
+      '&&-card-mode': {
         width: 'fit-content',
         minWidth: '700px',
-        overflow: 'hidden',
-        backgroundColor: '#F9F9FC',
+      },
+      '&-result': {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+
+        '&-extra': {
+          padding: '20px',
+          alignSelf: 'flex-end',
+        },
       },
       '&-contant': {
         display: 'flex',
         justifyContent: 'center',
         width: '100%',
 
-        [`${token.componentCls}-contant-steps`]: {
+        [`${token.componentCls}-pipeline`]: {
           width: '289px',
-          borderRadius: `${token.borderRadius} 0 0 ${token.borderRadius}`,
-          margin: '40px 0',
-          padding: '0 20px',
+          backgroundColor: '#F9F9FC',
           height: '360px',
+          overflow: 'hidden',
+          borderRadius: `${token.borderRadius} 0 0 ${token.borderRadius}`,
+        },
+
+        [`${token.componentCls}-pipeline-steps`]: {
+          marginTop: '40px',
+          padding: '0 20px',
+          height: 'calc(100% - 80px)',
           overflow: 'auto',
         },
       },
