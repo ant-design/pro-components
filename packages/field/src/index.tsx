@@ -51,11 +51,17 @@ import FieldHOC from './FieldHOC';
 
 import weekday from 'dayjs/plugin/weekday';
 import localeData from 'dayjs/plugin/localeData';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import isoWeek from 'dayjs/plugin/isoWeek';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
 
 import dayjs from 'dayjs';
 
 dayjs.extend(weekday);
 dayjs.extend(localeData);
+dayjs.extend(advancedFormat);
+dayjs.extend(isoWeek);
+dayjs.extend(weekOfYear);
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 
@@ -258,6 +264,82 @@ const defaultRenderText = (
     return (
       <FieldHOC isLight={props.light}>
         <FieldDatePicker text={dataValue as string} format="YYYY-wo" picker="week" {...props} />
+      </FieldHOC>
+    );
+  }
+
+  /** 如果是周范围的值 */
+  if (valueType === 'dateWeekRange') {
+    const { fieldProps, ...otherProps } = props;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY-W"
+          showTime
+          fieldProps={{
+            picker: 'week',
+            ...fieldProps,
+          }}
+          {...otherProps}
+        />
+      </FieldHOC>
+    );
+  }
+
+  /** 如果是月范围的值 */
+  if (valueType === 'dateMonthRange') {
+    const { fieldProps, ...otherProps } = props;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY-MM"
+          showTime
+          fieldProps={{
+            picker: 'month',
+            ...fieldProps,
+          }}
+          {...otherProps}
+        />
+      </FieldHOC>
+    );
+  }
+
+  /** 如果是季范围的值 */
+  if (valueType === 'dateQuarterRange') {
+    const { fieldProps, ...otherProps } = props;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY-Q"
+          showTime
+          fieldProps={{
+            picker: 'quarter',
+            ...fieldProps,
+          }}
+          {...otherProps}
+        />
+      </FieldHOC>
+    );
+  }
+
+  /** 如果是年范围的值 */
+  if (valueType === 'dateYearRange') {
+    const { fieldProps, ...otherProps } = props;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY"
+          showTime
+          fieldProps={{
+            picker: 'year',
+            ...fieldProps,
+          }}
+          {...otherProps}
+        />
       </FieldHOC>
     );
   }
