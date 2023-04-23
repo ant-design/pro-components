@@ -364,7 +364,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 
   const parentKey = useMemo(
     () => dataSourceKeyMap.get(selectedKey!)?.parentKey as string,
-    [dataSourceKeyMap],
+    [dataSourceKeyMap, selectedKey],
   );
 
   return wrapSSR(

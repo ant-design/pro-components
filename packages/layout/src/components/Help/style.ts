@@ -48,6 +48,8 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
       minWidth: '200px',
       overflow: 'auto',
       flex: 1,
+      display: 'flex',
+      flexDirection: 'column',
       boxSizing: 'border-box',
       minHeight: '648px',
       img: {
@@ -57,6 +59,7 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
     [`${token.componentCls}-content-render`]: {
       paddingBlock: 20,
       paddingInline: 24,
+      flex: 1,
     },
     [`${token.componentCls}-content-footer`]: {
       padding: 8,
