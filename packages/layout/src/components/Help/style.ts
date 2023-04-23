@@ -50,6 +50,9 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
       flex: 1,
       boxSizing: 'border-box',
       minHeight: '648px',
+      img: {
+        width: '100%',
+      },
     },
     [`${token.componentCls}-content-render`]: {
       paddingBlock: 20,
