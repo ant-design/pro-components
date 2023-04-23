@@ -1,8 +1,7 @@
 import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import ProTable, { ListToolBar } from '@ant-design/pro-table';
-import { fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
-import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 
 describe('Table valueEnum', () => {

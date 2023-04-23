@@ -1,9 +1,8 @@
 import ProTable from '@ant-design/pro-table';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import React, { createRef } from 'react';
-import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 
 describe('BasicTable Search', () => {

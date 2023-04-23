@@ -1,6 +1,5 @@
 import ProTable from '@ant-design/pro-table';
-import { fireEvent, render, createEvent } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, fireEvent, render, createEvent } from '@testing-library/react';
 import { waitTime } from '../util';
 import { columns } from './demo';
 

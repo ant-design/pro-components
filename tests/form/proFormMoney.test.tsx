@@ -1,8 +1,7 @@
 import ProForm, { ProFormMoney } from '@ant-design/pro-form';
 import { ConfigProvider } from 'antd';
 import enGBIntl from 'antd/lib/locale/en_GB';
-import { fireEvent, render, waitFor } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 describe('💵 ProFormMoney', () => {
   it('💵 ProFormMoney value expect number', async () => {

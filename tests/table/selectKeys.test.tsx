@@ -1,7 +1,6 @@
 import ProTable from '@ant-design/pro-table';
-import { render, waitFor } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 import { getFetchData } from './demo';
 
