@@ -21,6 +21,8 @@ import { useFetchData } from './hooks/useFetchData';
 import { useLatest } from './hooks/useLatest';
 import { usePrevious } from './hooks/usePrevious';
 import { useRefFunction } from './hooks/useRefFunction';
+import { useReactiveRef } from './hooks/useReactiveRef';
+import { useRefCallback } from './hooks/useRefCallback';
 import { isBrowser } from './isBrowser';
 import { isDeepEqualReact } from './isDeepEqualReact';
 import { isDropdownValueType } from './isDropdownValueType';
@@ -127,4 +129,6 @@ export {
   resetComponent,
   operationUnit,
   lighten,
+  useReactiveRef,
+  useRefCallback,
 };
