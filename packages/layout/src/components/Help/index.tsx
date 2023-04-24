@@ -10,6 +10,7 @@ import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide
 import { ProHelpProvide } from './HelpProvide';
 import { useStyle } from './style';
 import { ProHelpSelect } from './Search';
+import { useDebounceFn } from '@ant-design/pro-utils';
 
 export type { ProHelpDataSource, ProHelpDataSourceChildren };
 export { ProHelpProvide, ProHelpSelect };
@@ -101,6 +102,8 @@ export type ProHelpContentPanelProps = {
   selectedKey: React.Key;
   className?: string;
   parentItem?: ProHelpDataSource<any>;
+
+  onScroll?: (key?: string) => void;
 };
 
 // HTML渲染组件，接收一个字符串形式的html作为props
@@ -121,8 +124,15 @@ const HTMLRender: React.FC<{
 
 const RenderContentPanel: React.FC<{
   dataSourceChildren: ProHelpDataSourceChildren<any>[];
-}> = ({ dataSourceChildren }) => {
+  onInit?: (ref: HTMLDivElement) => void;
+}> = ({ dataSourceChildren, onInit }) => {
   const { valueTypeMap } = useContext(ProHelpProvide);
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    onInit?.(divRef.current!);
+  }, [dataSourceChildren]);
+
   /**
    * itemRender 的定义
    * @param {ProHelpDataSourceChildren} item
@@ -208,7 +218,7 @@ const RenderContentPanel: React.FC<{
     return <Typography.Text key={index}>{item.children as string}</Typography.Text>;
   };
 
-  return <div>{dataSourceChildren?.map(itemRender)}</div>;
+  return <div ref={divRef}>{dataSourceChildren?.map(itemRender)}</div>;
 };
 
 /**
@@ -217,7 +227,8 @@ const RenderContentPanel: React.FC<{
  */
 const AsyncContentPanel: React.FC<{
   item: ProHelpDataSource<any>['children'][number];
-}> = ({ item }) => {
+  onInit?: (ref: HTMLDivElement) => void;
+}> = ({ item, onInit }) => {
   const { onLoadContext } = useContext(ProHelpProvide); // 获取上下文中的 onLoadContext
   const [loading, setLoading] = useState(false); // 加载状态
   const [content, setContent] = useState<ProHelpDataSourceChildren<any>[]>(); // 内容数据
@@ -254,7 +265,14 @@ const AsyncContentPanel: React.FC<{
   }
 
   // 加载完成后，渲染内容面板
-  return <RenderContentPanel dataSourceChildren={content!} />;
+  return (
+    <RenderContentPanel
+      onInit={(ref) => {
+        onInit?.(ref);
+      }}
+      dataSourceChildren={content!}
+    />
+  );
 };
 
 /**
@@ -267,9 +285,66 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
   className,
   parentItem,
   selectedKey,
+  onScroll,
 }) => {
   const { dataSource } = useContext(ProHelpProvide);
 
+  // 记录每个面板的滚动高度
+  const scrollHeightMap = useRef<Map<React.Key, HTMLDivElement>>(new Map());
+
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!selectedKey || !parentItem?.infiniteScrollFull) return;
+    const div = scrollHeightMap.current.get(selectedKey);
+    if (div?.offsetTop && divRef.current) {
+      if (Math.abs(divRef.current!.scrollTop - div?.offsetTop + 40) > div?.clientHeight) {
+        divRef.current!.scrollTop = div?.offsetTop - 40;
+      }
+    }
+  }, [selectedKey]);
+
+  /**
+   * debounce（防抖）处理滚动事件，并根据滚动位置来实现找到当前列表的 key
+   */
+  const onScrollEvent = useDebounceFn(async (e: Event) => {
+    const dom = e?.target as HTMLDivElement;
+    // 根据滚动位置来找到当前列表的 key
+    const list = Array.from(scrollHeightMap.current.entries()).find(([, value]) => {
+      if (dom?.scrollTop < value.offsetTop) {
+        return true;
+      }
+      return false;
+    });
+
+    if (!list) {
+      return;
+    }
+    // 如果获取的 key 和当前 key 不同丢弃掉
+    if (list.at(0) !== selectedKey) {
+      onScroll?.(list.at(0) as string | undefined);
+    }
+  }, 200);
+
+  /**
+   * 当 parentItem 组件中的 infiniteScrollFull 属性变化时
+   * 如果该属性为真值，则开始监听滚动事件；
+   * 如果为假值，则停止监听滚动事件并取消防抖处理。
+   * 在监听滚动事件时，可以实现分页（瀑布流）效果。同时，该代码还会根据 selectedKey 的变化来触发跳转
+   */
+  useEffect(() => {
+    if (!parentItem?.infiniteScrollFull) return;
+    onScrollEvent.cancel();
+    divRef.current?.addEventListener('scroll', onScrollEvent.run, false);
+    return () => {
+      onScrollEvent.cancel();
+      divRef.current?.removeEventListener('scroll', onScrollEvent.run, false);
+    };
+  }, [parentItem?.infiniteScrollFull, selectedKey]);
+
+  /**
+   * 生成一个  Map  能根据 key 找到所有的 index
+   */
   const dataSourceMap = useMemo(() => {
     const map = new Map<
       React.Key,
@@ -289,25 +364,42 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
     if (item?.asyncLoad) {
       return (
         <div className={className} id={item.title}>
-          <AsyncContentPanel key={item?.key} item={item!} />
+          <AsyncContentPanel
+            key={item?.key}
+            item={item!}
+            onInit={(ref) => {
+              scrollHeightMap.current.set(item.key, ref);
+            }}
+          />
         </div>
       );
     }
 
     return (
       <div className={className} id={item.title}>
-        <RenderContentPanel dataSourceChildren={item?.children!} />
+        <RenderContentPanel
+          onInit={(ref) => {
+            scrollHeightMap.current.set(item.key, ref);
+          }}
+          dataSourceChildren={item?.children!}
+        />
       </div>
     );
   };
 
   if (parentItem && parentItem.infiniteScrollFull) {
     return (
-      <>
+      <div
+        ref={divRef}
+        className={`${className}-infinite-scroll`}
+        style={{
+          overflow: 'auto',
+        }}
+      >
         {parentItem.children?.map((item) => {
           return <React.Fragment key={item.key}>{renderItem(item)}</React.Fragment>;
         }) || null}
-      </>
+      </div>
     );
   }
   return renderItem(dataSourceMap.get(selectedKey!)!);
@@ -484,6 +576,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
             parentItem={dataSourceKeyMap.get(parentKey)}
             className={`${className}-content-render`}
             selectedKey={selectedKey}
+            onScroll={(key) => setSelectedKey(key)}
           />
         ) : null}
         {footer ? <div className={`${className}-footer`}>{footer}</div> : null}
