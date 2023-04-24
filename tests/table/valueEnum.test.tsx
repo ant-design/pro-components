@@ -1,9 +1,8 @@
 import ProProvider from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { render, waitFor } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
 import { Input } from 'antd';
 import { useContext } from 'react';
-import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 
 const Demo = () => {

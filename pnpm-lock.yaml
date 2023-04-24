@@ -177,7 +177,7 @@ importers:
       '@umijs/utils': 4.0.66
       animated-scroll-to: 2.3.0
       antd: 5.4.4_jb42yyeu5qxbfieyxjks6malva
-      antd-style: 3.0.0-beta.22_35kcyskhpz524sfc6h3ijkuv5i
+      antd-style: 3.0.1-beta.1_35kcyskhpz524sfc6h3ijkuv5i
       babel-loader: 9.1.2_@babel+core@7.21.4
       babel-types: 6.26.0
       chalk: 4.1.2
@@ -7357,8 +7357,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /antd-style/3.0.0-beta.22_35kcyskhpz524sfc6h3ijkuv5i:
-    resolution: {integrity: sha512-b+qI/cA/AaaAAhcOSY7DuIBJ4C+KTX/P+c7FOG06/C64tSJDwMGeqUyL+rHzfQyxdEs/8g9iAHprxXkOCP3uSw==}
+  /antd-style/3.0.0_35kcyskhpz524sfc6h3ijkuv5i:
+    resolution: {integrity: sha512-4aJpJwzq0gvtyLzuvIfEeaErdW/IxmQ/gLH+aWnv1HIWBOICqdLuQrQvXBbnckJ+0wz8DhFUo4vPUknGGge1XQ==}
     peerDependencies:
       antd: ^5
       react: '>=18'
@@ -7378,8 +7378,8 @@ packages:
       - react-dom
     dev: true
 
-  /antd-style/3.0.0_35kcyskhpz524sfc6h3ijkuv5i:
-    resolution: {integrity: sha512-4aJpJwzq0gvtyLzuvIfEeaErdW/IxmQ/gLH+aWnv1HIWBOICqdLuQrQvXBbnckJ+0wz8DhFUo4vPUknGGge1XQ==}
+  /antd-style/3.0.1-beta.1_35kcyskhpz524sfc6h3ijkuv5i:
+    resolution: {integrity: sha512-n/h591ChSZSqUNcYHmPWVrye9bZePmFQQ4tw9r9dBgpDDJILaWGvy4uLUOruxdVmnwRE9kwpb4iiuJljEzOgQg==}
     peerDependencies:
       antd: ^5
       react: '>=18'

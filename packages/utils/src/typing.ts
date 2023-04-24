@@ -69,6 +69,14 @@ export type ProFieldValueTypeWithFieldProps = {
   dateRange: RangePickerProps;
   /** 日期时间范围选择器 */
   dateTimeRange: RangePickerProps;
+  /** 周范围选择器 */
+  dateWeekRange: RangePickerProps;
+  /** 月范围选择器 */
+  dateMonthRange: RangePickerProps;
+  /** 季范围选择器 */
+  dateQuarterRange: RangePickerProps;
+  /** 年范围选择器 */
+  dateYearRange: RangePickerProps;
   /** 时间选择器 */
   time: TimeRangePickerProps;
   /** 时间范围选择器 */

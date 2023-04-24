@@ -88,8 +88,8 @@ const useFetchData = <DataSource extends RequestData<any>>(
   /**
    * 表格的加载状态
    */
-  const [tableLoading, setTableLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
-    value: options?.loading,
+  const [tableLoading, setTableLoading] = useMountMergeState<boolean>(false, {
+    value: typeof options?.loading === 'object' ? options?.loading?.spinning : options?.loading,
     onChange: options?.onLoadingChange,
   });
 
@@ -158,11 +158,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * https://github.com/ant-design/pro-components/issues/4390
    */
   const requestFinally = useRefFunction(() => {
-    if (typeof tableLoading === 'object') {
-      setTableLoading({ ...tableLoading, spinning: false });
-    } else {
-      setTableLoading(false);
-    }
+    setTableLoading(false);
     setPollingLoading(false);
   });
   /** 请求数据 */
@@ -173,11 +169,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
       return;
     }
     if (!isPolling) {
-      if (typeof tableLoading === 'object') {
-        setTableLoading({ ...tableLoading, spinning: true });
-      } else {
-        setTableLoading(true);
-      }
+      setTableLoading(true);
     } else {
       setPollingLoading(true);
     }
@@ -369,7 +361,10 @@ const useFetchData = <DataSource extends RequestData<any>>(
      * 表示表格是否正在加载数据的标志。
      * @type {boolean}
      */
-    loading: tableLoading,
+    loading:
+      typeof options?.loading === 'object'
+        ? { ...options?.loading, spinning: tableLoading }
+        : tableLoading,
     /**
      * 重新加载表格数据的函数。
      * @type {function}
