@@ -26,10 +26,9 @@ export default () => {
         children: string;
       };
     }) => {
-      console.log(item.children.children);
       return (
         <div className={item.children.className}>
-          <ReactMarkdown children={item.children.children?.trim()} />
+          <ReactMarkdown>{item.children.children?.trim()}</ReactMarkdown>
         </div>
       );
     },

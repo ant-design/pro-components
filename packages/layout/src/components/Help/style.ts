@@ -95,7 +95,7 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
         animationTimingFunction: 'linear',
       },
     },
-  };
+  } as ReturnType<GenerateStyle<ProHelpToken>>;
 };
 
 export function useStyle(prefixCls: string) {

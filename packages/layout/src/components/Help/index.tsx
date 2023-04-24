@@ -1,9 +1,11 @@
 ﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
 import { ProProvider } from '@ant-design/pro-provider';
 import classNames from 'classnames';
-import { ImageProps, PopoverProps, ModalProps, DrawerProps, Spin } from 'antd';
+import type { ImageProps, PopoverProps, ModalProps, DrawerProps } from 'antd';
+import { Spin } from 'antd';
 import { Popover, Menu, Image, Typography, Card, ConfigProvider, Drawer, Modal } from 'antd';
-import { AnchorHTMLAttributes, useEffect, useRef } from 'react';
+import type { AnchorHTMLAttributes } from 'react';
+import { useEffect, useRef } from 'react';
 import React, { useContext, useMemo, useState } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide';
@@ -116,7 +118,7 @@ const HTMLRender: React.FC<{
 
   // 当html发生变化时，将其渲染到ref.current的innerHTML中
   useEffect(() => {
-    ref.current && (ref.current.innerHTML = props.children);
+    if (ref.current) ref.current.innerHTML = props.children;
   }, [props.children]);
   // 返回一个div元素作为容器，并传递ref和className作为props
   return <div ref={ref} className={props.className || 'inner-html'} />;
@@ -368,6 +370,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
             key={item?.key}
             item={item!}
             onInit={(ref) => {
+              if (!scrollHeightMap.current) return;
               scrollHeightMap.current.set(item.key, ref);
             }}
           />
@@ -379,9 +382,10 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
       <div className={className} id={item.title}>
         <RenderContentPanel
           onInit={(ref) => {
+            if (!scrollHeightMap.current) return;
             scrollHeightMap.current.set(item.key, ref);
           }}
-          dataSourceChildren={item?.children!}
+          dataSourceChildren={item?.children || []}
         />
       </div>
     );

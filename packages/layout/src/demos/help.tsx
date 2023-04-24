@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
-import { ProHelp, ProHelpPanel, ProHelpSelect } from '@ant-design/pro-components';
-import { Typography, App, Button, Rate } from 'antd';
+import { ProHelp, ProHelpPanel } from '@ant-design/pro-components';
+import { Typography, App, Rate } from 'antd';
 
 export default () => {
   const map = new Map<
