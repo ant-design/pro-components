@@ -2,14 +2,17 @@
 import { ProProvider } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import type { ImageProps, PopoverProps, ModalProps, DrawerProps } from 'antd';
+import { Spin } from 'antd';
 import { Popover, Menu, Image, Typography, Card, ConfigProvider, Drawer, Modal } from 'antd';
 import type { AnchorHTMLAttributes } from 'react';
+import { useEffect, useRef } from 'react';
 import React, { useContext, useMemo, useState } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { useStyle } from './style';
 import { ProHelpSelect } from './Search';
+import { useDebounceFn } from '@ant-design/pro-utils';
 
 export type { ProHelpDataSource, ProHelpDataSourceChildren };
 export { ProHelpProvide, ProHelpSelect };
@@ -49,6 +52,16 @@ export type ProHelpPanelProps = {
    * 帮助面板的高度，可以是数字或字符串类型。
    */
   height?: number | string;
+
+  /**
+   * 帮助面板的页脚
+   */
+  footer?: React.ReactNode;
+
+  /**
+   * 在一页内加载所有的 children 内容
+   */
+  infiniteScrollFull?: boolean;
 };
 
 export type ProHelpProps<ValueType> = {
@@ -74,6 +87,14 @@ export type ProHelpProps<ValueType> = {
    * 帮助组件的子组件，用于渲染自定义的帮助内容。
    */
   children?: React.ReactNode;
+
+  /**
+   * 加载数据源的函数,如果把数据源设置为 async load就可以使用这个功能。
+   */
+  onLoadContext?: (
+    key: React.Key,
+    context: ProHelpDataSource<ValueType>['children'][number],
+  ) => Promise<ProHelpDataSourceChildren<ValueType>[]>;
 };
 
 export type ProHelpContentPanelProps = {
@@ -81,26 +102,39 @@ export type ProHelpContentPanelProps = {
    * 控制当前选中的帮助文档
    */
   selectedKey: React.Key;
+  className?: string;
+  parentItem?: ProHelpDataSource<any>;
+
+  onScroll?: (key?: string) => void;
 };
 
-/**
- * 控制具体的帮助文档显示组件
- * selectedKey 来展示对应的内容。它会根据不同的item.valueType值来展示不同的内容，包括标题、图片、超链接等。
- * @param ProHelpContentPanelProps
- * @returns
- */
-export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ selectedKey }) => {
-  const { dataSource, valueTypeMap } = useContext(ProHelpProvide);
+// HTML渲染组件，接收一个字符串形式的html作为props
+// 可选接收className作为组件的样式类名
+const HTMLRender: React.FC<{
+  children: string;
+  className?: string;
+}> = (props) => {
+  const ref = useRef<HTMLDivElement>(null);
 
-  const dataSourceMap = useMemo(() => {
-    const map = new Map<React.Key, ProHelpDataSourceChildren[]>();
-    dataSource.forEach((page) => {
-      page.children.forEach((item) => {
-        map.set(item.key || item.title, item.children);
-      });
-    });
-    return map;
-  }, [dataSource]);
+  // 当html发生变化时，将其渲染到ref.current的innerHTML中
+  useEffect(() => {
+    if (ref.current) ref.current.innerHTML = props.children;
+  }, [props.children]);
+  // 返回一个div元素作为容器，并传递ref和className作为props
+  return <div ref={ref} className={props.className || 'inner-html'} />;
+};
+
+const RenderContentPanel: React.FC<{
+  dataSourceChildren: ProHelpDataSourceChildren<any>[];
+  onInit?: (ref: HTMLDivElement) => void;
+}> = ({ dataSourceChildren, onInit }) => {
+  const { valueTypeMap } = useContext(ProHelpProvide);
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    onInit?.(divRef.current!);
+  }, [dataSourceChildren]);
+
   /**
    * itemRender 的定义
    * @param {ProHelpDataSourceChildren} item
@@ -110,8 +144,24 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
   const itemRender = (item: ProHelpDataSourceChildren, index: number) => {
     // 自定义的渲染，优先级最高
     if (valueTypeMap.has(item.valueType)) {
-      return valueTypeMap.get(item.valueType)?.(item, index);
+      return (
+        <React.Fragment key={index}>
+          {valueTypeMap.get(item.valueType)?.(item, index)}
+        </React.Fragment>
+      );
     }
+    if (item.valueType === 'html') {
+      return (
+        <HTMLRender
+          key={index}
+          {...(item.children as {
+            className: string;
+            children: string;
+          })}
+        />
+      );
+    }
+
     if (item.valueType === 'h1') {
       return (
         <Typography.Title
@@ -125,6 +175,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
         </Typography.Title>
       );
     }
+
     if (item.valueType === 'h2') {
       return (
         <Typography.Title
@@ -169,7 +220,193 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
     return <Typography.Text key={index}>{item.children as string}</Typography.Text>;
   };
 
-  return <div>{dataSourceMap.get(selectedKey)?.map(itemRender)}</div>;
+  return <div ref={divRef}>{dataSourceChildren?.map(itemRender)}</div>;
+};
+
+/**
+ * 异步加载内容的面板组件
+ * @param item 指向当前面板的 ProHelpDataSource
+ */
+const AsyncContentPanel: React.FC<{
+  item: ProHelpDataSource<any>['children'][number];
+  onInit?: (ref: HTMLDivElement) => void;
+}> = ({ item, onInit }) => {
+  const { onLoadContext } = useContext(ProHelpProvide); // 获取上下文中的 onLoadContext
+  const [loading, setLoading] = useState(false); // 加载状态
+  const [content, setContent] = useState<ProHelpDataSourceChildren<any>[]>(); // 内容数据
+
+  useEffect(() => {
+    if (!item.key) return; // 如果没有key则返回
+    setLoading(true); // 开始加载
+    onLoadContext?.(item.key, item).then((res) => {
+      // 调用加载方法
+      setLoading(false); // 加载完成
+      setContent(res); // 设置内容数据
+    });
+  }, [item.key]);
+
+  // 如果没有key，则返回null
+  if (!item.key) return null;
+
+  // 如果正在加载并且有key，则显示加载中的状态
+  if (loading && item.key) {
+    return (
+      <div
+        key={item.key}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%',
+          boxSizing: 'border-box',
+          padding: 24,
+        }}
+      >
+        <Spin />
+      </div>
+    );
+  }
+
+  // 加载完成后，渲染内容面板
+  return (
+    <RenderContentPanel
+      onInit={(ref) => {
+        onInit?.(ref);
+      }}
+      dataSourceChildren={content!}
+    />
+  );
+};
+
+/**
+ * 控制具体的帮助文档显示组件
+ * selectedKey 来展示对应的内容。它会根据不同的item.valueType值来展示不同的内容，包括标题、图片、超链接等。
+ * @param ProHelpContentPanelProps
+ * @returns
+ */
+export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
+  className,
+  parentItem,
+  selectedKey,
+  onScroll,
+}) => {
+  const { dataSource } = useContext(ProHelpProvide);
+
+  // 记录每个面板的滚动高度
+  const scrollHeightMap = useRef<Map<React.Key, HTMLDivElement>>(new Map());
+
+  const divRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!selectedKey || !parentItem?.infiniteScrollFull) return;
+    const div = scrollHeightMap.current.get(selectedKey);
+    if (div?.offsetTop && divRef.current) {
+      if (Math.abs(divRef.current!.scrollTop - div?.offsetTop + 40) > div?.clientHeight) {
+        divRef.current!.scrollTop = div?.offsetTop - 40;
+      }
+    }
+  }, [selectedKey]);
+
+  /**
+   * debounce（防抖）处理滚动事件，并根据滚动位置来实现找到当前列表的 key
+   */
+  const onScrollEvent = useDebounceFn(async (e: Event) => {
+    const dom = e?.target as HTMLDivElement;
+    // 根据滚动位置来找到当前列表的 key
+    const list = Array.from(scrollHeightMap.current.entries()).find(([, value]) => {
+      if (dom?.scrollTop < value.offsetTop) {
+        return true;
+      }
+      return false;
+    });
+
+    if (!list) {
+      return;
+    }
+    // 如果获取的 key 和当前 key 不同丢弃掉
+    if (list.at(0) !== selectedKey) {
+      onScroll?.(list.at(0) as string | undefined);
+    }
+  }, 200);
+
+  /**
+   * 当 parentItem 组件中的 infiniteScrollFull 属性变化时
+   * 如果该属性为真值，则开始监听滚动事件；
+   * 如果为假值，则停止监听滚动事件并取消防抖处理。
+   * 在监听滚动事件时，可以实现分页（瀑布流）效果。同时，该代码还会根据 selectedKey 的变化来触发跳转
+   */
+  useEffect(() => {
+    if (!parentItem?.infiniteScrollFull) return;
+    onScrollEvent.cancel();
+    divRef.current?.addEventListener('scroll', onScrollEvent.run, false);
+    return () => {
+      onScrollEvent.cancel();
+      divRef.current?.removeEventListener('scroll', onScrollEvent.run, false);
+    };
+  }, [parentItem?.infiniteScrollFull, selectedKey]);
+
+  /**
+   * 生成一个  Map  能根据 key 找到所有的 index
+   */
+  const dataSourceMap = useMemo(() => {
+    const map = new Map<
+      React.Key,
+      ProHelpDataSource<any>['children'][number] & {
+        parentKey?: React.Key;
+      }
+    >();
+    dataSource.forEach((page) => {
+      page.children.forEach((item) => {
+        map.set(item.key || item.title, { ...item, parentKey: page.key });
+      });
+    });
+    return map;
+  }, [dataSource]);
+
+  const renderItem = (item: ProHelpDataSource<any>['children'][number]) => {
+    if (item?.asyncLoad) {
+      return (
+        <div className={className} id={item.title}>
+          <AsyncContentPanel
+            key={item?.key}
+            item={item!}
+            onInit={(ref) => {
+              if (!scrollHeightMap.current) return;
+              scrollHeightMap.current.set(item.key, ref);
+            }}
+          />
+        </div>
+      );
+    }
+
+    return (
+      <div className={className} id={item.title}>
+        <RenderContentPanel
+          onInit={(ref) => {
+            if (!scrollHeightMap.current) return;
+            scrollHeightMap.current.set(item.key, ref);
+          }}
+          dataSourceChildren={item?.children || []}
+        />
+      </div>
+    );
+  };
+
+  if (parentItem && parentItem.infiniteScrollFull) {
+    return (
+      <div
+        ref={divRef}
+        className={`${className}-infinite-scroll`}
+        style={{
+          overflow: 'auto',
+        }}
+      >
+        {parentItem.children?.map((item) => {
+          return <React.Fragment key={item.key}>{renderItem(item)}</React.Fragment>;
+        }) || null}
+      </div>
+    );
+  }
+  return renderItem(dataSourceMap.get(selectedKey!)!);
 };
 
 /**
@@ -182,6 +419,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({ select
 export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   bordered = true,
   onClose,
+  footer,
   height,
   ...props
 }) => {
@@ -200,6 +438,30 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     value: props.showLeftPanel,
     onChange: props.onShowLeftPanelChange,
   });
+
+  const dataSourceKeyMap = useMemo(() => {
+    const map = new Map<
+      React.Key,
+      ProHelpDataSource<any> & {
+        parentKey?: React.Key;
+      }
+    >();
+    dataSource.forEach((page) => {
+      map.set(page.key, page);
+      page.children?.forEach((item) => {
+        map.set(item.key || item.title, {
+          parentKey: page.key,
+          ...item,
+        } as unknown as ProHelpDataSource<any>);
+      });
+    });
+    return map;
+  }, [dataSource]);
+
+  const parentKey = useMemo(
+    () => dataSourceKeyMap.get(selectedKey!)?.parentKey as string,
+    [dataSourceKeyMap, selectedKey],
+  );
 
   return wrapSSR(
     <Card
@@ -282,7 +544,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           >
             <Menu
               className={`${className}-left-panel-menu`}
-              openKeys={[openKey]}
+              openKeys={[parentKey, openKey]}
               onOpenChange={(keys) => {
                 setOpenKey(keys.at(-1) || '');
               }}
@@ -313,7 +575,15 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           height,
         }}
       >
-        {selectedKey ? <ProHelpContentPanel selectedKey={selectedKey} /> : null}
+        {selectedKey ? (
+          <ProHelpContentPanel
+            parentItem={dataSourceKeyMap.get(parentKey)}
+            className={`${className}-content-render`}
+            selectedKey={selectedKey}
+            onScroll={(key) => setSelectedKey(key)}
+          />
+        ) : null}
+        {footer ? <div className={`${className}-footer`}>{footer}</div> : null}
       </div>
     </Card>,
   );
@@ -322,10 +592,11 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 export const ProHelp = <ValueTypeMap = { text: any },>({
   dataSource,
   valueTypeMap = new Map(),
+  onLoadContext,
   ...props
 }: ProHelpProps<ValueTypeMap>) => {
   return (
-    <ProHelpProvide.Provider value={{ dataSource, valueTypeMap }}>
+    <ProHelpProvide.Provider value={{ onLoadContext, dataSource, valueTypeMap }}>
       {props.children}
     </ProHelpProvide.Provider>
   );
@@ -359,6 +630,7 @@ export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
    */
   popoverProps?: PopoverProps;
 };
+
 /**
  * 渲染一个弹出式提示框，其中显示了一个ProHelpContentPanel，展示帮助文案的详情
  * @param popoverProps 要传递给 Drawer 组件的属性。
@@ -422,12 +694,14 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({ drawerProps, ...pr
     </Drawer>
   );
 };
+
 export type ProHelpModalProps = {
   /**
    * Ant Design Modal 组件的 props，可以传递一些选项，如位置、大小、关闭方式等等。
    */
   modalProps?: ModalProps;
 } & Omit<ProHelpPanelProps, 'onClose'>;
+
 /**
  * 渲染一个模态对话框，其中显示了一个 ProHelpPanel。
  * @param modalProps 要传递给 Modal 组件的属性。

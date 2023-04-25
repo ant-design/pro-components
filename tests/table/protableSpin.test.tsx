@@ -81,7 +81,7 @@ const ProTableSpinDemo = () => {
           提交
         </Button>,
       ]}
-      postData={(data) => {
+      postData={(data: any) => {
         setTimeout(() => {
           setLoading({
             ...loading,

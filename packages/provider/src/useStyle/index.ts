@@ -2,7 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { theme as antdTheme } from 'antd';
+import { theme } from 'antd';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import type React from 'react';
 import { useContext } from 'react';
@@ -38,12 +38,12 @@ export type GenerateStyle<
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
 
-const genTheme = (): typeof antdTheme => {
-  if (typeof antdTheme === 'undefined' || !antdTheme) return batToken as any;
-  return antdTheme;
+const genTheme = (): any => {
+  if (typeof theme === 'undefined' || !theme) return batToken as any;
+  return theme;
 };
 
-export const proTheme = genTheme();
+export const proTheme = genTheme() as typeof theme;
 
 export const useToken = proTheme.useToken;
 
@@ -107,7 +107,7 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
   let { token = {} as ProAliasToken } = useContext(ProProvider);
-  const { hashId = '', theme } = useContext(ProProvider);
+  const { hashId = '', theme: provideTheme } = useContext(ProProvider);
   const { token: antdToken } = useToken();
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
 
@@ -122,7 +122,7 @@ export function useStyle(
   return {
     wrapSSR: useStyleRegister(
       {
-        theme: theme!,
+        theme: provideTheme!,
         token,
         hashId,
         path: [componentName],

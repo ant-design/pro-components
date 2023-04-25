@@ -1,4 +1,4 @@
-import { MutableRefObject, RefObject } from 'react';
+import type { MutableRefObject, RefObject } from 'react';
 import { useRefCallback } from '../useRefCallback';
 import useForceRender from '../useForceRender';
 

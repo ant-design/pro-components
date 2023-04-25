@@ -147,7 +147,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         direction: 'rtl',
       },
     },
-  };
+  } as ReturnType<GenerateStyle<PageHeaderToken>>;
 };
 
 export default function useStyle(prefixCls: string) {

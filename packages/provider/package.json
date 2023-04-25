@@ -33,7 +33,7 @@
     "> 1%"
   ],
   "dependencies": {
-    "@ant-design/cssinjs": "^1.5.6",
+    "@ant-design/cssinjs": "^1.9.1",
     "@babel/runtime": "^7.18.0",
     "@ctrl/tinycolor": "^3.4.0",
     "rc-util": "^5.0.1",
