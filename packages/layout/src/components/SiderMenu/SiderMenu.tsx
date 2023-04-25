@@ -470,6 +470,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
                 radiusItem: 4,
                 colorItemBgSelected:
                   token?.layout?.sider?.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+                colorItemBg: 'transparent',
+                colorSubItemBg: 'transparent',
                 colorItemBgActive:
                   token?.layout?.sider?.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
                 colorActiveBarWidth: 0,
@@ -480,8 +482,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
                   token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
                 colorItemTextSelected:
                   token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
-                colorItemBg: 'transparent',
-                colorSubItemBg: 'transparent',
                 colorBgElevated: token?.layout?.sider?.colorBgMenuItemCollapsedElevated || '#fff',
               },
             },

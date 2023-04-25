@@ -84,7 +84,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
             ${token.antCls}-menu-submenu-title:hover`]: {
             color: token?.layout?.sider?.colorTextMenuActive,
             borderRadius: token.borderRadius,
-            backgroundColor: token?.layout?.sider?.colorBgMenuItemHover,
+            backgroundColor: `${token?.layout?.header?.colorBgMenuItemHover} !important`,
             [`${token.antCls}-menu-submenu-arrow`]: {
               color: token?.layout?.sider?.colorTextMenuActive,
             },
@@ -121,7 +121,7 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
             borderRadius: 4,
             transition: 'none',
             color: token?.layout?.header?.colorTextMenuActive,
-            backgroundColor: token?.layout?.header?.colorBgMenuItemHover,
+            backgroundColor: `${token?.layout?.header?.colorBgMenuItemHover} !important`,
           },
 
           [`${token.antCls}-menu-item-open,
@@ -131,9 +131,9 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
             backgroundColor: token?.layout?.header?.colorBgMenuItemSelected,
             borderRadius: token.borderRadius,
             transition: 'none',
-            color: token?.layout?.header?.colorTextMenuSelected,
+            color: `${token?.layout?.header?.colorTextMenuSelected} !important`,
             [`${token.antCls}-menu-submenu-arrow`]: {
-              color: token?.layout?.header?.colorTextMenuSelected,
+              color: `${token?.layout?.header?.colorTextMenuSelected} !important`,
             },
           },
           [`> ${token.antCls}-menu-item, > ${token.antCls}-menu-submenu`]: {

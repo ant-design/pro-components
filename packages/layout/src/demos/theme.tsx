@@ -25,8 +25,6 @@ export default () => {
           colorTextCollapsedButtonHover: 'rgba(0,0,0,0.65)',
           colorTextCollapsedButton: 'rgba(0,0,0,0.45)',
           colorMenuBackground: '#004FD9',
-          colorBgMenuItemCollapsedHover: 'rgba(0,0,0,0.06)',
-          colorBgMenuItemCollapsedSelected: 'rgba(0,0,0,0.15)',
           colorBgMenuItemCollapsedElevated: 'rgba(0,0,0,0.85)',
           colorMenuItemDivider: 'rgba(255,255,255,0.15)',
           colorBgMenuItemHover: 'rgba(0,0,0,0.06)',

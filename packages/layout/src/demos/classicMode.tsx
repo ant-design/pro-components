@@ -48,7 +48,6 @@ export default () => {
             colorTextMenu: '#595959',
             colorTextMenuSelected: '#242424',
             colorTextMenuActive: '#242424',
-            colorBgMenuItemCollapsedHover: '#242424',
           },
         }}
         bgLayoutImgList={[
