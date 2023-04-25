@@ -1,9 +1,9 @@
 ﻿import { SearchOutlined } from '@ant-design/icons';
-import { useStyle } from '@ant-design/pro-provider';
+import { ProProvider, useStyle } from '@ant-design/pro-provider';
 import { useDebounceFn } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
-
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { ProHelpProvide } from './HelpProvide';
@@ -96,7 +96,7 @@ export const ProHelpSelect: React.FC<
 > = ({ iconClassName, ...props }) => {
   const { dataSource } = useContext(ProHelpProvide);
   const [keyWord, setKeyWork] = useState<string>('');
-
+  const { hashId } = useContext(ProProvider);
   const debounceSetKeyWork = useDebounceFn(async (key) => setKeyWork(key), 20);
 
   const [open, setOpen] = useState<boolean>(false);
@@ -104,7 +104,7 @@ export const ProHelpSelect: React.FC<
   return (
     <>
       {!open ? (
-        <div className={iconClassName}>
+        <div className={classNames(iconClassName, hashId)}>
           <SearchOutlined
             title="search panel"
             onClick={() => {

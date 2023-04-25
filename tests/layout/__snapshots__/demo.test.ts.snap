@@ -10583,10 +10583,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
                 class="ant-card-extra"
               >
                 <div
-                  class="ant-pro-help-actions"
+                  class="ant-pro-help-actions "
                 >
                   <div
-                    class="ant-pro-help-actions-item"
+                    class="ant-pro-help-actions-item "
                   >
                     <span
                       aria-label="profile"
@@ -10644,11 +10644,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
             style="display: flex; padding: 0px; margin: 0px; height: 100%; width: 100%;"
           >
             <div
-              class="ant-pro-help-left-panel"
+              class=" ant-pro-help-left-panel "
               style="height: 448px;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-help-left-panel-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light  ant-pro-help-left-panel-menu"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -10717,7 +10717,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
               />
             </div>
             <div
-              class="ant-pro-help-content-panel"
+              class=" ant-pro-help-content-panel"
               style="height: 448px;"
             >
               <div
@@ -20276,7 +20276,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/draggableHelp.tsx
     <div
       style="margin: 24px; padding-block-end: 128px; display: flex; gap: 24px; flex-direction: column;"
     >
-      <div>
+      <div
+        class=""
+      >
         <span
           aria-label="search"
           class="anticon anticon-search"
@@ -20321,10 +20323,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/draggableHelp.tsx
                 class="ant-card-extra"
               >
                 <div
-                  class="ant-pro-help-actions"
+                  class="ant-pro-help-actions "
                 >
                   <div
-                    class="ant-pro-help-actions-item"
+                    class="ant-pro-help-actions-item "
                   >
                     <span
                       aria-label="profile"
@@ -20382,11 +20384,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/draggableHelp.tsx
             style="display: flex; padding: 0px; margin: 0px; height: 100%; width: 100%;"
           >
             <div
-              class="ant-pro-help-left-panel"
+              class=" ant-pro-help-left-panel "
               style="height: 448px;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-help-left-panel-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light  ant-pro-help-left-panel-menu"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -20455,7 +20457,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/draggableHelp.tsx
               />
             </div>
             <div
-              class="ant-pro-help-content-panel"
+              class=" ant-pro-help-content-panel"
               style="height: 448px;"
             >
               <div
@@ -25045,10 +25047,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
                 class="ant-card-extra"
               >
                 <div
-                  class="ant-pro-help-actions"
+                  class="ant-pro-help-actions "
                 >
                   <div
-                    class="ant-pro-help-actions-item"
+                    class="ant-pro-help-actions-item "
                   >
                     <span
                       aria-label="profile"
@@ -25106,11 +25108,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
             style="display: flex; padding: 0px; margin: 0px; height: 100%; width: 100%;"
           >
             <div
-              class="ant-pro-help-left-panel"
+              class=" ant-pro-help-left-panel "
               style="height: 648px;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-help-left-panel-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light  ant-pro-help-left-panel-menu"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -25203,7 +25205,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
               />
             </div>
             <div
-              class="ant-pro-help-content-panel"
+              class=" ant-pro-help-content-panel"
               style="height: 648px;"
             >
               <div
@@ -25439,7 +25441,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
                 </div>
               </div>
               <div
-                class="ant-pro-help-footer"
+                class=" ant-pro-help-footer"
               >
                 <div
                   style="text-align: center; border-top: 1px solid #EEE; padding: 12px; margin-top: 24px;"

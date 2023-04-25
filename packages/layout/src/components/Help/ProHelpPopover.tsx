@@ -4,6 +4,7 @@ import { Popover, ConfigProvider } from 'antd';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
+import { ProProvider } from '@ant-design/pro-provider';
 
 export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
   /**
@@ -42,6 +43,8 @@ export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
 export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-help');
+  const { hashId } = useContext(ProProvider);
+
   const { wrapSSR } = useStyle(className);
   return wrapSSR(
     <Popover
@@ -49,13 +52,19 @@ export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
         padding: 0,
       }}
       content={
-        <div className={classNames(`${className}-popover-content`, props.popoverContextClassName)}>
+        <div
+          className={classNames(
+            `${className}-popover-content`,
+            hashId,
+            props.popoverContextClassName,
+          )}
+        >
           <ProHelpContentPanel selectedKey={props.selectedKey} />
         </div>
       }
       {...props.popoverProps}
     >
-      <span className={classNames(`${className}-popover-text`, props.textClassName)}>
+      <span className={classNames(`${className}-popover-text`, hashId, props.textClassName)}>
         {props.children}
       </span>
     </Popover>,

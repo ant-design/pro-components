@@ -21,10 +21,10 @@ exports[`👍🏻 ProHelpPanel 🎏 ProHelp is empty 1`] = `
             class="ant-card-extra"
           >
             <div
-              class="ant-pro-help-actions"
+              class="ant-pro-help-actions "
             >
               <div
-                class="ant-pro-help-actions-item"
+                class="ant-pro-help-actions-item "
               >
                 <span
                   aria-label="profile"
@@ -82,10 +82,10 @@ exports[`👍🏻 ProHelpPanel 🎏 ProHelp is empty 1`] = `
         style="display: flex; padding: 0px; margin: 0px; height: 100%; width: 100%;"
       >
         <div
-          class="ant-pro-help-left-panel"
+          class=" ant-pro-help-left-panel "
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-help-left-panel-menu"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light  ant-pro-help-left-panel-menu"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -96,7 +96,7 @@ exports[`👍🏻 ProHelpPanel 🎏 ProHelp is empty 1`] = `
           />
         </div>
         <div
-          class="ant-pro-help-content-panel"
+          class=" ant-pro-help-content-panel"
         />
       </div>
     </div>

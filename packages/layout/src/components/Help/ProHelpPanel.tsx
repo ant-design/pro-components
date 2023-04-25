@@ -79,7 +79,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-help');
-  const { wrapSSR } = useStyle(className);
+  const { wrapSSR, hashId } = useStyle(className);
   const { dataSource } = useContext(ProHelpProvide);
   const [selectedKey, setSelectedKey] = useMergedState<string | undefined>(undefined, {
     defaultValue: props.defaultSelectedKey,
@@ -136,8 +136,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
         }}
         size="small"
         extra={
-          <div className={`${className}-actions`}>
-            <div className={`${className}-actions-item`}>
+          <div className={`${className}-actions ${hashId}`}>
+            <div className={`${className}-actions-item ${hashId}`}>
               <ProfileOutlined
                 title="collapse panel"
                 onClick={() => {
@@ -147,16 +147,15 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
             </div>
             <ProHelpSelect
               iconClassName={`${className}-actions-item`}
-              className={`${className}-actions-input`}
+              className={`${hashId} ${className}-actions-input`}
               value={selectedKey}
               onChange={(value, item) => {
                 setSelectedKey(value);
                 setOpenKey((item as any)?.dataItemKey);
               }}
             />
-
             {onClose ? (
-              <div className={`${className}-actions-item`}>
+              <div className={`${className}-actions-item ${hashId}`}>
                 <CloseOutlined
                   title="close panel"
                   onClick={() => {
@@ -170,7 +169,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       >
         {showLeftPanel ? (
           <div
-            className={`${className}-left-panel`}
+            className={`${hashId} ${className}-left-panel `}
             style={{
               height,
             }}
@@ -204,7 +203,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               }}
             >
               <Menu
-                className={`${className}-left-panel-menu`}
+                className={`${hashId} ${className}-left-panel-menu`}
                 openKeys={[parentKey, openKey]}
                 onOpenChange={(keys) => {
                   setOpenKey(keys.at(-1) || '');
@@ -231,7 +230,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           </div>
         ) : null}
         <div
-          className={`${className}-content-panel`}
+          className={`${hashId} ${className}-content-panel`}
           style={{
             height,
           }}
@@ -244,7 +243,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               onScroll={(key) => setSelectedKey(key)}
             />
           ) : null}
-          {footer ? <div className={`${className}-footer`}>{footer}</div> : null}
+          {footer ? <div className={`${hashId} ${className}-footer`}>{footer}</div> : null}
         </div>
       </Card>
     </SelectKeyProvide.Provider>,

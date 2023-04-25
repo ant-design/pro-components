@@ -5,6 +5,8 @@ import { ProHelpProvide } from './HelpProvide';
 import { useDebounceFn } from '@ant-design/pro-utils';
 import { RenderContentPanel } from './RenderContentPanel';
 import { AsyncContentPanel } from './AsyncContentPanel';
+import { ProProvider } from '@ant-design/pro-provider';
+import classNames from 'classnames';
 
 export type ProHelpContentPanelProps = {
   /**
@@ -30,7 +32,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
   onScroll,
 }) => {
   const { dataSource } = useContext(ProHelpProvide);
-
+  const { hashId } = useContext(ProProvider);
   // 记录每个面板的滚动高度
   const scrollHeightMap = useRef<Map<React.Key, HTMLDivElement>>(new Map());
 
@@ -105,7 +107,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
   const renderItem = (item: ProHelpDataSource<any>['children'][number]) => {
     if (item?.asyncLoad) {
       return (
-        <div className={className} id={item.title}>
+        <div className={classNames(className, hashId)} id={item.title}>
           <AsyncContentPanel
             key={item?.key}
             item={item!}
@@ -119,7 +121,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
     }
 
     return (
-      <div className={className} id={item.title}>
+      <div className={classNames(className, hashId)} id={item.title}>
         <RenderContentPanel
           onInit={(ref) => {
             if (!scrollHeightMap.current) return;
@@ -135,7 +137,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
     return (
       <div
         ref={divRef}
-        className={`${className}-infinite-scroll`}
+        className={classNames(`${className}-infinite-scroll`, hashId)}
         style={{
           overflow: 'auto',
         }}
