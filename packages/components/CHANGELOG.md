@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.4.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.4.6...@ant-design/pro-components@2.4.7) (2023-04-25)
+
+
+### Bug Fixes
+
+* **layout:** fix colorBgMenuItemHover no work error ([3bfa45a](https://github.com/ant-design/pro-components/commit/3bfa45ad054d22e5ea2dfcf405e7a5279e8a4d39))
+
+
+
+
 
 ## [2.4.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.4.5...@ant-design/pro-components@2.4.6) (2023-04-25)
 
