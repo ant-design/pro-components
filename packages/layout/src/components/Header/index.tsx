@@ -1,4 +1,4 @@
-import { ProProvider } from '@ant-design/pro-provider';
+import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
 import React, { useCallback, useContext } from 'react';
@@ -95,7 +95,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         <ConfigProvider
           // @ts-ignore
           theme={{
-            hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
+            hashed: isNeedOpenHash(),
             components: {
               Layout: {
                 colorBgHeader: 'transparent',

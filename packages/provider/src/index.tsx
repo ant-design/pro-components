@@ -19,6 +19,19 @@ import { merge } from './utils/merge';
 export * from './useStyle';
 export * from './intl';
 
+/**
+ * 用于判断当前是否需要开启哈希（Hash）模式。
+ * 首先也会判断当前是否处于测试环境中（通过 process.env.NODE_ENV === 'TEST' 判断），
+ * 如果是，则返回 false。否则，直接返回 true 表示需要打开。
+ * @returns
+ */
+export const isNeedOpenHash = () => {
+  if (typeof process !== 'undefined' && process.env.NODE_ENV === 'TEST') {
+    return false;
+  }
+  return undefined;
+};
+
 export { DeepPartial, ProTokenType };
 
 /**
@@ -264,10 +277,7 @@ const ConfigProviderContainer: React.FC<{
     const themeConfig = {
       ...restConfig.theme,
       hashId: hashId,
-      hashed:
-        process?.env?.NODE_ENV?.toLowerCase() !== 'test' &&
-        props.hashed !== false &&
-        proProvide.hashed !== false,
+      hashed: isNeedOpenHash() && props.hashed !== false && proProvide.hashed !== false,
     };
 
     return (

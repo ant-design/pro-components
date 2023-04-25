@@ -1,4 +1,4 @@
-﻿import { ProProvider } from '@ant-design/pro-provider';
+﻿import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
 import { Card, ConfigProvider, Menu } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import { useContext, useState, useMemo } from 'react';
@@ -176,7 +176,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           >
             <ConfigProvider
               theme={{
-                hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
+                hashed: isNeedOpenHash(),
                 components: {
                   Menu: {
                     lineHeight: 1.2,

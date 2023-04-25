@@ -1,4 +1,4 @@
-import { ProProvider } from '@ant-design/pro-provider';
+import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 
 import classNames from 'classnames';
@@ -46,7 +46,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => 
     const defaultDom = (
       <ConfigProvider
         theme={{
-          hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
+          hashed: isNeedOpenHash(),
           components: {
             Menu: {
               colorItemBg: token?.layout?.header?.colorBgHeader || 'transparent',

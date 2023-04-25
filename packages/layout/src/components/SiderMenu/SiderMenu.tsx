@@ -1,4 +1,4 @@
-import type { GenerateStyle } from '@ant-design/pro-provider';
+import { GenerateStyle, isNeedOpenHash } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
@@ -464,7 +464,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       >
         <ConfigProvider
           theme={{
-            hashed: process.env.NODE_ENV?.toLowerCase() !== 'test',
+            hashed: isNeedOpenHash(),
             components: {
               Menu: {
                 radiusItem: 4,
