@@ -107,7 +107,7 @@ export function useStyle(
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
   let { token = {} as ProAliasToken } = useContext(ProProvider);
-  const { hashId = '', theme } = useContext(ProProvider);
+  const { hashId = '', theme: provideTheme } = useContext(ProProvider);
   const { token: antdToken } = useToken();
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
 
@@ -122,7 +122,7 @@ export function useStyle(
   return {
     wrapSSR: useStyleRegister(
       {
-        theme: theme!,
+        theme: provideTheme!,
         token,
         hashId,
         path: [componentName],
