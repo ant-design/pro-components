@@ -12,7 +12,7 @@ legacy: /table
 
 <code src="../demos/theme.tsx" background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
 
-<code src="../demos/single-test.tsx" debug  background="var(--main-bg-color)" ></code>
+<code src="../demos/single-test.tsx" debug background="var(--main-bg-color)" ></code>
 
 <code src="../demos/no-option.tsx"  background="var(--main-bg-color)" title="查询（无按钮）表格"></code>
 

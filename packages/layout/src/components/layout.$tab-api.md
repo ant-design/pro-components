@@ -17,6 +17,8 @@ order: 0
 
 <code src="../demos/theme.tsx" iframe="650" title="通过 token 修改样式"></code>
 
+<code src="../demos/debug-demo.tsx"  debug background="var(--main-bg-color)" iframe="550" title="黑色主紧凑主题"></code>
+
 <code src="../demos/dark.tsx" iframe="650" title="黑色主题"></code>
 
 <code src="../demos/siderMode.tsx" iframe="650" title="侧栏导航 中后台产品默认推荐"></code>
