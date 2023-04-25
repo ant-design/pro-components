@@ -31,15 +31,25 @@ type ProHelpDataSourceContentType = {
     children: string;
   } & AnchorHTMLAttributes<HTMLAnchorElement>;
   /**
-   * inlineLink 链接类型的数据源子项内容。
+   * 行内链接类型的数据源子项内容。
    */
   inlineLink: {
     children: string;
   } & AnchorHTMLAttributes<HTMLAnchorElement>;
+
+  /**
+   * navigation 类型链接，或切换菜单
+   */
+  navigationSwitch: {
+    selectKey: string;
+    children: string;
+  };
+
   /**
    * text 文本类型的数据源子项内容。
    */
   text: string;
+
   /**
    * image 图片类型的数据源子项内容。
    */

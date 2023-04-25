@@ -438,6 +438,17 @@ export default () => {
                       children:
                         '一种离线处理数据的方式，用户将需要处理的数据批量上传到系统中，再通过系统进行处理。',
                     },
+                    {
+                      valueType: 'text',
+                      children: '相关数据请查看：',
+                    },
+                    {
+                      valueType: 'navigationSwitch',
+                      children: {
+                        selectKey: 'name9',
+                        children: '节点场景',
+                      },
+                    },
                   ],
                 },
                 {
