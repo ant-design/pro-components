@@ -1,6 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.7.0...@ant-design/pro-provider@2.8.0) (2023-04-25)
+
+
+### Bug Fixes
+
+* **components:** 修复在浏览器环境下hashed必为false的bug ([#6900](https://github.com/ant-design/pro-components/issues/6900)) ([1de7341](https://github.com/ant-design/pro-components/commit/1de7341e954ffff3426bc156dc2dc2eefa8b8a4e))
+
+
+### Features
+
+* **layout:** ProHelp support more feature  ([#6970](https://github.com/ant-design/pro-components/issues/6970)) ([b445d0b](https://github.com/ant-design/pro-components/commit/b445d0bb350389ac96f6e711a4fc6a86ace56fb9))
+
+
+
+
 
 # [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.6.1...@ant-design/pro-provider@2.7.0) (2023-03-27)
 

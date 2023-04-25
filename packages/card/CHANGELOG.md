@@ -1,6 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.3.2...@ant-design/pro-card@2.4.0) (2023-04-25)
+
+
+### Bug Fixes
+
+* **card:** 修复title为数字0时不展示的问题 ([#6884](https://github.com/ant-design/pro-components/issues/6884)) ([b425d8e](https://github.com/ant-design/pro-components/commit/b425d8edad7a2f4911fc1852cea206a4a483d099))
+
+
+### Features
+
+* **layout:** ProHelp support more feature  ([#6970](https://github.com/ant-design/pro-components/issues/6970)) ([b445d0b](https://github.com/ant-design/pro-components/commit/b445d0bb350389ac96f6e711a4fc6a86ace56fb9))
+
+
+
+
 
 ## [2.3.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.3.1...@ant-design/pro-card@2.3.2) (2023-03-27)
 

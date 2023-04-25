@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.10.1...@ant-design/pro-form@2.11.0) (2023-04-25)
+
+
+### Bug Fixes
+
+* **form:** chage step form first button judge ([#6915](https://github.com/ant-design/pro-components/issues/6915)) ([2a995d9](https://github.com/ant-design/pro-components/commit/2a995d97672e6a9413a78dfa3276fd80c82075f3))
+* **form:** 修复SchemaFormRef的问题 ([#6943](https://github.com/ant-design/pro-components/issues/6943)) ([445c8ac](https://github.com/ant-design/pro-components/commit/445c8acfe3677d3d03a2a9c12d2a9542d50d10c0))
+
+
+### Features
+
+* **form:** add some DateRangePicker components ([#6850](https://github.com/ant-design/pro-components/issues/6850)) ([26cbe28](https://github.com/ant-design/pro-components/commit/26cbe28b4408847a965983049b020b9f4399eddb))
+
+
+
+
 
 ## [2.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.10.0...@ant-design/pro-form@2.10.1) (2023-03-27)
 
