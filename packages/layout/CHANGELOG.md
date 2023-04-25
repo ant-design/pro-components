@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.11.0...@ant-design/pro-layout@7.12.0) (2023-04-25)
+
+
+### Features
+
+* **layout:** ProHelp support hashid ([e704713](https://github.com/ant-design/pro-components/commit/e704713726f29058d63103512f20aeda42f6fde3))
+
+
+
+
 
 # [7.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.10.3...@ant-design/pro-layout@7.11.0) (2023-04-25)
 
