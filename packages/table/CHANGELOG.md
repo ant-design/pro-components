@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.1...@ant-design/pro-table@3.6.2) (2023-04-25)
 
-
 ### Bug Fixes
 
-* **table:** new fetch function ([#6923](https://github.com/ant-design/pro-components/issues/6923)) ([275e9c1](https://github.com/ant-design/pro-components/commit/275e9c108ec939f13dbea002b5d287a074fce42e))
-* **table:** 修复当loading为对象时,pro-table无法接管loading状态,必须手动控制的问题 ([#6962](https://github.com/ant-design/pro-components/issues/6962)) ([59bdd1a](https://github.com/ant-design/pro-components/commit/59bdd1ab39b581e8b2ebeedf14943ce35bcd9f9c))
-
-
-
-
+- **table:** new fetch function ([#6923](https://github.com/ant-design/pro-components/issues/6923)) ([275e9c1](https://github.com/ant-design/pro-components/commit/275e9c108ec939f13dbea002b5d287a074fce42e))
+- **table:** 修复当 loading 为对象时,pro-table 无法接管 loading 状态,必须手动控制的问题 ([#6962](https://github.com/ant-design/pro-components/issues/6962)) ([59bdd1a](https://github.com/ant-design/pro-components/commit/59bdd1ab39b581e8b2ebeedf14943ce35bcd9f9c))
 
 ## [3.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.0...@ant-design/pro-table@3.6.1) (2023-03-27)
 

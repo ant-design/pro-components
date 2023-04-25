@@ -1,4 +1,24 @@
-﻿## @ant-design/pro-components@2.4.3
+﻿## @ant-design/pro-components@2.4.5
+
+`2023-04-25`
+
+- fix(components): Optimize theme type (#6895). [#6895](https://github.com/ant-design/pro-components/pull/#6895) [@thinkasany](https://github.com/thinkasany)
+- fix(components): 修复在浏览器环境下 hashed 必为 false 的 bug (#6900). [#6900](https://github.com/ant-design/pro-components/pull/#6900) [@clf17222592](https://github.com/clf17222592)
+- feat(layout): ProHelp support navigationSwitch. [2406457](https://github.com/ant-design/pro-components/commit/2406457)
+- feat(layout): ProHelp support more feature (#6970). [#6970](https://github.com/ant-design/pro-components/pull/#6970) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat(form): add some DateRangePicker components (#6850). [#6850](https://github.com/ant-design/pro-components/pull/#6850) [@lzm0x219](https://github.com/lzm0x219)
+- fix(form): fix parsed NaN value not display in readonly mode (#6932). [#6932](https://github.com/ant-design/pro-components/pull/#6932) [@xliez](https://github.com/xliez)
+- fix(form): 修复 SchemaFormRef 的问题 (#6943). [#6943](https://github.com/ant-design/pro-components/pull/#6943) [@ldwonday](https://github.com/ldwonday)
+- fix(form): chage step form first button judge (#6915). [#6915](https://github.com/ant-design/pro-components/pull/#6915) [@ONLY-yours](https://github.com/ONLY-yours)
+- 🐛 fix(form): Optimize render type assertion (#6886). [#6886](https://github.com/ant-design/pro-components/pull/#6886) [@thinkasany](https://github.com/thinkasany)
+- fix(form): 兼容 antd@4 ProFormTimePicker format 异常问题 (#6863). [#6863](https://github.com/ant-design/pro-components/pull/#6863) [@powerfulyang](https://github.com/powerfulyang)
+- fix(form): 修复 form 重复渲染的 bug (#6874). [#6874](https://github.com/ant-design/pro-components/pull/#6874) [@ldwonday](https://github.com/ldwonday)
+- fix(list): add pro-utils to package.json deps (#6894). [#6894](https://github.com/ant-design/pro-components/pull/#6894) [@Andreybest](https://github.com/Andreybest)
+- fix(table): 修复当 loading 为对象时,pro-table 无法接管 loading 状态,必须手动控制的问题 (#6962). [#6962](https://github.com/ant-design/pro-components/pull/#6962) [@clf17222592](https://github.com/clf17222592)
+- fix(table): new fetch function (#6923). [#6923](https://github.com/ant-design/pro-components/pull/#6923) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(card): 修复 title 为数字 0 时不展示的问题 (#6884). [#6884](https://github.com/ant-design/pro-components/pull/#6884) [@fliu2476](https://github.com/fliu2476)
+
+## @ant-design/pro-components@2.4.3
 
 `2023-03-27`
 

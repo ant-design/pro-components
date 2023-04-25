@@ -1,26 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.7.2...@ant-design/pro-utils@2.8.0) (2023-04-25)
 
-
 ### Bug Fixes
 
-* **form:**  兼容 antd@4 ProFormTimePicker format 异常问题 ([#6863](https://github.com/ant-design/pro-components/issues/6863)) ([76131bb](https://github.com/ant-design/pro-components/commit/76131bb38a3426a2ded4d92cfc12c94e40fc685c)), closes [#6862](https://github.com/ant-design/pro-components/issues/6862)
-* **form:** 修复SchemaFormRef的问题 ([#6943](https://github.com/ant-design/pro-components/issues/6943)) ([445c8ac](https://github.com/ant-design/pro-components/commit/445c8acfe3677d3d03a2a9c12d2a9542d50d10c0))
-* **table:** new fetch function ([#6923](https://github.com/ant-design/pro-components/issues/6923)) ([275e9c1](https://github.com/ant-design/pro-components/commit/275e9c108ec939f13dbea002b5d287a074fce42e))
-
+- **form:** 兼容 antd@4 ProFormTimePicker format 异常问题 ([#6863](https://github.com/ant-design/pro-components/issues/6863)) ([76131bb](https://github.com/ant-design/pro-components/commit/76131bb38a3426a2ded4d92cfc12c94e40fc685c)), closes [#6862](https://github.com/ant-design/pro-components/issues/6862)
+- **form:** 修复 SchemaFormRef 的问题 ([#6943](https://github.com/ant-design/pro-components/issues/6943)) ([445c8ac](https://github.com/ant-design/pro-components/commit/445c8acfe3677d3d03a2a9c12d2a9542d50d10c0))
+- **table:** new fetch function ([#6923](https://github.com/ant-design/pro-components/issues/6923)) ([275e9c1](https://github.com/ant-design/pro-components/commit/275e9c108ec939f13dbea002b5d287a074fce42e))
 
 ### Features
 
-* **form:** add some DateRangePicker components ([#6850](https://github.com/ant-design/pro-components/issues/6850)) ([26cbe28](https://github.com/ant-design/pro-components/commit/26cbe28b4408847a965983049b020b9f4399eddb))
-* **layout:** ProHelp support more feature  ([#6970](https://github.com/ant-design/pro-components/issues/6970)) ([b445d0b](https://github.com/ant-design/pro-components/commit/b445d0bb350389ac96f6e711a4fc6a86ace56fb9))
-
-
-
-
+- **form:** add some DateRangePicker components ([#6850](https://github.com/ant-design/pro-components/issues/6850)) ([26cbe28](https://github.com/ant-design/pro-components/commit/26cbe28b4408847a965983049b020b9f4399eddb))
+- **layout:** ProHelp support more feature ([#6970](https://github.com/ant-design/pro-components/issues/6970)) ([b445d0b](https://github.com/ant-design/pro-components/commit/b445d0bb350389ac96f6e711a4fc6a86ace56fb9))
 
 ## [2.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.7.1...@ant-design/pro-utils@2.7.2) (2023-03-27)
 

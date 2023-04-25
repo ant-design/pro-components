@@ -1,25 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.5.2...@ant-design/pro-field@2.6.0) (2023-04-25)
 
-
 ### Bug Fixes
 
-* **form:** fix  parsed NaN value not display in readonly mode ([#6932](https://github.com/ant-design/pro-components/issues/6932)) ([4dee84a](https://github.com/ant-design/pro-components/commit/4dee84ae503ef34b2547b972652f978dd2ca1965))
-* **form:** 修复form重复渲染的bug ([#6874](https://github.com/ant-design/pro-components/issues/6874)) ([c6000cc](https://github.com/ant-design/pro-components/commit/c6000ccab5d8f5da269348b6d0dfa31a82eef477))
-* **ProFormRadio:** 修复radio和text水平对齐[#6869](https://github.com/ant-design/pro-components/issues/6869) ([#6875](https://github.com/ant-design/pro-components/issues/6875)) ([1f63346](https://github.com/ant-design/pro-components/commit/1f6334640f3c8b7bed6c3a6568ea05a062b4c52a))
-
+- **form:** fix parsed NaN value not display in readonly mode ([#6932](https://github.com/ant-design/pro-components/issues/6932)) ([4dee84a](https://github.com/ant-design/pro-components/commit/4dee84ae503ef34b2547b972652f978dd2ca1965))
+- **form:** 修复 form 重复渲染的 bug ([#6874](https://github.com/ant-design/pro-components/issues/6874)) ([c6000cc](https://github.com/ant-design/pro-components/commit/c6000ccab5d8f5da269348b6d0dfa31a82eef477))
+- **ProFormRadio:** 修复 radio 和 text 水平对齐[#6869](https://github.com/ant-design/pro-components/issues/6869) ([#6875](https://github.com/ant-design/pro-components/issues/6875)) ([1f63346](https://github.com/ant-design/pro-components/commit/1f6334640f3c8b7bed6c3a6568ea05a062b4c52a))
 
 ### Features
 
-* **form:** add some DateRangePicker components ([#6850](https://github.com/ant-design/pro-components/issues/6850)) ([26cbe28](https://github.com/ant-design/pro-components/commit/26cbe28b4408847a965983049b020b9f4399eddb))
-
-
-
-
+- **form:** add some DateRangePicker components ([#6850](https://github.com/ant-design/pro-components/issues/6850)) ([26cbe28](https://github.com/ant-design/pro-components/commit/26cbe28b4408847a965983049b020b9f4399eddb))
 
 ## [2.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.5.1...@ant-design/pro-field@2.5.2) (2023-03-27)
 

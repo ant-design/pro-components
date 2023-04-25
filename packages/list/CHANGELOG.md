@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.3.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.3.4...@ant-design/pro-list@2.3.5) (2023-04-25)
 
-
 ### Bug Fixes
 
-* **list:** add pro-utils to package.json deps ([#6894](https://github.com/ant-design/pro-components/issues/6894)) ([68b60ff](https://github.com/ant-design/pro-components/commit/68b60ff805eb5e685c95a173b665a0030ab17846))
-
-
-
-
+- **list:** add pro-utils to package.json deps ([#6894](https://github.com/ant-design/pro-components/issues/6894)) ([68b60ff](https://github.com/ant-design/pro-components/commit/68b60ff805eb5e685c95a173b665a0030ab17846))
 
 ## [2.3.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.3.3...@ant-design/pro-list@2.3.4) (2023-03-27)
 

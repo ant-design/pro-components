@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [7.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.10.3...@ant-design/pro-layout@7.11.0) (2023-04-25)
 
-
 ### Features
 
-* **layout:** ProHelp support more feature  ([#6970](https://github.com/ant-design/pro-components/issues/6970)) ([b445d0b](https://github.com/ant-design/pro-components/commit/b445d0bb350389ac96f6e711a4fc6a86ace56fb9))
-* **layout:** ProHelp support navigationSwitch ([2406457](https://github.com/ant-design/pro-components/commit/240645705a52addbbd1d07cf64386583a5f919c4))
-
-
-
-
+- **layout:** ProHelp support more feature ([#6970](https://github.com/ant-design/pro-components/issues/6970)) ([b445d0b](https://github.com/ant-design/pro-components/commit/b445d0bb350389ac96f6e711a4fc6a86ace56fb9))
+- **layout:** ProHelp support navigationSwitch ([2406457](https://github.com/ant-design/pro-components/commit/240645705a52addbbd1d07cf64386583a5f919c4))
 
 ## [7.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.10.2...@ant-design/pro-layout@7.10.3) (2023-03-27)
 
