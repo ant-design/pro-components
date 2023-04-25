@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.12.1...@ant-design/pro-layout@7.12.2) (2023-04-25)
+
+
+### Bug Fixes
+
+* **provide:** unuse  process.env.NODE_ENV === 'TEST' ([0d9cba1](https://github.com/ant-design/pro-components/commit/0d9cba1a7fe74a87c6daf93a36f768801059f42d))
+
+
+
+
+
 ## [7.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.12.0...@ant-design/pro-layout@7.12.1) (2023-04-25)
 
 
