@@ -250,7 +250,7 @@ importers:
     specifiers:
       '@ant-design/icons': ^5.0.0
       '@ant-design/pro-provider': ^2.8.2
-      '@ant-design/pro-utils': ^2.8.2
+      '@ant-design/pro-utils': ^2.8.3
       '@babel/runtime': ^7.18.0
       classnames: ^2.2.6
       omit.js: ^2.0.2
@@ -268,16 +268,16 @@ importers:
 
   packages/components:
     specifiers:
-      '@ant-design/pro-card': ^2.4.2
-      '@ant-design/pro-descriptions': ^2.2.6
-      '@ant-design/pro-field': ^2.6.2
-      '@ant-design/pro-form': ^2.11.2
-      '@ant-design/pro-layout': ^7.12.2
-      '@ant-design/pro-list': ^2.3.7
+      '@ant-design/pro-card': ^2.4.3
+      '@ant-design/pro-descriptions': ^2.2.7
+      '@ant-design/pro-field': ^2.6.3
+      '@ant-design/pro-form': ^2.11.3
+      '@ant-design/pro-layout': ^7.12.3
+      '@ant-design/pro-list': ^2.3.8
       '@ant-design/pro-provider': ^2.8.2
       '@ant-design/pro-skeleton': ^2.1.1
-      '@ant-design/pro-table': ^3.6.4
-      '@ant-design/pro-utils': ^2.8.2
+      '@ant-design/pro-table': ^3.6.5
+      '@ant-design/pro-utils': ^2.8.3
       '@babel/runtime': ^7.16.3
     dependencies:
       '@ant-design/pro-card': link:../card
@@ -294,10 +294,10 @@ importers:
 
   packages/descriptions:
     specifiers:
-      '@ant-design/pro-field': ^2.6.2
-      '@ant-design/pro-form': ^2.11.2
+      '@ant-design/pro-field': ^2.6.3
+      '@ant-design/pro-form': ^2.11.3
       '@ant-design/pro-skeleton': ^2.1.1
-      '@ant-design/pro-utils': ^2.8.2
+      '@ant-design/pro-utils': ^2.8.3
       '@babel/runtime': ^7.18.0
       rc-resize-observer: ^0.2.3
       rc-util: ^5.0.6
@@ -317,7 +317,7 @@ importers:
     specifiers:
       '@ant-design/icons': ^5.0.0
       '@ant-design/pro-provider': ^2.8.2
-      '@ant-design/pro-utils': ^2.8.2
+      '@ant-design/pro-utils': ^2.8.3
       '@babel/runtime': ^7.18.0
       '@chenshuai2144/sketch-color': ^1.0.8
       '@types/classnames': ^2.2.10
@@ -351,9 +351,9 @@ importers:
   packages/form:
     specifiers:
       '@ant-design/icons': ^5.0.0
-      '@ant-design/pro-field': ^2.6.2
+      '@ant-design/pro-field': ^2.6.3
       '@ant-design/pro-provider': ^2.8.2
-      '@ant-design/pro-utils': ^2.8.2
+      '@ant-design/pro-utils': ^2.8.3
       '@babel/runtime': ^7.18.0
       '@chenshuai2144/sketch-color': ^1.0.7
       '@types/lodash.merge': ^4.6.7
@@ -387,7 +387,7 @@ importers:
     specifiers:
       '@ant-design/icons': ^5.0.0
       '@ant-design/pro-provider': ^2.8.2
-      '@ant-design/pro-utils': ^2.8.2
+      '@ant-design/pro-utils': ^2.8.3
       '@babel/runtime': ^7.18.0
       '@umijs/route-utils': ^4.0.0
       '@umijs/use-params': ^1.0.9
@@ -422,10 +422,10 @@ importers:
   packages/list:
     specifiers:
       '@ant-design/icons': ^5.0.0
-      '@ant-design/pro-card': ^2.4.2
-      '@ant-design/pro-field': ^2.6.2
-      '@ant-design/pro-table': ^3.6.4
-      '@ant-design/pro-utils': ^2.8.2
+      '@ant-design/pro-card': ^2.4.3
+      '@ant-design/pro-field': ^2.6.3
+      '@ant-design/pro-table': ^3.6.5
+      '@ant-design/pro-utils': ^2.8.3
       '@babel/runtime': ^7.18.0
       classnames: ^2.2.6
       dayjs: ^1.11.4
@@ -470,11 +470,11 @@ importers:
   packages/table:
     specifiers:
       '@ant-design/icons': ^5.0.0
-      '@ant-design/pro-card': ^2.4.2
-      '@ant-design/pro-field': ^2.6.2
-      '@ant-design/pro-form': ^2.11.2
+      '@ant-design/pro-card': ^2.4.3
+      '@ant-design/pro-field': ^2.6.3
+      '@ant-design/pro-form': ^2.11.3
       '@ant-design/pro-provider': ^2.8.2
-      '@ant-design/pro-utils': ^2.8.2
+      '@ant-design/pro-utils': ^2.8.3
       '@babel/runtime': ^7.18.0
       classnames: ^2.2.6
       dayjs: ^1.11.4
