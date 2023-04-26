@@ -1,4 +1,5 @@
-import { GenerateStyle, isNeedOpenHash } from '@ant-design/pro-provider';
+import type { GenerateStyle } from '@ant-design/pro-provider';
+import { isNeedOpenHash } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';

@@ -1,6 +1,8 @@
-﻿import { ModalProps, Modal } from 'antd';
+﻿import type { ModalProps } from 'antd';
+import { Modal } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
-import { ProHelpPanelProps, ProHelpPanel } from './ProHelpPanel';
+import type { ProHelpPanelProps } from './ProHelpPanel';
+import { ProHelpPanel } from './ProHelpPanel';
 export type ProHelpModalProps = {
   /**
    * Ant Design Modal 组件的 props，可以传递一些选项，如位置、大小、关闭方式等等。

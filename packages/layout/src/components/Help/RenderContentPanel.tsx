@@ -141,7 +141,7 @@ export const RenderContentPanel: React.FC<{
             children: string;
             selectKey: string;
           })}
-        ></NavigationSwitch>
+        />
       );
     }
     return <Typography.Text key={index}>{item.children as string}</Typography.Text>;

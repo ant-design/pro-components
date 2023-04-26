@@ -2,7 +2,8 @@
 import { Card, ConfigProvider, Menu } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import { useContext, useState, useMemo } from 'react';
-import { ProHelpProvide, ProHelpDataSource } from './HelpProvide';
+import type { ProHelpDataSource } from './HelpProvide';
+import { ProHelpProvide } from './HelpProvide';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
 import { ProHelpSelect } from './Search';
 import { useStyle } from './style';

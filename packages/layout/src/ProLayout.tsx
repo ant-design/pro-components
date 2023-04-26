@@ -1,4 +1,5 @@
 import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
+import { isNeedOpenHash } from '@ant-design/pro-provider';
 import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
 import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
@@ -509,7 +510,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const [collapsed, onCollapse] = useMergedState<boolean>(
     () => {
       if (defaultCollapsed !== undefined) return defaultCollapsed;
-      if (process.env.NODE_ENV === 'TEST') return false;
+      if (!isNeedOpenHash()) return false;
       if (isMobile) return true;
       if (colSize === 'md') return true;
       return false;
