@@ -269,7 +269,8 @@ const ConfigProviderContainer: React.FC<{
     }
     if (proProvide.hashed === false) return '';
 
-    if (process?.env.NODE_ENV?.toLowerCase() !== 'test') return nativeHashId;
+    if (typeof process === 'undefined' || process.env.NODE_ENV?.toLowerCase() !== 'test')
+      return nativeHashId;
     return '';
   }, [nativeHashId, proProvide.hashed, props.hashed]);
 
