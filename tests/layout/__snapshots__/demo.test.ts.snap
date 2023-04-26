@@ -9006,7 +9006,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -9790,7 +9790,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -11483,7 +11483,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark my-prefix-sider my-prefix-sider-fixed my-prefix-sider-layout-mix my-prefix-sider-light my-prefix-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark my-prefix-sider my-prefix-sider-fixed my-prefix-sider-fixed-mix my-prefix-sider-layout-mix my-prefix-sider-light my-prefix-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -12582,7 +12582,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -16504,7 +16504,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
         style="width: 215px; overflow: hidden; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s; flex: 0 0 215px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
         style="max-width: 215px; min-width: 215px; width: 215px; flex: 0 0 215px;"
       >
         <div
@@ -18185,7 +18185,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
         style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
         style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
@@ -19251,7 +19251,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -24355,7 +24355,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -29653,7 +29653,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -30641,7 +30641,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -32976,7 +32976,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
@@ -35294,7 +35294,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
         style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
@@ -35761,7 +35761,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
         style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
@@ -36996,7 +36996,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
           style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
           style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div

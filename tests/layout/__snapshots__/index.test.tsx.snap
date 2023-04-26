@@ -423,7 +423,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
         style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
         style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div

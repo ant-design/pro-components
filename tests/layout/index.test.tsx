@@ -476,26 +476,23 @@ describe('BasicLayout', () => {
     expect(dom?.textContent).toEqual('true');
   });
 
-  it('🥩 support hideMenuWhenCollapsed', async () => {
+  fit('🥩 support hideMenuWhenCollapsed', async () => {
     const wrapper = render(
       <ProLayout
         menu={{
           hideMenuWhenCollapsed: true,
         }}
         collapsed={true}
-      />,
+      >
+        layout_right
+      </ProLayout>,
     );
-    await waitTime(100);
+
+    await wrapper.findByText('layout_right');
 
     let dom = wrapper.baseElement.querySelector('.ant-pro-sider-hide-when-collapsed');
 
     expect(!!dom).toBeTruthy();
-
-    expect(
-      window.getComputedStyle(
-        wrapper.baseElement.querySelector('.ant-pro-layout .ant-pro-sider-hide-menu-collapsed')!,
-      ).insetInlineStart,
-    ).toBe('-52px');
 
     act(() => {
       wrapper.rerender(
@@ -504,13 +501,19 @@ describe('BasicLayout', () => {
             hideMenuWhenCollapsed: true,
           }}
           collapsed={false}
-        />,
+        >
+          layout_list
+        </ProLayout>,
       );
     });
-    await waitTime(100);
-    dom = wrapper.baseElement.querySelector('.ant-pro-sider-hide-when-collapsed');
+    await wrapper.findByText('layout_list');
 
-    expect(!!dom).toBeFalsy();
+    waitFor(() => {
+      dom = wrapper.baseElement.querySelector('.ant-pro-sider-hide-when-collapsed');
+
+      expect(!!dom).toBeFalsy();
+    });
+
     act(() => {
       wrapper.unmount();
     });

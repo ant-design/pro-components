@@ -30,13 +30,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           zIndex: 10,
           minHeight: '100%',
         },
-        '&-fixed': {
-          position: 'fixed',
-          insetBlockStart: 0,
-          insetInlineStart: 0,
-          zIndex: '100',
-          height: '100%',
-        },
+
         [`${token.antCls}-layout-sider-children`]: {
           position: 'relative',
           display: 'flex',
@@ -153,10 +147,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           insetInlineStart: `-${token.proLayoutCollapsedWidth - 12}px`,
           position: 'absolute',
         },
-        '&-mix': {
-          height: `calc(100% - ${token?.layout?.header?.heightLayoutHeader || 56}px)`,
-          insetBlockStart: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
-        },
+
         '&-extra': {
           marginBlockEnd: 16,
           marginBlock: 0,
@@ -183,6 +174,17 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           animationName: proLayoutTitleHide,
           animationDuration: '.3s',
           animationTimingFunction: 'ease',
+        },
+      },
+      [`${token.componentCls}${token.componentCls}-fixed`]: {
+        position: 'fixed',
+        insetBlockStart: 0,
+        insetInlineStart: 0,
+        zIndex: '100',
+        height: '100%',
+        '&-mix': {
+          height: `calc(100% - ${token?.layout?.header?.heightLayoutHeader || 56}px)`,
+          insetBlockStart: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
         },
       },
     },
