@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.12.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.12.2...@ant-design/pro-layout@7.12.3) (2023-04-26)
+
+### Bug Fixes
+
+- **layout:** up layout mix css level ([18e8157](https://github.com/ant-design/pro-components/commit/18e8157b02be7e4d9adb5aeee6ffa1b1f7a24084))
+
 ## [7.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.12.1...@ant-design/pro-layout@7.12.2) (2023-04-25)
 
 ### Bug Fixes
