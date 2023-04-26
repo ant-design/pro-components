@@ -476,7 +476,7 @@ describe('BasicLayout', () => {
     expect(dom?.textContent).toEqual('true');
   });
 
-  fit('🥩 support hideMenuWhenCollapsed', async () => {
+  it('🥩 support hideMenuWhenCollapsed', async () => {
     const wrapper = render(
       <ProLayout
         menu={{
