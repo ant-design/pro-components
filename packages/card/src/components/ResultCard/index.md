@@ -36,7 +36,7 @@ atomId: ResultCard
 
 <code src="./demos/actions.tsx" background="var(--main-bg-color)" title="自定义Action" description="自定义 Action 能力" iframe='700'></code>
 
-### 页面级
+
 
 修改 mode 属性为 pages 可以将卡片变成页面层级的结果页面，这种情况下，宽度将不再收到卡片的限制，并去掉了卡片的边框展示
 
