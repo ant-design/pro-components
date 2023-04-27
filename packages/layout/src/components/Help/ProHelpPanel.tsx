@@ -1,14 +1,13 @@
-﻿import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
+﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
+import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
 import { Card, ConfigProvider, Menu } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
-import { useContext, useState, useMemo } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
 import { ProHelpSelect } from './Search';
 import { useStyle } from './style';
-import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
-import React from 'react';
 
 export const SelectKeyProvide = React.createContext<{
   selectedKey: string | undefined;
@@ -63,6 +62,21 @@ export type ProHelpPanelProps = {
    * 在一页内加载所有的 children 内容
    */
   infiniteScrollFull?: boolean;
+
+  /**
+   * 自定义渲染 extra 部分的内容
+   *
+   * @param {React.ReactNode} collapsePannelAction - 折叠收起的左侧按钮
+   * @param {React.ReactNode} helpSelectAction - 默认的帮助筛选按钮
+   * @param {React.ReactNode} closeAction - 关闭操作按钮
+   * @returns {React.ReactNode} - 返回自定义渲染的 extra 操作按钮
+   *
+   */
+  extraRender?: (
+    collapsePannelAction: React.ReactNode,
+    helpSelectAction: React.ReactNode,
+    closeAction: React.ReactNode,
+  ) => React.ReactNode;
 };
 /**
  * ProHelpPanel 组件是一个帮助中心面板组件，具有可折叠的左侧菜单和右侧帮助内容区域。
@@ -76,6 +90,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   onClose,
   footer,
   height,
+  extraRender,
   ...props
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -118,6 +133,60 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     [dataSourceKeyMap, selectedKey],
   );
 
+  const defalutExtraActions = {
+    collapsePannelAction: (
+      <div className={`${className}-actions-item ${hashId}`}>
+        <ProfileOutlined
+          title="collapse panel"
+          onClick={() => {
+            setShowLeftPanel(!showLeftPanel);
+          }}
+        />
+      </div>
+    ),
+    helpSelectAction: (
+      <ProHelpSelect
+        iconClassName={`${className}-actions-item`}
+        className={`${hashId} ${className}-actions-input`}
+        value={selectedKey}
+        onChange={(value, item) => {
+          setSelectedKey(value);
+          setOpenKey((item as any)?.dataItemKey);
+        }}
+      />
+    ),
+    closeAction: (
+      <div className={`${className}-actions-item ${hashId}`}>
+        <CloseOutlined
+          title="close panel"
+          onClick={() => {
+            onClose?.();
+          }}
+        />
+      </div>
+    ),
+  };
+
+  const extraDomList = () => {
+    return (
+      <div className={`${className}-actions ${hashId}`}>
+        {extraRender ? (
+          extraRender(
+            defalutExtraActions.collapsePannelAction,
+            defalutExtraActions.helpSelectAction,
+            defalutExtraActions.closeAction,
+          )
+        ) : (
+          <>
+            {defalutExtraActions.collapsePannelAction}
+            {defalutExtraActions.helpSelectAction}
+            {onClose ? defalutExtraActions.closeAction : null}
+          </>
+        )}
+      </div>
+    );
+  };
+
   return wrapSSR(
     <SelectKeyProvide.Provider
       value={{
@@ -136,37 +205,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
           width: '100%',
         }}
         size="small"
-        extra={
-          <div className={`${className}-actions ${hashId}`}>
-            <div className={`${className}-actions-item ${hashId}`}>
-              <ProfileOutlined
-                title="collapse panel"
-                onClick={() => {
-                  setShowLeftPanel(!showLeftPanel);
-                }}
-              />
-            </div>
-            <ProHelpSelect
-              iconClassName={`${className}-actions-item`}
-              className={`${hashId} ${className}-actions-input`}
-              value={selectedKey}
-              onChange={(value, item) => {
-                setSelectedKey(value);
-                setOpenKey((item as any)?.dataItemKey);
-              }}
-            />
-            {onClose ? (
-              <div className={`${className}-actions-item ${hashId}`}>
-                <CloseOutlined
-                  title="close panel"
-                  onClick={() => {
-                    onClose?.();
-                  }}
-                />
-              </div>
-            ) : null}
-          </div>
-        }
+        extra={extraDomList()}
       >
         {showLeftPanel ? (
           <div
