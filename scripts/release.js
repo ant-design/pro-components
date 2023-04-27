@@ -20,8 +20,13 @@ function logStep(name) {
 }
 
 function packageExists({ name, version }) {
-  const { stdout } = execa.sync('npm', ['info', `${name}@${version}`]);
-  return stdout.length > 0;
+  try {
+    const { stdout, stderr } = execa.sync('npm', ['info', `${name}@${version}`]);
+    if (stderr) return false;
+    return stdout.length > 0;
+  } catch (error) {
+    return false;
+  }
 }
 
 async function release() {
@@ -124,7 +129,6 @@ async function release() {
       message: '请输入 otp 的值，留空表示不使用 otp',
     },
   ]);
-
   process.env.NPM_CONFIG_OTP = otp;
 
   const publishList = pkgs.map((pkg, index) => {
@@ -138,6 +142,7 @@ async function release() {
         console.log(`package ${name}@${version} is already exists on npm, skip.`);
       }
     }
+
     if (!args.publishOnly || !isPackageExist) {
       console.log(
         `[${index + 1}/${pkgs.length}] Publish package ${name} ${isNext ? 'with next tag' : ''}`,
