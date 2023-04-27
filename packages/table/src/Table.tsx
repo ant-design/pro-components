@@ -126,31 +126,27 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   }, [counter.columnsMap, tableColumns]);
 
   /** 如果所有列中的 filters=true| undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
-  const useLocaleFilter = useMemo(
-    () => {
-      const _columns: any[] = [];
-      // 平铺所有columns, 用于判断是用的是本地筛选
-      const loopColumns = (data: any[]) => {
-        for (let i = 0; i < data.length; i++) {
-          const _curItem = data[i];
-          if (_curItem.children) {
-            loopColumns(_curItem.children)
-          } else {
-            _columns.push(_curItem)
-          }
+  const useLocaleFilter = useMemo(() => {
+    const _columns: any[] = [];
+    // 平铺所有columns, 用于判断是用的是本地筛选
+    const loopColumns = (data: any[]) => {
+      for (let i = 0; i < data.length; i++) {
+        const _curItem = data[i];
+        if (_curItem.children) {
+          loopColumns(_curItem.children);
+        } else {
+          _columns.push(_curItem);
         }
       }
-      loopColumns(columns);
-      return _columns?.every(
-        (column) => {
-          return (!!column.filters && !!column.onFilter) ||
-          (column.filters === undefined && column.onFilter === undefined);
-        }
- 
+    };
+    loopColumns(columns);
+    return _columns?.every((column) => {
+      return (
+        (!!column.filters && !!column.onFilter) ||
+        (column.filters === undefined && column.onFilter === undefined)
       );
-    },
-    [columns],
-  );
+    });
+  }, [columns]);
 
   /**
    * 如果是分页的新增，总是加到最后一行

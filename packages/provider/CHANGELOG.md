@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.2...@ant-design/pro-provider@2.8.3) (2023-04-26)
 
-
 ### Bug Fixes
 
-* **components:** add process==undefined determine ([5494986](https://github.com/ant-design/pro-components/commit/5494986aceb4f90234d0c9cd51000db6aa1c7bdb))
-
-
-
-
+- **components:** add process==undefined determine ([5494986](https://github.com/ant-design/pro-components/commit/5494986aceb4f90234d0c9cd51000db6aa1c7bdb))
 
 ## [2.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.1...@ant-design/pro-provider@2.8.2) (2023-04-25)
 
