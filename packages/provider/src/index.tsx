@@ -268,7 +268,7 @@ const ConfigProviderContainer: React.FC<{
       return '';
     }
     if (proProvide.hashed === false) return '';
-
+    //Fix issue with hashId code
     if (typeof window !== 'undefined' && window.location && window.location.hostname === 'localhost') {
       // 浏览器环境，本地开发环境
       return nativeHashId;
