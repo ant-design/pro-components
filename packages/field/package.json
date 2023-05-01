@@ -19,15 +19,15 @@
     "dist",
     "lib"
   ],
+  "scripts": {
+    "build": "father build"
+  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
   ],
-  "scripts": {
-    "build": "father build"
-  },
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
     "@ant-design/pro-provider": "^2.8.3",
@@ -49,6 +49,6 @@
   },
   "peerDependencies": {
     "antd": ">=4.23.0",
-    "react": ">=16.9.0"
+    "react": ">=17.0.0"
   }
 }

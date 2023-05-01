@@ -45,7 +45,7 @@
   },
   "peerDependencies": {
     "antd": ">=4.23.0",
-    "react": ">=16.9.0"
+    "react": ">=17.0.0"
   },
   "publishConfig": {
     "access": "public"

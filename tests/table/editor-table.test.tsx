@@ -217,8 +217,10 @@ describe('EditorProTable', () => {
 
     try {
       actionRef.current?.addEditRecord(undefined);
-    } catch (error: any) {
-      expect(error.message).toEqual('请设置 recordCreatorProps.record 并返回一个唯一的key');
+    } catch (error) {
+      expect((error as any).message).toEqual(
+        '请设置 recordCreatorProps.record 并返回一个唯一的key',
+      );
     }
     await waitTime(1000);
     spy.mockRestore();

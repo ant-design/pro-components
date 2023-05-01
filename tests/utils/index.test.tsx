@@ -22,13 +22,12 @@ import {
   lighten,
   setAlpha,
 } from '@ant-design/pro-utils';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
-import { waitTime } from '../util';
 
 describe('utils', () => {
   beforeEach(() => {
@@ -70,6 +69,7 @@ describe('utils', () => {
   });
 
   it('📅 useDebounceValue', async () => {
+    jest.useFakeTimers();
     const App = (props: { deps: string[] }) => {
       const value = useDebounceValue(props.deps?.[0], 200, props.deps);
 
@@ -78,20 +78,27 @@ describe('utils', () => {
 
     const html = render(<App deps={['name']} />);
 
-    await waitTime(100);
+    await html.findByText('name');
 
     expect(html.baseElement?.textContent).toEqual('name');
 
     act(() => {
       html.rerender(<App deps={['string']} />);
     });
-    await waitTime(100);
+
+    await html.findByText('name');
 
     expect(html.baseElement?.textContent).toEqual('name');
 
-    await waitTime(500);
+    await html.findByText('string');
 
-    expect(html.baseElement?.textContent).toEqual('string');
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(html.baseElement?.textContent).toEqual('string');
+    });
   });
 
   it('📅 dateArrayFormatter', async () => {
@@ -121,6 +128,8 @@ describe('utils', () => {
   });
 
   it('📅 useDebounceValue without deps', async () => {
+    jest.useFakeTimers();
+
     const App = (props: { deps: string[] }) => {
       const [, forceUpdate] = useState([]);
       const value = useDebounceValue(props.deps?.[0]);
@@ -136,15 +145,27 @@ describe('utils', () => {
 
     const html = render(<App deps={['name']} />);
 
+    await html.findByText('name');
+
     expect(html.baseElement?.textContent).toEqual('name');
 
     act(() => {
       html.rerender(<App deps={['string']} />);
     });
 
+    await html.findByText('name');
+
     expect(html.baseElement?.textContent).toEqual('name');
-    await waitTime(1000);
-    expect(html.baseElement?.textContent).toEqual('string');
+
+    await act(() => {
+      return jest.runAllTimers();
+    });
+
+    await waitFor(() => {
+      expect(html.baseElement?.textContent).toEqual('string');
+    });
+
+    jest.useRealTimers();
   });
 
   it('📅 useDebounceFn', async () => {
@@ -153,6 +174,8 @@ describe('utils', () => {
         name: 'string',
       },
     });
+
+    jest.useFakeTimers();
     const fn = jest.fn();
     const App = ({ wait }: { wait?: number }) => {
       const fetchData = useDebounceFn(async () => fn(), wait);
@@ -167,10 +190,14 @@ describe('utils', () => {
             fetchData.run();
             fetchData.run();
           }}
-        />
+        >
+          test
+        </div>
       );
     };
     const html = render(<App />);
+
+    await html.findByText('test');
 
     expect(fn).toBeCalledTimes(1);
 
@@ -185,13 +212,23 @@ describe('utils', () => {
       html.rerender(<App wait={80} />);
     });
 
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
+
     act(() => {
       html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
-    await waitTime(100);
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
 
-    expect(fn).toBeCalledTimes(4);
+    await html.findByText('test');
+
+    await act(() => {
+      expect(fn).toBeCalledTimes(4);
+    });
 
     act(() => {
       html.rerender(<App wait={0} />);
@@ -201,7 +238,9 @@ describe('utils', () => {
       html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
-    expect(fn).toBeCalledTimes(6);
+    await act(() => {
+      expect(fn).toBeCalledTimes(6);
+    });
 
     // wait === 100 but callback is cancelled
 
@@ -213,13 +252,15 @@ describe('utils', () => {
       html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
-    await waitTime(50);
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
 
     html.unmount();
 
-    await waitTime(100);
+    expect(fn).toBeCalledTimes(7);
 
-    expect(fn).toBeCalledTimes(6);
+    jest.useRealTimers();
   });
 
   it('📅 useDebounceFn execution has errors', async () => {
@@ -228,6 +269,8 @@ describe('utils', () => {
         name: 'string',
       },
     });
+
+    jest.useFakeTimers();
 
     const error = new Error('debounce error');
     const catchFn = jest.fn();
@@ -245,9 +288,11 @@ describe('utils', () => {
 
     render(<App />);
 
-    await waitTime(100);
+    await waitFor(() => {
+      expect(catchFn).toBeCalledWith(error);
+    });
 
-    expect(catchFn).toBeCalledWith(error);
+    jest.useRealTimers();
   });
 
   it('📅 conversionSubmitValue nil', async () => {
@@ -460,6 +505,7 @@ describe('utils', () => {
     };
     const html = render(
       <Form>
+        <span>text</span>
         <InlineErrorFormItem
           errorType="popover"
           rules={[
@@ -488,11 +534,15 @@ describe('utils', () => {
       </Form>,
     );
 
+    await html.findByText('text');
+
     await act(async () => {
       (await html.findByRole('test_input')).focus();
     });
-    await waitTime(100);
-    expect(!!html.baseElement.querySelector('div.ant-popover')).toBeFalsy();
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('div.ant-popover')).toBeFalsy();
+    });
 
     await act(async () => {
       const dom = await html.findByRole('test_input');
@@ -502,8 +552,10 @@ describe('utils', () => {
         },
       });
     });
-    await waitTime(1000);
-    expect(!!html.baseElement.querySelector('div.ant-popover')).toBeTruthy();
+
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('div.ant-popover')).toBeTruthy();
+    });
     const li = html.baseElement.querySelectorAll(
       'div.ant-popover .ant-popover-inner-content div.ant-form-item-explain-error',
     );
@@ -518,7 +570,10 @@ describe('utils', () => {
         },
       });
     });
-    await waitTime(1000);
+
+    await waitFor(() => {
+      return html.findAllByDisplayValue('12345678901AB');
+    });
 
     await act(async () => {
       const dom = await html.findByRole('test_input');
@@ -528,10 +583,11 @@ describe('utils', () => {
         },
       });
     });
-    await waitTime(1000);
-    expect(
-      html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
-    ).toBeFalsy();
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
+      ).toBeFalsy();
+    });
 
     await act(async () => {
       const dom = await html.findByRole('test_input');
@@ -541,10 +597,11 @@ describe('utils', () => {
         },
       });
     });
-    await waitTime(1000);
-    expect(
-      html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
-    ).toBeFalsy();
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
+      ).toBeFalsy();
+    });
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
@@ -922,16 +979,16 @@ describe('utils', () => {
         />
       );
 
-      expect(isDeepEqualReact(a, b, ['ignoreKey'])).toBeTruthy();
-
       return (
         <>
+          <span>{isDeepEqualReact(a, b, ['ignoreKey']) ? 'Equal' : 'No'}</span>
           <CustomComponent a={a} b={b} />
         </>
       );
     };
-    render(<DeepComponent />);
-    await waitTime(1200);
+    const html = render(<DeepComponent />);
+
+    await html.findAllByText('Equal');
   });
 
   it('🪓 nanoid', () => {

@@ -59,14 +59,8 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * @property {function} [onRequestError] 请求错误的回调函数
    * @property {number} [debounceTime=20] 防抖时间，单位为毫秒，默认为 20ms
    */
-  const {
-    onLoad,
-    manual,
-    polling,
-    onRequestError,
-    debounceTime = 20,
-    effects = [],
-  } = options || {};
+  const { onLoad, manual, polling, onRequestError, debounceTime = 20, effects = [] } =
+    options || {};
 
   /** 是否首次加载的指示器 */
   const manualRequestRef = useRef<boolean>(manual);

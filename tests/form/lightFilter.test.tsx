@@ -664,7 +664,7 @@ describe('LightFilter', () => {
       userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
     });
 
-    await screen.findByText('此刻');
+    await waitFor(() => screen.findByText('此刻'));
 
     await act(async () => {
       (await screen.findByText('此刻'))?.click();
