@@ -108,12 +108,12 @@ export type ProRenderFieldPropsType = {
    * @return 返回一个用于读的 dom
    */
   render?:
-  | ((
-    text: any,
-    props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
-    dom: JSX.Element,
-  ) => JSX.Element)
-  | undefined;
+    | ((
+        text: any,
+        props: Omit<ProFieldFCRenderProps, 'value' | 'onChange'>,
+        dom: JSX.Element,
+      ) => JSX.Element)
+    | undefined;
   /**
    * 一个自定义的编辑渲染器。
    * @params text 默认的值类型
@@ -122,8 +122,8 @@ export type ProRenderFieldPropsType = {
    * @return 返回一个用于编辑的dom
    */
   renderFormItem?:
-  | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
-  | undefined;
+    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+    | undefined;
 };
 
 export type ParamsType = Record<string, any>;
@@ -269,7 +269,11 @@ const ConfigProviderContainer: React.FC<{
     }
     if (proProvide.hashed === false) return '';
     //Fix issue with hashId code
-    if (typeof window !== 'undefined' && window.location && window.location.hostname === 'localhost') {
+    if (
+      typeof window !== 'undefined' &&
+      window.location &&
+      window.location.hostname === 'localhost'
+    ) {
       // 浏览器环境，本地开发环境
       return nativeHashId;
     } else {
@@ -277,8 +281,6 @@ const ConfigProviderContainer: React.FC<{
       return '';
     }
   }, [nativeHashId, proProvide.hashed, props.hashed]);
-
-
 
   const configProviderDom = useMemo(() => {
     const themeConfig = {
