@@ -24,7 +24,7 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
       },
       ['& &-warp-page-header']: {
         paddingBlockStart:
-          (token.layout?.pageContainer?.paddingBlockPageContainerContent ?? 40) / 2,
+          (token.layout?.pageContainer?.paddingBlockPageContainerContent ?? 40) / 3,
         paddingBlockEnd: (token.layout?.pageContainer?.paddingBlockPageContainerContent ?? 40) / 2,
         paddingInlineStart: token.layout?.pageContainer?.paddingInlinePageContainerContent,
         paddingInlineEnd: token.layout?.pageContainer?.paddingInlinePageContainerContent,
