@@ -510,7 +510,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const [collapsed, onCollapse] = useMergedState<boolean>(
     () => {
       if (defaultCollapsed !== undefined) return defaultCollapsed;
-      if (!isNeedOpenHash()) return false;
+      if (isNeedOpenHash() === false) return false;
       if (isMobile) return true;
       if (colSize === 'md') return true;
       return false;
@@ -678,7 +678,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
         <>{children}</>
       ) : (
         <div className={className}>
-          <div className={`${proLayoutClassName}-bg-list ${hashId}`}>{bgImgStyleList}</div>
+          <div className={classNames(`${proLayoutClassName}-bg-list`, hashId)}>
+            {bgImgStyleList}
+          </div>
           <Layout
             style={{
               minHeight: '100%',

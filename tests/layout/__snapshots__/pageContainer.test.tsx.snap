@@ -214,7 +214,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -555,7 +555,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -800,7 +800,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"

@@ -6,7 +6,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -217,7 +217,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -413,7 +413,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -643,7 +643,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -859,7 +859,7 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -1077,7 +1077,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -1295,7 +1295,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"

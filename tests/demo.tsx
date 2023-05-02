@@ -1,6 +1,7 @@
 import { cleanup, render as reactRender, waitFor } from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';
+import { useEffect } from 'react';
 import { act } from 'react-dom/test-utils';
 type Options = {
   skip?: boolean;
@@ -54,6 +55,18 @@ function demoTest(component: string, options: Options = {}) {
   const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
   files.push(...glob.sync(`./${component}/**/**/[!_]*.tsx`));
 
+  const App = (props: { children: any; onInit: () => void }) => {
+    useEffect(() => {
+      props.onInit?.();
+    }, []);
+    return (
+      <>
+        <div>test</div>
+        {props.children}
+      </>
+    );
+  };
+
   describe(`${component} demos`, () => {
     files.forEach((file) => {
       let testMethod = options.skip === true ? test.skip : test;
@@ -63,14 +76,14 @@ function demoTest(component: string, options: Options = {}) {
       testMethod(`📸 renders ${file} correctly`, async () => {
         jest.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
 
+        const fn = jest.fn();
         Math.random = () => 0.8404419276253765;
 
         const Demo = require(`.${file}`).default;
         const wrapper = reactRender(
-          <>
-            <div>test</div>
+          <App onInit={fn}>
             <Demo />
-          </>,
+          </App>,
         );
 
         act(() => {
@@ -95,7 +108,12 @@ function demoTest(component: string, options: Options = {}) {
           { timeout: 3000 },
         );
 
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        await waitFor(() => {
+          expect(fn).toBeCalled();
+        });
+        await waitFor(() => {
+          expect(wrapper.asFragment()).toMatchSnapshot();
+        });
 
         wrapper.unmount();
         jest.useRealTimers();

@@ -6,7 +6,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -199,7 +199,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -537,7 +537,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -603,7 +603,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -669,7 +669,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -734,7 +734,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -1076,7 +1076,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"

@@ -39,5 +39,6 @@ module.exports = {
   setupFilesAfterEnv: ['./tests/setupTests.ts'],
   globals: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
+    IS_REACT_ACT_ENVIRONMENT: true,
   },
 };

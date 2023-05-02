@@ -26,7 +26,11 @@ export * from './intl';
  * @returns
  */
 export const isNeedOpenHash = () => {
-  if (typeof process !== 'undefined' && process.env.NODE_ENV === 'TEST') {
+  if (
+    typeof process !== 'undefined' &&
+    (process.env.NODE_ENV?.toUpperCase() === 'TEST' ||
+      process.env.NODE_ENV?.toUpperCase() === 'DEV')
+  ) {
     return false;
   }
   return undefined;
@@ -269,12 +273,7 @@ const ConfigProviderContainer: React.FC<{
     }
     if (proProvide.hashed === false) return '';
     //Fix issue with hashId code
-    if (
-      typeof window !== 'undefined' &&
-      window.location &&
-      window.location.hostname === 'localhost'
-    ) {
-      // 浏览器环境，本地开发环境
+    if (isNeedOpenHash() !== false) {
       return nativeHashId;
     } else {
       // 生产环境或其他环境
@@ -288,7 +287,6 @@ const ConfigProviderContainer: React.FC<{
       hashId: hashId,
       hashed: isNeedOpenHash() && props.hashed !== false && proProvide.hashed !== false,
     };
-
     return (
       <AntdConfigProvider {...restConfig} theme={{ ...themeConfig }}>
         <ProConfigContext.Provider

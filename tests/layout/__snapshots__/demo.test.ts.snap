@@ -3613,7 +3613,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -4076,7 +4076,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -4488,7 +4488,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -5092,7 +5092,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -5474,7 +5474,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -5962,7 +5962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -6520,7 +6520,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -6824,7 +6824,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-is-children ant-pro-layout-side"
             >
               <div
-                class="ant-pro-layout-bg-list "
+                class="ant-pro-layout-bg-list"
               />
               <section
                 class="ant-layout ant-layout-has-sider"
@@ -7138,7 +7138,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout"
@@ -7477,7 +7477,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
               class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-is-children ant-pro-layout-fix-siderbar ant-pro-layout-side"
             >
               <div
-                class="ant-pro-layout-bg-list "
+                class="ant-pro-layout-bg-list"
               />
               <section
                 class="ant-layout ant-layout-has-sider"
@@ -7759,7 +7759,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -8423,7 +8423,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -8996,7 +8996,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -9780,7 +9780,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -10794,7 +10794,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -11460,7 +11460,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
       class="ant-design-pro my-prefix-layout screen-md my-prefix-layout-fix-siderbar my-prefix-layout-mix"
     >
       <div
-        class="my-prefix-layout-bg-list "
+        class="my-prefix-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -12559,7 +12559,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -13634,7 +13634,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -14184,7 +14184,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
     class="ant-design-pro qixian-pro-layout screen-md qixian-pro-layout-fix-siderbar qixian-pro-layout-side"
   >
     <div
-      class="qixian-pro-layout-bg-list "
+      class="qixian-pro-layout-bg-list"
     />
     <section
       class="qixian-layout qixian-layout-has-sider"
@@ -15470,7 +15470,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -16494,7 +16494,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -17057,7 +17057,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -17439,7 +17439,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -18175,7 +18175,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -19228,7 +19228,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -20323,7 +20323,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -21763,7 +21763,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -23055,7 +23055,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -23514,7 +23514,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -23802,7 +23802,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -24332,7 +24332,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -25403,7 +25403,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -26812,7 +26812,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -27294,7 +27294,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -27936,7 +27936,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -28805,7 +28805,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -29630,7 +29630,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -30618,7 +30618,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -31638,7 +31638,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -32129,7 +32129,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -32953,7 +32953,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
@@ -33938,7 +33938,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -34361,7 +34361,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -34381,7 +34381,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -34672,7 +34672,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -34986,7 +34986,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
@@ -35284,7 +35284,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -35751,7 +35751,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -36247,7 +36247,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
@@ -36986,7 +36986,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
@@ -37434,7 +37434,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       >
         <img
           src="https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png"
