@@ -44,45 +44,19 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => 
   const headerDom = renderLogoAndTitle({ ...props, collapsed: false }, renderKey);
   const contentDom = useMemo(() => {
     const defaultDom = (
-      <ConfigProvider
-        theme={{
-          hashed: isNeedOpenHash(),
-          components: {
-            Menu: {
-              colorItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
-              colorSubItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
-              radiusItem: 4,
-              colorItemBgSelected:
-                token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
-              colorItemBgActive:
-                token?.layout?.header?.colorBgMenuItemHover || token?.colorBgTextHover,
-              colorItemBgSelectedHorizontal:
-                token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
-              colorActiveBarWidth: 0,
-              colorActiveBarHeight: 0,
-              colorActiveBarBorderSize: 0,
-              colorItemText: token?.layout?.header?.colorTextMenu || token?.colorTextSecondary,
-              colorItemTextHover: token?.layout?.header?.colorTextMenuActive || token?.colorText,
-              colorItemTextSelected:
-                token?.layout?.header?.colorTextMenuSelected || token?.colorTextBase,
-            },
-          },
+      <BaseMenu
+        theme={dark ? 'dark' : 'light'}
+        {...props}
+        className={`${prefixCls}-base-menu ${hashId}`}
+        {...props.menuProps}
+        style={{
+          width: '100%',
+          ...props.menuProps?.style,
         }}
-      >
-        <BaseMenu
-          theme={dark ? 'dark' : 'light'}
-          {...props}
-          className={`${prefixCls}-base-menu ${hashId}`}
-          {...props.menuProps}
-          style={{
-            width: '100%',
-            ...props.menuProps?.style,
-          }}
-          collapsed={false}
-          menuRenderType="header"
-          mode="horizontal"
-        />
-      </ConfigProvider>
+        collapsed={false}
+        menuRenderType="header"
+        mode="horizontal"
+      />
     );
 
     if (headerContentRender) {

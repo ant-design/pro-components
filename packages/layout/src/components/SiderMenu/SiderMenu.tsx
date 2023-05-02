@@ -433,7 +433,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   );
 
   const { token } = useContext(ProProvider);
-
   return stylishClassName.wrapSSR(
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (
@@ -464,46 +463,20 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         width={siderWidth}
         className={classNames(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
       >
-        <ConfigProvider
-          theme={{
-            hashed: isNeedOpenHash(),
-            components: {
-              Menu: {
-                radiusItem: 4,
-                colorItemBgSelected:
-                  token?.layout?.sider?.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
-                colorItemBg: 'transparent',
-                colorSubItemBg: 'transparent',
-                colorItemBgActive:
-                  token?.layout?.sider?.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
-                colorActiveBarWidth: 0,
-                colorActiveBarHeight: 0,
-                colorActiveBarBorderSize: 0,
-                colorItemText: token?.layout?.sider?.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
-                colorItemTextHover:
-                  token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
-                colorItemTextSelected:
-                  token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
-                colorBgElevated: token?.layout?.sider?.colorBgMenuItemCollapsedElevated || '#fff',
-              },
-            },
-          }}
-        >
-          {hideMenuWhenCollapsedClassName ? (
-            <div
-              className={`${baseClassName}-hide-when-collapsed ${hashId}`}
-              style={{
-                height: '100%',
-                width: '100%',
-                opacity: hideMenuWhenCollapsedClassName ? 0 : 1,
-              }}
-            >
-              {menuDomItems}
-            </div>
-          ) : (
-            menuDomItems
-          )}
-        </ConfigProvider>
+        {hideMenuWhenCollapsedClassName ? (
+          <div
+            className={`${baseClassName}-hide-when-collapsed ${hashId}`}
+            style={{
+              height: '100%',
+              width: '100%',
+              opacity: hideMenuWhenCollapsedClassName ? 0 : 1,
+            }}
+          >
+            {menuDomItems}
+          </div>
+        ) : (
+          menuDomItems
+        )}
         {collapsedDom}
       </Sider>
     </>,

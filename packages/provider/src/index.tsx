@@ -33,7 +33,7 @@ export const isNeedOpenHash = () => {
   ) {
     return false;
   }
-  return undefined;
+  return true;
 };
 
 export { DeepPartial, ProTokenType };
