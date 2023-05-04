@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.6.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.6...@ant-design/pro-table@3.6.7) (2023-05-04)
+
+
+### Bug Fixes
+
+* **table:** 修复useLocaleFilter方法未判断存在children的情况 ([#6987](https://github.com/ant-design/pro-components/issues/6987)) ([5990003](https://github.com/ant-design/pro-components/commit/59900031e51592c989c79dd54d40007fe92210ee))
+
+
+
+
 
 ## [3.6.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.5...@ant-design/pro-table@3.6.6) (2023-04-26)
 

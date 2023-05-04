@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.8.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.3...@ant-design/pro-provider@2.8.4) (2023-05-04)
+
+
+### Bug Fixes
+
+* **provide:** fix default antCls no work error ([a3e7a11](https://github.com/ant-design/pro-components/commit/a3e7a113a97c8ef84ab7c2fa30a6b9ac6d117382))
+* support antd new version ([c90977c](https://github.com/ant-design/pro-components/commit/c90977c00ed524155a21de647216a54b0efd6332))
+
+
+
+
 
 ## [2.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.2...@ant-design/pro-provider@2.8.3) (2023-04-26)
 
