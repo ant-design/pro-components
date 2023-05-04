@@ -651,109 +651,150 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, [bgLayoutImgList]);
   const { token } = useContext(ProProvider);
   return wrapSSR(
-    <ConfigProvider
-      // @ts-ignore
-      theme={{
-        hashed: isNeedOpenHash(),
-        components: {
-          Layout: {
-            colorBgHeader: 'transparent',
-            colorBgBody: 'transparent',
-          },
-          Menu: {
-            colorItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
-            colorSubItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
-            radiusItem: 4,
-            colorItemBgSelected:
-              token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
-            colorItemBgActive:
-              token?.layout?.header?.colorBgMenuItemHover || token?.colorBgTextHover,
-            colorItemBgSelectedHorizontal:
-              token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
-            colorActiveBarWidth: 0,
-            colorActiveBarHeight: 0,
-            colorActiveBarBorderSize: 0,
-            colorItemText: token?.layout?.header?.colorTextMenu || token?.colorTextSecondary,
-            colorItemTextHoverHorizontal:
-              token?.layout?.header?.colorTextMenuActive || token?.colorText,
-            colorItemTextSelectedHorizontal:
-              token?.layout?.header?.colorTextMenuSelected || token?.colorTextBase,
-            colorItemTextHover: token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
-            colorItemTextSelected:
-              token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
-            colorBgElevated: token?.layout?.sider?.colorBgMenuItemCollapsedElevated || '#fff',
-          },
-        },
+    <RouteContext.Provider
+      value={{
+        ...defaultProps,
+        breadcrumb: breadcrumbProps,
+        menuData,
+        isMobile,
+        collapsed,
+        hasPageContainer,
+        setHasPageContainer,
+        isChildrenLayout: true,
+        title: pageTitleInfo.pageName,
+        hasSiderMenu: !!siderMenuDom,
+        hasHeader: !!headerDom,
+        siderWidth: leftSiderWidth,
+        hasFooter: !!footerDom,
+        hasFooterToolbar,
+        setHasFooterToolbar,
+        pageTitleInfo,
+        matchMenus,
+        matchMenuKeys,
+        currentMenu,
       }}
     >
-      <RouteContext.Provider
-        value={{
-          ...defaultProps,
-          breadcrumb: breadcrumbProps,
-          menuData,
-          isMobile,
-          collapsed,
-          hasPageContainer,
-          setHasPageContainer,
-          isChildrenLayout: true,
-          title: pageTitleInfo.pageName,
-          hasSiderMenu: !!siderMenuDom,
-          hasHeader: !!headerDom,
-          siderWidth: leftSiderWidth,
-          hasFooter: !!footerDom,
-          hasFooterToolbar,
-          setHasFooterToolbar,
-          pageTitleInfo,
-          matchMenus,
-          matchMenuKeys,
-          currentMenu,
-        }}
-      >
-        {props.pure ? (
-          <>{children}</>
-        ) : (
-          <div className={className}>
-            <div className={classNames(`${proLayoutClassName}-bg-list`, hashId)}>
-              {bgImgStyleList}
-            </div>
-            <Layout
-              style={{
-                minHeight: '100%',
-                // hack style
-                flexDirection: siderMenuDom ? 'row' : undefined,
-                ...style,
+      {props.pure ? (
+        <>{children}</>
+      ) : (
+        <div className={className}>
+          <div className={classNames(`${proLayoutClassName}-bg-list`, hashId)}>
+            {bgImgStyleList}
+          </div>
+          <Layout
+            style={{
+              minHeight: '100%',
+              // hack style
+              flexDirection: siderMenuDom ? 'row' : undefined,
+              ...style,
+            }}
+          >
+            <ConfigProvider
+              // @ts-ignore
+              theme={{
+                hashed: isNeedOpenHash(),
+                components: {
+                  Layout: {
+                    colorBgHeader: 'transparent',
+                    colorBgBody: 'transparent',
+                  },
+                  Menu: {
+                    colorItemBg: token?.layout?.sider?.colorMenuBackground || 'transparent',
+                    colorSubItemBg: token?.layout?.sider?.colorMenuBackground || 'transparent',
+                    radiusItem: 4,
+                    colorItemBgSelected:
+                      token?.layout?.sider?.colorBgMenuItemSelected || token?.colorBgTextHover,
+                    colorItemBgActive:
+                      token?.layout?.sider?.colorBgMenuItemHover || token?.colorBgTextHover,
+                    colorItemBgSelectedHorizontal:
+                      token?.layout?.sider?.colorBgMenuItemSelected || token?.colorBgTextHover,
+                    colorActiveBarWidth: 0,
+                    colorActiveBarHeight: 0,
+                    colorActiveBarBorderSize: 0,
+                    colorItemText: token?.layout?.sider?.colorTextMenu || token?.colorTextSecondary,
+                    colorItemTextHoverHorizontal:
+                      token?.layout?.sider?.colorTextMenuActive || token?.colorText,
+                    colorItemTextSelectedHorizontal:
+                      token?.layout?.sider?.colorTextMenuSelected || token?.colorTextBase,
+                    colorItemTextHover:
+                      token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                    colorItemTextSelected:
+                      token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
+                    colorBgElevated:
+                      token?.layout?.sider?.colorBgMenuItemCollapsedElevated || '#fff',
+                  },
+                },
               }}
             >
               {siderMenuDom}
-              <div style={genLayoutStyle} className={`${proLayoutClassName}-container ${hashId}`}>
+            </ConfigProvider>
+            <div style={genLayoutStyle} className={`${proLayoutClassName}-container ${hashId}`}>
+              <ConfigProvider
+                // @ts-ignore
+                theme={{
+                  hashed: isNeedOpenHash(),
+                  components: {
+                    Layout: {
+                      colorBgHeader: 'transparent',
+                      colorBgBody: 'transparent',
+                    },
+                    Menu: {
+                      colorItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
+                      colorSubItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
+                      radiusItem: 4,
+                      colorItemBgSelected:
+                        token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
+                      colorItemBgActive:
+                        token?.layout?.header?.colorBgMenuItemHover || token?.colorBgTextHover,
+                      colorItemBgSelectedHorizontal:
+                        token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
+                      colorActiveBarWidth: 0,
+                      colorActiveBarHeight: 0,
+                      colorActiveBarBorderSize: 0,
+                      colorItemText:
+                        token?.layout?.header?.colorTextMenu || token?.colorTextSecondary,
+                      colorItemTextHoverHorizontal:
+                        token?.layout?.header?.colorTextMenuActive || token?.colorText,
+                      colorItemTextSelectedHorizontal:
+                        token?.layout?.header?.colorTextMenuSelected || token?.colorTextBase,
+                      colorItemTextHover:
+                        token?.layout?.header?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                      colorItemTextSelected:
+                        token?.layout?.header?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
+                      colorBgElevated:
+                        token?.layout?.header?.colorBgMenuItemCollapsedElevated || '#fff',
+                    },
+                  },
+                }}
+              >
                 {headerDom}
-                <WrapContent
-                  hasPageContainer={hasPageContainer}
-                  isChildrenLayout={isChildrenLayout}
-                  {...rest}
-                  hasHeader={!!headerDom}
-                  prefixCls={proLayoutClassName}
-                  style={contentStyle}
-                >
-                  {loading ? <PageLoading /> : children}
-                </WrapContent>
-                {footerDom}
-                {hasFooterToolbar && (
-                  <div
-                    className={`${proLayoutClassName}-has-footer`}
-                    style={{
-                      height: 64,
-                      marginBlockStart:
-                        token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-                    }}
-                  />
-                )}
-              </div>
-            </Layout>
-          </div>
-        )}
-      </RouteContext.Provider>
-    </ConfigProvider>,
+              </ConfigProvider>
+              <WrapContent
+                hasPageContainer={hasPageContainer}
+                isChildrenLayout={isChildrenLayout}
+                {...rest}
+                hasHeader={!!headerDom}
+                prefixCls={proLayoutClassName}
+                style={contentStyle}
+              >
+                {loading ? <PageLoading /> : children}
+              </WrapContent>
+              {footerDom}
+              {hasFooterToolbar && (
+                <div
+                  className={`${proLayoutClassName}-has-footer`}
+                  style={{
+                    height: 64,
+                    marginBlockStart:
+                      token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+                  }}
+                />
+              )}
+            </div>
+          </Layout>
+        </div>
+      )}
+    </RouteContext.Provider>,
   );
 };
 

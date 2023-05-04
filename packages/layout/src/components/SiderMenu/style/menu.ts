@@ -9,6 +9,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
   return {
     [`${token.componentCls}`]: {
       background: 'transparent',
+      color: token.layout?.sider?.colorTextMenu,
       border: 'none',
       [`${token.componentCls}-menu-item`]: {
         transition: 'none !important',
@@ -63,6 +64,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
         flexDirection: 'row',
         alignItems: 'center',
         gap: 8,
+        color: token.layout?.sider?.colorTextMenu,
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
