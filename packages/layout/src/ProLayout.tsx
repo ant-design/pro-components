@@ -702,6 +702,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorItemBg: token?.layout?.sider?.colorMenuBackground || 'transparent',
                     colorSubItemBg: token?.layout?.sider?.colorMenuBackground || 'transparent',
                     radiusItem: 4,
+                    controlHeightLG: token?.layout?.sider?.menuHeight || token?.controlHeightLG,
+
                     colorItemBgSelected:
                       token?.layout?.sider?.colorBgMenuItemSelected || token?.colorBgTextHover,
                     colorItemBgActive:
@@ -761,8 +763,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                         token?.layout?.header?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
                       colorItemTextSelected:
                         token?.layout?.header?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
-                      colorBgElevated:
-                        token?.layout?.header?.colorBgMenuItemCollapsedElevated || '#fff',
                     },
                   },
                 }}

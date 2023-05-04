@@ -29,6 +29,7 @@ export type BaseLayoutDesignToken = {
     colorTextCollapsedButtonHover: string;
     colorTextCollapsedButton: string;
     colorMenuBackground: string;
+    menuHeight: number;
     colorBgMenuItemCollapsedElevated: string;
     colorMenuItemDivider: string;
     colorBgMenuItemHover: string;
