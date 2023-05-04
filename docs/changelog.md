@@ -1,4 +1,12 @@
-﻿## @ant-design/pro-components@2.4.9
+﻿## @ant-design/pro-components@2.4.11
+
+`2023-05-04`
+
+- fix(layout): paddingBlockStart set value=8. [6eac5b6](https://github.com/ant-design/pro-components/commit/6eac5b6)
+- feat(layout): help add extraRender api (#6982). [#6982](https://github.com/ant-design/pro-components/pull/#6982) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(table): 修复 useLocaleFilter 方法未判断存在 children 的情况 (#6987). [#6987](https://github.com/ant-design/pro-components/pull/#6987) [@zhou0322-lab](https://github.com/zhou0322-lab)
+
+## @ant-design/pro-components@2.4.9
 
 `2023-04-26`
 

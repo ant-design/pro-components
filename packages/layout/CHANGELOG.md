@@ -1,24 +1,17 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [7.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.12.4...@ant-design/pro-layout@7.13.0) (2023-05-04)
 
-
 ### Bug Fixes
 
-* **layout:** paddingBlockStart set value=8 ([6eac5b6](https://github.com/ant-design/pro-components/commit/6eac5b64a7eda3ae87ed14ea1642fa19a510317c))
-* support antd new version ([c90977c](https://github.com/ant-design/pro-components/commit/c90977c00ed524155a21de647216a54b0efd6332))
-
+- **layout:** paddingBlockStart set value=8 ([6eac5b6](https://github.com/ant-design/pro-components/commit/6eac5b64a7eda3ae87ed14ea1642fa19a510317c))
+- support antd new version ([c90977c](https://github.com/ant-design/pro-components/commit/c90977c00ed524155a21de647216a54b0efd6332))
 
 ### Features
 
-* **layout:** help add extraRender api ([#6982](https://github.com/ant-design/pro-components/issues/6982)) ([6453b2d](https://github.com/ant-design/pro-components/commit/6453b2d3df5097ec46be5bb68be0ea52f8549f07))
-
-
-
-
+- **layout:** help add extraRender api ([#6982](https://github.com/ant-design/pro-components/issues/6982)) ([6453b2d](https://github.com/ant-design/pro-components/commit/6453b2d3df5097ec46be5bb68be0ea52f8549f07))
 
 ## [7.12.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.12.3...@ant-design/pro-layout@7.12.4) (2023-04-26)
 
