@@ -111,13 +111,12 @@ export function useStyle(
   const { token: antdToken } = useToken();
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
 
-  token.antCls = `.${getPrefixCls()}`;
-
   // 如果不在 ProProvider 里面，就用 antd 的
   if (!token.layout) {
     token = { ...antdToken } as any;
-    token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
   }
+  token.proComponentsCls = token.proComponentsCls ?? `.${getPrefixCls('pro')}`;
+  token.antCls = `.${getPrefixCls()}`;
 
   return {
     wrapSSR: useStyleRegister(
