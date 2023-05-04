@@ -1,7 +1,7 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
 import type { ActionType, EditableFormInstance, ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { InputNumber } from 'antd';
 import React from 'react';
 import { waitTime } from '../util';
@@ -230,6 +230,7 @@ describe('EditorProTable', () => {
   it('📝 EditableProTable saveEditable should save and quit editing', async () => {
     const actionRef = React.createRef<ActionType>();
     let changedDataSource: DataSourceType[] = [];
+    jest.useFakeTimers();
     const onChange = jest.fn((value) => {
       changedDataSource = value;
     });
@@ -239,6 +240,7 @@ describe('EditorProTable', () => {
           table: defaultData,
         }}
       >
+        <div>render</div>
         <EditableProTable<DataSourceType>
           rowKey="id"
           name="table"
@@ -248,18 +250,20 @@ describe('EditorProTable', () => {
         />
       </ProForm>,
     );
-    await waitTime(1000);
 
-    expect(
-      wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
-        .length,
-    ).toBe(defaultData.length);
+    await wrapper.findByText('render');
+
+    await waitFor(() => {
+      expect(
+        wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
+          .length,
+      ).toBe(defaultData.length);
+    });
 
     const editAndChange = async (inputValue: string) => {
       act(() => {
         wrapper.container.querySelector<HTMLButtonElement>('#editor')?.click();
       });
-      await waitTime(100);
 
       act(() => {
         fireEvent.change(
@@ -271,42 +275,70 @@ describe('EditorProTable', () => {
           },
         );
       });
-      await waitTime(100);
-    };
+      await act(() => jest.runOnlyPendingTimers());
 
+      await wrapper.findAllByDisplayValue(inputValue);
+    };
     await editAndChange('');
     // should block saving when there is validation error
-    await actionRef.current?.saveEditable(624748504);
+    await act(() => {
+      return actionRef.current?.saveEditable(624748504);
+    });
     // should exist validation error
-    expect(
-      wrapper.container
-        .querySelectorAll('.ant-table-tbody')[0]
-        .querySelectorAll('.ant-form-item-has-error').length,
-    ).toBeGreaterThan(0);
-    expect(
-      wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,
-    ).toBe(4);
-    expect(onChange).not.toBeCalled();
 
-    await editAndChange('test value');
+    await act(() => jest.runOnlyPendingTimers());
+
+    await waitFor(() => {
+      expect(
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody')[0]
+          .querySelectorAll('.ant-form-item-has-error').length,
+      ).toBeGreaterThan(0);
+    });
+    await waitFor(() => {
+      expect(
+        wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,
+      ).toBe(4);
+    });
+    await waitFor(() => {
+      expect(onChange).not.toBeCalled();
+    });
+    editAndChange('test value');
     // save with recordKey
-    await actionRef.current?.saveEditable(624748504);
-    await waitTime(1000);
 
-    expect(onChange).toBeCalled();
-    expect(changedDataSource).toHaveLength(defaultData.length);
-    expect(changedDataSource[0]?.title).toBe('test value');
+    await act(() => {
+      return actionRef.current?.saveEditable(624748504);
+    });
 
+    await act(() => jest.runOnlyPendingTimers());
+
+    await waitFor(() => {
+      expect(onChange).toBeCalled();
+    });
+    await waitFor(() => {
+      expect(changedDataSource).toHaveLength(defaultData.length);
+    });
+    await waitFor(() => {
+      expect(changedDataSource[0]?.title).toBe('test value');
+    });
     await editAndChange('test value2');
     // save with array index, if name is set
-    await actionRef.current?.saveEditable(0);
-    await waitTime(300);
+    await act(() => {
+      return actionRef.current?.saveEditable(0);
+    });
 
-    await waitTime(200);
-    expect(onChange).toBeCalled();
-    expect(changedDataSource).toHaveLength(defaultData.length);
-    expect(changedDataSource[0]?.title).toBe('test value2');
+    await act(() => jest.runOnlyPendingTimers());
 
+    await waitFor(() => {
+      expect(onChange).toBeCalled();
+    });
+    await waitFor(() => {
+      expect(changedDataSource).toHaveLength(defaultData.length);
+    });
+    await waitFor(() => {
+      expect(changedDataSource[0]?.title).toBe('test value2');
+    });
+    jest.useRealTimers();
     wrapper.unmount();
   });
 
