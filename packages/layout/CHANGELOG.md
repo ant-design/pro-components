@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.0...@ant-design/pro-layout@7.13.1) (2023-05-04)
+
+
+### Bug Fixes
+
+* **layout:** fix token no work error ([1d47c30](https://github.com/ant-design/pro-components/commit/1d47c308a3fc8cfeaca7e965540c5c78c67d71ad))
+* **layout:** support controlHeightLG token ([c2841b3](https://github.com/ant-design/pro-components/commit/c2841b310d375ffbde18f9aca6cd027affe9251c))
+
+
+
+
 
 # [7.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.12.4...@ant-design/pro-layout@7.13.0) (2023-05-04)
 
