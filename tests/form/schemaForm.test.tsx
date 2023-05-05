@@ -3,6 +3,7 @@
   ProFormLayoutType,
 } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
+import { ProProvider } from '@ant-design/pro-provider';
 import {
   act,
   fireEvent,
@@ -12,7 +13,7 @@ import {
 } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
-import React, { createRef } from 'react';
+import React, { createRef, useContext, useEffect } from 'react';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -819,5 +820,88 @@ describe('SchemaForm', () => {
         jest.useRealTimers();
       }
     });
+  });
+
+  it('test custom component should not rerender when other field change', () => {
+    const fibonacci = jest.fn();
+
+    const ExpensiveCustomComp = React.memo<{
+      value: any;
+      onChange: (value: any) => void;
+    }>((props) => {
+      fibonacci();
+
+      useEffect(() => {
+        console.log('CustomComp props.change changed');
+      }, [props.onChange]);
+
+      useEffect(() => {
+        console.log('CustomComp props.value changed');
+      }, [props.value]);
+
+      return <div>我是自定义组件</div>;
+    });
+
+    const columns: ProFormColumnsType<any, 'test'>[] = [
+      {
+        title: '测试输入框',
+        dataIndex: 'name',
+        valueType: 'text',
+        fieldProps: {
+          maxLength: 100,
+          showCount: true,
+        },
+      },
+      /**
+       * 构造20个耗时组件测试一下 不要在`columns`中使用
+       *     1、renderFormItem
+       *     2、fieldProps（typeof fieldProps === 'function'时）
+       *     3、formItemProps（typeof formItemProps === 'function'时） 以上三种用法会导致每个onValuesChange都去重复构建DomList。 目前只能先这样workaround了
+       */
+      ...Array(1)
+        .fill('custom')
+        .map<ProFormColumnsType<any, 'test'>>((k, i) => {
+          return {
+            title: `自定义组件${i}`,
+            dataIndex: `${k}_${i}`,
+            valueType: 'test',
+          } as ProFormColumnsType<any, 'test'>;
+        }),
+    ];
+
+    const App = () => {
+      const values = useContext(ProProvider);
+      return (
+        <ProProvider.Provider
+          value={{
+            ...values,
+            valueTypeMap: {
+              test: {
+                renderFormItem: (text, props) => {
+                  return <ExpensiveCustomComp {...props?.fieldProps} />;
+                },
+              },
+            },
+          }}
+        >
+          <BetaSchemaForm<any, 'test'>
+            columns={columns}
+            title="自定义 valueType"
+          />
+        </ProProvider.Provider>
+      );
+    };
+
+    const wrapper = render(<App />);
+
+    expect(fibonacci).toBeCalledTimes(1);
+
+    fireEvent.change(wrapper.baseElement.querySelector('input#name')!, {
+      target: {
+        value: 'test2',
+      },
+    });
+
+    expect(fibonacci).toBeCalledTimes(1);
   });
 });
