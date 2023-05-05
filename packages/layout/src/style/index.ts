@@ -36,9 +36,10 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
           backgroundColor: 'transparent',
           width: '100%',
         },
-        [`${token.antCls}-menu-submenu-expand-icon, ${token.antCls}-menu-submenu-arrow`]: {
-          color: 'inherit',
-        },
+        [`${token.antCls}-menu-submenu-expand-icon, ${token.antCls}-menu-submenu-arrow`]:
+          {
+            color: 'inherit',
+          },
         [`&${token.antCls}-menu`]: {
           color: token?.layout?.sider?.colorTextMenu,
           [`${token.antCls}-menu-item`]: {
@@ -51,9 +52,10 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
           },
         },
         [`&${token.antCls}-menu-inline`]: {
-          [`${token.antCls}-menu-selected::after,${token.antCls}-menu-item-selected::after`]: {
-            display: 'none',
-          },
+          [`${token.antCls}-menu-selected::after,${token.antCls}-menu-item-selected::after`]:
+            {
+              display: 'none',
+            },
         },
         [`${token.antCls}-menu-sub ${token.antCls}-menu-inline`]: {
           backgroundColor: 'transparent!important',
@@ -140,9 +142,10 @@ const compatibleStyle: GenerateStyle<ProLayoutToken> = (token) => {
             paddingInline: 16,
             marginInline: 4,
           },
-          [`> ${token.antCls}-menu-item::after, > ${token.antCls}-menu-submenu::after`]: {
-            display: 'none',
-          },
+          [`> ${token.antCls}-menu-item::after, > ${token.antCls}-menu-submenu::after`]:
+            {
+              display: 'none',
+            },
         },
       },
 
@@ -231,10 +234,13 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
-        backgroundColor: token?.layout?.pageContainer?.colorBgPageContainer || 'transparent',
+        backgroundColor:
+          token?.layout?.pageContainer?.colorBgPageContainer || 'transparent',
         position: 'relative',
-        paddingBlock: token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-        paddingInline: token?.layout?.pageContainer?.paddingInlinePageContainerContent,
+        paddingBlock:
+          token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+        paddingInline:
+          token?.layout?.pageContainer?.paddingInlinePageContainerContent,
         '&-has-page-container': {
           padding: 0,
         },

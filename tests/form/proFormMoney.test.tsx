@@ -16,7 +16,10 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '￥ 44.33');
+    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
+      'value',
+      '￥ 44.33',
+    );
 
     act(() => {
       fireEvent.click(container.querySelector('button.ant-btn-primary')!);
@@ -42,7 +45,10 @@ describe('💵 ProFormMoney', () => {
       </ConfigProvider>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '£ 44.33');
+    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
+      'value',
+      '£ 44.33',
+    );
 
     act(() => {
       fireEvent.click(container.querySelector('button.ant-btn-primary')!);
@@ -66,7 +72,10 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '$ 44.33');
+    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
+      'value',
+      '$ 44.33',
+    );
 
     fireEvent.click(container.querySelector('button.ant-btn-primary')!);
 
@@ -87,7 +96,10 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '💰 44.33');
+    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
+      'value',
+      '💰 44.33',
+    );
     act(() => {
       fireEvent.click(container.querySelector('button.ant-btn-primary')!);
     });
@@ -108,7 +120,10 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '');
+    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
+      'value',
+      '',
+    );
 
     await fireEvent.change(container.querySelector('input#amount')!, {
       target: {
@@ -135,7 +150,10 @@ describe('💵 ProFormMoney', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '');
+    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
+      'value',
+      '',
+    );
 
     await fireEvent.change(container.querySelector('input#amount')!, {
       target: {
@@ -143,7 +161,10 @@ describe('💵 ProFormMoney', () => {
       },
     });
 
-    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute('value', '￥ -55.33');
+    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
+      'value',
+      '￥ -55.33',
+    );
 
     fireEvent.click(container.querySelector('button.ant-btn-primary')!);
 

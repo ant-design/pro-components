@@ -58,12 +58,18 @@ export type ProSchemaValueEnumType = {
  *
  * @name ValueEnum 的类型
  */
-type ProSchemaValueEnumMap = Map<string | number, ProSchemaValueEnumType | React.ReactNode>;
+type ProSchemaValueEnumMap = Map<
+  string | number,
+  ProSchemaValueEnumType | React.ReactNode
+>;
 
 /**
  * 支持 Map 和 Object
  */
-type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
+type ProSchemaValueEnumObj = Record<
+  string,
+  ProSchemaValueEnumType | React.ReactNode
+>;
 
 /**
  * BaseProFieldFC 的类型设置
@@ -126,7 +132,11 @@ export type ProRenderFieldPropsType = {
    * @return 返回一个用于编辑的dom
    */
   renderFormItem?:
-    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+    | ((
+        text: any,
+        props: ProFieldFCRenderProps,
+        dom: JSX.Element,
+      ) => JSX.Element)
     | undefined;
 };
 
@@ -201,7 +211,9 @@ const ConfigProviderContainer: React.FC<{
     token: propsToken,
     prefixCls,
   } = props;
-  const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
+  const { locale, getPrefixCls, ...restConfig } = useContext(
+    AntdConfigProvider.ConfigContext,
+  );
   const tokenContext = proTheme.useToken?.();
   const proProvide = useContext(ProConfigContext);
 
@@ -211,7 +223,9 @@ const ConfigProviderContainer: React.FC<{
    * @example .ant-pro
    */
 
-  const proComponentsCls = prefixCls ? `.${prefixCls}` : `.${getPrefixCls()}-pro`;
+  const proComponentsCls = prefixCls
+    ? `.${prefixCls}`
+    : `.${getPrefixCls()}-pro`;
 
   const antCls = '.' + getPrefixCls();
 
@@ -220,7 +234,10 @@ const ConfigProviderContainer: React.FC<{
    * 合并一下token，不然导致嵌套 token 失效
    */
   const proLayoutTokenMerge = useMemo(() => {
-    return getLayoutDesignToken(propsToken || {}, tokenContext.token || defaultToken);
+    return getLayoutDesignToken(
+      propsToken || {},
+      tokenContext.token || defaultToken,
+    );
   }, [propsToken, tokenContext.token]);
 
   const proProvideValue = useMemo(() => {
@@ -285,7 +302,10 @@ const ConfigProviderContainer: React.FC<{
     const themeConfig = {
       ...restConfig.theme,
       hashId: hashId,
-      hashed: isNeedOpenHash() && props.hashed !== false && proProvide.hashed !== false,
+      hashed:
+        isNeedOpenHash() &&
+        props.hashed !== false &&
+        proProvide.hashed !== false,
     };
     return (
       <AntdConfigProvider {...restConfig} theme={{ ...themeConfig }}>
@@ -308,11 +328,23 @@ const ConfigProviderContainer: React.FC<{
     );
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoClearCache, children, getPrefixCls, hashId, locale, proProvideValue, token]);
+  }, [
+    autoClearCache,
+    children,
+    getPrefixCls,
+    hashId,
+    locale,
+    proProvideValue,
+    token,
+  ]);
 
   if (!autoClearCache) return configProviderDom;
 
-  return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
+  return (
+    <SWRConfig value={{ provider: () => new Map() }}>
+      {configProviderDom}
+    </SWRConfig>
+  );
 };
 
 /**
@@ -332,7 +364,9 @@ export const ProConfigProvider: React.FC<{
 }> = (props) => {
   const { needDeps, dark, token } = props;
   const proProvide = useContext(ProConfigContext);
-  const { locale, theme, ...rest } = useContext(AntdConfigProvider.ConfigContext);
+  const { locale, theme, ...rest } = useContext(
+    AntdConfigProvider.ConfigContext,
+  );
 
   // 是不是不需要渲染 provide
   const isNullProvide =
@@ -348,7 +382,9 @@ export const ProConfigProvider: React.FC<{
       return [proTheme.darkAlgorithm, theme?.algorithm].filter(Boolean);
     }
     if (isDark && Array.isArray(theme?.algorithm)) {
-      return [proTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(Boolean);
+      return [proTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(
+        Boolean,
+      );
     }
     return theme?.algorithm;
   };

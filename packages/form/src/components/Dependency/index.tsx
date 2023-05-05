@@ -63,7 +63,10 @@ const ProFormDependency = <T,>({
         }
 
         return flattenNames.some((name) => {
-          return !isDeepEqualReact(get(prevValues, name), get(nextValues, name));
+          return !isDeepEqualReact(
+            get(prevValues, name),
+            get(nextValues, name),
+          );
         });
       }}
     >
@@ -88,7 +91,10 @@ const ProFormDependency = <T,>({
             }
           }
         }
-        return children?.(values, { ...form, ...context } as ProFormInstance<any>);
+        return children?.(values, {
+          ...form,
+          ...context,
+        } as ProFormInstance<any>);
       }}
     </Form.Item>
   );

@@ -1,10 +1,20 @@
 import { MenuOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-components';
-import { arrayMoveImmutable, ProTable, useRefFunction } from '@ant-design/pro-components';
+import {
+  arrayMoveImmutable,
+  ProTable,
+  useRefFunction,
+} from '@ant-design/pro-components';
 import { useState } from 'react';
-import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
+import {
+  SortableContainer,
+  SortableElement,
+  SortableHandle,
+} from 'react-sortable-hoc';
 
-const DragHandle = SortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
+const DragHandle = SortableHandle(() => (
+  <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />
+));
 
 const columns: ProColumns[] = [
   {
@@ -84,7 +94,9 @@ export default () => {
   const DraggableBodyRow = (props: any) => {
     const { className, style, ...restProps } = props;
     // function findIndex base on Table rowKey props and should always be a right array index
-    const index = dataSource.findIndex((x) => x.index === restProps['data-row-key']);
+    const index = dataSource.findIndex(
+      (x) => x.index === restProps['data-row-key'],
+    );
     return <SortableItem index={index} {...restProps} />;
   };
 

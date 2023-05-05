@@ -1,6 +1,9 @@
 ﻿import type { SegmentedProps } from 'antd';
 import React from 'react';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
+import type {
+  ProFormFieldItemProps,
+  ProFormFieldRemoteProps,
+} from '../../typing';
 import ProFormField from '../Field';
 
 /**

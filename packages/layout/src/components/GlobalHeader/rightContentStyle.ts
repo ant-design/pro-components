@@ -27,7 +27,8 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
             paddingBlock: 6,
             borderRadius: token.borderRadius,
             '&:hover': {
-              backgroundColor: token?.layout?.header?.colorBgRightActionsItemHover,
+              backgroundColor:
+                token?.layout?.header?.colorBgRightActionsItemHover,
             },
           },
         },
@@ -50,7 +51,8 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
             lineHeight: '44px',
             borderRadius: token.borderRadius,
             '&:hover': {
-              backgroundColor: token?.layout?.header?.colorBgRightActionsItemHover,
+              backgroundColor:
+                token?.layout?.header?.colorBgRightActionsItemHover,
             },
           },
         },

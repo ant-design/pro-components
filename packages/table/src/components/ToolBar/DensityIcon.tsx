@@ -19,9 +19,18 @@ const DensityIcon = () => {
       width: 80,
     },
     items: [
-      { key: 'large', label: intl.getMessage('tableToolBar.densityLarger', '默认') },
-      { key: 'middle', label: intl.getMessage('tableToolBar.densityMiddle', '中等') },
-      { key: 'small', label: intl.getMessage('tableToolBar.densitySmall', '紧凑') },
+      {
+        key: 'large',
+        label: intl.getMessage('tableToolBar.densityLarger', '默认'),
+      },
+      {
+        key: 'middle',
+        label: intl.getMessage('tableToolBar.densityMiddle', '中等'),
+      },
+      {
+        key: 'small',
+        label: intl.getMessage('tableToolBar.densitySmall', '紧凑'),
+      },
     ],
   });
   return (

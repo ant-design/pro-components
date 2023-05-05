@@ -37,7 +37,9 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     renderContent,
     ...restProps
   } = props;
-  const { getPrefixCls, getTargetContainer } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, getTargetContainer } = useContext(
+    ConfigProvider.ConfigContext,
+  );
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
   const baseClassName = `${prefixCls}-footer-bar`;
@@ -60,7 +62,9 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   const containerDom = useMemo(() => {
     // 只读取一次就行了，不然总是的渲染
     return (
-      getTargetContainer?.() || document.querySelector(`.${getPrefixCls('pro')}`) || document.body
+      getTargetContainer?.() ||
+      document.querySelector(`.${getPrefixCls('pro')}`) ||
+      document.body
     );
   }, []);
 
@@ -107,9 +111,13 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     </div>
   );
   const ssrDom =
-    !isBrowser() || !portalDom ? renderDom : createPortal(renderDom, containerDom, baseClassName);
+    !isBrowser() || !portalDom
+      ? renderDom
+      : createPortal(renderDom, containerDom, baseClassName);
 
-  return stylish.wrapSSR(wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>));
+  return stylish.wrapSSR(
+    wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>),
+  );
 };
 
 export { FooterToolbar };

@@ -11,7 +11,10 @@ type PickUploadProps = Pick<
   'listType' | 'action' | 'accept' | 'fileList' | 'onChange'
 >;
 
-export type ProFormUploadButtonProps = ProFormFieldItemProps<UploadProps<any>, HTMLElement> & {
+export type ProFormUploadButtonProps = ProFormFieldItemProps<
+  UploadProps<any>,
+  HTMLElement
+> & {
   /**
    * @name  上传文件的图标
    * @default UploadOutlined
@@ -60,7 +63,10 @@ export type ProFormUploadButtonProps = ProFormFieldItemProps<UploadProps<any>, H
  *
  * @param
  */
-const BaseProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormUploadButtonProps> = (
+const BaseProFormUploadButton: React.ForwardRefRenderFunction<
+  any,
+  ProFormUploadButtonProps
+> = (
   {
     fieldProps,
     action,
@@ -85,7 +91,8 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormUpload
   const mode = proFieldProps?.mode || modeContext.mode || 'edit';
 
   // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
-  const showUploadButton = (max === undefined || !value || value?.length < max) && mode !== 'read';
+  const showUploadButton =
+    (max === undefined || !value || value?.length < max) && mode !== 'read';
 
   const isPictureCard = (listType ?? fieldProps?.listType) === 'picture-card';
   return (
@@ -120,7 +127,8 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormUpload
 const ProFormUploadButton = createField<ProFormUploadButtonProps>(
   React.forwardRef(BaseProFormUploadButton),
   {
-    getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) => value.fileList,
+    getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>
+      value.fileList,
   },
 ) as typeof BaseProFormUploadButton;
 

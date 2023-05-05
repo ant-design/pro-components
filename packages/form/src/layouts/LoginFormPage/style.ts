@@ -75,7 +75,11 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       '&-main': {
         width: '328px',
         margin: '0 auto',
-        '&-other': { marginBlockStart: '24px', lineHeight: '22px', textAlign: 'start' },
+        '&-other': {
+          marginBlockStart: '24px',
+          lineHeight: '22px',
+          textAlign: 'start',
+        },
       },
     },
     [`@media (max-width: ${token.screenMDMin}px)`]: {

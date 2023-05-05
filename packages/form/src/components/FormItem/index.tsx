@@ -45,7 +45,9 @@ const WithValueFomFiledProps: React.FC<
       if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
       if (!React.isValidElement(filedChildren)) return undefined;
       filedChildren?.props?.onChange?.(...restParams);
-      (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(...restParams);
+      (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(
+        ...restParams,
+      );
     },
     [filedChildren, onChange],
   );
@@ -56,14 +58,17 @@ const WithValueFomFiledProps: React.FC<
       if (!React.isValidElement(filedChildren)) return;
       onBlur?.(...restParams);
       filedChildren?.props?.onBlur?.(...restParams);
-      (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(...restParams);
+      (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(
+        ...restParams,
+      );
     },
     [filedChildren, onBlur],
   );
 
   const fieldProps = useMemo(() => {
     // @ts-ignore
-    if (filedChildren?.type?.displayName !== 'ProFormComponent') return undefined;
+    if (filedChildren?.type?.displayName !== 'ProFormComponent')
+      return undefined;
     if (!React.isValidElement(filedChildren)) return undefined;
 
     return omitUndefined({
@@ -77,7 +82,14 @@ const WithValueFomFiledProps: React.FC<
       // 要通过 fieldProps 透传给 ProField 调用
       onChange: onChangeMemo,
     });
-  }, [filedChildren, formFieldProps, onBlurMemo, onChangeMemo, restProps.id, valuePropName]);
+  }, [
+    filedChildren,
+    formFieldProps,
+    onBlurMemo,
+    onChangeMemo,
+    restProps.id,
+    valuePropName,
+  ]);
 
   const finalChange = useMemo(() => {
     if (fieldProps) return undefined;
@@ -150,7 +162,11 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
     }
     if (!addonAfter && !addonBefore) {
       return (
-        <Form.Item {...props} valuePropName={valuePropName} getValueProps={getValuePropsFunc}>
+        <Form.Item
+          {...props}
+          valuePropName={valuePropName}
+          getValueProps={getValuePropsFunc}
+        >
           {children}
         </Form.Item>
       );
@@ -177,9 +193,13 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                   alignItems: 'center',
                 }}
               >
-                {addonBefore ? <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div> : null}
+                {addonBefore ? (
+                  <div style={{ marginInlineEnd: 8 }}>{addonBefore}</div>
+                ) : null}
                 {doms.input}
-                {addonAfter ? <div style={{ marginInlineStart: 8 }}>{addonAfter}</div> : null}
+                {addonAfter ? (
+                  <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
+                ) : null}
               </div>
               {doms.extra}
               {doms.errorList}
@@ -232,7 +252,9 @@ export type ProFormItemProps = FormItemProps & {
 
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   /** 从 context 中拿到的值 */
-  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const { componentSize } = ConfigProvider?.useConfig?.() || {
+    componentSize: 'middle',
+  };
   const size = componentSize;
   const {
     valueType,
@@ -265,7 +287,9 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
     // 写一个 ts 比较麻烦，用 any 顶一下
     setFieldValueType(
-      [formListField.listName, props.name].flat(1).filter((itemName) => itemName !== undefined),
+      [formListField.listName, props.name]
+        .flat(1)
+        .filter((itemName) => itemName !== undefined),
       {
         valueType: valueType || 'text',
         dateFormat: dataFormat,
@@ -296,7 +320,11 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   // formItem 支持function，如果是function 我就直接不管了
   if (typeof props.children === 'function') {
     return (
-      <WarpFormItem {...rest} name={name} key={rest.proFormFieldKey || rest.name?.toString()}>
+      <WarpFormItem
+        {...rest}
+        name={name}
+        key={rest.proFormFieldKey || rest.name?.toString()}
+      >
         {props.children}
       </WarpFormItem>
     );
@@ -314,7 +342,11 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   const lightDom = noLightFormItem ? (
     children
   ) : (
-    <LightWrapper {...lightProps} key={rest.proFormFieldKey || rest.name?.toString()} size={size}>
+    <LightWrapper
+      {...lightProps}
+      key={rest.proFormFieldKey || rest.name?.toString()}
+      size={size}
+    >
       {children}
     </LightWrapper>
   );

@@ -100,7 +100,10 @@ export default () => {
                 dayjs.locale(intlMap[value].locale);
                 setIntl(value);
               }}
-              options={Object.keys(intlMap).map((value) => ({ value, label: value }))}
+              options={Object.keys(intlMap).map((value) => ({
+                value,
+                label: value,
+              }))}
             />
           </Space>
         }

@@ -7,7 +7,13 @@ describe('Card', () => {
   it('🥩 collapsible onCollapse', async () => {
     const fn = jest.fn();
     const wrapper = render(
-      <ProCard title="可折叠" headerBordered collapsible defaultCollapsed onCollapse={fn}>
+      <ProCard
+        title="可折叠"
+        headerBordered
+        collapsible
+        defaultCollapsed
+        onCollapse={fn}
+      >
         内容
       </ProCard>,
     );
@@ -15,7 +21,9 @@ describe('Card', () => {
     await wrapper.findAllByText('可折叠');
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapsible-icon')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-card-collapsible-icon')
+        ?.click();
     });
 
     expect(fn).toBeCalled();
@@ -29,7 +37,9 @@ describe('Card', () => {
     );
     await wrapper.findAllByText('可折叠');
     expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
     ).toBeTruthy();
   });
 
@@ -41,7 +51,9 @@ describe('Card', () => {
     );
     await wrapper.findAllByText('可折叠');
     expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
     ).toBeTruthy();
 
     act(() => {
@@ -54,7 +66,9 @@ describe('Card', () => {
 
     await wrapper.findAllByText('可打开');
     expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
     ).toBeFalsy();
   });
 
@@ -76,7 +90,9 @@ describe('Card', () => {
 
     act(() => {
       expect(
-        !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
+        !!wrapper.baseElement.querySelector<HTMLDivElement>(
+          '.ant-pro-card-collapse',
+        ),
       ).toBeTruthy();
     });
 
@@ -100,10 +116,14 @@ describe('Card', () => {
     );
     await wrapper.findAllByText('可折叠-图标自定义');
 
-    expect(!!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card')).toBeTruthy();
+    expect(
+      !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card'),
+    ).toBeTruthy();
 
     expect(
-      !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card-collapse'),
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
     ).toBeFalsy();
 
     const dom = await wrapper.findByText('收起');

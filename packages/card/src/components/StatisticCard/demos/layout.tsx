@@ -28,14 +28,22 @@ export default () => {
                 statistic={{
                   title: '昨日全部流量',
                   value: 234,
-                  description: <Statistic title="较本月平均流量" value="8.04%" trend="down" />,
+                  description: (
+                    <Statistic
+                      title="较本月平均流量"
+                      value="8.04%"
+                      trend="down"
+                    />
+                  ),
                 }}
               />
               <StatisticCard
                 statistic={{
                   title: '本月累计流量',
                   value: 234,
-                  description: <Statistic title="月同比" value="8.04%" trend="up" />,
+                  description: (
+                    <Statistic title="月同比" value="8.04%" trend="up" />
+                  ),
                 }}
               />
             </ProCard>

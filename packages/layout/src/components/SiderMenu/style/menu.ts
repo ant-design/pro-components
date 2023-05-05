@@ -5,7 +5,9 @@ export interface ProLayoutBaseMenuToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token) => {
+const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
+  token,
+) => {
   return {
     [`${token.componentCls}`]: {
       background: 'transparent',
@@ -38,10 +40,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
           marginBlock: '4px !important',
         },
         [`${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title, 
-        ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]: {
-          backgroundColor: token.layout?.sider?.colorBgMenuItemSelected,
-          borderRadius: token.borderRadiusLG,
-        },
+        ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]:
+          {
+            backgroundColor: token.layout?.sider?.colorBgMenuItemSelected,
+            borderRadius: token.borderRadiusLG,
+          },
         [`${token.componentCls}-group`]: {
           [`${token.antCls}-menu-item-group-title`]: {
             paddingInline: 0,

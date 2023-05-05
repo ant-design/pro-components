@@ -10,14 +10,17 @@ const valueType = 'date' as const;
  *
  * @param
  */
-const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
-  ({ proFieldProps, fieldProps, ...rest }, ref) => {
+const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> =
+  React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref) => {
     const context = useContext(FieldContext);
     return (
       <ProFormField
         ref={ref}
         valueType={valueType}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+        fieldProps={{
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
         proFieldProps={proFieldProps}
         filedConfig={{
           valueType,
@@ -26,7 +29,6 @@ const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = Reac
         {...rest}
       />
     );
-  },
-);
+  });
 
 export default ProFormDatePicker;

@@ -1,5 +1,8 @@
 import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
-import { resetComponent, useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import {
+  resetComponent,
+  useStyle as useAntdStyle,
+} from '@ant-design/pro-utils';
 
 interface ProCardToken extends ProAliasToken {
   componentCls: string;
@@ -28,7 +31,8 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       ...resetComponent?.(token),
 
       '&-box-shadow': {
-        boxShadow: '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
+        boxShadow:
+          '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
         borderColor: 'transparent',
       },
       '&-col': {
@@ -45,7 +49,8 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
         '&:hover': {
           borderColor: 'transparent',
-          boxShadow: '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
+          boxShadow:
+            '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
         },
 
         [`&${componentCls}-checked:hover`]: {

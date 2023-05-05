@@ -101,7 +101,10 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     if (creatorButtonProps === false || uuidFields.length === max) return null;
     const {
       position = 'bottom',
-      creatorButtonText = intl.getMessage('editableTable.action.add', '添加一行数据'),
+      creatorButtonText = intl.getMessage(
+        'editableTable.action.add',
+        '添加一行数据',
+      ),
     } = creatorButtonProps || {};
     return (
       <Button
@@ -145,7 +148,9 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
 
   return (
     <div style={defaultStyle} className={containerClassName}>
-      {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
+      {creatorButtonProps !== false &&
+        creatorButtonProps?.position === 'top' &&
+        creatorButton}
       {uuidFields.map((field, index) => {
         return (
           <ProFormListItem
@@ -161,7 +166,9 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         );
       })}
       {fieldExtraRender && fieldExtraRender(wrapperAction, meta)}
-      {creatorButtonProps !== false && creatorButtonProps?.position !== 'top' && creatorButton}
+      {creatorButtonProps !== false &&
+        creatorButtonProps?.position !== 'top' &&
+        creatorButton}
     </div>
   );
 };

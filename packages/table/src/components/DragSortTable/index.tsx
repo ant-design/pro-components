@@ -19,7 +19,8 @@ export type DragTableProps<T, U> = {
 } & ProTableProps<T, U>;
 
 // 用于创建可拖拽把手组件的工厂
-const handleCreator = (handle: React.ReactNode) => SortableHandle(() => <>{handle}</>);
+const handleCreator = (handle: React.ReactNode) =>
+  SortableHandle(() => <>{handle}</>);
 
 function DragSortTable<
   T extends Record<string, any>,
@@ -39,14 +40,20 @@ function DragSortTable<
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const [dataSource, setMergedDs] = useMergedState<T[]>(() => defaultData || [], {
-    value: originDataSource as T[],
-    onChange: onDataSourceChange,
-  });
+  const [dataSource, setMergedDs] = useMergedState<T[]>(
+    () => defaultData || [],
+    {
+      value: originDataSource as T[],
+      onChange: onDataSourceChange,
+    },
+  );
 
   // 默认拖拽把手
   const DragHandle = useMemo(
-    () => handleCreator(<MenuOutlined className={getPrefixCls('pro-table-drag-icon')} />),
+    () =>
+      handleCreator(
+        <MenuOutlined className={getPrefixCls('pro-table-drag-icon')} />,
+      ),
     [getPrefixCls],
   );
 
@@ -64,7 +71,9 @@ function DragSortTable<
   }, [propsColumns, isDragSortColumn]);
 
   // 记录原始列配置
-  const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({ ...handleColumn });
+  const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({
+    ...handleColumn,
+  });
   // 使用自定义hooks获取拖拽相关组件的components集合
   const { components } = useDragSort<T>({
     dataSource: dataSource?.slice(),

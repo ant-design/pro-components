@@ -59,7 +59,10 @@ export interface DescriptionsItemProps {
  * @template T - 表格数据的类型
  * @template ValueType - 表格项的值类型
  */
-export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'> = ProSchema<
+export type ProDescriptionsItemProps<
+  T = Record<string, any>,
+  ValueType = 'text',
+> = ProSchema<
   T,
   Omit<DescriptionsItemProps, 'children'> & {
     // 隐藏这个字段，是个语法糖，方便一下权限的控制
@@ -191,12 +194,18 @@ export const FieldRender: React.FC<
 
   /** 如果是只读模式，fieldProps 的 form是空的，所以需要兜底处理 */
   if (mode === 'read' || !mode || valueType === 'option') {
-    const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, undefined, {
-      ...props,
-      rowKey: dataIndex,
-      isEditable: false,
-    });
-    return <ProFormField name={dataIndex} {...fieldConfig} fieldProps={fieldProps} />;
+    const fieldProps = getFieldPropsOrFormItemProps(
+      props.fieldProps,
+      undefined,
+      {
+        ...props,
+        rowKey: dataIndex,
+        isEditable: false,
+      },
+    );
+    return (
+      <ProFormField name={dataIndex} {...fieldConfig} fieldProps={fieldProps} />
+    );
   }
 
   const renderDom = () => {
@@ -209,11 +218,15 @@ export const FieldRender: React.FC<
         isEditable: true,
       },
     );
-    const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, form as FormInstance<any>, {
-      ...props,
-      rowKey: dataIndex,
-      isEditable: true,
-    });
+    const fieldProps = getFieldPropsOrFormItemProps(
+      props.fieldProps,
+      form as FormInstance<any>,
+      {
+        ...props,
+        rowKey: dataIndex,
+        isEditable: true,
+      },
+    );
     const dom = renderFormItem
       ? renderFormItem?.(
           {
@@ -223,8 +236,12 @@ export const FieldRender: React.FC<
           {
             isEditable: true,
             recordKey: dataIndex,
-            record: form.getFieldValue([dataIndex].flat(1) as (string | number)[]),
-            defaultRender: () => <ProFormField {...fieldConfig} fieldProps={fieldProps} />,
+            record: form.getFieldValue(
+              [dataIndex].flat(1) as (string | number)[],
+            ),
+            defaultRender: () => (
+              <ProFormField {...fieldConfig} fieldProps={fieldProps} />
+            ),
             type: 'descriptions',
           },
           form as FormInstance<any>,
@@ -300,7 +317,9 @@ const schemaToDescriptionsItem = (
       } = item as ProDescriptionsItemProps;
 
       const defaultData = getDataFromConfig(item, entity) ?? restItem.children;
-      const text = renderText ? renderText(defaultData, entity, index, action) : defaultData;
+      const text = renderText
+        ? renderText(defaultData, entity, index, action)
+        : defaultData;
 
       const title =
         typeof restItem.title === 'function'
@@ -311,7 +330,10 @@ const schemaToDescriptionsItem = (
       // 有些时候不需要 dataIndex 可以直接 render
       const valueType =
         typeof restItem.valueType === 'function'
-          ? (restItem.valueType(entity || {}, 'descriptions') as ProFieldValueType)
+          ? (restItem.valueType(
+              entity || {},
+              'descriptions',
+            ) as ProFieldValueType)
           : (restItem.valueType as ProFieldValueType);
 
       const isEditable = editableUtils?.isEditable(dataIndex || index);
@@ -386,7 +408,10 @@ const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
 
 const DefaultProDescriptionsDom = (dom: { children: any }) => dom.children;
 
-const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'text'>(
+const ProDescriptions = <
+  RecordType extends Record<string, any>,
+  ValueType = 'text',
+>(
   props: ProDescriptionsProps<RecordType, ValueType>,
 ) => {
   const {
@@ -465,7 +490,14 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
           request: itemRequest,
         } = item?.props as ProDescriptionsItemProps;
 
-        if (!valueType && !valueEnum && !dataIndex && !itemRequest && !ellipsis && !copyable) {
+        if (
+          !valueType &&
+          !valueEnum &&
+          !dataIndex &&
+          !itemRequest &&
+          !ellipsis &&
+          !copyable
+        ) {
           return item;
         }
 
@@ -477,7 +509,10 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     return [...(columns || []), ...childrenColumns]
       .filter((item) => {
         if (!item) return false;
-        if (item?.valueType && ['index', 'indexBorder'].includes(item?.valueType as string)) {
+        if (
+          item?.valueType &&
+          ['index', 'indexBorder'].includes(item?.valueType as string)
+        ) {
           return false;
         }
         return !item?.hideInDescriptions;
@@ -503,7 +538,9 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   /** 即使组件返回null了, 在传递的过程中还是会被Description检测到为有值 */
   let title = null;
   if (rest.title || rest.tooltip || rest.tip) {
-    title = <LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />;
+    title = (
+      <LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />
+    );
   }
 
   const className = context.getPrefixCls('pro-descriptions');

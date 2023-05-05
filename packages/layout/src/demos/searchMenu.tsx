@@ -5,7 +5,10 @@ import { Input, Space } from 'antd';
 import { useState } from 'react';
 import complexMenu from './complexMenu';
 
-const filterByMenuData = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>
+const filterByMenuData = (
+  data: MenuDataItem[],
+  keyWord: string,
+): MenuDataItem[] =>
   data
     .map((item) => {
       if (

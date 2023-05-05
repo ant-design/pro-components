@@ -131,7 +131,10 @@ describe('dragSort', () => {
     ];
     const dragHandleRender = (rowData: any, idx: any) => (
       <>
-        <MenuOutlined className="dragSortCustomHandle" style={{ cursor: 'grab', color: 'gold' }} />
+        <MenuOutlined
+          className="dragSortCustomHandle"
+          style={{ cursor: 'grab', color: 'gold' }}
+        />
         {idx + 1} - {rowData.name}
       </>
     );
@@ -146,7 +149,9 @@ describe('dragSort', () => {
             dataIndex: 'sort',
             render: (dom, rowData, index) => {
               callback(rowData.name, index);
-              return <span className="customRender">{`自定义排序[${rowData.name}-${index}]`}</span>;
+              return (
+                <span className="customRender">{`自定义排序[${rowData.name}-${index}]`}</span>
+              );
             },
           },
           {

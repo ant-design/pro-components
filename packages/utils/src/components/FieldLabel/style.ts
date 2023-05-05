@@ -25,14 +25,15 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         paddingBlock: 0,
         paddingInline: 12,
         backgroundColor: token.colorBgTextHover,
-        [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]: {
-          [`${token.componentCls}-arrow`]: {
-            display: 'none',
+        [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]:
+          {
+            [`${token.componentCls}-arrow`]: {
+              display: 'none',
+            },
+            [`${token.componentCls}-close`]: {
+              display: 'inline-flex',
+            },
           },
-          [`${token.componentCls}-close`]: {
-            display: 'inline-flex',
-          },
-        },
       },
       '&-icon': {
         height: '12px',
@@ -69,7 +70,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         paddingInline: 4,
         fontSize: token.fontSizeSM,
         lineHeight: '24px',
-        [`&${token.componentCls}-active`]: { paddingBlock: 0, paddingInline: 8 },
+        [`&${token.componentCls}-active`]: {
+          paddingBlock: 0,
+          paddingInline: 8,
+        },
         [`${token.componentCls}-icon`]: {
           paddingBlock: 0,
           paddingInline: 0,
@@ -88,7 +92,11 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         border: `${token.lineWidth}px solid ${token.colorBorder}`,
         borderRadius: '@border-radius-base',
       },
-      '&-bordered&-small': { height: '24px', paddingBlock: 0, paddingInline: 8 },
+      '&-bordered&-small': {
+        height: '24px',
+        paddingBlock: 0,
+        paddingInline: 8,
+      },
       '&-bordered&-active': {
         backgroundColor: token.colorBgContainer,
       },

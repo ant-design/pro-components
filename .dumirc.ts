@@ -65,16 +65,21 @@ export default defineConfig({
   analytics: {
     ga_v2: 'G-RMBLDHGL1N',
   },
-  favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
+  favicons: [
+    'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
+  ],
   alias,
   resolve: {
     docDirs: ['docs', ...tailPkgList],
   },
+  styles: [`.markdown table{table-layout: fixed;}`],
   locales: [
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },
   ],
+  ssr: {},
   themeConfig: {
+    siteToken: { demoInheritSiteTheme: true },
     name: 'ProComponents',
     logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     socialLinks: {

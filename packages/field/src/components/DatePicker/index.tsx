@@ -79,7 +79,9 @@ const FieldDatePicker: ProFieldFC<
   ref,
 ) => {
   const intl = useIntl();
-  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const { componentSize } = ConfigProvider?.useConfig?.() || {
+    componentSize: 'middle',
+  };
   const size = componentSize;
   const [open, setOpen] = useState<boolean>(false);
 
@@ -105,15 +107,17 @@ const FieldDatePicker: ProFieldFC<
     const momentValue = parseValueToDay(value) as dayjs.Dayjs;
 
     if (light) {
-      const valueStr: string = (momentValue && momentValue.format(format)) || '';
+      const valueStr: string =
+        (momentValue && momentValue.format(format)) || '';
       dom = (
         <div
           className={`${prefixCls}-light ${hashId}`}
           onClick={(e) => {
             // 点击label切换下拉菜单
-            const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
-              e.target as HTMLElement,
-            );
+            const isLabelClick =
+              lightLabel?.current?.labelRef?.current?.contains(
+                e.target as HTMLElement,
+              );
 
             if (isLabelClick) {
               setOpen(!open);

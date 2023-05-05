@@ -129,9 +129,9 @@ The field type corresponding to dataSource is `'new'` \| `'top'` \| `'inline'`.
 
 ### Metas.actions
 
-| parameter       | description                             | type    | default value          |
-| :-------------- | :-------------------------------------- | :------ | :--------------------- |
-| dataIndex       | -                                       | -       | `'actions'`            |
+| parameter | description | type | default value |
+| :-- | :-- | :-- | :-- |
+| dataIndex | - | - | `'actions'` |
 | cardActionProps | Set where the card list renders actions | `extra` | `'actions' \| 'extra'` |
 
 ### Metas.content

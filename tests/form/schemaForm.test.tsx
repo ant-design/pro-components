@@ -1,6 +1,15 @@
-﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
+﻿import type {
+  ProFormColumnsType,
+  ProFormLayoutType,
+} from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import { act, fireEvent, render, waitFor, screen } from '@testing-library/react';
+import {
+  act,
+  fireEvent,
+  render,
+  waitFor,
+  screen,
+} from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import React, { createRef } from 'react';
@@ -179,8 +188,14 @@ describe('SchemaForm', () => {
     const { container } = render(
       <BetaSchemaForm
         shouldUpdate={(value: any, oldValue?: any) => {
-          shouldUpdateFn(value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle);
-          if (value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle) {
+          shouldUpdateFn(
+            value.subtitle === 'rerender' &&
+              value.subtitle !== oldValue?.subtitle,
+          );
+          if (
+            value.subtitle === 'rerender' &&
+            value.subtitle !== oldValue?.subtitle
+          ) {
             return true;
           } else {
             return false;
@@ -342,9 +357,15 @@ describe('SchemaForm', () => {
     );
 
     expect(container.querySelectorAll('span.ant-steps-icon')).toHaveLength(3);
-    expect(container.querySelectorAll('div.ant-steps-item-title')[0]).toHaveTextContent('表单1');
-    expect(container.querySelectorAll('div.ant-steps-item-title')[1]).toHaveTextContent('表单2');
-    expect(container.querySelectorAll('div.ant-steps-item-title')[2]).toHaveTextContent('表单3');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[0],
+    ).toHaveTextContent('表单1');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[1],
+    ).toHaveTextContent('表单2');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[2],
+    ).toHaveTextContent('表单3');
     unmount();
   });
 
@@ -619,12 +640,18 @@ describe('SchemaForm', () => {
 
     await waitFor(async () => {
       expect(
-        (await wrapper.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML,
+        (
+          await wrapper.baseElement.querySelector(
+            '.ant-form-item-explain-error',
+          )
+        )?.innerHTML,
       ).toBe('请填写1');
     });
 
     await act(async () => {
-      fireEvent.click(await wrapper.baseElement.querySelector('.action-remove')!);
+      fireEvent.click(
+        await wrapper.baseElement.querySelector('.action-remove')!,
+      );
     });
 
     act(() => {
@@ -785,7 +812,9 @@ describe('SchemaForm', () => {
         });
 
         waitFor(() => {
-          expect(formRef.current!.getFieldsValue(true)).toMatchObject(stepsValue);
+          expect(formRef.current!.getFieldsValue(true)).toMatchObject(
+            stepsValue,
+          );
         });
         jest.useRealTimers();
       }

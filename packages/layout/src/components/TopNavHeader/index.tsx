@@ -15,9 +15,13 @@ import type {
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { useStyle } from './style';
 
-export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
+export type TopNavHeaderProps = SiderMenuProps &
+  GlobalHeaderProps &
+  PrivateSiderMenuProps;
 
-const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => {
+const TopNavHeader: React.FC<TopNavHeaderProps> = (
+  props: TopNavHeaderProps,
+) => {
   const ref = useRef(null);
   const {
     onMenuHeaderClick,
@@ -41,7 +45,10 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props: TopNavHeaderProps) => 
   } else if (layout === 'mix' || layout === 'top') {
     renderKey = 'headerTitleRender';
   }
-  const headerDom = renderLogoAndTitle({ ...props, collapsed: false }, renderKey);
+  const headerDom = renderLogoAndTitle(
+    { ...props, collapsed: false },
+    renderKey,
+  );
   const contentDom = useMemo(() => {
     const defaultDom = (
       <BaseMenu

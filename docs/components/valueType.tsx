@@ -29,10 +29,22 @@ const options = [
   { value: `dateMonth`, label: `月`, initialValue: Date.now() },
   { value: `dateQuarter`, label: `季度输入`, initialValue: Date.now() },
   { value: `dateYear`, label: `年份输入`, initialValue: Date.now() },
-  { value: `dateRange`, label: `日期区间`, initialValue: [Date.now(), Date.now()] },
-  { value: `dateTimeRange`, label: `日期时间区间`, initialValue: [Date.now(), Date.now()] },
+  {
+    value: `dateRange`,
+    label: `日期区间`,
+    initialValue: [Date.now(), Date.now()],
+  },
+  {
+    value: `dateTimeRange`,
+    label: `日期时间区间`,
+    initialValue: [Date.now(), Date.now()],
+  },
   { value: `time`, label: `时间`, initialValue: Date.now() },
-  { value: `timeRange`, label: `时间区间`, initialValue: [Date.now(), Date.now()] },
+  {
+    value: `timeRange`,
+    label: `时间区间`,
+    initialValue: [Date.now(), Date.now()],
+  },
   { value: `text`, label: `文本框`, initialValue: '123456' },
   { value: `select`, label: `下拉框`, initialValue: 'open' },
   {
@@ -51,7 +63,8 @@ const options = [
   {
     value: `avatar`,
     label: `头像`,
-    initialValue: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    initialValue:
+      'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   },
   { value: `code`, label: `代码框`, initialValue: '# 2121' },
   { value: `switch`, label: `开关`, initialValue: 'open' },
@@ -59,9 +72,14 @@ const options = [
   {
     value: `image`,
     label: `图片`,
-    initialValue: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+    initialValue:
+      'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   },
-  { value: `jsonCode`, label: `JSON代码框`, initialValue: '{ "name":"qixian" }' },
+  {
+    value: `jsonCode`,
+    label: `JSON代码框`,
+    initialValue: '{ "name":"qixian" }',
+  },
   {
     value: `color`,
     label: `颜色选择器`,
@@ -109,7 +127,12 @@ export default () => {
                 valueType,
                 title: '编辑器',
                 dataIndex: valueType || 'text',
-                valueEnum: ['select', 'checkbox', 'radio', 'radioButton'].includes(valueType)
+                valueEnum: [
+                  'select',
+                  'checkbox',
+                  'radio',
+                  'radioButton',
+                ].includes(valueType)
                   ? valueEnum
                   : undefined,
                 fieldProps:

@@ -1,5 +1,10 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { EditableProTable, ProCard, ProFormField, ProFormRadio } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+  ProFormRadio,
+} from '@ant-design/pro-components';
 import React, { useState } from 'react';
 
 const waitTime = (time: number = 100) => {
@@ -45,7 +50,9 @@ const defaultData: DataSourceType[] = [
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
-  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
+  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
+    'bottom',
+  );
 
   const columns: ProColumns<DataSourceType>[] = [
     {
@@ -54,7 +61,8 @@ export default () => {
       tooltip: '只读，使用form.getFieldValue获取不到值',
       formItemProps: (form, { rowIndex }) => {
         return {
-          rules: rowIndex > 1 ? [{ required: true, message: '此项为必填项' }] : [],
+          rules:
+            rowIndex > 1 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
       // 第一行不允许编辑

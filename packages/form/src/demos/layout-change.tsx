@@ -280,7 +280,12 @@ export default () => {
               tooltip="最长为 24 位"
               placeholder="请输入名称"
             />
-            <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+            <ProFormText
+              width="md"
+              name="company"
+              label="我方公司名称"
+              placeholder="请输入名称"
+            />
           </ProForm.Group>
           <ProForm.Group>
             <ProFormText
@@ -328,7 +333,13 @@ export default () => {
             label="项目名称"
             initialValue="xxxx项目"
           />
-          <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
+          <ProFormText
+            width="xs"
+            name="mangerName"
+            disabled
+            label="商务经理"
+            initialValue="启途"
+          />
         </FormComponents>
       </div>
     </>

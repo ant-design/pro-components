@@ -49,7 +49,9 @@ const jobType = [
   },
 ];
 const EditExample = () => {
-  const formMapRef = useRef<React.MutableRefObject<ProFormInstance<any> | undefined>[]>([]);
+  const formMapRef = useRef<
+    React.MutableRefObject<ProFormInstance<any> | undefined>[]
+  >([]);
   useEffect(() => {
     waitTime(1000).then(() => {
       // 编辑场景下需要使用formMapRef循环设置formData
@@ -69,10 +71,17 @@ const EditExample = () => {
     >
       <StepsForm.StepForm name="step1" title="工作信息">
         <ProFormText label="姓名" name={['jobInfo', 'name']} />
-        <ProFormSelect label="工作类型" name={['jobInfo', 'type']} options={jobType} />
+        <ProFormSelect
+          label="工作类型"
+          name={['jobInfo', 'type']}
+          options={jobType}
+        />
       </StepsForm.StepForm>
       <StepsForm.StepForm name="step2" title={'同步表单信息'}>
-        <ProFormDateRangePicker label="时间区间" name={['syncTableInfo', 'timeRange']} />
+        <ProFormDateRangePicker
+          label="时间区间"
+          name={['syncTableInfo', 'timeRange']}
+        />
         <ProFormText label="标题" name={['syncTableInfo', 'title']} />
       </StepsForm.StepForm>
     </StepsForm>

@@ -57,7 +57,14 @@ const FieldRadio: ProFieldFC<GroupProps> = (
           return { ...pre, [cur.value ?? '']: cur.label };
         }, {})
       : undefined;
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          ObjToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
       return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
@@ -80,7 +87,9 @@ const FieldRadio: ProFieldFC<GroupProps> = (
       />,
     );
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return (
+        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null
+      );
     }
     return dom;
   }

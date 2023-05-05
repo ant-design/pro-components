@@ -106,7 +106,12 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 与 [Input](https://ant.design/components/input-cn/) 相同。
 
 ```tsx | pure
-<ProFormText name="text" label="名称" placeholder="请输入名称" fieldProps={inputProps} />
+<ProFormText
+  name="text"
+  label="名称"
+  placeholder="请输入名称"
+  fieldProps={inputProps}
+/>
 ```
 
 ### ProFormCaptcha
@@ -498,9 +503,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [switch](https://ant.design/components/switch-cn/) 相同，通过 filedProps 配置 switch 的数据。
 
-| 参数       | 说明              | 类型                                        | 默认值 |
-| ---------- | ----------------- | ------------------------------------------- | ------ |
-| fieldProps | antd 组件的 props | `(form,config)=>SwitchProps \| SwitchProps` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| fieldProps | antd 组件的 props | `(form,config)=>SwitchProps \| SwitchProps` | - |
 
 ```tsx | pure
 <ProFormSwitch name="switch" label="Switch" />
@@ -508,9 +513,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormRate
 
-| 参数       | 说明              | 类型                                    | 默认值 |
-| ---------- | ----------------- | --------------------------------------- | ------ |
-| fieldProps | antd 组件的 props | `(form,config)=>RateProps \| RateProps` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| fieldProps | antd 组件的 props | `(form,config)=>RateProps \| RateProps` | - |
 
 与 [rate](https://ant.design/components/rate-cn/) 相同，通过 filedProps 配置 rate 的数据。
 
@@ -522,9 +527,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [slider](https://ant.design/components/slider-cn/) 相同，通过 filedProps 配置 slider 的数据。
 
-| 参数       | 说明              | 类型                                        | 默认值 |
-| ---------- | ----------------- | ------------------------------------------- | ------ |
-| fieldProps | antd 组件的 props | `(form,config)=>SliderProps \| SliderProps` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| fieldProps | antd 组件的 props | `(form,config)=>SliderProps \| SliderProps` | - |
 
 ```tsx | pure
 <ProFormSlider
@@ -545,11 +550,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Dragger 的样式，其他与 Upload 相同。
 
-| 参数        | 说明           | 类型        | 默认值                           |
-| ----------- | -------------- | ----------- | -------------------------------- |
-| icon        | Dragger 的图标 | `ReactNode` | InboxOutlined                    |
-| title       | Dragger 的标题 | `ReactNode` | '单击或拖动文件到此区域进行上传' |
-| description | Dragger 的描述 | `ReactNode` | '支持单次或批量上传'             |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| icon | Dragger 的图标 | `ReactNode` | InboxOutlined |
+| title | Dragger 的标题 | `ReactNode` | '单击或拖动文件到此区域进行上传' |
+| description | Dragger 的描述 | `ReactNode` | '支持单次或批量上传' |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
@@ -559,11 +564,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Button 的样式，其他与 Upload 相同。
 
-| 参数  | 说明                                       | 类型        | 默认值         |
-| ----- | ------------------------------------------ | ----------- | -------------- |
-| icon  | Button 的图标                              | `ReactNode` | UploadOutlined |
-| title | Button 的标题                              | `ReactNode` | 单击上传       |
-| max   | 最大上传数量, 超过最大数量就会隐藏上传按钮 | `number`    | -              |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| icon | Button 的图标 | `ReactNode` | UploadOutlined |
+| title | Button 的标题 | `ReactNode` | 单击上传 |
+| max | 最大上传数量, 超过最大数量就会隐藏上传按钮 | `number` | - |
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />

@@ -33,7 +33,9 @@ export type ListToolBarTabs = {
 export type ListToolBarMenu = ListToolBarHeaderMenuProps;
 
 type SearchPropType =
-  | (SearchProps & { onSearch: (searchValue: string) => Promise<false | void> | false | void })
+  | (SearchProps & {
+      onSearch: (searchValue: string) => Promise<false | void> | false | void;
+    })
   | React.ReactNode
   | boolean;
 type SettingPropType = React.ReactNode | ListToolBarSetting;
@@ -125,7 +127,9 @@ const ListToolBarTabBar: React.FC<{
           tabBarExtraContent={filtersNode}
         >
           {tabs.items?.map((item, index) => {
-            return <Tabs.TabPane {...item} key={item.key || index} tab={item.tab} />;
+            return (
+              <Tabs.TabPane {...item} key={item.key || index} tab={item.tab} />
+            );
           })}
         </Tabs>
       ) : (
@@ -191,7 +195,8 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 
   /** 轻量筛选组件 */
   const filtersNode = useMemo(() => {
-    if (filter) return <div className={`${prefixCls}-filter ${hashId}`}>{filter}</div>;
+    if (filter)
+      return <div className={`${prefixCls}-filter ${hashId}`}>{filter}</div>;
     return null;
   }, [filter, hashId, prefixCls]);
 
@@ -234,9 +239,19 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 
   const hasRight = useMemo(() => {
     return (
-      (hasTitle && searchNode) || (!multipleLine && filtersNode) || actionDom || settings?.length
+      (hasTitle && searchNode) ||
+      (!multipleLine && filtersNode) ||
+      actionDom ||
+      settings?.length
     );
-  }, [actionDom, filtersNode, hasTitle, multipleLine, searchNode, settings?.length]);
+  }, [
+    actionDom,
+    filtersNode,
+    hasTitle,
+    multipleLine,
+    searchNode,
+    settings?.length,
+  ]);
 
   const hasLeft = useMemo(
     () => tooltip || title || subTitle || menu || (!hasTitle && searchNode),
@@ -282,7 +297,18 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         ) : null}
       </div>
     );
-  }, [hasLeft, hasRight, hasTitle, hashId, menu, prefixCls, searchNode, subTitle, title, tooltip]);
+  }, [
+    hasLeft,
+    hasRight,
+    hasTitle,
+    hashId,
+    menu,
+    prefixCls,
+    searchNode,
+    subTitle,
+    title,
+    tooltip,
+  ]);
 
   const rightTitleDom = useMemo(() => {
     if (!hasRight) return null;
@@ -302,7 +328,10 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
               const settingItem = getSettingItem(setting);
               return (
                 // eslint-disable-next-line react/no-array-index-key
-                <div key={index} className={`${prefixCls}-setting-item ${hashId}`}>
+                <div
+                  key={index}
+                  className={`${prefixCls}-setting-item ${hashId}`}
+                >
                   {settingItem}
                 </div>
               );
@@ -335,7 +364,15 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         {rightTitleDom}
       </div>
     );
-  }, [hasLeft, hasRight, hashId, isMobile, leftTitleDom, prefixCls, rightTitleDom]);
+  }, [
+    hasLeft,
+    hasRight,
+    hashId,
+    isMobile,
+    leftTitleDom,
+    prefixCls,
+    rightTitleDom,
+  ]);
 
   return wrapSSR(
     <ResizeObserver

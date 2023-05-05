@@ -32,7 +32,9 @@ const ProCardActions: React.FC<ProCardActionsProps> = (props) => {
       </ul>,
     );
   }
-  return wrapSSR(<ul className={classNames(`${prefixCls}-actions`, hashId)}>{actions}</ul>);
+  return wrapSSR(
+    <ul className={classNames(`${prefixCls}-actions`, hashId)}>{actions}</ul>,
+  );
 };
 
 export default ProCardActions;

@@ -129,7 +129,9 @@ export const RenderContentPanel: React.FC<{
       return (
         <div key={index}>
           <Typography.Text key={index}>
-            <a {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)} />
+            <a
+              {...(item.children as AnchorHTMLAttributes<HTMLAnchorElement>)}
+            />
           </Typography.Text>
         </div>
       );
@@ -144,7 +146,9 @@ export const RenderContentPanel: React.FC<{
         />
       );
     }
-    return <Typography.Text key={index}>{item.children as string}</Typography.Text>;
+    return (
+      <Typography.Text key={index}>{item.children as string}</Typography.Text>
+    );
   };
 
   return <div ref={divRef}>{dataSourceChildren?.map(itemRender)}</div>;

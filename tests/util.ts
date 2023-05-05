@@ -28,7 +28,10 @@ export function spyElementPrototypes(
   const originDescriptors = {};
 
   propNames.forEach((propName) => {
-    const originDescriptor = Object.getOwnPropertyDescriptor(Element.prototype, propName);
+    const originDescriptor = Object.getOwnPropertyDescriptor(
+      Element.prototype,
+      propName,
+    );
     originDescriptors[propName] = originDescriptor || NO_EXIST;
 
     const spyProp = properties[propName];

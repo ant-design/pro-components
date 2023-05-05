@@ -5,7 +5,10 @@ import { isNil } from '../isNil';
 import { merge } from '../merge';
 import type { SearchTransformKeyFn } from '../typing';
 
-export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
+export type DataFormatMapType = Record<
+  string,
+  SearchTransformKeyFn | undefined
+>;
 
 /**
  * 暂时还不支持 Set和 Map 结构 判断是不是一个能遍历的对象
@@ -32,7 +35,10 @@ export function isPlainObj(itemValue: any) {
 
 export const transformKeySubmitValue = <T extends object = any>(
   values: T,
-  dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
+  dataFormatMapRaw: Record<
+    string,
+    SearchTransformKeyFn | undefined | DataFormatMapType
+  >,
   omit: boolean = true,
 ) => {
   // ignore nil transform
@@ -65,7 +71,9 @@ export const transformKeySubmitValue = <T extends object = any>(
     }
 
     Object.keys(tempValues).forEach((entityKey) => {
-      const key = parentsKey ? [parentsKey, entityKey].flat(1) : [entityKey].flat(1);
+      const key = parentsKey
+        ? [parentsKey, entityKey].flat(1)
+        : [entityKey].flat(1);
       const itemValue = tempValues[entityKey];
       const transformFunction = get(dataFormatMap, key);
 
@@ -79,8 +87,13 @@ export const transformKeySubmitValue = <T extends object = any>(
           if (typeof fn === 'object' && !Array.isArray(fn)) {
             Object.keys(fn).forEach((curK) => {
               if (typeof fn[curK] === 'function') {
-                const res = fn[curK](tempValues[entityKey][idx][curK], entityKey, tempValues);
-                itemValue[idx][curK] = typeof res === 'object' ? res[curK] : res;
+                const res = fn[curK](
+                  tempValues[entityKey][idx][curK],
+                  entityKey,
+                  tempValues,
+                );
+                itemValue[idx][curK] =
+                  typeof res === 'object' ? res[curK] : res;
               }
             });
           }

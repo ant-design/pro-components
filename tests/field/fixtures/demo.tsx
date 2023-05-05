@@ -3,11 +3,22 @@ import type { ProFieldFCMode } from '@ant-design/pro-components';
 import { Descriptions } from 'antd';
 import dayjs from 'dayjs';
 
-export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => (
+export default ({
+  state,
+  plain,
+}: {
+  state: ProFieldFCMode;
+  plain: boolean;
+}) => (
   <>
     <Descriptions column={2}>
       <Descriptions.Item label="文本">
-        <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
+        <Field
+          text="这是一段文本"
+          valueType="text"
+          mode={state}
+          plain={plain}
+        />
       </Descriptions.Item>
       <Descriptions.Item label="头像">
         <Field
@@ -123,7 +134,12 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
         />
       </Descriptions.Item>
       <Descriptions.Item label="密码">
-        <Field text="password" plain={plain} valueType="password" mode={state} />
+        <Field
+          text="password"
+          plain={plain}
+          valueType="password"
+          mode={state}
+        />
       </Descriptions.Item>
       <Descriptions.Item label="代码块">
         <Field

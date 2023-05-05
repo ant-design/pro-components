@@ -4,7 +4,11 @@ import dayjs from 'dayjs';
 export default () => {
   return (
     <>
-      <ProDescriptions column={2} title="高级定义列表" tooltip="包含了从服务器请求，columns等功能">
+      <ProDescriptions
+        column={2}
+        title="高级定义列表"
+        tooltip="包含了从服务器请求，columns等功能"
+      >
         <ProDescriptions.Item
           label="日期"
           fieldProps={{

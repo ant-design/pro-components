@@ -19,11 +19,9 @@ export interface GridHelpers {
   grid: boolean;
 }
 
-export const gridHelpers: (config: ProFormGridConfig & CommonProps) => GridHelpers = ({
-  grid,
-  rowProps,
-  colProps,
-}) => ({
+export const gridHelpers: (
+  config: ProFormGridConfig & CommonProps,
+) => GridHelpers = ({ grid, rowProps, colProps }) => ({
   grid: !!grid,
   RowWrapper({ children, Wrapper, ...props } = {}) {
     if (!grid) {
@@ -44,7 +42,10 @@ export const gridHelpers: (config: ProFormGridConfig & CommonProps) => GridHelpe
        * `xs` takes precedence over `span`
        * avoid `span` doesn't work
        */
-      if (typeof originProps.span === 'undefined' && typeof originProps.xs === 'undefined') {
+      if (
+        typeof originProps.span === 'undefined' &&
+        typeof originProps.xs === 'undefined'
+      ) {
         originProps.xs = 24;
       }
 
@@ -59,7 +60,9 @@ export const gridHelpers: (config: ProFormGridConfig & CommonProps) => GridHelpe
   },
 });
 
-export const useGridHelpers = (props?: (ProFormGridConfig & CommonProps) | boolean) => {
+export const useGridHelpers = (
+  props?: (ProFormGridConfig & CommonProps) | boolean,
+) => {
   const config = useMemo(() => {
     {
       if (typeof props === 'object') {

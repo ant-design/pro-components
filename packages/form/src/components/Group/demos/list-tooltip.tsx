@@ -1,5 +1,10 @@
 ﻿import { CloseCircleOutlined, SmileOutlined } from '@ant-design/icons';
-import { ProForm, ProFormGroup, ProFormList, ProFormText } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormGroup,
+  ProFormList,
+  ProFormText,
+} from '@ant-design/pro-components';
 
 const Demo = () => {
   return (

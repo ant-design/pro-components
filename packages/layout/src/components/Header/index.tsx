@@ -20,7 +20,11 @@ export type HeaderViewProps = GlobalHeaderProps & {
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
   headerTitleRender?: WithFalse<
-    (logo: React.ReactNode, title: React.ReactNode, props: HeaderViewProps) => React.ReactNode
+    (
+      logo: React.ReactNode,
+      title: React.ReactNode,
+      props: HeaderViewProps,
+    ) => React.ReactNode
   >;
   headerContentRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
@@ -29,7 +33,9 @@ export type HeaderViewProps = GlobalHeaderProps & {
   hasSiderMenu?: boolean;
 };
 
-const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props) => {
+const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
+  props,
+) => {
   const {
     isMobile,
     fixedHeader,
@@ -108,7 +114,9 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
             <Header
               style={{
                 height: token?.layout?.header?.heightLayoutHeader || 56,
-                lineHeight: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
+                lineHeight: `${
+                  token?.layout?.header?.heightLayoutHeader || 56
+                }px`,
                 backgroundColor: 'transparent',
                 zIndex: 19,
                 ...style,

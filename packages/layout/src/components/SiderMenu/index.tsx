@@ -8,7 +8,9 @@ import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
 import { useStyle } from './style/index';
 
-const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
+const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
+  props,
+) => {
   const {
     isMobile,
     siderWidth,
@@ -44,7 +46,9 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
     return null;
   }
 
-  const drawerOpenProps = openVisibleCompatible(!collapsed, () => onCollapse?.(true));
+  const drawerOpenProps = openVisibleCompatible(!collapsed, () =>
+    onCollapse?.(true),
+  );
 
   return wrapSSR(
     isMobile ? (

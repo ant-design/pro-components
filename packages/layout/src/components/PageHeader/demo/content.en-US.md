@@ -20,7 +20,11 @@ const menu = (
       {
         key: '1',
         label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="http://www.alipay.com/"
+          >
             1st menu item
           </a>
         ),
@@ -28,7 +32,11 @@ const menu = (
       {
         key: '2',
         label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="http://www.taobao.com/"
+          >
             2nd menu item
           </a>
         ),
@@ -36,7 +44,11 @@ const menu = (
       {
         key: '3',
         label: (
-          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="http://www.tmall.com/"
+          >
             3rd menu item
           </a>
         ),
@@ -76,13 +88,14 @@ const IconLink = ({ src, text }: { src: string; text: string }) => (
 const content = (
   <>
     <Paragraph>
-      Ant Design interprets the color system into two levels: a system-level color system and a
-      product-level color system.
+      Ant Design interprets the color system into two levels: a system-level
+      color system and a product-level color system.
     </Paragraph>
     <Paragraph>
-      Ant Design&#x27;s design team preferred to design with the HSB color model, which makes it
-      easier for designers to have a clear psychological expectation of color when adjusting colors,
-      as well as facilitate communication in teams.
+      Ant Design&#x27;s design team preferred to design with the HSB color
+      model, which makes it easier for designers to have a clear psychological
+      expectation of color when adjusting colors, as well as facilitate
+      communication in teams.
     </Paragraph>
     <div>
       <IconLink
@@ -101,10 +114,10 @@ const content = (
   </>
 );
 
-const Content: React.FC<{ children: React.ReactNode; extraContent: React.ReactNode }> = ({
-  children,
-  extraContent,
-}) => (
+const Content: React.FC<{
+  children: React.ReactNode;
+  extraContent: React.ReactNode;
+}> = ({ children, extraContent }) => (
   <Row>
     <div style={{ flex: 1 }}>{children}</div>
     <div className="image">{extraContent}</div>
@@ -125,7 +138,9 @@ const App: React.FC = () => (
       </Button>,
       <DropdownMenu key="more" />,
     ]}
-    avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
+    avatar={{
+      src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4',
+    }}
     breadcrumb={{ routes }}
   >
     <Content

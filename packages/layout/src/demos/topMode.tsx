@@ -43,7 +43,9 @@ const Item: React.FC<{ children: React.ReactNode }> = (props) => {
   );
 };
 
-const List: React.FC<{ title: string; style?: React.CSSProperties }> = (props) => {
+const List: React.FC<{ title: string; style?: React.CSSProperties }> = (
+  props,
+) => {
   const { token } = theme.useToken();
 
   return (

@@ -25,7 +25,7 @@ export type ProFormInstanceType<T> = {
    * @param nameList (string|number)[]
    * @returns T
    *
-   * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+   * @example {a:{b:value}}->getFieldFormatValueObject(['a','b'])->{a:{b:value}}
    */
   getFieldFormatValueObject?: (nameList?: NamePath) => T;
   /**

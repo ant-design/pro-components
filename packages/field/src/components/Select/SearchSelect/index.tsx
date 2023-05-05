@@ -4,7 +4,13 @@ import { ConfigProvider, Select } from 'antd';
 
 import type { LabeledValue } from 'antd/lib/select';
 import classNames from 'classnames';
-import React, { useContext, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 
 const { Option, OptGroup } = Select;
 
@@ -119,7 +125,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     options: optionsPropsName = 'options',
   } = fieldNames || {};
 
-  const [searchValue, setSearchValue] = useState(propsSearchValue ?? defaultSearchValue);
+  const [searchValue, setSearchValue] = useState(
+    propsSearchValue ?? defaultSearchValue,
+  );
 
   const selectRef = useRef<any>();
 

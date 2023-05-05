@@ -23,7 +23,9 @@ type BaseFormProps<T, U> = {
   search: ProTableProps<T, U, any>['search'];
   manualRequest: ProTableProps<T, U, any>['manualRequest'];
 };
-class FormSearch<T, U> extends React.Component<BaseFormProps<T, U> & { ghost?: boolean }> {
+class FormSearch<T, U> extends React.Component<
+  BaseFormProps<T, U> & { ghost?: boolean }
+> {
   /** 查询表单相关的配置 */
 
   onSubmit = (value: U, firstLoad: boolean) => {
@@ -47,7 +49,10 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U> & { ghost?: b
       _timestamp: Date.now(),
       ...pageInfo,
     };
-    const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo!)) as U;
+    const omitParams = omit(
+      beforeSearchSubmit(submitParams),
+      Object.keys(pageInfo!),
+    ) as U;
     onFormSearchSubmit(omitParams);
     if (!firstLoad) {
       // back first page

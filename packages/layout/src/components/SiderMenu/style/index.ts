@@ -183,8 +183,12 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         zIndex: '100',
         height: '100%',
         '&-mix': {
-          height: `calc(100% - ${token?.layout?.header?.heightLayoutHeader || 56}px)`,
-          insetBlockStart: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
+          height: `calc(100% - ${
+            token?.layout?.header?.heightLayoutHeader || 56
+          }px)`,
+          insetBlockStart: `${
+            token?.layout?.header?.heightLayoutHeader || 56
+          }px`,
         },
       },
     },

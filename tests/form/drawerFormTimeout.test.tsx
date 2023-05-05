@@ -29,7 +29,8 @@ describe('DrawerForm', () => {
     });
 
     expect(
-      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement).disabled,
+      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
+        .disabled,
     ).toEqual(true);
 
     await act(async () => {
@@ -43,7 +44,8 @@ describe('DrawerForm', () => {
     expect(fn).not.toBeCalled();
 
     expect(
-      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)?.disabled,
+      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
+        ?.disabled,
     ).toEqual(false);
 
     await act(async () => {
@@ -80,9 +82,9 @@ describe('DrawerForm', () => {
       (await wrapper.queryByText('确 认'))?.click();
     });
 
-    expect((wrapper.queryAllByText('取 消').at(0) as HTMLButtonElement)?.disabled).toEqual(
-      undefined,
-    );
+    expect(
+      (wrapper.queryAllByText('取 消').at(0) as HTMLButtonElement)?.disabled,
+    ).toEqual(undefined);
 
     act(() => {
       jest.advanceTimersByTime(3000);

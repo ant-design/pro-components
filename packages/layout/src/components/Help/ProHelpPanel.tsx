@@ -97,11 +97,14 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
   const className = getPrefixCls('pro-help');
   const { wrapSSR, hashId } = useStyle(className);
   const { dataSource } = useContext(ProHelpProvide);
-  const [selectedKey, setSelectedKey] = useMergedState<string | undefined>(undefined, {
-    defaultValue: props.defaultSelectedKey,
-    value: props.selectedKey,
-    onChange: props.onSelectedKeyChange,
-  });
+  const [selectedKey, setSelectedKey] = useMergedState<string | undefined>(
+    undefined,
+    {
+      defaultValue: props.defaultSelectedKey,
+      value: props.selectedKey,
+      onChange: props.onSelectedKeyChange,
+    },
+  );
   const [openKey, setOpenKey] = useState('');
   const { token } = useContext(ProProvider);
   const [showLeftPanel, setShowLeftPanel] = useMergedState(true, {
@@ -226,18 +229,25 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                     colorActiveBarWidth: 0,
                     colorActiveBarBorderSize: 0,
                     colorItemBgSelected:
-                      token?.layout?.sider?.colorBgMenuItemSelected || 'rgba(0, 0, 0, 0.04)',
+                      token?.layout?.sider?.colorBgMenuItemSelected ||
+                      'rgba(0, 0, 0, 0.04)',
                     colorItemBgActive:
-                      token?.layout?.sider?.colorBgMenuItemHover || 'rgba(0, 0, 0, 0.04)',
-                    colorItemText: token?.layout?.sider?.colorTextMenu || 'rgba(0, 0, 0, 0.65)',
+                      token?.layout?.sider?.colorBgMenuItemHover ||
+                      'rgba(0, 0, 0, 0.04)',
+                    colorItemText:
+                      token?.layout?.sider?.colorTextMenu ||
+                      'rgba(0, 0, 0, 0.65)',
                     colorItemTextHover:
-                      token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                      token?.layout?.sider?.colorTextMenuActive ||
+                      'rgba(0, 0, 0, 0.85)',
                     colorItemTextSelected:
-                      token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
+                      token?.layout?.sider?.colorTextMenuSelected ||
+                      'rgba(0, 0, 0, 1)',
                     colorItemBg: 'transparent',
                     colorSubItemBg: 'transparent',
                     colorBgElevated:
-                      token?.layout?.sider?.colorBgMenuItemCollapsedElevated || '#fff',
+                      token?.layout?.sider?.colorBgMenuItemCollapsedElevated ||
+                      '#fff',
                   },
                 },
               }}
@@ -283,7 +293,9 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               onScroll={(key) => setSelectedKey(key)}
             />
           ) : null}
-          {footer ? <div className={`${hashId} ${className}-footer`}>{footer}</div> : null}
+          {footer ? (
+            <div className={`${hashId} ${className}-footer`}>{footer}</div>
+          ) : null}
         </div>
       </Card>
     </SelectKeyProvide.Provider>,

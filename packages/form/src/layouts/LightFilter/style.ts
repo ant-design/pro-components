@@ -10,7 +10,12 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
     [token.componentCls]: {
       lineHeight: '30px',
       // @see https://yuque.antfin-inc.com/tech-ui/topics/523
-      '&::before': { display: 'block', height: 0, visibility: 'hidden', content: "'.'" },
+      '&::before': {
+        display: 'block',
+        height: 0,
+        visibility: 'hidden',
+        content: "'.'",
+      },
       '&-small': {
         lineHeight: token.lineHeight,
       },
@@ -26,7 +31,10 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
         },
       },
       '&-line': { minWidth: '198px' },
-      '&-line:not(:first-child)': { marginBlockStart: '16px', marginBlockEnd: 8 },
+      '&-line:not(:first-child)': {
+        marginBlockStart: '16px',
+        marginBlockEnd: 8,
+      },
       '&-collapse-icon': {
         width: token.controlHeight,
         height: token.controlHeight,

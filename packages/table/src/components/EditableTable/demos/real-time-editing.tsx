@@ -1,5 +1,9 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { EditableProTable, ProCard, ProFormField } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+} from '@ant-design/pro-components';
 import { Button } from 'antd';
 import React, { useState } from 'react';
 
@@ -26,7 +30,9 @@ export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
     defaultData.map((item) => item.id),
   );
-  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(() => defaultData);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
+    () => defaultData,
+  );
 
   const columns: ProColumns<DataSourceType>[] = [
     {

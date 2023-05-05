@@ -48,7 +48,10 @@ import { GridContext, useGridHelpers } from '../helpers';
 import type { FieldProps, GroupProps, ProFormGridConfig } from '../typing';
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 
-export type CommonFormProps<T = Record<string, any>, U = Record<string, any>> = {
+export type CommonFormProps<
+  T = Record<string, any>,
+  U = Record<string, any>,
+> = {
   /**
    * @name 自定义提交的配置
    *
@@ -265,7 +268,9 @@ function BaseFormComponents<T = Record<string, any>>(
    */
   const formInstance = Form.useFormInstance();
 
-  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const { componentSize } = ConfigProvider?.useConfig?.() || {
+    componentSize: 'middle',
+  };
 
   /** 同步 url 上的参数 */
   const formRef = useRef<ProFormInstance<any>>((form || formInstance) as any);
@@ -287,7 +292,10 @@ function BaseFormComponents<T = Record<string, any>>(
        * @example  getFieldsFormatValue(true) ->返回所有数据，即使没有被 form 托管的
        */
       getFieldsFormatValue: (allData?: true) => {
-        return transformKey(getFormInstance()?.getFieldsValue(allData!), omitNil);
+        return transformKey(
+          getFormInstance()?.getFieldsValue(allData!),
+          omitNil,
+        );
       },
       /**
        * 获取被 ProForm 格式化后的单个数据
@@ -327,7 +335,8 @@ function BaseFormComponents<T = Record<string, any>>(
        * @example validateFieldsReturnFormatValue -> {a:{b:value}}
        */
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
-        if (!Array.isArray(nameList) && nameList) throw new Error('nameList must be array');
+        if (!Array.isArray(nameList) && nameList)
+          throw new Error('nameList must be array');
         const values = await getFormInstance()?.validateFields(nameList);
         const transformedKey = transformKey(values, omitNil);
         return transformedKey ? transformedKey : {};
@@ -363,7 +372,10 @@ function BaseFormComponents<T = Record<string, any>>(
         key="submitter"
         {...submitterProps}
         onReset={() => {
-          const finalValues = transformKey(formRef.current?.getFieldsValue(), omitNil);
+          const finalValues = transformKey(
+            formRef.current?.getFieldsValue(),
+            omitNil,
+          );
           submitterProps?.onReset?.(finalValues);
           onReset?.(finalValues);
           // 如果 syncToUrl，清空一下数据
@@ -412,7 +424,8 @@ function BaseFormComponents<T = Record<string, any>>(
 
   // 提示一个 initialValues ，问的人实在是太多了
   useEffect(() => {
-    if (syncToUrl || !props.initialValues || !preInitialValues || rest.request) return;
+    if (syncToUrl || !props.initialValues || !preInitialValues || rest.request)
+      return;
     const isEqual = isDeepEqualReact(props.initialValues, preInitialValues);
     noteOnce(
       isEqual,
@@ -437,7 +450,10 @@ function BaseFormComponents<T = Record<string, any>>(
     [],
   );
   useEffect(() => {
-    const finalValues = transformKey(formRef.current?.getFieldsValue?.(true), omitNil);
+    const finalValues = transformKey(
+      formRef.current?.getFieldsValue?.(true),
+      omitNil,
+    );
     onInit?.(finalValues, formRef.current);
   }, []);
 
@@ -502,7 +518,10 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     value: propsLoading,
   });
 
-  const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
+  const [urlSearch, setUrlSearch] = useUrlSearchParams(
+    {},
+    { disabled: !syncToUrl },
+  );
   const curFormKey = useRef<string>(nanoid());
 
   useEffect(() => {
@@ -559,15 +578,18 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   });
 
   // 如果为 false，不需要触发设置进去
-  const [urlParamsMergeInitialValues, setUrlParamsMergeInitialValues] = useState(() => {
-    if (!syncToUrl) {
-      return {};
-    }
-    return genParams(syncToUrl, urlSearch, 'get');
-  });
+  const [urlParamsMergeInitialValues, setUrlParamsMergeInitialValues] =
+    useState(() => {
+      if (!syncToUrl) {
+        return {};
+      }
+      return genParams(syncToUrl, urlSearch, 'get');
+    });
 
   /** 保存 transformKeyRef，用于对表单key transform */
-  const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
+  const transformKeyRef = useRef<
+    Record<string, SearchTransformKeyFn | undefined>
+  >({});
 
   const fieldsValueType = useRef<
     Record<
@@ -694,13 +716,24 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             formComponentType,
             getPopupContainer,
             formKey: curFormKey.current,
-            setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
+            setFieldValueType: (
+              name,
+              { valueType = 'text', dateFormat, transform },
+            ) => {
               if (!Array.isArray(name)) return;
-              transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
-              fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
-                valueType,
-                dateFormat,
-              });
+              transformKeyRef.current = namePathSet(
+                transformKeyRef.current,
+                name,
+                transform,
+              );
+              fieldsValueType.current = namePathSet(
+                fieldsValueType.current,
+                name,
+                {
+                  valueType,
+                  dateFormat,
+                },
+              );
             },
           }}
         >
@@ -714,12 +747,23 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
               }}
               autoComplete="off"
               form={form}
-              {...omit(propRest, ['labelWidth', 'autoFocusFirstInput'] as any[])}
+              {...omit(propRest, [
+                'labelWidth',
+                'autoFocusFirstInput',
+              ] as any[])}
               // 组合 urlSearch 和 initialValues
               initialValues={
                 syncToUrlAsImportant
-                  ? { ...initialValues, ...initialData, ...urlParamsMergeInitialValues }
-                  : { ...urlParamsMergeInitialValues, ...initialValues, ...initialData }
+                  ? {
+                      ...initialValues,
+                      ...initialData,
+                      ...urlParamsMergeInitialValues,
+                    }
+                  : {
+                      ...urlParamsMergeInitialValues,
+                      ...initialValues,
+                      ...initialData,
+                    }
               }
               onValuesChange={(changedValues, values) => {
                 propRest?.onValuesChange?.(

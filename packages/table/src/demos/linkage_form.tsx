@@ -56,7 +56,13 @@ const MySelect: React.FC<{
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(state)]);
 
-  return <Select options={innerOptions} value={props.value} onChange={props.onChange} />;
+  return (
+    <Select
+      options={innerOptions}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  );
 };
 
 export default () => {

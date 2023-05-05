@@ -201,8 +201,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -281,6 +287,9 @@ render: (text, record, _, action) => [
 ```typescript
 const editable = {
   // defaultDom = {save,cancel,delete} 可以酌情添加和使用
-  actionRender: (row, config, defaultDom) => [defaultDom.save, defaultDom.cancel],
+  actionRender: (row, config, defaultDom) => [
+    defaultDom.save,
+    defaultDom.cancel,
+  ],
 };
 ```

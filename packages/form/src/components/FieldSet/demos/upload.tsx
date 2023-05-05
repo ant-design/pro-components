@@ -1,4 +1,8 @@
-﻿import { ProForm, ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-components';
+﻿import {
+  ProForm,
+  ProFormUploadButton,
+  ProFormUploadDragger,
+} from '@ant-design/pro-components';
 
 export default () => {
   return (

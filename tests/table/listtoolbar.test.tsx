@@ -65,7 +65,9 @@ describe('Table valueEnum', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelector('.ant-pro-table-list-toolbar-search .ant-input')!,
+        wrapper.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search .ant-input',
+        )!,
         {
           target: {
             value: '1111111',
@@ -149,10 +151,14 @@ describe('Table valueEnum', () => {
     );
     await waitTime(1000);
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.anticon-setting')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.anticon-setting')
+        ?.click();
     });
     expect(onClick).toHaveBeenLastCalledWith('s-value');
-    expect(wrapper.baseElement.querySelectorAll('.ant-divider').length).toEqual(0);
+    expect(wrapper.baseElement.querySelectorAll('.ant-divider').length).toEqual(
+      0,
+    );
   });
 
   it('ListToolBar search left', async () => {
@@ -182,9 +188,9 @@ describe('Table valueEnum', () => {
     });
     expect(wrapper.getByDisplayValue('input 值')).toBeTruthy();
     expect(onSearch).toHaveBeenCalled();
-    expect((wrapper.getByDisplayValue('input 值') as HTMLInputElement).placeholder).toEqual(
-      '自定义 placeholder',
-    );
+    expect(
+      (wrapper.getByDisplayValue('input 值') as HTMLInputElement).placeholder,
+    ).toEqual('自定义 placeholder');
   });
 
   it('ListToolBar search right and custom input search', async () => {
@@ -192,7 +198,9 @@ describe('Table valueEnum', () => {
     const wrapper = render(
       <ListToolBar
         title="I am title"
-        search={<Input.Search placeholder="自定义 placeholder" onSearch={onSearch} />}
+        search={
+          <Input.Search placeholder="自定义 placeholder" onSearch={onSearch} />
+        }
       />,
     );
     await waitTime(1000);
@@ -212,9 +220,9 @@ describe('Table valueEnum', () => {
     });
     expect(wrapper.getByDisplayValue('input 值')).toBeTruthy();
     expect(onSearch).toHaveBeenCalled();
-    expect((wrapper.getByDisplayValue('input 值') as HTMLInputElement).placeholder).toEqual(
-      '自定义 placeholder',
-    );
+    expect(
+      (wrapper.getByDisplayValue('input 值') as HTMLInputElement).placeholder,
+    ).toEqual('自定义 placeholder');
   });
 
   it('ListToolBar dropdown menu', async () => {
@@ -319,6 +327,9 @@ describe('Table valueEnum', () => {
       />,
     );
     await waitTime(1000);
-    expect(wrapper.baseElement.querySelectorAll('.ant-pro-table-list-toolbar-menu').length).toBe(0);
+    expect(
+      wrapper.baseElement.querySelectorAll('.ant-pro-table-list-toolbar-menu')
+        .length,
+    ).toBe(0);
   });
 });

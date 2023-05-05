@@ -61,7 +61,11 @@ export default () => {
             return (
               <div key={index}>
                 <Typography.Text>
-                  {child.href ? <a href={child.href}>{child.title}</a> : child.title}
+                  {child.href ? (
+                    <a href={child.href}>{child.title}</a>
+                  ) : (
+                    child.title
+                  )}
                 </Typography.Text>
               </div>
             );
@@ -407,7 +411,10 @@ export default () => {
                       valueType: 'h1',
                       children: '项目合作方',
                     },
-                    { valueType: 'text', children: '与用户进行数据合作的外部组织或个人。' },
+                    {
+                      valueType: 'text',
+                      children: '与用户进行数据合作的外部组织或个人。',
+                    },
                   ],
                 },
                 {
@@ -491,7 +498,8 @@ export default () => {
                     },
                     {
                       valueType: 'text',
-                      children: '根据用户的要求对模型参数进行设置和调整，以达到最佳的处理效果。',
+                      children:
+                        '根据用户的要求对模型参数进行设置和调整，以达到最佳的处理效果。',
                     },
                   ],
                 },
@@ -505,7 +513,8 @@ export default () => {
                     },
                     {
                       valueType: 'text',
-                      children: '系统生成的模型文件，包含了所有的模型参数和处理算法。',
+                      children:
+                        '系统生成的模型文件，包含了所有的模型参数和处理算法。',
                     },
                   ],
                 },
@@ -519,7 +528,8 @@ export default () => {
                     },
                     {
                       valueType: 'text',
-                      children: '用于预处理数据的文件，系统可根据用户的设置进行数据预处理。',
+                      children:
+                        '用于预处理数据的文件，系统可根据用户的设置进行数据预处理。',
                     },
                   ],
                 },
@@ -529,7 +539,8 @@ export default () => {
                   children: [
                     {
                       valueType: 'text',
-                      children: '用于后处理数据的文件，系统将处理完成的数据输出到后处理文件中。',
+                      children:
+                        '用于后处理数据的文件，系统将处理完成的数据输出到后处理文件中。',
                     },
                   ],
                 },

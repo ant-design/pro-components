@@ -3,7 +3,14 @@ import { fireEvent, render } from '@testing-library/react';
 import dayjs from 'dayjs';
 
 describe('Field', () => {
-  const datePickList = ['date', 'dateWeek', 'dateMonth', 'dateQuarter', 'dateYear', 'dateTime'];
+  const datePickList = [
+    'date',
+    'dateWeek',
+    'dateMonth',
+    'dateQuarter',
+    'dateYear',
+    'dateTime',
+  ];
   datePickList.forEach((valueType) => {
     it(`📅 ${valueType} base use`, async () => {
       const fn = jest.fn();
@@ -20,7 +27,9 @@ describe('Field', () => {
         />,
       );
 
-      await fireEvent.mouseDown(container.querySelector('.ant-pro-core-field-label')!);
+      await fireEvent.mouseDown(
+        container.querySelector('.ant-pro-core-field-label')!,
+      );
       await fireEvent.click(container.querySelector('.anticon-close')!);
 
       expect(fn).toBeCalled();

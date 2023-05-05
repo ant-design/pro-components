@@ -45,8 +45,12 @@ export const SimpleContent: React.FC<{
         {appList?.map((app, index) => {
           if (app?.children?.length) {
             return (
-              <div className={`${baseClassName}-content-list-item-group ${hashId}`}>
-                <div className={`${baseClassName}-content-list-item-group-title ${hashId}`}>
+              <div
+                className={`${baseClassName}-content-list-item-group ${hashId}`}
+              >
+                <div
+                  className={`${baseClassName}-content-list-item-group-title ${hashId}`}
+                >
                   {app.title}
                 </div>
                 <SimpleContent

@@ -3,7 +3,11 @@ import toNumber from 'lodash.tonumber';
 import type { ReactNode } from 'react';
 import React, { Fragment, useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
-import { getColorByRealValue, getRealTextWithPrecision, getSymbolByRealValue } from './util';
+import {
+  getColorByRealValue,
+  getRealTextWithPrecision,
+  getSymbolByRealValue,
+} from './util';
 
 // 兼容代码-----------
 import { useIntl } from '@ant-design/pro-provider';
@@ -42,7 +46,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
   ref,
 ) => {
   const intl = useIntl();
-  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue =
+    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -70,7 +75,11 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
       </span>
     );
     if (render) {
-      return render(text, { mode, ...fieldProps, prefix, precision, showSymbol, suffix }, dom);
+      return render(
+        text,
+        { mode, ...fieldProps, prefix, precision, showSymbol, suffix },
+        dom,
+      );
     }
     return dom;
   }

@@ -46,7 +46,9 @@ export const Highlight: React.FC<{
 
   // 创建正则表达式匹配关键词
   const matchKeywordsRE = new RegExp(
-    words.map((word) => word.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&')).join('|'),
+    words
+      .map((word) => word.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&'))
+      .join('|'),
     'gi',
   );
 
@@ -90,7 +92,10 @@ export const Highlight: React.FC<{
 };
 
 export const ProHelpSelect: React.FC<
-  Omit<SelectProps, 'onSearch' | 'optionFilterProp' | 'options' | 'filterOption'> & {
+  Omit<
+    SelectProps,
+    'onSearch' | 'optionFilterProp' | 'options' | 'filterOption'
+  > & {
     iconClassName?: string;
   }
 > = ({ iconClassName, ...props }) => {
@@ -138,12 +143,22 @@ export const ProHelpSelect: React.FC<
           dropdownMatchSelectWidth={false}
           options={dataSource.map((item) => {
             return {
-              label: <Highlight label={item.title} words={[keyWord].filter(Boolean)} />,
+              label: (
+                <Highlight
+                  label={item.title}
+                  words={[keyWord].filter(Boolean)}
+                />
+              ),
               title: item.title,
               value: item.key,
               options: item.children?.map((sunItem) => {
                 return {
-                  label: <Highlight label={sunItem.title} words={[keyWord].filter(Boolean)} />,
+                  label: (
+                    <Highlight
+                      label={sunItem.title}
+                      words={[keyWord].filter(Boolean)}
+                    />
+                  ),
                   title: sunItem.title,
                   value: sunItem.key,
                   dataItemKey: item.key,

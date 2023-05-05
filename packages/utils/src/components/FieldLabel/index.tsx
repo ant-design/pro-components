@@ -26,7 +26,10 @@ export type FieldLabelProps = {
   onLabelClick?: () => void;
 };
 
-const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props, ref) => {
+const FieldLabelFunction: React.ForwardRefRenderFunction<
+  any,
+  FieldLabelProps
+> = (props, ref) => {
   const {
     label,
     onClear,
@@ -102,7 +105,11 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
       const getText = () => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
-        if (typeof str === 'string' && str.length > VALUE_MAX_LENGTH && isArrayValue) {
+        if (
+          typeof str === 'string' &&
+          str.length > VALUE_MAX_LENGTH &&
+          isArrayValue
+        ) {
           return `...${aValue.length}${unitText}`;
         }
         return '';
@@ -119,7 +126,9 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
         >
           {prefix}
           <span style={{ paddingInlineStart: 4 }}>
-            {typeof str === 'string' ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH) : str}
+            {typeof str === 'string'
+              ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH)
+              : str}
           </span>
           {tail}
         </span>
@@ -148,7 +157,11 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
         <CloseOutlined
           role="button"
           title={intl.getMessage('form.lightFilter.clear', '清除')}
-          className={classNames(`${prefixCls}-icon`, hashId, `${prefixCls}-close`)}
+          className={classNames(
+            `${prefixCls}-icon`,
+            hashId,
+            `${prefixCls}-close`,
+          )}
           onClick={(e) => {
             if (onClear && !disabled) {
               onClear();
@@ -158,7 +171,9 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
           ref={clearRef}
         />
       )}
-      <DownOutlined className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)} />
+      <DownOutlined
+        className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)}
+      />
     </span>,
   );
 };

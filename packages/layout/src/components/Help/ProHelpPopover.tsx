@@ -64,7 +64,13 @@ export const ProHelpPopover: React.FC<ProHelpPopoverProps> = (props) => {
       }
       {...props.popoverProps}
     >
-      <span className={classNames(`${className}-popover-text`, hashId, props.textClassName)}>
+      <span
+        className={classNames(
+          `${className}-popover-text`,
+          hashId,
+          props.textClassName,
+        )}
+      >
         {props.children}
       </span>
     </Popover>,

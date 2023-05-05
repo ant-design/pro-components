@@ -5,7 +5,9 @@ export interface ProLayoutHeaderToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => {
+const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
+  token,
+) => {
   return {
     [`${token.proComponentsCls}-layout`]: {
       [`${token.antCls}-layout-header${token.componentCls}`]: {
@@ -17,7 +19,8 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (token) => 
         paddingBlock: 0,
         paddingInline: 0,
         borderBlockEnd: `1px solid ${token.colorSplit}`,
-        backgroundColor: token?.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
+        backgroundColor:
+          token?.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
         WebkitBackdropFilter: 'blur(8px)',
         backdropFilter: 'blur(8px)',
         '&-fixed-header': {

@@ -108,16 +108,21 @@ describe('Table valueEnum', () => {
     });
     await waitTime(200);
     act(() => {
-      html.baseElement.querySelector<HTMLDivElement>('form.ant-form div.ant-select')?.click();
+      html.baseElement
+        .querySelector<HTMLDivElement>('form.ant-form div.ant-select')
+        ?.click();
     });
     act(() => {
       expect(
-        html.baseElement.querySelector<HTMLDivElement>('div.ant-select-dropdown')?.textContent,
+        html.baseElement.querySelector<HTMLDivElement>(
+          'div.ant-select-dropdown',
+        )?.textContent,
       ).toBe('01关闭运行中已上线异常');
     });
-    expect(html.baseElement.querySelector<HTMLDivElement>('td.ant-table-cell')?.textContent).toBe(
-      '已上线',
-    );
+    expect(
+      html.baseElement.querySelector<HTMLDivElement>('td.ant-table-cell')
+        ?.textContent,
+    ).toBe('已上线');
   });
 
   it('🎏 customization valueType', async () => {

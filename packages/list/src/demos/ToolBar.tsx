@@ -92,7 +92,10 @@ export default () => {
         content: {
           dataIndex: 'content',
           render: (text) => (
-            <div key="label" style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <div
+              key="label"
+              style={{ display: 'flex', justifyContent: 'space-around' }}
+            >
               {(text as any[]).map((t) => (
                 <div key={t.label}>
                   <div style={{ color: '#00000073' }}>{t.label}</div>
@@ -118,13 +121,28 @@ export default () => {
         },
         actions: {
           render: (text, row) => [
-            <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
+            <a
+              href={row.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key="link"
+            >
               编辑
             </a>,
-            <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
+            <a
+              href={row.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key="warning"
+            >
               复制
             </a>,
-            <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
+            <a
+              href={row.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key="view"
+            >
               删除
             </a>,
           ],
@@ -136,11 +154,17 @@ export default () => {
           items: [
             {
               key: 'tab1',
-              label: <span>全部实验室{renderBadge(99, activeKey === 'tab1')}</span>,
+              label: (
+                <span>全部实验室{renderBadge(99, activeKey === 'tab1')}</span>
+              ),
             },
             {
               key: 'tab2',
-              label: <span>我创建的实验室{renderBadge(32, activeKey === 'tab2')}</span>,
+              label: (
+                <span>
+                  我创建的实验室{renderBadge(32, activeKey === 'tab2')}
+                </span>
+              ),
             },
           ],
           onChange(key) {

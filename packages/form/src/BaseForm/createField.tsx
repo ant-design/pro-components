@@ -13,7 +13,11 @@ import { stringify } from 'use-json-comparison';
 import { ProFormDependency, ProFormItem } from '../components';
 import FieldContext from '../FieldContext';
 import { useGridHelpers } from '../helpers';
-import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../typing';
+import type {
+  ExtendsProps,
+  ProFormFieldItemProps,
+  ProFormItemCreateConfig,
+} from '../typing';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -61,7 +65,9 @@ function createField<P extends ProFormFieldItemProps = any>(
   // eslint-disable-next-line no-param-reassign
   Field.displayName = 'ProFormComponent';
 
-  const FieldWithContext: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
+  const FieldWithContext: React.FC<P & ExtendsProps & FunctionFieldProps> = (
+    props,
+  ) => {
     const {
       valueType: tmpValueType,
       customLightMode,
@@ -187,7 +193,8 @@ function createField<P extends ProFormFieldItemProps = any>(
     const proFieldKey = useMemo(() => {
       let name = otherProps?.name;
       if (Array.isArray(name)) name = name.join('_');
-      if (Array.isArray(prefixName) && name) name = `${prefixName.join('.')}.${name}`;
+      if (Array.isArray(prefixName) && name)
+        name = `${prefixName.join('.')}.${name}`;
       const key = name && `form-${contextValue.formKey ?? ''}-field-${name}`;
       return key;
 
@@ -210,7 +217,12 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     const style = useMemo(() => {
       const newStyle = {
-        width: width && !WIDTH_SIZE_ENUM[width] ? width : contextValue.grid ? '100%' : undefined,
+        width:
+          width && !WIDTH_SIZE_ENUM[width]
+            ? width
+            : contextValue.grid
+            ? '100%'
+            : undefined,
         ...fieldProps?.style,
       };
 
@@ -240,7 +252,14 @@ function createField<P extends ProFormFieldItemProps = any>(
         cacheForSwr,
         ...proFieldProps,
       });
-    }, [rest?.mode, rest.params, readonly, proFieldKey, cacheForSwr, proFieldProps]);
+    }, [
+      rest?.mode,
+      rest.params,
+      readonly,
+      proFieldKey,
+      cacheForSwr,
+      proFieldProps,
+    ]);
 
     const fieldFieldProps = useMemo(() => {
       return {
@@ -269,7 +288,12 @@ function createField<P extends ProFormFieldItemProps = any>(
       fieldProFieldProps,
       fieldFieldProps,
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      isDeepEqualReact(prefRest, rest, ['onChange', 'onBlur', 'onFocus', 'record'])
+      isDeepEqualReact(prefRest, rest, [
+        'onChange',
+        'onBlur',
+        'onFocus',
+        'record',
+      ])
         ? undefined
         : {},
     ]);
@@ -340,13 +364,19 @@ function createField<P extends ProFormFieldItemProps = any>(
     return <ColWrapper>{formItem}</ColWrapper>;
   };
 
-  const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
+  const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (
+    props,
+  ) => {
     const { dependencies } = props;
     return dependencies ? (
       <ProFormDependency name={dependencies}>
         {(values) => {
           return (
-            <FieldWithContext dependenciesValues={values} dependencies={dependencies} {...props} />
+            <FieldWithContext
+              dependenciesValues={values}
+              dependencies={dependencies}
+              {...props}
+            />
           );
         }}
       </ProFormDependency>

@@ -15,7 +15,10 @@ export type ProHelpModalProps = {
  * @param modalProps 要传递给 Modal 组件的属性。
  * @param props 要传递给 ProHelpPanel 组件的属性。
  */
-export const ProHelpModal: React.FC<ProHelpModalProps> = ({ modalProps, ...props }) => {
+export const ProHelpModal: React.FC<ProHelpModalProps> = ({
+  modalProps,
+  ...props
+}) => {
   const [modalOpen, setModalOpen] = useMergedState<boolean>(false, {
     value: modalProps?.open,
     onChange: modalProps?.afterClose,
@@ -36,7 +39,11 @@ export const ProHelpModal: React.FC<ProHelpModalProps> = ({ modalProps, ...props
       maskClosable
       {...modalProps}
     >
-      <ProHelpPanel height={648} {...props} onClose={() => setModalOpen(false)} />
+      <ProHelpPanel
+        height={648}
+        {...props}
+        onClose={() => setModalOpen(false)}
+      />
     </Modal>
   );
 };

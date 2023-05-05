@@ -126,7 +126,11 @@ export default () => {
         },
       ]}
     >
-      <ProDescriptions.Item dataIndex="percent" label="百分比" valueType="percent">
+      <ProDescriptions.Item
+        dataIndex="percent"
+        label="百分比"
+        valueType="percent"
+      >
         100
       </ProDescriptions.Item>
     </ProDescriptions>

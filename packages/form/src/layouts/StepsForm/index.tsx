@@ -45,7 +45,9 @@ type StepsFormProps<T = Record<string, any>> = {
   /** @name 当前展示表单的 formRef */
   formRef?: React.MutableRefObject<ProFormInstance<any> | undefined | null>;
   /** @name 所有表单的 formMapRef */
-  formMapRef?: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
+  formMapRef?: React.MutableRefObject<
+    React.MutableRefObject<FormInstance<any> | undefined>[]
+  >;
   /**
    * 自定义单个表单
    *
@@ -59,7 +61,10 @@ type StepsFormProps<T = Record<string, any>> = {
    * @param form From 的 dom，可以放置到别的位置
    * @param submitter 操作按钮
    */
-  stepsFormRender?: (from: React.ReactNode, submitter: React.ReactNode) => React.ReactNode;
+  stepsFormRender?: (
+    from: React.ReactNode,
+    submitter: React.ReactNode,
+  ) => React.ReactNode;
   /** 按钮的统一配置，优先级低于分步表单的配置 */
   submitter?:
     | SubmitterProps<{
@@ -78,7 +83,9 @@ export const StepsFormProvide = React.createContext<
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
-      formArrayRef: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
+      formArrayRef: React.MutableRefObject<
+        React.MutableRefObject<FormInstance<any> | undefined>[]
+      >;
       loading: boolean;
       setLoading: (loading: boolean) => void;
       lastStep: boolean;
@@ -93,7 +100,10 @@ interface LayoutRenderDom {
   formDom: React.ReactElement;
 }
 
-const StepsLayoutStrategy: Record<string, (dom: LayoutRenderDom) => React.ReactNode> = {
+const StepsLayoutStrategy: Record<
+  string,
+  (dom: LayoutRenderDom) => React.ReactNode
+> = {
   horizontal({ stepsDom, formDom }) {
     return (
       <>
@@ -161,7 +171,9 @@ function StepsForm<T = Record<string, any>>(
 
   const formDataRef = useRef(new Map<string, Record<string, any>>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
-  const formArrayRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
+  const formArrayRef = useRef<
+    React.MutableRefObject<FormInstance<any> | undefined>[]
+  >([]);
   const [formArray, setFormArray] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const intl = useIntl();
@@ -178,17 +190,23 @@ function StepsForm<T = Record<string, any>>(
     return StepsLayoutStrategy[stepsProps?.direction || 'horizontal'];
   }, [stepsProps?.direction]);
 
-  const lastStep = useMemo(() => step === formArray.length - 1, [formArray.length, step]);
+  const lastStep = useMemo(
+    () => step === formArray.length - 1,
+    [formArray.length, step],
+  );
 
   /**
    * 注册一个form进入，方便进行 props 的修改
    */
-  const regForm = useCallback((name: string, childrenFormProps: StepFormProps) => {
-    if (!formMapRef.current.has(name)) {
-      setFormArray((oldFormArray) => [...oldFormArray, name]);
-    }
-    formMapRef.current.set(name, childrenFormProps);
-  }, []);
+  const regForm = useCallback(
+    (name: string, childrenFormProps: StepFormProps) => {
+      if (!formMapRef.current.has(name)) {
+        setFormArray((oldFormArray) => [...oldFormArray, name]);
+      }
+      formMapRef.current.set(name, childrenFormProps);
+    },
+    [],
+  );
 
   /**
    * 解除挂载掉这个 form，同时步数 -1
@@ -221,7 +239,10 @@ function StepsForm<T = Record<string, any>>(
       }
 
       setLoading(true);
-      const values: any = merge({}, ...Array.from(formDataRef.current.values()));
+      const values: any = merge(
+        {},
+        ...Array.from(formDataRef.current.values()),
+      );
       try {
         const success = await onFinish(values);
         if (success) {
@@ -259,11 +280,22 @@ function StepsForm<T = Record<string, any>>(
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
       >
-        <Steps {...stepsProps} {...itemsProps} current={step} onChange={undefined}>
+        <Steps
+          {...stepsProps}
+          {...itemsProps}
+          current={step}
+          onChange={undefined}
+        >
           {!isNewAntd &&
             formArray.map((item) => {
               const itemProps = formMapRef.current.get(item);
-              return <Steps.Step key={item} title={itemProps?.title} {...itemProps?.stepProps} />;
+              return (
+                <Steps.Step
+                  key={item}
+                  title={itemProps?.title}
+                  {...itemProps?.stepProps}
+                />
+              );
             })}
         </Steps>
       </div>
@@ -367,7 +399,10 @@ function StepsForm<T = Record<string, any>>(
         onPre: prePage,
       };
 
-      return submitter.render(submitterProps, buttons as React.ReactElement[]) as React.ReactNode;
+      return submitter.render(
+        submitterProps,
+        buttons as React.ReactElement[],
+      ) as React.ReactNode;
     }
     if (submitter && submitter?.render === false) {
       return null;
@@ -423,7 +458,10 @@ function StepsForm<T = Record<string, any>>(
 
   const formContainer = useMemo(
     () => (
-      <div className={`${prefixCls}-container ${hashId}`} style={containerStyle}>
+      <div
+        className={`${prefixCls}-container ${hashId}`}
+        style={containerStyle}
+      >
         {formDom}
         {stepsFormRender ? null : <Space>{submitterDom}</Space>}
       </div>
@@ -442,7 +480,13 @@ function StepsForm<T = Record<string, any>>(
     }
 
     return layoutRender(doms);
-  }, [finalStepsDom, formContainer, layoutRender, stepsFormRender, submitterDom]);
+  }, [
+    finalStepsDom,
+    formContainer,
+    layoutRender,
+    stepsFormRender,
+    submitterDom,
+  ]);
 
   return wrapSSR(
     <div className={classNames(prefixCls, hashId)}>

@@ -3,7 +3,12 @@ import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, { ProFormDependency } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
-import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
+import {
+  isDeepEqualReact,
+  runFunction,
+  usePrevious,
+  useRefFunction,
+} from '@ant-design/pro-utils';
 import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -11,7 +16,13 @@ import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
-import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+import React, {
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 
@@ -56,7 +67,9 @@ export type EditableFormInstance<T = any> = ProFormInstance<T> & {
 };
 
 export type RecordCreatorProps<DataSourceType> = {
-  record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
+  record:
+    | DataSourceType
+    | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
   position?: 'top' | 'bottom';
   /**
    * 新增一行的类型
@@ -66,13 +79,16 @@ export type RecordCreatorProps<DataSourceType> = {
    */
   newRecordType?: 'dataSource' | 'cache';
   /** 要增加到哪个节点下，一般用于多重嵌套表格 */
-  parentKey?: React.Key | ((index: number, dataSource: DataSourceType[]) => React.Key);
+  parentKey?:
+    | React.Key
+    | ((index: number, dataSource: DataSourceType[]) => React.Key);
 };
 
-export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> = Omit<
-  ProTableProps<T, U, ValueType>,
-  'onChange'
-> & {
+export type EditableProTableProps<
+  T,
+  U extends ParamsType,
+  ValueType = 'text',
+> = Omit<ProTableProps<T, U, ValueType>, 'onChange'> & {
   defaultValue?: readonly T[];
   value?: readonly T[];
   onChange?: (value: readonly T[]) => void;
@@ -165,11 +181,14 @@ function EditableTable<
     },
   );
 
-  const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
+  const getRowKey = React.useMemo<
+    GetRowKey<DataType>
+  >((): GetRowKey<DataType> => {
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-    return (record: DataType, index?: number) => (record as any)[rowKey as string] || index;
+    return (record: DataType, index?: number) =>
+      (record as any)[rowKey as string] || index;
   }, [rowKey]);
 
   /**
@@ -190,9 +209,14 @@ function EditableTable<
     /**
      * 如果是 prop.name 的模式，就直接返回行号
      */
-    if ((typeof finlayRowKey === 'string' || finlayRowKey >= value.length) && props.name) {
+    if (
+      (typeof finlayRowKey === 'string' || finlayRowKey >= value.length) &&
+      props.name
+    ) {
       const rowIndex = value.findIndex((item, index) => {
-        return getRowKey?.(item, index)?.toString() === finlayRowKey?.toString();
+        return (
+          getRowKey?.(item, index)?.toString() === finlayRowKey?.toString()
+        );
       });
       return rowIndex;
     }
@@ -313,7 +337,8 @@ function EditableTable<
             icon={<PlusOutlined />}
             {...restButtonProps}
           >
-            {creatorButtonText || intl.getMessage('editableTable.action.add', '添加一行数据')}
+            {creatorButtonText ||
+              intl.getMessage('editableTable.action.add', '添加一行数据')}
           </Button>
         </RecordCreator>
       )
@@ -376,13 +401,15 @@ function EditableTable<
    *
    * >>>>>>为了性能好辛苦
    */
-  const newOnValueChange = useRefFunction((r: DataType, dataSource: DataType[]) => {
-    props.editable?.onValuesChange?.(r, dataSource);
-    props.onValuesChange?.(dataSource, r);
-    if (props.controlled) {
-      props?.onChange?.(dataSource);
-    }
-  });
+  const newOnValueChange = useRefFunction(
+    (r: DataType, dataSource: DataType[]) => {
+      props.editable?.onValuesChange?.(r, dataSource);
+      props.onValuesChange?.(dataSource, r);
+      if (props.controlled) {
+        props?.onChange?.(dataSource);
+      }
+    },
+  );
 
   if (
     props?.onValuesChange ||
@@ -421,7 +448,11 @@ function EditableTable<
              * 如果是top，需要重新设置一下 form，不然会导致 id 相同数据混淆
              */
             if (props.name && position === 'top') {
-              const newValue = set({}, [props.name!].flat(1).filter(Boolean), dataSource);
+              const newValue = set(
+                {},
+                [props.name!].flat(1).filter(Boolean),
+                dataSource,
+              );
               formRef.current?.setFieldsValue(newValue);
             }
           }}
@@ -431,7 +462,10 @@ function EditableTable<
       {props.name ? (
         <ProFormDependency name={[props.name!]}>
           {(changeValue) => {
-            const list = get(changeValue, [props.name].flat(1) as string[]) as any[];
+            const list = get(
+              changeValue,
+              [props.name].flat(1) as string[],
+            ) as any[];
             const changeItem = list?.find((item, index) => {
               return !isDeepEqualReact(item, preData?.[index]);
             });
@@ -457,7 +491,8 @@ function FieldEditableTable<
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
   const form = ProForm.useFormInstance();
 
-  if (!props.name) return <EditableTable<DataType, Params, ValueType> {...props} />;
+  if (!props.name)
+    return <EditableTable<DataType, Params, ValueType> {...props} />;
 
   return (
     <Form.Item

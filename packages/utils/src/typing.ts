@@ -167,7 +167,10 @@ export type ProFieldValueTypeWithFieldProps = {
  * @param color 颜色选择器
  * @param color 颜色选择器
  */
-export type ProFieldValueType = Extract<keyof ProFieldValueTypeWithFieldProps, any>;
+export type ProFieldValueType = Extract<
+  keyof ProFieldValueTypeWithFieldProps,
+  any
+>;
 
 /**
  * 这是一个泛型类型定义，用于定义 FieldPropsTypeBase 类型。该类型包含了以下类型参数：
@@ -218,7 +221,11 @@ type FieldPropsTypeBase<
  *
  * 如果 Type 不是 'progress'、'money'、'percent'、'image' 中的一种，那么 ProFieldValueObject<Type> 的类型为 never。
  */
-export type ProFieldValueObject<Type> = Type extends 'progress' | 'money' | 'percent' | 'image'
+export type ProFieldValueObject<Type> = Type extends
+  | 'progress'
+  | 'money'
+  | 'percent'
+  | 'image'
   ? {
       type: Type;
       status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
@@ -258,7 +265,10 @@ type ValueTypeWithFieldPropsBase<
     | ((
         entity: Entity,
         type: ComponentsType,
-      ) => ValueType | ProFieldValueType | ProFieldValueObject<ValueType | ProFieldValueType>);
+      ) =>
+        | ValueType
+        | ProFieldValueType
+        | ProFieldValueObject<ValueType | ProFieldValueType>);
   fieldProps?: FieldPropsTypeBase<
     Entity,
     ComponentsType,
@@ -318,9 +328,14 @@ export type RequestOptionsType = {
   [key: string]: any;
 };
 
-export type ProFieldRequestData<U = any> = (params: U, props: any) => Promise<RequestOptionsType[]>;
+export type ProFieldRequestData<U = any> = (
+  params: U,
+  props: any,
+) => Promise<RequestOptionsType[]>;
 
-export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
+export type ProFieldValueEnumType =
+  | ProSchemaValueEnumMap
+  | ProSchemaValueEnumObj;
 /**
  * ProFieldValueObjectType 对象，用于描述值为 'progress' | 'money' | 'percent' | 'image' 类型的 ProField 的属性。
  * @typedef {Object} ProFieldValueObjectType
@@ -380,9 +395,15 @@ export type ProFieldValueObjectType = {
  *
  * @name ValueEnum 的类型
  */
-export type ProSchemaValueEnumMap = Map<string | number, ProSchemaValueEnumType | ReactNode>;
+export type ProSchemaValueEnumMap = Map<
+  string | number,
+  ProSchemaValueEnumType | ReactNode
+>;
 
-export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | ReactNode>;
+export type ProSchemaValueEnumObj = Record<
+  string,
+  ProSchemaValueEnumType | ReactNode
+>;
 
 export type ProFieldTextType =
   | React.ReactNode
@@ -395,9 +416,16 @@ export type SearchTransformKeyFn = (
   namePath: string,
   allValues: any,
 ) => string | Record<string, any>;
-export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
+export type SearchConvertKeyFn = (
+  value: any,
+  field: NamePath,
+) => string | Record<string, any>;
 
-export type ProTableEditableFnType<T> = (value: any, record: T, index: number) => boolean;
+export type ProTableEditableFnType<T> = (
+  value: any,
+  record: T,
+  index: number,
+) => boolean;
 
 // 支持的变形，还未完全支持完毕
 /** 支持的变形，还未完全支持完毕 */
@@ -428,7 +456,10 @@ export type ProCoreActionType<T = {}> = {
 > &
   T;
 
-export type ProSchemaFieldProps<T> = Record<string, any> | T | Partial<InputProps>;
+export type ProSchemaFieldProps<T> =
+  | Record<string, any>
+  | T
+  | Partial<InputProps>;
 
 /** 各个组件公共支持的 render */
 export type ProSchema<
@@ -454,7 +485,13 @@ export type ProSchema<
    */
   title?:
     | ((
-        schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType, ExtraFormItemProps>,
+        schema: ProSchema<
+          Entity,
+          ExtraProps,
+          ComponentsType,
+          ValueType,
+          ExtraFormItemProps
+        >,
         type: ComponentsType,
         dom: React.ReactNode,
       ) => React.ReactNode)
@@ -483,7 +520,13 @@ export type ProSchema<
     | (FormItemProps & ExtraFormItemProps)
     | ((
         form: FormInstance<any>,
-        config: ProSchema<Entity, ExtraProps, ComponentsType, ValueType, ExtraFormItemProps> & {
+        config: ProSchema<
+          Entity,
+          ExtraProps,
+          ComponentsType,
+          ValueType,
+          ExtraFormItemProps
+        > & {
           type: ComponentsType;
           isEditable?: boolean;
           rowKey?: string;
@@ -497,7 +540,12 @@ export type ProSchema<
    *
    * @name 自定义 render 内容
    */
-  renderText?: (text: any, record: Entity, index: number, action: ProCoreActionType) => any;
+  renderText?: (
+    text: any,
+    record: Entity,
+    index: number,
+    action: ProCoreActionType,
+  ) => any;
   /**
    * Render 方法只管理的只读模式，编辑模式需要使用 renderFormItem
    *
@@ -508,7 +556,13 @@ export type ProSchema<
     entity: Entity,
     index: number,
     action: ProCoreActionType | undefined,
-    schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType, ExtraFormItemProps> & {
+    schema: ProSchema<
+      Entity,
+      ExtraProps,
+      ComponentsType,
+      ValueType,
+      ExtraFormItemProps
+    > & {
       isEditable?: boolean;
       type: ComponentsType;
     },
@@ -525,7 +579,13 @@ export type ProSchema<
    * @name 自定义编辑模式
    */
   renderFormItem?: (
-    schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType, ExtraFormItemProps> & {
+    schema: ProSchema<
+      Entity,
+      ExtraProps,
+      ComponentsType,
+      ValueType,
+      ExtraFormItemProps
+    > & {
       isEditable?: boolean;
       index?: number;
       type: ComponentsType;
@@ -567,7 +627,10 @@ export type ProSchema<
   debounceTime?: number;
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?:
-    | ((record: Entity, column: ProSchema<Entity, ExtraProps>) => Record<string, any>)
+    | ((
+        record: Entity,
+        column: ProSchema<Entity, ExtraProps>,
+      ) => Record<string, any>)
     | Record<string, any>;
   /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */
   dependencies?: NamePath[];

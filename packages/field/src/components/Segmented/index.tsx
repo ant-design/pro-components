@@ -18,7 +18,10 @@ const FieldSegmented: ProFieldFC<
     text: string;
     emptyText?: React.ReactNode;
   } & FieldSelectProps
-> = ({ mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest }, ref) => {
+> = (
+  { mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest },
+  ref,
+) => {
   const inputRef = useRef<HTMLInputElement>();
 
   const [loading, options, fetchData] = useFieldFetchData(rest);
@@ -39,10 +42,19 @@ const FieldSegmented: ProFieldFC<
         }, {})
       : undefined;
 
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          ObjToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
-      return render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText;
+      return (
+        render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText
+      );
     }
     return dom;
   }

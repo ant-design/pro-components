@@ -104,7 +104,8 @@ const Demo = () => {
             }
 
             if (values?.deleteIconProps?.Icon) {
-              values.deleteIconProps.Icon = IconMap[values?.deleteIconProps?.Icon];
+              values.deleteIconProps.Icon =
+                IconMap[values?.deleteIconProps?.Icon];
             }
             if (values?.creatorButtonProps?.icon) {
               const Icon = IconMap[values?.creatorButtonProps?.icon];
@@ -169,14 +170,19 @@ const Demo = () => {
                       name={['creatorButtonProps', 'type']}
                       label="按钮类型"
                       request={async () => {
-                        return ['default', 'primary', 'ghost', 'dashed', 'link', 'text'].map(
-                          (value) => {
-                            return {
-                              label: value,
-                              value,
-                            };
-                          },
-                        );
+                        return [
+                          'default',
+                          'primary',
+                          'ghost',
+                          'dashed',
+                          'link',
+                          'text',
+                        ].map((value) => {
+                          return {
+                            label: value,
+                            value,
+                          };
+                        });
                       }}
                     />
                   </ProForm.Group>
@@ -271,7 +277,12 @@ const Demo = () => {
               }}
             </ProFormDependency>
           </ProForm.Group>
-          <ProFormField ignoreFormItem valueType="jsonCode" text={json} mode="read" />
+          <ProFormField
+            ignoreFormItem
+            valueType="jsonCode"
+            text={json}
+            mode="read"
+          />
         </ProForm>
       </ProCard>
     </ProCard>

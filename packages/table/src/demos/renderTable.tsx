@@ -133,8 +133,12 @@ export default () => {
             <Descriptions.Item label="Association">
               <a>421421</a>
             </Descriptions.Item>
-            <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
-            <Descriptions.Item label="Effective Time">2017-10-10</Descriptions.Item>
+            <Descriptions.Item label="Creation Time">
+              2017-01-10
+            </Descriptions.Item>
+            <Descriptions.Item label="Effective Time">
+              2017-10-10
+            </Descriptions.Item>
           </Descriptions>
         </Card>
       )}

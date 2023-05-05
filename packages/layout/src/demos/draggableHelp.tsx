@@ -1,5 +1,9 @@
 ﻿import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
-import { ProHelp, ProHelpPanel, ProHelpSelect } from '@ant-design/pro-components';
+import {
+  ProHelp,
+  ProHelpPanel,
+  ProHelpSelect,
+} from '@ant-design/pro-components';
 import Draggable from 'react-draggable';
 import { Typography, App } from 'antd';
 
@@ -62,7 +66,11 @@ export default () => {
             return (
               <div key={index}>
                 <Typography.Text>
-                  {child.href ? <a href={child.href}>{child.title}</a> : child.title}
+                  {child.href ? (
+                    <a href={child.href}>{child.title}</a>
+                  ) : (
+                    child.title
+                  )}
                 </Typography.Text>
               </div>
             );

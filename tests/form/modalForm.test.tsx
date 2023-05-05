@@ -212,7 +212,11 @@ describe('ModalForm', () => {
   it('📦 modal close button will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
-      <ModalForm visible trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
+      <ModalForm
+        visible
+        trigger={<Button id="new">新建</Button>}
+        onOpenChange={(open) => fn(open)}
+      >
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -221,7 +225,9 @@ describe('ModalForm', () => {
     });
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('button.ant-modal-close')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('button.ant-modal-close')
+        ?.click();
     });
     await waitFor(async () => {
       await waitTime(100);
@@ -250,7 +256,11 @@ describe('ModalForm', () => {
   it('📦 reset button will simulate onOpenChange', async () => {
     const fn = jest.fn();
     const wrapper = render(
-      <ModalForm visible trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
+      <ModalForm
+        visible
+        trigger={<Button id="new">新建</Button>}
+        onOpenChange={(open) => fn(open)}
+      >
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -283,7 +293,9 @@ describe('ModalForm', () => {
     });
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('button.ant-modal-close')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('button.ant-modal-close')
+        ?.click();
     });
     await waitFor(async () => {
       await waitTime(100);
@@ -322,7 +334,11 @@ describe('ModalForm', () => {
   it('📦 form onFinish is null, no close modal', async () => {
     const fn = jest.fn();
     const wrapper = render(
-      <ModalForm visible trigger={<Button id="new">新建</Button>} onOpenChange={(open) => fn(open)}>
+      <ModalForm
+        visible
+        trigger={<Button id="new">新建</Button>}
+        onOpenChange={(open) => fn(open)}
+      >
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -340,7 +356,11 @@ describe('ModalForm', () => {
 
   it('📦 ModalForm support submitter is false', async () => {
     const wrapper = render(
-      <ModalForm visible trigger={<Button id="new">新建</Button>} submitter={false}>
+      <ModalForm
+        visible
+        trigger={<Button id="new">新建</Button>}
+        submitter={false}
+      >
         <ProFormText name="name" />
       </ModalForm>,
     );
@@ -349,7 +369,9 @@ describe('ModalForm', () => {
       (await wrapper.findByText('新 建'))?.click();
     });
 
-    expect(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-modal-footer')).toBeFalsy();
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-modal-footer'),
+    ).toBeFalsy();
   });
 
   it('📦 ModalForm close no rerender from', async () => {
@@ -396,7 +418,9 @@ describe('ModalForm', () => {
     });
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('button.ant-modal-close')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('button.ant-modal-close')
+        ?.click();
     });
     await waitFor(async () => {
       await waitTime(100);
@@ -459,7 +483,9 @@ describe('ModalForm', () => {
     });
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('button.ant-modal-close')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('button.ant-modal-close')
+        ?.click();
     });
 
     await waitFor(async () => {
@@ -502,7 +528,8 @@ describe('ModalForm', () => {
     });
 
     expect(
-      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement).disabled,
+      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
+        .disabled,
     ).toEqual(true);
 
     await act(async () => {
@@ -516,7 +543,8 @@ describe('ModalForm', () => {
     });
 
     expect(
-      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)?.disabled,
+      (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
+        ?.disabled,
     ).toEqual(false);
 
     await act(async () => {
@@ -557,11 +585,15 @@ describe('ModalForm', () => {
     });
 
     expect(
-      wrapper.baseElement.querySelector<HTMLButtonElement>('button.ant-btn-default')?.disabled,
+      wrapper.baseElement.querySelector<HTMLButtonElement>(
+        'button.ant-btn-default',
+      )?.disabled,
     ).toEqual(false);
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('button.ant-modal-close')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('button.ant-modal-close')
+        ?.click();
     });
 
     await waitFor(async () => {

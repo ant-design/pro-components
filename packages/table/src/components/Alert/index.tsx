@@ -22,7 +22,10 @@ export type TableAlertProps<T> = {
   alertOptionRender?: AlertRenderType<T>;
 };
 
-const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () => void }) => {
+const defaultAlertOptionRender = (props: {
+  intl: IntlType;
+  onCleanSelected: () => void;
+}) => {
   const { intl, onCleanSelected } = props;
   return [
     <a onClick={onCleanSelected} key="0">
@@ -62,7 +65,12 @@ function TableAlert<T>({
   if (alertInfoRender === false) {
     return null;
   }
-  const dom = alertInfoRender({ intl, selectedRowKeys, selectedRows, onCleanSelected });
+  const dom = alertInfoRender({
+    intl,
+    selectedRowKeys,
+    selectedRows,
+    onCleanSelected,
+  });
 
   if (dom === false || (selectedRowKeys.length < 1 && !alwaysShowAlert)) {
     return null;
@@ -72,7 +80,9 @@ function TableAlert<T>({
       <div className={`${className}-container ${hashId}`}>
         <div className={`${className}-info ${hashId}`}>
           <div className={`${className}-info-content ${hashId}`}>{dom}</div>
-          {option ? <div className={`${className}-info-option ${hashId}`}>{option}</div> : null}
+          {option ? (
+            <div className={`${className}-info-option ${hashId}`}>{option}</div>
+          ) : null}
         </div>
       </div>
     </div>,

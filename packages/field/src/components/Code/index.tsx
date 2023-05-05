@@ -28,7 +28,10 @@ const languageFormat = (text: string, language: string) => {
 const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
-}> = ({ text, mode, render, language = 'text', renderFormItem, plain, fieldProps }, ref) => {
+}> = (
+  { text, mode, render, language = 'text', renderFormItem, plain, fieldProps },
+  ref,
+) => {
   const code = languageFormat(text, language);
   if (mode === 'read') {
     const dom = (

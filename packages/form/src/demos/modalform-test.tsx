@@ -1,7 +1,13 @@
 ﻿import React from 'react';
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { ProCard, ProForm, ProFormList, ProFormText, ModalForm } from '@ant-design/pro-components';
+import {
+  ProCard,
+  ProForm,
+  ProFormList,
+  ProFormText,
+  ModalForm,
+} from '@ant-design/pro-components';
 
 // 弹窗表单
 const FormModal = () => {
@@ -61,8 +67,17 @@ const Demo = () => {
             creatorRecord={{ name: '', items: [{ name: '' }] }}
             initialValue={[{ name: '颜色', items: [{ name: '红' }] }]}
           >
-            <ProFormText style={{ padding: 0 }} width="md" name="name" label="规格名" />
-            <ProForm.Item isListField style={{ marginBlockEnd: 0 }} label="规格值">
+            <ProFormText
+              style={{ padding: 0 }}
+              width="md"
+              name="name"
+              label="规格名"
+            />
+            <ProForm.Item
+              isListField
+              style={{ marginBlockEnd: 0 }}
+              label="规格值"
+            >
               <ProFormList
                 name="items"
                 creatorButtonProps={{

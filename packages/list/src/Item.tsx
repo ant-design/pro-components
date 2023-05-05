@@ -96,10 +96,18 @@ export type ItemProps<RecordType> = {
   onRow?: GetComponentProps<RecordType>;
   onItem?: GetComponentProps<RecordType>;
   itemHeaderRender?:
-    | ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode)
+    | ((
+        item: RecordType,
+        index: number,
+        defaultDom: JSX.Element | null,
+      ) => React.ReactNode)
     | false;
   itemTitleRender?:
-    | ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode)
+    | ((
+        item: RecordType,
+        index: number,
+        defaultDom: JSX.Element | null,
+      ) => React.ReactNode)
     | false;
 };
 
@@ -174,7 +182,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     [`${propsClassName}-extra`]: showExtra === 'hover',
   });
 
-  const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
+  const needExpanded =
+    expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom =
     expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
 
@@ -210,11 +219,14 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     title || subTitle ? (
       <div className={`${className}-header-title ${hashId}`}>
         {title && <div className={`${className}-title ${hashId}`}>{title}</div>}
-        {subTitle && <div className={`${className}-subTitle ${hashId}`}>{subTitle}</div>}
+        {subTitle && (
+          <div className={`${className}-subTitle ${hashId}`}>{subTitle}</div>
+        )}
       </div>
     ) : null;
 
-  const metaTitle = (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
+  const metaTitle =
+    (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
   const metaDom =
     metaTitle || avatar || subTitle || description ? (
       <List.Item.Meta
@@ -222,7 +234,11 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         title={metaTitle}
         description={
           description &&
-          needExpanded && <div className={`${className}-description ${hashId}`}>{description}</div>
+          needExpanded && (
+            <div className={`${className}-description ${hashId}`}>
+              {description}
+            </div>
+          )
         }
       />
     ) : null;
@@ -237,7 +253,9 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       return (
         <>
           {avatar}
-          <span className={`${getPrefixCls('list-item-meta-title')} ${hashId}`}>{title}</span>
+          <span className={`${getPrefixCls('list-item-meta-title')} ${hashId}`}>
+            {title}
+          </span>
         </>
       );
     }
@@ -265,7 +283,11 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       <Skeleton avatar title={false} loading={loading} active>
         <div className={`${className}-header ${hashId}`}>
           <div className={`${className}-header-option ${hashId}`}>
-            {!!checkbox && <div className={`${className}-checkbox ${hashId}`}>{checkbox}</div>}
+            {!!checkbox && (
+              <div className={`${className}-checkbox ${hashId}`}>
+                {checkbox}
+              </div>
+            )}
             {Object.values(expandableConfig || {}).length > 0 &&
               rowSupportExpand &&
               renderExpandIcon({
@@ -277,14 +299,18 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
                 record,
               } as RenderExpandIconProps<RecordType>)}
           </div>
-          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ?? metaDom}
+          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ??
+            metaDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={`${className}-content ${hashId}`}>
             {content}
             {expandedRowRender && rowSupportExpand && (
               <div
-                className={expandedRowClassName && expandedRowClassName(record, index, indentSize)}
+                className={
+                  expandedRowClassName &&
+                  expandedRowClassName(record, index, indentSize)
+                }
               >
                 {expandedRowDom}
               </div>

@@ -1,4 +1,8 @@
-import { cleanup, render as reactRender, waitFor } from '@testing-library/react';
+import {
+  cleanup,
+  render as reactRender,
+  waitFor,
+} from '@testing-library/react';
 import glob from 'glob';
 import MockDate from 'mockdate';
 import { useEffect } from 'react';
@@ -70,7 +74,10 @@ function demoTest(component: string, options: Options = {}) {
   describe(`${component} demos`, () => {
     files.forEach((file) => {
       let testMethod = options.skip === true ? test.skip : test;
-      if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
+      if (
+        Array.isArray(options.skip) &&
+        options.skip.some((c) => file.includes(c))
+      ) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {

@@ -47,8 +47,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -136,7 +142,9 @@ export default () => {
                 </>
               );
             },
-            renderFormItem: (text, props) => <TagList {...props} {...props?.fieldProps} />,
+            renderFormItem: (text, props) => (
+              <TagList {...props} {...props?.fieldProps} />
+            ),
           },
         },
       }}

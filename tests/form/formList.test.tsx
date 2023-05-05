@@ -8,7 +8,13 @@ import ProForm, {
   ProFormList,
   ProFormText,
 } from '@ant-design/pro-form';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import _ from 'lodash';
@@ -84,7 +90,11 @@ describe('ProForm List', () => {
             )}
             initialValue={[{}]}
           >
-            <ModalForm title="添加规则" trigger={<div>点击添加</div>} width={1200}>
+            <ModalForm
+              title="添加规则"
+              trigger={<div>点击添加</div>}
+              width={1200}
+            >
               <ProFormText
                 name="ruleType"
                 width="sm"
@@ -151,13 +161,21 @@ describe('ProForm List', () => {
     );
 
     expect(
-      !!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length,
+      !!container.querySelectorAll(
+        '.ant-btn.ant-pro-form-list-creator-button-bottom',
+      ).length,
     ).toBeTruthy();
     expect(
-      container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-top').length,
+      container.querySelectorAll(
+        '.ant-btn.ant-pro-form-list-creator-button-top',
+      ).length,
     ).toBeFalsy();
 
-    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-bottom')!);
+    fireEvent.click(
+      container.querySelector(
+        '.ant-btn.ant-pro-form-list-creator-button-bottom',
+      )!,
+    );
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
@@ -265,7 +283,9 @@ describe('ProForm List', () => {
     await waitTime(2000);
 
     act(() => {
-      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')
+        ?.click();
     });
 
     await waitTime(100);
@@ -282,7 +302,9 @@ describe('ProForm List', () => {
     await waitTime(2000);
 
     act(() => {
-      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')
+        ?.click();
     });
 
     await waitTime(100);
@@ -297,7 +319,9 @@ describe('ProForm List', () => {
     });
 
     act(() => {
-      html.baseElement.querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')?.click();
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')
+        ?.click();
     });
 
     await waitTime(100);
@@ -320,7 +344,9 @@ describe('ProForm List', () => {
     );
 
     expect(
-      !!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length,
+      !!container.querySelectorAll(
+        '.ant-btn.ant-pro-form-list-creator-button-bottom',
+      ).length,
     ).toBeFalsy();
   });
 
@@ -353,7 +379,11 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-bottom')!);
+    fireEvent.click(
+      container.querySelector(
+        '.ant-btn.ant-pro-form-list-creator-button-bottom',
+      )!,
+    );
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
@@ -394,13 +424,19 @@ describe('ProForm List', () => {
     );
 
     expect(
-      !!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-top').length,
+      !!container.querySelectorAll(
+        '.ant-btn.ant-pro-form-list-creator-button-top',
+      ).length,
     ).toBeTruthy();
     expect(
-      !!container.querySelectorAll('.ant-btn.ant-pro-form-list-creator-button-bottom').length,
+      !!container.querySelectorAll(
+        '.ant-btn.ant-pro-form-list-creator-button-bottom',
+      ).length,
     ).toBeFalsy();
 
-    fireEvent.click(container.querySelector('.ant-btn.ant-pro-form-list-creator-button-top')!);
+    fireEvent.click(
+      container.querySelector('.ant-btn.ant-pro-form-list-creator-button-top')!,
+    );
     fireEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
@@ -434,7 +470,9 @@ describe('ProForm List', () => {
     );
 
     fireEvent.click(
-      container.querySelectorAll('.ant-pro-form-list-action .ant-pro-form-list-action-icon')[0],
+      container.querySelectorAll(
+        '.ant-pro-form-list-action .ant-pro-form-list-action-icon',
+      )[0],
     );
     fireEvent.click(await screen.findByText('提 交'));
 
@@ -587,7 +625,9 @@ describe('ProForm List', () => {
     );
 
     fireEvent.click(
-      container.querySelectorAll('.ant-pro-form-list .ant-pro-form-list .ant-btn-dashed')[0],
+      container.querySelectorAll(
+        '.ant-pro-form-list .ant-pro-form-list .ant-btn-dashed',
+      )[0],
     );
     fireEvent.click(await screen.findByText('提 交'));
 
@@ -692,7 +732,9 @@ describe('ProForm List', () => {
                       extra="a, b, c.a取自局部"
                     >
                       <pre>
-                        <code className="case3">{JSON.stringify(depValues, null, 2)}</code>
+                        <code className="case3">
+                          {JSON.stringify(depValues, null, 2)}
+                        </code>
                       </pre>
                     </Form.Item>
                   )}
@@ -714,7 +756,9 @@ describe('ProForm List', () => {
                       extra="a, b, c.a取自全局"
                     >
                       <pre>
-                        <code className="case2">{JSON.stringify(depValues, null, 2)}</code>
+                        <code className="case2">
+                          {JSON.stringify(depValues, null, 2)}
+                        </code>
                       </pre>
                     </Form.Item>
                   )}
@@ -724,12 +768,16 @@ describe('ProForm List', () => {
           </ProFormGroup>
         </ProFormGroup>
         <ProFormGroup
-          title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(depName1)}}>`}
+          title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(
+            depName1,
+          )}}>`}
         >
           <ProFormDependency name={depName1}>
             {(depValues) => (
               <pre>
-                <code className="case1">{JSON.stringify(depValues, null, 2)}</code>
+                <code className="case1">
+                  {JSON.stringify(depValues, null, 2)}
+                </code>
               </pre>
             )}
           </ProFormDependency>
@@ -742,10 +790,18 @@ describe('ProForm List', () => {
     };
 
     expect(container.querySelector('code.case1')).toContainHTML(
-      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName1)), null, 2),
+      JSON.stringify(
+        _.pick(initialValues, namePaths2PropertyPaths(depName1)),
+        null,
+        2,
+      ),
     );
     expect(container.querySelector('code.case2')).toContainHTML(
-      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName2)), null, 2),
+      JSON.stringify(
+        _.pick(initialValues, namePaths2PropertyPaths(depName2)),
+        null,
+        2,
+      ),
     );
     expect(container.querySelector('code.case3')).toContainHTML(
       JSON.stringify(
@@ -787,7 +843,9 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    expect(!!container.querySelectorAll('.ant-pro-form-list-action').length).toBeFalsy();
+    expect(
+      !!container.querySelectorAll('.ant-pro-form-list-action').length,
+    ).toBeFalsy();
   });
 
   it('⛲ ProForm.List support copyIconProps.icon and deleteIconProps.icon', async () => {
@@ -815,7 +873,9 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    expect(!!container.querySelectorAll('.anticon-snippets').length).toBeTruthy();
+    expect(
+      !!container.querySelectorAll('.anticon-snippets').length,
+    ).toBeTruthy();
     expect(!!container.querySelectorAll('.anticon-close').length).toBeTruthy();
   });
 
@@ -878,20 +938,25 @@ describe('ProForm List', () => {
 
     // 复制按钮
     await act(async () => {
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-copy')[0]
+        ?.click?.();
     });
 
     expect(fnAdd).toHaveBeenLastCalledWith('1111', 2);
 
     await waitTime(1200);
 
-    const input = html.baseElement.querySelectorAll<HTMLInputElement>('input.ant-input');
+    const input =
+      html.baseElement.querySelectorAll<HTMLInputElement>('input.ant-input');
     expect(input.length).toBe(3);
     expect(input[2].value).toBe('1111');
 
     // 删除按钮
     await act(async () => {
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[2]?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-remove')[2]
+        ?.click?.();
     });
 
     expect(fnRemove).toBeCalledWith(2);
@@ -902,7 +967,9 @@ describe('ProForm List', () => {
 
     // 删除按钮不能删除的项目
     await act(async () => {
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
+        ?.click?.();
     });
 
     await waitTime(1200);
@@ -983,7 +1050,9 @@ describe('ProForm List', () => {
       </ProForm>,
     );
     await act(async () => {
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
+        ?.click?.();
     });
 
     await waitTime(100);
@@ -1027,9 +1096,15 @@ describe('ProForm List', () => {
     expect(html.baseElement.querySelectorAll('input.ant-input').length).toBe(1);
     // 尝试增加到4条数据
     await act(async () => {
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-copy')[0]?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-copy')[0]
+        ?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-copy')[0]
+        ?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-copy')[0]
+        ?.click?.();
     });
     await waitTime(1000);
     await waitTime(100);
@@ -1042,12 +1117,21 @@ describe('ProForm List', () => {
 
     // 尝试删除掉所有，但实际至少保留一个
     await act(async () => {
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
+        ?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
+        ?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
+        ?.click?.();
     });
     await waitTime(1200);
-    expect(html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove').length).toBe(0);
+    expect(
+      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')
+        .length,
+    ).toBe(0);
   });
 
   it('⛲ valid to set the format property in ProForm.List', async () => {
@@ -1361,7 +1445,9 @@ describe('ProForm List', () => {
     await waitTime(100);
     // 删除按钮
     await act(async () => {
-      html.baseElement.querySelectorAll<HTMLDivElement>('.action-remove')[0]?.click?.();
+      html.baseElement
+        .querySelectorAll<HTMLDivElement>('.action-remove')[0]
+        ?.click?.();
     });
     expect(handleRemove).toBeCalledWith(0);
 
@@ -1400,7 +1486,9 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(1);
+    expect(
+      html.baseElement.querySelectorAll('.ant-form-item-required').length,
+    ).toBe(1);
 
     html.rerender(
       <ProForm>
@@ -1410,7 +1498,9 @@ describe('ProForm List', () => {
       </ProForm>,
     );
 
-    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
+    expect(
+      html.baseElement.querySelectorAll('.ant-form-item-required').length,
+    ).toBe(0);
     html.unmount();
   });
 
@@ -1419,7 +1509,10 @@ describe('ProForm List', () => {
     const html = render(
       <ProForm>
         <ProFormList name="list" label="表格" isValidateList>
-          <ProFormText name="name" rules={[{ required: true, message: '请填写1' }]} />
+          <ProFormText
+            name="name"
+            rules={[{ required: true, message: '请填写1' }]}
+          />
         </ProFormList>
       </ProForm>,
     );
@@ -1439,9 +1532,10 @@ describe('ProForm List', () => {
       fireEvent.click(await html.findByText('提 交'));
     });
     await waitTime(300);
-    expect((await html.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML).toBe(
-      '请填写1',
-    );
+    expect(
+      (await html.baseElement.querySelector('.ant-form-item-explain-error'))
+        ?.innerHTML,
+    ).toBe('请填写1');
     await act(async () => {
       fireEvent.click(await html.baseElement.querySelector('.action-remove')!);
     });

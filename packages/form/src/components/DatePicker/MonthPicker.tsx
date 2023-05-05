@@ -10,23 +10,26 @@ const valueType = 'dateMonth' as const;
  *
  * @param
  */
-const ProFormDatePickerMonth: React.FC<ProFormFieldItemProps<MonthPickerProps>> = React.forwardRef(
-  ({ proFieldProps, fieldProps, ...rest }, ref) => {
-    const context = useContext(FieldContext);
-    return (
-      <ProField
-        ref={ref}
-        valueType={valueType}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
-        proFieldProps={proFieldProps}
-        filedConfig={{
-          valueType,
-          customLightMode: true,
-        }}
-        {...rest}
-      />
-    );
-  },
-);
+const ProFormDatePickerMonth: React.FC<
+  ProFormFieldItemProps<MonthPickerProps>
+> = React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref) => {
+  const context = useContext(FieldContext);
+  return (
+    <ProField
+      ref={ref}
+      valueType={valueType}
+      fieldProps={{
+        getPopupContainer: context.getPopupContainer,
+        ...fieldProps,
+      }}
+      proFieldProps={proFieldProps}
+      filedConfig={{
+        valueType,
+        customLightMode: true,
+      }}
+      {...rest}
+    />
+  );
+});
 
 export default ProFormDatePickerMonth;

@@ -175,7 +175,12 @@ GridContent encapsulates the [equal-width](https://preview.pro.ant.design/dashbo
 Generate menuData and breadcrumb based on router information.
 
 ```js | pure import { getMenuData } from '@ant-design/pro-components';
-const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDataRender);
+const { breadcrumb, menuData } = getMenuData(
+  routes,
+  menu,
+  formatMessage,
+  menuDataRender,
+);
 ```
 
 | parameters | description | type | default |

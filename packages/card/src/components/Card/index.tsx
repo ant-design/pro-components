@@ -114,10 +114,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     }
 
     // 当 colSpan 为 30% 或 300px 时
-    const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
-      width: span as string,
-      flexShrink: 0,
-    });
+    const colSpanStyle = getStyle(
+      typeof span === 'string' && /\d%|\dpx/i.test(span),
+      {
+        width: span as string,
+        flexShrink: 0,
+      },
+    );
 
     return { span, colSpanStyle };
   };
@@ -140,10 +143,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       const { span, colSpanStyle } = getColSpanStyle(colSpan);
 
       const columnClassName = classNames([`${prefixCls}-col`], hashId, {
-        [`${prefixCls}-split-vertical`]: split === 'vertical' && index !== childrenArray.length - 1,
+        [`${prefixCls}-split-vertical`]:
+          split === 'vertical' && index !== childrenArray.length - 1,
         [`${prefixCls}-split-horizontal`]:
           split === 'horizontal' && index !== childrenArray.length - 1,
-        [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
+        [`${prefixCls}-col-${span}`]:
+          typeof span === 'number' && span >= 0 && span <= 24,
       });
 
       const wrappedElement = wrapSSR(
@@ -164,7 +169,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {React.cloneElement(element)}
         </div>,
       );
-      return React.cloneElement(wrappedElement, { key: `pro-card-col-${element?.key || index}` });
+      return React.cloneElement(wrappedElement, {
+        key: `pro-card-col-${element?.key || index}`,
+      });
     }
     return element;
   });
@@ -185,7 +192,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   const bodyCls = classNames(`${prefixCls}-body`, hashId, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-direction-column`]: split === 'horizontal' || direction === 'column',
+    [`${prefixCls}-body-direction-column`]:
+      split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
@@ -196,7 +204,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   ) : (
     <Loading
       prefix={prefixCls}
-      style={bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined}
+      style={
+        bodyStyle.padding === 0 || bodyStyle.padding === '0px'
+          ? { padding: 24 }
+          : undefined
+      }
     />
   );
   // 非受控情况下展示
@@ -236,9 +248,15 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         >
           <div className={`${prefixCls}-title ${hashId}`}>
             {collapsibleButton}
-            <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
+            <LabelIconTip
+              label={title}
+              tooltip={tooltip || tip}
+              subTitle={subTitle}
+            />
           </div>
-          {extra && <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>}
+          {extra && (
+            <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>
+          )}
         </div>
       )}
       {tabs ? (

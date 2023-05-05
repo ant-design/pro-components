@@ -87,7 +87,9 @@ const Demo = () => {
         </ProFormGroup>
       </ProFormGroup>
       <ProFormGroup
-        title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(depName1)}}>`}
+        title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(
+          depName1,
+        )}}>`}
       >
         <ProFormDependency name={depName1}>
           {(depValues) => (

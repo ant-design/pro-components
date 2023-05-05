@@ -144,7 +144,9 @@ const getTextByLocale = (
   precision: number,
   config?: any,
 ) => {
-  let moneyText: number | string | undefined = paramsText?.toString().replaceAll(',', '');
+  let moneyText: number | string | undefined = paramsText
+    ?.toString()
+    .replaceAll(',', '');
   if (typeof moneyText === 'string') {
     const parsedNum = Number(moneyText);
     // 转换数字为NaN时，返回原始值展示
@@ -175,7 +177,9 @@ const getTextByLocale = (
     // 兼容正负号
     if (['+', '-'].includes(operatorSymbol)) {
       // 裁剪字符串,有符号截取两位，没有符号截取一位
-      return `${operatorSymbol}${finalMoneyText.substring(hasMoneySymbol ? 2 : 1)}`;
+      return `${operatorSymbol}${finalMoneyText.substring(
+        hasMoneySymbol ? 2 : 1,
+      )}`;
     }
 
     // 没有正负符号截取一位
@@ -203,36 +207,47 @@ const InputNumberPopover = React.forwardRef<
     numberFormatOptions?: any;
     numberPopoverRender?: any;
   }
->(({ contentRender: content, numberFormatOptions, numberPopoverRender, open, ...rest }, ref) => {
-  const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
-    value: rest.value,
-    onChange: rest.onChange,
-  });
+>(
+  (
+    {
+      contentRender: content,
+      numberFormatOptions,
+      numberPopoverRender,
+      open,
+      ...rest
+    },
+    ref,
+  ) => {
+    const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
+      value: rest.value,
+      onChange: rest.onChange,
+    });
 
-  /**
-   * 如果content 存在要根据 content 渲染一下
-   */
-  const dom = content?.({
-    ...rest,
-    value,
-  });
+    /**
+     * 如果content 存在要根据 content 渲染一下
+     */
+    const dom = content?.({
+      ...rest,
+      value,
+    });
 
-  const props = openVisibleCompatible(dom ? open : false);
+    const props = openVisibleCompatible(dom ? open : false);
 
-  return (
-    <Popover
-      placement="topLeft"
-      {...props}
-      trigger={['focus', 'click']}
-      content={dom}
-      getPopupContainer={(triggerNode) => {
-        return triggerNode?.parentElement || document.body;
-      }}
-    >
-      <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
-    </Popover>
-  );
-});
+    return (
+      <Popover
+        placement="topLeft"
+        {...props}
+        trigger={['focus', 'click']}
+        content={dom}
+        getPopupContainer={(triggerNode) => {
+          return triggerNode?.parentElement || document.body;
+        }}
+      >
+        <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
+      </Popover>
+    );
+  },
+);
 
 /**
  * 金额组件
@@ -266,7 +281,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   if (locale && allIntlMap[locale]) {
     intl = allIntlMap[locale];
   }
-  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue =
+    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
 
   /**
    * 获取货币的符号
@@ -293,7 +309,9 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     (value?: string | number) => {
       // 新建数字正则，需要配置小数点
       const reg = new RegExp(
-        `\\B(?=(\\d{${3 + Math.max(precision - DefaultPrecisionCont, 0)}})+(?!\\d))`,
+        `\\B(?=(\\d{${
+          3 + Math.max(precision - DefaultPrecisionCont, 0)
+        }})+(?!\\d))`,
         'g',
       );
       // 切分为 整数 和 小数 不同
@@ -368,7 +386,10 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         }}
         parser={(value) => {
           if (moneySymbol && value) {
-            return value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
+            return value.replace(
+              new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'),
+              '',
+            );
           }
           return value!;
         }}

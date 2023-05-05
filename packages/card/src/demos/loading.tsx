@@ -7,7 +7,11 @@ export default () => {
         内容
       </ProCard>
 
-      <ProCard loading style={{ maxWidth: 300, marginBlockStart: 16 }} layout="center">
+      <ProCard
+        loading
+        style={{ maxWidth: 300, marginBlockStart: 16 }}
+        layout="center"
+      >
         内容
       </ProCard>
 

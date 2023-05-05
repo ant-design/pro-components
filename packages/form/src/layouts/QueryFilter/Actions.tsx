@@ -31,7 +31,12 @@ export type ActionsProps = {
   hiddenNum?: false | number;
 };
 
-const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, intl, hiddenNum) => {
+const defaultCollapseRender: ActionsProps['collapseRender'] = (
+  collapsed,
+  _,
+  intl,
+  hiddenNum,
+) => {
   if (collapsed) {
     return (
       <>
@@ -67,18 +72,27 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
  * @param props
  */
 const Actions: React.FC<ActionsProps> = (props) => {
-  const { setCollapsed, collapsed = false, submitter, style, hiddenNum } = props;
+  const {
+    setCollapsed,
+    collapsed = false,
+    submitter,
+    style,
+    hiddenNum,
+  } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
   const { hashId } = useContext(ProProvider);
-  const collapseRender = omitBoolean(props.collapseRender) || defaultCollapseRender;
+  const collapseRender =
+    omitBoolean(props.collapseRender) || defaultCollapseRender;
 
   return (
     <Space style={style} size={16}>
       {submitter}
       {props.collapseRender !== false && (
         <a
-          className={`${getPrefixCls('pro-query-filter-collapse-button')} ${hashId}`}
+          className={`${getPrefixCls(
+            'pro-query-filter-collapse-button',
+          )} ${hashId}`}
           onClick={() => setCollapsed(!collapsed)}
         >
           {collapseRender?.(collapsed, props, intl, hiddenNum)}

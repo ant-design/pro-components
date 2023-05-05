@@ -82,19 +82,24 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 convertValue 发生在组件获得数据之前，一般是后端直接给前端的数据，有时需要精加工一下。
 
 ```tsx | pure
-   export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
+   export type SearchConvertKeyFn =
+    (value: any, field: NamePath)=>string | Record<string, any>;
   /**
    * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
    * @param value 字段的值
    * @param namePath 字段的name
    * @returns 字段新的值
    *
-   *
-   * @example a,b => [a,b]     convertValue: (value,namePath)=> value.split(",")
-   * @example string => json   convertValue: (value,namePath)=> JSON.parse(value)
-   * @example number => date   convertValue: (value,namePath)=> Moment(value)
-   * @example YYYY-MM-DD => date   convertValue: (value,namePath)=> Moment(value,"YYYY-MM-DD")
-   * @example  string => object   convertValue: (value,namePath)=> { return {value,label:value} }
+   * @example a,b => [a,b]
+   * convertValue:(value,namePath)=>value.split(",")
+   * @example string =>json
+   * convertValue:(value,namePath)=>SON.parse(value)
+   * @example number =>date
+   * convertValue:(value,namePath)=>Moment(value)
+   * @example YYYY-MM-DD => date
+   * convertValue:(value,namePath)=>Moment(value,"YYYY-MM-DD")
+   * @example  string => object
+   * convertValue:(value,namePath)=>({value,label:value})
    */
   convertValue?: SearchConvertKeyFn;
 ```
@@ -142,12 +147,18 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
    * @param allValues 所有的字段
    * @returns 字段新的值，如果返回对象，会和所有值 merge 一次
    *
-   * @example {name:[a,b] => {name:a,b }    transform: (value,namePath,allValues)=> value.join(",")
-   * @example {name: string => { newName:string }    transform: (value,namePath,allValues)=> { newName:value }
-   * @example {name:moment} => {name:string transform: (value,namePath,allValues)=> value.format("YYYY-MM-DD")
-   * @example {name:moment}=> {name:时间戳} transform: (value,namePath,allValues)=> value.valueOf()
-   * @example {name:{value,label}} => { name:string} transform: (value,namePath,allValues)=> value.value
-   * @example {name:{value,label}} => { valueName,labelName  } transform: (value,namePath,allValues)=> { valueName:value.value, labelName:value.name }
+   * @example {name:[a,b] => {name:a,b }
+   * transform: (value,namePath,allValues)=> value.join(",")
+   * @example {name: string => { newName:string }
+   * transform: (value,namePath,allValues)=> { newName:value }
+   * @example {name:moment} => {name:string
+   * transform: (value,namePath,allValues)=> value.format("YYYY-MM-DD")
+   * @example {name:moment}=> {name:时间戳}
+   * transform: (value,namePath,allValues)=> value.valueOf()
+   * @example {name:{value,label}} => { name:string}
+   * transform: (value,namePath,allValues)=> value.value
+   * @example {name:{value,label}} => { valueName,labelName  }
+   * transform: (value)=>{valueName:value.value,labelName:value.name}
    */
   transform?: SearchTransformKeyFn;
 ```
@@ -209,7 +220,7 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
 | request | 发起网络请求的参数,返回值会覆盖给 initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | 是否使用回车提交 | `boolean` | - |
-| formRef | 获取表单所使用的 form | `React.MutableRefObject<ProFormInstance<T>>` | - |
+| formRef | 获取表单所使用的 form | `MutableRefObject<Instance<T>>` | - |
 | autoFocusFirstInput | 自动 focus 表单第一个输入框 | `boolean` | - |
 | `grid` | 开启栅格化模式，宽度默认百分比，请使用 `colProps` 控制宽度 [查看示例](/components/form#栅格化布局) | `boolean` | - |
 | rowProps | 开启 `grid` 模式时传递给 `Row`, 仅在`ProFormGroup`, `ProFormList`, `ProFormFieldSet` 中有效 | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
@@ -233,7 +244,6 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
    * 获取被 ProForm 格式化后的单个数据
    * @param nameList (string|number)[]
    * @returns T
-   *
    * @example {a:{b:value}} -> getFieldFormatValue(['a', 'b']) -> value
    */
   /** 获取格式化之后的单个数据 */
@@ -242,10 +252,9 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
    * 获取被 ProForm 格式化后的单个数据, 包含他的 name
    * @param nameList (string|number)[]
    * @returns T
-   *
-   * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+   * @example
+   * {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
    */
-  /** 获取格式化之后的单个数据 */
   getFieldFormatValueObject?: (nameList?: NamePath) => T;
   /**
    *验字段后返回格式化之后的所有数据
@@ -300,10 +309,18 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
     render: (props, doms) => {
       console.log(props);
       return [
-        <button type="button" key="rest" onClick={() => props.form?.resetFields()}>
+        <button
+          type="button"
+          key="rest"
+          onClick={() => props.form?.resetFields()}
+        >
           重置
         </button>,
-        <button type="button" key="submit" onClick={() => props.form?.submit?.()}>
+        <button
+          type="button"
+          key="submit"
+          onClick={() => props.form?.submit?.()}
+        >
           提交
         </button>,
       ];
@@ -320,7 +337,11 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
-import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormDatePicker,
+  ProFormText,
+} from '@ant-design/pro-components';
 import { Button, message } from 'antd';
 import moment from 'dayjs';
 import { useRef } from 'react';
@@ -347,13 +368,15 @@ export default () => {
   };
 
   const getFormatValues = () => {
-    console.log('格式化后的所有数据：', formRef.current?.getFieldsFormatValue?.());
+    console.log(
+      '格式化后的所有数据：',
+      formRef.current?.getFieldsFormatValue?.(),
+    );
   };
 
-  const validateAndGetFormatValue = () => {
-    formRef.current?.validateFieldsReturnFormatValue?.().then((values) => {
-      console.log('校验表单并返回格式化后的所有数据：', values);
-    });
+  const validateAndGetFormatValue = async () => {
+    const values = await formRef.current?.validateFieldsReturnFormatValue?.();
+    console.log('校验表单并返回格式化后的所有数据：', values);
   };
 
   return (
@@ -374,7 +397,11 @@ export default () => {
               <Button htmlType="button" onClick={getFormatValues} key="format">
                 获取格式化后的所有数据
               </Button>
-              <Button htmlType="button" onClick={validateAndGetFormatValue} key="format2">
+              <Button
+                htmlType="button"
+                onClick={validateAndGetFormatValue}
+                key="format2"
+              >
                 校验表单并返回格式化后的所有数据
               </Button>
             </Button.Group>,
@@ -396,7 +423,12 @@ export default () => {
         placeholder="请输入名称"
       />
 
-      <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+      <ProFormText
+        width="md"
+        name="company"
+        label="我方公司名称"
+        placeholder="请输入名称"
+      />
       <ProFormDatePicker name="date" initialValue={moment('2021-08-09')} />
     </ProForm>
   );

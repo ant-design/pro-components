@@ -3,9 +3,15 @@ import useSWR from 'swr';
 
 let testId = 0;
 
-export type ProRequestData<T, U = Record<string, any>> = (params: U, props: any) => Promise<T>;
+export type ProRequestData<T, U = Record<string, any>> = (
+  params: U,
+  props: any,
+) => Promise<T>;
 
-export function useFetchData<T, U extends Record<string, any> = Record<string, any>>(props: {
+export function useFetchData<
+  T,
+  U extends Record<string, any> = Record<string, any>,
+>(props: {
   proFieldKey?: React.Key;
   params?: U;
   request?: ProRequestData<T, U>;
@@ -43,11 +49,15 @@ export function useFetchData<T, U extends Record<string, any> = Record<string, a
     };
   }, []);
 
-  const { data, error } = useSWR<T | undefined>([proFieldKeyRef.current, props.params], fetchData, {
-    revalidateOnFocus: false,
-    shouldRetryOnError: false,
-    revalidateOnReconnect: false,
-  });
+  const { data, error } = useSWR<T | undefined>(
+    [proFieldKeyRef.current, props.params],
+    fetchData,
+    {
+      revalidateOnFocus: false,
+      shouldRetryOnError: false,
+      revalidateOnReconnect: false,
+    },
+  );
 
   return [data || error];
 }

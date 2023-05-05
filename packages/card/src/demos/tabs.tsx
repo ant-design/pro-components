@@ -7,7 +7,8 @@ const { Option } = Select;
 
 export default () => {
   const [tab, setTab] = useState('tab2');
-  const [tabPosition, setTabPosition] = useState<ProCardTabsProps['tabPosition']>('top');
+  const [tabPosition, setTabPosition] =
+    useState<ProCardTabsProps['tabPosition']>('top');
 
   return (
     <div>

@@ -16,7 +16,9 @@ type DetailListProps = {
 
 const DetailList: React.FC<DetailListProps> = (props) => {
   const { ip } = props;
-  const [tableListDataSource, setTableListDataSource] = useState<TableListItem[]>([]);
+  const [tableListDataSource, setTableListDataSource] = useState<
+    TableListItem[]
+  >([]);
 
   const columns: ProColumns<TableListItem>[] = [
     {

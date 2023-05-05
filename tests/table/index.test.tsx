@@ -1,6 +1,12 @@
 import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import { Button, Input, Select } from 'antd';
 import React, { useEffect, useRef } from 'react';
 import { columns, request } from './demo';
@@ -247,7 +253,9 @@ describe('BasicTable', () => {
     );
 
     await waitFor(() => {
-      expect(!!html.baseElement.querySelector('.ant-pro-table-search')).toBeFalsy();
+      expect(
+        !!html.baseElement.querySelector('.ant-pro-table-search'),
+      ).toBeFalsy();
     });
   });
 
@@ -595,7 +603,9 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(!!html.baseElement.querySelector('ul.ant-pagination')).toBeTruthy();
+      expect(
+        !!html.baseElement.querySelector('ul.ant-pagination'),
+      ).toBeTruthy();
     });
   });
 
@@ -943,7 +953,10 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+      expect(reloadFn).toHaveBeenCalledWith(
+        expect.anything(),
+        actionRef.current,
+      );
     });
 
     act(() => {
@@ -955,7 +968,10 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fullScreenFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+      expect(fullScreenFn).toHaveBeenCalledWith(
+        expect.anything(),
+        actionRef.current,
+      );
     });
   });
 
@@ -1046,7 +1062,9 @@ describe('BasicTable', () => {
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>('.ant-dropdown-menu .ant-dropdown-menu-item')
+        .querySelector<HTMLDivElement>(
+          '.ant-dropdown-menu .ant-dropdown-menu-item',
+        )
         ?.click();
     });
 
@@ -1344,7 +1362,9 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      fireEvent.click(html.baseElement.querySelectorAll('li.ant-dropdown-menu-item')[1]);
+      fireEvent.click(
+        html.baseElement.querySelectorAll('li.ant-dropdown-menu-item')[1],
+      );
     });
 
     await waitFor(() => {
@@ -1436,7 +1456,9 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
         {
           target: {
             value: 'name',
@@ -1449,7 +1471,9 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.keyDown(
-        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
         { key: 'Enter', keyCode: 13 },
       );
     });
@@ -1486,7 +1510,9 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
         {
           target: {
             value: 'name',
@@ -1498,7 +1524,9 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.keyDown(
-        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
         { key: 'Enter', keyCode: 13 },
       );
     });
@@ -1536,7 +1564,9 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
         {
           target: {
             value: 'name',
@@ -1549,7 +1579,9 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.keyDown(
-        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
         { key: 'Enter', keyCode: 13 },
       );
     });
@@ -1560,7 +1592,9 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
         {
           target: {
             value: 'name1',
@@ -1573,7 +1607,9 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.keyDown(
-        html.baseElement.querySelector('.ant-pro-table-list-toolbar-search input')!,
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
         { key: 'Enter', keyCode: 13 },
       );
     });
@@ -1602,9 +1638,13 @@ describe('BasicTable', () => {
     );
 
     expect(
-      !!html.baseElement.querySelector('.ant-pro-table-search-query-filter.ant-pro-card-bordered'),
+      !!html.baseElement.querySelector(
+        '.ant-pro-table-search-query-filter.ant-pro-card-bordered',
+      ),
     ).toBeTruthy();
-    expect(!!html.baseElement.querySelector('.ant-pro-card.ant-pro-card-border')).toBeTruthy();
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-card.ant-pro-card-border'),
+    ).toBeTruthy();
   });
 
   it('🎏 bordered = {search = true, table = false}', async () => {
@@ -1627,9 +1667,13 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    expect(!!html.baseElement.querySelector('.ant-pro-card.ant-card-bordered')).toBeFalsy();
     expect(
-      !!html.baseElement.querySelector('.ant-pro-table-search-query-filter.ant-pro-card-bordered'),
+      !!html.baseElement.querySelector('.ant-pro-card.ant-card-bordered'),
+    ).toBeFalsy();
+    expect(
+      !!html.baseElement.querySelector(
+        '.ant-pro-table-search-query-filter.ant-pro-card-bordered',
+      ),
     ).toBeTruthy();
   });
 
@@ -1728,7 +1772,8 @@ describe('BasicTable', () => {
     );
     await html.findByText('展开(9)');
     expect(
-      html.baseElement.querySelector('.ant-pro-query-filter-collapse-button')?.textContent,
+      html.baseElement.querySelector('.ant-pro-query-filter-collapse-button')
+        ?.textContent,
     ).toBe('展开(9)');
   });
 });

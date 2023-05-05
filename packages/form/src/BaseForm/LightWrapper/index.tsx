@@ -43,7 +43,9 @@ export type LightWrapperProps = {
   placement?: TooltipPlacement;
 };
 
-const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
+const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
+  props,
+) => {
   const {
     label,
     size,
@@ -67,7 +69,9 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);
+  const [tempValue, setTempValue] = useState<string | undefined>(
+    props[valuePropName!],
+  );
   const [open, setOpen] = useMountMergeState<boolean>(false);
 
   const onChange = (...restParams: any[]) => {
@@ -84,7 +88,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       valueType !== 'digitRange' &&
       !labelFormatter
     ) {
-      return dateArrayFormatter(labelValue, dateFormatterMap[valueType] || 'YYYY-MM-DD');
+      return dateArrayFormatter(
+        labelValue,
+        dateFormatterMap[valueType] || 'YYYY-MM-DD',
+      );
     }
     return labelValue;
   }, [labelValue, valueType, labelFormatter]);
@@ -124,7 +131,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       }}
       footerRender={footerRender}
     >
-      <div className={classNames(`${prefixCls}-container`, hashId, className)} style={style}>
+      <div
+        className={classNames(`${prefixCls}-container`, hashId, className)}
+        style={style}
+      >
         {React.cloneElement(children as JSX.Element, {
           ...rest,
           [valuePropName!]: tempValue,

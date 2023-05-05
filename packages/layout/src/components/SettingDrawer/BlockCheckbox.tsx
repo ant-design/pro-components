@@ -43,7 +43,9 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
               display: value === item.key ? 'block' : 'none',
             }}
           />
-          {item?.icon ? <div className={`${baseClassName}-icon ${hashId}`}>{item.icon}</div> : null}
+          {item?.icon ? (
+            <div className={`${baseClassName}-icon ${hashId}`}>{item.icon}</div>
+          ) : null}
         </div>
       </Tooltip>
     ));

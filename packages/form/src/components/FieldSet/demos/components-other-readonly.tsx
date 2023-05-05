@@ -210,7 +210,13 @@ const Demo = () => (
           mode: 'multiple',
         }}
         placeholder="Please select favorite colors"
-        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Please select your favorite colors!',
+            type: 'array',
+          },
+        ]}
       />
       <ProFormSelect
         name="select-multiple2"
@@ -221,9 +227,21 @@ const Demo = () => (
           mode: 'multiple',
         }}
         placeholder="Please select favorite colors"
-        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Please select your favorite colors!',
+            type: 'array',
+          },
+        ]}
       />
-      <ProFormDigit readonly label="InputNumber" name="input-number" min={1} max={10} />
+      <ProFormDigit
+        readonly
+        label="InputNumber"
+        name="input-number"
+        min={1}
+        max={10}
+      />
       <ProFormSwitch
         readonly
         name="switch"
@@ -384,7 +402,11 @@ const Demo = () => (
               },
             },
           ]}
-          transform={(value: any) => ({ list: value, startTime: value[0], endTime: value[1] })}
+          transform={(value: any) => ({
+            list: value,
+            startTime: value[0],
+            endTime: value[1],
+          })}
         >
           <ProFormText width="md" />
           <ProFormText width="md" />
@@ -394,7 +416,11 @@ const Demo = () => (
         <ProFormFieldSet
           name="list"
           label="组件列表"
-          transform={(value: any) => ({ list: value, startTime: value[0], endTime: value[1] })}
+          transform={(value: any) => ({
+            list: value,
+            startTime: value[0],
+            endTime: value[1],
+          })}
         >
           <ProFormText width="md" readonly />
           -

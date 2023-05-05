@@ -288,11 +288,14 @@ describe('Table ColumnSetting', () => {
 
     expect(container).toMatchSnapshot();
 
-    fireEvent.change(container.querySelector('.ant-select-selection-search-input')!, {
-      target: {
-        value: '1',
+    fireEvent.change(
+      container.querySelector('.ant-select-selection-search-input')!,
+      {
+        target: {
+          value: '1',
+        },
       },
-    });
+    );
     expect(container.querySelectorAll('.ant-select-item')).toHaveLength(0);
 
     setTimeout(() => {

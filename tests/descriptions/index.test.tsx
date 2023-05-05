@@ -30,7 +30,9 @@ describe('descriptions', () => {
     );
 
     await waitFor(() =>
-      expect(container.querySelector('span.ant-badge-status-text')?.innerHTML).toBe('关闭'),
+      expect(
+        container.querySelector('span.ant-badge-status-text')?.innerHTML,
+      ).toBe('关闭'),
     );
   });
 
@@ -152,8 +154,16 @@ describe('descriptions', () => {
           }
         >
           <ProDescriptions.Item label="文本" dataIndex="id" />
-          <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-          <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
+          <ProDescriptions.Item
+            dataIndex="date"
+            label="日期"
+            valueType="date"
+          />
+          <ProDescriptions.Item
+            label="money"
+            dataIndex="money"
+            valueType="money"
+          />
         </ProDescriptions>
       );
     };
@@ -199,7 +209,11 @@ describe('descriptions', () => {
       >
         <ProDescriptions.Item label="文本" dataIndex="id" />
         <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
+        <ProDescriptions.Item
+          label="money"
+          dataIndex="money"
+          valueType="money"
+        />
       </ProDescriptions>,
     );
 
@@ -232,8 +246,16 @@ describe('descriptions', () => {
           params={{ name: 'qixian' }}
         >
           <ProDescriptions.Item label="文本" dataIndex="id" />
-          <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-          <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
+          <ProDescriptions.Item
+            dataIndex="date"
+            label="日期"
+            valueType="date"
+          />
+          <ProDescriptions.Item
+            label="money"
+            dataIndex="money"
+            valueType="money"
+          />
         </ProDescriptions>,
       );
     });
@@ -269,7 +291,11 @@ describe('descriptions', () => {
       >
         <ProDescriptions.Item label="文本" dataIndex="id" />
         <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
-        <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
+        <ProDescriptions.Item
+          label="money"
+          dataIndex="money"
+          valueType="money"
+        />
       </ProDescriptions>,
     );
 
@@ -293,7 +319,9 @@ describe('descriptions', () => {
       </ProDescriptions>,
     );
     await waitFor(() => {
-      expect(html.baseElement.querySelector('.ant-progress-text')?.textContent).toEqual('40%');
+      expect(
+        html.baseElement.querySelector('.ant-progress-text')?.textContent,
+      ).toEqual('40%');
     });
 
     await waitFor(() => {
@@ -392,8 +420,9 @@ describe('descriptions', () => {
 
     await waitFor(() => {
       expect(
-        wrapper.baseElement.querySelectorAll('.ant-descriptions-item-content .ant-typography-copy')
-          .length,
+        wrapper.baseElement.querySelectorAll(
+          '.ant-descriptions-item-content .ant-typography-copy',
+        ).length,
       ).toBe(0);
     });
 

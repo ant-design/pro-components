@@ -1,5 +1,9 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { EditableProTable, ProForm, ProFormText } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProForm,
+  ProFormText,
+} from '@ant-design/pro-components';
 import { Input, message } from 'antd';
 import React, { useState } from 'react';
 
@@ -101,7 +105,12 @@ export default () => {
           tooltip="最长为 24 位"
           placeholder="请输入名称"
         />
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ProForm.Group>
       <ProFormText width="sm" name="id" label="主合同编号" />
       <ProForm.Item

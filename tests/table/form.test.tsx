@@ -34,18 +34,25 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-form button.ant-btn-primary')!,
+    );
 
     await waitFor(() => {
       expect(fn).toBeCalledTimes(1);
     });
 
-    fireEvent.change(container.querySelectorAll('.ant-form input.ant-input')[0], {
-      target: {
-        value: 'name',
+    fireEvent.change(
+      container.querySelectorAll('.ant-form input.ant-input')[0],
+      {
+        target: {
+          value: 'name',
+        },
       },
-    });
-    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
+    );
+    fireEvent.click(
+      container.querySelector('.ant-form button.ant-btn-primary')!,
+    );
     await waitFor(() => {
       expect(fn).toBeCalledWith({
         name: 'name',
@@ -180,7 +187,9 @@ describe('BasicTable Search', () => {
       });
     });
 
-    fireEvent.click(container.querySelector('.ant-form button.ant-btn-primary')!);
+    fireEvent.click(
+      container.querySelector('.ant-form button.ant-btn-primary')!,
+    );
 
     await waitFor(() => {
       expect(fn).toBeCalledWith({
@@ -248,7 +257,9 @@ describe('BasicTable Search', () => {
       });
     });
 
-    expect(!!container.querySelectorAll('.ant-select-disabled').length).toBeTruthy();
+    expect(
+      !!container.querySelectorAll('.ant-select-disabled').length,
+    ).toBeTruthy();
   });
 
   it('🎏 make sure formItemProps have the highest priority', async () => {

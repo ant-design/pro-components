@@ -10,7 +10,14 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
 ) => {
   /** 公用的 类型 props */
   const formFieldProps = {
-    ...omit(item, ['dataIndex', 'width', 'render', 'renderFormItem', 'renderText', 'title']),
+    ...omit(item, [
+      'dataIndex',
+      'width',
+      'render',
+      'renderFormItem',
+      'renderText',
+      'title',
+    ]),
     name: item.name || item.key || item.dataIndex,
     width: item.width as 'md',
     render: item?.render

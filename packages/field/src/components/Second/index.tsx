@@ -46,7 +46,8 @@ const Second: ProFieldFC<FieldDigitProps> = (
   ref,
 ) => {
   const intl = useIntl();
-  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue =
+    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   if (type === 'read') {
     const secondText = formatSecond(Number(text) as number);
     const dom = <span ref={ref}>{secondText}</span>;

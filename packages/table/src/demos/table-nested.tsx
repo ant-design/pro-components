@@ -65,7 +65,9 @@ const columns: ProColumns<TableListItem>[] = [
     title: '状态',
     width: 120,
     dataIndex: 'status',
-    render: (_, record) => <Tag color={record.status.color}>{record.status.text}</Tag>,
+    render: (_, record) => (
+      <Tag color={record.status.color}>{record.status.text}</Tag>
+    ),
   },
   {
     title: '容器数量',

@@ -18,7 +18,10 @@ const FieldRangePicker: ProFieldFC<{
   text: string[];
   format: string;
   showTime?: boolean;
-}> = ({ text, mode, format, render, renderFormItem, plain, showTime, fieldProps }, ref) => {
+}> = (
+  { text, mode, format, render, renderFormItem, plain, showTime, fieldProps },
+  ref,
+) => {
   const intl = useIntl();
   const [startText, endText] = Array.isArray(text) ? text : [];
   const genFormatText = useCallback(
@@ -34,7 +37,9 @@ const FieldRangePicker: ProFieldFC<{
   const parsedStartText: string = startText
     ? dayjs(startText).format(genFormatText(dayjs(startText)))
     : '';
-  const parsedEndText: string = endText ? dayjs(endText).format(genFormatText(dayjs(endText))) : '';
+  const parsedEndText: string = endText
+    ? dayjs(endText).format(genFormatText(dayjs(endText)))
+    : '';
 
   if (mode === 'read') {
     const dom = (

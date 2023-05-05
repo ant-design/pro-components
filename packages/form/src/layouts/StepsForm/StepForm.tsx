@@ -16,10 +16,20 @@ export type StepFormProps<T = Record<string, any>> = {
 function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
-  const { onFinish, step, formRef: propFormRef, title, stepProps, ...restProps } = props;
+  const {
+    onFinish,
+    step,
+    formRef: propFormRef,
+    title,
+    stepProps,
+    ...restProps
+  } = props;
 
   // eslint-disable-next-line @typescript-eslint/dot-notation
-  noteOnce(!restProps['submitter'], 'StepForm 不包含提交按钮，请在 StepsForm 上');
+  noteOnce(
+    !restProps['submitter'],
+    'StepForm 不包含提交按钮，请在 StepsForm 上',
+  );
   /** 重置 formRef */
   useImperativeHandle(propFormRef, () => formRef.current);
 

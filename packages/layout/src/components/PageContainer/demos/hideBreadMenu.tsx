@@ -20,7 +20,9 @@ export default () => (
             <a>421421</a>
           </Descriptions.Item>
           <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
-          <Descriptions.Item label="单据备注">浙江省杭州市西湖区工专路</Descriptions.Item>
+          <Descriptions.Item label="单据备注">
+            浙江省杭州市西湖区工专路
+          </Descriptions.Item>
         </Descriptions>
       }
     >

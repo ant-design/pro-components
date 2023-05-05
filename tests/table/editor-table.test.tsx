@@ -1,7 +1,17 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
-import type { ActionType, EditableFormInstance, ProColumns } from '@ant-design/pro-table';
+import type {
+  ActionType,
+  EditableFormInstance,
+  ProColumns,
+} from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { InputNumber } from 'antd';
 import React from 'react';
 import { waitTime } from '../util';
@@ -255,8 +265,9 @@ describe('EditorProTable', () => {
 
     await waitFor(() => {
       expect(
-        wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
-          .length,
+        wrapper.container
+          .querySelector('.ant-table-tbody')
+          ?.querySelectorAll('tr.ant-table-row').length,
       ).toBe(defaultData.length);
     });
 
@@ -267,7 +278,9 @@ describe('EditorProTable', () => {
 
       act(() => {
         fireEvent.change(
-          wrapper.container.querySelectorAll(`.ant-form-item-control-input input`)[1],
+          wrapper.container.querySelectorAll(
+            `.ant-form-item-control-input input`,
+          )[1],
           {
             target: {
               value: inputValue,
@@ -297,7 +310,9 @@ describe('EditorProTable', () => {
     });
     await waitFor(() => {
       expect(
-        wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody')[0]
+          .querySelectorAll('input').length,
       ).toBe(4);
     });
     await waitFor(() => {
@@ -575,8 +590,9 @@ describe('EditorProTable', () => {
         .querySelectorAll('input'),
     ).toBeTruthy();
     expect(
-      wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
-        .length,
+      wrapper.container
+        .querySelector('.ant-table-tbody')
+        ?.querySelectorAll('tr.ant-table-row').length,
     ).toBe(6);
 
     act(() => {
@@ -588,9 +604,10 @@ describe('EditorProTable', () => {
 
     await waitTime(1000);
 
-    expect(wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-1').length).toBe(
-      2,
-    );
+    expect(
+      wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-1')
+        .length,
+    ).toBe(2);
 
     wrapper.unmount();
   });
@@ -605,7 +622,9 @@ describe('EditorProTable', () => {
       />,
     );
     await waitTime(100);
-    expect(wrapper.container.querySelectorAll('button.ant-btn-dashed').length).toBe(0);
+    expect(
+      wrapper.container.querySelectorAll('button.ant-btn-dashed').length,
+    ).toBe(0);
 
     act(() => {
       wrapper.rerender(
@@ -620,7 +639,9 @@ describe('EditorProTable', () => {
 
     await waitTime(100);
 
-    expect(wrapper.container.querySelectorAll('button.ant-btn-dashed').length).toBe(1);
+    expect(
+      wrapper.container.querySelectorAll('button.ant-btn-dashed').length,
+    ).toBe(1);
   });
 
   it('📝 EditableProTable support editableFormRef', async () => {
@@ -640,9 +661,13 @@ describe('EditorProTable', () => {
 
     const firstRowKey = defaultData[0]?.id || 0;
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
+      defaultData?.[0]?.title,
+    );
 
-    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(
+      defaultData?.[0]?.title,
+    );
 
     await waitTime(100);
 
@@ -650,7 +675,9 @@ describe('EditorProTable', () => {
       editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
     });
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
+      'test-title',
+    );
 
     expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
 
@@ -711,15 +738,21 @@ describe('EditorProTable', () => {
 
     const firstRowKey = defaultData?.[0]?.id || 0;
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
+      defaultData?.[0]?.title,
+    );
 
-    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(
+      defaultData?.[0]?.title,
+    );
 
     act(() => {
       editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
     });
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
+      'test-title',
+    );
 
     expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
 
@@ -870,8 +903,9 @@ describe('EditorProTable', () => {
     );
     await waitTime(1200);
     expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1]
-        .value,
+      wrapper.container.querySelectorAll<HTMLInputElement>(
+        '.ant-form-item-control-input input',
+      )[1].value,
     ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
 
     act(() => {
@@ -905,8 +939,9 @@ describe('EditorProTable', () => {
 
     await waitTime(100);
     expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1]
-        .value,
+      wrapper.container.querySelectorAll<HTMLInputElement>(
+        '.ant-form-item-control-input input',
+      )[1].value,
     ).toBe('🐛 [BUG]无法创建工程npm create umi');
   });
 
@@ -1437,7 +1472,9 @@ describe('EditorProTable', () => {
         parent = child;
       }
       if (hasChildren) {
-        const child = Object.assign({}, nodeTpl, { id: `${parent.id}-placeholder` });
+        const child = Object.assign({}, nodeTpl, {
+          id: `${parent.id}-placeholder`,
+        });
         parent.children = [child];
       }
       const recordId = `${parent.id}-${depth}`;
@@ -1472,7 +1509,9 @@ describe('EditorProTable', () => {
       await waitTime(1000);
 
       expect(fn).toBeCalledWith(recordId);
-      const trDoms = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row');
+      const trDoms = wrapper.container.querySelectorAll(
+        '.ant-table-tbody tr.ant-table-row',
+      );
       expect(trDoms.length).toBe((hasChildren ? depth + 1 : depth) + 1);
       const index = topOrBottom !== 'top' && hasChildren ? depth + 1 : depth;
       const { dataset } = trDoms[index] as HTMLElement;

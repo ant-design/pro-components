@@ -9,7 +9,9 @@ import {
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Typography } from 'antd';
 
-export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) => {
+export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (
+  props,
+) => {
   const map = new Map<
     string,
     (
@@ -68,7 +70,11 @@ export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (props) =
             return (
               <div key={subIndex}>
                 <Typography.Text>
-                  {child.href ? <a href={child.href}>{child.title}</a> : child.title}
+                  {child.href ? (
+                    <a href={child.href}>{child.title}</a>
+                  ) : (
+                    child.title
+                  )}
                 </Typography.Text>
               </div>
             );
@@ -347,7 +353,9 @@ describe('👍🏻 ProHelpPanel', () => {
       (await html.findByTitle('collapse panel'))?.click();
     });
 
-    expect(!!html.baseElement.querySelector('ant-pro-help-left-panel')).toBeFalsy();
+    expect(
+      !!html.baseElement.querySelector('ant-pro-help-left-panel'),
+    ).toBeFalsy();
   });
 
   it('🎏 click menuItem show demo', async () => {
@@ -370,7 +378,9 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(async () => {
-      (await html.findByText('证据包内包含哪些内容，如何下载证据包？'))?.click();
+      (
+        await html.findByText('证据包内包含哪些内容，如何下载证据包？')
+      )?.click();
     });
 
     await html.findAllByText(
@@ -430,7 +440,9 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(async () => {
-      html.baseElement.querySelector<HTMLDivElement>('.ant-modal-wrap')?.click();
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-modal-wrap')
+        ?.click();
     });
 
     await waitFor(() => {
@@ -470,7 +482,9 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await act(async () => {
-      html.baseElement.querySelector<HTMLDivElement>('.ant-drawer-mask')?.click();
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-drawer-mask')
+        ?.click();
     });
 
     await waitFor(() => {
@@ -499,7 +513,9 @@ describe('👍🏻 ProHelpPanel', () => {
     const input = await html.findByText('please input search text');
 
     await act(async () => {
-      fireEvent.mouseDown(html.container.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(
+        html.container.querySelector('.ant-select-selector')!,
+      );
       jest.runOnlyPendingTimers();
     });
 
@@ -516,7 +532,9 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     expect(
-      html.baseElement.querySelector('.ant-pro-help-search-list-item-content-light')?.textContent,
+      html.baseElement.querySelector(
+        '.ant-pro-help-search-list-item-content-light',
+      )?.textContent,
     ).toBe('如何');
 
     await act(async () => {
@@ -549,7 +567,9 @@ describe('👍🏻 ProHelpPanel', () => {
     const input = await html.findByText('please input search text');
 
     await act(async () => {
-      fireEvent.mouseDown(html.container.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(
+        html.container.querySelector('.ant-select-selector')!,
+      );
       jest.runOnlyPendingTimers();
     });
 
@@ -566,12 +586,16 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     expect(
-      html.baseElement.querySelector('.ant-pro-help-search-list-item-content-light')?.textContent,
+      html.baseElement.querySelector(
+        '.ant-pro-help-search-list-item-content-light',
+      )?.textContent,
     ).toBe('证据包内包含哪些内容，如何下载证据包');
 
     act(() => {
       html.baseElement
-        .querySelector<HTMLDivElement>('.ant-pro-help-search-list-item-content-light')
+        .querySelector<HTMLDivElement>(
+          '.ant-pro-help-search-list-item-content-light',
+        )
         ?.parentElement?.click();
     });
 
@@ -580,9 +604,9 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(html.baseElement.querySelector('.ant-menu-item-selected')?.textContent).toBe(
-        '证据包内包含哪些内容，如何下载证据包？',
-      );
+      expect(
+        html.baseElement.querySelector('.ant-menu-item-selected')?.textContent,
+      ).toBe('证据包内包含哪些内容，如何下载证据包？');
     });
 
     await act(async () => {

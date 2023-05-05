@@ -4,12 +4,22 @@ import { ConfigProvider, Drawer } from 'antd';
 import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 
-export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
+export type DrawerFormProps<T = Record<string, any>> = Omit<
+  FormProps,
+  'onFinish' | 'title'
+> &
   CommonFormProps<T> & {
     /**
      * 接收任意值，返回 真值 会关掉这个抽屉
@@ -90,12 +100,15 @@ function DrawerForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback((element) => {
-    if (footerRef.current === null && element) {
-      forceUpdate([]);
-    }
-    footerRef.current = element;
-  }, []);
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback(
+    (element) => {
+      if (footerRef.current === null && element) {
+        forceUpdate([]);
+      }
+      footerRef.current = element;
+    },
+    [],
+  );
 
   const formRef = useRef<ProFormInstance>();
 

@@ -53,7 +53,10 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
    */
   const fieldSetOnChange = useRefFunction((fileValue: any, index: number) => {
     const newValues = [...value];
-    newValues[index] = defaultGetValueFromEvent(valuePropName || 'value', fileValue);
+    newValues[index] = defaultGetValueFromEvent(
+      valuePropName || 'value',
+      fileValue,
+    );
 
     onChange?.(newValues);
     fieldProps?.onChange?.(newValues);
@@ -100,7 +103,10 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   const { RowWrapper } = useGridHelpers(rest);
 
   /** Input.Group 需要配置 compact */
-  const typeProps = useMemo(() => ({ ...(type === 'group' ? { compact: true } : {}) }), [type]);
+  const typeProps = useMemo(
+    () => ({ ...(type === 'group' ? { compact: true } : {}) }),
+    [type],
+  );
 
   const Wrapper: React.FC = useCallback(
     ({ children: dom }: { children?: React.ReactNode }) => (
@@ -114,8 +120,8 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   return <RowWrapper Wrapper={Wrapper}>{list}</RowWrapper>;
 };
 
-const BaseProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.forwardRef(
-  ({ children, space, valuePropName, ...rest }, ref) => {
+const BaseProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> =
+  React.forwardRef(({ children, space, valuePropName, ...rest }, ref) => {
     useImperativeHandle(ref, () => ({}));
     return (
       <FieldSet
@@ -129,8 +135,7 @@ const BaseProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = Reac
         {children}
       </FieldSet>
     );
-  },
-);
+  });
 
 const ProFormFieldSet = createField<FormItemProps & ProFormFieldSetProps>(
   BaseProFormFieldSet,

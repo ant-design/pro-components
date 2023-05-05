@@ -16,7 +16,10 @@ export type ProHelpDrawerProps = {
  * @param drawerProps 要传递给 Drawer 组件的属性。
  * @param props 要传递给 ProHelpPanel 组件的属性。
  */
-export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({ drawerProps, ...props }) => {
+export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
+  drawerProps,
+  ...props
+}) => {
   const [drawerOpen, setDrawerOpen] = useMergedState<boolean>(false, {
     value: drawerProps.open,
     onChange: drawerProps.afterOpenChange,
@@ -35,7 +38,11 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({ drawerProps, ...pr
         setDrawerOpen(open);
       }}
     >
-      <ProHelpPanel {...props} onClose={() => setDrawerOpen(false)} bordered={false} />
+      <ProHelpPanel
+        {...props}
+        onClose={() => setDrawerOpen(false)}
+        bordered={false}
+      />
     </Drawer>
   );
 };

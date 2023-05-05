@@ -1,7 +1,12 @@
 import type { ProCardProps } from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { ActionType } from '@ant-design/pro-table';
-import type { ListProps, TableColumnType, TablePaginationConfig, TableProps } from 'antd';
+import type {
+  ListProps,
+  TableColumnType,
+  TablePaginationConfig,
+  TableProps,
+} from 'antd';
 import { version } from 'antd';
 import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
@@ -23,15 +28,25 @@ type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
 type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderItem'> &
-  Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable' | 'pagination'> & {
+export type ListViewProps<RecordType> = Omit<
+  AntdListProps<RecordType>,
+  'renderItem'
+> &
+  Pick<
+    TableProps<RecordType>,
+    'columns' | 'dataSource' | 'expandable' | 'pagination'
+  > & {
     rowKey?: string | GetRowKey<RecordType>;
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     rowSelection?: TableRowSelection<RecordType>;
     prefixCls?: string;
     dataSource: readonly RecordType[];
-    renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
+    renderItem?: (
+      item: RecordType,
+      index: number,
+      defaultDom: JSX.Element,
+    ) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
     // 当非卡片模式时，用于为每一行的项目绑定事件，用户设置 `grid`时将会失效
     onRow?: GetComponentProps<RecordType>;
@@ -71,12 +86,15 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-  const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
+  const getRowKey = React.useMemo<
+    GetRowKey<RecordType>
+  >((): GetRowKey<RecordType> => {
     if (typeof rowKey === 'function') {
       return rowKey;
     }
 
-    return (record: RecordType, index?: number) => (record as any)[rowKey as string] || index;
+    return (record: RecordType, index?: number) =>
+      (record as any)[rowKey as string] || index;
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
@@ -104,7 +122,10 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     }
 
     const { current = 1, pageSize = 10 } = mergedPagination;
-    const currentPageData = dataSource.slice((current - 1) * pageSize, current * pageSize);
+    const currentPageData = dataSource.slice(
+      (current - 1) * pageSize,
+      current * pageSize,
+    );
     return currentPageData;
   }, [dataSource, mergedPagination, pagination]);
   const prefixCls = getPrefixCls('pro-list', customizePrefixCls);
@@ -140,15 +161,17 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   } = expandableConfig || {};
 
   /** 展开收起功能区域 star */
-  const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
-    if (defaultExpandedRowKeys) {
-      return defaultExpandedRowKeys as Key[];
-    }
-    if (defaultExpandAllRows !== false) {
-      return dataSource.map(getRowKey);
-    }
-    return [];
-  });
+  const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(
+    () => {
+      if (defaultExpandedRowKeys) {
+        return defaultExpandedRowKeys as Key[];
+      }
+      if (defaultExpandAllRows !== false) {
+        return dataSource.map(getRowKey);
+      }
+      return [];
+    },
+  );
 
   const mergedExpandedKeys = React.useMemo(
     () => new Set(expandedRowKeys || innerExpandedKeys || []),
@@ -191,20 +214,31 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
         rest.className,
       )}
       dataSource={pageData as RecordType[]}
-      pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
+      pagination={
+        pagination &&
+        (mergedPagination as ListViewProps<RecordType>['pagination'])
+      }
       renderItem={(item, index) => {
         const listItemProps: Partial<ItemProps<RecordType>> = {
-          className: typeof rowClassName === 'function' ? rowClassName(item, index) : rowClassName,
+          className:
+            typeof rowClassName === 'function'
+              ? rowClassName(item, index)
+              : rowClassName,
         };
 
         (
-          columns as (TableColumnType<RecordType> & { listKey: string; cardActionProps: string })[]
+          columns as (TableColumnType<RecordType> & {
+            listKey: string;
+            cardActionProps: string;
+          })[]
         )?.forEach((column) => {
           const { listKey, cardActionProps } = column;
           if (!PRO_LIST_KEYS_MAP.has(listKey)) {
             return;
           }
-          const dataIndex = (column.dataIndex || listKey || column.key) as string;
+          const dataIndex = (column.dataIndex ||
+            listKey ||
+            column.key) as string;
           const rawData = Array.isArray(dataIndex)
             ? get(item, dataIndex as string[])
             : item[dataIndex];
@@ -214,14 +248,17 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             listItemProps.cardActionProps = cardActionProps;
           }
           // 调用protable的列配置渲染数据
-          const data = column.render ? column.render(rawData, item, index) : rawData;
+          const data = column.render
+            ? column.render(rawData, item, index)
+            : rawData;
           if (data !== '-') listItemProps[column.listKey] = data;
         });
         let checkboxDom;
         if (selectItemDom && selectItemDom.render) {
           checkboxDom = selectItemDom.render(item, item, index) || undefined;
         }
-        const { isEditable, recordKey } = actionRef.current?.isEditable({ ...item, index }) || {};
+        const { isEditable, recordKey } =
+          actionRef.current?.isEditable({ ...item, index }) || {};
 
         const isChecked = selectedKeySet.has(recordKey || index);
 
@@ -255,7 +292,9 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             showExtra={showExtra}
             itemTitleRender={itemTitleRender}
             itemHeaderRender={itemHeaderRender}
-            rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
+            rowSupportExpand={
+              !rowExpandable || (rowExpandable && rowExpandable(item))
+            }
             selected={selectedKeySet.has(getRowKey(item, index))}
             checkbox={checkboxDom as React.ReactElement}
             onRow={onRow}

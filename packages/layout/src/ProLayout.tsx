@@ -1,7 +1,11 @@
 import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
 import { isNeedOpenHash } from '@ant-design/pro-provider';
 import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
-import { isBrowser, useDocumentTitle, useMountMergeState } from '@ant-design/pro-utils';
+import {
+  isBrowser,
+  useDocumentTitle,
+  useMountMergeState,
+} from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { NewBreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb/Breadcrumb';
 import { ConfigProvider, Layout } from 'antd';
@@ -10,7 +14,13 @@ import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import warning from 'rc-util/lib/warning';
 import type { CSSProperties } from 'react';
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import useSWR, { useSWRConfig } from 'swr';
 import useAntdMediaQuery from 'use-media-antd-query';
 import { Logo } from './assert/Logo';
@@ -30,7 +40,12 @@ import { getPageTitleInfo } from './getPageTitle';
 import type { LocaleType } from './locales';
 import { gLocaleObject } from './locales';
 import { useStyle } from './style';
-import type { MenuDataItem, MessageDescriptor, RouterTypes, WithFalse } from './typing';
+import type {
+  MenuDataItem,
+  MessageDescriptor,
+  RouterTypes,
+  WithFalse,
+} from './typing';
 import type { BreadcrumbProLayoutProps } from './utils/getBreadcrumbProps';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
@@ -82,7 +97,10 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 设置 logo 为 false 不显示 logo  logo={false}
    * @example 设置 logo 为 方法  logo={()=> <img src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"/> }
    * */
-  logo?: React.ReactNode | JSX.Element | WithFalse<() => React.ReactNode | JSX.Element>;
+  logo?:
+    | React.ReactNode
+    | JSX.Element
+    | WithFalse<() => React.ReactNode | JSX.Element>;
 
   /**
    * @name 页面切换的时候触发
@@ -246,7 +264,13 @@ const headerRender = (
   if (props.headerRender === false || props.pure) {
     return null;
   }
-  return <Header matchMenuKeys={matchMenuKeys} {...props} stylish={props.stylish?.header} />;
+  return (
+    <Header
+      matchMenuKeys={matchMenuKeys}
+      {...props}
+      stylish={props.stylish?.header}
+    />
+  );
 };
 
 const footerRender = (props: ProLayoutProps): React.ReactNode => {
@@ -259,7 +283,10 @@ const footerRender = (props: ProLayoutProps): React.ReactNode => {
   return null;
 };
 
-const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
+const renderSiderMenu = (
+  props: ProLayoutProps,
+  matchMenuKeys: string[],
+): React.ReactNode => {
   const {
     layout,
     isMobile,
@@ -278,19 +305,29 @@ const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.
   if (splitMenus && (openKeys !== false || layout === 'mix') && !isMobile) {
     const [key] = selectedKeys || matchMenuKeys;
     if (key) {
-      menuData = props.menuData?.find((item) => item.key === key)?.children || [];
+      menuData =
+        props.menuData?.find((item) => item.key === key)?.children || [];
     } else {
       menuData = [];
     }
   }
   // 这里走了可以少一次循环
   const clearMenuData = clearMenuItem(menuData || []);
-  if (clearMenuData && clearMenuData?.length < 1 && (splitMenus || suppressSiderWhenMenuEmpty)) {
+  if (
+    clearMenuData &&
+    clearMenuData?.length < 1 &&
+    (splitMenus || suppressSiderWhenMenuEmpty)
+  ) {
     return null;
   }
   if (layout === 'top' && !isMobile) {
     return (
-      <SiderMenu matchMenuKeys={matchMenuKeys} {...props} hide stylish={props.stylish?.sider} />
+      <SiderMenu
+        matchMenuKeys={matchMenuKeys}
+        {...props}
+        hide
+        stylish={props.stylish?.sider}
+      />
     );
   }
 
@@ -328,7 +365,11 @@ const defaultPageTitleRender = (
     };
   }
   if (pageTitleRender) {
-    const title = pageTitleRender(pageProps, pageTitleInfo.title, pageTitleInfo);
+    const title = pageTitleRender(
+      pageProps,
+      pageTitleInfo.title,
+      pageTitleInfo,
+    );
     if (typeof title === 'string') {
       return getPageTitleInfo({
         ...pageTitleInfo,
@@ -410,7 +451,14 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
    * 如果没有用自己实现的
    */
   const formatMessage = useCallback(
-    ({ id, defaultMessage, ...restParams }: { id: string; defaultMessage?: string }): string => {
+    ({
+      id,
+      defaultMessage,
+      ...restParams
+    }: {
+      id: string;
+      defaultMessage?: string;
+    }): string => {
       if (propsFormatMessage) {
         return propsFormatMessage({
           id,
@@ -479,12 +527,16 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, [location.pathname, menuData]);
 
   const matchMenuKeys = useMemo(
-    () => Array.from(new Set(matchMenus.map((item) => item.key || item.path || ''))),
+    () =>
+      Array.from(
+        new Set(matchMenus.map((item) => item.key || item.path || '')),
+      ),
     [matchMenus],
   );
 
   // 当前选中的menu，一般不会为空
-  const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings & MenuDataItem;
+  const currentMenu = (matchMenus[matchMenus.length - 1] || {}) as ProSettings &
+    MenuDataItem;
 
   const currentMenuLayoutProps = useCurrentMenuLayoutProps(currentMenu);
 
@@ -500,7 +552,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const colSize = useAntdMediaQuery();
 
-  const isMobile = (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
+  const isMobile =
+    (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
@@ -530,7 +583,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       ...currentMenuLayoutProps,
       formatMessage,
       breadcrumb,
-      menu: { ...menu, type: siderMenuType || menu?.type, loading: menuLoading },
+      menu: {
+        ...menu,
+        type: siderMenuType || menu?.type,
+        loading: menuLoading,
+      },
       layout: propsLayout as 'side',
     },
     ['className', 'style', 'breadcrumbRender'],
@@ -589,26 +646,39 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     ...defaultProps,
   });
 
-  const { isChildrenLayout: contextIsChildrenLayout } = useContext(RouteContext);
+  const { isChildrenLayout: contextIsChildrenLayout } =
+    useContext(RouteContext);
 
   // 如果 props 中定义，以 props 为准
   const isChildrenLayout =
-    propsIsChildrenLayout !== undefined ? propsIsChildrenLayout : contextIsChildrenLayout;
+    propsIsChildrenLayout !== undefined
+      ? propsIsChildrenLayout
+      : contextIsChildrenLayout;
 
   const proLayoutClassName = `${prefixCls}-layout`;
   const { wrapSSR, hashId } = useStyle(proLayoutClassName);
 
   // gen className
-  const className = classNames(props.className, hashId, 'ant-design-pro', proLayoutClassName, {
-    [`screen-${colSize}`]: colSize,
-    [`${proLayoutClassName}-top-menu`]: propsLayout === 'top',
-    [`${proLayoutClassName}-is-children`]: isChildrenLayout,
-    [`${proLayoutClassName}-fix-siderbar`]: fixSiderbar,
-    [`${proLayoutClassName}-${propsLayout}`]: propsLayout,
-  });
+  const className = classNames(
+    props.className,
+    hashId,
+    'ant-design-pro',
+    proLayoutClassName,
+    {
+      [`screen-${colSize}`]: colSize,
+      [`${proLayoutClassName}-top-menu`]: propsLayout === 'top',
+      [`${proLayoutClassName}-is-children`]: isChildrenLayout,
+      [`${proLayoutClassName}-fix-siderbar`]: fixSiderbar,
+      [`${proLayoutClassName}-${propsLayout}`]: propsLayout,
+    },
+  );
 
   /** 计算 slider 的宽度 */
-  const leftSiderWidth = getpaddingInlineStart(!!hasLeftPadding, collapsed, siderWidth);
+  const leftSiderWidth = getpaddingInlineStart(
+    !!hasLeftPadding,
+    collapsed,
+    siderWidth,
+  );
 
   // siderMenuDom 为空的时候，不需要 padding
   const genLayoutStyle: CSSProperties = {
@@ -699,38 +769,57 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorBgBody: 'transparent',
                   },
                   Menu: {
-                    colorItemBg: token?.layout?.sider?.colorMenuBackground || 'transparent',
-                    colorSubItemBg: token?.layout?.sider?.colorMenuBackground || 'transparent',
+                    colorItemBg:
+                      token?.layout?.sider?.colorMenuBackground ||
+                      'transparent',
+                    colorSubItemBg:
+                      token?.layout?.sider?.colorMenuBackground ||
+                      'transparent',
                     radiusItem: 4,
-                    controlHeightLG: token?.layout?.sider?.menuHeight || token?.controlHeightLG,
+                    controlHeightLG:
+                      token?.layout?.sider?.menuHeight ||
+                      token?.controlHeightLG,
 
                     colorItemBgSelected:
-                      token?.layout?.sider?.colorBgMenuItemSelected || token?.colorBgTextHover,
+                      token?.layout?.sider?.colorBgMenuItemSelected ||
+                      token?.colorBgTextHover,
                     colorItemBgActive:
-                      token?.layout?.sider?.colorBgMenuItemHover || token?.colorBgTextHover,
+                      token?.layout?.sider?.colorBgMenuItemHover ||
+                      token?.colorBgTextHover,
                     colorItemBgSelectedHorizontal:
-                      token?.layout?.sider?.colorBgMenuItemSelected || token?.colorBgTextHover,
+                      token?.layout?.sider?.colorBgMenuItemSelected ||
+                      token?.colorBgTextHover,
                     colorActiveBarWidth: 0,
                     colorActiveBarHeight: 0,
                     colorActiveBarBorderSize: 0,
-                    colorItemText: token?.layout?.sider?.colorTextMenu || token?.colorTextSecondary,
+                    colorItemText:
+                      token?.layout?.sider?.colorTextMenu ||
+                      token?.colorTextSecondary,
                     colorItemTextHoverHorizontal:
-                      token?.layout?.sider?.colorTextMenuActive || token?.colorText,
+                      token?.layout?.sider?.colorTextMenuActive ||
+                      token?.colorText,
                     colorItemTextSelectedHorizontal:
-                      token?.layout?.sider?.colorTextMenuSelected || token?.colorTextBase,
+                      token?.layout?.sider?.colorTextMenuSelected ||
+                      token?.colorTextBase,
                     colorItemTextHover:
-                      token?.layout?.sider?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                      token?.layout?.sider?.colorTextMenuActive ||
+                      'rgba(0, 0, 0, 0.85)',
                     colorItemTextSelected:
-                      token?.layout?.sider?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
+                      token?.layout?.sider?.colorTextMenuSelected ||
+                      'rgba(0, 0, 0, 1)',
                     colorBgElevated:
-                      token?.layout?.sider?.colorBgMenuItemCollapsedElevated || '#fff',
+                      token?.layout?.sider?.colorBgMenuItemCollapsedElevated ||
+                      '#fff',
                   },
                 },
               }}
             >
               {siderMenuDom}
             </ConfigProvider>
-            <div style={genLayoutStyle} className={`${proLayoutClassName}-container ${hashId}`}>
+            <div
+              style={genLayoutStyle}
+              className={`${proLayoutClassName}-container ${hashId}`}
+            >
               <ConfigProvider
                 // @ts-ignore
                 theme={{
@@ -741,28 +830,38 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                       colorBgBody: 'transparent',
                     },
                     Menu: {
-                      colorItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
-                      colorSubItemBg: token?.layout?.header?.colorBgHeader || 'transparent',
+                      colorItemBg:
+                        token?.layout?.header?.colorBgHeader || 'transparent',
+                      colorSubItemBg:
+                        token?.layout?.header?.colorBgHeader || 'transparent',
                       radiusItem: 4,
                       colorItemBgSelected:
-                        token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
+                        token?.layout?.header?.colorBgMenuItemSelected ||
+                        token?.colorBgTextHover,
                       colorItemBgActive:
-                        token?.layout?.header?.colorBgMenuItemHover || token?.colorBgTextHover,
+                        token?.layout?.header?.colorBgMenuItemHover ||
+                        token?.colorBgTextHover,
                       colorItemBgSelectedHorizontal:
-                        token?.layout?.header?.colorBgMenuItemSelected || token?.colorBgTextHover,
+                        token?.layout?.header?.colorBgMenuItemSelected ||
+                        token?.colorBgTextHover,
                       colorActiveBarWidth: 0,
                       colorActiveBarHeight: 0,
                       colorActiveBarBorderSize: 0,
                       colorItemText:
-                        token?.layout?.header?.colorTextMenu || token?.colorTextSecondary,
+                        token?.layout?.header?.colorTextMenu ||
+                        token?.colorTextSecondary,
                       colorItemTextHoverHorizontal:
-                        token?.layout?.header?.colorTextMenuActive || token?.colorText,
+                        token?.layout?.header?.colorTextMenuActive ||
+                        token?.colorText,
                       colorItemTextSelectedHorizontal:
-                        token?.layout?.header?.colorTextMenuSelected || token?.colorTextBase,
+                        token?.layout?.header?.colorTextMenuSelected ||
+                        token?.colorTextBase,
                       colorItemTextHover:
-                        token?.layout?.header?.colorTextMenuActive || 'rgba(0, 0, 0, 0.85)',
+                        token?.layout?.header?.colorTextMenuActive ||
+                        'rgba(0, 0, 0, 0.85)',
                       colorItemTextSelected:
-                        token?.layout?.header?.colorTextMenuSelected || 'rgba(0, 0, 0, 1)',
+                        token?.layout?.header?.colorTextMenuSelected ||
+                        'rgba(0, 0, 0, 1)',
                     },
                   },
                 }}
@@ -786,7 +885,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   style={{
                     height: 64,
                     marginBlockStart:
-                      token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+                      token?.layout?.pageContainer
+                        ?.paddingBlockPageContainerContent,
                   }}
                 />
               )}

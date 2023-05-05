@@ -26,7 +26,11 @@ const DescriptionsLargeItemSkeleton: React.FC<{
       marginBlockStart: 32,
     }}
   >
-    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
+    <Skeleton.Button
+      active={active}
+      size="small"
+      style={{ width: 100, marginBlockEnd: 16 }}
+    />
     <div
       style={{
         width: '100%',
@@ -223,7 +227,11 @@ export const TableSkeleton: React.FC<{
   size?: number;
 }> = ({ active, size = 4 }) => (
   <Card bordered={false}>
-    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
+    <Skeleton.Button
+      active={active}
+      size="small"
+      style={{ width: 100, marginBlockEnd: 16 }}
+    />
     <TableItemSkeleton header active={active} />
     {new Array(size).fill(null).map((_, index) => (
       // eslint-disable-next-line react/no-array-index-key
@@ -259,7 +267,11 @@ export const DescriptionsSkeleton = ({ active }: { active: boolean }) => (
       borderTopLeftRadius: 0,
     }}
   >
-    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
+    <Skeleton.Button
+      active={active}
+      size="small"
+      style={{ width: 100, marginBlockEnd: 16 }}
+    />
     <DescriptionsItemSkeleton active={active} />
     <DescriptionsLargeItemSkeleton active={active} />
   </Card>

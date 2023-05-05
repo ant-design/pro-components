@@ -325,10 +325,16 @@ describe('utils', () => {
         time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateTimeRange: [
+          dayjs('2019-11-16 12:50:26'),
+          dayjs('2019-11-16 12:50:26'),
+        ],
         dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [
+          dayjs('2019-11-16 12:50:26'),
+          dayjs('2019-11-16 12:50:26'),
+        ],
         dateQuarter: dayjs('2019-11-16 12:50:26'),
       },
       'string',
@@ -345,9 +351,13 @@ describe('utils', () => {
     expect(html.time).toBe('12:50:26');
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
-    expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.dateTimeRange.join(',')).toBe(
+      '2019-11-16 12:50:26,2019-11-16 12:50:26',
+    );
     expect(html.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
-    expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.timeRange2.join(',')).toBe(
+      '2019-11-16 12:50:26,2019-11-16 12:50:26',
+    );
     expect(html.dateQuarter).toBe('2019-Q4');
   });
 
@@ -375,10 +385,22 @@ describe('utils', () => {
       {
         date: {
           dataTime: dayjs('2019-11-16 12:50:26'),
-          dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-          dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-          timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-          timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+          dateTimeRange: [
+            dayjs('2019-11-16 12:50:26'),
+            dayjs('2019-11-16 12:50:26'),
+          ],
+          dateRange: [
+            dayjs('2019-11-16 12:50:26'),
+            dayjs('2019-11-16 12:50:26'),
+          ],
+          timeRange: [
+            dayjs('2019-11-16 12:50:26'),
+            dayjs('2019-11-16 12:50:26'),
+          ],
+          timeRange2: [
+            dayjs('2019-11-16 12:50:26'),
+            dayjs('2019-11-16 12:50:26'),
+          ],
         },
       },
       'string',
@@ -393,9 +415,13 @@ describe('utils', () => {
       },
     );
     expect(html.date.dataTime).toBe('2019-11-16 12:50:26');
-    expect(html.date.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.date.dateTimeRange.join(',')).toBe(
+      '2019-11-16 12:50:26,2019-11-16 12:50:26',
+    );
     expect(html.date.dateRange.join(',')).toBe('2019-11-16,2019-11-16');
-    expect(html.date.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
+    expect(html.date.timeRange2.join(',')).toBe(
+      '2019-11-16 12:50:26,2019-11-16 12:50:26',
+    );
   });
 
   it('📅 conversionSubmitValue number', async () => {
@@ -405,10 +431,16 @@ describe('utils', () => {
         time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateTimeRange: [
+          dayjs('2019-11-16 12:50:26'),
+          dayjs('2019-11-16 12:50:26'),
+        ],
         dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [
+          dayjs('2019-11-16 12:50:26'),
+          dayjs('2019-11-16 12:50:26'),
+        ],
       },
       'number',
       {
@@ -435,10 +467,16 @@ describe('utils', () => {
         time: dayjs('2019-11-16 12:50:26'),
         name: 'qixian',
         money: 20,
-        dateTimeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        dateTimeRange: [
+          dayjs('2019-11-16 12:50:26'),
+          dayjs('2019-11-16 12:50:26'),
+        ],
         dateRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
         timeRange: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
-        timeRange2: [dayjs('2019-11-16 12:50:26'), dayjs('2019-11-16 12:50:26')],
+        timeRange2: [
+          dayjs('2019-11-16 12:50:26'),
+          dayjs('2019-11-16 12:50:26'),
+        ],
       },
       false,
       {
@@ -466,7 +504,10 @@ describe('utils', () => {
   });
 
   it('📅 parseValueToMoment dayjs', async () => {
-    const html = parseValueToDay(['2019-11-16 12:50:26', '2019-11-16 12:50:26'], 'YYYY-MM-DD');
+    const html = parseValueToDay(
+      ['2019-11-16 12:50:26', '2019-11-16 12:50:26'],
+      'YYYY-MM-DD',
+    );
     expect((html as Dayjs[]).map((item) => item.valueOf()).join(',')).toBe(
       '1573862400000,1573862400000',
     );
@@ -489,10 +530,14 @@ describe('utils', () => {
       </DropdownFooter>,
     );
     act(() => {
-      html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer')?.click();
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer')
+        ?.click();
     });
     expect(
-      !!html.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-dropdown-footer'),
+      !!html.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-core-dropdown-footer',
+      ),
     ).toBeTruthy();
   });
 
@@ -585,7 +630,8 @@ describe('utils', () => {
     });
     await waitFor(() => {
       expect(
-        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
+        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden')
+          .length > 0,
       ).toBeFalsy();
     });
 
@@ -599,7 +645,8 @@ describe('utils', () => {
     });
     await waitFor(() => {
       expect(
-        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden').length > 0,
+        html.baseElement.querySelectorAll('div.ant-popover.ant-popover-hidden')
+          .length > 0,
       ).toBeFalsy();
     });
   });
@@ -621,7 +668,10 @@ describe('utils', () => {
         name: () => 'new-name',
         money: () => 'new-money',
         // @ts-ignore
-        dateRange2: [(itemValue, _, tempValues) => tempValues, () => 'dateRange'],
+        dateRange2: [
+          (itemValue, _, tempValues) => tempValues,
+          () => 'dateRange',
+        ],
       },
     );
     const htmlKeys = Object.keys(html).sort();
@@ -637,14 +687,26 @@ describe('utils', () => {
       ].sort(),
     );
     expect(htmlKeys).not.toEqual(
-      ['dataTime', 'time', 'name', 'dateRange2', 'money', 'dateTimeRange', 'dateRange'].sort(),
+      [
+        'dataTime',
+        'time',
+        'name',
+        'dateRange2',
+        'money',
+        'dateTimeRange',
+        'dateRange',
+      ].sort(),
     );
     expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect((html as any)['new-time']).toBe('2019-11-16 12:50:26');
     expect((html as any)['new-name']).toBe('qixian');
     expect((html as any)['new-money']).toBe(20);
-    expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
-    expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
+    expect(html.dateTimeRange.join(',')).toBe(
+      '2019-11-16 12:50:26,2019-11-16 12:55:26',
+    );
+    expect(html.dateRange.join(',')).toBe(
+      '2019-11-16 12:50:26,2019-11-16 12:55:26',
+    );
   });
 
   it('📅 transformKeySubmitValue will return file', async () => {
@@ -704,7 +766,14 @@ describe('utils', () => {
     );
 
     expect(htmlKeys).not.toEqual(
-      ['dataTime', 'time', 'name', 'money', 'dateTimeRange', 'dateRange'].sort(),
+      [
+        'dataTime',
+        'time',
+        'name',
+        'money',
+        'dateTimeRange',
+        'dateRange',
+      ].sort(),
     );
     expect(html.dataTime).toBe('2019-11-16 12:50:26');
     expect(html.time).toBe('2019-11-16 12:50:26');
@@ -793,14 +862,25 @@ describe('utils', () => {
     );
     const htmlKeys = Object.keys(html).sort();
     expect(htmlKeys).toEqual(
-      ['dateRange', 'dateTimeRange', 'money', 'name', 'new-dataTime', 'new-time'].sort(),
+      [
+        'dateRange',
+        'dateTimeRange',
+        'money',
+        'name',
+        'new-dataTime',
+        'new-time',
+      ].sort(),
     );
     expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect(html['new-time']).toBe('2019-11-16 12:50:26');
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
-    expect(html.dateTimeRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
-    expect(html.dateRange.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:55:26');
+    expect(html.dateTimeRange.join(',')).toBe(
+      '2019-11-16 12:50:26,2019-11-16 12:55:26',
+    );
+    expect(html.dateRange.join(',')).toBe(
+      '2019-11-16 12:50:26,2019-11-16 12:55:26',
+    );
   });
 
   it('📅 transformKeySubmitValue ignore empty transform', async () => {
@@ -879,12 +959,20 @@ describe('utils', () => {
   });
 
   it('🪓 isUrl', async () => {
-    expect(isUrl('https://procomponents.ant.design/components/layout')).toBe(true);
-    expect(isUrl('https://procomponents.ant.design/en-US/components/layout#basic-usage')).toBe(
+    expect(isUrl('https://procomponents.ant.design/components/layout')).toBe(
       true,
     );
-    expect(isUrl('procomponents.ant.design/en-US/components/layout')).toBe(false);
-    expect(isUrl('https:://procomponents.ant.design/en-US/components/layout')).toBe(false);
+    expect(
+      isUrl(
+        'https://procomponents.ant.design/en-US/components/layout#basic-usage',
+      ),
+    ).toBe(true);
+    expect(isUrl('procomponents.ant.design/en-US/components/layout')).toBe(
+      false,
+    );
+    expect(
+      isUrl('https:://procomponents.ant.design/en-US/components/layout'),
+    ).toBe(false);
   });
 
   it('🪓 isDropdownValueType', async () => {
@@ -935,7 +1023,13 @@ describe('utils', () => {
     const DeepComponent = () => {
       const a = (
         <CustomComponent
-          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: false } }]}
+          array={[
+            1,
+            2,
+            3,
+            4,
+            { deep: true, nested: { deep: true, ignoreKey: false } },
+          ]}
           map={
             new Map([
               ['key', 'value'],
@@ -958,7 +1052,13 @@ describe('utils', () => {
 
       const b = (
         <CustomComponent
-          array={[1, 2, 3, 4, { deep: true, nested: { deep: true, ignoreKey: true } }]}
+          array={[
+            1,
+            2,
+            3,
+            4,
+            { deep: true, nested: { deep: true, ignoreKey: true } },
+          ]}
           map={
             new Map([
               ['key', 'value'],

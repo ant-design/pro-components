@@ -7,7 +7,11 @@ import { Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { TableContext } from '../../Store/Provide';
-import type { ActionType, OptionSearchProps, ProTableProps } from '../../typing';
+import type {
+  ActionType,
+  OptionSearchProps,
+  ProTableProps,
+} from '../../typing';
 import ColumnSetting from '../ColumnSetting';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
@@ -107,7 +111,9 @@ function renderDefaultOption<T>(
       }
 
       let onClick: OptionsFunctionType =
-        value === true ? defaultOptions[key] : (event) => value?.(event, actions.current);
+        value === true
+          ? defaultOptions[key]
+          : (event) => value?.(event, actions.current);
 
       if (typeof onClick !== 'function') {
         onClick = () => {};
@@ -115,7 +121,11 @@ function renderDefaultOption<T>(
 
       if (key === 'setting') {
         return (
-          <ColumnSetting {...(options[key] as SettingOptionType)} columns={columns} key={key} />
+          <ColumnSetting
+            {...(options[key] as SettingOptionType)}
+            columns={columns}
+            key={key}
+          />
         );
       }
       if (key === 'fullScreen') {
@@ -196,7 +206,8 @@ function ToolBar<T>({
     /** 受控的value 和 onChange */
     const defaultSearchConfig = {
       value: counter.keyWords,
-      onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+        counter.setKeyWords(e.target.value),
     };
 
     if (propsOptions.search === true) return defaultSearchConfig;

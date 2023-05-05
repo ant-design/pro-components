@@ -63,8 +63,15 @@ export default () => {
               />
             </ProForm.Group>
             <ProForm.Group>
-              <ProFormText name={['contract', 'name']} label="合同名称" placeholder="请输入名称" />
-              <ProFormDateRangePicker name={['contract', 'createTime']} label="合同生效时间" />
+              <ProFormText
+                name={['contract', 'name']}
+                label="合同名称"
+                placeholder="请输入名称"
+              />
+              <ProFormDateRangePicker
+                name={['contract', 'createTime']}
+                label="合同生效时间"
+              />
             </ProForm.Group>
             <ProForm.Group>
               <ProFormSelect
@@ -91,7 +98,12 @@ export default () => {
               />
             </ProForm.Group>
             <ProFormText width="sm" name="id" label="主合同编号" />
-            <ProFormText name="project" disabled label="项目名称" initialValue="xxxx项目" />
+            <ProFormText
+              name="project"
+              disabled
+              label="项目名称"
+              initialValue="xxxx项目"
+            />
             <ProFormText
               width="xs"
               name="mangerName"
@@ -141,7 +153,12 @@ export default () => {
               name="file"
               title="上传文件"
             />
-            <ProFormDigit width="xs" name="num" label="合同份数" initialValue={5} />
+            <ProFormDigit
+              width="xs"
+              name="num"
+              label="合同份数"
+              initialValue={5}
+            />
             <ProFormTextArea width="xl" label="合同备注说明" name="remark" />
           </ProForm>
         </Card>

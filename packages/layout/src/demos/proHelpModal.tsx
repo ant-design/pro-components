@@ -1,6 +1,11 @@
 ﻿import { useState } from 'react';
 import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
-import { ProHelp, ProHelpDrawer, ProHelpModal, ProHelpPopover } from '@ant-design/pro-components';
+import {
+  ProHelp,
+  ProHelpDrawer,
+  ProHelpModal,
+  ProHelpPopover,
+} from '@ant-design/pro-components';
 import { Typography, App } from 'antd';
 
 export default () => {
@@ -64,7 +69,11 @@ export default () => {
             return (
               <div key={index}>
                 <Typography.Text>
-                  {child.href ? <a href={child.href}>{child.title}</a> : child.title}
+                  {child.href ? (
+                    <a href={child.href}>{child.title}</a>
+                  ) : (
+                    child.title
+                  )}
                 </Typography.Text>
               </div>
             );

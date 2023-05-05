@@ -1,6 +1,10 @@
 ﻿import type { ProCardProps } from '@ant-design/pro-card';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
+import type {
+  LightWrapperProps,
+  ProFormProps,
+  QueryFilterProps,
+} from '@ant-design/pro-form';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -14,7 +18,12 @@ import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { SearchProps } from 'antd/lib/input';
-import type { ColumnFilterItem, ColumnType, CompareFn, SortOrder } from 'antd/lib/table/interface';
+import type {
+  ColumnFilterItem,
+  ColumnType,
+  CompareFn,
+  SortOrder,
+} from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
 import type { CSSProperties } from 'react';
@@ -561,5 +570,7 @@ export type UseFetchProps = {
 
 export type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
   /** 如果 onSearch 返回一个false，直接拦截请求 */
-  onSearch?: (keyword: string) => Promise<boolean | undefined> | boolean | undefined;
+  onSearch?: (
+    keyword: string,
+  ) => Promise<boolean | undefined> | boolean | undefined;
 };

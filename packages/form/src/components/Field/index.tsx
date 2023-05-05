@@ -6,7 +6,10 @@ import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormFieldItemProps } from '../../typing';
 
-export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSchema<
+export type ProFormFieldProps<
+  T = any,
+  FiledProps = Record<string, any>,
+> = ProSchema<
   T,
   ProFormFieldItemProps<FiledProps> & {
     mode?: 'edit' | 'read' | 'update';

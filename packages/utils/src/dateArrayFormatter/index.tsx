@@ -20,7 +20,10 @@ const formatString = (endText: any, format: FormatType): string => {
  * @param  {FormatType | FormatType[]} format
  * returns string
  */
-export const dateArrayFormatter = (value: any[], format: FormatType | FormatType[]): string => {
+export const dateArrayFormatter = (
+  value: any[],
+  format: FormatType | FormatType[],
+): string => {
   const [startText, endText] = Array.isArray(value) ? value : [];
 
   let formatFirst: FormatType;
@@ -35,10 +38,14 @@ export const dateArrayFormatter = (value: any[], format: FormatType | FormatType
   }
 
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
-  const parsedStartText: string = startText ? formatString(startText, formatFirst) : '';
+  const parsedStartText: string = startText
+    ? formatString(startText, formatFirst)
+    : '';
   const parsedEndText: string = endText ? formatString(endText, formatEnd) : '';
   const valueStr: string =
-    parsedStartText && parsedEndText ? `${parsedStartText} ~ ${parsedEndText}` : '';
+    parsedStartText && parsedEndText
+      ? `${parsedStartText} ~ ${parsedEndText}`
+      : '';
 
   return valueStr;
 };

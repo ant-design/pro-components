@@ -1,6 +1,9 @@
 ﻿import { Spin } from 'antd';
 import { useContext, useState, useEffect } from 'react';
-import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide';
+import type {
+  ProHelpDataSource,
+  ProHelpDataSourceChildren,
+} from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { RenderContentPanel } from './RenderContentPanel';
 

@@ -142,7 +142,11 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           marginBlockEnd: 4,
         },
       },
-      '&-header': { display: 'flex', alignItems: 'center', justifyContent: 'space-between' },
+      '&-header': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+      },
       '&-title': {
         overflow: 'hidden',
         color: token.colorTextHeading,

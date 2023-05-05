@@ -1,5 +1,9 @@
 import type { ProCardProps } from '@ant-design/pro-card';
-import type { ActionType, ProColumnType, ProTableProps } from '@ant-design/pro-table';
+import type {
+  ActionType,
+  ProColumnType,
+  ProTableProps,
+} from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ListProps, PaginationProps } from 'antd';
 import { ConfigProvider } from 'antd';
@@ -53,7 +57,9 @@ export type BaseProListMetas<T = any> = {
   actions?: ProListMetaAction<T>;
 };
 export type ProListMetas<T = any> = BaseProListMetas<T> & {
-  [key in keyof T]?: IsAny<T> extends true ? ProListMetaAction<T> : ProListMeta<T>;
+  [key in keyof T]?: IsAny<T> extends true
+    ? ProListMetaAction<T>
+    : ProListMeta<T>;
 };
 
 export type GetComponentProps<RecordType> = (
@@ -61,10 +67,11 @@ export type GetComponentProps<RecordType> = (
   index: number,
 ) => React.HTMLAttributes<HTMLElement>;
 
-export type ProListProps<RecordType = any, Params = Record<string, any>, ValueType = 'text'> = Omit<
-  ProTableProps<RecordType, Params, ValueType>,
-  'size' | 'footer'
-> &
+export type ProListProps<
+  RecordType = any,
+  Params = Record<string, any>,
+  ValueType = 'text',
+> = Omit<ProTableProps<RecordType, Params, ValueType>, 'size' | 'footer'> &
   AntdListProps<RecordType> & {
     tooltip?: LabelTooltipType | string;
     metas?: ProListMetas<RecordType>;
@@ -166,7 +173,14 @@ function NoProVideProList<
       className={classNames(prefixCls, className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
-      tableViewRender={({ columns, size, pagination, rowSelection, dataSource, loading }) => {
+      tableViewRender={({
+        columns,
+        size,
+        pagination,
+        rowSelection,
+        dataSource,
+        loading,
+      }) => {
         return (
           <ListView
             grid={grid}
@@ -206,7 +220,12 @@ function BaseProList<
 >(props: ProListProps<RecordType, U>) {
   return (
     <ProConfigProvider needDeps>
-      <NoProVideProList cardProps={false} search={false} toolBarRender={false} {...props} />
+      <NoProVideProList
+        cardProps={false}
+        search={false}
+        toolBarRender={false}
+        {...props}
+      />
     </ProConfigProvider>
   );
 }

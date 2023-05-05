@@ -4,7 +4,13 @@ import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps } from 'antd';
 import { Cascader, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import React, {
+  useContext,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
@@ -29,7 +35,9 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const { componentSize } = ConfigProvider?.useConfig?.() || {
+    componentSize: 'middle',
+  };
   const layoutClassName = getPrefixCls('pro-field-cascader');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
@@ -76,7 +84,14 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   }, [mode, options, rest.fieldProps?.fieldNames]);
 
   if (mode === 'read') {
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          ObjToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
       return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
@@ -101,7 +116,8 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     );
 
     if (renderFormItem) {
-      dom = renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      dom =
+        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
     }
 
     if (light) {
@@ -116,7 +132,9 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           bordered={rest.bordered}
           value={dom}
           onLabelClick={() => setOpen(!open)}
-          onClear={() => rest.fieldProps?.onChange?.(undefined, undefined, {} as any)}
+          onClear={() =>
+            rest.fieldProps?.onChange?.(undefined, undefined, {} as any)
+          }
         />
       );
     }

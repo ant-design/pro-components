@@ -24,9 +24,15 @@ const RegionalSetting: React.FC<{
             <Switch
               size="small"
               className={`regional-${key} ${hashId}`}
-              checked={settings[`${key}Render`] || settings[`${key}Render`] === undefined}
+              checked={
+                settings[`${key}Render`] ||
+                settings[`${key}Render`] === undefined
+              }
               onChange={(checked) =>
-                changeSetting(`${key}Render`, checked === true ? undefined : false)
+                changeSetting(
+                  `${key}Render`,
+                  checked === true ? undefined : false,
+                )
               }
             />
           ),

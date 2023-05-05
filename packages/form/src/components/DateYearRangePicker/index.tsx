@@ -12,13 +12,16 @@ const valueType = 'dateYearRange' as const;
  *
  * @param
  */
-const DateYearRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> = React.forwardRef(
-  ({ fieldProps, proFieldProps, ...rest }, ref) => {
+const DateYearRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> =
+  React.forwardRef(({ fieldProps, proFieldProps, ...rest }, ref) => {
     const context = useContext(FieldContext);
     return (
       <ProField
         ref={ref}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+        fieldProps={{
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
         valueType={valueType}
         proFieldProps={proFieldProps}
         filedConfig={{
@@ -29,7 +32,6 @@ const DateYearRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> = R
         {...rest}
       />
     );
-  },
-);
+  });
 
 export default DateYearRangePicker;

@@ -7,7 +7,12 @@ import {
   useRefFunction,
 } from '@ant-design/pro-utils';
 import { useEffect, useRef } from 'react';
-import type { PageInfo, RequestData, UseFetchDataAction, UseFetchProps } from './typing';
+import type {
+  PageInfo,
+  RequestData,
+  UseFetchDataAction,
+  UseFetchProps,
+} from './typing';
 import { postDataPipeline } from './utils/index';
 
 /**
@@ -36,7 +41,9 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
  * @returns {UseFetchDataAction} 返回一个对象，包含当前的数据列表、loading 状态、error、以及可控制的分页参数等
  */
 const useFetchData = <DataSource extends RequestData<any>>(
-  getData: undefined | ((params?: { pageSize: number; current: number }) => Promise<DataSource>),
+  getData:
+    | undefined
+    | ((params?: { pageSize: number; current: number }) => Promise<DataSource>),
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
@@ -77,19 +84,21 @@ const useFetchData = <DataSource extends RequestData<any>>(
   /**
    * 用于存储最新的数据，这样可以在切换的时候保持数据的一致性
    */
-  const [tableDataList, setTableDataList] = useMountMergeState<DataSource[] | undefined>(
-    defaultData,
-    {
-      value: options?.dataSource,
-      onChange: options?.onDataSourceChange,
-    },
-  );
+  const [tableDataList, setTableDataList] = useMountMergeState<
+    DataSource[] | undefined
+  >(defaultData, {
+    value: options?.dataSource,
+    onChange: options?.onDataSourceChange,
+  });
 
   /**
    * 表格的加载状态
    */
   const [tableLoading, setTableLoading] = useMountMergeState<boolean>(false, {
-    value: typeof options?.loading === 'object' ? options?.loading?.spinning : options?.loading,
+    value:
+      typeof options?.loading === 'object'
+        ? options?.loading?.spinning
+        : options?.loading,
     onChange: options?.onLoadingChange,
   });
 
@@ -184,7 +193,12 @@ const useFetchData = <DataSource extends RequestData<any>>(
             }
           : undefined;
 
-      const { data = [], success, total = 0, ...rest } = (await getData?.(pageParams)) || {};
+      const {
+        data = [],
+        success,
+        total = 0,
+        ...rest
+      } = (await getData?.(pageParams)) || {};
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
@@ -297,11 +311,17 @@ const useFetchData = <DataSource extends RequestData<any>>(
     const { current, pageSize } = pageInfo || {};
     // 如果上次的页码为空或者两次页码等于是没必要查询的
     // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
-    if ((!prePage || prePage === current) && (!prePageSize || prePageSize === pageSize)) {
+    if (
+      (!prePage || prePage === current) &&
+      (!prePageSize || prePageSize === pageSize)
+    ) {
       return;
     }
 
-    if ((options.pageInfo && tableDataList && tableDataList?.length > pageSize) || 0) {
+    if (
+      (options.pageInfo && tableDataList && tableDataList?.length > pageSize) ||
+      0
+    ) {
       return;
     }
 
@@ -310,7 +330,11 @@ const useFetchData = <DataSource extends RequestData<any>>(
     // (pageIndex - 1 || 1) 至少要第一页
     // 在第一页大于 10
     // 第二页也应该是大于 10
-    if (current !== undefined && tableDataList && tableDataList.length <= pageSize) {
+    if (
+      current !== undefined &&
+      tableDataList &&
+      tableDataList.length <= pageSize
+    ) {
       abortRef.current?.abort();
       fetchListDebounce.run(false);
     }

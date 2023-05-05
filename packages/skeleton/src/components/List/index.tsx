@@ -58,7 +58,9 @@ const StatisticSkeleton: React.FC<{
             key={index}
             style={{
               borderInlineStart:
-                arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
+                arraySize > 2 && index === 1
+                  ? '1px solid rgba(0,0,0,0.06)'
+                  : undefined,
               paddingInlineStart: firstWidth(index),
               flex: 1,
               marginInlineEnd: index === 0 ? 16 : 0,
@@ -256,7 +258,9 @@ const ListPageSkeleton: React.FC<ListPageSkeletonProps> = ({
     }}
   >
     {pageHeader !== false && <PageHeaderSkeleton active={active} />}
-    {statistic !== false && <StatisticSkeleton size={statistic as number} active={active} />}
+    {statistic !== false && (
+      <StatisticSkeleton size={statistic as number} active={active} />
+    )}
     {(toolbar !== false || list !== false) && (
       <Card
         bordered={false}
@@ -266,7 +270,11 @@ const ListPageSkeleton: React.FC<ListPageSkeletonProps> = ({
       >
         {toolbar !== false && <ListToolbarSkeleton active={active} />}
         {list !== false && (
-          <ListSkeleton size={list as number} active={active} actionButton={actionButton} />
+          <ListSkeleton
+            size={list as number}
+            active={active}
+            actionButton={actionButton}
+          />
         )}
       </Card>
     )}

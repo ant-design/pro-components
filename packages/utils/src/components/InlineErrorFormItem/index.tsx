@@ -63,7 +63,9 @@ const InlineErrorFormItemPopover: React.FC<{
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
         <div className={`${prefixCls}-form-item-with-help ${hashId}`}>
-          {inputProps.validateStatus === 'validating' ? <LoadingOutlined /> : null}
+          {inputProps.validateStatus === 'validating' ? (
+            <LoadingOutlined />
+          ) : null}
           {errorList}
         </div>,
       )}
@@ -126,13 +128,23 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
 
   if (name && rules?.length && errorType === 'popover') {
     return (
-      <InternalFormItemFunction name={name} rules={rules!} popoverProps={popoverProps} {...rest}>
+      <InternalFormItemFunction
+        name={name}
+        rules={rules!}
+        popoverProps={popoverProps}
+        {...rest}
+      >
         {children}
       </InternalFormItemFunction>
     );
   }
   return (
-    <Form.Item rules={rules} {...rest} style={{ ...FIX_INLINE_STYLE, ...rest.style }} name={name}>
+    <Form.Item
+      rules={rules}
+      {...rest}
+      style={{ ...FIX_INLINE_STYLE, ...rest.style }}
+      name={name}
+    >
       {children}
     </Form.Item>
   );

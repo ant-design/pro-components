@@ -57,7 +57,9 @@ export type ExtendsProps = {
    *
    * @name 网络请求用的输出，会触发reload
    */
-  params?: ((form: ProFormInstance) => Record<string, any>) | Record<string, any>;
+  params?:
+    | ((form: ProFormInstance) => Record<string, any>)
+    | Record<string, any>;
 
   /** @name 需要放在formItem 时使用 */
   ignoreFormItem?: boolean;

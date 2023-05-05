@@ -19,14 +19,22 @@ export type GlobalFooterProps = {
   className?: string;
 };
 
-const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalFooterProps) => {
+const GlobalFooter = ({
+  className,
+  prefixCls,
+  links,
+  copyright,
+  style,
+}: GlobalFooterProps) => {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls(prefixCls || 'pro-global-footer');
 
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   if (
-    (links == null || links === false || (Array.isArray(links) && links.length === 0)) &&
+    (links == null ||
+      links === false ||
+      (Array.isArray(links) && links.length === 0)) &&
     (copyright == null || copyright === false)
   ) {
     return null;
@@ -50,7 +58,11 @@ const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalF
           ))}
         </div>
       )}
-      {copyright && <div className={`${baseClassName}-copyright ${hashId}`}>{copyright}</div>}
+      {copyright && (
+        <div className={`${baseClassName}-copyright ${hashId}`}>
+          {copyright}
+        </div>
+      )}
     </div>,
   );
 };

@@ -3,7 +3,10 @@ import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
-export type ProFormSwitchProps = ProFormFieldItemProps<SwitchProps, HTMLElement> & {
+export type ProFormSwitchProps = ProFormFieldItemProps<
+  SwitchProps,
+  HTMLElement
+> & {
   checkedChildren?: SwitchProps['checkedChildren'];
   unCheckedChildren?: SwitchProps['unCheckedChildren'];
 };
@@ -13,7 +16,10 @@ export type ProFormSwitchProps = ProFormFieldItemProps<SwitchProps, HTMLElement>
  * @en-us Single Choice Switch
  */
 const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
-  ({ fieldProps, unCheckedChildren, checkedChildren, proFieldProps, ...rest }, ref: any) => {
+  (
+    { fieldProps, unCheckedChildren, checkedChildren, proFieldProps, ...rest },
+    ref: any,
+  ) => {
     return (
       <ProField
         valueType="switch"

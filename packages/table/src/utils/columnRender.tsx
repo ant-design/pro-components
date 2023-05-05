@@ -33,11 +33,24 @@ type ColumnRenderInterface<T> = {
  */
 export const renderColumnsTitle = (item: ProColumns<any>) => {
   const { title } = item;
-  const ellipsis = typeof item?.ellipsis === 'boolean' ? item?.ellipsis : item?.ellipsis?.showTitle;
+  const ellipsis =
+    typeof item?.ellipsis === 'boolean'
+      ? item?.ellipsis
+      : item?.ellipsis?.showTitle;
   if (title && typeof title === 'function') {
-    return title(item, 'table', <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />);
+    return title(
+      item,
+      'table',
+      <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />,
+    );
   }
-  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={ellipsis} />;
+  return (
+    <LabelIconTip
+      label={title}
+      tooltip={item.tooltip || item.tip}
+      ellipsis={ellipsis}
+    />
+  );
 };
 
 /** 判断可不可编辑 */
@@ -61,7 +74,11 @@ function isEditableCell<T>(
  * @param dataIndex
  * @returns
  */
-export const defaultOnFilter = (value: string, record: any, dataIndex: string | string[]) => {
+export const defaultOnFilter = (
+  value: string,
+  record: any,
+  dataIndex: string | string[],
+) => {
   const recordElement = Array.isArray(dataIndex)
     ? get(record, dataIndex as string[])
     : record[dataIndex];
@@ -87,12 +104,17 @@ export function columnRender<T>({
   editableUtils,
 }: ColumnRenderInterface<T>): any {
   const { action, prefixName } = counter;
-  const { isEditable, recordKey } = editableUtils.isEditable({ ...rowData, index });
+  const { isEditable, recordKey } = editableUtils.isEditable({
+    ...rowData,
+    index,
+  });
   const { renderText = (val: any) => val } = columnProps;
 
   const renderTextStr = renderText(text, rowData, index, action as ActionType);
   const mode =
-    isEditable && !isEditableCell(text, rowData, index, columnProps?.editable) ? 'edit' : 'read';
+    isEditable && !isEditableCell(text, rowData, index, columnProps?.editable)
+      ? 'edit'
+      : 'read';
 
   const textDom = cellRenderToFromItem<T>({
     text: renderTextStr,
@@ -117,7 +139,9 @@ export function columnRender<T>({
   });
 
   const dom: React.ReactNode =
-    mode === 'edit' ? textDom : genCopyable(textDom, columnProps, renderTextStr);
+    mode === 'edit'
+      ? textDom
+      : genCopyable(textDom, columnProps, renderTextStr);
 
   /** 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem */
   if (mode === 'edit') {
@@ -167,7 +191,11 @@ export function columnRender<T>({
     return renderDom;
   }
 
-  if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
+  if (
+    renderDom &&
+    columnProps.valueType === 'option' &&
+    Array.isArray(renderDom)
+  ) {
     return (
       <div
         style={{

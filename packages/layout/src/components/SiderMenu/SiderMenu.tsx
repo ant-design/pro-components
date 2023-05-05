@@ -69,14 +69,20 @@ export type SiderMenuProps = {
   /** 相关品牌的列表 */
   appList?: AppListProps;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
-  itemClick?: (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => void;
+  itemClick?: (
+    item: AppItemProps,
+    popoverRef?: React.RefObject<HTMLSpanElement>,
+  ) => void;
   /** 菜单的宽度 */
   siderWidth?: number;
   /** 头像的设置 */
   avatarProps?: WithFalse<
     AvatarProps & {
       title?: React.ReactNode;
-      render?: (props: AvatarProps, defaultDom: React.ReactNode) => React.ReactNode;
+      render?: (
+        props: AvatarProps,
+        defaultDom: React.ReactNode,
+      ) => React.ReactNode;
     }
   >;
 
@@ -91,7 +97,11 @@ export type SiderMenuProps = {
    * @example 不要这个区域了 : menuHeaderRender={false}
    */
   menuHeaderRender?: WithFalse<
-    (logo: React.ReactNode, title: React.ReactNode, props?: SiderMenuProps) => React.ReactNode
+    (
+      logo: React.ReactNode,
+      title: React.ReactNode,
+      props?: SiderMenuProps,
+    ) => React.ReactNode
   >;
   /**
    * @name 侧边菜单底部的配置，可以增加一些底部操作
@@ -210,14 +220,18 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const collapsedWidth = 64;
 
   // 之所以这样写是为了提升样式优先级，不然会被sider 自带的覆盖掉
-  const stylishClassName = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
-    stylish,
-    proLayoutCollapsedWidth: collapsedWidth,
-  });
+  const stylishClassName = useStylish(
+    `${baseClassName}.${baseClassName}-stylish`,
+    {
+      stylish,
+      proLayoutCollapsedWidth: collapsedWidth,
+    },
+  );
 
   const siderClassName = classNames(`${baseClassName}`, hashId, {
     [`${baseClassName}-fixed`]: fixSiderbar,
-    [`${baseClassName}-fixed-mix`]: layout === 'mix' && !isMobile && fixSiderbar,
+    [`${baseClassName}-fixed-mix`]:
+      layout === 'mix' && !isMobile && fixSiderbar,
     [`${baseClassName}-collapsed`]: props.collapsed,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
     [`${baseClassName}-light`]: theme !== 'dark',
@@ -287,7 +301,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         >
           {actionsRender?.(props).map((item, index) => {
             return (
-              <div key={index} className={`${baseClassName}-actions-list-item ${hashId}`}>
+              <div
+                key={index}
+                className={`${baseClassName}-actions-list-item ${hashId}`}
+              >
                 {item}
               </div>
             );
@@ -323,7 +340,14 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     );
     if (collapsedButtonRender) return collapsedButtonRender(collapsed, dom);
     return dom;
-  }, [collapsedButtonRender, isMobile, originCollapsed, baseClassName, collapsed, onCollapse]);
+  }, [
+    collapsedButtonRender,
+    isMobile,
+    originCollapsed,
+    baseClassName,
+    collapsed,
+    onCollapse,
+  ]);
 
   /** 操作区域的dom */
   const actionAreaDom = useMemo(() => {
@@ -461,7 +485,11 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         style={style}
         theme={theme}
         width={siderWidth}
-        className={classNames(siderClassName, hashId, hideMenuWhenCollapsedClassName)}
+        className={classNames(
+          siderClassName,
+          hashId,
+          hideMenuWhenCollapsedClassName,
+        )}
       >
         {hideMenuWhenCollapsedClassName ? (
           <div

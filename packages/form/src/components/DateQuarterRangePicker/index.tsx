@@ -12,24 +12,27 @@ const valueType = 'dateQuarterRange' as const;
  *
  * @param
  */
-const DateQuarterRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> = React.forwardRef(
-  ({ fieldProps, proFieldProps, ...rest }, ref) => {
-    const context = useContext(FieldContext);
-    return (
-      <ProField
-        ref={ref}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
-        valueType={valueType}
-        proFieldProps={proFieldProps}
-        filedConfig={{
-          valueType,
-          lightFilterLabelFormatter: (value) =>
-            dateArrayFormatter(value, fieldProps?.format || 'YYYY-W'),
-        }}
-        {...rest}
-      />
-    );
-  },
-);
+const DateQuarterRangePicker: React.FC<
+  ProFormFieldItemProps<RangePickerProps>
+> = React.forwardRef(({ fieldProps, proFieldProps, ...rest }, ref) => {
+  const context = useContext(FieldContext);
+  return (
+    <ProField
+      ref={ref}
+      fieldProps={{
+        getPopupContainer: context.getPopupContainer,
+        ...fieldProps,
+      }}
+      valueType={valueType}
+      proFieldProps={proFieldProps}
+      filedConfig={{
+        valueType,
+        lightFilterLabelFormatter: (value) =>
+          dateArrayFormatter(value, fieldProps?.format || 'YYYY-W'),
+      }}
+      {...rest}
+    />
+  );
+});
 
 export default DateQuarterRangePicker;

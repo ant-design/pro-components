@@ -1,6 +1,10 @@
 ﻿import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
-import { ProLayout, PageContainer, SettingDrawer } from '@ant-design/pro-components';
+import {
+  ProLayout,
+  PageContainer,
+  SettingDrawer,
+} from '@ant-design/pro-components';
 import { Button, Descriptions, Result, Space, Statistic } from 'antd';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -13,12 +17,16 @@ const content = (
     </Descriptions.Item>
     <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
     <Descriptions.Item label="更新时间">2017-10-10</Descriptions.Item>
-    <Descriptions.Item label="备注">中国浙江省杭州市西湖区古翠路</Descriptions.Item>
+    <Descriptions.Item label="备注">
+      中国浙江省杭州市西湖区古翠路
+    </Descriptions.Item>
   </Descriptions>
 );
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true });
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+    fixSiderbar: true,
+  });
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div
@@ -92,7 +100,11 @@ export default () => {
           ]}
           extraContent={
             <Space size={24}>
-              <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
+              <Statistic
+                title="Feedback"
+                value={1128}
+                prefix={<LikeOutlined />}
+              />
               <Statistic title="Unmerged" value={93} suffix="/ 100" />
             </Space>
           }

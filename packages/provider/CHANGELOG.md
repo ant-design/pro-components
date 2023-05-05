@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.8.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.4...@ant-design/pro-provider@2.8.5) (2023-05-04)
 
-
 ### Bug Fixes
 
-* **layout:** support controlHeightLG token ([c2841b3](https://github.com/ant-design/pro-components/commit/c2841b310d375ffbde18f9aca6cd027affe9251c))
-
-
-
-
+- **layout:** support controlHeightLG token ([c2841b3](https://github.com/ant-design/pro-components/commit/c2841b310d375ffbde18f9aca6cd027affe9251c))
 
 ## [2.8.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.3...@ant-design/pro-provider@2.8.4) (2023-05-04)
 

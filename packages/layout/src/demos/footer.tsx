@@ -1,4 +1,8 @@
-import { DefaultFooter, PageContainer, ProLayout } from '@ant-design/pro-components';
+import {
+  DefaultFooter,
+  PageContainer,
+  ProLayout,
+} from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
 
 export default () => (

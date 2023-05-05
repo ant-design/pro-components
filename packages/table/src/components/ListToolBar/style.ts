@@ -105,7 +105,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       '@media (max-width: 768px)': {
         [token.componentCls]: {
-          '&-container': { display: 'flex', flexWrap: 'wrap', flexDirection: 'column' },
+          '&-container': {
+            display: 'flex',
+            flexWrap: 'wrap',
+            flexDirection: 'column',
+          },
           '&-left': { marginBlockEnd: '16px', maxWidth: '100%' },
         },
       },

@@ -34,10 +34,10 @@ const getValueOrLabel = (
   return valueMap[v?.value] || v.label;
 };
 
-const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightSelectProps> = (
-  props,
-  ref,
-) => {
+const LightSelect: React.ForwardRefRenderFunction<
+  any,
+  SelectProps<any> & LightSelectProps
+> = (props, ref) => {
   const {
     label,
     prefixCls: customizePrefixCls,
@@ -63,7 +63,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     ...restProps
   } = props;
   const { placeholder = label } = props;
-  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } = fieldNames || {};
+  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } =
+    fieldNames || {};
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-select-light-select');
   const [open, setOpen] = useState<boolean>(false);
@@ -193,11 +194,19 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
             ? options
             : options?.filter((o) => {
                 if (optionFilterProp) {
-                  return toArray(o[optionFilterProp]).join('').toLowerCase().includes(keyword);
+                  return toArray(o[optionFilterProp])
+                    .join('')
+                    .toLowerCase()
+                    .includes(keyword);
                 }
                 return (
-                  String(o[labelPropsName])?.toLowerCase()?.includes(keyword?.toLowerCase()) ||
-                  o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword?.toLowerCase())
+                  String(o[labelPropsName])
+                    ?.toLowerCase()
+                    ?.includes(keyword?.toLowerCase()) ||
+                  o[valuePropsName]
+                    ?.toString()
+                    ?.toLowerCase()
+                    ?.includes(keyword?.toLowerCase())
                 );
               })
         }

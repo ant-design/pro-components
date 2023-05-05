@@ -9,7 +9,9 @@ import 'antd/lib/input-number/style';
 import 'antd/lib/progress/style';
 //------------
 
-export function getProgressStatus(text: number): 'success' | 'exception' | 'normal' | 'active' {
+export function getProgressStatus(
+  text: number,
+): 'success' | 'exception' | 'normal' | 'active' {
   if (text === 100) {
     return 'success';
   }
@@ -31,9 +33,13 @@ export function getProgressStatus(text: number): 'success' | 'exception' | 'norm
 const FieldProgress: ProFieldFC<{
   text: number | string;
   placeholder?: string;
-}> = ({ text, mode, render, plain, renderFormItem, fieldProps, placeholder }, ref) => {
+}> = (
+  { text, mode, render, plain, renderFormItem, fieldProps, placeholder },
+  ref,
+) => {
   const intl = useIntl();
-  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue =
+    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -60,7 +66,9 @@ const FieldProgress: ProFieldFC<{
   }
 
   if (mode === 'edit' || mode === 'update') {
-    const dom = <InputNumber ref={ref} placeholder={placeholderValue} {...fieldProps} />;
+    const dom = (
+      <InputNumber ref={ref} placeholder={placeholderValue} {...fieldProps} />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }

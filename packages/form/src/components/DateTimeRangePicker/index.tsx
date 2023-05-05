@@ -13,22 +13,27 @@ const valueType = 'dateTimeRange' as const;
  *
  * @param
  */
-const ProFormDateTimeRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps<Dayjs>>> =
-  React.forwardRef(({ fieldProps, proFieldProps, ...rest }, ref) => {
-    const context = useContext(FieldContext);
-    return (
-      <ProField
-        ref={ref}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
-        valueType={valueType}
-        proFieldProps={proFieldProps}
-        filedConfig={{
-          valueType,
-          lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'YYYY-MM-DD HH:mm:ss'),
-        }}
-        {...rest}
-      />
-    );
-  });
+const ProFormDateTimeRangePicker: React.FC<
+  ProFormFieldItemProps<RangePickerProps<Dayjs>>
+> = React.forwardRef(({ fieldProps, proFieldProps, ...rest }, ref) => {
+  const context = useContext(FieldContext);
+  return (
+    <ProField
+      ref={ref}
+      fieldProps={{
+        getPopupContainer: context.getPopupContainer,
+        ...fieldProps,
+      }}
+      valueType={valueType}
+      proFieldProps={proFieldProps}
+      filedConfig={{
+        valueType,
+        lightFilterLabelFormatter: (value) =>
+          dateArrayFormatter(value, 'YYYY-MM-DD HH:mm:ss'),
+      }}
+      {...rest}
+    />
+  );
+});
 
 export default ProFormDateTimeRangePicker;

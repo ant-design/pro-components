@@ -10,15 +10,18 @@ const valueType = 'dateWeek' as const;
  *
  * @param
  */
-const ProFormDatePickerWeek: React.FC<ProFormFieldItemProps<WeekPickerProps>> = React.forwardRef(
-  ({ proFieldProps, fieldProps, ...rest }, ref: any) => {
+const ProFormDatePickerWeek: React.FC<ProFormFieldItemProps<WeekPickerProps>> =
+  React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref: any) => {
     const context = useContext(FieldContext);
 
     return (
       <ProField
         ref={ref}
         valueType={valueType}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+        fieldProps={{
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
         proFieldProps={proFieldProps}
         filedConfig={{
           valueType,
@@ -27,7 +30,6 @@ const ProFormDatePickerWeek: React.FC<ProFormFieldItemProps<WeekPickerProps>> = 
         {...rest}
       />
     );
-  },
-);
+  });
 
 export default ProFormDatePickerWeek;

@@ -60,7 +60,9 @@ export type LoginFormPageProps<T> = {
   children?: React.ReactNode | React.ReactNode[];
 } & ProFormProps<T>;
 
-export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormPageProps<T>>) {
+export function LoginFormPage<T = Record<string, any>>(
+  props: Partial<LoginFormPageProps<T>>,
+) {
   const {
     logo,
     message,
@@ -101,7 +103,8 @@ export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormP
   const baseClassName = context.getPrefixCls('pro-form-login-page');
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const getCls = (className: string) => `${baseClassName}-${className} ${hashId}`;
+  const getCls = (className: string) =>
+    `${baseClassName}-${className} ${hashId}`;
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
@@ -122,15 +125,27 @@ export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormP
     >
       <div className={getCls('notice')}>
         {activityConfig && (
-          <div className={getCls('notice-activity')} style={activityConfig.style}>
+          <div
+            className={getCls('notice-activity')}
+            style={activityConfig.style}
+          >
             {activityConfig.title && (
-              <div className={getCls('notice-activity-title')}> {activityConfig.title} </div>
+              <div className={getCls('notice-activity-title')}>
+                {' '}
+                {activityConfig.title}{' '}
+              </div>
             )}
             {activityConfig.subTitle && (
-              <div className={getCls('notice-activity-subTitle')}> {activityConfig.subTitle} </div>
+              <div className={getCls('notice-activity-subTitle')}>
+                {' '}
+                {activityConfig.subTitle}{' '}
+              </div>
             )}
             {activityConfig.action && (
-              <div className={getCls('notice-activity-action')}> {activityConfig.action} </div>
+              <div className={getCls('notice-activity-action')}>
+                {' '}
+                {activityConfig.action}{' '}
+              </div>
             )}
           </div>
         )}
@@ -139,7 +154,9 @@ export function LoginFormPage<T = Record<string, any>>(props: Partial<LoginFormP
         <div className={getCls('top')}>
           {title || logoDom ? (
             <div className={getCls('header')}>
-              {logoDom ? <span className={getCls('logo')}>{logoDom}</span> : null}
+              {logoDom ? (
+                <span className={getCls('logo')}>{logoDom}</span>
+              ) : null}
               {title ? <span className={getCls('title')}>{title}</span> : null}
             </div>
           ) : null}

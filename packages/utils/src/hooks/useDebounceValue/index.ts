@@ -8,7 +8,11 @@ import { useLatest } from '../useLatest';
  * @param  {DependencyList} deps?
  * @returns T
  */
-export function useDebounceValue<T>(value: T, delay: number = 100, deps?: DependencyList): T {
+export function useDebounceValue<T>(
+  value: T,
+  delay: number = 100,
+  deps?: DependencyList,
+): T {
   const [debouncedValue, setDebouncedValue] = useState(value);
   const valueRef = useLatest(value);
 

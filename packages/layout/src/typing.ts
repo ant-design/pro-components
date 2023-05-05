@@ -4,7 +4,9 @@ export interface StaticContext {
   statusCode?: number | undefined;
 }
 
-export interface match<Params extends { [K in keyof Params]?: string } = Record<string, any>> {
+export interface match<
+  Params extends { [K in keyof Params]?: string } = Record<string, any>,
+> {
   params: Params;
   isExact: boolean;
   path: string;

@@ -72,9 +72,23 @@ export default () => {
         initialValue={22.22}
         min={0}
       />
-      <ProFormMoney label="不限制金额大小" name="amount3" locale="en-GB" initialValue={22.22} />
-      <ProFormMoney label="货币符号跟随全局国际化" name="amount4" initialValue={22.22} />
-      <ProFormMoney label="自定义货币符号" name="amount5" initialValue={22.22} customSymbol="💰" />
+      <ProFormMoney
+        label="不限制金额大小"
+        name="amount3"
+        locale="en-GB"
+        initialValue={22.22}
+      />
+      <ProFormMoney
+        label="货币符号跟随全局国际化"
+        name="amount4"
+        initialValue={22.22}
+      />
+      <ProFormMoney
+        label="自定义货币符号"
+        name="amount5"
+        initialValue={22.22}
+        customSymbol="💰"
+      />
       <ProFormMoney
         label="小数点精度"
         name="amount6"

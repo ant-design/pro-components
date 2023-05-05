@@ -153,7 +153,12 @@ GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis
 ```js | pure
 import { getMenuData } from '@ant-design/pro-components';
 
-const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDataRender);
+const { breadcrumb, menuData } = getMenuData(
+  routes,
+  menu,
+  formatMessage,
+  menuDataRender,
+);
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -365,12 +370,12 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 
 ### pageContainer Token
 
-| token                             | 说明                                | 默认值        |
-| --------------------------------- | ----------------------------------- | ------------- |
-| paddingBlockPageContainerContent  | pageContainer 自带的 padding block  | `24`          |
-| paddingInlinePageContainerContent | pageContainer 自带的 padding inline | `40`          |
-| colorBgPageContainer              | pageContainer 的背景颜色            | `transparent` |
-| colorBgPageContainerFixed         | pageContainer 被固定时的背景颜色    | `#FFF`        |
+| token | 说明 | 默认值 |
+| --- | --- | --- |
+| paddingBlockPageContainerContent | pageContainer 自带的 padding block | `24` |
+| paddingInlinePageContainerContent | pageContainer 自带的 padding inline | `40` |
+| colorBgPageContainer | pageContainer 的背景颜色 | `transparent` |
+| colorBgPageContainerFixed | pageContainer 被固定时的背景颜色 | `#FFF` |
 
 ## FAQ
 

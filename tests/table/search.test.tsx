@@ -345,7 +345,9 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(!!html.baseElement.querySelector('.ant-col.ant-col-12')).toBeTruthy();
+      expect(
+        !!html.baseElement.querySelector('.ant-col.ant-col-12'),
+      ).toBeTruthy();
     });
   });
 
@@ -373,7 +375,10 @@ describe('BasicTable Search', () => {
             dataIndex: 'dateRange',
             initialValue: ['2020-09-11', '2020-09-22'],
             search: {
-              transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+              transform: (value: any) => ({
+                startTime: value[0],
+                endTime: value[1],
+              }),
             },
           },
         ]}
@@ -444,9 +449,12 @@ describe('BasicTable Search', () => {
     expect(html.baseElement.querySelector('input#renderFormItem')).toBeTruthy();
 
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('input#renderFormItem')!, {
-        target: { value: '12' },
-      });
+      fireEvent.change(
+        html.baseElement.querySelector('input#renderFormItem')!,
+        {
+          target: { value: '12' },
+        },
+      );
     });
     await waitFor(() => {
       expect(onChangeFn).toBeCalledWith('12');
@@ -485,7 +493,9 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('Name');
 
-    expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(2);
+    expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(
+      2,
+    );
     expect(html.baseElement.querySelectorAll('.money-class').length).toBe(0);
 
     act(() => {
@@ -516,9 +526,13 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(html.baseElement.querySelectorAll('div.money-class').length).toBe(1);
+      expect(html.baseElement.querySelectorAll('div.money-class').length).toBe(
+        1,
+      );
 
-      expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(3);
+      expect(
+        html.baseElement.querySelectorAll('div.ant-form-item').length,
+      ).toBe(3);
     });
 
     act(() => {
@@ -544,7 +558,9 @@ describe('BasicTable Search', () => {
       );
     });
     await waitFor(() => {
-      expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(3);
+      expect(
+        html.baseElement.querySelectorAll('div.ant-form-item').length,
+      ).toBe(3);
     });
   });
 

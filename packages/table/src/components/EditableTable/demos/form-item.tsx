@@ -1,4 +1,8 @@
-﻿import type { EditableFormInstance, ProColumns, ProFormInstance } from '@ant-design/pro-components';
+﻿import type {
+  EditableFormInstance,
+  ProColumns,
+  ProFormInstance,
+} from '@ant-design/pro-components';
 import {
   EditableProTable,
   ProCard,
@@ -43,7 +47,9 @@ let i = 0;
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
-  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
+  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
+    'bottom',
+  );
   const formRef = useRef<ProFormInstance<any>>();
   const editorFormRef = useRef<EditableFormInstance<DataSourceType>>();
   const columns: ProColumns<DataSourceType>[] = [
@@ -99,7 +105,9 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            const tableDataSource = formRef.current?.getFieldValue('table') as DataSourceType[];
+            const tableDataSource = formRef.current?.getFieldValue(
+              'table',
+            ) as DataSourceType[];
             formRef.current?.setFieldsValue({
               table: tableDataSource.filter((item) => item.id !== record.id),
             });

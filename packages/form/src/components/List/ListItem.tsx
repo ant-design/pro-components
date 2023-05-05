@@ -2,7 +2,11 @@
 import { ProProvider } from '@ant-design/pro-provider';
 import type { ButtonProps, FormInstance } from 'antd';
 import { Spin, Tooltip } from 'antd';
-import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
+import type {
+  FormListFieldData,
+  FormListOperation,
+  FormListProps,
+} from 'antd/lib/form/FormList';
 import toArray from 'rc-util/lib/Children/toArray';
 import set from 'rc-util/lib/utils/set';
 import type { CSSProperties, ReactNode } from 'react';
@@ -179,7 +183,10 @@ export type ProFromListCommonProps = {
    * @example 全部包再一个卡片里面
    * itemContainerRender: (doms,listMeta) => <Card title={listMeta.field.name}>{doms}</Card>
    */
-  itemContainerRender?: (doms: ReactNode, listMeta: FormListListListMete) => ReactNode;
+  itemContainerRender?: (
+    doms: ReactNode,
+    listMeta: FormListListListMete,
+  ) => ReactNode;
   /**
    * @name 自定义Item，可以用来将 action 放到别的地方
    *
@@ -241,11 +248,15 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   /**
    * 数据新增成功回调
    */
-  onAfterAdd?: (...params: [...Parameters<FormListOperation['add']>, number]) => void;
+  onAfterAdd?: (
+    ...params: [...Parameters<FormListOperation['add']>, number]
+  ) => void;
   /**
    * 数据移除成功回调
    */
-  onAfterRemove?: (...params: [...Parameters<FormListOperation['remove']>, number]) => void;
+  onAfterRemove?: (
+    ...params: [...Parameters<FormListOperation['remove']>, number]
+  ) => void;
 };
 
 const ProFormListItem: React.FC<
@@ -396,24 +407,41 @@ const ProFormListItem: React.FC<
         </Spin>
       </Tooltip>
     );
-  }, [deleteIconProps, min, count, loadingRemove, prefixCls, hashId, action, field.name]);
+  }, [
+    deleteIconProps,
+    min,
+    count,
+    loadingRemove,
+    prefixCls,
+    hashId,
+    action,
+    field.name,
+  ]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
-    () => [copyIcon, deleteIcon].filter((item) => item !== null && item !== undefined),
+    () =>
+      [copyIcon, deleteIcon].filter(
+        (item) => item !== null && item !== undefined,
+      ),
     [copyIcon, deleteIcon],
   );
 
-  const actions = actionRender?.(field, action, defaultActionDom, count) || defaultActionDom;
+  const actions =
+    actionRender?.(field, action, defaultActionDom, count) || defaultActionDom;
 
   const dom =
-    actions.length > 0 ? <div className={`${prefixCls}-action ${hashId}`}>{actions}</div> : null;
+    actions.length > 0 ? (
+      <div className={`${prefixCls}-action ${hashId}`}>{actions}</div>
+    ) : null;
 
   const options = {
     name: rest.name,
     field,
     index,
     record: formInstance?.getFieldValue?.(
-      [listContext.listName, originName, field.name].filter((item) => item !== undefined).flat(1),
+      [listContext.listName, originName, field.name]
+        .filter((item) => item !== undefined)
+        .flat(1),
     ),
     fields,
     operation: action,
@@ -422,7 +450,8 @@ const ProFormListItem: React.FC<
 
   const { grid } = useGridHelpers();
 
-  const itemContainer = itemContainerRender?.(childrenArray, options) || childrenArray;
+  const itemContainer =
+    itemContainerRender?.(childrenArray, options) || childrenArray;
 
   const contentDom = itemRender?.(
     {

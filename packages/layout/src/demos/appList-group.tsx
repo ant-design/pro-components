@@ -88,7 +88,10 @@ export default () => {
     layout: 'mix',
     splitMenus: true,
   };
-  const itemClick = (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => {
+  const itemClick = (
+    item: AppItemProps,
+    popoverRef?: React.RefObject<HTMLSpanElement>,
+  ) => {
     // 点击后关闭 Popover
     popoverRef?.current?.click?.();
 

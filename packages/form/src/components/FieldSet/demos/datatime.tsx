@@ -64,7 +64,10 @@ export default () => {
           <ProFormDatePicker.Month name="dateMonth" label="月" />
           <ProFormDateMonthRangePicker name="dateMonthRange" label="月区间" />
           <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
-          <ProFormDateQuarterRangePicker name="dateQuarterRange" label="季度区间" />
+          <ProFormDateQuarterRangePicker
+            name="dateQuarterRange"
+            label="季度区间"
+          />
           <ProFormDatePicker.Year name="dateYear" label="年" />
           <ProFormDateYearRangePicker name="dateYearRange" label="年区间" />
           <ProFormDateTimePicker
@@ -75,7 +78,10 @@ export default () => {
             }}
           />
           <ProFormDateRangePicker name="dateRange" label="日期区间" />
-          <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
+          <ProFormDateTimeRangePicker
+            name="dateTimeRange"
+            label="日期时间区间"
+          />
         </ProForm.Group>
       </ProForm>
     </div>

@@ -21,7 +21,20 @@ export type ProFormSliderProps = ProFormFieldItemProps<
  * @param
  */
 const ProFormSlider = React.forwardRef<any, ProFormSliderProps>(
-  ({ fieldProps, proFieldProps, min, max, step, marks, vertical, range, ...rest }, ref) => {
+  (
+    {
+      fieldProps,
+      proFieldProps,
+      min,
+      max,
+      step,
+      marks,
+      vertical,
+      range,
+      ...rest
+    },
+    ref,
+  ) => {
     return (
       <ProField
         valueType="slider"

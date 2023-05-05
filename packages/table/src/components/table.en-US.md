@@ -294,17 +294,17 @@ SearchProps is a property of antd's [Input.Search](https://ant.design/components
 
 #### ListToolBarMenu
 
-| parameters | description                  | type                                  | default    |
-| ---------- | ---------------------------- | ------------------------------------- | ---------- |
-| type       | type                         | `inline` \| `dropdown` \| `tab`       | `dropdown` |
-| activeKey  | current value                | `string`                              | -          |
-| items      | menu items                   | `{ key: string; label: ReactNode }[]` | -          |
-| onChange   | Callback for switching menus | `(activeKey)=>void`                   | -          |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| type | type | `inline` \| `dropdown` \| `tab` | `dropdown` |
+| activeKey | current value | `string` | - |
+| items | menu items | `{ key: string; label: ReactNode }[]` | - |
+| onChange | Callback for switching menus | `(activeKey)=>void` | - |
 
 #### ListToolBarTabs
 
-| parameters | description                      | type                                | default |
-| ---------- | -------------------------------- | ----------------------------------- | ------- |
-| activeKey  | currently selected item          | `string`                            | -       |
-| items      | menu items                       | `{ key: string; tab: ReactNode }[]` | -       |
-| onChange   | Callback for toggling menu items | `(activeKey)=>void`                 | -       |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| activeKey | currently selected item | `string` | - |
+| items | menu items | `{ key: string; tab: ReactNode }[]` | - |
+| onChange | Callback for toggling menu items | `(activeKey)=>void` | - |

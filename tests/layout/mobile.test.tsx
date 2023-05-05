@@ -39,7 +39,9 @@ describe('mobile BasicLayout', () => {
   });
 
   it('📱 collapsed=false', async () => {
-    const html = render(<ProLayout {...defaultProps} getContainer={false} collapsed={false} />);
+    const html = render(
+      <ProLayout {...defaultProps} getContainer={false} collapsed={false} />,
+    );
     await waitFor(async () => {
       await html.findAllByText('welcome');
     });
@@ -48,7 +50,12 @@ describe('mobile BasicLayout', () => {
 
   it('📱 layout=mix', async () => {
     const html = render(
-      <ProLayout {...defaultProps} getContainer={false} layout="mix" collapsed={false} />,
+      <ProLayout
+        {...defaultProps}
+        getContainer={false}
+        layout="mix"
+        collapsed={false}
+      />,
     );
     await waitFor(async () => {
       await html.findAllByText('welcome');
@@ -146,7 +153,9 @@ describe('mobile BasicLayout', () => {
     });
     act(() => {
       html.baseElement
-        ?.querySelector<HTMLSpanElement>('span.ant-pro-global-header-collapsed-button')
+        ?.querySelector<HTMLSpanElement>(
+          'span.ant-pro-global-header-collapsed-button',
+        )
         ?.click();
     });
 
@@ -155,7 +164,9 @@ describe('mobile BasicLayout', () => {
     });
 
     act(() => {
-      html.baseElement?.querySelector<HTMLDivElement>('div.ant-drawer-mask')?.click();
+      html.baseElement
+        ?.querySelector<HTMLDivElement>('div.ant-drawer-mask')
+        ?.click();
     });
 
     await waitFor(async () => {

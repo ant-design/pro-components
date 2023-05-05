@@ -73,7 +73,10 @@ const isMoment = (value: any): boolean => !!value?._isAMomentObject;
  */
 export const convertMoment = (
   value: dayjs.Dayjs,
-  dateFormatter: string | ((value: dayjs.Dayjs, valueType: string) => string | number) | false,
+  dateFormatter:
+    | string
+    | ((value: dayjs.Dayjs, valueType: string) => string | number)
+    | false,
   valueType: string,
 ) => {
   if (!dateFormatter) {
@@ -123,7 +126,12 @@ export const conversionMomentValue = <T extends {} = any>(
   if (typeof window === 'undefined') return value;
   // 如果 value 是 string | null | Blob类型 其中之一，直接返回
   // 形如 {key: [File, File]} 的表单字段当进行第二次递归时会导致其直接越过 typeof value !== 'object' 这一判断 https://github.com/ant-design/pro-components/issues/2071
-  if (typeof value !== 'object' || isNil(value) || value instanceof Blob || Array.isArray(value)) {
+  if (
+    typeof value !== 'object' ||
+    isNil(value) ||
+    value instanceof Blob ||
+    Array.isArray(value)
+  ) {
     return value;
   }
   Object.keys(value as Record<string, any>).forEach((valueKey) => {
@@ -154,16 +162,24 @@ export const conversionMomentValue = <T extends {} = any>(
       // 不是 moment
       !isMoment(itemValue)
     ) {
-      tmpValue[valueKey] = conversionMomentValue(itemValue, dateFormatter, valueTypeMap, omitNil, [
-        valueKey,
-      ]);
+      tmpValue[valueKey] = conversionMomentValue(
+        itemValue,
+        dateFormatter,
+        valueTypeMap,
+        omitNil,
+        [valueKey],
+      );
       return;
     }
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       tmpValue[valueKey] = itemValue.map((arrayValue, index) => {
         if (dayjs.isDayjs(arrayValue) || isMoment(arrayValue)) {
-          return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
+          return convertMoment(
+            arrayValue,
+            dateFormat || dateFormatter,
+            valueType,
+          );
         }
         return conversionMomentValue(
           arrayValue,
@@ -175,7 +191,11 @@ export const conversionMomentValue = <T extends {} = any>(
       });
       return;
     }
-    tmpValue[valueKey] = convertMoment(itemValue, dateFormat || dateFormatter, valueType);
+    tmpValue[valueKey] = convertMoment(
+      itemValue,
+      dateFormat || dateFormatter,
+      valueType,
+    );
   });
 
   return tmpValue;

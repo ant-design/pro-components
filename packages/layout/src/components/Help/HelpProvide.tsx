@@ -69,7 +69,10 @@ type ProHelpDataSourceContentType = {
  * ProHelp 数据源子项内容类型的类型，可能的取值为 "h1"、"h2"、"link"、"inlineLink"、"text" 和 "image"。
  * @typedef {'h1' | 'h2' | 'link' | 'inlineLink' | 'text' | 'image'} ProHelpDataSourceChildrenType
  */
-type ProHelpDataSourceChildrenType = Extract<keyof ProHelpDataSourceContentType, any>;
+type ProHelpDataSourceChildrenType = Extract<
+  keyof ProHelpDataSourceContentType,
+  any
+>;
 
 /**
  * ProHelp 数据源子项内容属性类型。

@@ -92,7 +92,12 @@ export default () => {
           />
           <ProFormDatePicker name="date" label="日期" />
           <ProFormDateRangePicker name="dateTime" label="时间区间" />
-          <ProFormTextArea name="remark" label="备注" width="lg" placeholder="请输入备注" />
+          <ProFormTextArea
+            name="remark"
+            label="备注"
+            width="lg"
+            placeholder="请输入备注"
+          />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="checkbox" title="设置参数">
           <ProFormCheckbox.Group
@@ -103,7 +108,11 @@ export default () => {
           />
           <ProForm.Group>
             <ProFormText name="dbName" label="业务 DB 用户名" />
-            <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
+            <ProFormDatePicker
+              name="datetime"
+              label="记录保存时间"
+              width="sm"
+            />
           </ProForm.Group>
           <ProFormDependency name={['dbName']}>
             {({ dbName }) => {
@@ -111,7 +120,11 @@ export default () => {
                 <ProFormCheckbox.Group
                   name="checkbox"
                   label="迁移类型"
-                  options={dbName ? ['完整 LOB', '不同步 LOB', '受限制 LOB'] : ['完整 LOB']}
+                  options={
+                    dbName
+                      ? ['完整 LOB', '不同步 LOB', '受限制 LOB']
+                      : ['完整 LOB']
+                  }
                 />
               );
             }}

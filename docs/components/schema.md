@@ -93,7 +93,12 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    *
    * @name 自定义 render
    */
-  renderText?: (text: any, record: T, index: number, action: ProCoreActionType) => any;
+  renderText?: (
+    text: any,
+    record: T,
+    index: number,
+    action: ProCoreActionType,
+  ) => any;
 
   fieldProps?: any;
   /** @name 映射值的类型 */
@@ -427,7 +432,11 @@ const columns = [
 ```
 
 ```tsx | pure
-import { ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-components';
 
 const request = async (params) => {
   console.log(params);

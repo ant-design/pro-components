@@ -160,7 +160,11 @@ const CheckCard: React.FC<CheckCardProps> & {
   const renderCover = (prefixCls: string, cover: string | React.ReactNode) => {
     return (
       <div className={`${prefixCls}-cover`}>
-        {typeof cover === 'string' ? <img src={cover} alt="checkcard" /> : cover}
+        {typeof cover === 'string' ? (
+          <img src={cover} alt="checkcard" />
+        ) : (
+          cover
+        )}
       </div>
     );
   };
@@ -203,7 +207,13 @@ const CheckCard: React.FC<CheckCardProps> & {
     checkCardProps.size = props.size || checkCardGroup.size;
   }
 
-  const { disabled = false, size, loading: cardLoading, bordered = true, checked } = checkCardProps;
+  const {
+    disabled = false,
+    size,
+    loading: cardLoading,
+    bordered = true,
+    checked,
+  } = checkCardProps;
   const sizeCls = getSizeCls(size);
 
   const classString = classNames(prefixCls, className, hashId, {
@@ -226,7 +236,11 @@ const CheckCard: React.FC<CheckCardProps> & {
 
     const avatarDom = avatar ? (
       <div className={`${prefixCls}-avatar ${hashId}`}>
-        {typeof avatar === 'string' ? <Avatar size={48} shape="square" src={avatar} /> : avatar}
+        {typeof avatar === 'string' ? (
+          <Avatar size={48} shape="square" src={avatar} />
+        ) : (
+          avatar
+        )}
       </div>
     ) : null;
 
@@ -256,7 +270,16 @@ const CheckCard: React.FC<CheckCardProps> & {
         ) : null}
       </div>
     );
-  }, [avatar, cardLoading, cover, description, extra, hashId, prefixCls, title]);
+  }, [
+    avatar,
+    cardLoading,
+    cover,
+    description,
+    extra,
+    hashId,
+    prefixCls,
+    title,
+  ]);
 
   return wrapSSR(
     <div

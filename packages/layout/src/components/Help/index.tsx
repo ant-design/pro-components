@@ -1,5 +1,8 @@
 ﻿import React from 'react';
-import type { ProHelpDataSource, ProHelpDataSourceChildren } from './HelpProvide';
+import type {
+  ProHelpDataSource,
+  ProHelpDataSourceChildren,
+} from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
 import { ProHelpSelect } from './Search';
 
@@ -30,7 +33,10 @@ export type ProHelpProps<ValueType> = {
    */
   valueTypeMap?: Map<
     string,
-    (item: ProHelpDataSourceChildren<ValueType>, index: number) => React.ReactNode
+    (
+      item: ProHelpDataSourceChildren<ValueType>,
+      index: number,
+    ) => React.ReactNode
   >;
   /**
    * 帮助组件的子组件，用于渲染自定义的帮助内容。
@@ -64,7 +70,9 @@ export const ProHelp = <ValueTypeMap = { text: any },>({
   ...props
 }: ProHelpProps<ValueTypeMap>) => {
   return (
-    <ProHelpProvide.Provider value={{ onLoadContext, dataSource, valueTypeMap }}>
+    <ProHelpProvide.Provider
+      value={{ onLoadContext, dataSource, valueTypeMap }}
+    >
       {props.children}
     </ProHelpProvide.Provider>
   );

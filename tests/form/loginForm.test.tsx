@@ -19,7 +19,9 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    expect(container.querySelectorAll('.ant-alert.ant-alert-error')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('.ant-alert.ant-alert-error'),
+    ).toHaveLength(1);
     expect(
       container.querySelector('.ant-alert.ant-alert-error .ant-alert-message'),
     ).toHaveTextContent('登录失败');
@@ -41,7 +43,9 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    expect(container.querySelectorAll('.ant-pro-form-login-main-other .anticon')).toHaveLength(3);
+    expect(
+      container.querySelectorAll('.ant-pro-form-login-main-other .anticon'),
+    ).toHaveLength(3);
   });
 
   it('📦 LoginForm support string logo', async () => {
@@ -51,8 +55,12 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    expect(container.querySelectorAll('.ant-pro-form-login-logo img')).toHaveLength(1);
-    expect(container.querySelector('.ant-pro-form-login-logo img')).toHaveAttribute(
+    expect(
+      container.querySelectorAll('.ant-pro-form-login-logo img'),
+    ).toHaveLength(1);
+    expect(
+      container.querySelector('.ant-pro-form-login-logo img'),
+    ).toHaveAttribute(
       'src',
       'https://avatars.githubusercontent.com/u/8186664?v=4',
     );
@@ -61,7 +69,12 @@ describe('LoginForm', () => {
   it('📦 LoginForm support react node logo', async () => {
     const { findByTestId } = render(
       <LoginForm
-        logo={<img data-testid="test" src="https://avatars.githubusercontent.com/u/8186664?v=4" />}
+        logo={
+          <img
+            data-testid="test"
+            src="https://avatars.githubusercontent.com/u/8186664?v=4"
+          />
+        }
       >
         <ProFormText name="name" />
       </LoginForm>,
@@ -156,7 +169,9 @@ describe('LoginForm', () => {
     );
 
     await waitTime(100);
-    const dom = await wrapper.baseElement.querySelector('.ant-pro-form-login-page-header');
+    const dom = await wrapper.baseElement.querySelector(
+      '.ant-pro-form-login-page-header',
+    );
 
     expect(!!dom).toBeFalsy();
   });

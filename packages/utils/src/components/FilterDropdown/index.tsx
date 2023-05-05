@@ -80,7 +80,13 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
           >
             <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
           </ConfigProvider>
-          {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
+          {footer && (
+            <DropdownFooter
+              disabled={disabled}
+              footerRender={footerRender}
+              {...footer}
+            />
+          )}
         </div>
       }
     >

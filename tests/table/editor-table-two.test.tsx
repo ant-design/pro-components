@@ -1,5 +1,9 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
-import type { ActionType, ProColumns, TableRowEditable } from '@ant-design/pro-table';
+import type {
+  ActionType,
+  ProColumns,
+  TableRowEditable,
+} from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
@@ -165,7 +169,9 @@ const EditorProTableDemo = (
       onChange: props.onEditorChange,
     },
   );
-  const [tableDataSource, setDataSource] = useMergedState<readonly DataSourceType[]>([], {
+  const [tableDataSource, setDataSource] = useMergedState<
+    readonly DataSourceType[]
+  >([], {
     value: props.dataSource,
     onChange: props.onDataSourceChange,
   });
@@ -493,7 +499,9 @@ describe('EditorProTable 2', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.container.querySelectorAll('.ant-table-cell .ant-form-item-control-input input')[1],
+        wrapper.container.querySelectorAll(
+          '.ant-table-cell .ant-form-item-control-input input',
+        )[1],
         {
           target: {
             value: '🐛 [BUG]yarn install命令',
@@ -1295,9 +1303,11 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row').length).toBe(
-          3,
-        );
+        expect(
+          wrapper.container.querySelectorAll(
+            '.ant-table-tbody tr.ant-table-row',
+          ).length,
+        ).toBe(3);
       },
       {
         timeout: 1000,
@@ -1317,12 +1327,16 @@ describe('EditorProTable 2', () => {
 
   it('📝 edit tree data table', async () => {
     const fn = jest.fn();
-    const wrapper = render(<EditorProTableDemo onSave={fn} dataSource={[defaultData[2]]} />);
+    const wrapper = render(
+      <EditorProTableDemo onSave={fn} dataSource={[defaultData[2]]} />,
+    );
     await wrapper.findAllByText('编辑');
     act(() => {
       wrapper.container
         .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-        .querySelectorAll<HTMLSpanElement>('td button.ant-table-row-expand-icon')[0]
+        .querySelectorAll<HTMLSpanElement>(
+          'td button.ant-table-row-expand-icon',
+        )[0]
         .click();
     });
     await wrapper.findAllByText('编辑');
@@ -1369,7 +1383,9 @@ describe('EditorProTable 2', () => {
     );
     await wrapper.findAllByText('编辑');
     act(() => {
-      wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[0].click();
+      wrapper.container
+        .querySelectorAll<HTMLAnchorElement>('#editor')[0]
+        .click();
     });
     await waitFor(() => {
       expect(fn).toBeCalledWith([624748504, 624691229]);
@@ -1392,7 +1408,9 @@ describe('EditorProTable 2', () => {
     await wrapper.findAllByText('编辑');
 
     act(() => {
-      wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1].click();
+      wrapper.container
+        .querySelectorAll<HTMLAnchorElement>('#editor')[1]
+        .click();
     });
 
     await wrapper.findAllByText('编辑');
@@ -1439,7 +1457,9 @@ describe('EditorProTable 2', () => {
     );
     await wrapper.findAllByText('编辑');
     act(() => {
-      wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1].click();
+      wrapper.container
+        .querySelectorAll<HTMLAnchorElement>('#editor')[1]
+        .click();
     });
     await waitFor(() => {
       expect(
@@ -1484,7 +1504,9 @@ describe('EditorProTable 2', () => {
     );
     await wrapper.findAllByText('编辑');
     act(() => {
-      wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1].click();
+      wrapper.container
+        .querySelectorAll<HTMLAnchorElement>('#editor')[1]
+        .click();
     });
 
     await waitFor(() => {
@@ -1563,8 +1585,9 @@ describe('EditorProTable 2', () => {
     await wrapper.queryAllByText('编辑');
 
     expect(
-      wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
-        .length,
+      wrapper.container
+        .querySelector('.ant-table-tbody')
+        ?.querySelectorAll('tr.ant-table-row').length,
     ).toBe(1);
 
     await act(async () => {
@@ -1582,8 +1605,9 @@ describe('EditorProTable 2', () => {
     await waitFor(
       () => {
         expect(
-          wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
-            .length,
+          wrapper.container
+            .querySelector('.ant-table-tbody')
+            ?.querySelectorAll('tr.ant-table-row').length,
         ).toBe(2);
       },
       {
@@ -1598,7 +1622,9 @@ describe('EditorProTable 2', () => {
     await waitFor(
       () => {
         expect(
-          wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-0').length,
+          wrapper.container.querySelectorAll(
+            '.ant-table-row.ant-table-row-level-0',
+          ).length,
         ).toBe(1);
       },
       {
@@ -1622,7 +1648,9 @@ describe('EditorProTable 2', () => {
     );
     await wrapper.findAllByText('编辑');
     act(() => {
-      wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1]?.click();
+      wrapper.container
+        .querySelectorAll<HTMLAnchorElement>('#editor')[1]
+        ?.click();
     });
     await waitFor(() => {
       expect(
@@ -1657,7 +1685,9 @@ describe('EditorProTable 2', () => {
     const wrapper = render(<EditorProTableDemo onCancel={(key) => fn(key)} />);
     await wrapper.findAllByText('编辑');
     act(() => {
-      wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1]?.click();
+      wrapper.container
+        .querySelectorAll<HTMLAnchorElement>('#editor')[1]
+        ?.click();
     });
 
     await waitFor(() => {
@@ -1692,7 +1722,9 @@ describe('EditorProTable 2', () => {
     );
     await wrapper.findAllByText('编辑');
     act(() => {
-      wrapper.container.querySelectorAll<HTMLAnchorElement>('#editor')[1]?.click();
+      wrapper.container
+        .querySelectorAll<HTMLAnchorElement>('#editor')[1]
+        ?.click();
     });
 
     await waitFor(() => {
@@ -1841,7 +1873,9 @@ describe('EditorProTable 2', () => {
 
   it('📝 support form rules', async () => {
     const fn = jest.fn();
-    const wrapper = render(<EditorProTableDemo onSave={(key, row) => fn(row.title)} />);
+    const wrapper = render(
+      <EditorProTableDemo onSave={(key, row) => fn(row.title)} />,
+    );
     await wrapper.findAllByText('编辑');
 
     act(() => {
@@ -1972,9 +2006,10 @@ describe('EditorProTable 2', () => {
     await wrapper.findByText('增加一行');
 
     await waitFor(() => {
-      expect(wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row').length).toBe(
-        3,
-      );
+      expect(
+        wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')
+          .length,
+      ).toBe(3);
     });
     act(() => {
       wrapper.queryByText('增加一行')?.click();
@@ -1982,9 +2017,11 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row').length).toBe(
-          4,
-        );
+        expect(
+          wrapper.container.querySelectorAll(
+            '.ant-table-tbody tr.ant-table-row',
+          ).length,
+        ).toBe(4);
       },
       {
         timeout: 1000,
@@ -1997,9 +2034,11 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row').length).toBe(
-          4,
-        );
+        expect(
+          wrapper.container.querySelectorAll(
+            '.ant-table-tbody tr.ant-table-row',
+          ).length,
+        ).toBe(4);
       },
       {
         timeout: 1000,
@@ -2019,14 +2058,17 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row').length).toBe(
-        3,
-      );
+      expect(
+        wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')
+          .length,
+      ).toBe(3);
     });
 
     await waitFor(() => {
       expect(
-        !!wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[3],
+        !!wrapper.container.querySelectorAll(
+          '.ant-table-tbody tr.ant-table-row',
+        )[3],
       ).toBeFalsy();
     });
 
@@ -2035,9 +2077,10 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row').length).toBe(
-        4,
-      );
+      expect(
+        wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')
+          .length,
+      ).toBe(4);
     });
 
     await waitFor(() => {
@@ -2063,7 +2106,9 @@ describe('EditorProTable 2', () => {
 
     await waitFor(() => {
       expect(
-        wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row')[3],
+        wrapper.container.querySelectorAll(
+          '.ant-table-tbody tr.ant-table-row',
+        )[3],
       ).not.toBeUndefined();
     });
 
@@ -2109,7 +2154,9 @@ describe('EditorProTable 2', () => {
 
     await waitFor(() => {
       expect(
-        wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody')[0]
+          .querySelectorAll('input').length,
       ).toBe(4);
     });
   });
@@ -2120,8 +2167,9 @@ describe('EditorProTable 2', () => {
     await waitFor(
       () => {
         expect(
-          wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input')
-            .length,
+          wrapper.container
+            .querySelectorAll('.ant-table-tbody')[0]
+            .querySelectorAll('input').length,
         ).toBe(0);
       },
       {
@@ -2140,8 +2188,9 @@ describe('EditorProTable 2', () => {
     await waitFor(
       () => {
         expect(
-          wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input')
-            .length,
+          wrapper.container
+            .querySelectorAll('.ant-table-tbody')[0]
+            .querySelectorAll('input').length,
         ).toBe(4);
       },
       {

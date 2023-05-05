@@ -36,8 +36,14 @@ export type BreadcrumbProLayoutProps = {
 
 // 渲染Breadcrumb 子节点
 // Render the Breadcrumb child node
-const defaultItemRender: AntdBreadcrumbProps['itemRender'] = (route, _, routes) => {
-  const { breadcrumbName, title, path } = route as BreadcrumbItemType & { breadcrumbName: string };
+const defaultItemRender: AntdBreadcrumbProps['itemRender'] = (
+  route,
+  _,
+  routes,
+) => {
+  const { breadcrumbName, title, path } = route as BreadcrumbItemType & {
+    breadcrumbName: string;
+  };
   const last = routes.indexOf(route) === routes.length - 1;
   return last ? (
     <span>{title || breadcrumbName}</span>
@@ -56,7 +62,10 @@ const defaultItemRender: AntdBreadcrumbProps['itemRender'] = (route, _, routes) 
   );
 };
 
-const renderItemLocal = (item: MenuDataItem, props: BreadcrumbProLayoutProps): string => {
+const renderItemLocal = (
+  item: MenuDataItem,
+  props: BreadcrumbProLayoutProps,
+): string => {
   const { formatMessage, menu } = props;
   if (item.locale && formatMessage && menu?.locale !== false) {
     return formatMessage({ id: item.locale, defaultMessage: item.name });

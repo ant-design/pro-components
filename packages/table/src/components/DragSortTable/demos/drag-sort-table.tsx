@@ -30,7 +30,10 @@ const data = [
 const wait = async (delay = 1000) =>
   new Promise((resolve) => setTimeout(() => resolve(void 0), delay));
 
-let remoteData = data.map((item) => ({ ...item, name: `[remote data] ${item.name}` }));
+let remoteData = data.map((item) => ({
+  ...item,
+  name: `[remote data] ${item.name}`,
+}));
 const request = async () => {
   await wait(3000);
   return {
@@ -46,7 +49,9 @@ export default () => {
       title: '排序',
       dataIndex: 'sort',
       render: (dom, rowData, index) => {
-        return <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>;
+        return (
+          <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>
+        );
       },
     },
     {

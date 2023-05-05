@@ -43,7 +43,10 @@ for (let i = 0; i < 50; i += 1) {
     creator: creators[Math.floor(Math.random() * creators.length)],
     status: valueEnum[Math.floor(Math.random() * 10) % 4],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
-    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
+    memo:
+      i % 2 === 1
+        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
+        : '简短备注文案',
   });
 }
 
@@ -129,7 +132,11 @@ export default () => {
         selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT],
         defaultSelectedRowKeys: [1],
       }}
-      tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => {
+      tableAlertRender={({
+        selectedRowKeys,
+        selectedRows,
+        onCleanSelected,
+      }) => {
         console.log(selectedRowKeys, selectedRows);
         return (
           <Space size={24}>

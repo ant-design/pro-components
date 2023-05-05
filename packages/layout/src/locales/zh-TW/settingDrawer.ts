@@ -30,7 +30,8 @@ export default {
   'app.setting.weakmode': '色弱模式',
   'app.setting.copy': '拷貝設置',
   'app.setting.loading': '正在加載主題',
-  'app.setting.copyinfo': '拷貝成功，請到 src/defaultSettings.js 中替換默認配置',
+  'app.setting.copyinfo':
+    '拷貝成功，請到 src/defaultSettings.js 中替換默認配置',
   'app.setting.production.hint':
     '配置欄只在開發環境用於預覽，生產環境不會展現，請拷貝後手動修改配置文件',
 };

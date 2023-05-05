@@ -36,7 +36,9 @@ const FieldTimePicker: ProFieldFC<
   ref,
 ) => {
   const [open, setOpen] = useState<boolean>(false);
-  const { componentSize } = ConfigProvider?.useConfig?.() || { componentSize: 'middle' };
+  const { componentSize } = ConfigProvider?.useConfig?.() || {
+    componentSize: 'middle',
+  };
   const size = componentSize;
   const { hashId, prefixCls, wrapSSR } = useDatePickerStyle();
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
@@ -46,7 +48,11 @@ const FieldTimePicker: ProFieldFC<
   if (mode === 'read') {
     const dom = (
       <span ref={ref}>
-        {text ? dayjs(text, isNumberOrMoment ? undefined : finalFormat).format(finalFormat) : '-'}
+        {text
+          ? dayjs(text, isNumberOrMoment ? undefined : finalFormat).format(
+              finalFormat,
+            )
+          : '-'}
       </span>
     );
     if (render) {
@@ -65,9 +71,10 @@ const FieldTimePicker: ProFieldFC<
           className={`${prefixCls}-light ${hashId}`}
           onClick={(e) => {
             // 点击label切换下拉菜单
-            const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
-              e.target as HTMLElement,
-            );
+            const isLabelClick =
+              lightLabel?.current?.labelRef?.current?.contains(
+                e.target as HTMLElement,
+              );
             if (isLabelClick) {
               setOpen(!open);
             } else {
@@ -132,17 +139,27 @@ const FieldTimePicker: ProFieldFC<
 const FieldTimeRangePickerComponents: ProFieldFC<{
   text: string[] | number[];
   format: string;
-}> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }, ref) => {
+}> = (
+  { text, mode, format, render, renderFormItem, plain, fieldProps },
+  ref,
+) => {
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
   const [startText, endText] = Array.isArray(text) ? text : [];
-  const startTextIsNumberOrMoment = dayjs.isDayjs(startText) || typeof startText === 'number';
-  const endTextIsNumberOrMoment = dayjs.isDayjs(endText) || typeof endText === 'number';
+  const startTextIsNumberOrMoment =
+    dayjs.isDayjs(startText) || typeof startText === 'number';
+  const endTextIsNumberOrMoment =
+    dayjs.isDayjs(endText) || typeof endText === 'number';
 
   const parsedStartText: string = startText
-    ? dayjs(startText, startTextIsNumberOrMoment ? undefined : finalFormat).format(finalFormat)
+    ? dayjs(
+        startText,
+        startTextIsNumberOrMoment ? undefined : finalFormat,
+      ).format(finalFormat)
     : '';
   const parsedEndText: string = endText
-    ? dayjs(endText, endTextIsNumberOrMoment ? undefined : finalFormat).format(finalFormat)
+    ? dayjs(endText, endTextIsNumberOrMoment ? undefined : finalFormat).format(
+        finalFormat,
+      )
     : '';
 
   if (mode === 'read') {

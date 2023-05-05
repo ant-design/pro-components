@@ -26,7 +26,8 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   ref,
 ) => {
   const intl = useIntl();
-  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue =
+    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const proxyChange = useCallback(
     (value: number | string | null) => {
       let val = value ?? undefined;
@@ -34,7 +35,11 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
       if (typeof val === 'string') {
         val = Number(val);
       }
-      if (typeof val === 'number' && !isNil(val) && !isNil(fieldProps.precision)) {
+      if (
+        typeof val === 'number' &&
+        !isNil(val) &&
+        !isNil(fieldProps.precision)
+      ) {
         val = Number(val.toFixed(fieldProps.precision));
       }
       return fieldProps?.onChange?.(val);
@@ -53,7 +58,9 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
       ...fractionDigits,
       ...(fieldProps?.intlProps || {}),
     }).format(Number(text) as number);
-    const dom = <span ref={ref}>{fieldProps?.formatter?.(digit) || digit}</span>;
+    const dom = (
+      <span ref={ref}>{fieldProps?.formatter?.(digit) || digit}</span>
+    );
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }

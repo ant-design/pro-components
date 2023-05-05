@@ -1,5 +1,10 @@
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import { ProForm, ProFormDatePicker, ProFormText, QueryFilter } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormDatePicker,
+  ProFormText,
+  QueryFilter,
+} from '@ant-design/pro-components';
 import { Input, Tabs } from 'antd';
 import React, { useState } from 'react';
 
@@ -11,7 +16,12 @@ type AdvancedSearchProps = {
 };
 
 const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
-  const { onSearch, onTypeChange, defaultType = 'articles', onFilterChange } = props;
+  const {
+    onSearch,
+    onTypeChange,
+    defaultType = 'articles',
+    onFilterChange,
+  } = props;
   const [searchText, setSearchText] = useState<string>();
   const [showFilter, setShowFilter] = useState<boolean>(true);
   const quickSearch = ['小程序开发', '入驻', 'ISV 权限'];
@@ -93,7 +103,13 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
       />
 
       {showFilter ? (
-        <QueryFilter submitter={false} span={24} labelWidth="auto" split onChange={onFilterChange}>
+        <QueryFilter
+          submitter={false}
+          span={24}
+          labelWidth="auto"
+          split
+          onChange={onFilterChange}
+        >
           <ProForm.Group title="姓名">
             <ProFormText name="name" />
           </ProForm.Group>

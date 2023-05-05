@@ -83,7 +83,10 @@ export default () => (
           dataIndex: 'createdAtRange',
           valueType: 'dateTimeRange',
           search: {
-            transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+            transform: (value: any) => ({
+              startTime: value[0],
+              endTime: value[1],
+            }),
           },
         },
         {

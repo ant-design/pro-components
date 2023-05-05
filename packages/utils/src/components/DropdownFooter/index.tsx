@@ -67,7 +67,8 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
     <div
       className={classNames(prefixCls, hashId)}
       onClick={(e) =>
-        (e.target as Element).getAttribute('data-type') !== 'confirm' && e.stopPropagation()
+        (e.target as Element).getAttribute('data-type') !== 'confirm' &&
+        e.stopPropagation()
       }
     >
       {renderDom}
