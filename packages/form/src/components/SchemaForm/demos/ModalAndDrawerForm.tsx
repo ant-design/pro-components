@@ -1,28 +1,7 @@
-﻿import type {
-  ProFormColumnsType,
-  ProFormLayoutType,
-} from '@ant-design/pro-components';
+﻿import type { ProFormLayoutType } from '@ant-design/pro-components';
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
-import { Alert, Button, DatePicker, Space } from 'antd';
-import dayjs from 'dayjs';
+import { Alert, Button, Space } from 'antd';
 import { useState } from 'react';
-
-const valueEnum = {
-  all: { text: '全部', status: 'Default' },
-  open: {
-    text: '未解决',
-    status: 'Error',
-  },
-  closed: {
-    text: '已解决',
-    status: 'Success',
-    disabled: true,
-  },
-  processing: {
-    text: '解决中',
-    status: 'Processing',
-  },
-};
 
 type DataItem = {
   name: string;

@@ -280,7 +280,7 @@ function cellRenderToFromItem<T>(
 
   const columnKey = columnProps?.key || columnProps?.dataIndex?.toString();
 
-  let dependencies = columnProps?.dependencies
+  const dependencies = columnProps?.dependencies
     ? ([config.prefixName, index?.toString(), columnProps?.dependencies]
         .filter(Boolean)
         .flat(1) as string[])

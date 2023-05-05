@@ -1,4 +1,4 @@
-import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
+import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 
 import classNames from 'classnames';
