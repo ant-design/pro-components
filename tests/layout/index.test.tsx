@@ -398,8 +398,8 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 render logo by function', async () => {
-    //@ts-expect-error
     const wrapper = render(
+      //@ts-expect-error
       <ProLayout logo={() => <div id="test_log">Logo</div>} />,
     );
     await waitTime(100);

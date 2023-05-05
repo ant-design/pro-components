@@ -747,6 +747,83 @@ describe('EditorProTable 2', () => {
     );
   });
 
+  it('📝 EditableProTable columns support dependencies', async () => {
+    const fn = jest.fn();
+    jest.useFakeTimers();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+          },
+          {
+            title: '状态',
+            dataIndex: 'status',
+            valueType: 'select',
+            dependencies: ['title'],
+            request: async (values) => {
+              fn(values.title);
+              return [
+                {
+                  label: '待审核',
+                  value: values.title,
+                },
+              ];
+            },
+          },
+        ]}
+        editable={{
+          editableKeys: [624748504],
+          onValuesChange: (record) => {
+            console.log(record);
+          },
+        }}
+        value={[
+          {
+            id: 624748504,
+            title: 'install命令',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '1590486176000',
+            },
+            state: 'processing',
+          },
+        ]}
+      />,
+    );
+    await wrapper.findByDisplayValue('install命令');
+
+    act(() => {
+      fireEvent.change(
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
+          .querySelectorAll('td .ant-input')[0],
+        {
+          target: {
+            value: '命令',
+          },
+        },
+      );
+    });
+
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(
+      () => {
+        expect(fn).toBeCalledWith('命令');
+      },
+      {
+        timeout: 1000,
+      },
+    );
+    jest.useRealTimers();
+  });
+
   it('📝 support onValuesChange when is string key', async () => {
     const fn = jest.fn();
     const wrapper = render(
@@ -1446,6 +1523,7 @@ describe('EditorProTable 2', () => {
 
   it('📝 support onDelete', async () => {
     const fn = jest.fn();
+    jest.useFakeTimers();
     const wrapper = render(
       <EditorProTableDemo
         hideRules
@@ -1456,11 +1534,15 @@ describe('EditorProTable 2', () => {
       />,
     );
     await wrapper.findAllByText('编辑');
+
     act(() => {
       wrapper.container
         .querySelectorAll<HTMLAnchorElement>('#editor')[1]
         .click();
     });
+
+    await act(async () => jest.runOnlyPendingTimers());
+
     await waitFor(() => {
       expect(
         wrapper.container
@@ -1470,9 +1552,12 @@ describe('EditorProTable 2', () => {
     });
 
     await wrapper.findAllByText('删除');
+
     act(() => {
       wrapper.queryAllByText('删除').at(0)?.click();
     });
+
+    await act(async () => jest.runOnlyPendingTimers());
 
     await waitFor(() => {
       expect(fn).not.toBeCalled();
@@ -1482,19 +1567,19 @@ describe('EditorProTable 2', () => {
       wrapper.queryAllByText('确 定').at(0)?.click();
     });
 
-    await waitFor(() => {
-      expect(fn).not.toBeCalled();
-    });
+    await act(async () => jest.runOnlyPendingTimers());
 
     await waitFor(() => {
       expect(fn).toBeCalledWith(624691229);
     });
     wrapper.unmount();
+    jest.useRealTimers();
   });
 
   it('📝 support onSave when add newLine', async () => {
     const onSave = jest.fn();
     const onDataSourceChange = jest.fn();
+    jest.useFakeTimers();
     const wrapper = render(
       <EditorProTableDemo
         hideRules
@@ -1502,12 +1587,16 @@ describe('EditorProTable 2', () => {
         onDataSourceChange={(data) => onDataSourceChange(data.length)}
       />,
     );
+
     await wrapper.findAllByText('编辑');
+
     act(() => {
       wrapper.container
         .querySelectorAll<HTMLAnchorElement>('#editor')[1]
         .click();
     });
+
+    await act(async () => jest.runOnlyPendingTimers());
 
     await waitFor(() => {
       expect.any(
@@ -1525,14 +1614,22 @@ describe('EditorProTable 2', () => {
     });
 
     await wrapper.findAllByText('添加一行数据');
+
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
+    await act(async () => jest.runOnlyPendingTimers());
+
     await waitFor(() => {
       expect(onSave).toBeCalledWith(624691229);
+    });
+
+    await waitFor(() => {
       expect(onDataSourceChange).toBeCalledWith(3);
     });
+
+    jest.useRealTimers();
     wrapper.unmount();
   });
 
@@ -1793,7 +1890,7 @@ describe('EditorProTable 2', () => {
     wrapper.unmount();
   });
 
-  it('📝 support onDelete', async () => {
+  it('📝 support onDelete dom render', async () => {
     const fn = jest.fn();
     const wrapper = render(
       <EditorProTableDemo

@@ -24,6 +24,7 @@ export type ProFormFieldProps<
      * dependencies value
      */
     dependenciesValues?: Record<string, any>;
+    originDependencies?: Record<string, any>;
   },
   any,
   any

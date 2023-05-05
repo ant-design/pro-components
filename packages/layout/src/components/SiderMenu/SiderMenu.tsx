@@ -1,8 +1,7 @@
 import type { GenerateStyle } from '@ant-design/pro-provider';
-import { isNeedOpenHash } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { AvatarProps, SiderProps } from 'antd';
-import { Avatar, ConfigProvider, Layout, Menu, Space } from 'antd';
+import { Avatar, Layout, Menu, Space } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
@@ -456,7 +455,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     </>
   );
 
-  const { token } = useContext(ProProvider);
   return stylishClassName.wrapSSR(
     <>
       {fixSiderbar && !isMobile && !hideMenuWhenCollapsedClassName && (

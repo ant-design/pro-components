@@ -29,8 +29,8 @@ describe('PageContainer', () => {
       { path: 'first', breadcrumbName: 'Second-level Menu' },
       { path: 'second', breadcrumbName: 'Third-level Menu' },
     ];
-    // @ts-expect-error
     const { container } = render(
+      // @ts-expect-error
       <PageHeader title="Page Title" breadcrumb={{ routes }} />,
     );
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(0);

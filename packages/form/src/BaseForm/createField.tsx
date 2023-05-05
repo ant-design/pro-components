@@ -364,12 +364,19 @@ function createField<P extends ProFormFieldItemProps = any>(
     return <ColWrapper>{formItem}</ColWrapper>;
   };
 
-  const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (
-    props,
-  ) => {
+  const DependencyWrapper: React.FC<
+    P &
+      ExtendsProps &
+      FunctionFieldProps & {
+        originDependencies?: string[];
+      }
+  > = (props) => {
     const { dependencies } = props;
     return dependencies ? (
-      <ProFormDependency name={dependencies}>
+      <ProFormDependency
+        name={dependencies}
+        originDependencies={props?.originDependencies}
+      >
         {(values) => {
           return (
             <FieldWithContext

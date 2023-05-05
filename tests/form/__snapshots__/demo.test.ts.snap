@@ -4403,422 +4403,477 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         type="text"
       />
       <div
-        class="ant-form-item"
+        class="ant-pro-form-group"
       >
         <div
-          class="ant-row ant-form-item-row"
+          class="ant-pro-form-group-title "
         >
-          <div
-            class="ant-col ant-form-item-label"
-          >
-            <label
-              class=""
-              for="validate_other_name"
-              title="name"
-            >
-              name
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control"
-          >
-            <div
-              class="ant-form-item-control-input"
-            >
-              <div
-                class="ant-form-item-control-input-content"
-              >
-                prefix蚂蚁金服有限公司suffix
-              </div>
-            </div>
-          </div>
+          基础数据
         </div>
-      </div>
-      <div
-        class="ant-form-item"
-      >
-        <div
-          class="ant-row ant-form-item-row"
-        >
+        <div>
           <div
-            class="ant-col ant-form-item-label"
-          >
-            <label
-              class="ant-form-item-required"
-              for="validate_other_select"
-              title="Select"
-            >
-              Select
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control"
+            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
+            style="row-gap: 0;"
           >
             <div
-              class="ant-form-item-control-input"
+              class="ant-space-item"
+              style="margin-right: 32px;"
             >
               <div
-                class="ant-form-item-control-input-content"
-              >
-                China
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-form-item"
-      >
-        <div
-          class="ant-row ant-form-item-row"
-        >
-          <div
-            class="ant-col ant-form-item-label"
-          >
-            <label
-              class=""
-              for="validate_other_useMode"
-              title="合同约定生效方式"
-            >
-              合同约定生效方式
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control"
-          >
-            <div
-              class="ant-form-item-control-input"
-            >
-              <div
-                class="ant-form-item-control-input-content"
-              >
-                全部
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-form-item"
-      >
-        <div
-          class="ant-row ant-form-item-row"
-        >
-          <div
-            class="ant-col ant-form-item-label"
-          >
-            <label
-              class="ant-form-item-required"
-              for="validate_other_select-multiple"
-              title="Select[multiple]"
-            >
-              Select[multiple]
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control"
-          >
-            <div
-              class="ant-form-item-control-input"
-            >
-              <div
-                class="ant-form-item-control-input-content"
+                class="ant-form-item"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
-                  style="flex-wrap: wrap; margin-bottom: -2px;"
+                  class="ant-row ant-form-item-row"
                 >
                   <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
+                    class="ant-col ant-form-item-label"
                   >
-                    Red
+                    <label
+                      class=""
+                      for="validate_other_name"
+                      title="name"
+                    >
+                      name
+                    </label>
                   </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
                   <div
-                    class="ant-space-item"
-                    style="padding-bottom: 2px;"
+                    class="ant-col ant-form-item-control"
                   >
-                    Green
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        prefix蚂蚁金服有限公司suffix
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-form-item"
-      >
-        <div
-          class="ant-row ant-form-item-row"
-        >
-          <div
-            class="ant-col ant-form-item-label"
-          >
-            <label
-              class="ant-form-item-required"
-              for="validate_other_select-multiple2"
-              title="Select[multiple]"
-            >
-              Select[multiple]
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control"
-          >
             <div
-              class="ant-form-item-control-input"
+              class="ant-space-item"
+              style="margin-right: 32px;"
             >
               <div
-                class="ant-form-item-control-input-content"
+                class="ant-form-item"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
-                  style="flex-wrap: wrap; margin-bottom: -2px;"
+                  class="ant-row ant-form-item-row"
                 >
                   <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
+                    class="ant-col ant-form-item-label"
                   >
-                    测试测试1
+                    <label
+                      class="ant-form-item-required"
+                      for="validate_other_select"
+                      title="Select"
+                    >
+                      Select
+                    </label>
                   </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
                   <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
+                    class="ant-col ant-form-item-control"
                   >
-                    测试测试2
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试3
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试4
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试5
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试6
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试7
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试8
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试9
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试10
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    测试测试11
-                  </div>
-                  <span
-                    class="ant-space-item-split"
-                    style="margin-right: 1px; padding-bottom: 2px;"
-                  >
-                    ,
-                  </span>
-                  <div
-                    class="ant-space-item"
-                    style="padding-bottom: 2px;"
-                  >
-                    测试测试12
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        China
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-form-item"
-      >
-        <div
-          class="ant-row ant-form-item-row"
-        >
-          <div
-            class="ant-col ant-form-item-label"
-          >
-            <label
-              class=""
-              for="validate_other_input-number"
-              title="InputNumber"
-            >
-              InputNumber
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control"
-          >
             <div
-              class="ant-form-item-control-input"
+              class="ant-space-item"
+              style="margin-right: 32px;"
             >
               <div
-                class="ant-form-item-control-input-content"
+                class="ant-form-item"
               >
-                <span>
-                  3
-                </span>
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_useMode"
+                      title="合同约定生效方式"
+                    >
+                      合同约定生效方式
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        全部
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-form-item"
-      >
-        <div
-          class="ant-row ant-form-item-row"
-        >
-          <div
-            class="ant-col ant-form-item-label"
-          >
-            <label
-              class=""
-              for="validate_other_switch"
-              title="Switch"
-            >
-              Switch
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control"
-          >
             <div
-              class="ant-form-item-control-input"
+              class="ant-space-item"
+              style="margin-right: 32px;"
             >
               <div
-                class="ant-form-item-control-input-content"
+                class="ant-form-item"
               >
-                同意
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class="ant-form-item-required"
+                      for="validate_other_select-multiple"
+                      title="Select[multiple]"
+                    >
+                      Select[multiple]
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -2px;"
+                        >
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            Red
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="padding-bottom: 2px;"
+                          >
+                            Green
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-form-item"
-      >
-        <div
-          class="ant-row ant-form-item-row"
-        >
-          <div
-            class="ant-col ant-form-item-label"
-          >
-            <label
-              class=""
-              for="validate_other_slider"
-              title="Slider"
-            >
-              Slider
-            </label>
-          </div>
-          <div
-            class="ant-col ant-form-item-control"
-          >
             <div
-              class="ant-form-item-control-input"
+              class="ant-space-item"
+              style="margin-right: 32px;"
             >
               <div
-                class="ant-form-item-control-input-content"
+                class="ant-form-item"
               >
-                -
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class="ant-form-item-required"
+                      for="validate_other_select-multiple2"
+                      title="Select[multiple]"
+                    >
+                      Select[multiple]
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <div
+                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -2px;"
+                        >
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试1
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试2
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试3
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试4
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试5
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试6
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试7
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试8
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试9
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试10
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            测试测试11
+                          </div>
+                          <span
+                            class="ant-space-item-split"
+                            style="margin-right: 1px; padding-bottom: 2px;"
+                          >
+                            ,
+                          </span>
+                          <div
+                            class="ant-space-item"
+                            style="padding-bottom: 2px;"
+                          >
+                            测试测试12
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space-item"
+              style="margin-right: 32px;"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_input-number"
+                      title="InputNumber"
+                    >
+                      InputNumber
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <span>
+                          3
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space-item"
+              style="margin-right: 32px;"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_switch"
+                      title="Switch"
+                    >
+                      Switch
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        同意
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_slider"
+                      title="Slider"
+                    >
+                      Slider
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        -
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
