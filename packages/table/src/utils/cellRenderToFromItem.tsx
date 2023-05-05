@@ -255,7 +255,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
 function cellRenderToFromItem<T>(
   config: CellRenderFromItemProps<T>,
 ): React.ReactNode {
-  const { text, valueType, rowData, columnProps } = config;
+  const { text, valueType, rowData, columnProps, index } = config;
 
   // 如果 valueType === text ，没必要多走一次 render
   if (
@@ -280,12 +280,21 @@ function cellRenderToFromItem<T>(
 
   const columnKey = columnProps?.key || columnProps?.dataIndex?.toString();
 
+  let dependencies = columnProps?.dependencies
+    ? ([config.prefixName, index?.toString(), columnProps?.dependencies]
+        .filter(Boolean)
+        .flat(1) as string[])
+    : [];
   /**
    * 生成公用的 proField dom 配置
    */
   const proFieldProps: ProFormFieldProps = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
+    dependencies: columnProps?.dependencies ? [dependencies] : undefined,
+    originDependencies: columnProps?.dependencies
+      ? [columnProps?.dependencies]
+      : undefined,
     params: runFunction(columnProps?.params, rowData, columnProps),
     readonly: columnProps?.readonly,
     text:

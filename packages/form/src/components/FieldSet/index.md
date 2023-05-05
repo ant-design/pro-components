@@ -50,29 +50,17 @@ const ProFormText = (props) => {
 
 ## 代码示例
 
-### 表单项
-
 <code src="./demos/components-other.tsx" title="表单项" ></code>
-
-### 查询表单
 
 <code src="./demos/search-select.tsx" title="查询表单" ></code>
 
-### 结构化数据
-
 <code src="./demos/form-fieldset.tsx" title="结构化数据" ></code>
-
-### 日期表单
 
 <code src="./demos/datatime.tsx" title="日期表单"></code>
 
-### 上传表单
-
 <code src="./demos/upload.tsx" title="上传表单"></code>
 
-### 只读表单
-
-<code src="./demos/components-other-readonly.tsx" debug></code>
+<code src="./demos/components-other-readonly.tsx" title="只读表单" ></code>
 
 ## API
 
