@@ -747,6 +747,83 @@ describe('EditorProTable 2', () => {
     );
   });
 
+  it('📝 EditableProTable columns support dependencies', async () => {
+    const fn = jest.fn();
+    jest.useFakeTimers();
+    const wrapper = render(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+          },
+          {
+            title: '状态',
+            dataIndex: 'status',
+            valueType: 'select',
+            dependencies: ['title'],
+            request: async (values) => {
+              fn(values.title);
+              return [
+                {
+                  label: '待审核',
+                  value: values.title,
+                },
+              ];
+            },
+          },
+        ]}
+        editable={{
+          editableKeys: [624748504],
+          onValuesChange: (record) => {
+            console.log(record);
+          },
+        }}
+        value={[
+          {
+            id: 624748504,
+            title: 'install命令',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '1590486176000',
+            },
+            state: 'processing',
+          },
+        ]}
+      />,
+    );
+    await wrapper.findByDisplayValue('install命令');
+
+    act(() => {
+      fireEvent.change(
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
+          .querySelectorAll('td .ant-input')[0],
+        {
+          target: {
+            value: '命令',
+          },
+        },
+      );
+    });
+
+    await act(async () => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(
+      () => {
+        expect(fn).toBeCalledWith('命令');
+      },
+      {
+        timeout: 1000,
+      },
+    );
+    jest.useRealTimers();
+  });
+
   it('📝 support onValuesChange when is string key', async () => {
     const fn = jest.fn();
     const wrapper = render(

@@ -164,7 +164,6 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
       (prefixName ? null : text) ??
       formItemProps?.initialValue ??
       columnProps?.initialValue;
-
     let fieldDom: React.ReactNode = (
       <ProFormField
         cacheForSwr
@@ -281,7 +280,11 @@ function cellRenderToFromItem<T>(
   const columnKey = columnProps?.key || columnProps?.dataIndex?.toString();
 
   const dependencies = columnProps?.dependencies
-    ? ([config.prefixName, index?.toString(), columnProps?.dependencies]
+    ? ([
+        config.prefixName,
+        config.prefixName ? index?.toString() : config.recordKey?.toString(),
+        columnProps?.dependencies,
+      ]
         .filter(Boolean)
         .flat(1) as string[])
     : [];
