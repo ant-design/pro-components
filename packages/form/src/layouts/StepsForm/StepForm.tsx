@@ -25,11 +25,8 @@ function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
     ...restProps
   } = props;
 
-  // eslint-disable-next-line @typescript-eslint/dot-notation
-  noteOnce(
-    !restProps.submitter,
-    'StepForm 不包含提交按钮，请在 StepsForm 上',
-  );
+  //@ts-expect-error
+  noteOnce(!restProps.submitter, 'StepForm 不包含提交按钮，请在 StepsForm 上');
   /** 重置 formRef */
   useImperativeHandle(propFormRef, () => formRef.current);
 
