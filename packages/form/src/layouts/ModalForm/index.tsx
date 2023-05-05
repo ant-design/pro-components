@@ -4,7 +4,15 @@ import { ConfigProvider, Modal } from 'antd';
 import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
@@ -106,6 +114,11 @@ function ModalForm<T = Record<string, any>>({
       form.resetFields();
     }
   }, [modalProps?.destroyOnClose, rest.form, rest.formRef]);
+
+  if (rest.formRef) {
+    (rest.formRef as React.MutableRefObject<ProFormInstance<T> | undefined>).current =
+      formRef.current;
+  }
 
   useEffect(() => {
     if (open && (propsOpen || propVisible)) {
@@ -237,8 +250,8 @@ function ModalForm<T = Record<string, any>>({
         <BaseForm
           formComponentType="ModalForm"
           layout="vertical"
-          formRef={formRef}
           {...rest}
+          formRef={formRef}
           submitter={submitterConfig}
           onFinish={async (values) => {
             const result = await onFinishHandle(values);

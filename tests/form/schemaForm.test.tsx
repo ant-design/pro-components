@@ -4,7 +4,6 @@ import { act, fireEvent, render, waitFor, screen } from '@testing-library/react'
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import React, { createRef } from 'react';
-import { waitTime } from '../util';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -559,6 +558,8 @@ describe('SchemaForm', () => {
       state: string;
     };
 
+    jest.useFakeTimers();
+
     const curColumns: ProFormColumnsType<DataItem>[] = [
       {
         title: '测试',
@@ -587,30 +588,114 @@ describe('SchemaForm', () => {
         columns={curColumns}
       />,
     );
-    await waitTime(300);
+
+    await wrapper.findAllByText('测试');
 
     await act(async () => {
       fireEvent.click(await wrapper.findByText('提 交'));
     });
-    await waitTime(300);
-    expect(onFinish).toBeCalledTimes(0);
-    expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+
+    await waitFor(() => {
+      expect(onFinish).toBeCalledTimes(0);
+    });
+    await waitFor(async () => {
+      expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+    });
     await act(async () => {
       fireEvent.click(await wrapper.findByText('添加一行数据'));
     });
-    await waitTime(300);
+
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
+
     await act(async () => {
       fireEvent.click(await wrapper.findByText('提 交'));
     });
-    await waitTime(300);
-    expect(
-      (await wrapper.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML,
-    ).toBe('请填写1');
+
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(async () => {
+      expect(
+        (await wrapper.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML,
+      ).toBe('请填写1');
+    });
+
     await act(async () => {
       fireEvent.click(await wrapper.baseElement.querySelector('.action-remove')!);
     });
-    await waitTime(300);
-    expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(async () => {
+      expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+    });
+
+    jest.useRealTimers();
+  });
+
+  ['ModalForm', 'DrawerForm'].forEach((layoutType) => {
+    it(`😊 ${layoutType} support destroyOnClose rerender`, async () => {
+      const formColumns = [
+        {
+          dataIndex: 'name',
+          title: '签约客户名称',
+          tooltip: '最长为 24 位',
+          fieldProps: {
+            placeholder: '请输入名称',
+          },
+          width: 'md',
+        },
+      ];
+      const wrapper = render(
+        <BetaSchemaForm
+          trigger={<button>打开</button>}
+          layoutType={layoutType as 'DrawerForm'}
+          columns={formColumns}
+          {...(layoutType === 'ModalForm'
+            ? {
+                modalProps: { destroyOnClose: true },
+              }
+            : {
+                drawerProps: { destroyOnClose: true },
+              })}
+        />,
+      );
+
+      // 刚开始的不存在
+      await waitFor(() => {
+        expect(wrapper.queryByText('签约客户名称')).toBeNull();
+      });
+
+      await wrapper.findAllByText('打开');
+
+      await act(async () => {
+        fireEvent.click(await wrapper.findByText('打开'));
+      });
+
+      // 打开就存在了
+      await wrapper.findAllByText('签约客户名称');
+
+      await act(async () => {
+        fireEvent.click(await wrapper.findByText('取 消'));
+      });
+
+      // 关闭不存在了
+      await waitFor(() => {
+        expect(wrapper.queryByText('签约客户名称')).toBeNull();
+      });
+
+      await act(async () => {
+        fireEvent.click(await wrapper.findByText('打开'));
+      });
+
+      // 打开就又存在了
+      await wrapper.findAllByText('签约客户名称');
+    });
   });
 
   [
@@ -623,6 +708,7 @@ describe('SchemaForm', () => {
     'QueryFilter',
   ].forEach((layoutType) => {
     it(`😊 When SchemaForm's layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
+      jest.useFakeTimers();
       const formColumns = [
         [
           {
@@ -681,11 +767,19 @@ describe('SchemaForm', () => {
       });
       if (layoutType === 'StepsForm') {
         const button = await wrapper.findByText('下一步');
-        button?.click();
-        await waitTime(1000);
+
+        act(() => {
+          button?.click();
+        });
+
+        act(() => {
+          jest.runOnlyPendingTimers();
+        });
+
         const stepsValue = {
           next: 'Step 2',
         };
+
         act(() => {
           formRef.current!.setFieldsValue(stepsValue);
         });
@@ -693,6 +787,7 @@ describe('SchemaForm', () => {
         waitFor(() => {
           expect(formRef.current!.getFieldsValue(true)).toMatchObject(stepsValue);
         });
+        jest.useRealTimers();
       }
     });
   });
