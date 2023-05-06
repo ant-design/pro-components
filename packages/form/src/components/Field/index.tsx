@@ -71,6 +71,20 @@ const BaseProFormField: React.FC<
       : params;
   }, [dependenciesValues, params, restProps.request]);
 
+  const memoFieldProps = useMemo(
+    () => ({
+      autoFocus,
+      ...fieldProps,
+      onChange: (...restParams: any) => {
+        if (fieldProps?.onChange) {
+          (fieldProps?.onChange as any)?.(...restParams);
+          return;
+        }
+      },
+    }),
+    [autoFocus, fieldProps, fieldProps?.onChange],
+  );
+
   const childrenRender = useMemo(() => {
     // 防止 formItem 的值被吃掉
     if (children) {
@@ -96,19 +110,6 @@ const BaseProFormField: React.FC<
     return childrenRender;
   }
 
-  const memoFieldProps = useMemo(
-    () => ({
-      autoFocus,
-      ...fieldProps,
-      onChange: (...restParams: any) => {
-        if (fieldProps?.onChange) {
-          (fieldProps?.onChange as any)?.(...restParams);
-          return;
-        }
-      },
-    }),
-    [autoFocus, fieldProps, fieldProps?.onChange],
-  );
   return (
     <ProField
       text={fieldProps?.[valuePropName]}

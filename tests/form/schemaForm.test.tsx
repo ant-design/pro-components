@@ -174,9 +174,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(5);
-      expect(fieldPropsFn).toBeCalledTimes(2);
-      expect(formItemPropsFn).toBeCalledTimes(2);
+      expect(renderFormItemFn).toBeCalledTimes(4);
+      expect(fieldPropsFn).toBeCalledTimes(1);
+      expect(formItemPropsFn).toBeCalledTimes(1);
       expect(onValuesChangeFn).toBeCalled();
     });
   });
@@ -842,7 +842,7 @@ describe('SchemaForm', () => {
       return <div>我是自定义组件</div>;
     });
 
-    const columns: ProFormColumnsType<any, 'test'>[] = [
+    const formColumns: ProFormColumnsType<any, 'test'>[] = [
       {
         title: '测试输入框',
         dataIndex: 'name',
@@ -885,7 +885,7 @@ describe('SchemaForm', () => {
           }}
         >
           <BetaSchemaForm<any, 'test'>
-            columns={columns}
+            columns={formColumns}
             title="自定义 valueType"
           />
         </ProProvider.Provider>

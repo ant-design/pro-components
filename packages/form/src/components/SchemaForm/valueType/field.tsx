@@ -3,6 +3,8 @@ import omit from 'omit.js';
 import type { ProFormFieldProps } from '../../Field';
 import ProFormField from '../../Field';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
+import ProFormDependency from '../../Dependency';
+import React from 'react';
 
 export const field: ProSchemaRenderValueTypeFunction<any, any> = (
   item,
@@ -58,16 +60,32 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
       }
     : undefined;
 
-  if (item?.renderFormItem) {
-    const dom = renderFormItem?.(null, {});
-    if (!dom || item.ignoreFormItem) return dom;
+  const getField = () => {
+    if (item?.renderFormItem) {
+      const dom = renderFormItem?.(null, {});
+
+      if (!dom || item.ignoreFormItem) return dom;
+    }
+
+    return (
+      <ProFormField
+        {...formFieldProps}
+        key={[item.key, item.index || 0].join('-')}
+        renderFormItem={renderFormItem}
+      />
+    );
+  };
+
+  if (item.dependencies) {
+    return (
+      <ProFormDependency
+        name={item.dependencies || []}
+        key={item.key as React.Key}
+      >
+        {getField}
+      </ProFormDependency>
+    );
   }
 
-  return (
-    <ProFormField
-      {...formFieldProps}
-      key={[item.key, item.index || 0].join('-')}
-      renderFormItem={renderFormItem}
-    />
-  );
+  return getField();
 };
