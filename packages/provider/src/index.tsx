@@ -1,5 +1,6 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
+import { omitUndefined } from '@ant-design/pro-utils';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 
 import zh_CN from 'antd/lib/locale/zh_CN';
@@ -392,10 +393,10 @@ export const ProConfigProvider: React.FC<{
   const configProvider = {
     ...rest,
     locale: locale || zh_CN,
-    theme: {
+    theme: omitUndefined({
       ...theme,
       algorithm: mergeAlgorithm(),
-    },
+    }),
   } as typeof theme;
 
   return (
