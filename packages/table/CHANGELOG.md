@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.6.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.8...@ant-design/pro-table@3.6.9) (2023-05-08)
+
+
+### Bug Fixes
+
+* **table:** table should support dependencies ([#7019](https://github.com/ant-design/pro-components/issues/7019)) ([7addd50](https://github.com/ant-design/pro-components/commit/7addd5031c68720b809bbdd292e828f7b04bfd04))
+
+
+
+
 
 ## [3.6.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.7...@ant-design/pro-table@3.6.8) (2023-05-04)
 

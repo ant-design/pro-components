@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.11.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.11.6...@ant-design/pro-form@2.11.7) (2023-05-08)
+
+
+### Bug Fixes
+
+* **form:** fix ModalForm ref less error ([06721c3](https://github.com/ant-design/pro-components/commit/06721c310adde229ce5bcf92bf3ce59100e713df))
+* **table:** table should support dependencies ([#7019](https://github.com/ant-design/pro-components/issues/7019)) ([7addd50](https://github.com/ant-design/pro-components/commit/7addd5031c68720b809bbdd292e828f7b04bfd04))
+
+
+
+
 
 ## [2.11.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.11.5...@ant-design/pro-form@2.11.6) (2023-05-04)
 
