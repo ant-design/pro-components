@@ -1,6 +1,6 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
-import { MenuMode } from '../BaseMenu';
+import type { MenuMode } from '../BaseMenu';
 
 export interface ProLayoutBaseMenuToken extends ProAliasToken {
   componentCls: string;
