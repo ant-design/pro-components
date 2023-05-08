@@ -93,7 +93,7 @@ convertValue 发生在组件获得数据之前，一般是后端直接给前端�
    * @example a,b => [a,b]
    * convertValue:(value,namePath)=>value.split(",")
    * @example string =>json
-   * convertValue:(value,namePath)=>SON.parse(value)
+   * convertValue:(value,namePath)=>JSON.parse(value)
    * @example number =>date
    * convertValue:(value,namePath)=>Moment(value)
    * @example YYYY-MM-DD => date
