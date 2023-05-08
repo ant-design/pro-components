@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.4.13
+﻿## @ant-design/pro-components@2.4.14
+
+`2023-05-08`
+
+- fix(layout): fix menu classname no work error. [c64e81c](https://github.com/ant-design/pro-components/commit/c64e81c)
+
+## @ant-design/pro-components@2.4.13
 
 `2023-05-08`
 

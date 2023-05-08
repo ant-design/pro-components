@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.2...@ant-design/pro-layout@7.13.3) (2023-05-08)
 
-
 ### Bug Fixes
 
-* **layout:** fix menu classname no work error ([c64e81c](https://github.com/ant-design/pro-components/commit/c64e81cb0669a7fe42c235c2f46cc0b743b5e213))
-
-
-
-
+- **layout:** fix menu classname no work error ([c64e81c](https://github.com/ant-design/pro-components/commit/c64e81cb0669a7fe42c235c2f46cc0b743b5e213))
 
 ## [7.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.1...@ant-design/pro-layout@7.13.2) (2023-05-08)
 
