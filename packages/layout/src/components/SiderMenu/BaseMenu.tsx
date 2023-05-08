@@ -478,7 +478,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const { dark, token: designToken } = useContext(ProProvider);
 
-  const baseClassName = `${prefixCls}-base-menu`;
+  const baseClassName = `${prefixCls}-base-menu-${mode}`;
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
 
@@ -569,7 +569,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [openKeys && openKeys.join(','), props.layout, props.collapsed],
   );
-  const { wrapSSR, hashId } = useStyle(baseClassName + '-' + mode, mode);
+  const { wrapSSR, hashId } = useStyle(baseClassName, mode);
 
   const menuUtils = useMemo(() => {
     return new MenuUtil({

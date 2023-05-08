@@ -48667,14 +48667,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu ant-pro-base-menu-collapsed ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-submenu ant-pro-base-menu-submenu-has-icon ant-menu-submenu-selected"
+                class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-base-menu-inline-submenu ant-pro-base-menu-inline-submenu-has-icon ant-menu-submenu-selected"
                 role="none"
               >
                 <div
@@ -48690,10 +48690,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                     class="ant-menu-title-content"
                   >
                     <div
-                      class="ant-pro-base-menu-item-title ant-pro-base-menu-item-title-collapsed"
+                      class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-title-collapsed"
                     >
                       <span
-                        class="ant-pro-base-menu-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon "
                       >
                         <span
                           aria-label="smile"
@@ -48716,7 +48716,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                         </span>
                       </span>
                       <span
-                        class="ant-pro-base-menu-item-text ant-pro-base-menu-item-text-has-icon"
+                        class="ant-pro-base-menu-inline-item-text ant-pro-base-menu-inline-item-text-has-icon"
                       >
                         一级名称
                       </span>

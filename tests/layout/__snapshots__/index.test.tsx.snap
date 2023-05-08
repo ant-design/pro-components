@@ -1451,14 +1451,14 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu"
                   role="none"
                 >
                   <div
@@ -1473,10 +1473,10 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                       class="ant-menu-title-content"
                     >
                       <div
-                        class="ant-pro-base-menu-item-title"
+                        class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-item-text"
+                          class="ant-pro-base-menu-inline-item-text"
                         >
                           管理页
                         </span>
@@ -1488,7 +1488,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   </div>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                  class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -1497,10 +1497,10 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                     class="ant-menu-title-content"
                   >
                     <div
-                      class="ant-pro-base-menu-item-title"
+                      class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-item-text"
+                        class="ant-pro-base-menu-inline-item-text"
                       >
                         列表页
                       </span>

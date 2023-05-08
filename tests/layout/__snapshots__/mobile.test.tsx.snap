@@ -246,14 +246,14 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
                         data-menu-list="true"
                         role="menu"
                         style="background-color: transparent; width: 100%;"
                         tabindex="0"
                       >
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open"
+                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
                           role="none"
                         >
                           <div
@@ -268,10 +268,10 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                               class="ant-menu-title-content"
                             >
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
-                                  class="ant-pro-base-menu-item-text"
+                                  class="ant-pro-base-menu-inline-item-text"
                                 >
                                   welcome
                                 </span>
@@ -287,7 +287,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                             role="menu"
                           >
                             <li
-                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu"
                               role="none"
                             >
                               <div
@@ -302,10 +302,10 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                                   class="ant-menu-title-content"
                                 >
                                   <div
-                                    class="ant-pro-base-menu-item-title"
+                                    class="ant-pro-base-menu-inline-item-title"
                                   >
                                     <span
-                                      class="ant-pro-base-menu-item-text"
+                                      class="ant-pro-base-menu-inline-item-text"
                                     >
                                       one
                                     </span>
@@ -781,14 +781,14 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
                         data-menu-list="true"
                         role="menu"
                         style="background-color: transparent; width: 100%;"
                         tabindex="0"
                       >
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open"
+                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
                           role="none"
                         >
                           <div
@@ -803,10 +803,10 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                               class="ant-menu-title-content"
                             >
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
-                                  class="ant-pro-base-menu-item-text"
+                                  class="ant-pro-base-menu-inline-item-text"
                                 >
                                   welcome
                                 </span>
@@ -822,7 +822,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                             role="menu"
                           >
                             <li
-                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu"
                               role="none"
                             >
                               <div
@@ -837,10 +837,10 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                                   class="ant-menu-title-content"
                                 >
                                   <div
-                                    class="ant-pro-base-menu-item-title"
+                                    class="ant-pro-base-menu-inline-item-title"
                                   >
                                     <span
-                                      class="ant-pro-base-menu-item-text"
+                                      class="ant-pro-base-menu-inline-item-text"
                                     >
                                       one
                                     </span>
@@ -1123,14 +1123,14 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
                         data-menu-list="true"
                         role="menu"
                         style="background-color: transparent; width: 100%;"
                         tabindex="0"
                       >
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu ant-menu-submenu-open"
+                          class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
                           role="none"
                         >
                           <div
@@ -1145,10 +1145,10 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                               class="ant-menu-title-content"
                             >
                               <div
-                                class="ant-pro-base-menu-item-title"
+                                class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
-                                  class="ant-pro-base-menu-item-text"
+                                  class="ant-pro-base-menu-inline-item-text"
                                 >
                                   welcome
                                 </span>
@@ -1164,7 +1164,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                             role="menu"
                           >
                             <li
-                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu"
                               role="none"
                             >
                               <div
@@ -1179,10 +1179,10 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                                   class="ant-menu-title-content"
                                 >
                                   <div
-                                    class="ant-pro-base-menu-item-title"
+                                    class="ant-pro-base-menu-inline-item-title"
                                   >
                                     <span
-                                      class="ant-pro-base-menu-item-text"
+                                      class="ant-pro-base-menu-inline-item-text"
                                     >
                                       one
                                     </span>
