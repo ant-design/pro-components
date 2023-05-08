@@ -23,6 +23,7 @@ import ProListItem from './Item';
 
 import type { PaginationConfig } from 'antd/lib/pagination';
 import { compareVersions } from '@ant-design/pro-utils';
+import type { AnyObject } from 'antd/lib/table/Table';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
@@ -60,7 +61,9 @@ export type ListViewProps<RecordType> = Omit<
     pagination?: PaginationConfig;
   };
 
-function ListView<RecordType>(props: ListViewProps<RecordType>) {
+function ListView<RecordType extends AnyObject>(
+  props: ListViewProps<RecordType>,
+) {
   const {
     dataSource,
     columns,

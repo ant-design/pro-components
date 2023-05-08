@@ -415,7 +415,7 @@ describe('BasicTable', () => {
         <ProTable
           size="small"
           toolBarRender={() => {
-            return [<a>submit</a>];
+            return [<a key="submit">submit</a>];
           }}
           columns={[
             {
