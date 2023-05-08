@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.8.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.5...@ant-design/pro-provider@2.8.6) (2023-05-08)
 
-
 ### Bug Fixes
 
-* **layout:** use best className slove token error ([8090248](https://github.com/ant-design/pro-components/commit/80902487e865f37ce362e28c429ee7fc6368ef8e))
-* **provide:** defalut omit undefined value ([8199b08](https://github.com/ant-design/pro-components/commit/8199b08449620c5821d8b26be9ff3fcbd0d047db))
-
-
-
-
+- **layout:** use best className slove token error ([8090248](https://github.com/ant-design/pro-components/commit/80902487e865f37ce362e28c429ee7fc6368ef8e))
+- **provide:** defalut omit undefined value ([8199b08](https://github.com/ant-design/pro-components/commit/8199b08449620c5821d8b26be9ff3fcbd0d047db))
 
 ## [2.8.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.4...@ant-design/pro-provider@2.8.5) (2023-05-04)
 

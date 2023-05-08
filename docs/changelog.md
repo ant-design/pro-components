@@ -1,4 +1,12 @@
-﻿## @ant-design/pro-components@2.4.11
+﻿## @ant-design/pro-components@2.4.13
+
+`2023-05-08`
+
+- fix(layout): use best className slove token error. [8090248](https://github.com/ant-design/pro-components/commit/8090248)
+- fix(form): fix ModalForm ref less error. [06721c3](https://github.com/ant-design/pro-components/commit/06721c3)
+- fix(table): table should support dependencies (#7019). [#7019](https://github.com/ant-design/pro-components/pull/#7019) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-components@2.4.11
 
 `2023-05-04`
 
