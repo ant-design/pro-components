@@ -1,5 +1,6 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
+import { MenuMode } from '../BaseMenu';
 
 export interface ProLayoutBaseMenuToken extends ProAliasToken {
   componentCls: string;
@@ -7,11 +8,15 @@ export interface ProLayoutBaseMenuToken extends ProAliasToken {
 
 const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
   token,
+  mode,
 ) => {
+  const menuToken = mode.includes('horizontal')
+    ? token.layout?.header
+    : token.layout?.sider;
   return {
     [`${token.componentCls}`]: {
       background: 'transparent',
-      color: token.layout?.sider?.colorTextMenu,
+      color: menuToken?.colorTextMenu,
       border: 'none',
       [`${token.componentCls}-menu-item`]: {
         transition: 'none !important',
@@ -42,7 +47,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         [`${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title, 
         ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]:
           {
-            backgroundColor: token.layout?.sider?.colorBgMenuItemSelected,
+            backgroundColor: menuToken?.colorBgMenuItemSelected,
             borderRadius: token.borderRadiusLG,
           },
         [`${token.componentCls}-group`]: {
@@ -67,7 +72,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         flexDirection: 'row',
         alignItems: 'center',
         gap: 8,
-        color: token.layout?.sider?.colorTextMenu,
+        color: menuToken?.colorTextMenu,
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
@@ -145,12 +150,12 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
   };
 };
 
-export function useStyle(prefixCls: string) {
-  return useAntdStyle('ProLayoutBaseMenu', (token) => {
+export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
+  return useAntdStyle('ProLayoutBaseMenu' + mode, (token) => {
     const proLayoutMenuToken: ProLayoutBaseMenuToken = {
       ...token,
       componentCls: `.${prefixCls}`,
     };
-    return [genProLayoutBaseMenuStyle(proLayoutMenuToken)];
+    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, mode || 'inline')];
   });
 }

@@ -569,7 +569,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [openKeys && openKeys.join(','), props.layout, props.collapsed],
   );
-  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const { wrapSSR, hashId } = useStyle(baseClassName + '-' + mode, mode);
 
   const menuUtils = useMemo(() => {
     return new MenuUtil({

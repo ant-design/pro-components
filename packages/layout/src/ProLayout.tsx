@@ -764,10 +764,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               theme={{
                 hashed: isNeedOpenHash(),
                 components: {
-                  Layout: {
-                    colorBgHeader: 'transparent',
-                    colorBgBody: 'transparent',
-                  },
                   Menu: {
                     colorItemBg:
                       token?.layout?.sider?.colorMenuBackground ||
@@ -779,7 +775,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     controlHeightLG:
                       token?.layout?.sider?.menuHeight ||
                       token?.controlHeightLG,
-
                     colorItemBgSelected:
                       token?.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
@@ -795,12 +790,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorItemText:
                       token?.layout?.sider?.colorTextMenu ||
                       token?.colorTextSecondary,
-                    colorItemTextHoverHorizontal:
-                      token?.layout?.sider?.colorTextMenuActive ||
-                      token?.colorText,
-                    colorItemTextSelectedHorizontal:
-                      token?.layout?.sider?.colorTextMenuSelected ||
-                      token?.colorTextBase,
                     colorItemTextHover:
                       token?.layout?.sider?.colorTextMenuActive ||
                       'rgba(0, 0, 0, 0.85)',

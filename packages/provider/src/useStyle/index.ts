@@ -36,7 +36,7 @@ export const lighten = (baseColor: string, brightness: number) => {
 export type GenerateStyle<
   ComponentToken extends object = GlobalToken,
   ReturnType = CSSInterpolation,
-> = (token: ComponentToken) => ReturnType;
+> = (token: ComponentToken, ...rest: any[]) => ReturnType;
 
 const genTheme = (): any => {
   if (typeof theme === 'undefined' || !theme) return batToken as any;
