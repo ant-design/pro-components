@@ -1555,7 +1555,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(change).toBeCalledWith(1.00000000000007);
+      expect(change).toBeCalledWith('1.00000000000007');
     });
   });
 

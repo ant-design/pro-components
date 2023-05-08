@@ -32,7 +32,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
     (value: number | string | null) => {
       let val = value ?? undefined;
 
-      if (typeof val === 'string') {
+      if (!fieldProps.stringMode && typeof val === 'string') {
         val = Number(val);
       }
       if (
