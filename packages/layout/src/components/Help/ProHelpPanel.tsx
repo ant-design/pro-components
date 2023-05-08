@@ -136,8 +136,8 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     [dataSourceKeyMap, selectedKey],
   );
 
-  const defalutExtraActions = {
-    collapsePannelAction: (
+  const defaultExtraActions = {
+    collapsePanelAction: (
       <div className={`${className}-actions-item ${hashId}`}>
         <ProfileOutlined
           title="collapse panel"
@@ -175,15 +175,15 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       <div className={`${className}-actions ${hashId}`}>
         {extraRender ? (
           extraRender(
-            defalutExtraActions.collapsePannelAction,
-            defalutExtraActions.helpSelectAction,
-            defalutExtraActions.closeAction,
+            defaultExtraActions.collapsePanelAction,
+            defaultExtraActions.helpSelectAction,
+            defaultExtraActions.closeAction,
           )
         ) : (
           <>
-            {defalutExtraActions.collapsePannelAction}
-            {defalutExtraActions.helpSelectAction}
-            {onClose ? defalutExtraActions.closeAction : null}
+            {defaultExtraActions.collapsePanelAction}
+            {defaultExtraActions.helpSelectAction}
+            {onClose ? defaultExtraActions.closeAction : null}
           </>
         )}
       </div>
