@@ -159,7 +159,7 @@ importers:
         version: 5.4.6(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
       antd-style:
         specifier: beta
-        version: 3.1.0-beta.3(@types/react@18.0.38)(antd@5.4.6)(react-dom@18.2.0)(react@18.2.0)
+        version: 3.0.1-beta.1(@types/react@18.0.38)(antd@5.4.6)(react-dom@18.2.0)(react@18.2.0)
       babel-loader:
         specifier: ^9.1.2
         version: 9.1.2(@babel/core@7.21.8)
@@ -368,10 +368,10 @@ importers:
         specifier: ^5.0.0
         version: 5.0.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
-        specifier: ^2.8.5
+        specifier: ^2.8.6
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: ^2.8.6
+        specifier: ^2.8.7
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -396,34 +396,34 @@ importers:
   packages/components:
     dependencies:
       '@ant-design/pro-card':
-        specifier: ^2.4.6
+        specifier: ^2.4.7
         version: link:../card
       '@ant-design/pro-descriptions':
-        specifier: ^2.2.10
+        specifier: ^2.2.11
         version: link:../descriptions
       '@ant-design/pro-field':
-        specifier: ^2.6.6
+        specifier: ^2.6.7
         version: link:../field
       '@ant-design/pro-form':
-        specifier: ^2.11.6
+        specifier: ^2.11.7
         version: link:../form
       '@ant-design/pro-layout':
-        specifier: ^7.13.1
+        specifier: ^7.13.3
         version: link:../layout
       '@ant-design/pro-list':
-        specifier: ^2.3.11
+        specifier: ^2.3.12
         version: link:../list
       '@ant-design/pro-provider':
-        specifier: ^2.8.5
+        specifier: ^2.8.6
         version: link:../provider
       '@ant-design/pro-skeleton':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../skeleton
       '@ant-design/pro-table':
-        specifier: ^3.6.8
+        specifier: ^3.6.9
         version: link:../table
       '@ant-design/pro-utils':
-        specifier: ^2.8.6
+        specifier: ^2.8.7
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.16.3
@@ -432,16 +432,16 @@ importers:
   packages/descriptions:
     dependencies:
       '@ant-design/pro-field':
-        specifier: ^2.6.6
+        specifier: ^2.6.7
         version: link:../field
       '@ant-design/pro-form':
-        specifier: ^2.11.6
+        specifier: ^2.11.7
         version: link:../form
       '@ant-design/pro-skeleton':
-        specifier: ^2.1.2
+        specifier: ^2.1.3
         version: link:../skeleton
       '@ant-design/pro-utils':
-        specifier: ^2.8.6
+        specifier: ^2.8.7
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -466,10 +466,10 @@ importers:
         specifier: ^5.0.0
         version: 5.0.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
-        specifier: ^2.8.5
+        specifier: ^2.8.6
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: ^2.8.6
+        specifier: ^2.8.7
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -515,13 +515,13 @@ importers:
         specifier: ^5.0.0
         version: 5.0.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-field':
-        specifier: ^2.6.6
+        specifier: ^2.6.7
         version: link:../field
       '@ant-design/pro-provider':
-        specifier: ^2.8.5
+        specifier: ^2.8.6
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: ^2.8.6
+        specifier: ^2.8.7
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -567,10 +567,10 @@ importers:
         specifier: ^5.0.0
         version: 5.0.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
-        specifier: ^2.8.5
+        specifier: ^2.8.6
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: ^2.8.6
+        specifier: ^2.8.7
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -622,16 +622,16 @@ importers:
         specifier: ^5.0.0
         version: 5.0.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
-        specifier: ^2.4.6
+        specifier: ^2.4.7
         version: link:../card
       '@ant-design/pro-field':
-        specifier: ^2.6.6
+        specifier: ^2.6.7
         version: link:../field
       '@ant-design/pro-table':
-        specifier: ^3.6.8
+        specifier: ^3.6.9
         version: link:../table
       '@ant-design/pro-utils':
-        specifier: ^2.8.6
+        specifier: ^2.8.7
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -697,19 +697,19 @@ importers:
         specifier: ^5.0.0
         version: 5.0.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
-        specifier: ^2.4.6
+        specifier: ^2.4.7
         version: link:../card
       '@ant-design/pro-field':
-        specifier: ^2.6.6
+        specifier: ^2.6.7
         version: link:../field
       '@ant-design/pro-form':
-        specifier: ^2.11.6
+        specifier: ^2.11.7
         version: link:../form
       '@ant-design/pro-provider':
-        specifier: ^2.8.5
+        specifier: ^2.8.6
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: ^2.8.6
+        specifier: ^2.8.7
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -746,7 +746,7 @@ importers:
         specifier: ^5.0.0
         version: 5.0.1(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
-        specifier: ^2.8.5
+        specifier: ^2.8.6
         version: link:../provider
       '@babel/runtime':
         specifier: ^7.18.0
@@ -7442,8 +7442,8 @@ packages:
       - react-dom
     dev: true
 
-  /antd-style@3.1.0-beta.3(@types/react@18.0.38)(antd@5.4.6)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-rIAsN4T8392GM/Ni/eIUKZm2g1IMiguNsArty3u4IBz4Cv8XPuf5H7HuaPHXQXCFGjpyzBefrZAGhs7huAC1tA==}
+  /antd-style@3.0.1-beta.1(@types/react@18.0.38)(antd@5.4.6)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-n/h591ChSZSqUNcYHmPWVrye9bZePmFQQ4tw9r9dBgpDDJILaWGvy4uLUOruxdVmnwRE9kwpb4iiuJljEzOgQg==}
     peerDependencies:
       antd: ^5
       react: '>=18'
