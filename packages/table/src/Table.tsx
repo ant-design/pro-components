@@ -160,6 +160,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   const editableDataSource = (dataSource: any[]): T[] => {
     const { options: newLineOptions, defaultValue: row } =
       editableUtils.newLineRecord || {};
+    const isNewLineRecordAtTop = newLineOptions?.position === 'top';
     if (newLineOptions?.parentKey) {
       const actionProps = {
         data: dataSource,
@@ -176,11 +177,11 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
       return editableRowByKey(
         actionProps,
-        newLineOptions?.position === 'top' ? 'top' : 'update',
+        isNewLineRecordAtTop ? 'top' : 'update',
       );
     }
 
-    if (newLineOptions?.position === 'top') {
+    if (isNewLineRecordAtTop) {
       return [row, ...action.dataSource];
     }
     // 如果有分页的功能，我们加到这一页的末尾
