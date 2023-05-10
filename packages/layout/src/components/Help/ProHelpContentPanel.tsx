@@ -41,6 +41,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
   useEffect(() => {
     if (!selectedKey || !parentItem?.infiniteScrollFull) return;
     const div = scrollHeightMap.current.get(selectedKey);
+
     if (div?.offsetTop && divRef.current) {
       if (
         Math.abs(divRef.current!.scrollTop - div?.offsetTop + 40) >
@@ -56,6 +57,7 @@ export const ProHelpContentPanel: React.FC<ProHelpContentPanelProps> = ({
    */
   const onScrollEvent = useDebounceFn(async (e: Event) => {
     const dom = e?.target as HTMLDivElement;
+
     // 根据滚动位置来找到当前列表的 key
     const list = Array.from(scrollHeightMap.current.entries()).find(
       ([, value]) => {
