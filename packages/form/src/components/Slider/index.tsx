@@ -46,10 +46,7 @@ const ProFormSlider = React.forwardRef<any, ProFormSliderProps>(
           marks,
           vertical,
           range,
-          style: {
-            minWidth: 120,
-            ...fieldProps?.style,
-          },
+          style: fieldProps?.style,
         }}
         ref={ref}
         proFieldProps={proFieldProps}

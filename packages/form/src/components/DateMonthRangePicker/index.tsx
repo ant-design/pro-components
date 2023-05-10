@@ -26,6 +26,7 @@ const DateMonthRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> =
         proFieldProps={proFieldProps}
         filedConfig={{
           valueType,
+          customLightMode: true,
           lightFilterLabelFormatter: (value) =>
             dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM'),
         }}

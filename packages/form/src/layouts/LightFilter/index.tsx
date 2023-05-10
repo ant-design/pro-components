@@ -128,7 +128,6 @@ const LightFilterContainer: React.FC<{
       <FieldLabel
         size={size}
         label={intl.getMessage('form.lightFilter.more', '更多筛选')}
-        expanded={open}
       />
     );
   };

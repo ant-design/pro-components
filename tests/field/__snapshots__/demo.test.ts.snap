@@ -2591,6 +2591,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 >
                   <div
                     class="ant-slider ant-slider-horizontal"
+                    style="min-width: 120px;"
                   >
                     <div
                       class="ant-slider-rail"
@@ -3864,7 +3865,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range"
+                    class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"
@@ -3967,7 +3968,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range"
+                    class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"

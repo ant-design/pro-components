@@ -28,6 +28,7 @@ const ProFormDateTimeRangePicker: React.FC<
       proFieldProps={proFieldProps}
       filedConfig={{
         valueType,
+        customLightMode: true,
         lightFilterLabelFormatter: (value) =>
           dateArrayFormatter(value, 'YYYY-MM-DD HH:mm:ss'),
       }}
