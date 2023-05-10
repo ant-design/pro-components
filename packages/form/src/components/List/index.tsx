@@ -112,7 +112,7 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
       required?: boolean;
     })[];
     required?: boolean;
-  } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
+  } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'> & Record<string, any>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
   const actionRefs = useRef<FormListOperation>();
