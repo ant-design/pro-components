@@ -102,14 +102,14 @@ const FieldCascader: ProFieldFC<GroupProps> = (
         bordered={!light}
         ref={cascaderRef}
         open={open}
-        onDropdownVisibleChange={(isOpen) => {
-          setOpen(isOpen);
-          rest?.fieldProps?.onDropdownVisibleChange?.(isOpen);
-        }}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
         allowClear={rest.fieldProps?.allowClear !== false}
         {...rest.fieldProps}
+        onDropdownVisibleChange={(isOpen) => {
+          rest?.fieldProps?.onDropdownVisibleChange?.(isOpen);
+          setOpen(isOpen);
+        }}
         className={classNames(rest.fieldProps?.className, layoutClassName)}
         options={options}
       />

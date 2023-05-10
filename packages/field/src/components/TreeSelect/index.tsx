@@ -159,8 +159,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
         <TreeSelect<string | undefined>
           open={open}
           onDropdownVisibleChange={(isOpen) => {
-            setOpen(isOpen);
             fieldProps?.onDropdownVisibleChange?.(isOpen);
+            setOpen(isOpen);
           }}
           ref={treeSelectRef}
           dropdownMatchSelectWidth={!light}

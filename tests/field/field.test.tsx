@@ -487,8 +487,23 @@ describe('Field', () => {
       const html = render(
         <Field
           fieldProps={{
-            value: ['zhejiang', 'hangzhou', 'xihu'],
-            labelInValue: true,
+            treeCheckable: true,
+            value: [
+              {
+                label: '浙江',
+                value: 'zhejiang',
+              },
+              {
+                label: '杭州',
+                value: 'hangzhou',
+              },
+              {
+                label: '西湖',
+                value: 'xihu',
+              },
+            ].map((item) => {
+              return item.value;
+            }),
             onDropdownVisibleChange: (e: boolean) => {
               fn(e);
             },
@@ -496,34 +511,42 @@ describe('Field', () => {
           light
           valueType={valueType as 'cascader'}
           mode="edit"
-          options={[
+          treeData={[
             {
               value: 'zhejiang',
               label: '浙江',
+              key: 'zhejiang',
               children: [
                 {
                   value: 'hangzhou',
                   label: '杭州',
+                  key: 'hangzhou',
                   children: [
                     {
                       value: 'xihu',
+                      key: 'xihu',
                       label: '西湖',
                     },
                   ],
                 },
               ],
             },
+          ]}
+          options={[
             {
-              value: 'jiangsu',
-              label: 'Jiangsu',
+              value: 'zhejiang',
+              label: '浙江',
+              key: 'zhejiang',
               children: [
                 {
-                  value: 'nanjing',
-                  label: 'Nanjing',
+                  value: 'hangzhou',
+                  label: '杭州',
+                  key: 'hangzhou',
                   children: [
                     {
-                      value: 'zhonghuamen',
-                      label: 'Zhong Hua Men',
+                      value: 'xihu',
+                      key: 'xihu',
+                      label: '西湖',
                     },
                   ],
                 },
