@@ -168,7 +168,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         row: {
           ...row,
           map_row_parentKey: recordKeyToString(
-            newLineOptions?.parentKey,
+            newLineOptions.parentKey,
           )?.toString(),
         },
         key: newLineOptions?.recordKey,
