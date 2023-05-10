@@ -1,5 +1,5 @@
 import Field from '@ant-design/pro-field';
-import { fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
 
 describe('Field', () => {
@@ -27,12 +27,27 @@ describe('Field', () => {
         />,
       );
 
-      await fireEvent.mouseDown(
-        container.querySelector('.ant-pro-core-field-label')!,
-      );
-      await fireEvent.click(container.querySelector('.anticon-close')!);
+      await act(async () => {
+        await fireEvent.mouseDown(
+          container.querySelector('.ant-pro-core-field-label')!,
+        );
+      });
 
-      expect(fn).toBeCalled();
+      await act(async () => {
+        await fireEvent.mouseDown(
+          container.querySelector('.ant-picker-clear')!,
+        );
+        await fireEvent.mouseUp(container.querySelector('.ant-picker-clear')!);
+      });
+
+      await waitFor(
+        () => {
+          expect(fn).toBeCalled();
+        },
+        {
+          timeout: 1000,
+        },
+      );
     });
   });
 

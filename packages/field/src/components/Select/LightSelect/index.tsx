@@ -187,6 +187,7 @@ const LightSelect: React.ForwardRefRenderFunction<
           if (!labelTrigger) {
             setOpen(isOpen);
           }
+          restProps?.onDropdownVisibleChange?.(isOpen);
         }}
         prefixCls={customizePrefixCls}
         options={
@@ -213,11 +214,9 @@ const LightSelect: React.ForwardRefRenderFunction<
       />
       <FieldLabel
         ellipsis
-        size={size}
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        expanded={open}
         bordered={bordered}
         allowClear={allowClear}
         value={filterValue || value?.label || value}

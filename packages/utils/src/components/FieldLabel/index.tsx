@@ -14,12 +14,13 @@ export type FieldLabelProps = {
   size?: SizeType;
   ellipsis?: boolean;
   placeholder?: React.ReactNode;
-  expanded?: boolean;
   className?: string;
   formatter?: (value: any) => React.ReactNode;
   style?: React.CSSProperties;
   bordered?: boolean;
   allowClear?: boolean;
+  downIcon?: React.ReactNode | false;
+  onClick?: () => void;
   /**
    * 点击标签的事件，用来唤醒 down menu 状态
    */
@@ -34,7 +35,6 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     label,
     onClear,
     value,
-    size = 'middle',
     disabled,
     onLabelClick,
     ellipsis,
@@ -42,8 +42,14 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     className,
     formatter,
     bordered,
+    style,
+    downIcon,
     allowClear = true,
   } = props;
+  const { componentSize } = ConfigProvider?.useConfig?.() || {
+    componentSize: 'middle',
+  };
+  const size = componentSize;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -141,7 +147,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
       className={classNames(
         prefixCls,
         hashId,
-        `${prefixCls}-${size}`,
+        `${prefixCls}-${props.size || size}`,
         {
           [`${prefixCls}-active`]: !!value || value === 0,
           [`${prefixCls}-disabled`]: disabled,
@@ -150,7 +156,11 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
         },
         className,
       )}
+      style={style}
       ref={labelRef}
+      onClick={() => {
+        props?.onClick?.();
+      }}
     >
       {getTextByValue(label, value)}
       {(value || value === 0) && allowClear && (
@@ -171,9 +181,13 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           ref={clearRef}
         />
       )}
-      <DownOutlined
-        className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)}
-      />
+      {downIcon !== false
+        ? downIcon ?? (
+            <DownOutlined
+              className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)}
+            />
+          )
+        : null}
     </span>,
   );
 };

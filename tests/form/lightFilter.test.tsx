@@ -151,7 +151,9 @@ describe('LightFilter', () => {
 
     await waitFor(
       async () => {
-        expect(await screen.findByText('2020-08-19')).toBeInTheDocument();
+        expect(
+          await screen.findByDisplayValue('2020-08-19'),
+        ).toBeInTheDocument();
       },
       {
         timeout: 1000,
@@ -159,7 +161,7 @@ describe('LightFilter', () => {
     );
 
     await act(async () => {
-      userEvent.click(await screen.findByText('2020-08-19'));
+      userEvent.click(await screen.findByDisplayValue('2020-08-19'));
     });
 
     await waitFor(
@@ -193,8 +195,11 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      userEvent.click(
-        container.querySelector('.ant-pro-core-field-label .anticon-close')!,
+      fireEvent.mouseDown(
+        container.querySelector('.ant-pro-core-field-label .ant-picker-clear')!,
+      );
+      fireEvent.mouseUp(
+        container.querySelector('.ant-pro-core-field-label .ant-picker-clear')!,
       );
     });
 
@@ -527,7 +532,7 @@ describe('LightFilter', () => {
     jest.useRealTimers();
   });
 
-  it(' 🪕 DateRangePicker', async () => {
+  it(' 🪕 Base DateRangePicker', async () => {
     const onFinish = jest.fn();
     const onOpenChange = jest.fn();
     const onLoadingChange = jest.fn();
@@ -606,15 +611,6 @@ describe('LightFilter', () => {
       );
     });
 
-    await waitFor(
-      () => {
-        expect(onOpenChange).toBeCalledWith(false);
-      },
-      {
-        timeout: 2000,
-      },
-    );
-
     await act(async () => {
       userEvent.click(
         await baseElement.querySelector(
@@ -653,12 +649,22 @@ describe('LightFilter', () => {
     await waitFor(() => {
       expect(
         container.querySelector('.ant-pro-core-field-label')?.textContent,
-      ).toBe('日期范围: 2016-11-01 ~ 2016-11-11');
+      ).toBe('日期范围: ');
     });
 
+    await screen.findByDisplayValue('2016-11-01');
+    await screen.findByDisplayValue('2016-11-11');
+
     await act(async () => {
-      userEvent.click(
-        container.querySelector('.ant-pro-core-field-label .anticon-close')!,
+      fireEvent.mouseDown(
+        container.querySelector(
+          '.ant-pro-core-field-label .anticon-close-circle',
+        )!,
+      );
+      fireEvent.mouseUp(
+        container.querySelector(
+          '.ant-pro-core-field-label .anticon-close-circle',
+        )!,
       );
     });
 
@@ -679,8 +685,6 @@ describe('LightFilter', () => {
         timeout: 2000,
       },
     );
-
-    await waitTime(1000);
 
     await waitFor(() => {
       expect(
@@ -756,7 +760,7 @@ describe('LightFilter', () => {
       () => {
         expect(
           container.querySelector('.ant-pro-core-field-label'),
-        ).toHaveTextContent('时间: 15:22:44');
+        ).toHaveTextContent('时间');
       },
       {
         timeout: 1000,

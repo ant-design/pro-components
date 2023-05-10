@@ -69,10 +69,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   } = rest.fieldProps as TreeSelectProps<any> & {
     fetchDataOnSearch?: boolean;
   };
-  const { componentSize } = ConfigProvider?.useConfig?.() || {
-    componentSize: 'middle',
-  };
-  const size = componentSize;
+
   const intl = useIntl();
 
   const [loading, options, fetchData] = useFieldFetchData({
@@ -161,7 +158,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       <Spin spinning={loading}>
         <TreeSelect<string | undefined>
           open={open}
-          onDropdownVisibleChange={setOpen}
+          onDropdownVisibleChange={(isOpen) => {
+            setOpen(isOpen);
+            fieldProps?.onDropdownVisibleChange?.(isOpen);
+          }}
           ref={treeSelectRef}
           dropdownMatchSelectWidth={!light}
           placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
@@ -191,6 +191,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             minWidth: 60,
             ...fieldProps.style,
           }}
+          allowClear={fieldProps.allowClear !== false}
           searchValue={searchValue as string}
           autoClearSearchValue={autoClearSearchValue}
           onClear={() => {
@@ -224,18 +225,26 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     }
 
     if (light) {
-      const { disabled, allowClear, placeholder } = fieldProps;
+      const { disabled, placeholder } = fieldProps;
+      const notEmpty = !!fieldProps.value && fieldProps.value?.length !== 0;
+
       return (
         <FieldLabel
           label={label}
           disabled={disabled}
           placeholder={placeholder}
-          size={size}
-          onLabelClick={() => setOpen(!open)}
-          allowClear={allowClear}
+          onClick={() => setOpen(true)}
           bordered={rest.bordered}
-          value={dom}
-          onClear={() => propsOnChange?.(undefined, [], {} as any)}
+          value={notEmpty || open ? dom : null}
+          style={
+            notEmpty
+              ? {
+                  paddingInlineEnd: 0,
+                }
+              : undefined
+          }
+          allowClear={false}
+          downIcon={false}
         />
       );
     }

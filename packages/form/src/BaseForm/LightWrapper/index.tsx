@@ -117,7 +117,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
           placeholder={placeholder}
           value={labelText}
           disabled={disabled}
-          expanded={open}
           formatter={labelFormatter}
           allowClear={allowClear}
         />

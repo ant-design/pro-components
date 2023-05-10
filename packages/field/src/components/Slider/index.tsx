@@ -21,7 +21,16 @@ const FieldSlider: ProFieldFC<{
     return <>{dom}</>;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Slider ref={ref} {...fieldProps} />;
+    const dom = (
+      <Slider
+        ref={ref}
+        {...fieldProps}
+        style={{
+          minWidth: 120,
+          ...fieldProps?.style,
+        }}
+      />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }

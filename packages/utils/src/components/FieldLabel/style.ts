@@ -36,7 +36,6 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           },
       },
       '&-icon': {
-        height: '12px',
         paddingBlock: 1,
         paddingInline: 1,
         color: token.colorIcon,
@@ -44,10 +43,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         verticalAlign: 'middle',
         [`&${token.componentCls}-close`]: {
           display: 'none',
-          height: 14,
+          height: 12,
           alignItems: 'center',
           justifyContent: 'center',
-          width: 14,
+          width: 12,
           color: token.colorBgContainer,
           fontSize: 8,
           backgroundColor: token.colorTextPlaceholder,
