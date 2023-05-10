@@ -90,7 +90,6 @@ export default () => {
       />
       <ProFormDatePicker name="time" placeholder="日期" />
       <ProFormTreeSelect
-        initialValue={['0-0', '0-1']}
         request={async () => treeData}
         fieldProps={{
           fieldNames: {

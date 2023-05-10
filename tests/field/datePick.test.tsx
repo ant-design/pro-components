@@ -15,6 +15,7 @@ describe('Field', () => {
     'dateQuarter',
     'dateYear',
     'dateTime',
+    'time',
   ];
   datePickList.forEach((valueType) => {
     it(`📅 ${valueType} base use`, async () => {
@@ -78,6 +79,7 @@ describe('Field', () => {
     'dateQuarterRange',
     'dateYearRange',
     'dateTimeRange',
+    'timeRange',
   ];
   dateRangePickList.forEach((valueType) => {
     it(`📅 ${valueType} base use`, async () => {

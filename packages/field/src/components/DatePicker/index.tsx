@@ -14,9 +14,7 @@ import 'antd/lib/date-picker/style';
 dayjs.extend(weekOfYear);
 
 const formatDate = (text: any, format: any) => {
-  if (!text) {
-    return '-';
-  }
+  if (!text) return '-';
   if (typeof format === 'function') {
     return format(dayjs(text));
   } else {
