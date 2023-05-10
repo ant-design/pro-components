@@ -10523,7 +10523,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                 >
                                   <div>
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-undefined"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                     >
                                       响应日期
                                       <span
@@ -11452,7 +11452,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                 >
                                   <div>
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-undefined"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                     >
                                       响应日期
                                       <span
@@ -12377,7 +12377,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                               >
                                 <div>
                                   <span
-                                    class="ant-pro-core-field-label ant-pro-core-field-label-undefined"
+                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                   >
                                     响应日期
                                     <span
@@ -13034,7 +13034,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                 >
                                   <div>
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-undefined"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                     >
                                       响应日期
                                       <span
@@ -13914,7 +13914,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                     >
                                       <div>
                                         <span
-                                          class="ant-pro-core-field-label ant-pro-core-field-label-undefined"
+                                          class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                         >
                                           响应日期
                                           <span
@@ -29923,7 +29923,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                       class="ant-pro-core-field-dropdown-label "
                                     >
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-undefined ant-pro-core-field-label-allow-clear"
+                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                       >
                                         应用名称
                                         <span
@@ -29975,7 +29975,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                       class="ant-pro-core-field-dropdown-label "
                                     >
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-undefined ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
+                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                                       >
                                         <span
                                           style="display: inline-flex; align-items: center;"
@@ -30123,7 +30123,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                           </span>
                                         </div>
                                         <span
-                                          class="ant-pro-core-field-label ant-pro-core-field-label-undefined ant-pro-core-field-label-allow-clear"
+                                          class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                         >
                                           创建者
                                           <span
@@ -31366,7 +31366,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                 >
                                   <div>
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-undefined"
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                     >
                                       响应日期
                                       <span

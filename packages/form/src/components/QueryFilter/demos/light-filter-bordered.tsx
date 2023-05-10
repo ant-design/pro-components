@@ -144,7 +144,6 @@ export default () => {
           },
         ]}
         name="area"
-        initialValue={['zhejiang', 'hangzhou', 'xihu']}
       />
     </LightFilter>
   );

@@ -481,6 +481,80 @@ describe('Field', () => {
     html.unmount();
   });
 
+  ['cascader', 'treeSelect'].map((valueType) => {
+    it(`🐴 ${valueType} labelInValue use label`, async () => {
+      const fn = jest.fn();
+      const html = render(
+        <Field
+          fieldProps={{
+            value: ['zhejiang', 'hangzhou', 'xihu'],
+            labelInValue: true,
+            onDropdownVisibleChange: (e: boolean) => {
+              fn(e);
+            },
+          }}
+          light
+          valueType={valueType as 'cascader'}
+          mode="edit"
+          options={[
+            {
+              value: 'zhejiang',
+              label: '浙江',
+              children: [
+                {
+                  value: 'hangzhou',
+                  label: '杭州',
+                  children: [
+                    {
+                      value: 'xihu',
+                      label: '西湖',
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              value: 'jiangsu',
+              label: 'Jiangsu',
+              children: [
+                {
+                  value: 'nanjing',
+                  label: 'Nanjing',
+                  children: [
+                    {
+                      value: 'zhonghuamen',
+                      label: 'Zhong Hua Men',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+        />,
+      );
+
+      act(() => {
+        fireEvent.click(
+          html.baseElement.querySelector('.ant-pro-core-field-label')!,
+        );
+      });
+
+      await waitFor(() => {
+        expect(fn).toBeCalledWith(true);
+      });
+
+      act(() => {
+        fireEvent.mouseDown(
+          html.container.querySelector('.ant-select-selector')!,
+        );
+      });
+
+      await waitFor(() => {
+        expect(fn).toBeCalledWith(false);
+      });
+    });
+  });
+
   it('🐴 select text=null & valueEnum=null ', async () => {
     const html = render(
       <Field

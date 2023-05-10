@@ -147,7 +147,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
       className={classNames(
         prefixCls,
         hashId,
-        `${prefixCls}-${props.size || size}`,
+        `${prefixCls}-${props.size ?? size ?? 'middle'}`,
         {
           [`${prefixCls}-active`]: !!value || value === 0,
           [`${prefixCls}-disabled`]: disabled,
@@ -173,9 +173,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
             `${prefixCls}-close`,
           )}
           onClick={(e) => {
-            if (onClear && !disabled) {
-              onClear();
-            }
+            if (!disabled) onClear?.();
             e.stopPropagation();
           }}
           ref={clearRef}

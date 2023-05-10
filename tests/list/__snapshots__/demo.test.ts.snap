@@ -3315,7 +3315,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                       class="ant-pro-core-field-dropdown-label "
                                     >
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-undefined ant-pro-core-field-label-allow-clear"
+                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                       >
                                         用户
                                         <span
@@ -3428,7 +3428,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                           </span>
                                         </div>
                                         <span
-                                          class="ant-pro-core-field-label ant-pro-core-field-label-undefined ant-pro-core-field-label-allow-clear"
+                                          class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                                         >
                                           状态
                                           <span

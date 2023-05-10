@@ -19,7 +19,6 @@ import {
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
-import { waitTime } from '../../tests/util';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use text', async () => {
@@ -46,16 +45,18 @@ describe('LightFilter', () => {
       ).toHaveTextContent('名称: yutingzhao1991');
     });
 
-    act(() => {
-      userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+    await act(() => {
+      return userEvent.click(
+        container.querySelector('.ant-pro-core-field-label')!,
+      );
     });
 
     await waitFor(() => {
       expect(screen.getByDisplayValue('yutingzhao1991')).toBeInTheDocument();
     });
 
-    act(() => {
-      fireEvent.change(screen.getByDisplayValue('yutingzhao1991'), {
+    await act(() => {
+      return fireEvent.change(screen.getByDisplayValue('yutingzhao1991'), {
         target: {
           value: 'name1 update',
         },
@@ -63,7 +64,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      userEvent.click(await screen.findByText('确 认'));
+      return userEvent.click(await screen.findByText('确 认'));
     });
 
     await waitFor(
@@ -80,6 +81,16 @@ describe('LightFilter', () => {
     await waitFor(() => {
       expect(onValuesChange).toHaveBeenCalledWith({
         name1: 'name1 update',
+      });
+    });
+
+    act(() => {
+      userEvent.click(container.querySelector('.anticon-close')!);
+    });
+
+    await waitFor(() => {
+      expect(onValuesChange).toHaveBeenCalledWith({
+        name1: undefined,
       });
     });
   });

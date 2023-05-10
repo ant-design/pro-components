@@ -233,7 +233,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           label={label}
           disabled={disabled}
           placeholder={placeholder}
-          onClick={() => setOpen(true)}
+          onClick={() => {
+            setOpen(true);
+            fieldProps?.onDropdownVisibleChange?.(true);
+          }}
           bordered={rest.bordered}
           value={notEmpty || open ? dom : null}
           style={

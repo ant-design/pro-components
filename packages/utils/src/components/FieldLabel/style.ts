@@ -43,7 +43,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         verticalAlign: 'middle',
         [`&${token.componentCls}-close`]: {
           display: 'none',
-          height: 12,
+          height: 1,
           alignItems: 'center',
           justifyContent: 'center',
           width: 12,

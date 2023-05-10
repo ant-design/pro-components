@@ -138,7 +138,10 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           }
           allowClear={false}
           downIcon={false}
-          onClick={() => setOpen(true)}
+          onClick={() => {
+            setOpen(true);
+            rest?.fieldProps?.onDropdownVisibleChange?.(true);
+          }}
         />
       );
     }
