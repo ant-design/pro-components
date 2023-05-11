@@ -72,7 +72,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         flexDirection: 'row',
         alignItems: 'center',
         gap: 8,
-        color: menuToken?.colorTextMenu,
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
