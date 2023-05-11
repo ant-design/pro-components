@@ -1,9 +1,8 @@
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act, render, waitFor } from '@testing-library/react';
-import { Button } from 'antd';
-import { useRef } from 'react';
-import { waitTime } from '../util';
+import { Button, Input } from 'antd';
+import React from 'react';
 
 describe('descriptions', () => {
   it('🥩 descriptions render valueEnum when data = 0', async () => {
@@ -127,18 +126,25 @@ describe('descriptions', () => {
   it('🥩 test reload', async () => {
     const fn = jest.fn();
     jest.useFakeTimers();
+    const actionRef = React.createRef<ProCoreActionType>();
     const Reload = () => {
-      const actionRef = useRef<ProCoreActionType>();
       return (
         <ProDescriptions
           actionRef={actionRef}
           title="高级定义列表 request"
           request={async () => {
             fn();
-            await waitTime(200);
-            return Promise.resolve({
-              success: true,
-              data: { id: '这是一段文本', date: '20200730', money: '12121' },
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                resolve({
+                  success: true,
+                  data: {
+                    id: '这是一段文本',
+                    date: '20200730',
+                    money: '12121',
+                  },
+                });
+              }, 2000);
             });
           }}
           extra={
@@ -153,6 +159,7 @@ describe('descriptions', () => {
             </Button>
           }
         >
+          test reload
           <ProDescriptions.Item label="文本" dataIndex="id" />
           <ProDescriptions.Item
             dataIndex="date"
@@ -163,11 +170,16 @@ describe('descriptions', () => {
             label="money"
             dataIndex="money"
             valueType="money"
+            renderFormItem={() => <Input />}
           />
         </ProDescriptions>
       );
     };
     const html = render(<Reload />);
+
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
 
     await html.findAllByText('这是一段文本');
     await waitFor(() => {
@@ -177,7 +189,10 @@ describe('descriptions', () => {
       html.queryByText('刷新')?.click();
     });
     act(() => {
-      html.queryByText('刷新')?.click();
+      actionRef.current?.reload();
+    });
+    act(() => {
+      actionRef.current?.reload();
     });
 
     await waitFor(() => {

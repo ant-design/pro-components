@@ -735,9 +735,7 @@ export function useEditableArray<RecordType>(
         );
       });
 
-      const relayValue = props.tableName
-        ? get(value, [props.tableName || ''].flat(1))
-        : value;
+      const relayValue = value;
       const recordKey = Object.keys(relayValue || {})
         .pop()
         ?.toString() as string;
