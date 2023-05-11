@@ -20,9 +20,7 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
 ) => {
   const intl = useIntl();
   const dom = useMemo(() => {
-    if (text === undefined || text === null || `${text}`.length < 1) {
-      return '-';
-    }
+    if (text === undefined || text === null || `${text}`.length < 1) return '-';
     return text
       ? fieldProps?.checkedChildren ?? intl.getMessage('switch.open', '打开')
       : fieldProps?.unCheckedChildren ??

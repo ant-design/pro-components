@@ -35,14 +35,11 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const { componentSize } = ConfigProvider?.useConfig?.() || {
-    componentSize: 'middle',
-  };
+
   const layoutClassName = getPrefixCls('pro-field-cascader');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
   const cascaderRef = useRef();
-  const size = componentSize;
   const [open, setOpen] = useState(false);
 
   useImperativeHandle(ref, () => ({
@@ -105,11 +102,14 @@ const FieldCascader: ProFieldFC<GroupProps> = (
         bordered={!light}
         ref={cascaderRef}
         open={open}
-        onDropdownVisibleChange={setOpen}
-        suffixIcon={loading ? <LoadingOutlined /> : light ? null : undefined}
+        suffixIcon={loading ? <LoadingOutlined /> : undefined}
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-        allowClear={light ? false : undefined}
+        allowClear={rest.fieldProps?.allowClear !== false}
         {...rest.fieldProps}
+        onDropdownVisibleChange={(isOpen) => {
+          rest?.fieldProps?.onDropdownVisibleChange?.(isOpen);
+          setOpen(isOpen);
+        }}
         className={classNames(rest.fieldProps?.className, layoutClassName)}
         options={options}
       />
@@ -121,20 +121,27 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     }
 
     if (light) {
-      const { disabled, allowClear, placeholder } = rest.fieldProps;
+      const { disabled, value } = rest.fieldProps;
+      const notEmpty = !!value && value?.length !== 0;
       return (
         <FieldLabel
           label={label}
           disabled={disabled}
-          placeholder={placeholder}
-          size={size}
-          allowClear={allowClear}
           bordered={rest.bordered}
-          value={dom}
-          onLabelClick={() => setOpen(!open)}
-          onClear={() =>
-            rest.fieldProps?.onChange?.(undefined, undefined, {} as any)
+          value={notEmpty ? dom : null}
+          style={
+            notEmpty
+              ? {
+                  paddingInlineEnd: 0,
+                }
+              : undefined
           }
+          allowClear={false}
+          downIcon={false}
+          onClick={() => {
+            setOpen(true);
+            rest?.fieldProps?.onDropdownVisibleChange?.(true);
+          }}
         />
       );
     }

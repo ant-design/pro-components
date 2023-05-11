@@ -10522,73 +10522,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div>
-                                    <div
-                                      class="ant-pro-field-date-picker-light "
+                                    <span
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                     >
-                                      <div
-                                        class="ant-picker ant-picker-focused"
-                                      >
-                                        <div
-                                          class="ant-picker-input"
-                                        >
-                                          <input
-                                            autocomplete="off"
-                                            id="startdate"
-                                            placeholder="请选择日期"
-                                            size="12"
-                                            title=""
-                                            value=""
-                                          />
-                                          <span
-                                            class="ant-picker-suffix"
-                                          >
-                                            <span
-                                              aria-label="calendar"
-                                              class="anticon anticon-calendar"
-                                              role="img"
-                                            >
-                                              <svg
-                                                aria-hidden="true"
-                                                data-icon="calendar"
-                                                fill="currentColor"
-                                                focusable="false"
-                                                height="1em"
-                                                viewBox="64 64 896 896"
-                                                width="1em"
-                                              >
-                                                <path
-                                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                                />
-                                              </svg>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
+                                      响应日期
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                        aria-label="down"
+                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                        role="img"
                                       >
-                                        响应日期
-                                        <span
-                                          aria-label="down"
-                                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                          role="img"
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="down"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="down"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                            />
-                                          </svg>
-                                        </span>
+                                          <path
+                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          />
+                                        </svg>
                                       </span>
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -11494,73 +11451,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div>
-                                    <div
-                                      class="ant-pro-field-date-picker-light "
+                                    <span
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                     >
-                                      <div
-                                        class="ant-picker ant-picker-focused"
-                                      >
-                                        <div
-                                          class="ant-picker-input"
-                                        >
-                                          <input
-                                            autocomplete="off"
-                                            id="startdate"
-                                            placeholder="请选择日期"
-                                            size="12"
-                                            title=""
-                                            value=""
-                                          />
-                                          <span
-                                            class="ant-picker-suffix"
-                                          >
-                                            <span
-                                              aria-label="calendar"
-                                              class="anticon anticon-calendar"
-                                              role="img"
-                                            >
-                                              <svg
-                                                aria-hidden="true"
-                                                data-icon="calendar"
-                                                fill="currentColor"
-                                                focusable="false"
-                                                height="1em"
-                                                viewBox="64 64 896 896"
-                                                width="1em"
-                                              >
-                                                <path
-                                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                                />
-                                              </svg>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
+                                      响应日期
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                        aria-label="down"
+                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                        role="img"
                                       >
-                                        响应日期
-                                        <span
-                                          aria-label="down"
-                                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                          role="img"
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="down"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="down"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                            />
-                                          </svg>
-                                        </span>
+                                          <path
+                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          />
+                                        </svg>
                                       </span>
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -12462,73 +12376,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                                 class="ant-form-item-control-input-content"
                               >
                                 <div>
-                                  <div
-                                    class="ant-pro-field-date-picker-light "
+                                  <span
+                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                   >
-                                    <div
-                                      class="ant-picker ant-picker-focused"
-                                    >
-                                      <div
-                                        class="ant-picker-input"
-                                      >
-                                        <input
-                                          autocomplete="off"
-                                          id="startdate"
-                                          placeholder="请选择日期"
-                                          size="12"
-                                          title=""
-                                          value=""
-                                        />
-                                        <span
-                                          class="ant-picker-suffix"
-                                        >
-                                          <span
-                                            aria-label="calendar"
-                                            class="anticon anticon-calendar"
-                                            role="img"
-                                          >
-                                            <svg
-                                              aria-hidden="true"
-                                              data-icon="calendar"
-                                              fill="currentColor"
-                                              focusable="false"
-                                              height="1em"
-                                              viewBox="64 64 896 896"
-                                              width="1em"
-                                            >
-                                              <path
-                                                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                              />
-                                            </svg>
-                                          </span>
-                                        </span>
-                                      </div>
-                                    </div>
+                                    响应日期
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                      aria-label="down"
+                                      class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                      role="img"
                                     >
-                                      响应日期
-                                      <span
-                                        aria-label="down"
-                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="down"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="down"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                          />
-                                        </svg>
-                                      </span>
+                                        <path
+                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                        />
+                                      </svg>
                                     </span>
-                                  </div>
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -13162,73 +13033,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div>
-                                    <div
-                                      class="ant-pro-field-date-picker-light "
+                                    <span
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                     >
-                                      <div
-                                        class="ant-picker ant-picker-focused"
-                                      >
-                                        <div
-                                          class="ant-picker-input"
-                                        >
-                                          <input
-                                            autocomplete="off"
-                                            id="startdate"
-                                            placeholder="请选择日期"
-                                            size="12"
-                                            title=""
-                                            value=""
-                                          />
-                                          <span
-                                            class="ant-picker-suffix"
-                                          >
-                                            <span
-                                              aria-label="calendar"
-                                              class="anticon anticon-calendar"
-                                              role="img"
-                                            >
-                                              <svg
-                                                aria-hidden="true"
-                                                data-icon="calendar"
-                                                fill="currentColor"
-                                                focusable="false"
-                                                height="1em"
-                                                viewBox="64 64 896 896"
-                                                width="1em"
-                                              >
-                                                <path
-                                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                                />
-                                              </svg>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
+                                      响应日期
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                        aria-label="down"
+                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                        role="img"
                                       >
-                                        响应日期
-                                        <span
-                                          aria-label="down"
-                                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                          role="img"
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="down"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="down"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                            />
-                                          </svg>
-                                        </span>
+                                          <path
+                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          />
+                                        </svg>
                                       </span>
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -14085,73 +13913,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div>
-                                        <div
-                                          class="ant-pro-field-date-picker-light "
+                                        <span
+                                          class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                         >
-                                          <div
-                                            class="ant-picker ant-picker-focused"
-                                          >
-                                            <div
-                                              class="ant-picker-input"
-                                            >
-                                              <input
-                                                autocomplete="off"
-                                                id="startdate"
-                                                placeholder="请选择日期"
-                                                size="12"
-                                                title=""
-                                                value=""
-                                              />
-                                              <span
-                                                class="ant-picker-suffix"
-                                              >
-                                                <span
-                                                  aria-label="calendar"
-                                                  class="anticon anticon-calendar"
-                                                  role="img"
-                                                >
-                                                  <svg
-                                                    aria-hidden="true"
-                                                    data-icon="calendar"
-                                                    fill="currentColor"
-                                                    focusable="false"
-                                                    height="1em"
-                                                    viewBox="64 64 896 896"
-                                                    width="1em"
-                                                  >
-                                                    <path
-                                                      d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                                    />
-                                                  </svg>
-                                                </span>
-                                              </span>
-                                            </div>
-                                          </div>
+                                          响应日期
                                           <span
-                                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                            aria-label="down"
+                                            class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                            role="img"
                                           >
-                                            响应日期
-                                            <span
-                                              aria-label="down"
-                                              class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                              role="img"
+                                            <svg
+                                              aria-hidden="true"
+                                              data-icon="down"
+                                              fill="currentColor"
+                                              focusable="false"
+                                              height="1em"
+                                              viewBox="64 64 896 896"
+                                              width="1em"
                                             >
-                                              <svg
-                                                aria-hidden="true"
-                                                data-icon="down"
-                                                fill="currentColor"
-                                                focusable="false"
-                                                height="1em"
-                                                viewBox="64 64 896 896"
-                                                width="1em"
-                                              >
-                                                <path
-                                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                                />
-                                              </svg>
-                                            </span>
+                                              <path
+                                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                              />
+                                            </svg>
                                           </span>
-                                        </div>
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -31580,73 +31365,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div>
-                                    <div
-                                      class="ant-pro-field-date-picker-light "
+                                    <span
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
                                     >
-                                      <div
-                                        class="ant-picker ant-picker-focused"
-                                      >
-                                        <div
-                                          class="ant-picker-input"
-                                        >
-                                          <input
-                                            autocomplete="off"
-                                            id="startdate"
-                                            placeholder="请选择日期"
-                                            size="12"
-                                            title=""
-                                            value=""
-                                          />
-                                          <span
-                                            class="ant-picker-suffix"
-                                          >
-                                            <span
-                                              aria-label="calendar"
-                                              class="anticon anticon-calendar"
-                                              role="img"
-                                            >
-                                              <svg
-                                                aria-hidden="true"
-                                                data-icon="calendar"
-                                                fill="currentColor"
-                                                focusable="false"
-                                                height="1em"
-                                                viewBox="64 64 896 896"
-                                                width="1em"
-                                              >
-                                                <path
-                                                  d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                                />
-                                              </svg>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
+                                      响应日期
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                        aria-label="down"
+                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                        role="img"
                                       >
-                                        响应日期
-                                        <span
-                                          aria-label="down"
-                                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                          role="img"
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="down"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="down"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                            />
-                                          </svg>
-                                        </span>
+                                          <path
+                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          />
+                                        </svg>
                                       </span>
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -47650,7 +47392,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-spin-container"
                         >
                           <div
-                            class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+                            class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                             options="[object Object],[object Object]"
                             style="min-width: 60px; width: 100%;"
                           >

@@ -481,6 +481,103 @@ describe('Field', () => {
     html.unmount();
   });
 
+  ['cascader', 'treeSelect'].map((valueType) => {
+    it(`🐴 ${valueType} labelInValue use label`, async () => {
+      const fn = jest.fn();
+      const html = render(
+        <Field
+          fieldProps={{
+            treeCheckable: true,
+            value: [
+              {
+                label: '浙江',
+                value: 'zhejiang',
+              },
+              {
+                label: '杭州',
+                value: 'hangzhou',
+              },
+              {
+                label: '西湖',
+                value: 'xihu',
+              },
+            ].map((item) => {
+              return item.value;
+            }),
+            onDropdownVisibleChange: (e: boolean) => {
+              fn(e);
+            },
+          }}
+          light
+          valueType={valueType as 'cascader'}
+          mode="edit"
+          treeData={[
+            {
+              value: 'zhejiang',
+              label: '浙江',
+              key: 'zhejiang',
+              children: [
+                {
+                  value: 'hangzhou',
+                  label: '杭州',
+                  key: 'hangzhou',
+                  children: [
+                    {
+                      value: 'xihu',
+                      key: 'xihu',
+                      label: '西湖',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+          options={[
+            {
+              value: 'zhejiang',
+              label: '浙江',
+              key: 'zhejiang',
+              children: [
+                {
+                  value: 'hangzhou',
+                  label: '杭州',
+                  key: 'hangzhou',
+                  children: [
+                    {
+                      value: 'xihu',
+                      key: 'xihu',
+                      label: '西湖',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+        />,
+      );
+
+      act(() => {
+        fireEvent.click(
+          html.baseElement.querySelector('.ant-pro-core-field-label')!,
+        );
+      });
+
+      await waitFor(() => {
+        expect(fn).toBeCalledWith(true);
+      });
+
+      act(() => {
+        fireEvent.mouseDown(
+          html.container.querySelector('.ant-select-selector')!,
+        );
+      });
+
+      await waitFor(() => {
+        expect(fn).toBeCalledWith(false);
+      });
+    });
+  });
+
   it('🐴 select text=null & valueEnum=null ', async () => {
     const html = render(
       <Field
@@ -1835,64 +1932,6 @@ describe('Field', () => {
           '.ant-select-dropdown.ant-select-dropdown-hidden',
         ).length,
       ).toEqual(1);
-    });
-  });
-
-  ['date', 'time'].forEach((valueType) => {
-    it(`🐴 ${valueType} light filter dropdown toggle`, async () => {
-      const html = render(
-        <Field
-          text="default"
-          valueType={valueType as 'date'}
-          mode="edit"
-          light
-        />,
-      );
-
-      act(() => {
-        // 点击label打开DatePicker
-        // jest环境下，click 不会触发mousedown和mouseup，需要手动触发以覆盖相关逻辑代码   fireEvent.mouseDown(html.baseElement.querySelector('.ant-pro-core-field-label')!);
-        fireEvent.mouseDown(
-          html.baseElement.querySelector('.ant-pro-core-field-label')!,
-        );
-        fireEvent.click(
-          html.baseElement.querySelector('.ant-pro-core-field-label')!,
-        );
-        fireEvent.mouseUp(
-          html.baseElement.querySelector('.ant-pro-core-field-label')!,
-        );
-      });
-      await waitFor(() => {
-        expect(
-          html.baseElement.querySelectorAll('.ant-picker-dropdown').length,
-        ).toEqual(1);
-        expect(
-          html.baseElement.querySelectorAll(
-            '.ant-picker-dropdown.ant-picker-dropdown-hidden',
-          ).length,
-        ).toEqual(0);
-      });
-
-      act(() => {
-        fireEvent.mouseDown(
-          html.baseElement.querySelector('.ant-pro-core-field-label')!,
-        );
-        fireEvent.click(
-          html.baseElement.querySelector('.ant-pro-core-field-label')!,
-        );
-        fireEvent.mouseUp(
-          html.baseElement.querySelector('.ant-pro-core-field-label')!,
-        );
-      });
-      await waitFor(() => {
-        expect(
-          html.baseElement.querySelectorAll(
-            '.ant-picker-dropdown.ant-picker-dropdown-hidden',
-          ).length,
-        ).toEqual(1);
-      });
-
-      html.unmount();
     });
   });
 });

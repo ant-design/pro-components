@@ -1,9 +1,10 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { parseValueToDay } from '@ant-design/pro-utils';
+import { FieldLabel, parseValueToDay } from '@ant-design/pro-utils';
+import type { DatePickerProps } from 'antd';
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 // 兼容代码-----------
 import 'antd/lib/date-picker/style';
@@ -14,16 +15,36 @@ import 'antd/lib/date-picker/style';
  *
  * @param
  */
-const FieldRangePicker: ProFieldFC<{
-  text: string[];
-  format: string;
-  showTime?: boolean;
-}> = (
-  { text, mode, format, render, renderFormItem, plain, showTime, fieldProps },
+const FieldRangePicker: ProFieldFC<
+  {
+    text: string[];
+    format: string;
+    bordered?: boolean;
+    showTime?: boolean;
+    picker?: DatePickerProps['picker'];
+  } & ProFieldLightProps
+> = (
+  {
+    text,
+    mode,
+    light,
+    label,
+    format,
+    render,
+    picker,
+    renderFormItem,
+    plain,
+    showTime,
+    lightLabel,
+    bordered,
+    fieldProps,
+  },
   ref,
 ) => {
   const intl = useIntl();
+
   const [startText, endText] = Array.isArray(text) ? text : [];
+  const [open, setOpen] = React.useState<boolean>(false);
   const genFormatText = useCallback(
     (formatValue: dayjs.Dayjs) => {
       if (typeof fieldProps?.format === 'function') {
@@ -53,22 +74,73 @@ const FieldRangePicker: ProFieldFC<{
     }
     return dom;
   }
+
   if (mode === 'edit' || mode === 'update') {
-    const momentValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs;
-    const dom = (
-      <DatePicker.RangePicker
-        ref={ref}
-        format={format}
-        showTime={showTime}
-        placeholder={[
-          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
-        ]}
-        bordered={plain === undefined ? true : !plain}
-        {...fieldProps}
-        value={momentValue}
-      />
-    );
+    const dayValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs[];
+    let dom;
+
+    if (light) {
+      dom = (
+        <FieldLabel
+          label={label}
+          onClick={() => {
+            fieldProps?.onOpenChange?.(true);
+            setOpen(true);
+          }}
+          style={
+            dayValue
+              ? {
+                  paddingInlineEnd: 0,
+                }
+              : undefined
+          }
+          disabled={fieldProps.disabled}
+          value={
+            dayValue || open ? (
+              <DatePicker.RangePicker
+                picker={picker}
+                showTime={showTime}
+                format={format}
+                ref={ref}
+                bordered={false}
+                {...fieldProps}
+                placeholder={
+                  fieldProps.placeholder ?? [
+                    intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+                    intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+                  ]
+                }
+                value={dayValue}
+                open={open}
+                onOpenChange={(isOpen) => {
+                  setOpen(isOpen);
+                  fieldProps?.onOpenChange?.(isOpen);
+                }}
+              />
+            ) : null
+          }
+          allowClear={false}
+          bordered={bordered}
+          ref={lightLabel}
+          downIcon={dayValue || open ? false : undefined}
+        />
+      );
+    } else {
+      dom = (
+        <DatePicker.RangePicker
+          ref={ref}
+          format={format}
+          showTime={showTime}
+          placeholder={[
+            intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+            intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+          ]}
+          bordered={plain === undefined ? true : false}
+          {...fieldProps}
+          value={dayValue}
+        />
+      );
+    }
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
