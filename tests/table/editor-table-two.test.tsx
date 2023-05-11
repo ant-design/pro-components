@@ -464,7 +464,7 @@ describe('EditorProTable 2', () => {
     });
   });
 
-  fit('📝 EditableProTable support name', async () => {
+  it('📝 EditableProTable support name', async () => {
     const onChange = jest.fn();
     const wrapper = render(
       <ProForm
