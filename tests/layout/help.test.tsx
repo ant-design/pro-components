@@ -370,7 +370,7 @@ describe('👍🏻 ProHelpPanel', () => {
     ).toBeFalsy();
   });
 
-  fit('🎏 名词解释', async () => {
+  it('🎏 名词解释', async () => {
     jest.useFakeTimers();
     const html = render(
       <ProHelp
