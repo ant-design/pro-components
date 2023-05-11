@@ -84,7 +84,9 @@ const useFetchData = <T extends RequestData>(
     dataSource: entity,
     setDataSource: setEntity,
     loading,
-    reload: () => fetchList(),
+    reload: () => {
+      return fetchList();
+    },
   };
 };
 
