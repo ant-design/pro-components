@@ -1,7 +1,7 @@
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act, render, waitFor } from '@testing-library/react';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import React from 'react';
 
 describe('descriptions', () => {
@@ -170,6 +170,7 @@ describe('descriptions', () => {
             label="money"
             dataIndex="money"
             valueType="money"
+            renderFormItem={() => <Input />}
           />
         </ProDescriptions>
       );
