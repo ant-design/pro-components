@@ -3,7 +3,6 @@ import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React from 'react';
-import { useRef } from 'react';
 
 describe('descriptions', () => {
   it('🥩 descriptions render valueEnum when data = 0', async () => {
@@ -160,7 +159,7 @@ describe('descriptions', () => {
             </Button>
           }
         >
-          "test reload"
+          test reload
           <ProDescriptions.Item label="文本" dataIndex="id" />
           <ProDescriptions.Item
             dataIndex="date"

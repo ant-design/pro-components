@@ -20,7 +20,7 @@ export default () => {
         contentStyle={{
           maxWidth: '80%',
         }}
-        renderText={(_, row) => {
+        renderText={(_) => {
           return _ + _;
         }}
         ellipsis
