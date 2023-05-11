@@ -68,7 +68,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   }
   if (type === 'edit' || type === 'update') {
     const dom = (
-      <InputNumber<number | string>
+      <InputNumber<number | string | null>
         ref={ref}
         min={0}
         placeholder={placeholderValue}
