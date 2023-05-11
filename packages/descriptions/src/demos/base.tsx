@@ -20,6 +20,9 @@ export default () => {
         contentStyle={{
           maxWidth: '80%',
         }}
+        renderText={(_, row) => {
+          return _ + _;
+        }}
         ellipsis
         label="文本"
       >

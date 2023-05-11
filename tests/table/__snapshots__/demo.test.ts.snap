@@ -5026,7 +5026,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -5038,7 +5038,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -5285,7 +5285,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -5297,7 +5297,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -5544,7 +5544,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -5556,7 +5556,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -5803,7 +5803,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -5815,7 +5815,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -6062,7 +6062,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -6074,7 +6074,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -6321,7 +6321,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -6333,7 +6333,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -6580,7 +6580,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -6592,7 +6592,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -6839,7 +6839,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -6851,7 +6851,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -7098,7 +7098,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -7110,7 +7110,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -7357,7 +7357,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -7369,7 +7369,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -7616,7 +7616,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -7628,7 +7628,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -7875,7 +7875,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -7887,7 +7887,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -8134,7 +8134,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -8146,7 +8146,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -8393,7 +8393,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -8405,7 +8405,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -8652,7 +8652,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -8664,7 +8664,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -8911,7 +8911,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -8923,7 +8923,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -9170,7 +9170,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -9182,7 +9182,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -9429,7 +9429,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -9441,7 +9441,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -9688,7 +9688,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -9700,7 +9700,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
@@ -9947,7 +9947,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-affix-wrapper-has-feedback"
+                                          class="ant-input-affix-wrapper"
                                         >
                                           <input
                                             class="ant-input"
@@ -9959,7 +9959,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-input-suffix"
                                           >
                                             <span
-                                              class="ant-input-clear-icon ant-input-clear-icon-has-suffix"
+                                              class="ant-input-clear-icon"
                                               role="button"
                                               tabindex="-1"
                                             >
