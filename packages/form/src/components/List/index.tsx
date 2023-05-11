@@ -1,7 +1,7 @@
 ﻿import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import { ProFormContext } from '@ant-design/pro-utils';
-import { ConfigProvider, Form } from 'antd';
+import { ColProps, ConfigProvider, Form } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type {
   FormListFieldData,
@@ -112,7 +112,9 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
       required?: boolean;
     })[];
     required?: boolean;
-  } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'> & Record<string, any>;
+    wrapperCol?: ColProps;
+    className?: string;
+  } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
   const actionRefs = useRef<FormListOperation>();
@@ -150,11 +152,13 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     min,
     max,
     colProps,
+    wrapperCol,
     rowProps,
     onAfterAdd,
     onAfterRemove,
     isValidateList = false,
     emptyListMessage = '列表不能为空',
+    className,
     ...rest
   } = props;
 
