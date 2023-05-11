@@ -31,6 +31,7 @@ const NavigationSwitch: React.FC<{
   return (
     <Typography.Text>
       <a
+        data-testid="navigation-switch"
         onClick={() => {
           context.setSelectedKey(props.selectKey);
         }}
@@ -139,6 +140,7 @@ export const RenderContentPanel: React.FC<{
     if (item.valueType === 'navigationSwitch') {
       return (
         <NavigationSwitch
+          key={index}
           {...(item.children as {
             children: string;
             selectKey: string;

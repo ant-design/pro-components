@@ -334,9 +334,16 @@ describe('👍🏻 ProHelpPanel', () => {
     Object.defineProperties(window.HTMLElement.prototype, {
       offsetTop: {
         get: function () {
-          if ((this as HTMLDivElement).innerHTML.includes('导出表')) {
+          if ((this as HTMLDivElement).innerHTML.includes('离线批量数据')) {
             return 4 * 120;
           }
+          if ((this as HTMLDivElement).innerHTML.includes('项目数据资源')) {
+            return 8 * 120;
+          }
+          if ((this as HTMLDivElement).innerHTML.includes('匿名查询')) {
+            return 900;
+          }
+
           return 0;
         },
       },
@@ -372,6 +379,7 @@ describe('👍🏻 ProHelpPanel', () => {
 
   it('🎏 infiniteScrollFull panel', async () => {
     jest.useFakeTimers();
+    const onSelectedKeyChangeFn = jest.fn();
     const html = render(
       <ProHelp
         dataSource={[
@@ -710,7 +718,13 @@ describe('👍🏻 ProHelpPanel', () => {
             width: 600,
           }}
         >
-          <ProHelpPanel defaultSelectedKey="name0" height={648} />
+          <ProHelpPanel
+            onSelectedKeyChange={(key) => {
+              onSelectedKeyChangeFn(key);
+            }}
+            defaultSelectedKey="name0"
+            height={648}
+          />
         </div>
       </ProHelp>,
     );
@@ -730,10 +744,10 @@ describe('👍🏻 ProHelpPanel', () => {
       ).toBe(21);
     });
 
-    await html.findAllByText('导出表');
+    await html.findAllByText('离线批量数据');
 
     await act(async () => {
-      (await (await html.findAllByText('导出表')).at(0))?.click();
+      (await (await html.findAllByText('离线批量数据')).at(0))?.click();
     });
 
     await waitFor(() => {
@@ -755,6 +769,14 @@ describe('👍🏻 ProHelpPanel', () => {
     await act(() => {
       jest.runOnlyPendingTimers();
     });
+
+    const dom = await html.findByTestId('navigation-switch');
+
+    act(() => {
+      dom.click();
+    });
+
+    expect(onSelectedKeyChangeFn).toBeCalledWith('name9');
 
     html.unmount();
 
