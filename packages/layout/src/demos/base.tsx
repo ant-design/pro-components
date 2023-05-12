@@ -295,6 +295,11 @@ export default () => {
           location={{
             pathname,
           }}
+          token={{
+            header: {
+              colorBgMenuItemSelected: 'rgba(0,0,0,0.04)',
+            },
+          }}
           siderMenuType="group"
           menu={{
             collapsedShowGroupTitle: true,
@@ -323,6 +328,7 @@ export default () => {
           }}
           actionsRender={(props) => {
             if (props.isMobile) return [];
+            if (typeof document === 'undefined') return [];
             return [
               props.layout !== 'side' && document.body.clientWidth > 1400 ? (
                 <SearchInput />
@@ -339,6 +345,7 @@ export default () => {
                 {title}
               </a>
             );
+            if (typeof document === 'undefined') return defaultDom;
             if (document.body.clientWidth < 1400) {
               return defaultDom;
             }
