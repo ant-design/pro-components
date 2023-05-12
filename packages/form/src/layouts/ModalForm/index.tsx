@@ -257,21 +257,23 @@ function ModalForm<T = Record<string, any>>({
           ) : null
         }
       >
-        <BaseForm
-          formComponentType="ModalForm"
-          layout="vertical"
-          {...rest}
-          formRef={formRef}
-          submitter={submitterConfig}
-          onFinish={async (values) => {
-            const result = await onFinishHandle(values);
-            // fix: #6006 如果 result 为 true,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
-            return result;
-          }}
-          contentRender={contentRender}
-        >
-          {children}
-        </BaseForm>
+        {open && (
+          <BaseForm
+            formComponentType="ModalForm"
+            layout="vertical"
+            {...rest}
+            formRef={formRef}
+            submitter={submitterConfig}
+            onFinish={async (values) => {
+              const result = await onFinishHandle(values);
+              // fix: #6006 如果 result 为 true,那么必然会触发弹窗关闭，我们无需在 此处重置表单，只需在弹窗关闭时重置即可
+              return result;
+            }}
+            contentRender={contentRender}
+          >
+            {children}
+          </BaseForm>
+        )}
       </Modal>
       {triggerDom}
     </>
