@@ -421,6 +421,5 @@ export default defineConfig({
     },
   },
   hash: true,
-  extraBabelPlugins: ['@emotion'],
   ignoreMomentLocale: true,
 });
