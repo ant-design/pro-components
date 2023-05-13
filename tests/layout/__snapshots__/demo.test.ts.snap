@@ -4360,28 +4360,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                 >
                   <ol>
                     <li>
-                      <a
-                        class="ant-breadcrumb-link"
-                        href="#/"
-                      >
-                        <span>
-                          主页
-                        </span>
-                      </a>
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </li>
-                    <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          管理
-                        </span>
+                      <span>
+                        主页
                       </span>
                     </li>
                     <li
@@ -4391,12 +4371,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          申请单列表
-                        </span>
+                      <span>
+                        管理
                       </span>
                     </li>
                     <li
@@ -4406,12 +4382,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          编辑申请单
-                        </span>
+                      <span>
+                        申请单列表
+                      </span>
+                    </li>
+                    <li
+                      aria-hidden="true"
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
+                    </li>
+                    <li>
+                      <span>
+                        编辑申请单
                       </span>
                     </li>
                   </ol>
@@ -6437,12 +6420,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          配置中心
-                        </span>
+                      <span>
+                        配置中心
                       </span>
                     </li>
                     <li
@@ -6452,12 +6431,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          产品模板管理
-                        </span>
+                      <span>
+                        产品模板管理
                       </span>
                     </li>
                   </ol>
@@ -7037,12 +7012,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         >
                           <ol>
                             <li>
-                              <span
-                                class="ant-breadcrumb-link"
-                              >
-                                <span>
-                                  首页
-                                </span>
+                              <span>
+                                首页
                               </span>
                             </li>
                             <li
@@ -7052,12 +7023,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                               /
                             </li>
                             <li>
-                              <span
-                                class="ant-breadcrumb-link"
-                              >
-                                <span>
-                                  概述
-                                </span>
+                              <span>
+                                概述
                               </span>
                             </li>
                           </ol>
@@ -7661,12 +7628,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                         >
                           <ol>
                             <li>
-                              <span
-                                class="ant-breadcrumb-link"
-                              >
-                                <span>
-                                  首页
-                                </span>
+                              <span>
+                                首页
                               </span>
                             </li>
                             <li
@@ -7676,12 +7639,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                               /
                             </li>
                             <li>
-                              <span
-                                class="ant-breadcrumb-link"
-                              >
-                                <span>
-                                  概述
-                                </span>
+                              <span>
+                                概述
                               </span>
                             </li>
                           </ol>
@@ -8128,12 +8087,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               >
                 <ol>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        one
-                      </span>
+                    <span>
+                      one
                     </span>
                   </li>
                   <li
@@ -8143,12 +8098,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        two
-                      </span>
+                    <span>
+                      two
                     </span>
                   </li>
                 </ol>
@@ -11361,12 +11312,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -11376,12 +11323,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -11391,12 +11334,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -12351,12 +12290,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -12366,12 +12301,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -12381,12 +12312,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -16374,12 +16301,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -16389,12 +16312,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -16404,12 +16323,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -18003,12 +17918,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
               >
                 <ol>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        列表页
-                      </span>
+                    <span>
+                      列表页
                     </span>
                   </li>
                   <li
@@ -18018,12 +17929,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        列表页面
-                      </span>
+                    <span>
+                      列表页面
                     </span>
                   </li>
                   <li
@@ -18033,12 +17940,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        一一级列表页面
-                      </span>
+                    <span>
+                      一一级列表页面
                     </span>
                   </li>
                 </ol>
@@ -19052,12 +18955,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
               >
                 <ol>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        列表页
-                      </span>
+                    <span>
+                      列表页
                     </span>
                   </li>
                   <li
@@ -19067,12 +18966,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        列表页面
-                      </span>
+                    <span>
+                      列表页面
                     </span>
                   </li>
                   <li
@@ -19082,12 +18977,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        一一级列表页面
-                      </span>
+                    <span>
+                      一一级列表页面
                     </span>
                   </li>
                 </ol>
@@ -20121,12 +20012,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -20136,12 +20023,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -20151,12 +20034,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -21203,12 +21082,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -21218,12 +21093,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -21233,12 +21104,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -23378,12 +23245,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
               >
                 <ol>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        one
-                      </span>
+                    <span>
+                      one
                     </span>
                   </li>
                   <li
@@ -23393,12 +23256,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        two
-                      </span>
+                    <span>
+                      two
                     </span>
                   </li>
                 </ol>
@@ -25275,12 +25134,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -25290,12 +25145,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -25305,12 +25156,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -30519,12 +30366,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -30534,12 +30377,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -30549,12 +30388,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -31509,12 +31344,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -31524,12 +31355,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -31539,12 +31366,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -32031,12 +31854,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          首页
-                        </span>
+                      <span>
+                        首页
                       </span>
                     </li>
                     <li
@@ -32046,12 +31865,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          概述
-                        </span>
+                      <span>
+                        概述
                       </span>
                     </li>
                   </ol>
@@ -32829,12 +32644,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -32844,12 +32655,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -32859,12 +32666,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -33842,12 +33645,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -33857,12 +33656,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -33872,12 +33667,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>
@@ -36811,12 +36602,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               >
                 <ol>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        列表页
-                      </span>
+                    <span>
+                      列表页
                     </span>
                   </li>
                   <li
@@ -36826,12 +36613,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        列表页面
-                      </span>
+                    <span>
+                      列表页面
                     </span>
                   </li>
                   <li
@@ -36841,12 +36624,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        一一级列表页面
-                      </span>
+                    <span>
+                      一一级列表页面
                     </span>
                   </li>
                 </ol>
@@ -37276,44 +37055,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                   >
                     <ol>
                       <li>
-                        <a
-                          class="ant-breadcrumb-link"
-                          href="#/"
-                        >
-                          <span>
-                            主页
-                          </span>
-                        </a>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <a
-                          class="ant-breadcrumb-link"
-                          href="#//"
-                        >
-                          <span>
-                            测试页
-                          </span>
-                        </a>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <span>
-                            管理
-                          </span>
+                        <span>
+                          主页
                         </span>
                       </li>
                       <li
@@ -37323,12 +37066,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                         /
                       </li>
                       <li>
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <span>
-                            申请单列表
-                          </span>
+                        <span>
+                          测试页
                         </span>
                       </li>
                       <li
@@ -37338,12 +37077,30 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                         /
                       </li>
                       <li>
-                        <span
-                          class="ant-breadcrumb-link"
-                        >
-                          <span>
-                            编辑申请单
-                          </span>
+                        <span>
+                          管理
+                        </span>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </li>
+                      <li>
+                        <span>
+                          申请单列表
+                        </span>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </li>
+                      <li>
+                        <span>
+                          编辑申请单
                         </span>
                       </li>
                     </ol>
@@ -37999,12 +37756,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                 >
                   <ol>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页
-                        </span>
+                      <span>
+                        列表页
                       </span>
                     </li>
                     <li
@@ -38014,12 +37767,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          列表页面
-                        </span>
+                      <span>
+                        列表页面
                       </span>
                     </li>
                     <li
@@ -38029,12 +37778,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                       /
                     </li>
                     <li>
-                      <span
-                        class="ant-breadcrumb-link"
-                      >
-                        <span>
-                          一一级列表页面
-                        </span>
+                      <span>
+                        一一级列表页面
                       </span>
                     </li>
                   </ol>

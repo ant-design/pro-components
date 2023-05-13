@@ -48502,12 +48502,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               >
                 <ol>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        一级名称
-                      </span>
+                    <span>
+                      一级名称
                     </span>
                   </li>
                   <li
@@ -48517,12 +48513,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                     /
                   </li>
                   <li>
-                    <span
-                      class="ant-breadcrumb-link"
-                    >
-                      <span>
-                        二级名称
-                      </span>
+                    <span>
+                      二级名称
                     </span>
                   </li>
                 </ol>

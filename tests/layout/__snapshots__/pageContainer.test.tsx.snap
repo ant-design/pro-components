@@ -1015,14 +1015,9 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
               >
                 <ol>
                   <li>
-                    <a
-                      class="ant-breadcrumb-link"
-                      href="#/index"
-                    >
-                      <span>
-                        home
-                      </span>
-                    </a>
+                    <span>
+                      home
+                    </span>
                   </li>
                   <li
                     aria-hidden="true"
@@ -1031,14 +1026,9 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
                     &gt;
                   </li>
                   <li>
-                    <a
-                      class="ant-breadcrumb-link"
-                      href="#/index/first"
-                    >
-                      <span>
-                        first
-                      </span>
-                    </a>
+                    <span>
+                      first
+                    </span>
                   </li>
                   <li
                     aria-hidden="true"
@@ -1047,14 +1037,9 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
                     &gt;
                   </li>
                   <li>
-                    <a
-                      class="ant-breadcrumb-link"
-                      href="#/index/first/second"
-                    >
-                      <span>
-                        second
-                      </span>
-                    </a>
+                    <span>
+                      second
+                    </span>
                   </li>
                 </ol>
               </nav>
