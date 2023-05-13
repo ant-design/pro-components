@@ -27,8 +27,6 @@ import { useStylish } from './style/stylish';
 
 import 'antd/lib/breadcrumb/style';
 
-import type { NewBreadcrumbProps } from 'antd/lib/breadcrumb/Breadcrumb';
-
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
   tabList?: (TabPaneProps & { key?: React.Key })[];
@@ -279,7 +277,7 @@ const memoRenderPageHeader = (
   };
 
   const { breadcrumb } = pageHeaderProps as {
-    breadcrumb: NewBreadcrumbProps;
+    breadcrumb: BreadcrumbProps;
   };
 
   const noHasBreadCrumb =

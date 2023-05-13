@@ -7,7 +7,7 @@ import {
   useMountMergeState,
 } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
-import type { NewBreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb/Breadcrumb';
+import type { BreadcrumbProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
@@ -159,7 +159,7 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 不显示面包屑 breadcrumbRender={false}
    */
   breadcrumbRender?: WithFalse<
-    (routers: AntdBreadcrumbProps['items']) => AntdBreadcrumbProps['items']
+    (routers: BreadcrumbProps['items']) => BreadcrumbProps['items']
   >;
 
   /**
@@ -201,7 +201,7 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 设置 disabled： itemRender={(route, params, routes, paths) => { return <Button disabled>{route.breadcrumbName}</Button> }}
    * @example 拼接 path： itemRender={(route, params, routes, paths) => { return <a href={paths.join('/')}>{route.breadcrumbName}</a> }}
    */
-  itemRender?: AntdBreadcrumbProps['itemRender'];
+  itemRender?: BreadcrumbProps['itemRender'];
 
   formatMessage?: (message: MessageDescriptor) => string;
   /** @name 是否禁用移动端模式
@@ -221,7 +221,7 @@ export type ProLayoutProps = GlobalTypes & {
   className?: string;
 
   /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
-  breadcrumbProps?: AntdBreadcrumbProps & LayoutBreadcrumbProps;
+  breadcrumbProps?: BreadcrumbProps & LayoutBreadcrumbProps;
 
   /** @name 水印的相关配置 */
   waterMarkProps?: WaterMarkProps;

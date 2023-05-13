@@ -270,12 +270,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   /** 自定义的 render */
   const tableDom = props.tableViewRender
     ? props.tableViewRender(
-      {
-        ...getTableProps(),
-        rowSelection: rowSelection !== false ? rowSelection : undefined,
-      },
-      baseTableDom,
-    )
+        {
+          ...getTableProps(),
+          rowSelection: rowSelection !== false ? rowSelection : undefined,
+        },
+        baseTableDom,
+      )
     : baseTableDom;
 
   /**

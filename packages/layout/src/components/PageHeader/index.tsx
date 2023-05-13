@@ -1,6 +1,6 @@
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
-import type { AvatarProps, TagType } from 'antd';
+import type { AvatarProps, TagType, BreadcrumbProps } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
 import type { DirectionType } from 'antd/lib/config-provider';
 import classNames from 'classnames';
@@ -9,10 +9,6 @@ import * as React from 'react';
 import useStyle from './style/index';
 import type { ContentWidth } from '../../defaultSettings';
 import 'antd/lib/breadcrumb/style';
-import type {
-  LegacyBreadcrumbProps,
-  NewBreadcrumbProps,
-} from 'antd/lib/breadcrumb/Breadcrumb';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -21,9 +17,7 @@ export interface PageHeaderProps {
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
   childrenContentStyle?: React.CSSProperties;
-  breadcrumb?:
-    | Partial<NewBreadcrumbProps>
-    | React.ReactElement<typeof Breadcrumb>;
+  breadcrumb?: Partial<BreadcrumbProps> | React.ReactElement<typeof Breadcrumb>;
   breadcrumbRender?: (
     props: PageHeaderProps,
     defaultDom: React.ReactNode,
@@ -64,10 +58,7 @@ const renderBack = (
   );
 };
 
-const renderBreadcrumb = (
-  breadcrumb: NewBreadcrumbProps,
-  prefixCls: string,
-) => {
+const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
   if (!breadcrumb.items?.length) return null;
   return (
     <Breadcrumb
@@ -192,15 +183,15 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const getDefaultBreadcrumbDom = () => {
     if (
       breadcrumb &&
-      !(breadcrumb as NewBreadcrumbProps)?.items &&
-      (breadcrumb as unknown as LegacyBreadcrumbProps)?.routes
+      !(breadcrumb as BreadcrumbProps)?.items &&
+      (breadcrumb as unknown as BreadcrumbProps)?.routes
     ) {
       // @ts-ignore
       breadcrumb.items = breadcrumb.routes;
     }
 
-    if ((breadcrumb as NewBreadcrumbProps)?.items) {
-      return renderBreadcrumb(breadcrumb as NewBreadcrumbProps, prefixCls);
+    if ((breadcrumb as BreadcrumbProps)?.items) {
+      return renderBreadcrumb(breadcrumb as BreadcrumbProps, prefixCls);
     }
     return null;
   };
