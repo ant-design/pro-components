@@ -1,7 +1,7 @@
 import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useStyle } from './style/header';
 import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
@@ -49,6 +49,10 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     headerContentRender,
   } = props;
   const { token } = useContext(ProProvider);
+  const context = useContext(ConfigProvider.ConfigContext);
+  const [isFixedHeader, setIsFixedHeader] = useState(false);
+  const dom = context?.getTargetContainer?.() || document.body;
+
   const renderContent = useCallback(() => {
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(props.menuData || []);
@@ -73,7 +77,27 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     }
     return defaultDom;
   }, [headerContentRender, headerRender, isMobile, layout, onCollapse, props]);
+  useEffect(() => {
+    const isFixedHeaderFn = () => {
+      const scrollTop = dom.scrollTop;
 
+      console.log(scrollTop);
+      if (scrollTop > (token?.layout?.header?.heightLayoutHeader || 56)) {
+        setIsFixedHeader(true);
+        return true;
+      }
+      setIsFixedHeader(false);
+      return false;
+    };
+    console.log(dom, fixedHeader, window);
+
+    if (!fixedHeader) return;
+    if (typeof window === 'undefined') return;
+    dom.addEventListener('scroll', isFixedHeaderFn);
+    return () => {
+      dom.removeEventListener('scroll', isFixedHeaderFn);
+    };
+  }, [dom]);
   const needFixedHeader = fixedHeader || layout === 'mix';
 
   const isTop = layout === 'top';
