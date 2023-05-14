@@ -11393,7 +11393,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
   </div>
   <div
     id="test-pro-layout"
-    style="height: 100vh;"
+    style="height: 100vh; overflow: auto;"
   >
     <div
       class="ant-design-pro my-prefix-layout screen-md my-prefix-layout-fix-siderbar my-prefix-layout-mix"
