@@ -30,6 +30,11 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
           zIndex: 100,
           insetInlineEnd: 0,
         },
+        '&-fixed-header-scroll': {
+          backgroundColor:
+            token?.layout?.header?.colorBgScrollHeader ||
+            'rgba(255, 255, 255, 0.8)',
+        },
         '&-header-actions': {
           display: 'flex',
           alignItems: 'center',

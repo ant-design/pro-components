@@ -134,7 +134,7 @@ const defaultSettings: ProSettings = {
   navTheme: 'light',
   layout: 'side',
   contentWidth: 'Fluid',
-  fixedHeader: false,
+  fixedHeader: true,
   fixSiderbar: true,
   iconfontUrl: '',
   colorPrimary: '#1677FF',

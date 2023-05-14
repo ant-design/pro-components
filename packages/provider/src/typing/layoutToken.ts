@@ -52,6 +52,7 @@ export type BaseLayoutDesignToken = {
    */
   header: {
     colorBgHeader: string;
+    colorBgScrollHeader: string;
     colorHeaderTitle: string;
     colorBgMenuItemHover: string;
     colorBgMenuItemSelected: string;
@@ -120,6 +121,7 @@ export const getLayoutDesignToken: (
     ...finalDesignTokens,
     header: {
       colorBgHeader: setAlpha(antdToken.colorBgElevated, 0.6),
+      colorBgScrollHeader: setAlpha(antdToken.colorBgElevated, 0.8),
       colorHeaderTitle: antdToken.colorText,
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: 'transparent',
