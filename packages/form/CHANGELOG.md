@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.11.7...@ant-design/pro-form@2.12.0) (2023-05-15)
 
-
 ### Bug Fixes
 
-* **form:** 修复form自定义组件过多卡顿的问题 ([#7018](https://github.com/ant-design/pro-components/issues/7018)) ([ca2e8e1](https://github.com/ant-design/pro-components/commit/ca2e8e1b618b86b48a130df6703ea34e65412079))
-
+- **form:** 修复 form 自定义组件过多卡顿的问题 ([#7018](https://github.com/ant-design/pro-components/issues/7018)) ([ca2e8e1](https://github.com/ant-design/pro-components/commit/ca2e8e1b618b86b48a130df6703ea34e65412079))
 
 ### Features
 
-* **form:** rewirte light date form ([#7052](https://github.com/ant-design/pro-components/issues/7052)) ([1cf4bfa](https://github.com/ant-design/pro-components/commit/1cf4bfa39858f03e1aadeb290d40ba8b82cdf170))
-
-
-
-
+- **form:** rewirte light date form ([#7052](https://github.com/ant-design/pro-components/issues/7052)) ([1cf4bfa](https://github.com/ant-design/pro-components/commit/1cf4bfa39858f03e1aadeb290d40ba8b82cdf170))
 
 ## [2.11.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.11.6...@ant-design/pro-form@2.11.7) (2023-05-08)
 

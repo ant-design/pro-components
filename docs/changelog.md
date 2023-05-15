@@ -1,4 +1,15 @@
-﻿## @ant-design/pro-components@2.4.14
+﻿## @ant-design/pro-components@2.4.15
+
+`2023-05-15`
+
+- fix(layout): support fix header scroll use new color (#7071). [#7071](https://github.com/ant-design/pro-components/pull/#7071) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(layout): set layout headermenu height to 40. [f50cfd2](https://github.com/ant-design/pro-components/commit/f50cfd2)
+- fix(form): 修复 form 自定义组件过多卡顿的问题 (#7018). [#7018](https://github.com/ant-design/pro-components/pull/#7018) [@ldwonday](https://github.com/ldwonday)
+- fix(form):ProFormList 支持更多类型 (#7051). [#7051](https://github.com/ant-design/pro-components/pull/#7051) [@leshalv](https://github.com/leshalv)
+- feat(form): rewirte light date form (#7052). [#7052](https://github.com/ant-design/pro-components/pull/#7052) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): 当设置了 digit 的 stringMode 为 true，但是组件没有返回 string (#7031). [#7031](https://github.com/ant-design/pro-components/pull/#7031) [@ldwonday](https://github.com/ldwonday)
+
+## @ant-design/pro-components@2.4.14
 
 `2023-05-08`
 

@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.6.7...@ant-design/pro-field@2.7.0) (2023-05-15)
 
-
 ### Bug Fixes
 
-* **form:** 当设置了digit的stringMode为true，但是组件没有返回string ([#7031](https://github.com/ant-design/pro-components/issues/7031)) ([5dddc32](https://github.com/ant-design/pro-components/commit/5dddc32cb8525c1333fa73e10f6e09ae1b12f14c))
-
+- **form:** 当设置了 digit 的 stringMode 为 true，但是组件没有返回 string ([#7031](https://github.com/ant-design/pro-components/issues/7031)) ([5dddc32](https://github.com/ant-design/pro-components/commit/5dddc32cb8525c1333fa73e10f6e09ae1b12f14c))
 
 ### Features
 
-* **form:** rewirte light date form ([#7052](https://github.com/ant-design/pro-components/issues/7052)) ([1cf4bfa](https://github.com/ant-design/pro-components/commit/1cf4bfa39858f03e1aadeb290d40ba8b82cdf170))
-
-
-
-
+- **form:** rewirte light date form ([#7052](https://github.com/ant-design/pro-components/issues/7052)) ([1cf4bfa](https://github.com/ant-design/pro-components/commit/1cf4bfa39858f03e1aadeb290d40ba8b82cdf170))
 
 ## [2.6.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.6.6...@ant-design/pro-field@2.6.7) (2023-05-08)
 
