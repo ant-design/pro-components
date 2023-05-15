@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.8.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.6...@ant-design/pro-provider@2.8.7) (2023-05-15)
+
+
+### Bug Fixes
+
+* **layout:** support fix header scroll use new color ([#7071](https://github.com/ant-design/pro-components/issues/7071)) ([55f15da](https://github.com/ant-design/pro-components/commit/55f15da73f35c705ab408654498e74fe6241aabe))
+
+
+
+
 
 ## [2.8.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.5...@ant-design/pro-provider@2.8.6) (2023-05-08)
 
