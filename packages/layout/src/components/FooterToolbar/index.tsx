@@ -60,12 +60,10 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   }, [value.collapsed, value.hasSiderMenu, value.isMobile, value.siderWidth]);
 
   const containerDom = useMemo(() => {
+    if (typeof window === undefined || typeof document === undefined)
+      return null;
     // 只读取一次就行了，不然总是的渲染
-    return (
-      getTargetContainer?.() ||
-      document.querySelector(`.${getPrefixCls('pro')}`) ||
-      document.body
-    );
+    return getTargetContainer?.() || document.body;
   }, []);
 
   const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
@@ -111,7 +109,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     </div>
   );
   const ssrDom =
-    !isBrowser() || !portalDom
+    !isBrowser() || !portalDom || !containerDom
       ? renderDom
       : createPortal(renderDom, containerDom, baseClassName);
 

@@ -1,7 +1,7 @@
 import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, Layout } from 'antd';
 import classNames from 'classnames';
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useStyle } from './style/header';
 import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
@@ -49,6 +49,10 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     headerContentRender,
   } = props;
   const { token } = useContext(ProProvider);
+  const context = useContext(ConfigProvider.ConfigContext);
+  const [isFixedHeaderScroll, setIsFixedHeaderScroll] = useState(false);
+  const needFixedHeader = fixedHeader || layout === 'mix';
+
   const renderContent = useCallback(() => {
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(props.menuData || []);
@@ -73,8 +77,33 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     }
     return defaultDom;
   }, [headerContentRender, headerRender, isMobile, layout, onCollapse, props]);
+  useEffect(() => {
+    const dom = context?.getTargetContainer?.() || document.body;
+    const isFixedHeaderFn = () => {
+      const scrollTop = dom.scrollTop;
 
-  const needFixedHeader = fixedHeader || layout === 'mix';
+      if (
+        scrollTop > (token?.layout?.header?.heightLayoutHeader || 56) &&
+        !scrollTop
+      ) {
+        setIsFixedHeaderScroll(true);
+        return true;
+      }
+      if (scrollTop) {
+        setIsFixedHeaderScroll(false);
+      }
+      return false;
+    };
+
+    if (!needFixedHeader) return;
+    if (typeof window === 'undefined') return;
+    dom.addEventListener('scroll', isFixedHeaderFn, {
+      passive: true,
+    });
+    return () => {
+      dom.removeEventListener('scroll', isFixedHeaderFn);
+    };
+  }, [token?.layout?.header?.heightLayoutHeader, needFixedHeader]);
 
   const isTop = layout === 'top';
   const baseClassName = `${prefixCls}-layout-header`;
@@ -87,6 +116,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
 
   const className = classNames(propsClassName, hashId, baseClassName, {
     [`${baseClassName}-fixed-header`]: needFixedHeader,
+    [`${baseClassName}-fixed-header-scroll`]: isFixedHeaderScroll,
     [`${baseClassName}-mix`]: layout === 'mix',
     [`${baseClassName}-fixed-header-action`]: !collapsed,
     [`${baseClassName}-top-menu`]: isTop,
