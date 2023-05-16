@@ -331,8 +331,6 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 
 该属性是 ProForm 在原有的 Antd 的 `FormInstance` 的基础上做的一个上层分装，增加了一些更加便捷的方法。使用方式如下：
 
-<code src="../demos/formRef.tsx" title="formRef的使用"></code>
-
 ```tsx | pure
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {
@@ -441,6 +439,4 @@ export default () => {
 | `getFieldFormatValue` | 使用方法与`FormInstance`的`getFieldValue`方法相同，将返回格式化后的指定数据 |  |
 | `validateFieldsReturnFormatValue` | 使用方法与`FormInstance`的`validateFields`方法相同，验证通过后将返回格式化后的所有数据 |  |
 
-<code src="../demos/modalform-test.tsx" title="modal-form-测试" debug></code>
 
-<code src="../demos/params-formref.tsx" title="formRef的使用" debug></code>
