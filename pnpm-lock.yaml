@@ -763,9 +763,6 @@ importers:
       rc-util:
         specifier: ^5.0.6
         version: 5.30.0(react-dom@18.2.0)(react@18.2.0)
-      react-sortable-hoc:
-        specifier: ^2.0.0
-        version: 2.0.0(react-dom@18.2.0)(react@18.2.0)
       swr:
         specifier: ^2.0.0
         version: 2.0.0(react@18.2.0)
@@ -5234,7 +5231,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.18.0
+      '@babel/runtime': 7.21.5
       rc-util: 5.30.0(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
