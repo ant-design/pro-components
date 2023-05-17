@@ -260,6 +260,10 @@ interface IValueEnum {
 }
 ```
 
+使用 Map 来让 valueEnum 更灵活，某些场景会用到 number 类型或者 boolean 类型，例如：
+
+<code src="./valueEnum-map.tsx" title="使用Map的valueEnum"></code>
+
 ## 远程数据
 
 支持组件 `Select`, `TreeSelect`, `Cascader`, `Checkbox`, `Radio`, `RadioButton`
