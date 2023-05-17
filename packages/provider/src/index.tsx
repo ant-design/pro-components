@@ -60,7 +60,7 @@ export type ProSchemaValueEnumType = {
  * @name ValueEnum 的类型
  */
 type ProSchemaValueEnumMap = Map<
-  string | number,
+  string | number | boolean,
   ProSchemaValueEnumType | React.ReactNode
 >;
 

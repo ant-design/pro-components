@@ -38,7 +38,7 @@ const FieldSegmented: ProFieldFC<
   if (mode === 'read') {
     const optionsValueEnum = options?.length
       ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value ?? '']: cur.label };
+          return { ...pre, [(cur.value as any) ?? '']: cur.label };
         }, {})
       : undefined;
 
