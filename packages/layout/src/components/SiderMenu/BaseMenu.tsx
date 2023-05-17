@@ -336,6 +336,7 @@ class MenuUtil {
           `${baseClassName}-icon ${this.props?.hashId}`,
         );
     const defaultIcon = collapsed && hasIcon ? getMenuTitleSymbol(name) : null;
+    console.log('name', name);
     let defaultItem = (
       <div
         key={itemPath}
@@ -349,13 +350,16 @@ class MenuUtil {
           },
         )}
       >
-        {icon ? (
-          <span className={`${baseClassName}-item-icon ${this.props?.hashId}`}>
-            {icon}
-          </span>
-        ) : (
-          defaultIcon
-        )}
+        <span
+          className={`${
+            icon
+              ? `${baseClassName}-item-icon`
+              : `${baseClassName}-item-hidden-icon`
+          } ${this.props?.hashId}`}
+        >
+          {icon || defaultIcon}
+        </span>
+
         <span
           className={classNames(
             `${baseClassName}-item-text`,
