@@ -85,7 +85,7 @@ describe('LightFilter', () => {
     });
 
     act(() => {
-      userEvent.click(container.querySelector('.anticon-close')!);
+      userEvent.click(container.querySelector('.anticon-close-circle')!);
     });
 
     await waitFor(() => {

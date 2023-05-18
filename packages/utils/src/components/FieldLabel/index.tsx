@@ -1,4 +1,4 @@
-import { CloseOutlined, DownOutlined } from '@ant-design/icons';
+import { CloseCircleFilled, DownOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
@@ -164,7 +164,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     >
       {getTextByValue(label, value)}
       {(value || value === 0) && allowClear && (
-        <CloseOutlined
+        <CloseCircleFilled
           role="button"
           title={intl.getMessage('form.lightFilter.clear', '清除')}
           className={classNames(
@@ -182,7 +182,11 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
       {downIcon !== false
         ? downIcon ?? (
             <DownOutlined
-              className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)}
+              className={classNames(
+                `${prefixCls}-icon`,
+                hashId,
+                `${prefixCls}-arrow`,
+              )}
             />
           )
         : null}
