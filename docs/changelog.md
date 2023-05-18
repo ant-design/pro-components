@@ -1,4 +1,13 @@
-﻿## @ant-design/pro-components@2.4.15
+﻿## @ant-design/pro-components@2.4.16
+
+`2023-05-18`
+
+- fix(layout): 修复因为 menu 不存在 icon 时候，收起的 tooltip 会多展示一个字的问题 (#7083). [#7083](https://github.com/ant-design/pro-components/pull/#7083) [@ONLY-yours](https://github.com/ONLY-yours)
+- feat(layout): ProSchemaValueEnumMap 类型 key 增加对 boolean 的支持 (#7081). [#7081](https://github.com/ant-design/pro-components/pull/#7081) [@hans000](https://github.com/hans000)
+- fix(form): LightFilter icon add color transition. [becd94e](https://github.com/ant-design/pro-components/commit/becd94e)
+- fix(form): fix LightFilter close icon style error. [38e5cd1](https://github.com/ant-design/pro-components/commit/38e5cd1)
+
+## @ant-design/pro-components@2.4.15
 
 `2023-05-15`
 
