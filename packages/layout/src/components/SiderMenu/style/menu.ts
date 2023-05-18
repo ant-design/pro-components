@@ -14,11 +14,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     ? token.layout?.header
     : token.layout?.sider;
   return {
-    [`${token.antCls}-tooltip`]: {
-      [`${token.componentCls}-item-hidden-icon`]: {
-        display: 'none !important',
-      },
-    },
     [`${token.componentCls}`]: {
       background: 'transparent',
       color: menuToken?.colorTextMenu,
