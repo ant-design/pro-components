@@ -100,7 +100,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
         [`&${token.componentCls}-item-collapsed-show-title`]: {
           lineHeight: '16px',
-          height: '48px',
+          gap: 0,
           [`&${token.componentCls}-item-title-collapsed`]: {
             display: 'flex',
             [`${token.componentCls}-item-icon`]: {
