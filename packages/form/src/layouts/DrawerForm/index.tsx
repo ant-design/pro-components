@@ -8,6 +8,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useImperativeHandle,
   useMemo,
   useRef,
   useState,
@@ -128,6 +129,10 @@ function DrawerForm<T = Record<string, any>>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propVisible, open]);
 
+  useImperativeHandle(rest.formRef, () => {
+    return formRef.current;
+  });
+
   const triggerDom = useMemo(() => {
     if (!trigger) {
       return null;
@@ -247,6 +252,15 @@ function DrawerForm<T = Record<string, any>>({
             layout="vertical"
             formRef={formRef}
             {...rest}
+            onInit={(_, form) => {
+              if (rest.formRef) {
+                (
+                  rest.formRef as React.MutableRefObject<ProFormInstance<T>>
+                ).current = form;
+              }
+              rest?.onInit?.(_, form);
+              formRef.current = form;
+            }}
             submitter={submitterConfig}
             onFinish={async (values) => {
               const result = await onFinishHandle(values);

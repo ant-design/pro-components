@@ -9,7 +9,7 @@ import type { FormProps } from 'antd';
 import { Form } from 'antd';
 import React, {
   useCallback,
-  useEffect,
+  useImperativeHandle,
   useMemo,
   useRef,
   useState,
@@ -75,16 +75,6 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   );
   const oldValuesRef = useRef<T>();
   const propsRef = useLatest(props);
-
-  useEffect(() => {
-    if (propsFormRef && formRef.current) {
-      (
-        propsFormRef as React.MutableRefObject<
-          ProFormInstance<any> | undefined | null
-        >
-      ).current = formRef.current;
-    }
-  }, [formRef.current]);
 
   /**
    * 生成子项，方便被 table 接入
@@ -215,10 +205,22 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     return {};
   }, [columns, layoutType]);
 
+  useImperativeHandle(propsFormRef, () => {
+    return formRef.current;
+  });
+
   return (
     <FormRenderComponents
       {...specificProps}
       {...restProps}
+      onInit={(_, form) => {
+        if (propsFormRef) {
+          (propsFormRef as React.MutableRefObject<ProFormInstance<T>>).current =
+            form;
+        }
+        restProps?.onInit?.(_, form);
+        formRef.current = form;
+      }}
       form={props.form || form}
       formRef={formRef}
       onValuesChange={onValuesChange}

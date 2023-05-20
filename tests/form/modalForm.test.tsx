@@ -1,7 +1,7 @@
 ﻿import { ModalForm, ProFormText } from '@ant-design/pro-form';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
-import { Button } from 'antd';
-import React from 'react';
+import { Button, FormInstance } from 'antd';
+import React, { createRef } from 'react';
 import { waitTime } from '../util';
 
 describe('ModalForm', () => {
@@ -27,6 +27,29 @@ describe('ModalForm', () => {
       await waitTime(100);
     });
     expect(fn).toBeCalledWith(true);
+  });
+
+  it('📦 ModelForm get formRef when use request', async () => {
+    const formRef = createRef<FormInstance>();
+    const wrapper = render(
+      <ModalForm
+        open
+        formRef={formRef}
+        request={async (params) => {
+          return params;
+        }}
+        params={{
+          name: 'test',
+        }}
+      >
+        <ProFormText label="名称" name="name" />
+      </ModalForm>,
+    );
+
+    await wrapper.findAllByText('名称');
+
+    expect(formRef.current?.getFieldValue('name')).toBe('test');
+    wrapper.unmount();
   });
 
   it('📦 submitter config no reset default config', async () => {

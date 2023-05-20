@@ -98,7 +98,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | Debounce time | `number` | 10 |
 | revalidateOnFocus | Automatically re-request when the window is focused | `boolean` | `false` |
-| columnsState | Column Status Control, you can operate the display hide | `ColumnsStateType` | - |
+| columnsState | Column Status Control, you can operate the display hide | `ColumnStateType` | - |
 
 #### RecordCreator
 

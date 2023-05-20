@@ -66,6 +66,13 @@ function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
 
         if (!context?.lastStep) context?.next();
       }}
+      onInit={(_, form) => {
+        formRef.current = form;
+        if (context && context?.formArrayRef) {
+          context.formArrayRef.current[step || 0] = formRef;
+        }
+        restProps?.onInit?.(_, form);
+      }}
       layout="vertical"
       {...restProps}
     />

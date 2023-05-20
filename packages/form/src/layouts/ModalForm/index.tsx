@@ -8,6 +8,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useImperativeHandle,
   useMemo,
   useRef,
   useState,
@@ -120,11 +121,9 @@ function ModalForm<T = Record<string, any>>({
     }
   }, [modalProps?.destroyOnClose, rest.form, rest.formRef]);
 
-  if (rest.formRef) {
-    (
-      rest.formRef as React.MutableRefObject<ProFormInstance<T> | undefined>
-    ).current = formRef.current;
-  }
+  useImperativeHandle(rest.formRef, () => {
+    return formRef.current;
+  });
 
   useEffect(() => {
     if (open && (propsOpen || propVisible)) {
@@ -261,6 +260,15 @@ function ModalForm<T = Record<string, any>>({
           formComponentType="ModalForm"
           layout="vertical"
           {...rest}
+          onInit={(_, form) => {
+            if (rest.formRef) {
+              (
+                rest.formRef as React.MutableRefObject<ProFormInstance<T>>
+              ).current = form;
+            }
+            rest?.onInit?.(_, form);
+            formRef.current = form;
+          }}
           formRef={formRef}
           submitter={submitterConfig}
           onFinish={async (values) => {
