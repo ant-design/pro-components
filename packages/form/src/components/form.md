@@ -198,7 +198,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 <code src="../demos/linkage-customization.tsx" debug></code>
 
-<code src="../demos/pro-form-dependency.debug.tsx" title="formRef的使用" debug></code>
+<code src="../demos/pro-form-dependency.debug.tsx"  debug></code>
 
 <code src="../demos/label-col.tsx" debug></code>
 
@@ -443,6 +443,6 @@ export default () => {
 | `getFieldFormatValue` | 使用方法与`FormInstance`的`getFieldValue`方法相同，将返回格式化后的指定数据 |  |
 | `validateFieldsReturnFormatValue` | 使用方法与`FormInstance`的`validateFields`方法相同，验证通过后将返回格式化后的所有数据 |  |
 
-<code src="../demos/modalform-test.tsx" title="modal-form-测试" debug></code>
+<code src="../demos/modalform-test.tsx"  debug></code>
 
-<code src="../demos/params-formref.tsx" title="formRef的使用" debug></code>
+<code src="../demos/params-formref.tsx"  debug></code>
