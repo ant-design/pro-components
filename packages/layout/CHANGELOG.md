@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.4...@ant-design/pro-layout@7.13.5) (2023-05-18)
+
+### Bug Fixes
+
+- **layout:** 修复因为 menu 不存在 icon 时候，收起的 tooltip 会多展示一个字的问题 ([#7083](https://github.com/ant-design/pro-components/issues/7083)) ([6a0ab90](https://github.com/ant-design/pro-components/commit/6a0ab90960c3372d8076ace89bb2ff638a8884d2))
+
 ## [7.13.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.3...@ant-design/pro-layout@7.13.4) (2023-05-15)
 
 ### Bug Fixes

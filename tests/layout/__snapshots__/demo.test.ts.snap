@@ -3789,6 +3789,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
+                        class="ant-pro-base-menu-inline-item-icon "
+                        style="display: none;"
+                      >
+                        <span
+                          class="anticon"
+                        />
+                      </span>
+                      <span
                         class="ant-pro-base-menu-inline-item-text"
                       >
                         首页
@@ -3884,6 +3892,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                               class="ant-pro-base-menu-inline-item-title"
                             >
                               <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
+                              <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
                                 月表
@@ -3904,6 +3920,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                             <div
                               class="ant-pro-base-menu-inline-item-title"
                             >
+                              <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
                               <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
@@ -3965,6 +3989,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                               class="ant-pro-base-menu-inline-item-title"
                             >
                               <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
+                              <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
                                 月表
@@ -3985,6 +4017,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                             <div
                               class="ant-pro-base-menu-inline-item-title"
                             >
+                              <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
                               <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
@@ -4252,6 +4292,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
+                        class="ant-pro-base-menu-inline-item-icon "
+                        style="display: none;"
+                      >
+                        <span
+                          class="anticon"
+                        />
+                      </span>
+                      <span
                         class="ant-pro-base-menu-inline-item-text"
                       >
                         欢迎
@@ -4309,6 +4357,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
@@ -4647,6 +4703,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
+                        class="ant-pro-base-menu-inline-item-icon "
+                        style="display: none;"
+                      >
+                        <span
+                          class="anticon"
+                        />
+                      </span>
+                      <span
                         class="ant-pro-base-menu-inline-item-text"
                       >
                         首页
@@ -4742,6 +4806,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                               class="ant-pro-base-menu-inline-item-title"
                             >
                               <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
+                              <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
                                 月表
@@ -4762,6 +4834,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                             <div
                               class="ant-pro-base-menu-inline-item-title"
                             >
+                              <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
                               <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
@@ -4823,6 +4903,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                               class="ant-pro-base-menu-inline-item-title"
                             >
                               <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
+                              <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
                                 月表
@@ -4843,6 +4931,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                             <div
                               class="ant-pro-base-menu-inline-item-title"
                             >
+                              <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
                               <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
@@ -4906,6 +5002,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             概述导出
@@ -4966,6 +5070,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             odps同步导入
@@ -4986,6 +5098,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
@@ -5633,6 +5753,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
+                        class="ant-pro-base-menu-inline-item-icon "
+                        style="display: none;"
+                      >
+                        <span
+                          class="anticon"
+                        />
+                      </span>
+                      <span
                         class="ant-pro-base-menu-inline-item-text"
                       >
                         首页
@@ -5768,6 +5896,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             概述导出
@@ -5817,6 +5953,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             odps同步导入
@@ -5837,6 +5981,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
@@ -6158,6 +6310,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             产品配置
@@ -6178,6 +6338,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
@@ -6200,6 +6368,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             产品模板管理
@@ -6221,6 +6397,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             配置项模板管理
@@ -6241,6 +6425,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
@@ -6836,6 +7028,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                               class="ant-pro-base-menu-inline-item-title"
                             >
                               <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
+                              <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
                                 首页
@@ -7289,6 +7489,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-pro-base-menu-horizontal-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-horizontal-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-horizontal-item-text"
                           >
                             首页
@@ -7483,6 +7691,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                             <div
                               class="ant-pro-base-menu-inline-item-title"
                             >
+                              <span
+                                class="ant-pro-base-menu-inline-item-icon "
+                                style="display: none;"
+                              >
+                                <span
+                                  class="anticon"
+                                />
+                              </span>
                               <span
                                 class="ant-pro-base-menu-inline-item-text"
                               >
@@ -7990,6 +8206,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                           <div
                             class="ant-pro-base-menu-inline-item-title"
                           >
+                            <span
+                              class="ant-pro-base-menu-inline-item-icon "
+                              style="display: none;"
+                            >
+                              <span
+                                class="anticon"
+                              />
+                            </span>
                             <span
                               class="ant-pro-base-menu-inline-item-text"
                             >
@@ -15930,6 +16154,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
+                                <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
                                   一一级列表页面
@@ -15953,6 +16185,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
+                                <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
                                   一二级列表页面
@@ -15975,6 +16215,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                               <div
                                 class="ant-pro-base-menu-inline-item-title"
                               >
+                                <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
                                 <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
@@ -17607,6 +17855,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             一一级列表页面
@@ -17630,6 +17886,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             一二级列表页面
@@ -17652,6 +17916,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
@@ -18179,6 +18451,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             一一级列表页面
@@ -18202,6 +18482,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             一二级列表页面
@@ -18224,6 +18512,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
@@ -20735,6 +21031,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
+                                <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
                                   一一级列表页面
@@ -20758,6 +21062,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
+                                <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
                                   一二级列表页面
@@ -20780,6 +21092,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                               <div
                                 class="ant-pro-base-menu-inline-item-title"
                               >
+                                <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
                                 <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
@@ -23172,6 +23492,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                             class="ant-pro-base-menu-inline-item-title"
                           >
                             <span
+                              class="ant-pro-base-menu-inline-item-icon "
+                              style="display: none;"
+                            >
+                              <span
+                                class="anticon"
+                              />
+                            </span>
+                            <span
                               class="ant-pro-base-menu-inline-item-text"
                             >
                               two
@@ -23196,6 +23524,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                   <div
                     class="ant-pro-base-menu-inline-item-title"
                   >
+                    <span
+                      class="ant-pro-base-menu-inline-item-icon "
+                      style="display: none;"
+                    >
+                      <span
+                        class="anticon"
+                      />
+                    </span>
                     <span
                       class="ant-pro-base-menu-inline-item-text"
                     >
@@ -23550,6 +23886,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
+                          class="ant-pro-base-menu-inline-item-icon "
+                          style="display: none;"
+                        >
+                          <span
+                            class="anticon"
+                          />
+                        </span>
+                        <span
                           class="ant-pro-base-menu-inline-item-text"
                         >
                           默认错误
@@ -23572,6 +23916,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
                       <div
                         class="ant-pro-base-menu-inline-item-title"
                       >
+                        <span
+                          class="ant-pro-base-menu-inline-item-icon "
+                          style="display: none;"
+                        >
+                          <span
+                            class="anticon"
+                          />
+                        </span>
                         <span
                           class="ant-pro-base-menu-inline-item-text"
                         >
@@ -31710,6 +32062,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
+                        class="ant-pro-base-menu-inline-item-icon "
+                        style="display: none;"
+                      >
+                        <span
+                          class="anticon"
+                        />
+                      </span>
+                      <span
                         class="ant-pro-base-menu-inline-item-text"
                       >
                         首页
@@ -32348,6 +32708,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
+                                <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
                                   一一级列表页面
@@ -32371,6 +32739,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                                 class="ant-pro-base-menu-inline-item-title"
                               >
                                 <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
+                                <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
                                   一二级列表页面
@@ -32393,6 +32769,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                               <div
                                 class="ant-pro-base-menu-inline-item-title"
                               >
+                                <span
+                                  class="ant-pro-base-menu-inline-item-icon "
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
                                 <span
                                   class="ant-pro-base-menu-inline-item-text"
                                 >
@@ -32419,6 +32803,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                             class="ant-pro-base-menu-inline-item-title"
                           >
                             <span
+                              class="ant-pro-base-menu-inline-item-icon "
+                              style="display: none;"
+                            >
+                              <span
+                                class="anticon"
+                              />
+                            </span>
+                            <span
                               class="ant-pro-base-menu-inline-item-text"
                             >
                               二级列表页面
@@ -32441,6 +32833,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                           <div
                             class="ant-pro-base-menu-inline-item-title"
                           >
+                            <span
+                              class="ant-pro-base-menu-inline-item-icon "
+                              style="display: none;"
+                            >
+                              <span
+                                class="anticon"
+                              />
+                            </span>
                             <span
                               class="ant-pro-base-menu-inline-item-text"
                             >
@@ -36291,6 +36691,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             一一级列表页面
@@ -36314,6 +36722,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
+                          <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
                             一二级列表页面
@@ -36336,6 +36752,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >
@@ -36805,6 +37229,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
+                        class="ant-pro-base-menu-inline-item-icon "
+                        style="display: none;"
+                      >
+                        <span
+                          class="anticon"
+                        />
+                      </span>
+                      <span
                         class="ant-pro-base-menu-inline-item-text"
                       >
                         欢迎
@@ -36862,6 +37294,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                         <div
                           class="ant-pro-base-menu-inline-item-title"
                         >
+                          <span
+                            class="ant-pro-base-menu-inline-item-icon "
+                            style="display: none;"
+                          >
+                            <span
+                              class="anticon"
+                            />
+                          </span>
                           <span
                             class="ant-pro-base-menu-inline-item-text"
                           >

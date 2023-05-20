@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.7.0...@ant-design/pro-field@2.8.0) (2023-05-18)
+
+### Features
+
+- **layout:** ProSchemaValueEnumMap 类型 key 增加对 boolean 的支持 ([#7081](https://github.com/ant-design/pro-components/issues/7081)) ([278a2eb](https://github.com/ant-design/pro-components/commit/278a2eb7b71ecf753c6bfeabd4019c0560de19c5))
+
 # [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.6.7...@ant-design/pro-field@2.7.0) (2023-05-15)
 
 ### Bug Fixes

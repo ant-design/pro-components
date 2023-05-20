@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.9.0...@ant-design/pro-utils@2.10.0) (2023-05-18)
+
+### Bug Fixes
+
+- **form:** fix LigthFilter close icon style error ([38e5cd1](https://github.com/ant-design/pro-components/commit/38e5cd1aa9c5b46570515a3c390d4f297fd860ed))
+- **form:** LigthFilter icon add color transition ([becd94e](https://github.com/ant-design/pro-components/commit/becd94edb7eda974b700c9bc0a49992e11ad99e9))
+
+### Features
+
+- **layout:** ProSchemaValueEnumMap 类型 key 增加对 boolean 的支持 ([#7081](https://github.com/ant-design/pro-components/issues/7081)) ([278a2eb](https://github.com/ant-design/pro-components/commit/278a2eb7b71ecf753c6bfeabd4019c0560de19c5))
+
 # [2.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.8.7...@ant-design/pro-utils@2.9.0) (2023-05-15)
 
 ### Features

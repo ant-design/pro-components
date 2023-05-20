@@ -23,7 +23,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       },
       '&-active': {
         paddingBlock: 0,
-        paddingInline: 12,
+        paddingInline: 8,
         backgroundColor: token.colorBgTextHover,
         [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]:
           {
@@ -35,25 +35,30 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             },
           },
       },
+      [`${token.antCls}-select`]: {
+        [`${token.antCls}-select-clear`]: {
+          borderRadius: '50%',
+        },
+      },
+      [`${token.antCls}-picker`]: {
+        [`${token.antCls}-picker-clear`]: {
+          borderRadius: '50%',
+        },
+      },
       '&-icon': {
         paddingBlock: 1,
         paddingInline: 1,
         color: token.colorIcon,
-        fontSize: '12px',
+        transition: 'color 0.3s',
+        fontSize: 14,
         verticalAlign: 'middle',
         [`&${token.componentCls}-close`]: {
           display: 'none',
-          height: 12,
+          fontSize: 14,
           alignItems: 'center',
           justifyContent: 'center',
-          width: 12,
-          color: token.colorBgContainer,
-          fontSize: 8,
-          backgroundColor: token.colorTextPlaceholder,
+          color: token.colorTextPlaceholder,
           borderRadius: '50%',
-          '&:hover': {
-            backgroundColor: token.colorIcon,
-          },
         },
       },
       '&-disabled': {
@@ -87,7 +92,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-bordered': {
         height: '32px',
         paddingBlock: 0,
-        paddingInline: 12,
+        paddingInline: 8,
         border: `${token.lineWidth}px solid ${token.colorBorder}`,
         borderRadius: '@border-radius-base',
       },
