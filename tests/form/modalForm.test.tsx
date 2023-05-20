@@ -1,6 +1,7 @@
 ﻿import { ModalForm, ProFormText } from '@ant-design/pro-form';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
-import { Button, FormInstance } from 'antd';
+import type { FormInstance } from 'antd';
+import { Button } from 'antd';
 import React, { createRef } from 'react';
 import { waitTime } from '../util';
 

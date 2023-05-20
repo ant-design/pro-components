@@ -213,13 +213,13 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     <FormRenderComponents
       {...specificProps}
       {...restProps}
-      onInit={(_, form) => {
+      onInit={(_, initForm) => {
         if (propsFormRef) {
           (propsFormRef as React.MutableRefObject<ProFormInstance<T>>).current =
-            form;
+            initForm;
         }
-        restProps?.onInit?.(_, form);
-        formRef.current = form;
+        restProps?.onInit?.(_, initForm);
+        formRef.current = initForm;
       }}
       form={props.form || form}
       formRef={formRef}
