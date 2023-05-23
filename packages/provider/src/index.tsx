@@ -291,11 +291,11 @@ const ConfigProviderContainer: React.FC<{
     }
     if (proProvide.hashed === false) return '';
     //Fix issue with hashId code
-    if (isNeedOpenHash() !== false) {
-      return nativeHashId;
+    if (isNeedOpenHash() === false) {
+      return '';
     } else {
       // 生产环境或其他环境
-      return '';
+      return nativeHashId;
     }
   }, [nativeHashId, proProvide.hashed, props.hashed]);
 
@@ -304,9 +304,9 @@ const ConfigProviderContainer: React.FC<{
       ...restConfig.theme,
       hashId: hashId,
       hashed:
-        isNeedOpenHash() &&
         props.hashed !== false &&
-        proProvide.hashed !== false,
+        proProvide.hashed !== false &&
+        isNeedOpenHash(),
     };
     return (
       <AntdConfigProvider {...restConfig} theme={{ ...themeConfig }}>
