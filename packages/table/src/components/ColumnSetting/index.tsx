@@ -418,8 +418,8 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const clearClick = useRefFunction(() => {
     clearPersistenceStorage?.();
     setColumnsMap(
-      columnRef.current ||
-        counter.propsRef.current?.columnsState?.defaultValue ||
+      counter.propsRef.current?.columnsState?.defaultValue ||
+        columnRef.current ||
         counter.defaultColumnKeyMap!,
     );
   });
