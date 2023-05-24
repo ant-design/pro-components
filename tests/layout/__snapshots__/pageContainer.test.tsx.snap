@@ -127,11 +127,6 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
                 class="ant-spin-dot-item"
               />
             </span>
-            <div
-              class="ant-spin-text"
-            >
-              加载中
-            </div>
           </div>
         </div>
       </div>

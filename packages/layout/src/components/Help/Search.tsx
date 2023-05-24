@@ -140,7 +140,7 @@ export const ProHelpSelect: React.FC<
           filterOption={(input, option) =>
             (option?.title ?? '').toLowerCase().includes(input.toLowerCase())
           }
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
           options={dataSource.map((item) => {
             return {
               label: (

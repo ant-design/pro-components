@@ -377,7 +377,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
     showArrow: false,
     filterTreeNode: true,
     showSearch: true,
-    dropdownMatchSelectWidth: false,
+    popupMatchSelectWidth: false,
     labelInValue: true,
     autoClearSearchValue: true,
     multiple: true,

@@ -163,7 +163,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             setOpen(isOpen);
           }}
           ref={treeSelectRef}
-          dropdownMatchSelectWidth={!light}
+          popupMatchSelectWidth={!light}
           placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
           tagRender={
             light

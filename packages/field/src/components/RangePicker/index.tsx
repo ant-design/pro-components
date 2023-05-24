@@ -45,6 +45,7 @@ const FieldRangePicker: ProFieldFC<
 
   const [startText, endText] = Array.isArray(text) ? text : [];
   const [open, setOpen] = React.useState<boolean>(false);
+  // antd 改了一下 交互，这里要兼容一下，不然会导致无法选中第二个数据
   const genFormatText = useCallback(
     (formatValue: dayjs.Dayjs) => {
       if (typeof fieldProps?.format === 'function') {
@@ -101,7 +102,6 @@ const FieldRangePicker: ProFieldFC<
                 picker={picker}
                 showTime={showTime}
                 format={format}
-                ref={ref}
                 bordered={false}
                 {...fieldProps}
                 placeholder={
@@ -110,10 +110,13 @@ const FieldRangePicker: ProFieldFC<
                     intl.getMessage('tableForm.selectPlaceholder', '请选择'),
                   ]
                 }
+                onClear={() => {
+                  setOpen(false);
+                  fieldProps?.onClear?.();
+                }}
                 value={dayValue}
-                open={open}
                 onOpenChange={(isOpen) => {
-                  setOpen(isOpen);
+                  if (dayValue) setOpen(isOpen);
                   fieldProps?.onOpenChange?.(isOpen);
                 }}
               />

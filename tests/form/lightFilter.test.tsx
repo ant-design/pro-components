@@ -554,7 +554,7 @@ describe('LightFilter', () => {
             setTimeout(() => {
               onFinish(e);
               resolve(true);
-            }, 1000);
+            }, 100);
           });
         }}
         onLoadingChange={(e) => {
@@ -579,8 +579,9 @@ describe('LightFilter', () => {
       container.querySelector('.ant-pro-core-field-label'),
     ).toHaveTextContent('日期范围');
 
+    const dom = await screen.findByText('日期范围');
     await act(async () => {
-      userEvent.click(await screen.findByText('日期范围'));
+      userEvent.click(dom);
     });
 
     await waitFor(
@@ -622,10 +623,28 @@ describe('LightFilter', () => {
       );
     });
 
+    act(() => {
+      userEvent.click(
+        screen.getAllByPlaceholderText('请选择')[1]!.parentElement!,
+      );
+    });
+
+    act(() => {
+      userEvent.click(
+        baseElement.querySelectorAll('.ant-picker-cell-inner')[2],
+      );
+    });
+
+    act(() => {
+      userEvent.click(
+        baseElement.querySelectorAll('.ant-picker-cell-inner')[12],
+      );
+    });
+
     await act(async () => {
       userEvent.click(
         await baseElement.querySelector(
-          '.ant-pro-core-dropdown-footer .ant-btn-primary',
+          '.ant-picker-ranges .ant-picker-ok .ant-btn-primary',
         )!,
       );
     });
@@ -659,8 +678,10 @@ describe('LightFilter', () => {
     // 等待20s，等待loading消失
     await waitFor(() => {
       expect(
-        container.querySelector('.ant-pro-core-field-label')?.textContent,
-      ).toBe('日期范围: ');
+        container
+          .querySelector('.ant-pro-core-field-label')
+          ?.textContent?.includes('日期范围: '),
+      ).toBeTruthy();
     });
 
     await screen.findByDisplayValue('2016-11-01');

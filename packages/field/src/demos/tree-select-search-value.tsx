@@ -88,7 +88,7 @@ export default function App() {
             showArrow: false,
             filterTreeNode: true,
             showSearch: true, // 使单选模式可搜索
-            dropdownMatchSelectWidth: false,
+            popupMatchSelectWidth: false,
             searchValue,
             labelInValue: true,
             autoClearSearchValue: true,
@@ -117,7 +117,7 @@ export default function App() {
             showArrow: false,
             filterTreeNode: true,
             showSearch: true, // 使单选模式可搜索
-            dropdownMatchSelectWidth: false,
+            popupMatchSelectWidth: false,
             labelInValue: true,
             autoClearSearchValue: true,
             multiple: true,

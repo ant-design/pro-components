@@ -7,6 +7,12 @@ function closePicker(container: HTMLElement, index = 0) {
   fireEvent.blur(input);
 }
 
+export function openPicker(container: HTMLElement, index = 0) {
+  const input = container.querySelectorAll('input')[index];
+  fireEvent.mouseDown(input);
+  fireEvent.focus(input);
+}
+
 describe('Field', () => {
   const datePickList = [
     'date',
@@ -53,7 +59,6 @@ describe('Field', () => {
       await waitFor(() => {
         expect(openChangeFn).toBeCalledWith(false);
       });
-
       await act(async () => {
         await fireEvent.mouseDown(
           container.querySelector('.ant-picker-clear')!,
@@ -83,7 +88,7 @@ describe('Field', () => {
   ];
   dateRangePickList.forEach((valueType) => {
     it(`📅 ${valueType} base use`, async () => {
-      const fn = jest.fn();
+      const onChangeFn = jest.fn();
       const openChangeFn = jest.fn();
       const { container } = render(
         <Field
@@ -93,7 +98,7 @@ describe('Field', () => {
             value: [dayjs(), dayjs().add(1, 'd')],
             onOpenChange: openChangeFn,
           }}
-          onChange={fn}
+          onChange={onChangeFn}
           text="100"
           light
           valueType={valueType as 'date'}
@@ -111,11 +116,11 @@ describe('Field', () => {
       });
 
       act(() => {
-        closePicker(container);
+        openPicker(container, 1);
       });
 
-      await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(false);
+      act(() => {
+        closePicker(container);
       });
 
       await act(async () => {
@@ -125,9 +130,13 @@ describe('Field', () => {
         await fireEvent.mouseUp(container.querySelector('.ant-picker-clear')!);
       });
 
+      await waitFor(() => {
+        expect(openChangeFn).toBeCalledWith(false);
+      });
+
       await waitFor(
         () => {
-          expect(fn).toBeCalled();
+          expect(onChangeFn).toBeCalled();
         },
         {
           timeout: 1000,
