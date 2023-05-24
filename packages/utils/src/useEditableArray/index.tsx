@@ -379,7 +379,7 @@ export function SaveEditableAction<T>(
         e.preventDefault();
         try {
           await save();
-        } catch {}
+        } catch { }
       }}
     >
       {loading ? (
@@ -595,15 +595,15 @@ export function useEditableArray<RecordType>(
     value: props.editableKeys,
     onChange: props.onChange
       ? (keys) => {
-          props?.onChange?.(
-            // 计算编辑的key
-            keys?.filter((key) => key !== undefined) ?? [],
-            // 计算编辑的行
-            keys
-              ?.map((key) => getRecordByKey(key))
-              .filter((key) => key !== undefined) ?? [],
-          );
-        }
+        props?.onChange?.(
+          // 计算编辑的key
+          keys?.filter((key) => key !== undefined) ?? [],
+          // 计算编辑的行
+          keys
+            ?.map((key) => getRecordByKey(key))
+            .filter((key) => key !== undefined) ?? [],
+        );
+      }
       : undefined,
   });
 
@@ -756,9 +756,9 @@ export function useEditableArray<RecordType>(
         recordKeyToString(recordKey),
       )
         ? dataSource.find((item, index) => {
-            const key = props.getRowKey(item, index)?.toString();
-            return key === recordKey;
-          })
+          const key = props.getRowKey(item, index)?.toString();
+          return key === recordKey;
+        })
         : newLineRecordData;
 
       propsOnValuesChange.run(editRow || newLineRecordData, dataSource);
@@ -935,11 +935,11 @@ export function useEditableArray<RecordType>(
         getRowKey: props.getRowKey,
         row: options
           ? {
-              ...editRow,
-              map_row_parentKey: recordKeyToString(
-                options?.parentKey ?? '',
-              )?.toString(),
-            }
+            ...editRow,
+            map_row_parentKey: recordKeyToString(
+              options?.parentKey ?? '',
+            )?.toString(),
+          }
           : editRow,
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
@@ -969,7 +969,8 @@ export function useEditableArray<RecordType>(
         childrenColumnName: props.childrenColumnName || 'children',
       };
       const res = await props?.onDelete?.(recordKey, editRow);
-      await cancelEditable(recordKey);
+      // 不传递 false时，重新form.setFieldsValue同一份静态数据，会导致该行始终处于不可编辑状态
+      await cancelEditable(recordKey, false);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
 
       return res;
@@ -1022,7 +1023,7 @@ export function useEditableArray<RecordType>(
     if (props.tableName) {
       saveRefsMap.current.set(
         dataSourceKeyIndexMapRef.current.get(recordKeyToString(key)) ||
-          recordKeyToString(key),
+        recordKeyToString(key),
         renderResult.saveRef,
       );
     } else {
