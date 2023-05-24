@@ -37,7 +37,7 @@ export type ListViewProps<RecordType> = Omit<
     TableProps<RecordType>,
     'columns' | 'dataSource' | 'expandable' | 'pagination'
   > & {
-    rowKey?: string | GetRowKey<RecordType>;
+    rowKey?: string | keyof RecordType | GetRowKey<RecordType>;
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     rowSelection?: TableRowSelection<RecordType>;
