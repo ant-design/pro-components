@@ -45,7 +45,7 @@ const { yParser } = require('@umijs/utils');
         bugs: 'http://github.com/umijs/plugins/issues',
         homepage: `https://github.com/ant-design/pro-components/tree/master/packages/${shortName}#readme`,
         peerDependencies: {
-          umi: '3.x',
+          umi: '4.x',
         },
         publishConfig: {
           access: 'public',
