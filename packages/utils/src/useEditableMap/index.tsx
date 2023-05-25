@@ -154,7 +154,7 @@ export function useEditableMap<RecordType>(
     if (success === false) {
       return false;
     }
-    cancelEditable(recordKey);
+    await cancelEditable(recordKey);
     const actionProps = {
       data: props.dataSource,
       row: editRow,

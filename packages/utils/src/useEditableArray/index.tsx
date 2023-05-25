@@ -479,7 +479,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
           form.getFieldValue(namePath);
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
-        cancelEditable(recordKey);
+        await cancelEditable(recordKey);
         /** 重置为默认值，不然编辑的行会丢掉 */
         form.setFieldsValue({
           [recordKey as React.Key]: isMapEditor ? get(row, namePath) : row,
@@ -918,7 +918,7 @@ export function useEditableArray<RecordType>(
       newLine?: NewLineConfig<RecordType>,
     ) => {
       // 保存时解除编辑模式,这个要提前一下不然数据会被清空
-      cancelEditable(recordKey);
+      await cancelEditable(recordKey);
 
       const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
       const { options } = newLine || newLineRecordRef.current || {};
