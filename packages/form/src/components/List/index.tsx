@@ -217,6 +217,8 @@ function ProFormList<T>(props: ProFormListProps<T>) {
           tooltip={tooltip}
           style={style}
           required={rules?.some((rule) => rule.required)}
+          wrapperCol={wrapperCol}
+          className={className}
           {...rest}
           name={isValidateList ? name : undefined}
           rules={
