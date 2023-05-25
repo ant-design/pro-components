@@ -34,7 +34,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     actionsRender,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const { dark, token } = useContext(ProProvider);
+  const { dark } = useContext(ProProvider);
 
   const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
 
