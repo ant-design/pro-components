@@ -1,13 +1,13 @@
 import { useRefFunction } from '@ant-design/pro-utils';
 import type { TableComponents } from 'rc-table/lib/interface';
 import { CSS } from '@dnd-kit/utilities';
+import type { DragEndEvent } from '@dnd-kit/core';
 import {
   DndContext,
   closestCenter,
   PointerSensor,
   useSensor,
   useSensors,
-  DragEndEvent,
 } from '@dnd-kit/core';
 import {
   arrayMove,
@@ -28,7 +28,7 @@ function SortableItem(props: any) {
   };
   const { DragHandle, dragSortKey, children, ...rest } = props;
   if (DragHandle) {
-    let doms: React.ReactNode[] = [];
+    const doms: React.ReactNode[] = [];
     React.Children.forEach(children, (child: any) => {
       if (child.key === dragSortKey) {
         doms.push(
@@ -160,14 +160,14 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
   }
 
   return {
-    DndContext: (props: any) => {
+    DndContext: (contextProps: any) => {
       return (
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
           onDragEnd={handleDragEnd}
         >
-          {props.children}
+          {contextProps.children}
         </DndContext>
       );
     },

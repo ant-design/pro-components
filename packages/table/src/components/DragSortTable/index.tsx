@@ -46,8 +46,8 @@ function DragSortTable<
 
   // 默认拖拽把手
   const DragHandle = useMemo(() => {
-    return (props: any) => {
-      const { rowData, index, className, ...rest } = props;
+    return (dragHandleProps: any) => {
+      const { rowData, index, className, ...rest } = dragHandleProps;
       const defaultDom = (
         <HolderOutlined
           {...rest}
@@ -57,7 +57,10 @@ function DragSortTable<
         />
       );
       const handel = dragSortHandlerRender
-        ? dragSortHandlerRender(props?.rowData, props?.index)
+        ? dragSortHandlerRender(
+            dragHandleProps?.rowData,
+            dragHandleProps?.index,
+          )
         : defaultDom;
       return <>{handel}</>;
     };

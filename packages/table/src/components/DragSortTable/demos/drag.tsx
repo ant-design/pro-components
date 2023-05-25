@@ -1,4 +1,5 @@
-import { DragSortTable, ProColumns } from '@ant-design/pro-components';
+import type { ProColumns } from '@ant-design/pro-components';
+import { DragSortTable } from '@ant-design/pro-components';
 import { message } from 'antd';
 import { useState } from 'react';
 

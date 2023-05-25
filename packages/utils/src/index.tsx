@@ -1,4 +1,3 @@
-import { arrayMoveImmutable } from './array-move';
 import { DropdownFooter } from './components/DropdownFooter';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { FieldLabel } from './components/FieldLabel';
@@ -94,7 +93,6 @@ export {
   FilterDropdown,
   menuOverlayCompatible,
   FieldLabel,
-  arrayMoveImmutable,
   InlineErrorFormItem,
   DropdownFooter,
   ErrorBoundary,

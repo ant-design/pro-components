@@ -1,4 +1,4 @@
-import { act, fireEvent, waitFor } from '@testing-library/react';
+import { waitFor } from '@testing-library/react';
 
 export const waitTimePromise = async (time: number = 100) => {
   return new Promise((resolve) => {
