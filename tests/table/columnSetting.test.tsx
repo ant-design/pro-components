@@ -734,6 +734,96 @@ describe('Table ColumnSetting', () => {
     });
   });
 
+  it('🎏 columnSetting click Reset and reset when columnsState.value and columnsState.defaultValue also exist', async () => {
+    const onChange = jest.fn();
+    const html = render(
+      <ProTable
+        size="small"
+        columnsState={{
+          value: {
+            age: { show: true },
+            name: { show: true },
+            option: { show: true },
+          },
+          onChange,
+          defaultValue: {
+            age: { show: false },
+            name: { show: false },
+            option: { show: true },
+          },
+        }}
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+          {
+            title: 'age',
+            key: 'age',
+            dataIndex: 'age',
+          },
+          {
+            title: 'option',
+            key: 'option',
+            dataIndex: 'option',
+          },
+        ]}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitTime(200);
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitTime(100);
+    expect(
+      html.baseElement.querySelectorAll<HTMLDivElement>(
+        'span.ant-tree-checkbox.ant-tree-checkbox-checked',
+      ).length,
+    ).toBe(3);
+
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>(
+          `.ant-pro-table-column-setting-action-rest-button`,
+        )
+        ?.click();
+    });
+
+    expect(onChange).toBeCalledTimes(1);
+    expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
+      {
+        "age": {
+          "show": false,
+        },
+        "name": {
+          "show": false,
+        },
+        "option": {
+          "show": true,
+        },
+      }
+    `);
+  });
+
   it('🎏 columnsState use the column key or dataIndex as index name', async () => {
     const onChange = jest.fn();
     const html = render(
