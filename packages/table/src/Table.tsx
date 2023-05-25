@@ -552,7 +552,7 @@ const ProTable = <
     ],
     debounceTime: props.debounceTime,
     onPageInfoChange: (pageInfo) => {
-      if (type === 'list' || !propsPagination || !fetchData) return;
+      if (!propsPagination || !fetchData) return;
 
       // 总是触发一下 onChange 和  onShowSizeChange
       // 目前只有 List 和 Table 支持分页, List 有分页的时候打断 Table 的分页
