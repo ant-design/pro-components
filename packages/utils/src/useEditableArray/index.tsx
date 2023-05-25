@@ -969,7 +969,8 @@ export function useEditableArray<RecordType>(
         childrenColumnName: props.childrenColumnName || 'children',
       };
       const res = await props?.onDelete?.(recordKey, editRow);
-      await cancelEditable(recordKey);
+      // 不传递 false时，重新form.setFieldsValue同一份静态数据，会导致该行始终处于不可编辑状态
+      await cancelEditable(recordKey,false);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
 
       return res;
