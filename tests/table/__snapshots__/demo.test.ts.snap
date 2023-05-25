@@ -459,7 +459,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
               <div
                 class="ant-pro-table-list-toolbar-title "
               >
-                拖拽排序
+                拖拽排序(默认把手)
               </div>
             </div>
             <div
@@ -608,32 +608,45 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         class="ant-table-tbody"
                       >
                         <tr
-                          data-row-key="0"
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="1"
+                          id="0"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell drag-visible"
                           >
-                            <span
-                              aria-label="menu"
-                              class="anticon anticon-menu"
-                              role="img"
-                              style="cursor: grab; color: rgb(153, 153, 153);"
+                            <div
+                              style="display: flex; align-items: center;"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="menu"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                aria-describedby="DndDescribedBy-4"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
-                                <path
-                                  d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                                />
-                              </svg>
-                            </span>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="holder"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
                           </td>
+                          <td
+                            class="ant-table-cell drag-visible"
+                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -651,32 +664,45 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                           </td>
                         </tr>
                         <tr
-                          data-row-key="1"
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="2"
+                          id="1"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell drag-visible"
                           >
-                            <span
-                              aria-label="menu"
-                              class="anticon anticon-menu"
-                              role="img"
-                              style="cursor: grab; color: rgb(153, 153, 153);"
+                            <div
+                              style="display: flex; align-items: center;"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="menu"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                aria-describedby="DndDescribedBy-4"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
-                                <path
-                                  d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                                />
-                              </svg>
-                            </span>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="holder"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
                           </td>
+                          <td
+                            class="ant-table-cell drag-visible"
+                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -694,32 +720,45 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                           </td>
                         </tr>
                         <tr
-                          data-row-key="2"
+                          class="ant-table-row ant-table-row-level-0"
+                          data-row-key="3"
+                          id="2"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell drag-visible"
                           >
-                            <span
-                              aria-label="menu"
-                              class="anticon anticon-menu"
-                              role="img"
-                              style="cursor: grab; color: rgb(153, 153, 153);"
+                            <div
+                              style="display: flex; align-items: center;"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="menu"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                aria-describedby="DndDescribedBy-4"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
-                                <path
-                                  d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                                />
-                              </svg>
-                            </span>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="holder"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
                           </td>
+                          <td
+                            class="ant-table-cell drag-visible"
+                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -744,6 +783,23 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
           </div>
         </div>
+        <div
+          id="DndDescribedBy-4"
+          style="display: none;"
+        >
+          
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  
+        </div>
+        <div
+          aria-atomic="true"
+          aria-live="assertive"
+          id="DndLiveRegion-4"
+          role="status"
+          style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+        />
       </div>
     </div>
   </div>
@@ -1356,21 +1412,27 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="key1"
+                          id="0"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
-                                aria-label="menu"
-                                class="anticon anticon-menu ant-pro-table-drag-icon"
-                                role="img"
+                                aria-describedby="DndDescribedBy-0"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  data-icon="menu"
+                                  data-icon="holder"
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
@@ -1378,16 +1440,20 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   width="1em"
                                 >
                                   <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
                                   />
                                 </svg>
                               </span>
-                              <span
-                                class="customRender"
-                              >
-                                自定义Render[John Brown-0]
-                              </span>
                             </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="customRender"
+                            >
+                              自定义Render[John Brown-0]
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell drag-visible"
@@ -1408,21 +1474,27 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="key2"
+                          id="1"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
-                                aria-label="menu"
-                                class="anticon anticon-menu ant-pro-table-drag-icon"
-                                role="img"
+                                aria-describedby="DndDescribedBy-0"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  data-icon="menu"
+                                  data-icon="holder"
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
@@ -1430,16 +1502,20 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   width="1em"
                                 >
                                   <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
                                   />
                                 </svg>
                               </span>
-                              <span
-                                class="customRender"
-                              >
-                                自定义Render[Jim Green-1]
-                              </span>
                             </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="customRender"
+                            >
+                              自定义Render[Jim Green-1]
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell drag-visible"
@@ -1460,21 +1536,27 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="key3"
+                          id="2"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
-                                aria-label="menu"
-                                class="anticon anticon-menu ant-pro-table-drag-icon"
-                                role="img"
+                                aria-describedby="DndDescribedBy-0"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  data-icon="menu"
+                                  data-icon="holder"
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
@@ -1482,16 +1564,20 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   width="1em"
                                 >
                                   <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
                                   />
                                 </svg>
                               </span>
-                              <span
-                                class="customRender"
-                              >
-                                自定义Render[Joe Black-2]
-                              </span>
                             </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span
+                              class="customRender"
+                            >
+                              自定义Render[Joe Black-2]
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell drag-visible"
@@ -1517,6 +1603,23 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
           </div>
         </div>
+        <div
+          id="DndDescribedBy-0"
+          style="display: none;"
+        >
+          
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  
+        </div>
+        <div
+          aria-atomic="true"
+          aria-live="assertive"
+          id="DndLiveRegion-0"
+          role="status"
+          style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+        />
       </div>
     </div>
   </div>
@@ -1689,12 +1792,14 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="0"
+                          id="0"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
                                 aria-label="menu"
@@ -1720,6 +1825,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             </div>
                           </td>
                           <td
+                            class="ant-table-cell"
+                          />
+                          <td
                             class="ant-table-cell drag-visible"
                           >
                             John Brown
@@ -1738,12 +1846,14 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="1"
+                          id="1"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
                                 aria-label="menu"
@@ -1769,6 +1879,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             </div>
                           </td>
                           <td
+                            class="ant-table-cell"
+                          />
+                          <td
                             class="ant-table-cell drag-visible"
                           >
                             Jim Green
@@ -1787,12 +1900,14 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="2"
+                          id="2"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
                                 aria-label="menu"
@@ -1818,6 +1933,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             </div>
                           </td>
                           <td
+                            class="ant-table-cell"
+                          />
+                          <td
                             class="ant-table-cell drag-visible"
                           >
                             Joe Black
@@ -1841,6 +1959,23 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
           </div>
         </div>
+        <div
+          id="DndDescribedBy-1"
+          style="display: none;"
+        >
+          
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  
+        </div>
+        <div
+          aria-atomic="true"
+          aria-live="assertive"
+          id="DndLiveRegion-1"
+          role="status"
+          style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+        />
       </div>
     </div>
   </div>
@@ -2013,21 +2148,27 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="0"
+                          id="0"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
-                                aria-label="menu"
-                                class="anticon anticon-menu ant-pro-table-drag-icon"
-                                role="img"
+                                aria-describedby="DndDescribedBy-3"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  data-icon="menu"
+                                  data-icon="holder"
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
@@ -2035,12 +2176,15 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   width="1em"
                                 >
                                   <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
                                   />
                                 </svg>
                               </span>
                             </div>
                           </td>
+                          <td
+                            class="ant-table-cell"
+                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -2060,21 +2204,27 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="1"
+                          id="1"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
-                                aria-label="menu"
-                                class="anticon anticon-menu ant-pro-table-drag-icon"
-                                role="img"
+                                aria-describedby="DndDescribedBy-3"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  data-icon="menu"
+                                  data-icon="holder"
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
@@ -2082,12 +2232,15 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   width="1em"
                                 >
                                   <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
                                   />
                                 </svg>
                               </span>
                             </div>
                           </td>
+                          <td
+                            class="ant-table-cell"
+                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -2107,21 +2260,27 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         <tr
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="2"
+                          id="2"
+                          style="transition: transform 0ms linear;"
                         >
                           <td
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-pro-table-drag-visible-cell"
+                              style="display: flex; align-items: center;"
                             >
                               <span
-                                aria-label="menu"
-                                class="anticon anticon-menu ant-pro-table-drag-icon"
-                                role="img"
+                                aria-describedby="DndDescribedBy-3"
+                                aria-disabled="false"
+                                aria-label="holder"
+                                aria-roledescription="sortable"
+                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                role="button"
+                                tabindex="0"
                               >
                                 <svg
                                   aria-hidden="true"
-                                  data-icon="menu"
+                                  data-icon="holder"
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
@@ -2129,12 +2288,15 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   width="1em"
                                 >
                                   <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
                                   />
                                 </svg>
                               </span>
                             </div>
                           </td>
+                          <td
+                            class="ant-table-cell"
+                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -2159,6 +2321,23 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
             </div>
           </div>
         </div>
+        <div
+          id="DndDescribedBy-3"
+          style="display: none;"
+        >
+          
+    To pick up a draggable item, press the space bar.
+    While dragging, use the arrow keys to move the item.
+    Press space again to drop the item in its new position, or press escape to cancel.
+  
+        </div>
+        <div
+          aria-atomic="true"
+          aria-live="assertive"
+          id="DndLiveRegion-3"
+          role="status"
+          style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+        />
       </div>
     </div>
   </div>
