@@ -3,7 +3,7 @@ import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime, waitTime } from '../util';
 import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
 
@@ -970,7 +970,7 @@ describe('Field', () => {
     expect(html.asFragment()).toMatchSnapshot();
   });
 
-  it('🐴 edit and plain', async () => {
+  it('🐴 edit and plain=true', async () => {
     const html = render(<Demo plain state="edit" />);
     expect(html.asFragment()).toMatchSnapshot();
   });
@@ -1020,13 +1020,11 @@ describe('Field', () => {
           text="1994-07-29 12:00:00"
           mode="read"
           valueType={valueType as 'text'}
-          render={() => <>qixian</>}
+          render={() => <span>qixian</span>}
         />,
       );
-
-      await waitFor(() => {
-        expect(html.baseElement.textContent).toBe('qixian');
-      });
+      await html.findAllByText('qixian');
+      expect(html.baseElement.textContent).toBe('qixian');
     });
 
     it(`🐴 valueType renderFormItem ${valueType}`, async () => {
@@ -1036,12 +1034,10 @@ describe('Field', () => {
           text={dayjs('2019-11-16 12:50:26').valueOf()}
           mode="edit"
           valueType={valueType as 'text'}
-          renderFormItem={() => <>qixian</>}
+          renderFormItem={() => <span>qixian</span>}
         />,
       );
-      await waitFor(() => {
-        expect(html.baseElement.textContent).toBe('qixian');
-      });
+      await html.findAllByText('qixian');
     });
 
     it(`🐴 ${valueType} mode="error"`, async () => {
@@ -1054,9 +1050,7 @@ describe('Field', () => {
           valueType={valueType as 'text'}
         />,
       );
-      await waitFor(() => {
-        expect(html.baseElement.textContent).toBeFalsy();
-      });
+      expect(html.baseElement.textContent).toBeFalsy();
     });
 
     it(`🐴 valueType render ${valueType} when text is null`, async () => {
@@ -1700,7 +1694,7 @@ describe('Field', () => {
 
   it(`🐴 valueType digitRange normal input simulate`, async () => {
     const html = render(<Field mode="edit" valueType="digitRange" />);
-    await waitTime(100);
+    await waitForWaitTime(100);
     act(() => {
       fireEvent.change(
         html.baseElement.querySelector('.ant-input-number-input')!,
@@ -1890,7 +1884,7 @@ describe('Field', () => {
         ]}
       />,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       // 点击label打开DatePicker

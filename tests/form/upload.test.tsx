@@ -6,7 +6,7 @@ import { act, fireEvent, render } from '@testing-library/react';
 import { Form } from 'antd';
 import type { UploadFile } from 'antd/lib/upload/interface';
 import mock from 'xhr-mock';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 const mockFile = new File(['foo'], 'foo.png', {
   type: 'image/png',
@@ -67,7 +67,7 @@ describe('ProFormUpload', () => {
         },
       );
     });
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     expect(fn).toBeCalled();
   });
 
@@ -103,7 +103,7 @@ describe('ProFormUpload', () => {
         },
       );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     act(() => {
       expect(
@@ -147,7 +147,7 @@ describe('ProFormUpload', () => {
         </Form>,
       );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.ant-upload')
@@ -170,7 +170,7 @@ describe('ProFormUpload', () => {
         </Form>,
       );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.ant-upload')
@@ -206,7 +206,7 @@ describe('ProFormUpload', () => {
         },
       );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn).toBeCalled();
     expect(onChangeFn).toBeCalled();
   });
@@ -224,7 +224,7 @@ describe('ProFormUpload', () => {
       </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
       getComputedStyle(
         wrapper.baseElement.querySelector<HTMLDivElement>(
@@ -249,7 +249,7 @@ describe('ProFormUpload', () => {
       </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>(
         '.ant-upload-drag .ant-upload-extra',
@@ -270,7 +270,7 @@ describe('ProFormUpload', () => {
       </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
       wrapper.baseElement.querySelector<HTMLDivElement>(
         '.anticon.anticon-upload',

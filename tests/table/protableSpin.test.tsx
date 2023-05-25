@@ -4,7 +4,7 @@ import { ProTable } from '@ant-design/pro-components';
 import { act, render } from '@testing-library/react';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 export type TableListItem = {
   key: number;
@@ -116,7 +116,7 @@ describe('ProTable test', () => {
         }}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(fn).toBeCalledTimes(1);
     act(() => {
       html.rerender(
@@ -138,7 +138,7 @@ describe('ProTable test', () => {
 
   it('boolean loading and polling props', async () => {
     const html = render(<ProTable loading={true} polling={2000} />);
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     act(() => {
       html.rerender(
         <ProTable

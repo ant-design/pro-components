@@ -3,7 +3,7 @@ import ProTable from '@ant-design/pro-table';
 import { act, render, waitFor } from '@testing-library/react';
 import { Input } from 'antd';
 import { useContext } from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 const Demo = () => {
   const values = useContext(ProProvider);
@@ -73,7 +73,7 @@ describe('Table valueEnum', () => {
         rowKey="key"
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     act(() => {
       html.rerender(
@@ -106,7 +106,7 @@ describe('Table valueEnum', () => {
         />,
       );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     act(() => {
       html.baseElement
         .querySelector<HTMLDivElement>('form.ant-form div.ant-select')
@@ -127,7 +127,7 @@ describe('Table valueEnum', () => {
 
   it('🎏 customization valueType', async () => {
     const html = render(<Demo />);
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(html.asFragment()).toMatchSnapshot();
   });
 

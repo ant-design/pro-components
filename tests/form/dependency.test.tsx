@@ -4,7 +4,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { act, fireEvent, render } from '@testing-library/react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('ProForm Dependency component', () => {
   it('⛲ shouldUpdate of ProFormDependency is Boolean', async () => {
@@ -36,7 +36,7 @@ describe('ProForm Dependency component', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(
       html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent,
@@ -46,7 +46,7 @@ describe('ProForm Dependency component', () => {
       html.rerender(<Demo shouldUpdate />);
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       fireEvent.change(
@@ -59,7 +59,7 @@ describe('ProForm Dependency component', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(
       html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent,
@@ -97,7 +97,7 @@ describe('ProForm Dependency component', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       fireEvent.change(
@@ -110,7 +110,7 @@ describe('ProForm Dependency component', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(
       html.baseElement.querySelector<HTMLDivElement>('div#show')?.textContent,
@@ -157,7 +157,7 @@ describe('ProForm Dependency component', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(dependencyFn).toBeCalledWith('second chen');
   });
 });

@@ -1,11 +1,11 @@
 import { ProLayout } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('settings.test', () => {
   it('set title', async () => {
     const wrapper = render(<ProLayout title="test-title" />);
-    await waitTime(160);
+    await waitForWaitTime(160);
     expect(wrapper.getAllByText('test-title')).toBeTruthy();
 
     wrapper.rerender(<ProLayout title="test-title-2" />);
@@ -38,7 +38,7 @@ describe('settings.test', () => {
   //     />,
   //   );
 
-  //   await waitTime(1000);
+  //   await waitForWaitTime(1000);
 
   //   const dom = html.container.querySelector('#resize');
 
@@ -71,7 +71,7 @@ describe('settings.test', () => {
   //     ]);
   //   });
 
-  //   await waitTime(1000);
+  //   await waitForWaitTime(1000);
 
   //   expect(html.container.querySelector('#resize')?.textContent).toBe('200');
 
@@ -104,7 +104,7 @@ describe('settings.test', () => {
   //     ]);
   //   });
 
-  //   await waitTime(1000);
+  //   await waitForWaitTime(1000);
   //   expect(html.container.querySelector('#resize')?.textContent).toBe('100');
   // });
 });

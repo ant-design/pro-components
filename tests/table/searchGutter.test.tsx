@@ -1,6 +1,6 @@
 import ProTable from '@ant-design/pro-table';
 import { render } from '@testing-library/react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 describe('BasicTable SearchGutter', () => {
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
@@ -59,7 +59,7 @@ describe('BasicTable SearchGutter', () => {
         rowKey="key"
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-col');
     expect(window.getComputedStyle(ele!).padding).toBe('12px 8px 12px 8px');
   });
@@ -86,7 +86,7 @@ describe('BasicTable SearchGutter', () => {
         rowKey="key"
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-col');
     expect(ele?.style.paddingLeft).toBe('6px');
   });

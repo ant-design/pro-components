@@ -1,6 +1,6 @@
 import { ProTable } from '@ant-design/pro-components';
 import { act, render } from '@testing-library/react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 const valueEnum = {
   0: 'close',
@@ -80,7 +80,7 @@ describe('Dynamic Persistence', () => {
       />,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       html.baseElement
@@ -90,7 +90,7 @@ describe('Dynamic Persistence', () => {
         ?.click();
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(window.sessionStorage.getItem('table_dynamic_status_close')).toMatch(
       '{"index":{"show":true},"statusText":{"show":true}}',
@@ -104,7 +104,7 @@ describe('Dynamic Persistence', () => {
         ?.click();
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(window.sessionStorage.getItem('table_dynamic_status_close')).toMatch(
       '{"index":{"show":true},"statusText":{"show":false}}',
@@ -148,7 +148,7 @@ describe('Dynamic Persistence', () => {
         />,
       );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(
       window.sessionStorage.getItem('table_dynamic_status_running'),

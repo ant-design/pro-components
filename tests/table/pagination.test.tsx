@@ -1,6 +1,6 @@
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import { act, fireEvent, render } from '@testing-library/react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 import { request } from './demo';
 
 describe('BasicTable pagination', () => {
@@ -30,14 +30,14 @@ describe('BasicTable pagination', () => {
         rowKey="key"
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect(fn).toBeCalledWith(1);
 
     await act(async () => {
       (await html.findByText('2'))?.click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     expect(fn).toBeCalledWith(1);
   });
@@ -69,7 +69,7 @@ describe('BasicTable pagination', () => {
         rowKey="key"
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect(fn).toBeCalledWith(50);
     expect(currentFn).toBeCalledWith(1);
@@ -99,7 +99,7 @@ describe('BasicTable pagination', () => {
         />,
       );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     expect(fn).toBeCalledWith(10);
   });
@@ -128,7 +128,7 @@ describe('BasicTable pagination', () => {
         rowKey="key"
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect(fn).toBeCalledWith(2);
 
@@ -157,7 +157,7 @@ describe('BasicTable pagination', () => {
       );
     });
 
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect(fn).toBeCalledWith(3);
   });
@@ -185,7 +185,7 @@ describe('BasicTable pagination', () => {
         rowKey="key"
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect(fn).toBeCalledWith(undefined);
 
@@ -213,7 +213,7 @@ describe('BasicTable pagination', () => {
         />,
       );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     expect(fn).toBeCalledWith(10);
   });
@@ -254,11 +254,11 @@ describe('BasicTable pagination', () => {
         }}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     act(() => {
       html.queryByText('1')?.click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn).toBeCalledTimes(1);
   });
 
@@ -289,7 +289,7 @@ describe('BasicTable pagination', () => {
         }}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     await act(async () => {
       html.queryByText('2')?.click();
     });
@@ -321,7 +321,7 @@ describe('BasicTable pagination', () => {
         />,
       );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(currentFn).toBeCalledWith(2);
   });
 });
@@ -344,7 +344,7 @@ describe('TableDropdown', () => {
       const button = await html.findByRole('img');
       fireEvent.mouseEnter(button);
     });
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     await act(async () => {
       const button = await html.findByText('复制');
       button.click();

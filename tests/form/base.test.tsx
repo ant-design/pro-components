@@ -18,7 +18,7 @@ import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -632,7 +632,7 @@ describe('ProForm', () => {
       <ProForm onFinish={(values) => onFinish(values.name)}>
         <ProFormCaptcha
           onGetCaptcha={async () => {
-            await waitTime(10);
+            await waitForWaitTime(10);
           }}
           countDown={2}
           label="name"
@@ -1857,7 +1857,7 @@ describe('ProForm', () => {
           value: '门',
         },
       });
-      await waitTime(200);
+      await waitForWaitTime(200);
     });
 
     act(() => {
@@ -1896,7 +1896,7 @@ describe('ProForm', () => {
           value: '期贤',
         },
       });
-      await waitTime(200);
+      await waitForWaitTime(200);
     });
     act(() => {
       fireEvent.mouseDown(
@@ -1969,7 +1969,7 @@ describe('ProForm', () => {
           value: '(测试)',
         },
       });
-      await waitTime(200);
+      await waitForWaitTime(200);
     });
 
     act(() => {
@@ -2402,7 +2402,7 @@ describe('ProForm', () => {
       </>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       fireEvent.mouseDown(
@@ -2820,7 +2820,7 @@ describe('ProForm', () => {
 
     const wrapper = render(<App />);
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn1).toHaveBeenCalledWith('2021-08-09');
 
     act(() => {
@@ -2829,7 +2829,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     expect(fn2).toHaveBeenCalledWith('2021-08-03');
 
@@ -3085,7 +3085,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitTime(300);
+    await waitForWaitTime(300);
     act(() => {
       const dom =
         html.baseElement.querySelector<HTMLInputElement>('input#count')!;
@@ -3097,7 +3097,7 @@ describe('ProForm', () => {
       fireEvent.blur(dom);
       fireEvent.click(dom);
     });
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(
       html.baseElement.querySelector<HTMLInputElement>('input#count')?.value,
     ).toBe('22');
@@ -3129,14 +3129,14 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     const dom =
       html.baseElement.querySelector<HTMLInputElement>('input#count')!;
     await userEvent.type(dom, '22.22.22');
     await userEvent.click(await html.findByText('提 交'));
 
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     expect(dom.value).toBe('22');
     expect(fn).toBeCalledWith(22);
@@ -3259,7 +3259,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       fireEvent.change(
@@ -3273,14 +3273,14 @@ describe('ProForm', () => {
         },
       );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     act(() => {
       fireEvent.mouseDown(
         wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
         {},
       );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });

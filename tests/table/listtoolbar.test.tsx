@@ -2,7 +2,7 @@ import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import ProTable, { ListToolBar } from '@ant-design/pro-table';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('Table valueEnum', () => {
   it('ListToolBar onAction', async () => {
@@ -23,7 +23,7 @@ describe('Table valueEnum', () => {
         ]}
       />,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
     await act(async () => {
       (await wrapper.findByText('添 加'))?.click();
     });
@@ -61,7 +61,7 @@ describe('Table valueEnum', () => {
       />,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       fireEvent.change(
@@ -75,7 +75,7 @@ describe('Table valueEnum', () => {
         },
       );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     act(() => {
       wrapper.baseElement
         .querySelector<HTMLButtonElement>(
@@ -84,7 +84,7 @@ describe('Table valueEnum', () => {
         ?.click();
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(onSearch).toBeCalledWith('1111111');
   });
 
@@ -149,7 +149,7 @@ describe('Table valueEnum', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     act(() => {
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.anticon-setting')
@@ -171,7 +171,7 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     const inputEle = wrapper.baseElement.querySelector('input');
     act(() => {
       fireEvent.focus(inputEle!);
@@ -203,7 +203,7 @@ describe('Table valueEnum', () => {
         }
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     const inputEle = wrapper.baseElement.querySelector('input');
     act(() => {
       fireEvent.focus(inputEle!);
@@ -245,7 +245,7 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     await act(async () => {
       wrapper.getByText('全部事项')?.click();
     });
@@ -276,7 +276,7 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     act(() => {
       wrapper.queryByText('已办事项')?.click();
     });
@@ -309,7 +309,7 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       wrapper.getByText('已办事项')?.click();
@@ -326,7 +326,7 @@ describe('Table valueEnum', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     expect(
       wrapper.baseElement.querySelectorAll('.ant-pro-table-list-toolbar-menu')
         .length,

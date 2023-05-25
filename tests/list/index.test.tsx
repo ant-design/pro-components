@@ -10,7 +10,7 @@ import { Tag } from 'antd';
 import type { ReactText } from 'react';
 import { useState } from 'react';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 type DataSourceType = {
   name: string;
@@ -667,7 +667,7 @@ describe('List', () => {
       />,
     );
 
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(
       html.baseElement.textContent?.includes('qixian:我是名称'),
     ).toBeTruthy();
@@ -696,7 +696,7 @@ describe('List', () => {
       />,
     );
 
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect(
       html.baseElement.textContent?.includes('qixian:我是名称'),
@@ -732,7 +732,7 @@ describe('List', () => {
       />,
     );
 
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     // 触发click，执行一下 stopPropagation 的代码
     await act(async () => {
       (await html.findByText('修复'))?.click();
@@ -774,7 +774,7 @@ describe('List', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(!!html.baseElement.querySelector('.ant-pro-card-extra')).toBeFalsy();
 
@@ -825,7 +825,7 @@ describe('List', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     act(() => {
       fireEvent.mouseEnter(
