@@ -28,8 +28,8 @@ import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
 // 兼容代码-----------
-import 'antd/lib/descriptions/style';
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
+import 'antd/lib/descriptions/style';
 //----------------------
 
 // todo remove it

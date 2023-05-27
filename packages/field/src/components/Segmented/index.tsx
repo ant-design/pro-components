@@ -1,7 +1,7 @@
 import { Segmented, Spin } from 'antd';
+import omit from 'omit.js';
 import React, { useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
-import omit from 'omit.js';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 

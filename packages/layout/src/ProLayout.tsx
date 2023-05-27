@@ -1,6 +1,9 @@
 import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
-import { isNeedOpenHash } from '@ant-design/pro-provider';
-import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
+import {
+  isNeedOpenHash,
+  ProConfigProvider,
+  ProProvider,
+} from '@ant-design/pro-provider';
 import {
   isBrowser,
   useDocumentTitle,

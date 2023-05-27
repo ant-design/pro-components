@@ -23,8 +23,8 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import type { ContainerType } from '../Store/Provide';
 import type { ProColumnType } from '../index';
+import type { ContainerType } from '../Store/Provide';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 

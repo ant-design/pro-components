@@ -1,8 +1,8 @@
 import type { ProFormColumnsType } from '@ant-design/pro-components';
-import { ProConfigProvider } from '@ant-design/pro-components';
 import {
   BetaSchemaForm,
   ProCard,
+  ProConfigProvider,
   ProDescriptions,
   ProTable,
 } from '@ant-design/pro-components';

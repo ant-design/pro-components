@@ -1,8 +1,8 @@
 ﻿import { PageHeader } from '@ant-design/pro-components';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Breadcrumb } from 'antd';
-import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
+import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;

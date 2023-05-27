@@ -970,7 +970,7 @@ export function useEditableArray<RecordType>(
       };
       const res = await props?.onDelete?.(recordKey, editRow);
       // 不传递 false时，重新form.setFieldsValue同一份静态数据，会导致该行始终处于不可编辑状态
-      await cancelEditable(recordKey,false);
+      await cancelEditable(recordKey, false);
       props.setDataSource(editableRowByKey(actionProps, 'delete'));
 
       return res;

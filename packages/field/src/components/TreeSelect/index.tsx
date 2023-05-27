@@ -1,3 +1,4 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
@@ -17,7 +18,6 @@ import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 // 兼容代码-----------
 import 'antd/lib/spin/style';
 import 'antd/lib/tree-select/style';
-import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 
 export type GroupProps = {

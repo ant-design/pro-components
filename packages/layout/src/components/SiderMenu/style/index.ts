@@ -1,6 +1,6 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
-import { Keyframes } from '@ant-design/cssinjs';
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
   proLayoutCollapsedWidth: number;

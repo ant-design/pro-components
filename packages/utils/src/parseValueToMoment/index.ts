@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { isNil } from '../isNil';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { isNil } from '../isNil';
 
 dayjs.extend(customParseFormat);
 

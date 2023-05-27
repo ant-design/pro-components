@@ -8,12 +8,12 @@ import {
 import type { ProSettings } from '@ant-design/pro-components';
 import {
   PageContainer,
+  ProCard,
   ProLayout,
   SettingDrawer,
-  ProCard,
 } from '@ant-design/pro-components';
 import { Button, Input } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 export default () => {

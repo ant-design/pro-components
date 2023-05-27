@@ -1,3 +1,4 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToDay } from '@ant-design/pro-utils';
 import { DatePicker, TimePicker } from 'antd';
 import dayjs from 'dayjs';
@@ -6,7 +7,6 @@ import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 // 兼容代码-----------
 import 'antd/lib/date-picker/style';
-import { useIntl } from '@ant-design/pro-provider';
 //----------------------;
 
 /**

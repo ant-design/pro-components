@@ -1,13 +1,12 @@
-﻿import React from 'react';
-import { Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+﻿import { PlusOutlined } from '@ant-design/icons';
 import {
+  ModalForm,
   ProCard,
   ProForm,
   ProFormList,
   ProFormText,
-  ModalForm,
 } from '@ant-design/pro-components';
+import { Button } from 'antd';
 
 // 弹窗表单
 const FormModal = () => {

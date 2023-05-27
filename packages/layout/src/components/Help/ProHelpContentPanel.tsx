@@ -1,12 +1,11 @@
-﻿import { useEffect, useRef } from 'react';
-import React, { useContext, useMemo } from 'react';
+﻿import { ProProvider } from '@ant-design/pro-provider';
+import { useDebounceFn } from '@ant-design/pro-utils';
+import classNames from 'classnames';
+import React, { useContext, useEffect, useMemo, useRef } from 'react';
+import { AsyncContentPanel } from './AsyncContentPanel';
 import type { ProHelpDataSource } from './HelpProvide';
 import { ProHelpProvide } from './HelpProvide';
-import { useDebounceFn } from '@ant-design/pro-utils';
 import { RenderContentPanel } from './RenderContentPanel';
-import { AsyncContentPanel } from './AsyncContentPanel';
-import { ProProvider } from '@ant-design/pro-provider';
-import classNames from 'classnames';
 
 export type ProHelpContentPanelProps = {
   /**

@@ -1,6 +1,6 @@
 import ProForm, { ProFormCaptcha } from '@ant-design/pro-form';
-import { Button, message } from 'antd';
 import { act, fireEvent, render } from '@testing-library/react';
+import { Button, message } from 'antd';
 import React from 'react';
 
 describe('ProFormCaptcha', () => {

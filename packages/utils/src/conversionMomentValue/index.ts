@@ -1,9 +1,9 @@
 import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
 import dayjs from 'dayjs';
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 import get from 'rc-util/lib/utils/get';
 import { isNil } from '../isNil';
 import type { ProFieldValueType } from '../typing';
-import quarterOfYear from 'dayjs/plugin/quarterOfYear';
 
 dayjs.extend(quarterOfYear);
 

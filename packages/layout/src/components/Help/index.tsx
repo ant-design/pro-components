@@ -9,10 +9,9 @@ import { ProHelpSelect } from './Search';
 export * from './ProHelpContentPanel';
 export * from './ProHelpDrawer';
 export * from './ProHelpModal';
+export * from './ProHelpPanel';
 export * from './ProHelpPopover';
 export * from './RenderContentPanel';
-export * from './ProHelpPanel';
-
 export type { ProHelpDataSource, ProHelpDataSourceChildren };
 export { ProHelpProvide, ProHelpSelect };
 
