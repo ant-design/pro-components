@@ -31,6 +31,7 @@ export type ProListMeta<T> = Pick<
   | 'editable'
   | 'fieldProps'
   | 'formItemProps'
+  | 'renderFormItem'
 >;
 
 type ProListMetaAction<T> = ProListMeta<T> & {
