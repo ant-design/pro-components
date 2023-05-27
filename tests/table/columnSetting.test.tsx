@@ -785,7 +785,7 @@ describe('Table ColumnSetting', () => {
       />,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     act(() => {
       html.baseElement
         .querySelector<HTMLDivElement>(
@@ -793,7 +793,7 @@ describe('Table ColumnSetting', () => {
         )
         ?.click();
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
       html.baseElement.querySelectorAll<HTMLDivElement>(
         'span.ant-tree-checkbox.ant-tree-checkbox-checked',
