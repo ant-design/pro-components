@@ -6,6 +6,7 @@ import {
   DndContext,
   closestCenter,
   PointerSensor,
+  MouseSensor,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
@@ -15,9 +16,20 @@ import {
   useSortable,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
-import React from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 
-function SortableItem(props: any) {
+const SortableItemContextValue = createContext<{
+  handle: React.ReactNode;
+}>({ handle: null });
+
+/**
+ * 拖拽排序表格的行，
+ * 如果有 DragHandle 回给 dragSortKey 所在的行注入 provide 和 handle
+ * 如果没有整个行都支持拖拽
+ * @param props
+ * @returns
+ */
+const SortableRow = (props: any) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id: props.id });
 
@@ -26,31 +38,28 @@ function SortableItem(props: any) {
     transition,
     ...props?.style,
   };
-  const { DragHandle, dragSortKey, children, ...rest } = props;
-  if (DragHandle) {
+  const { DragHandle, dragSortKey, ...rest } = props;
+
+  if (dragSortKey) {
     const doms: React.ReactNode[] = [];
-    React.Children.forEach(children, (child: any) => {
+    React.Children.forEach(rest.children, (child: any, index) => {
       if (child.key === dragSortKey) {
         doms.push(
-          React.cloneElement(child, {
-            ...child.props,
-            children: (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
+          <SortableItemContextValue.Provider
+            key={child.key || index}
+            value={{
+              handle: (
                 <DragHandle
                   rowData={child?.props?.record}
                   index={child?.props?.index}
                   {...listeners}
                   {...attributes}
                 />
-                {child}
-              </div>
-            ),
-          }),
+              ),
+            }}
+          >
+            {child}
+          </SortableItemContextValue.Provider>,
         );
         return;
       }
@@ -62,34 +71,41 @@ function SortableItem(props: any) {
       </tr>
     );
   }
+
   return (
     <tr
-      {...props}
+      {...rest}
       ref={setNodeRef}
       style={style}
       {...attributes}
       {...listeners}
     />
   );
-}
+};
 
 /**
- * 数据排序核心逻辑
- *
- * @param oldIndex 原始位置
- * @param newIndex 新位置
- * @param data 原始数组
+ * 拖拽排序表格的 cell，用与判断要不要展示 handle
  */
-export function sortData<T>(
-  oldIndex: number,
-  newIndex: number,
-  data: T[],
-): T[] | null {
-  if (oldIndex !== newIndex) {
-    return arrayMove<T>(data || [], oldIndex, newIndex);
+const SortableItemCell = React.memo((props: any) => {
+  const { dragSortKey, ...rest } = props;
+  const { handle } = useContext(SortableItemContextValue);
+  if (handle) {
+    return (
+      <td {...rest}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          {handle} {rest.children}
+        </div>
+      </td>
+    );
   }
-  return null;
-}
+
+  return <td {...rest} />;
+});
 
 export interface UseDragSortOptions<T> {
   dataSource?: T[];
@@ -105,15 +121,15 @@ const SortContainer = (p: any) => <tbody {...p} />;
 export function useDragSort<T>(props: UseDragSortOptions<T>) {
   const { dataSource = [], onDragSortEnd, DragHandle, dragSortKey } = props;
 
-  const sensors = useSensors(useSensor(PointerSensor));
+  const sensors = useSensors(useSensor(PointerSensor), useSensor(MouseSensor));
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
     if (over?.id?.toString() && active.id !== over?.id) {
-      const newData = sortData(
+      const newData = arrayMove<T>(
+        dataSource || [],
         parseInt(active.id as string),
         parseInt(over.id as string),
-        dataSource,
       );
       onDragSortEnd?.(newData || []);
     }
@@ -139,7 +155,7 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
       ?.toString();
 
     return (
-      <SortableItem
+      <SortableRow
         id={index}
         dragSortKey={dragSortKey}
         DragHandle={DragHandle}
@@ -156,6 +172,7 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
       ...(props.components?.body || {}),
       wrapper: DraggableContainer,
       row: DraggableBodyRow,
+      cell: SortableItemCell,
     };
   }
 

@@ -51,11 +51,12 @@ function DragSortTable<
       const defaultDom = (
         <HolderOutlined
           {...rest}
-          className={`${getPrefixCls(
-            'pro-table-drag-icon',
-          )} ${className} ${hashId}`.trim()}
+          className={`${getPrefixCls('pro-table-drag-icon')} ${
+            className || ''
+          } ${hashId || ''}`.trim()}
         />
       );
+
       const handel = dragSortHandlerRender
         ? dragSortHandlerRender(
             dragHandleProps?.rowData,

@@ -624,7 +624,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -642,11 +642,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell drag-visible"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -680,7 +678,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -698,11 +696,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell drag-visible"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -736,7 +732,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -754,11 +750,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell drag-visible"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -1426,7 +1420,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1444,16 +1438,13 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
+                              <span
+                                class="customRender"
+                              >
+                                自定义Render[John Brown-0]
+                              </span>
                             </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="customRender"
-                            >
-                              自定义Render[John Brown-0]
-                            </span>
                           </td>
                           <td
                             class="ant-table-cell drag-visible"
@@ -1488,7 +1479,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1506,16 +1497,13 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
+                              <span
+                                class="customRender"
+                              >
+                                自定义Render[Jim Green-1]
+                              </span>
                             </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="customRender"
-                            >
-                              自定义Render[Jim Green-1]
-                            </span>
                           </td>
                           <td
                             class="ant-table-cell drag-visible"
@@ -1550,7 +1538,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1568,16 +1556,13 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
+                              <span
+                                class="customRender"
+                              >
+                                自定义Render[Joe Black-2]
+                              </span>
                             </div>
-                          </td>
-                          <td
-                            class="ant-table-cell"
-                          >
-                            <span
-                              class="customRender"
-                            >
-                              自定义Render[Joe Black-2]
-                            </span>
                           </td>
                           <td
                             class="ant-table-cell drag-visible"
@@ -1821,12 +1806,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
-                               1 - John Brown
+                               1 - John Brown 
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -1875,12 +1857,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
-                               2 - Jim Green
+                               2 - Jim Green 
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -1929,12 +1908,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
-                               3 - Joe Black
+                               3 - Joe Black 
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -2162,7 +2138,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -2180,11 +2156,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -2218,7 +2192,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -2236,11 +2210,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
@@ -2274,7 +2246,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-disabled="false"
                                 aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon undefined"
+                                class="anticon anticon-holder ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -2292,11 +2264,9 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                   />
                                 </svg>
                               </span>
+                               
                             </div>
                           </td>
-                          <td
-                            class="ant-table-cell"
-                          />
                           <td
                             class="ant-table-cell drag-visible"
                           >
