@@ -1,7 +1,7 @@
 import {
   PageContainer,
-  SettingDrawer,
   ProLayout,
+  SettingDrawer,
 } from '@ant-design/pro-components';
 import defaultProps from './_defaultProps';
 

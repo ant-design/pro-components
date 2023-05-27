@@ -1,8 +1,16 @@
 import { ProConfigProvider, useIntl } from '@ant-design/pro-provider';
 import { compareVersions, merge, useRefFunction } from '@ant-design/pro-utils';
 import type { FormInstance, StepsProps } from 'antd';
-import { version } from 'antd';
-import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
+import {
+  Button,
+  Col,
+  ConfigProvider,
+  Form,
+  Row,
+  Space,
+  Steps,
+  version,
+} from 'antd';
 
 import type { FormProviderProps } from 'antd/lib/form/context';
 import classNames from 'classnames';

@@ -14,8 +14,8 @@ import { useUrlSearchParams } from '@umijs/use-params';
 import {
   Alert,
   Button,
-  Divider,
   ConfigProvider as AntConfigProvider,
+  Divider,
   Drawer,
   List,
   message,

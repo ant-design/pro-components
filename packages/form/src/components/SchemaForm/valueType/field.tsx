@@ -1,10 +1,10 @@
 import { omitUndefined } from '@ant-design/pro-utils';
 import omit from 'omit.js';
+import React from 'react';
+import ProFormDependency from '../../Dependency';
 import type { ProFormFieldProps } from '../../Field';
 import ProFormField from '../../Field';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
-import ProFormDependency from '../../Dependency';
-import React from 'react';
 
 export const field: ProSchemaRenderValueTypeFunction<any, any> = (
   item,

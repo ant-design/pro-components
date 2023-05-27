@@ -1,12 +1,10 @@
 import { useRefFunction } from '@ant-design/pro-utils';
-import type { TableComponents } from 'rc-table/lib/interface';
-import { CSS } from '@dnd-kit/utilities';
 import type { DragEndEvent } from '@dnd-kit/core';
 import {
-  DndContext,
   closestCenter,
-  PointerSensor,
+  DndContext,
   MouseSensor,
+  PointerSensor,
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
@@ -16,6 +14,8 @@ import {
   useSortable,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+import type { TableComponents } from 'rc-table/lib/interface';
 import React, { createContext, useContext } from 'react';
 
 const SortableItemContextValue = createContext<{

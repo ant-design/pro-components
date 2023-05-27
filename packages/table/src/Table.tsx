@@ -25,6 +25,7 @@ import type {
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
 import classNames from 'classnames';
+import type Summary from 'rc-table/lib/Footer/Summary';
 import React, {
   useCallback,
   useContext,
@@ -58,7 +59,6 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import type Summary from 'rc-table/lib/Footer/Summary';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {

@@ -6,7 +6,7 @@ import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
-import type { AppListProps, AppItemProps } from './types';
+import type { AppItemProps, AppListProps } from './types';
 
 /**
  * 默认渲染logo的方式，如果是个string，用img。否则直接返回

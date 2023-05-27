@@ -8,8 +8,8 @@ import {
   act,
   fireEvent,
   render,
-  waitFor,
   screen,
+  waitFor,
 } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';

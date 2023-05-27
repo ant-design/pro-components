@@ -1,7 +1,7 @@
 import chalk from 'chalk';
+import { defineConfig } from 'dumi';
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { defineConfig } from 'dumi';
 
 const headPkgList: string[] = [];
 // utils must build before core

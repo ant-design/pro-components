@@ -1,9 +1,9 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
-import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import React, { useContext, useEffect, useState } from 'react';
+import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {

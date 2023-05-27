@@ -8,7 +8,7 @@ import type { CSSProperties } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { WithFalse } from '../../typing';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
-import type { AppListProps, AppItemProps } from '../AppsLogoComponents/types';
+import type { AppItemProps, AppListProps } from '../AppsLogoComponents/types';
 import { CollapsedIcon } from '../CollapsedIcon';
 import type { HeaderViewProps } from '../Header';
 import type { BaseMenuProps } from './BaseMenu';

@@ -1,7 +1,7 @@
 import ProTable from '@ant-design/pro-table';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import React from 'react';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
 
 describe('BasicTable Search', () => {
   it('🎏 table type=form', async () => {

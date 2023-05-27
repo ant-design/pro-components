@@ -4,9 +4,9 @@
   ProFormText,
   ProFormTextArea,
 } from '@ant-design/pro-form';
-import { Input } from 'antd';
 import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Input } from 'antd';
 
 describe('ProFormFieldSet', () => {
   it('😊 ProFormFieldSet onChange', async () => {

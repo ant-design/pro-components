@@ -1,7 +1,7 @@
 import { useLatest } from '@ant-design/pro-utils';
 import React, { useCallback, useMemo } from 'react';
-import type { ProFormGridConfig } from '../../../typing';
 import { StepsForm as ProStepsForm } from '../../../layouts/StepsForm';
+import type { ProFormGridConfig } from '../../../typing';
 import BetaSchemaForm from '../index';
 import type { FormSchema, ProFormPropsType } from '../typing';
 

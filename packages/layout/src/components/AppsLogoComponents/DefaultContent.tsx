@@ -1,6 +1,6 @@
 import React from 'react';
 import { defaultRenderLogo } from './index';
-import type { AppListProps, AppItemProps } from './types';
+import type { AppItemProps, AppListProps } from './types';
 
 export const DefaultContent: React.FC<{
   appList?: AppListProps;

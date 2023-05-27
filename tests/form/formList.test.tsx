@@ -1,12 +1,14 @@
 ﻿import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
+import { ProCard } from '@ant-design/pro-components';
 import type { FormListActionType } from '@ant-design/pro-form';
-import { ModalForm, StepsForm } from '@ant-design/pro-form';
 import ProForm, {
+  ModalForm,
   ProFormDatePicker,
   ProFormDependency,
   ProFormGroup,
   ProFormList,
   ProFormText,
+  StepsForm,
 } from '@ant-design/pro-form';
 import {
   act,
@@ -20,7 +22,6 @@ import type { NamePath } from 'antd/lib/form/interface';
 import _ from 'lodash';
 import React from 'react';
 import { waitForWaitTime } from '../util';
-import { ProCard } from '@ant-design/pro-components';
 
 describe('ProForm List', () => {
   it('⛲ ProForm.List', async () => {

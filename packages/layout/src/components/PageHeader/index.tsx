@@ -1,14 +1,14 @@
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
-import type { AvatarProps, TagType, BreadcrumbProps } from 'antd';
+import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
+import 'antd/lib/breadcrumb/style';
 import type { DirectionType } from 'antd/lib/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import * as React from 'react';
-import useStyle from './style/index';
 import type { ContentWidth } from '../../defaultSettings';
-import 'antd/lib/breadcrumb/style';
+import useStyle from './style/index';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;

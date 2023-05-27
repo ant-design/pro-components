@@ -15,6 +15,16 @@ import { dateArrayFormatter } from './dateArrayFormatter';
 import { genCopyable } from './genCopyable';
 import { getFieldPropsOrFormItemProps } from './getFieldPropsOrFormItemProps';
 /** Hooks */
+import {
+  lighten,
+  operationUnit,
+  resetComponent,
+  setAlpha,
+  useStyle,
+} from '@ant-design/pro-provider';
+import { compareVersions } from './compareVersions';
+import { menuOverlayCompatible } from './compareVersions/menuOverlayCompatible';
+import { openVisibleCompatible } from './compareVersions/openVisibleCompatible';
 import { useDebounceFn } from './hooks/useDebounceFn';
 import { useDebounceValue } from './hooks/useDebounceValue';
 import {
@@ -26,9 +36,9 @@ import type { ProRequestData } from './hooks/useFetchData';
 import { useFetchData } from './hooks/useFetchData';
 import { useLatest } from './hooks/useLatest';
 import { usePrevious } from './hooks/usePrevious';
-import { useRefFunction } from './hooks/useRefFunction';
 import { useReactiveRef } from './hooks/useReactiveRef';
 import { useRefCallback } from './hooks/useRefCallback';
+import { useRefFunction } from './hooks/useRefFunction';
 import { isBrowser } from './isBrowser';
 import { isDeepEqualReact } from './isDeepEqualReact';
 import { isDropdownValueType } from './isDropdownValueType';
@@ -45,15 +55,6 @@ import { pickProFormItemProps } from './pickProFormItemProps';
 import { pickProProps } from './pickProProps';
 import { runFunction } from './runFunction';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
-import {
-  lighten,
-  operationUnit,
-  resetComponent,
-  setAlpha,
-  useStyle,
-} from '@ant-design/pro-provider';
-
-export * from './typing';
 import type {
   RowEditableConfig,
   RowEditableType,
@@ -71,10 +72,8 @@ import type {
 } from './useEditableMap';
 import { useEditableMap } from './useEditableMap';
 import { useMountMergeState } from './useMountMergeState';
-import { compareVersions } from './compareVersions';
-import { openVisibleCompatible } from './compareVersions/openVisibleCompatible';
-import { menuOverlayCompatible } from './compareVersions/menuOverlayCompatible';
 
+export * from './typing';
 export type {
   ProFormInstanceType,
   RowEditableConfig,
@@ -85,7 +84,6 @@ export type {
   UseEditableMapType,
   UseEditableMapUtilType,
 };
-
 export {
   LabelIconTip,
   ProFormContext,

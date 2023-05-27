@@ -1,7 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Input, Space, Tag, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Input, Space, Tag } from 'antd';
 import { useRef } from 'react';
 
 type GithubIssueItem = {

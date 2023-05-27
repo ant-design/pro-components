@@ -1,10 +1,10 @@
-﻿import classNames from 'classnames';
+﻿import { ProProvider } from '@ant-design/pro-provider';
 import type { PopoverProps } from 'antd';
-import { Popover, ConfigProvider } from 'antd';
+import { ConfigProvider, Popover } from 'antd';
+import classNames from 'classnames';
 import React, { useContext } from 'react';
-import { useStyle } from './style';
 import { ProHelpContentPanel } from './ProHelpContentPanel';
-import { ProProvider } from '@ant-design/pro-provider';
+import { useStyle } from './style';
 
 export type ProHelpPopoverProps = Omit<PopoverProps, 'content'> & {
   /**

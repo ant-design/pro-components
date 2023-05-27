@@ -7,18 +7,18 @@ import zh_CN from 'antd/lib/locale/zh_CN';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import type { IntlType } from './intl';
-import { findIntlKeyByAntdLocaleKey } from './intl';
-import { intlMap, zhCNIntl } from './intl';
+import { findIntlKeyByAntdLocaleKey, intlMap, zhCNIntl } from './intl';
 
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
 import { proTheme } from './useStyle';
-import { emptyTheme, defaultToken } from './useStyle/token';
+import { defaultToken, emptyTheme } from './useStyle/token';
 import { merge } from './utils/merge';
 
-export * from './useStyle';
 export * from './intl';
+export * from './useStyle';
+export { DeepPartial, ProTokenType };
 
 /**
  * 用于判断当前是否需要开启哈希（Hash）模式。
@@ -36,8 +36,6 @@ export const isNeedOpenHash = () => {
   }
   return true;
 };
-
-export { DeepPartial, ProTokenType };
 
 /**
  * 用于配置 ValueEnum 的通用配置

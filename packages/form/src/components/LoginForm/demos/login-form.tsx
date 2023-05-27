@@ -8,10 +8,10 @@ import {
 } from '@ant-design/icons';
 import {
   LoginForm,
+  ProConfigProvider,
   ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
-  ProConfigProvider,
 } from '@ant-design/pro-components';
 import { message, Space, Tabs } from 'antd';
 import type { CSSProperties } from 'react';
