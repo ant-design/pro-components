@@ -149,7 +149,7 @@ describe('dragSort', () => {
     expect(container.querySelector('.dragSortDefaultHandle')).toMatchSnapshot();
   });
 
-  fit('🔥 [dragSort] render drag sort custom handle by dragSortHandlerRender', async () => {
+  it('🔥 [dragSort] render drag sort custom handle by dragSortHandlerRender', async () => {
     type DataSourceItemStruct = {
       id: number;
       name: string;
