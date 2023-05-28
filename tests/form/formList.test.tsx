@@ -20,6 +20,7 @@ import {
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import _ from 'lodash';
+import moment from 'moment';
 import React from 'react';
 import { waitForWaitTime } from '../util';
 
@@ -1542,5 +1543,125 @@ describe('ProForm List', () => {
     });
     await waitForWaitTime(300);
     expect((await html.findAllByText('列表不能为空')).length).toBe(1);
+  });
+  it('⛲  ProForm.List transform should be call', async () => {
+    const handleFinish1 = jest.fn();
+    const handleFinish2 = jest.fn();
+    const handleFinish3 = jest.fn();
+    const handleFinish4 = jest.fn();
+    const handleFinish5 = jest.fn();
+    const html = render(
+      <ProForm
+        onFinish={async (values) => {
+          handleFinish1(values.datas[0].date);
+          handleFinish2(values.datas[0].datas[0].date);
+          handleFinish3(values.datas[0].datas[0].datas[0].date);
+          handleFinish4(values.datas[0].datas[0].datas[0].datas[0].date);
+          handleFinish5(values);
+        }}
+      >
+        <ProFormList
+          name="datas"
+          initialValue={[
+            {
+              date: '2022-10-12 10:00:00',
+              datas: [
+                {
+                  date: '2022-10-12 10:00:00',
+                  datas: [
+                    {
+                      date: '2022-10-12 10:00:00',
+                      datas: [
+                        {
+                          date: '2022-10-12 10:00:00',
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+        >
+          {() => {
+            return (
+              <div>
+                <ProFormDatePicker
+                  name="date"
+                  transform={(value) => {
+                    return {
+                      date: moment(value).unix(),
+                    };
+                  }}
+                />
+                <ProFormList name="datas">
+                  {() => {
+                    return (
+                      <div>
+                        <ProFormDatePicker
+                          name="date"
+                          transform={(value) => {
+                            return {
+                              date: moment(value).unix(),
+                            };
+                          }}
+                        />
+
+                        <ProFormList name="datas">
+                          {() => {
+                            return (
+                              <div>
+                                <ProFormDatePicker
+                                  name="date"
+                                  transform={(value) => {
+                                    return {
+                                      date: moment(value).unix(),
+                                    };
+                                  }}
+                                />
+
+                                <ProFormList name="datas">
+                                  {() => {
+                                    return (
+                                      <div>
+                                        <ProFormDatePicker
+                                          name="date"
+                                          transform={(value) => {
+                                            return {
+                                              date: moment(value).unix(),
+                                            };
+                                          }}
+                                        />
+                                      </div>
+                                    );
+                                  }}
+                                </ProFormList>
+                              </div>
+                            );
+                          }}
+                        </ProFormList>
+                      </div>
+                    );
+                  }}
+                </ProFormList>
+              </div>
+            );
+          }}
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForWaitTime(2000);
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>('.ant-btn.ant-btn-primary')
+        ?.click();
+    });
+    await waitForWaitTime(2000);
+
+    expect(handleFinish1).toBeCalledWith(1665568800);
+    expect(handleFinish2).toBeCalledWith(1665568800);
+    expect(handleFinish3).toBeCalledWith(1665568800);
+    expect(handleFinish4).toBeCalledWith(1665568800);
   });
 });

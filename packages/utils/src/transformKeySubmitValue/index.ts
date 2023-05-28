@@ -77,7 +77,7 @@ export const transformKeySubmitValue = <T extends object = any>(
       const itemValue = tempValues[entityKey];
       const transformFunction = get(dataFormatMap, key);
 
-      const _transformArray = (transformFn: any) => {
+      const _transformArray = (transformFn: any, itemValue: any) => {
         if (!Array.isArray(transformFn)) return entityKey;
         transformFn.forEach((fn: any, idx: number) => {
           if (!fn) return;
@@ -88,17 +88,22 @@ export const transformKeySubmitValue = <T extends object = any>(
             Object.keys(fn).forEach((curK) => {
               if (typeof fn[curK] === 'function') {
                 const res = fn[curK](
-                  tempValues[entityKey][idx][curK],
+                  itemValue[idx][curK],
                   entityKey,
                   tempValues,
                 );
                 itemValue[idx][curK] =
                   typeof res === 'object' ? res[curK] : res;
+              } else if (
+                typeof fn[curK] === 'object' &&
+                Array.isArray(fn[curK])
+              ) {
+                _transformArray(fn[curK], itemValue[idx][curK]);
               }
             });
           }
           if (typeof fn === 'object' && Array.isArray(fn)) {
-            _transformArray(fn);
+            _transformArray(fn, itemValue[idx]);
           }
         });
         return entityKey;
@@ -108,7 +113,7 @@ export const transformKeySubmitValue = <T extends object = any>(
         const tempKey =
           typeof transformFunction === 'function'
             ? transformFunction?.(itemValue, entityKey, tempValues)
-            : _transformArray(transformFunction);
+            : _transformArray(transformFunction, itemValue);
         // { [key:string]:any } 数组也能通过编译
         if (Array.isArray(tempKey)) {
           result = namePathSet(result, tempKey, itemValue);
