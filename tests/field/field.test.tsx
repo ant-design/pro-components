@@ -370,6 +370,48 @@ describe('Field', () => {
       html.unmount();
     });
 
+    it(`🐴 ${valueType}  edit model support renderFormItem return null`, async () => {
+      const html = render(
+        <Field
+          text="default"
+          valueType={valueType as 'radio'}
+          mode="edit"
+          // @ts-expect-error
+          renderFormItem={() => undefined}
+          valueEnum={{
+            0: { text: '关闭', status: 'Default' },
+            1: { text: '运行中', status: 'Processing' },
+            2: { text: '已上线', status: 'Success' },
+            3: { text: '异常', status: 'Error' },
+          }}
+        />,
+      );
+      expect(html.baseElement.textContent).toBe('');
+      html.unmount();
+    });
+
+    it(`🐴 ${valueType}  edit model support renderFormItem return 0`, async () => {
+      const html = render(
+        <Field
+          text="default"
+          valueType={valueType as 'radio'}
+          mode="edit"
+          // @ts-expect-error
+          renderFormItem={() => 0}
+          valueEnum={{
+            0: { text: '关闭', status: 'Default' },
+            1: { text: '运行中', status: 'Processing' },
+            2: { text: '已上线', status: 'Success' },
+            3: { text: '异常', status: 'Error' },
+          }}
+        />,
+      );
+
+      await html.findAllByText('0');
+
+      html.unmount();
+    });
+
     it('🐴 select mode=null', async () => {
       const html = render(
         <Field

@@ -63,7 +63,7 @@ const FieldCode: ProFieldFC<{
       dom = <Input {...fieldProps} ref={ref} />;
     }
     if (renderFormItem) {
-      return renderFormItem(code, { mode, ...fieldProps, ref }, dom);
+      return renderFormItem(code, { mode, ...fieldProps, ref }, dom) ?? null;
     }
     return dom;
   }
