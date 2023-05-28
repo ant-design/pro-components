@@ -77,33 +77,33 @@ export const transformKeySubmitValue = <T extends object = any>(
       const itemValue = tempValues[entityKey];
       const transformFunction = get(dataFormatMap, key);
 
-      const _transformArray = (transformFn: any, itemValue: any) => {
+      const _transformArray = (transformFn: any, _itemValue: any) => {
         if (!Array.isArray(transformFn)) return entityKey;
         transformFn.forEach((fn: any, idx: number) => {
           if (!fn) return;
           if (typeof fn === 'function') {
-            itemValue[idx] = fn(itemValue, entityKey, tempValues);
+            _itemValue[idx] = fn(_itemValue, entityKey, tempValues);
           }
           if (typeof fn === 'object' && !Array.isArray(fn)) {
             Object.keys(fn).forEach((curK) => {
               if (typeof fn[curK] === 'function') {
                 const res = fn[curK](
-                  itemValue[idx][curK],
+                  _itemValue[idx][curK],
                   entityKey,
                   tempValues,
                 );
-                itemValue[idx][curK] =
+                _itemValue[idx][curK] =
                   typeof res === 'object' ? res[curK] : res;
               } else if (
                 typeof fn[curK] === 'object' &&
                 Array.isArray(fn[curK])
               ) {
-                _transformArray(fn[curK], itemValue[idx][curK]);
+                _transformArray(fn[curK], _itemValue[idx][curK]);
               }
             });
           }
           if (typeof fn === 'object' && Array.isArray(fn)) {
-            _transformArray(fn, itemValue[idx]);
+            _transformArray(fn, _itemValue[idx]);
           }
         });
         return entityKey;

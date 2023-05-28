@@ -238,6 +238,7 @@ const Demo = () => {
             label="InputNumberRange"
             name="input-number-range"
             separator="-"
+            placeholder={['最小值', '最大值']}
             separatorWidth={60}
           />
           <ProFormDigit
