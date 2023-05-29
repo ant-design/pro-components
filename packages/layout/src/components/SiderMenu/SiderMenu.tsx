@@ -318,7 +318,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const appsDom = useMemo(() => {
     return (
       <AppsLogoComponents
-        itemClick={props.itemClick}
+        onItemClick={props.itemClick}
         appList={props.appList}
         prefixCls={props.prefixCls}
       />
