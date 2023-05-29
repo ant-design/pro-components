@@ -239,6 +239,7 @@ describe('BasicLayout', () => {
         colorBgCollapsedButton: null,
         colorTextCollapsedButton: null,
         colorTextCollapsedButtonHover: null,
+        colorTextMenuActive: null,
       },
       header: {
         colorBgMenuItemSelected: null,
@@ -248,10 +249,13 @@ describe('BasicLayout', () => {
         colorTextMenuActive: null,
         colorTextMenu: null,
         colorBgMenuItemHover: null,
+        colorMenuBackground: null,
+        colorTextMenuItemHover: null,
+        colorBgCollapsedButton: null,
+        colorTextCollapsedButton: null,
+        colorTextCollapsedButtonHover: null,
       },
-      pageContainer: {
-        colorBgPageContainer: null,
-      },
+      pageContainer: null,
     };
     const wrapper = render(
       <ProLayout
