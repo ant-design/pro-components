@@ -117,16 +117,18 @@ describe('BasicLayout', () => {
           },
           {
             title: 'UI 设计语言',
+            icon: () => <span>a</span>,
+            desc: '杭州市较知名的 UI 设计语言2',
             children: [
               {
-                icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                icon: () => <span>a</span>,
                 title: 'Ant Design',
                 desc: '杭州市较知名的 UI 设计语言',
                 url: 'https://ant.design',
               },
               {
-                icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
-                title: 'Pro Components',
+                icon: 'w',
+                title: null,
                 desc: '专业级 UI 组件库',
                 url: 'https://procomponents.ant.design/',
               },
@@ -189,7 +191,7 @@ describe('BasicLayout', () => {
     act(() => {
       wrapper.baseElement
         .querySelector<HTMLDivElement>(
-          '.ant-pro-layout-apps-simple-content-list-item a',
+          '.ant-pro-layout-apps-default-content-list-item a',
         )
         ?.click();
     });
