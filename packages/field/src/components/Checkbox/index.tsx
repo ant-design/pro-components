@@ -74,7 +74,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
 
     if (render) {
       return (
-        render(rest.text, { mode, ...rest.fieldProps }, <>{dom}</>) || null
+        render(rest.text, { mode, ...rest.fieldProps }, <>{dom}</>) ?? null
       );
     }
     return <Space>{dom}</Space>;
@@ -94,7 +94,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     );
     if (renderFormItem) {
       return (
-        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null
+        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) ?? null
       );
     }
     return dom;

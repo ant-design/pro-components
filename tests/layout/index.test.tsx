@@ -105,6 +105,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 support appList', async () => {
+    const itemClicking = jest.fn();
     const wrapper = render(
       <ProLayout
         appList={[
@@ -114,7 +115,27 @@ describe('BasicLayout', () => {
             desc: '杭州市较知名的 UI 设计语言',
             url: 'https://ant.design',
           },
+          {
+            title: 'UI 设计语言',
+            icon: () => <span>a</span>,
+            desc: '杭州市较知名的 UI 设计语言2',
+            children: [
+              {
+                icon: () => <span>a</span>,
+                title: 'Ant Design',
+                desc: '杭州市较知名的 UI 设计语言',
+                url: 'https://ant.design',
+              },
+              {
+                icon: 'w',
+                title: null,
+                desc: '专业级 UI 组件库',
+                url: 'https://procomponents.ant.design/',
+              },
+            ],
+          },
         ]}
+        itemClick={() => itemClicking()}
         route={{
           children: [
             [
@@ -125,6 +146,20 @@ describe('BasicLayout', () => {
                 children: [
                   {
                     path: '/home/overview',
+                    name: '概述',
+                    hideInMenu: true,
+                    exact: true,
+                    locale: 'menu.home.overview',
+                  },
+                ],
+              },
+              {
+                path: '/home2',
+                name: '首页',
+                locale: 'menu.home2',
+                routes: [
+                  {
+                    path: '/home/overview2',
                     name: '概述',
                     hideInMenu: true,
                     exact: true,
@@ -146,46 +181,99 @@ describe('BasicLayout', () => {
         ) as HTMLDivElement
       )?.click();
     });
-    await waitForWaitTime(100);
+
     expect(
       wrapper.baseElement.querySelectorAll('.ant-pro-layout-apps-icon').length,
     ).toBe(1);
+
+    await wrapper.findAllByText('UI 设计语言');
+
+    act(() => {
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>(
+          '.ant-pro-layout-apps-default-content-list-item a',
+        )
+        ?.click();
+    });
+
+    await waitFor(() => {
+      expect(itemClicking).toBeCalled();
+    });
+
     wrapper.unmount();
   });
 
   it('🥩 appList icon is simple', async () => {
+    const itemClicking = jest.fn();
     const wrapper = render(
       <ProLayout
         appList={[
           {
-            icon: '',
-            title: '区域产品解决方案平台',
-            desc: '',
-            url: 'https://ant.design',
+            title: 'UI 设计语言',
+            children: [
+              {
+                icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+                title: 'Ant Design',
+                url: 'https://ant.design',
+              },
+              {
+                icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+                title: 'Pro Components',
+                url: 'https://procomponents.ant.design/',
+              },
+            ],
           },
           {
-            icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
-            title: 'AntV',
-            desc: '',
-            url: 'https://antv.vision/',
-            target: '_blank',
+            title: 'UI 设计语言 2组111',
+            icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+            url: 'https://procomponents.ant.design/',
+            children: [
+              {
+                icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
+                title: 'AntV',
+                url: 'https://antv.vision/',
+                target: '_blank',
+              },
+              {
+                icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
+                title: 'AntV',
+                url: 'https://antv.vision/',
+                target: '_blank',
+              },
+            ],
           },
           {
-            icon: <div>123</div>,
-            title: 'AntV',
-            desc: '',
-            url: 'https://antv.vision/',
-            target: '_blank',
-          },
-          {
-            // @ts-ignore
-            icon: () => {},
-            title: 'AntV',
-            desc: '',
-            url: 'https://antv.vision/',
-            target: '_blank',
+            title: '待分组',
+            children: [
+              {
+                title: '工具',
+                icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
+                url: 'https://www.yuque.com/',
+              },
+              {
+                title: '前端应用框架',
+                icon: 'https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png',
+                url: 'https://umijs.org/zh-CN/docs',
+              },
+              {
+                icon: 'https://gw.alipayobjects.com/zos/bmw-prod/8a74c1d3-16f3-4719-be63-15e467a68a24/km0cv8vn_w500_h500.png',
+                title: 'qiankun',
+                url: 'https://qiankun.umijs.org/',
+              },
+              {
+                icon: 'https://gw.alipayobjects.com/zos/rmsportal/LFooOLwmxGLsltmUjTAP.svg',
+                title: 'Kitchen ',
+                url: 'https://kitchen.alipay.com/',
+              },
+              {
+                icon: 'https://gw.alipayobjects.com/zos/bmw-prod/d3e3eb39-1cd7-4aa5-827c-877deced6b7e/lalxt4g3_w256_h256.png',
+                title: 'dumi',
+                url: 'https://d.umijs.org/zh-CN',
+              },
+            ],
           },
         ]}
+        itemClick={() => itemClicking()}
         route={{
           children: [
             [
@@ -216,21 +304,68 @@ describe('BasicLayout', () => {
         ) as HTMLDivElement
       )?.click();
     });
-    await waitForWaitTime(100);
-    expect(
-      wrapper.baseElement.querySelectorAll('.ant-pro-layout-apps-icon').length,
-    ).toBe(1);
+    await wrapper.findAllByText('UI 设计语言');
+
+    act(() => {
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>(
+          '.ant-pro-layout-apps-simple-content-list-item a',
+        )
+        ?.click();
+    });
+
+    await waitFor(() => {
+      expect(itemClicking).toBeCalled();
+    });
+
     wrapper.unmount();
   });
 
   it('🥩 group title when collapsed, title is hidden', async () => {
+    const token = {
+      bgLayout: null,
+      colorTextAppListIcon: null,
+      colorTextAppListIconHover: null,
+      sider: {
+        colorBgMenuItemHover: null,
+        colorMenuBackground: null,
+        colorMenuItemDivider: null,
+        colorTextMenu: null,
+        colorTextMenuSelected: null,
+        colorTextMenuItemHover: null,
+        colorBgMenuItemSelected: null,
+        colorBgCollapsedButton: null,
+        colorTextCollapsedButton: null,
+        colorTextCollapsedButtonHover: null,
+        colorTextMenuActive: null,
+      },
+      header: {
+        colorBgMenuItemSelected: null,
+        colorTextMenuSelected: null,
+        colorBgHeader: null,
+        colorHeaderTitle: null,
+        colorTextMenuActive: null,
+        colorTextMenu: null,
+        colorBgMenuItemHover: null,
+        colorMenuBackground: null,
+        colorTextMenuItemHover: null,
+        colorBgCollapsedButton: null,
+        colorTextCollapsedButton: null,
+        colorTextCollapsedButtonHover: null,
+      },
+      pageContainer: null,
+    };
     const wrapper = render(
       <ProLayout
+        // @ts-ignore
+        token={token}
         bgLayoutImgList={[
           {
             src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
           },
         ]}
+        navTheme="realDark"
+        colorPrimary="#1890ff"
         {...bigDefaultProps}
         appList={undefined}
         location={{

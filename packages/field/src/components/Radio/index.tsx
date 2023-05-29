@@ -67,7 +67,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
     );
 
     if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
     return dom;
   }
@@ -88,7 +88,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
     );
     if (renderFormItem) {
       return (
-        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null
+        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) ?? null
       );
     }
     return dom;

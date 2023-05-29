@@ -34,13 +34,13 @@ export const defaultRenderLogo = (
  */
 export const AppsLogoComponents: React.FC<{
   appList?: AppListProps;
-  itemClick?: (
+  onItemClick?: (
     item: AppItemProps,
     popoverRef?: React.RefObject<HTMLSpanElement>,
   ) => void;
   prefixCls?: string;
 }> = (props) => {
-  const { appList, prefixCls = 'ant-pro', itemClick } = props;
+  const { appList, prefixCls = 'ant-pro', onItemClick: itemClick } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;

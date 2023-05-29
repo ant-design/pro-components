@@ -123,6 +123,7 @@ describe('BasicTable Search', () => {
               setSelectedRowKeys(newSelectedRowKeys);
             },
           }}
+          tableAlertOptionRender={false}
           tableAlertRender={({ selectedRows }) => {
             const text = selectedRows.map((row) => row.name).join(',');
             fn(text);

@@ -11,6 +11,7 @@ import ProForm, {
   ProFormField,
   ProFormSelect,
   ProFormText,
+  ProFormTimePicker,
   ProFormTreeSelect,
 } from '@ant-design/pro-form';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
@@ -2935,6 +2936,8 @@ describe('ProForm', () => {
             initialValue={dayjs('2021-08-09 12:12:12')}
             fieldProps={{ open: true }}
           />
+
+          <ProFormTimePicker name="time2" label="时间" />
         </ProForm>
       );
     };

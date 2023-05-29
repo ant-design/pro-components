@@ -91,7 +91,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     );
 
     if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
     return dom;
   }
@@ -117,7 +117,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
 
     if (renderFormItem) {
       dom =
-        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
 
     if (light) {

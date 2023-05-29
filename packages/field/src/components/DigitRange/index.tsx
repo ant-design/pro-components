@@ -94,15 +94,16 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         intl.getMessage('tableForm.inputPlaceholder', '请输入'),
       ];
 
+    const getInputNumberPlaceholder = (index: number) =>
+      Array.isArray(placeholderValue)
+        ? placeholderValue[index]
+        : placeholderValue;
+
     const dom = (
       <Input.Group compact onBlur={handleGroupBlur}>
         <InputNumber<number>
           {...fieldProps}
-          placeholder={
-            Array.isArray(placeholderValue)
-              ? placeholderValue[0]
-              : placeholderValue
-          }
+          placeholder={getInputNumberPlaceholder(0)}
           id={id ?? `${id}-0`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)` }}
           value={valuePair?.[0]}
@@ -123,11 +124,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         />
         <InputNumber<number>
           {...fieldProps}
-          placeholder={
-            Array.isArray(placeholderValue)
-              ? placeholderValue[1]
-              : placeholderValue
-          }
+          placeholder={getInputNumberPlaceholder(1)}
           id={id ?? `${id}-1`}
           style={{
             width: `calc((100% - ${separatorWidth}px) / 2)`,
