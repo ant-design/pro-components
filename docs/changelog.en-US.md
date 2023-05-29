@@ -1,4 +1,19 @@
-﻿## @ant-design/pro-components@2.4.15
+﻿## @ant-design/pro-components@2.5.0
+
+`2023-05-29`
+
+- fix(layout): 修复 collapsedShowTitle 样式错误问题 (#7098). [#7098](https://github.com/ant-design/pro-components/pull/#7098) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 (#7138). [#7138](https://github.com/ant-design/pro-components/pull/#7138) [@kaneruan](https://github.com/kaneruan)
+- fix(form): use oninit reset formRef. [1deedf2](https://github.com/ant-design/pro-components/commit/1deedf2)
+- fix(form): close icon style (#7091). [#7091](https://github.com/ant-design/pro-components/pull/#7091) [@kungege](https://github.com/kungege)
+- fix(list): Extend ProListMeta<T> type with `renderFormItem` (#7136). [#7136](https://github.com/ant-design/pro-components/pull/#7136) [@bartelemi](https://github.com/bartelemi)
+- fix(list): 修复 ProFormList 使用 className 无效问题(#7128). [#7128](https://github.com/ant-design/pro-components/pull/#7128) [@leshalv](https://github.com/leshalv)
+- fix(list): `onChange ` prop don't work (#7129). [#7129](https://github.com/ant-design/pro-components/pull/#7129) [@kungege](https://github.com/kungege)
+- fix(table): Edit to make defaultValue become higher priority to reset column setting (#7113). [#7113](https://github.com/ant-design/pro-components/pull/#7113) [@ianccy](https://github.com/ianccy)
+- feat(table): use @dnd-kit (#7131). [#7131](https://github.com/ant-design/pro-components/pull/#7131) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): component EditableProTable actionDeleteRef function Single row status Locked (#7124). [#7124](https://github.com/ant-design/pro-components/pull/#7124) [@varown](https://github.com/varown)
+
+## @ant-design/pro-components@2.4.15
 
 `2023-05-15`
 
