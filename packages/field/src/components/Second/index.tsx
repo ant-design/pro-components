@@ -1,8 +1,8 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber } from 'antd';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 // 兼容代码-----------
-import { useIntl } from '@ant-design/pro-provider';
 import 'antd/lib/input-number/style';
 //------------
 

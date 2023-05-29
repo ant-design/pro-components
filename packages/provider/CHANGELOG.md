@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.9.0...@ant-design/pro-provider@2.10.0) (2023-05-29)
 
-
 ### Features
 
-* **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
-
-
-
-
+- **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
 
 # [2.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.7...@ant-design/pro-provider@2.9.0) (2023-05-18)
 

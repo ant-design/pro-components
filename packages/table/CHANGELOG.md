@@ -1,26 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [3.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.11...@ant-design/pro-table@3.7.0) (2023-05-29)
 
-
 ### Bug Fixes
 
-* **form:** use oninit reset formRef ([1deedf2](https://github.com/ant-design/pro-components/commit/1deedf26e0dfb377f883c428f597094353c8c3e3))
-* **form:** 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 ([#7138](https://github.com/ant-design/pro-components/issues/7138)) ([2e83b18](https://github.com/ant-design/pro-components/commit/2e83b184fae0f68013c0c1db39837981f70d1ec3))
-* **list:** `onChange ` prop don't  work ([#7129](https://github.com/ant-design/pro-components/issues/7129)) ([96b9ab9](https://github.com/ant-design/pro-components/commit/96b9ab931c3e3d93a5971032b29a9d791263e247))
-* **table:** Edit to make defaultValue become higher priority to reset column setting ([#7113](https://github.com/ant-design/pro-components/issues/7113)) ([2515b16](https://github.com/ant-design/pro-components/commit/2515b1669a76664ea44651b18a491bd0392a4095))
-
+- **form:** use oninit reset formRef ([1deedf2](https://github.com/ant-design/pro-components/commit/1deedf26e0dfb377f883c428f597094353c8c3e3))
+- **form:** 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 ([#7138](https://github.com/ant-design/pro-components/issues/7138)) ([2e83b18](https://github.com/ant-design/pro-components/commit/2e83b184fae0f68013c0c1db39837981f70d1ec3))
+- **list:** `onChange ` prop don't work ([#7129](https://github.com/ant-design/pro-components/issues/7129)) ([96b9ab9](https://github.com/ant-design/pro-components/commit/96b9ab931c3e3d93a5971032b29a9d791263e247))
+- **table:** Edit to make defaultValue become higher priority to reset column setting ([#7113](https://github.com/ant-design/pro-components/issues/7113)) ([2515b16](https://github.com/ant-design/pro-components/commit/2515b1669a76664ea44651b18a491bd0392a4095))
 
 ### Features
 
-* **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
-
-
-
-
+- **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
 
 ## [3.6.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.6.10...@ant-design/pro-table@3.6.11) (2023-05-18)
 
