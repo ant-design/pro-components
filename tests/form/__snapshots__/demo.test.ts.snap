@@ -48482,7 +48482,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                 class="ant-pro-grid-content-children "
               >
                 <div
-                  class="ant-pro-page-container-children-content "
+                  class="ant-pro-page-container-children-container"
                 >
                   <div
                     class="ant-card ant-card-bordered"

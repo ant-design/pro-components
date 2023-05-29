@@ -11,7 +11,7 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
   return {
     [token.componentCls]: {
       position: 'relative',
-      '&-children-content': {
+      '&-children-container': {
         paddingBlock:
           token.layout?.pageContainer?.paddingBlockPageContainerContent,
         paddingInline:
