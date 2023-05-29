@@ -224,8 +224,39 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 group title when collapsed, title is hidden', async () => {
+    const token = {
+      bgLayout: null,
+      colorTextAppListIcon: null,
+      colorTextAppListIconHover: null,
+      sider: {
+        colorBgMenuItemHover: null,
+        colorMenuBackground: null,
+        colorMenuItemDivider: null,
+        colorTextMenu: null,
+        colorTextMenuSelected: null,
+        colorTextMenuItemHover: null,
+        colorBgMenuItemSelected: null,
+        colorBgCollapsedButton: null,
+        colorTextCollapsedButton: null,
+        colorTextCollapsedButtonHover: null,
+      },
+      header: {
+        colorBgMenuItemSelected: null,
+        colorTextMenuSelected: null,
+        colorBgHeader: null,
+        colorHeaderTitle: null,
+        colorTextMenuActive: null,
+        colorTextMenu: null,
+        colorBgMenuItemHover: null,
+      },
+      pageContainer: {
+        colorBgPageContainer: null,
+      },
+    };
     const wrapper = render(
       <ProLayout
+        // @ts-ignore
+        token={token}
         bgLayoutImgList={[
           {
             src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',

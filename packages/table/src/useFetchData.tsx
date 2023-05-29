@@ -171,8 +171,10 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * https://github.com/ant-design/pro-components/issues/4390
    */
   const requestFinally = useRefFunction(() => {
-    setTableLoading(false);
-    setPollingLoading(false);
+    unstable_batchedUpdates(() => {
+      setTableLoading(false);
+      setPollingLoading(false);
+    });
   });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
