@@ -262,6 +262,8 @@ describe('BasicLayout', () => {
             src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
           },
         ]}
+        navTheme="realDark"
+        colorPrimary="#1890ff"
         {...bigDefaultProps}
         appList={undefined}
         location={{
