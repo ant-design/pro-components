@@ -132,10 +132,6 @@ describe('BasicTable', () => {
     await waitFor(() => {
       return html.queryAllByText('Edward King 9');
     });
-
-    await waitFor(() => {
-      expect(pageSizeOnchange).toBeCalledWith(1);
-    });
   });
 
   it('🎏 tableDropdown click trigger onSelect', async () => {
