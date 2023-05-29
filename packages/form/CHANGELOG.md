@@ -1,6 +1,26 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.12.1...@ant-design/pro-form@2.13.0) (2023-05-29)
+
+
+### Bug Fixes
+
+* **form:** 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 ([#7138](https://github.com/ant-design/pro-components/issues/7138)) ([2e83b18](https://github.com/ant-design/pro-components/commit/2e83b184fae0f68013c0c1db39837981f70d1ec3))
+* **list:** 修复 ProFormList 使用 className 无效问题([#7128](https://github.com/ant-design/pro-components/issues/7128)) ([6d8c301](https://github.com/ant-design/pro-components/commit/6d8c301f221630e9712ffc1c9d37e12621d5d755))
+* update lock file and fix test case ([d991d5d](https://github.com/ant-design/pro-components/commit/d991d5d6e1d19fa721d9c25ef0318a0c0e134e7e))
+* **form:** use oninit reset formRef ([1deedf2](https://github.com/ant-design/pro-components/commit/1deedf26e0dfb377f883c428f597094353c8c3e3))
+
+
+### Features
+
+* **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
+
+
+
+
 
 ## [2.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.12.0...@ant-design/pro-form@2.12.1) (2023-05-18)
 

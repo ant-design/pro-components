@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.8.0...@ant-design/pro-field@2.9.0) (2023-05-29)
+
+
+### Bug Fixes
+
+* **form:** 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 ([#7138](https://github.com/ant-design/pro-components/issues/7138)) ([2e83b18](https://github.com/ant-design/pro-components/commit/2e83b184fae0f68013c0c1db39837981f70d1ec3))
+* update lock file and fix test case ([d991d5d](https://github.com/ant-design/pro-components/commit/d991d5d6e1d19fa721d9c25ef0318a0c0e134e7e))
+
+
+### Features
+
+* **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
+
+
+
+
 
 # [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.7.0...@ant-design/pro-field@2.8.0) (2023-05-18)
 

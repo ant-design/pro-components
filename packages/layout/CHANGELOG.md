@@ -1,6 +1,26 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.5...@ant-design/pro-layout@7.14.0) (2023-05-29)
+
+
+### Bug Fixes
+
+* **form:** 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 ([#7138](https://github.com/ant-design/pro-components/issues/7138)) ([2e83b18](https://github.com/ant-design/pro-components/commit/2e83b184fae0f68013c0c1db39837981f70d1ec3))
+* fix test case ([68500fc](https://github.com/ant-design/pro-components/commit/68500fc78165c55fb53da4e805136aace859bb5b))
+* update lock file and fix test case ([d991d5d](https://github.com/ant-design/pro-components/commit/d991d5d6e1d19fa721d9c25ef0318a0c0e134e7e))
+* **layout:** 修复 collapsedShowTitle 样式错误问题  ([#7098](https://github.com/ant-design/pro-components/issues/7098)) ([d6ba262](https://github.com/ant-design/pro-components/commit/d6ba262410cc2afe04ac788f1bae6fa2ea29cad1))
+
+
+### Features
+
+* **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
+
+
+
+
 
 ## [7.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.4...@ant-design/pro-layout@7.13.5) (2023-05-18)
 
