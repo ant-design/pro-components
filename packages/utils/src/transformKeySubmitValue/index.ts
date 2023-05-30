@@ -99,7 +99,7 @@ export const transformKeySubmitValue = <T extends object = any>(
                 Array.isArray(fn[curK]) &&
                 _itemValue?.[idx]?.[curK]
               ) {
-                _transformArray(fn[curK], _itemValue?.[idx]?.[curK]);
+                _itemValue?.[idx]?.[curK] && _transformArray(fn[curK], _itemValue?.[idx]?.[curK]);
               }
             });
           }
@@ -108,7 +108,7 @@ export const transformKeySubmitValue = <T extends object = any>(
             Array.isArray(fn) &&
             _itemValue?.[idx]
           ) {
-            _transformArray(fn, _itemValue?.[idx]);
+            _itemValue?.[idx] && _transformArray(fn, _itemValue?.[idx]);
           }
         });
         return entityKey;
