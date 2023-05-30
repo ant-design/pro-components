@@ -19,7 +19,7 @@ const alias = pkgList.reduce((pre, pkg) => {
 
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
-const tailPkgList = pkgList.map((path) => `packages/${path}/src`);
+const tailPkgList = pkgList.map((path) => `packages/${path}/src/components`);
 
 export default defineConfig({
   sitemap: { hostname: 'https://procomponents.ant.design' },
@@ -70,7 +70,8 @@ export default defineConfig({
   ],
   alias,
   resolve: {
-    docDirs: ['docs', ...tailPkgList],
+    docDirs: ['docs'],
+    atomDirs: tailPkgList.map((dir) => ({ type: 'component', dir })),
   },
   styles: [`.markdown table{table-layout: fixed;}`],
   locales: [
