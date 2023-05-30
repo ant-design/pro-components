@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.5.0
+﻿## @ant-design/pro-components@2.5.2
+
+`2023-05-30`
+
+- fix(form): fix \_transformArray is null will throw error. [ba1d9e9](https://github.com/ant-design/pro-components/commit/ba1d9e9)
+
+## @ant-design/pro-components@2.5.0
 
 `2023-05-29`
 

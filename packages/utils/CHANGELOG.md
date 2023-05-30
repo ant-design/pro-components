@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.0...@ant-design/pro-utils@2.11.1) (2023-05-30)
 
-
 ### Bug Fixes
 
-* **form:** fix _transformArray is null will throw error ([ba1d9e9](https://github.com/ant-design/pro-components/commit/ba1d9e9c3bc9416ef4954081038730c5910b27a6))
-
-
-
-
+- **form:** fix \_transformArray is null will throw error ([ba1d9e9](https://github.com/ant-design/pro-components/commit/ba1d9e9c3bc9416ef4954081038730c5910b27a6))
 
 # [2.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.10.0...@ant-design/pro-utils@2.11.0) (2023-05-29)
 
