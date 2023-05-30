@@ -96,14 +96,19 @@ export const transformKeySubmitValue = <T extends object = any>(
                   typeof res === 'object' ? res[curK] : res;
               } else if (
                 typeof fn[curK] === 'object' &&
-                Array.isArray(fn[curK])
+                Array.isArray(fn[curK]) &&
+                _itemValue?.[idx]?.[curK]
               ) {
-                _transformArray(fn[curK], _itemValue[idx][curK]);
+                _transformArray(fn[curK], _itemValue?.[idx]?.[curK]);
               }
             });
           }
-          if (typeof fn === 'object' && Array.isArray(fn)) {
-            _transformArray(fn, _itemValue[idx]);
+          if (
+            typeof fn === 'object' &&
+            Array.isArray(fn) &&
+            _itemValue?.[idx]
+          ) {
+            _transformArray(fn, _itemValue?.[idx]);
           }
         });
         return entityKey;
