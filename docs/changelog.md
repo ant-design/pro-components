@@ -12,7 +12,7 @@
 - fix(form): 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 (#7138). [#7138](https://github.com/ant-design/pro-components/pull/#7138) [@kaneruan](https://github.com/kaneruan)
 - fix(form): use oninit reset formRef. [1deedf2](https://github.com/ant-design/pro-components/commit/1deedf2)
 - fix(form): close icon style (#7091). [#7091](https://github.com/ant-design/pro-components/pull/#7091) [@kungege](https://github.com/kungege)
-- fix(list): Extend ProListMeta<T> type with `renderFormItem` (#7136). [#7136](https://github.com/ant-design/pro-components/pull/#7136) [@bartelemi](https://github.com/bartelemi)
+- fix(list): Extend ProListMeta&lt;T&gt; type with `renderFormItem` (#7136). [#7136](https://github.com/ant-design/pro-components/pull/#7136) [@bartelemi](https://github.com/bartelemi)
 - fix(list): 修复 ProFormList 使用 className 无效问题(#7128). [#7128](https://github.com/ant-design/pro-components/pull/#7128) [@leshalv](https://github.com/leshalv)
 - fix(list): `onChange ` prop don't work (#7129). [#7129](https://github.com/ant-design/pro-components/pull/#7129) [@kungege](https://github.com/kungege)
 - fix(table): Edit to make defaultValue become higher priority to reset column setting (#7113). [#7113](https://github.com/ant-design/pro-components/pull/#7113) [@ianccy](https://github.com/ianccy)
