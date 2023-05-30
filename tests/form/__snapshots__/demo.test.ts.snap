@@ -515,35 +515,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -1724,35 +1713,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -1813,61 +1791,40 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+        <span>
+          重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            手动开始计数
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          手动开始计数
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            手动结束计数
-          </span>
-        </button>
-      </div>
+        <span>
+          手动结束计数
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -4362,35 +4319,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>
@@ -6724,35 +6670,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>
@@ -8516,35 +8451,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>
@@ -9061,35 +8985,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>
@@ -9151,61 +9064,40 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/p
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+        <span>
+          重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            手动开始计数
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          手动开始计数
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            手动结束计数
-          </span>
-        </button>
-      </div>
+        <span>
+          手动结束计数
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -9526,35 +9418,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>
@@ -9836,35 +9717,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/u
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -10293,35 +10163,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -10530,35 +10389,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -10902,35 +10750,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                 </div>
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
-                style="flex-wrap: wrap; margin-bottom: -8px;"
+                style="display: flex; gap: 8px; align-items: center;"
               >
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px; padding-bottom: 8px;"
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      提 交
-                    </span>
-                  </button>
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="padding-bottom: 8px;"
+                  <span>
+                    提 交
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn ant-btn-default"
-                    type="button"
-                  >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                </div>
+                  <span>
+                    重 置
+                  </span>
+                </button>
               </div>
             </form>
           </div>
@@ -12568,35 +12405,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -12987,35 +12813,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -14051,35 +13866,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -14481,35 +14285,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -15231,35 +15024,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -15671,35 +15453,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -21774,35 +21545,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -22360,35 +22120,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -22956,35 +22705,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -23911,35 +23649,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -24238,35 +23965,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -24566,35 +24282,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -25135,35 +24840,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -25733,35 +25427,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -26331,35 +26014,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -26929,35 +26601,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -27487,35 +27148,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       style="margin-right: 16px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -8px;"
+                        style="display: flex; gap: 8px; align-items: center;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 8px; padding-bottom: 8px;"
+                        <button
+                          class="ant-btn ant-btn-default"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-default"
-                            type="button"
-                          >
-                            <span>
-                              重 置
-                            </span>
-                          </button>
-                        </div>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 8px;"
+                          <span>
+                            重 置
+                          </span>
+                        </button>
+                        <button
+                          class="ant-btn ant-btn-primary"
+                          type="button"
                         >
-                          <button
-                            class="ant-btn ant-btn-primary"
-                            type="button"
-                          >
-                            <span>
-                              查 询
-                            </span>
-                          </button>
-                        </div>
+                          <span>
+                            查 询
+                          </span>
+                        </button>
                       </div>
                     </div>
                     <div
@@ -28444,35 +28094,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -28884,35 +28523,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       role="separator"
     />
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -29031,35 +28659,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
   <h1>
@@ -29299,35 +28916,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -29735,35 +29341,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -30382,35 +29977,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -30897,35 +30481,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       role="separator"
     />
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -32699,35 +32272,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -34400,35 +33962,24 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -41945,35 +41496,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -43502,35 +43042,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -43984,35 +43513,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -44645,35 +44163,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Submit
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          Submit
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            Reset
-          </span>
-        </button>
-      </div>
+        <span>
+          Reset
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -45119,35 +44626,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -46709,86 +46205,60 @@ exports[`form demos 📸 renders ./packages/form/src/demos/formRef.tsx correctly
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          一键填写
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          读取公司
+        </span>
+      </button>
       <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+        class="ant-btn-group"
+        style="display: block;"
       >
         <button
           class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
-            重 置
+            获取格式化后的所有数据
           </span>
         </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
-      >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
-      >
         <button
           class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
-            一键填写
+            校验表单并返回格式化后的所有数据
           </span>
         </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
-      >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            读取公司
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
-      >
-        <div
-          class="ant-btn-group"
-          style="display: block;"
-        >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              获取格式化后的所有数据
-            </span>
-          </button>
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              校验表单并返回格式化后的所有数据
-            </span>
-          </button>
-        </div>
       </div>
     </div>
   </form>
@@ -47170,35 +46640,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx corr
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -48128,35 +47587,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>
@@ -51557,35 +51005,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/modalform-test.tsx co
           </div>
         </div>
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
-          style="flex-wrap: wrap; margin-bottom: -8px;"
+          style="display: flex; gap: 8px; align-items: center;"
         >
-          <div
-            class="ant-space-item"
-            style="margin-right: 8px; padding-bottom: 8px;"
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
           >
-            <button
-              class="ant-btn ant-btn-primary"
-              type="button"
-            >
-              <span>
-                提 交
-              </span>
-            </button>
-          </div>
-          <div
-            class="ant-space-item"
-            style="padding-bottom: 8px;"
+            <span>
+              提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
           >
-            <button
-              class="ant-btn ant-btn-default"
-              type="button"
-            >
-              <span>
-                重 置
-              </span>
-            </button>
-          </div>
+            <span>
+              重 置
+            </span>
+          </button>
         </div>
       </form>
     </div>
@@ -52472,35 +51909,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/money.tsx correctly 1
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -52626,35 +52052,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/params-formref.tsx co
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -53205,35 +52620,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -53903,7 +53307,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                     class="ant-table-cell"
                                   >
                                     <div
-                                      style="display: flex; align-items: center; justify-content: center; gap: 12px;"
+                                      style="display: flex; align-items: center; gap: 12px;"
                                     >
                                       <a>
                                         删除
@@ -54127,7 +53531,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                     class="ant-table-cell"
                                   >
                                     <div
-                                      style="display: flex; align-items: center; justify-content: center; gap: 12px;"
+                                      style="display: flex; align-items: center; gap: 12px;"
                                     >
                                       <a>
                                         删除
@@ -54150,35 +53554,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -54507,35 +53900,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>

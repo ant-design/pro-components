@@ -513,6 +513,7 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       expect(onChange).toBeCalled();
     });
+
     await waitFor(() => {
       expect(onChange).toBeCalledWith(
         JSON.stringify([

@@ -44,7 +44,7 @@
     "use-json-comparison": "^1.0.5"
   },
   "devDependencies": {
-    "@types/classnames": "^2.3.1"
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "antd": ">=4.23.0",

@@ -1,6 +1,6 @@
 import { useIntl } from '@ant-design/pro-provider';
 import type { ButtonProps } from 'antd';
-import { Button, Form, Space } from 'antd';
+import { Button, Form } from 'antd';
 import omit from 'omit.js';
 import React from 'react';
 
@@ -121,7 +121,17 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     if (renderDom?.length === 1) {
       return renderDom[0] as JSX.Element;
     }
-    return <Space wrap>{renderDom}</Space>;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          gap: 8,
+          alignItems: 'center',
+        }}
+      >
+        {renderDom}
+      </div>
+    );
   }
   return renderDom as JSX.Element;
 };

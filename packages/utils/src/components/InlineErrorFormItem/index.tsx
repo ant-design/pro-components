@@ -92,6 +92,13 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       name={name}
       rules={rules}
       hasFeedback={false}
+      shouldUpdate={(prev, next) => {
+        try {
+          return JSON.stringify(prev) === JSON.stringify(next);
+        } catch (error) {
+          return true;
+        }
+      }}
       // @ts-ignore
       _internalItemRender={{
         mark: 'pro_table_render',

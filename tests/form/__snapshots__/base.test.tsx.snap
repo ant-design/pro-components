@@ -216,35 +216,24 @@ exports[`ProForm 📦 submitted value should be consistent with input when preci
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -261,35 +250,24 @@ exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
       type="text"
     />
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-default test_button"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default test_button"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
+        <span>
+          提 交
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -306,35 +284,24 @@ exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
       type="text"
     />
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary test_button"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary test_button"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
+        <span>
+          提 交
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -434,35 +401,24 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -588,35 +544,24 @@ exports[`ProForm 📦 valueType digit with precision value 1`] = `
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
@@ -790,35 +735,24 @@ exports[`ProForm 📦 when dateFormatter is a Function 1`] = `
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="display: flex; gap: 8px; align-items: center;"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
+        <span>
+          提 交
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-      </div>
+        <span>
+          重 置
+        </span>
+      </button>
     </div>
   </form>
 </DocumentFragment>
