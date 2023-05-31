@@ -63,7 +63,16 @@ function DragSortTable<
             dragHandleProps?.index,
           )
         : defaultDom;
-      return <>{handel}</>;
+      return (
+        <div
+          {...rest}
+          className={`${getPrefixCls('pro-table-drag-icon')} ${
+            className || ''
+          } ${hashId || ''}`.trim()}
+        >
+          {handel}
+        </div>
+      );
     };
   }, [getPrefixCls]);
 

@@ -608,29 +608,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-4"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-4"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                             </div>
                           </td>
@@ -662,29 +671,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-4"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-4"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                             </div>
                           </td>
@@ -716,29 +734,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-4"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-4"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                             </div>
                           </td>
@@ -1393,29 +1420,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-0"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-0"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                               <span
                                 class="customRender"
@@ -1452,29 +1488,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-0"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-0"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                               <span
                                 class="customRender"
@@ -1511,29 +1556,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-0"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-0"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                               <span
                                 class="customRender"
@@ -1764,27 +1818,37 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
-                                aria-label="menu"
-                                class="anticon anticon-menu"
-                                role="img"
-                                style="cursor: grab; color: gold;"
+                              <div
+                                aria-describedby="DndDescribedBy-1"
+                                aria-disabled="false"
+                                aria-roledescription="sortable"
+                                class="ant-pro-table-drag-icon"
+                                role="button"
+                                tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="menu"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-label="menu"
+                                  class="anticon anticon-menu"
+                                  role="img"
+                                  style="cursor: grab; color: gold;"
                                 >
-                                  <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                                  />
-                                </svg>
-                              </span>
-                               1 - John Brown 
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="menu"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                                 1 - John Brown
+                              </div>
+                               
                             </div>
                           </td>
                           <td
@@ -1815,27 +1879,37 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
-                                aria-label="menu"
-                                class="anticon anticon-menu"
-                                role="img"
-                                style="cursor: grab; color: gold;"
+                              <div
+                                aria-describedby="DndDescribedBy-1"
+                                aria-disabled="false"
+                                aria-roledescription="sortable"
+                                class="ant-pro-table-drag-icon"
+                                role="button"
+                                tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="menu"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-label="menu"
+                                  class="anticon anticon-menu"
+                                  role="img"
+                                  style="cursor: grab; color: gold;"
                                 >
-                                  <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                                  />
-                                </svg>
-                              </span>
-                               2 - Jim Green 
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="menu"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                                 2 - Jim Green
+                              </div>
+                               
                             </div>
                           </td>
                           <td
@@ -1866,27 +1940,37 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
-                                aria-label="menu"
-                                class="anticon anticon-menu"
-                                role="img"
-                                style="cursor: grab; color: gold;"
+                              <div
+                                aria-describedby="DndDescribedBy-1"
+                                aria-disabled="false"
+                                aria-roledescription="sortable"
+                                class="ant-pro-table-drag-icon"
+                                role="button"
+                                tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="menu"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-label="menu"
+                                  class="anticon anticon-menu"
+                                  role="img"
+                                  style="cursor: grab; color: gold;"
                                 >
-                                  <path
-                                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                                  />
-                                </svg>
-                              </span>
-                               3 - Joe Black 
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="menu"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                                 3 - Joe Black
+                              </div>
+                               
                             </div>
                           </td>
                           <td
@@ -2111,29 +2195,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-3"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-3"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                             </div>
                           </td>
@@ -2165,29 +2258,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-3"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-3"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                             </div>
                           </td>
@@ -2219,29 +2321,38 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             <div
                               style="display: flex; align-items: center;"
                             >
-                              <span
+                              <div
                                 aria-describedby="DndDescribedBy-3"
                                 aria-disabled="false"
-                                aria-label="holder"
                                 aria-roledescription="sortable"
-                                class="anticon anticon-holder ant-pro-table-drag-icon"
+                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="holder"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-describedby="DndDescribedBy-3"
+                                  aria-disabled="false"
+                                  aria-label="holder"
+                                  aria-roledescription="sortable"
+                                  class="anticon anticon-holder ant-pro-table-drag-icon"
+                                  role="button"
+                                  tabindex="0"
                                 >
-                                  <path
-                                    d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
-                                  />
-                                </svg>
-                              </span>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="holder"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M300 276.5a56 56 0 1056-97 56 56 0 00-56 97zm0 284a56 56 0 1056-97 56 56 0 00-56 97zM640 228a56 56 0 10112 0 56 56 0 00-112 0zm0 284a56 56 0 10112 0 56 56 0 00-112 0zM300 844.5a56 56 0 1056-97 56 56 0 00-56 97zM640 796a56 56 0 10112 0 56 56 0 00-112 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
                                
                             </div>
                           </td>
