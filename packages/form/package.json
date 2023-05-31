@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.7",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "@types/lodash.merge": "^4.6.7",

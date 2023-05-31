@@ -52,7 +52,7 @@
     "use-json-comparison": "^1.0.5"
   },
   "devDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "antd": ">=4.23.0",

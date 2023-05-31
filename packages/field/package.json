@@ -45,7 +45,7 @@
     "@types/lodash.tonumber": "^4.0.6",
     "@types/react-color": "^3.0.4",
     "rc-resize-observer": "^0.2.3",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "antd": ">=4.23.0",
