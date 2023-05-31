@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.7.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.3...@ant-design/pro-table@3.7.4) (2023-05-31)
+
+
+### Bug Fixes
+
+* **table:** fix dragSortHandlerRender 无法拖动的问题 ([5bf3331](https://github.com/ant-design/pro-components/commit/5bf3331304ff430e4cc519a2de05bc7cd69f6bcd))
+
+
+
+
 
 ## [3.7.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.2...@ant-design/pro-table@3.7.3) (2023-05-30)
 
