@@ -612,7 +612,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-4"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -675,7 +674,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-4"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -738,7 +736,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-4"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1424,7 +1421,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-0"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1492,7 +1488,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-0"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1560,7 +1555,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-0"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1822,7 +1816,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-1"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1883,7 +1876,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-1"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -1944,7 +1936,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-1"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -2199,7 +2190,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-3"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -2262,7 +2252,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-3"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
@@ -2325,7 +2314,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                                 aria-describedby="DndDescribedBy-3"
                                 aria-disabled="false"
                                 aria-roledescription="sortable"
-                                class="ant-pro-table-drag-icon"
                                 role="button"
                                 tabindex="0"
                               >
