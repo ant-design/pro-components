@@ -1,15 +1,10 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.7.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.2...@ant-design/pro-table@3.7.3) (2023-05-30)
 
 **Note:** Version bump only for package @ant-design/pro-table
-
-
-
-
 
 ## [3.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.1...@ant-design/pro-table@3.7.2) (2023-05-30)
 

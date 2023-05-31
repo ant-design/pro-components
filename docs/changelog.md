@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.5.2
+﻿## @ant-design/pro-components@2.5.3
+
+`2023-05-30`
+
+- chore: 修复 ts 定义缺失的问题。
+
+## @ant-design/pro-components@2.5.2
 
 `2023-05-30`
 
