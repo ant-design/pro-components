@@ -4,6 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
+    if: github.repository == 'ant-design/pro-components'
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
