@@ -142,7 +142,7 @@ async function release() {
   ]);
   process.env.NPM_CONFIG_OTP = otp;
 
-  for await (const pkg of pkgs()) {
+  for await (const pkg of pkgs) {
     console.log('发布中' + pkg);
     const pkgPath = join(cwd, 'packages', pkg.replace('pro-', ''));
     const { name, version } = require(join(pkgPath, 'package.json'));
@@ -158,11 +158,7 @@ async function release() {
     }
 
     if (!args.publishOnly || !isPackageExist) {
-      console.log(
-        `[${index + 1}/${pkgs.length}] Publish package ${name} ${
-          isNext ? 'with next tag' : ''
-        }`,
-      );
+      console.log(` Publish package ${name} ${isNext ? 'with next tag' : ''}`);
       // 默认设置为 tag 检查通过之后在设置为 latest
       let cliArgs = isNext
         ? ['publish', '--tag', 'next']
