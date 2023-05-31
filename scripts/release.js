@@ -142,7 +142,8 @@ async function release() {
   ]);
   process.env.NPM_CONFIG_OTP = otp;
 
-  const publishList = pkgs.map((pkg, index) => {
+  for await (const pkg of pkgs()) {
+    console.log('发布中' + pkg);
     const pkgPath = join(cwd, 'packages', pkg.replace('pro-', ''));
     const { name, version } = require(join(pkgPath, 'package.json'));
     const isNext = isNextVersion(version);
@@ -170,16 +171,13 @@ async function release() {
       if (args.tag) {
         cliArgs = ['publish', '--tag', args.tag];
       }
-      return execa('npm', cliArgs, {
+      await execa('npm', cliArgs, {
         cwd: pkgPath,
       });
     }
-  });
-  console.log('发布中' + pkgs.join('/'));
-  await Promise.all(publishList);
+  }
   console.log('发布成功！');
   await exec('npm', ['run', 'prettier']);
-
   logStep('done');
 }
 
