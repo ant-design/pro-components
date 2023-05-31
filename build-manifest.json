@@ -5,7 +5,7 @@
     "public/icon.png": "/icon.png",
     "public/sitemap.xml": "/sitemap.xml",
     "umi.css": "/umi.3386c058.css",
-    "umi.js": "/umi.d61915d3.js",
+    "umi.js": "/umi.a6415307.js",
     "dumi__pages__404.js": "/dumi__pages__404.3e4402d2.async.js",
     "dumi__theme__ContextWrapper.js": "/dumi__theme__ContextWrapper.41e8722c.async.js",
     "dumi__theme__layouts__DocLayout.js": "/dumi__theme__layouts__DocLayout.95832ed1.async.js",
@@ -100,7 +100,7 @@
     "WaterMark__demos.js": "/WaterMark__demos.2043e61a.async.js",
     "ProList__demos.js": "/ProList__demos.eb5f8ee0.async.js",
     "ProSkeleton__demos.js": "/ProSkeleton__demos.4ceb4d5d.async.js",
-    "DragSortTable__demos.js": "/DragSortTable__demos.42979611.async.js",
+    "DragSortTable__demos.js": "/DragSortTable__demos.fad111fa.async.js",
     "EditableProTable__demos.js": "/EditableProTable__demos.3f0badee.async.js"
   }
 }
