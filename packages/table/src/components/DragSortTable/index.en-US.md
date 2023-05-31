@@ -7,7 +7,7 @@ nav:
 
 # DragSortTable - Drag Sort Table
 
-`DragSortTable` uses [react-sortable-hoc](https://www.npmjs.com/package/react-sortable-hoc) for sorting, you need to provide `rowKey` to determine the unique value of the data, otherwise it will not work properly. Currently, sorting of data requested by `request` is not supported. The data requested by `request` can be stored and passed in through `dataSource`.
+`DragSortTable` uses [dnd-kit](https://dndkit.com/) for sorting, you need to provide `rowKey` to determine the unique value of the data, otherwise it will not work properly.
 
 ## Demo
 
