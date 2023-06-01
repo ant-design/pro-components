@@ -89,7 +89,7 @@ export const transformKeySubmitValue = <T extends object = any>(
               if (typeof fn[curK] === 'function' &&
                 _itemValue?.[idx]?.[curK]) {
                 const res = fn[curK](
-                  _itemValue?.[idx]?.[curK],
+                  _itemValue[idx][curK],
                   entityKey,
                   tempValues,
                 );
