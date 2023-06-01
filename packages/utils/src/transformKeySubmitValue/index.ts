@@ -86,9 +86,10 @@ export const transformKeySubmitValue = <T extends object = any>(
           }
           if (typeof fn === 'object' && !Array.isArray(fn)) {
             Object.keys(fn).forEach((curK) => {
-              if (typeof fn[curK] === 'function') {
+              if (typeof fn[curK] === 'function' &&
+                _itemValue?.[idx]?.[curK]) {
                 const res = fn[curK](
-                  _itemValue[idx][curK],
+                  _itemValue?.[idx]?.[curK],
                   entityKey,
                   tempValues,
                 );
