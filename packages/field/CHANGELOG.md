@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.4...@ant-design/pro-field@2.9.5) (2023-06-02)
 
-
 ### Bug Fixes
 
-* **form:** fix  Cascader ligth mode no work error ([4ce56dc](https://github.com/ant-design/pro-components/commit/4ce56dc278be047e32b0a9240086e2f9d7b0cdbe))
-
-
-
-
+- **form:** fix Cascader ligth mode no work error ([4ce56dc](https://github.com/ant-design/pro-components/commit/4ce56dc278be047e32b0a9240086e2f9d7b0cdbe))
 
 ## [2.9.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.3...@ant-design/pro-field@2.9.4) (2023-05-31)
 
