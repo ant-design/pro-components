@@ -128,7 +128,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           label={label}
           disabled={disabled}
           bordered={rest.bordered}
-          value={notEmpty ? dom : null}
+          value={notEmpty || open ? dom : null}
           style={
             notEmpty
               ? {
@@ -137,7 +137,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
               : undefined
           }
           allowClear={false}
-          downIcon={false}
+          downIcon={notEmpty || open ? false : undefined}
           onClick={() => {
             setOpen(true);
             rest?.fieldProps?.onDropdownVisibleChange?.(true);
