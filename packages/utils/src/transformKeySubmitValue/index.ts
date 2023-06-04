@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
 import React from 'react';
@@ -71,55 +72,73 @@ export const transformKeySubmitValue = <T extends object = any>(
     }
 
     Object.keys(tempValues).forEach((entityKey) => {
+      const transformForArray = (transformList: any, subItemValue: any) => {
+        if (!Array.isArray(transformList)) return entityKey;
+        transformList.forEach(
+          (transform: Function | Record<string, any> | any[], idx: number) => {
+            // 如果不存在直接返回
+            if (!transform) return;
+
+            const subTransformItem = subItemValue?.[idx];
+
+            // 如果是个方法，把key设置为方法的返回值
+            if (typeof transform === 'function') {
+              subItemValue[idx] = transform(
+                subItemValue,
+                entityKey,
+                tempValues,
+              );
+            }
+            if (typeof transform === 'object' && !Array.isArray(transform)) {
+              Object.keys(transform).forEach((transformArrayItem) => {
+                const subTransformItemValue =
+                  subTransformItem?.[transformArrayItem];
+                if (
+                  typeof transform[transformArrayItem] === 'function' &&
+                  subTransformItemValue
+                ) {
+                  const res = transform[transformArrayItem](
+                    subTransformItem[transformArrayItem],
+                    entityKey,
+                    tempValues,
+                  );
+                  subTransformItem[transformArrayItem] =
+                    typeof res === 'object' ? res[transformArrayItem] : res;
+                } else if (
+                  typeof transform[transformArrayItem] === 'object' &&
+                  Array.isArray(transform[transformArrayItem]) &&
+                  subTransformItemValue
+                ) {
+                  transformForArray(
+                    transform[transformArrayItem],
+                    subTransformItemValue,
+                  );
+                }
+              });
+            }
+            if (
+              typeof transform === 'object' &&
+              Array.isArray(transform) &&
+              subTransformItem
+            ) {
+              transformForArray(transform, subTransformItem);
+            }
+          },
+        );
+        return entityKey;
+      };
       const key = parentsKey
         ? [parentsKey, entityKey].flat(1)
         : [entityKey].flat(1);
       const itemValue = tempValues[entityKey];
-      const transformFunction = get(dataFormatMap, key);
 
-      const _transformArray = (transformFn: any, _itemValue: any) => {
-        if (!Array.isArray(transformFn)) return entityKey;
-        transformFn.forEach((fn: any, idx: number) => {
-          if (!fn) return;
-          if (typeof fn === 'function') {
-            _itemValue[idx] = fn(_itemValue, entityKey, tempValues);
-          }
-          if (typeof fn === 'object' && !Array.isArray(fn)) {
-            Object.keys(fn).forEach((curK) => {
-              if (typeof fn[curK] === 'function' &&
-                _itemValue?.[idx]?.[curK]) {
-                const res = fn[curK](
-                  _itemValue[idx][curK],
-                  entityKey,
-                  tempValues,
-                );
-                _itemValue[idx][curK] =
-                  typeof res === 'object' ? res[curK] : res;
-              } else if (
-                typeof fn[curK] === 'object' &&
-                Array.isArray(fn[curK]) &&
-                _itemValue?.[idx]?.[curK]
-              ) {
-                _transformArray(fn[curK], _itemValue?.[idx]?.[curK]);
-              }
-            });
-          }
-          if (
-            typeof fn === 'object' &&
-            Array.isArray(fn) &&
-            _itemValue?.[idx]
-          ) {
-            _transformArray(fn, _itemValue?.[idx]);
-          }
-        });
-        return entityKey;
-      };
+      const transformFunction = get(dataFormatMap, key);
 
       const transform = () => {
         const tempKey =
           typeof transformFunction === 'function'
             ? transformFunction?.(itemValue, entityKey, tempValues)
-            : _transformArray(transformFunction, itemValue);
+            : transformForArray(transformFunction, itemValue);
         // { [key:string]:any } 数组也能通过编译
         if (Array.isArray(tempKey)) {
           result = namePathSet(result, tempKey, itemValue);
