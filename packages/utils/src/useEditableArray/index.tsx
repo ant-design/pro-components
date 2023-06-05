@@ -851,7 +851,7 @@ export function useEditableArray<RecordType>(
       // 防止多次渲染
       const recordKey = props.getRowKey(row, -1);
 
-      if (!recordKey) {
+      if (!recordKey && recordKey !== 0) {
         noteOnce(
           !!recordKey,
           '请设置 recordCreatorProps.record 并返回一个唯一的key  \n  https://procomponents.ant.design/components/editable-table#editable-%E6%96%B0%E5%BB%BA%E8%A1%8C',
