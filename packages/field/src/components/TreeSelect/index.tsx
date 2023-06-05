@@ -23,15 +23,16 @@ import 'antd/lib/tree-select/style';
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
+} & FieldSelectProps;
 
+export type TreeSelectFieldProps =TreeSelectProps<any> & {
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
    * @default true
    */
   fetchDataOnSearch?: boolean;
-} & FieldSelectProps;
-
+};
 /**
  * Tree select
  * A function that returns a React component.
@@ -45,7 +46,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     light,
     label,
     render,
-    fetchDataOnSearch = true,
     ...rest
   },
   ref,
@@ -63,12 +63,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     showSearch,
     autoClearSearchValue,
     treeData,
-    fetchDataOnSearch: propsFetchDataOnSearch,
+    fetchDataOnSearch,
     searchValue: propsSearchValue,
     ...fieldProps
-  } = rest.fieldProps as TreeSelectProps<any> & {
-    fetchDataOnSearch?: boolean;
-  };
+  } = rest.fieldProps as TreeSelectFieldProps
 
   const intl = useIntl();
 
@@ -203,7 +201,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }}
           onChange={onChange}
           onSearch={(value) => {
-            if (fetchDataOnSearch) {
+            // fix 不支持请求的情况下不刷新options
+            if (fetchDataOnSearch&&rest?.request) {
               fetchData(value);
             }
             setSearchValue(value);
