@@ -15284,6 +15284,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -15464,6 +15465,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -15643,6 +15645,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -15822,6 +15825,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -16001,6 +16005,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -19987,7 +19992,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -20006,11 +20011,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>
@@ -22263,7 +22265,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -22282,11 +22284,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>
@@ -22776,7 +22775,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -22795,11 +22794,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>
@@ -23289,7 +23285,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -23308,11 +23304,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>
@@ -26214,7 +26207,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                           >
                             <div
                               aria-label="页码"
-                              class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                             >
                               <div
                                 class="ant-select-selector"
@@ -26233,11 +26226,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
                                     id="rc_select_TEST_OR_SSR"
-                                    readonly=""
                                     role="combobox"
-                                    style="opacity: 0;"
                                     type="search"
-                                    unselectable="on"
                                     value=""
                                   />
                                 </span>
@@ -29174,7 +29164,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -29193,11 +29183,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>
@@ -36745,6 +36732,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -36814,6 +36802,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -36943,7 +36932,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -36962,11 +36951,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>
@@ -37769,6 +37755,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                                 class="ant-table-cell"
                               >
                                 <div
+                                  aria-valuenow="86"
                                   class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                                   role="progressbar"
                                   style="min-width: 100px; max-width: 320px;"
@@ -37817,6 +37804,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                                 class="ant-table-cell"
                               >
                                 <div
+                                  aria-valuenow="86"
                                   class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                                   role="progressbar"
                                   style="min-width: 100px; max-width: 320px;"
@@ -37936,7 +37924,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                     >
                       <div
                         aria-label="页码"
-                        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                       >
                         <div
                           class="ant-select-selector"
@@ -37955,11 +37943,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                               autocomplete="off"
                               class="ant-select-selection-search-input"
                               id="rc_select_TEST_OR_SSR"
-                              readonly=""
                               role="combobox"
-                              style="opacity: 0;"
                               type="search"
-                              unselectable="on"
                               value=""
                             />
                           </span>
@@ -46678,7 +46663,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -46697,11 +46682,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>
@@ -49553,7 +49535,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -49572,11 +49554,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>
@@ -50508,6 +50487,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -50581,6 +50561,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                             class="ant-table-cell"
                           >
                             <div
+                              aria-valuenow="86"
                               class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
@@ -50832,7 +50813,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -50851,11 +50832,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>

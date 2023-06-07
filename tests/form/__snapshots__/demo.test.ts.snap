@@ -3658,6 +3658,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       >
                         <ul
                           class="ant-rate"
+                          id="validate_other_rate"
                           role="radiogroup"
                           tabindex="0"
                         >
@@ -5072,6 +5073,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
               >
                 <ul
                   class="ant-rate ant-rate-disabled"
+                  id="validate_other_rate"
                   role="radiogroup"
                   tabindex="-1"
                 >

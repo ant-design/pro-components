@@ -82,6 +82,7 @@ export const convertMoment = (
   if (!dateFormatter) {
     return value;
   }
+
   if (dayjs.isDayjs(value) || isMoment(value)) {
     if (dateFormatter === 'number') {
       return value.valueOf();

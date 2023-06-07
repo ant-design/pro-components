@@ -39,7 +39,7 @@
     "@ant-design/pro-utils": "^2.11.3",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.8",
     "rc-resize-observer": "^1.0.0",
     "rc-util": "^4.19.0",
     "use-media-antd-query": "^1.1.0"
@@ -48,7 +48,7 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0",
+    "antd": ">=4.23.0 || >=5.0.0",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

@@ -49,7 +49,7 @@ describe('PageContainer', () => {
     const { container } = render(
       <PageHeader
         title="Page Title"
-        breadcrumb={<Breadcrumb routes={routes} />}
+        breadcrumb={<Breadcrumb items={routes} />}
       />,
     );
     expect(container.querySelectorAll('.ant-breadcrumb')).toHaveLength(1);

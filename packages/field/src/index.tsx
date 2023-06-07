@@ -57,11 +57,11 @@ import weekOfYear from 'dayjs/plugin/weekOfYear';
 
 import dayjs from 'dayjs';
 
-dayjs.extend(weekday);
 dayjs.extend(localeData);
 dayjs.extend(advancedFormat);
 dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
+dayjs.extend(weekday);
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 

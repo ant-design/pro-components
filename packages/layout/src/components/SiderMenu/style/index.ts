@@ -16,7 +16,7 @@ export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
     display: 'unset',
     opacity: 1,
   },
-});
+}) as any;
 
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   return {
