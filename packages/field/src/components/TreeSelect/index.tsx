@@ -25,7 +25,7 @@ export type GroupProps = {
   radioType?: 'button' | 'radio';
 } & FieldSelectProps;
 
-export type TreeSelectFieldProps =TreeSelectProps<any> & {
+export type TreeSelectFieldProps = TreeSelectProps<any> & {
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
@@ -39,15 +39,7 @@ export type TreeSelectFieldProps =TreeSelectProps<any> & {
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  {
-    radioType,
-    renderFormItem,
-    mode,
-    light,
-    label,
-    render,
-    ...rest
-  },
+  { radioType, renderFormItem, mode, light, label, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -66,7 +58,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     fetchDataOnSearch,
     searchValue: propsSearchValue,
     ...fieldProps
-  } = rest.fieldProps as TreeSelectFieldProps
+  } = rest.fieldProps as TreeSelectFieldProps;
 
   const intl = useIntl();
 
@@ -202,7 +194,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           onChange={onChange}
           onSearch={(value) => {
             // fix 不支持请求的情况下不刷新options
-            if (fetchDataOnSearch&&rest?.request) {
+            if (fetchDataOnSearch && rest?.request) {
               fetchData(value);
             }
             setSearchValue(value);
