@@ -280,6 +280,7 @@ const ConfigProviderContainer: React.FC<{
     [tokenContext.token, finalToken ?? {}],
     {
       salt,
+      override: finalToken,
     },
   );
 

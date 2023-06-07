@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: false
+  excludeLinksFromLockfile: false
 
 overrides:
   '@types/react': ^18.0.38
@@ -150,7 +154,7 @@ importers:
         version: 5.5.2(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
       antd-style:
         specifier: beta
-        version: 3.1.0-beta.3(@types/react@18.0.38)(antd@5.5.2)(react-dom@18.2.0)(react@18.2.0)
+        version: 3.3.0-beta.2(@types/react@18.0.38)(antd@5.5.2)(react-dom@18.2.0)(react@18.2.0)
       babel-loader:
         specifier: ^9.1.2
         version: 9.1.2(@babel/core@7.22.1)
@@ -7539,8 +7543,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /antd-style@3.1.0-beta.3(@types/react@18.0.38)(antd@5.5.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-rIAsN4T8392GM/Ni/eIUKZm2g1IMiguNsArty3u4IBz4Cv8XPuf5H7HuaPHXQXCFGjpyzBefrZAGhs7huAC1tA==}
+  /antd-style@3.2.1(@types/react@18.0.38)(antd@5.5.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-z0naztx+qukyF9ezNbUY0Z1DeKdyr3jvdBQh34QtfQk4Y8XAU+4XYTHkyPzSejWjwbXk/biaGw0enalW0jIAQQ==}
     peerDependencies:
       antd: ^5
       react: '>=18'
@@ -7555,13 +7559,14 @@ packages:
       '@emotion/utils': 1.2.1
       antd: 5.5.2(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
+      use-merge-value: 1.2.0(react@18.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - react-dom
     dev: true
 
-  /antd-style@3.2.1(@types/react@18.0.38)(antd@5.5.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-z0naztx+qukyF9ezNbUY0Z1DeKdyr3jvdBQh34QtfQk4Y8XAU+4XYTHkyPzSejWjwbXk/biaGw0enalW0jIAQQ==}
+  /antd-style@3.3.0-beta.2(@types/react@18.0.38)(antd@5.5.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-u2QYSG2+0+uSx6b/yEXZaHVvoB1z4e6/o6HmAhUv04KkgcrdhzRLr8p8uEIRAVQ08Q+RG2JIOsvvWMPMRLc+kA==}
     peerDependencies:
       antd: ^5
       react: '>=18'
@@ -20485,7 +20490,7 @@ packages:
     peerDependencies:
       react: '>=16.13.1'
     dependencies:
-      '@babel/runtime': 7.18.0
+      '@babel/runtime': 7.22.3
       react: 18.2.0
     dev: true
 
