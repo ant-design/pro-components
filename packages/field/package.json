@@ -35,7 +35,7 @@
     "@babel/runtime": "^7.18.0",
     "@chenshuai2144/sketch-color": "^1.0.8",
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.4",
+    "dayjs": "^1.11.8",
     "lodash.tonumber": "^4.0.3",
     "omit.js": "^2.0.2",
     "rc-util": "^5.4.0",
@@ -48,7 +48,7 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0",
+    "antd": ">=4.23.0 || >=5.0.0",
     "react": ">=17.0.0"
   }
 }

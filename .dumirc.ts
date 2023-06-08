@@ -78,7 +78,7 @@ export default defineConfig({
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },
   ],
-  ssr: {},
+  // ssr: {},
   themeConfig: {
     hero: {
       title: 'ProComponents',

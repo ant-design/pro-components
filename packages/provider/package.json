@@ -43,7 +43,7 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0",
+    "antd": ">=4.23.0 || >=5.0.0",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

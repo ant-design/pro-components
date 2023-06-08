@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.5.3
+﻿## @ant-design/pro-components@2.5.5
+
+`2023-06-02`
+
+- fix(form): fix Cascader light mode no work error. [4ce56dc](https://github.com/ant-design/pro-components/commit/4ce56dc)
+
+## @ant-design/pro-components@2.5.3
 
 `2023-05-30`
 
