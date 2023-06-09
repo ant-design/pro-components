@@ -1,4 +1,5 @@
-﻿import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
+﻿import { useStyle } from '@ant-design/pro-provider';
+import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import { SketchPicker } from '@chenshuai2144/sketch-color';
 import { ConfigProvider, Popover, PopoverProps, theme } from 'antd';
 
@@ -37,22 +38,36 @@ const ColorPicker = React.forwardRef(
   ) => {
     const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
     const prefixCls = getPrefixCls('pro-field-color-picker');
+
     const { token } = theme.useToken();
     const [color, setColor] = useMergedState('#1890ff', {
       value: rest.value,
       onChange: rest.onChange,
     });
 
-    const readDom = (
-      <div
-        className={prefixCls}
-        style={{
-          padding: 5,
-          width: 48,
+    const { wrapSSR, hashId } = useStyle('ProFiledColorPicker' + color, () => {
+      return {
+        [`.${prefixCls}`]: {
+          width: 32,
+          height: 32,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           boxSizing: 'border-box',
           border: `1px solid ${token.colorSplit}`,
           borderRadius: token.borderRadius,
-          cursor: rest.disabled ? 'pointer' : 'not-allowed',
+          '&:hover': {
+            borderColor: color,
+          },
+        },
+      };
+    });
+
+    const readDom = wrapSSR(
+      <div
+        className={`${prefixCls} ${hashId}`.trim()}
+        style={{
+          cursor: rest.disabled ? 'not-allowed' : 'pointer',
           backgroundColor: rest.disabled
             ? token.colorBgContainerDisabled
             : token.colorBgContainer,
@@ -61,13 +76,13 @@ const ColorPicker = React.forwardRef(
         <div
           style={{
             backgroundColor: color,
-            width: 36,
+            width: 24,
             boxSizing: 'border-box',
-            height: 14,
+            height: 24,
             borderRadius: token.borderRadius,
           }}
         />
-      </div>
+      </div>,
     );
 
     useImperativeHandle(ref, () => {});

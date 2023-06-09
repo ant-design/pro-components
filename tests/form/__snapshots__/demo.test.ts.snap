@@ -2957,6 +2957,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             </div>
             <div
               class="ant-space-item"
+              style="margin-right: 32px;"
             >
               <div
                 class="ant-form-item"
@@ -3106,6 +3107,51 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             </span>
                           </label>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <div
+                class="ant-form-item"
+              >
+                <div
+                  class="ant-row ant-form-item-row"
+                >
+                  <div
+                    class="ant-col ant-form-item-label"
+                  >
+                    <label
+                      class=""
+                      for="validate_other_color"
+                      title="颜色选择"
+                    >
+                      颜色选择
+                    </label>
+                  </div>
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <span>
+                          <div
+                            class="ant-pro-field-color-picker"
+                            style="cursor: pointer; background-color: rgb(255, 255, 255);"
+                          >
+                            <div
+                              style="background-color: rgb(24, 144, 255); width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
+                            />
+                          </div>
+                        </span>
                       </div>
                     </div>
                   </div>
