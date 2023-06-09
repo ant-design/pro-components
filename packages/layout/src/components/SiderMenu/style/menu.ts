@@ -71,7 +71,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 8,
+        gap: token.marginXS,
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
@@ -94,7 +94,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           },
         },
         [`&${token.componentCls}-group-item-title`]: {
-          gap: 4,
+          gap: token.marginXS,
           height: 18,
           overflow: 'hidden',
         },

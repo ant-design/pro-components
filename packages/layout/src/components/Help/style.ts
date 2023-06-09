@@ -67,7 +67,7 @@ const genProHelpStyle: GenerateStyle<ProHelpToken> = (token) => {
     [`${token.componentCls}-actions`]: {
       display: 'flex',
       boxSizing: 'border-box',
-      gap: 12,
+      gap: token.marginSM,
       '&-item': {
         display: 'flex',
         boxSizing: 'border-box',

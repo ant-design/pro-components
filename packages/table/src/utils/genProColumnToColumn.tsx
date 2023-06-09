@@ -42,7 +42,7 @@ type ColumnToColumnParams<T> = {
  * @param columnEmptyText
  */
 export function genProColumnToColumn<T>(
-  params: ColumnToColumnParams<T>,
+  params: ColumnToColumnParams<T> & { marginSM: number },
   parents?: ProColumnGroupType<T, any>,
 ): ColumnToColumnReturnType<T> {
   const {
@@ -51,6 +51,7 @@ export function genProColumnToColumn<T>(
     columnEmptyText,
     type,
     editableUtils,
+    marginSM,
     rowKey = 'id',
     childrenColumnName = 'children',
   } = params;
@@ -165,6 +166,7 @@ export function genProColumnToColumn<T>(
             columnEmptyText,
             counter,
             type,
+            marginSM,
             subName: subNameRecord.get(uniqueKey),
             editableUtils,
           };

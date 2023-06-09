@@ -42,7 +42,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       '&-block-checkbox': {
         display: 'flex',
         minHeight: 42,
-        gap: 12,
+        gap: token.marginSM,
         '& &-item': {
           position: 'relative',
           width: '44px',

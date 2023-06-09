@@ -1,7 +1,13 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { LabelIconTip } from '@ant-design/pro-utils';
-import type { TabPaneProps } from 'antd';
-import { ConfigProvider, Input, Tabs, Tooltip } from 'antd';
+import {
+  ConfigProvider,
+  Input,
+  TabPaneProps,
+  Tabs,
+  theme,
+  Tooltip,
+} from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SearchProps } from 'antd/lib/input';
 import classNames from 'classnames';
@@ -155,7 +161,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   menu,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-
+  const { token } = theme.useToken();
   const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -219,7 +225,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 8,
+          gap: token.marginXS,
         }}
       >
         {actions.map((action, index) => {

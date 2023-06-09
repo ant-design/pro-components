@@ -17,8 +17,7 @@ import {
   useEditableArray,
   useMountMergeState,
 } from '@ant-design/pro-utils';
-import type { TablePaginationConfig } from 'antd';
-import { ConfigProvider, Table } from 'antd';
+import { ConfigProvider, Table, TablePaginationConfig, theme } from 'antd';
 import type {
   GetRowKey,
   SortOrder,
@@ -692,6 +691,9 @@ const ProTable = <
     },
   });
 
+  // ============================ Render ============================
+  const { token } = theme.useToken();
+
   /** 绑定 action */
   useActionType(actionRef, action, {
     fullScreen: () => {
@@ -741,6 +743,7 @@ const ProTable = <
       counter,
       columnEmptyText,
       type,
+      marginSM: token.marginSM,
       editableUtils,
       rowKey,
       childrenColumnName: props.expandable?.childrenColumnName,

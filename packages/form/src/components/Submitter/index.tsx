@@ -1,6 +1,5 @@
 import { useIntl } from '@ant-design/pro-provider';
-import type { ButtonProps } from 'antd';
-import { Button, Form } from 'antd';
+import { Button, ButtonProps, Form, theme } from 'antd';
 import omit from 'omit.js';
 import React from 'react';
 
@@ -57,6 +56,9 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     submitButtonProps,
     resetButtonProps = {},
   } = props;
+
+  const { token } = theme.useToken();
+
   const submit = () => {
     form.submit();
     onSubmit?.();
@@ -125,7 +127,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
       <div
         style={{
           display: 'flex',
-          gap: 8,
+          gap: token.marginXS,
           alignItems: 'center',
         }}
       >

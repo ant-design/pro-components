@@ -22,7 +22,7 @@ const genLightFilterStyle: GenerateStyle<LightFilterToken> = (token) => {
       '&-container': {
         display: 'flex',
         flexWrap: 'wrap',
-        gap: 8,
+        gap: token.marginXS,
       },
       '&-item': {
         whiteSpace: 'nowrap',
