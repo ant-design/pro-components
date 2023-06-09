@@ -56,6 +56,8 @@ export type FieldSelectProps<FieldProps = any> = {
   id?: string;
 
   children?: ReactNode;
+  /** 默认搜素条件 */
+  defaultKeyWords?: string;
 } & ProFieldLightProps;
 
 export const ObjToMap = (
@@ -483,10 +485,7 @@ export const useFieldFetchData = (
  * @param
  */
 const FieldSelect: ProFieldFC<
-  FieldSelectProps &
-    Pick<SelectProps, 'fieldNames' | 'style' | 'className'> & {
-      defaultKeyWords?: string;
-    }
+  FieldSelectProps & Pick<SelectProps, 'fieldNames' | 'style' | 'className'>
 > = (props, ref) => {
   const {
     mode,

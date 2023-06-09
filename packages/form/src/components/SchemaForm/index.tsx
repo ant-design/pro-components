@@ -150,6 +150,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
               transform: originItem.transform,
               convertValue: originItem.convertValue,
               debounceTime: originItem.debounceTime,
+              defaultKeyWords: originItem.defaultKeyWords,
             }) as ItemType<any, any>;
 
             return renderValueType(item, {
