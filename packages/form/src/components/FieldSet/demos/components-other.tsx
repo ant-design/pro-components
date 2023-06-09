@@ -1,6 +1,7 @@
 import {
   ProForm,
   ProFormCheckbox,
+  ProFormColorPicker,
   ProFormDigit,
   ProFormDigitRange,
   ProFormGroup,
@@ -232,6 +233,7 @@ const Demo = () => {
             label="Checkbox.Group"
             options={['A', 'B', 'C', 'D', 'E', 'F']}
           />
+          <ProFormColorPicker label="颜色选择" name="color" />
         </ProFormGroup>
         <ProFormGroup label="数字类">
           <ProFormDigitRange

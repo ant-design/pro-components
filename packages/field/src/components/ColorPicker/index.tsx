@@ -1,7 +1,6 @@
 ﻿import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import { SketchPicker } from '@chenshuai2144/sketch-color';
-import type { PopoverProps } from 'antd';
-import { ConfigProvider, Popover } from 'antd';
+import { ConfigProvider, Popover, PopoverProps, theme } from 'antd';
 
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useImperativeHandle } from 'react';
@@ -32,32 +31,40 @@ const ColorPicker = React.forwardRef(
       mode?: 'read' | 'edit';
       onChange?: (color: string) => void;
       colors?: string[];
+      disabled?: boolean;
     },
     ref,
   ) => {
     const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
     const prefixCls = getPrefixCls('pro-field-color-picker');
+    const { token } = theme.useToken();
     const [color, setColor] = useMergedState('#1890ff', {
       value: rest.value,
       onChange: rest.onChange,
     });
+
     const readDom = (
       <div
         className={prefixCls}
         style={{
           padding: 5,
           width: 48,
-          border: '1px solid #ddd',
-          borderRadius: '2px',
-          cursor: 'pointer',
+          boxSizing: 'border-box',
+          border: `1px solid ${token.colorSplit}`,
+          borderRadius: token.borderRadius,
+          cursor: rest.disabled ? 'pointer' : 'not-allowed',
+          backgroundColor: rest.disabled
+            ? token.colorBgContainerDisabled
+            : token.colorBgContainer,
         }}
       >
         <div
           style={{
             backgroundColor: color,
             width: 36,
+            boxSizing: 'border-box',
             height: 14,
-            borderRadius: '2px',
+            borderRadius: token.borderRadius,
           }}
         />
       </div>
@@ -65,9 +72,10 @@ const ColorPicker = React.forwardRef(
 
     useImperativeHandle(ref, () => {});
 
-    if (mode === 'read') {
+    if (mode === 'read' || rest.disabled) {
       return readDom;
     }
+
     return (
       <Popover
         trigger="click"
