@@ -18,7 +18,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
       paddingInline: 0,
       listStyle: 'none',
       display: 'flex',
-      gap: 8,
+      gap: token.marginXS,
       background: token.colorBgContainer,
       borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       minHeight: 42,

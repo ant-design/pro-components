@@ -45179,7 +45179,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                             style="margin-right: 16px;"
                           >
                             <div
-                              style="display: flex; gap: 8px; align-items: center;"
+                              style="display: flex; gap: 4px; align-items: center;"
                             >
                               <button
                                 class="ant-btn ant-btn-default"
@@ -45288,7 +45288,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                 style="align-items: center;"
               >
                 <div
-                  style="display: flex; align-items: center; gap: 8px;"
+                  style="display: flex; align-items: center; gap: 4px;"
                 >
                   <button
                     class="ant-btn ant-btn-primary"

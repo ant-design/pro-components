@@ -24,6 +24,7 @@ type ColumnRenderInterface<T> = {
   counter: ReturnType<ContainerType>;
   editableUtils: UseEditableUtilType;
   subName: string[];
+  marginSM?: number;
 };
 
 /**
@@ -101,6 +102,7 @@ export function columnRender<T>({
   counter,
   type,
   subName,
+  marginSM = 8,
   editableUtils,
 }: ColumnRenderInterface<T>): any {
   const { action, prefixName } = counter;
@@ -151,7 +153,7 @@ export function columnRender<T>({
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: 12,
+            gap: marginSM,
           }}
         >
           {editableUtils.actionRender({

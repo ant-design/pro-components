@@ -1,4 +1,4 @@
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, theme } from 'antd';
 import React, { useContext, useImperativeHandle } from 'react';
 import type { ProFieldFC } from '../../index';
 
@@ -36,6 +36,8 @@ const FieldOptions: ProFieldFC = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-field-option');
 
+  const { token } = theme.useToken();
+
   useImperativeHandle(ref, () => ({}));
 
   if (render) {
@@ -53,7 +55,7 @@ const FieldOptions: ProFieldFC = (
       <div
         style={{
           display: 'flex',
-          gap: 16,
+          gap: token.margin,
           alignItems: 'center',
         }}
         className={className}
@@ -74,7 +76,7 @@ const FieldOptions: ProFieldFC = (
     <div
       style={{
         display: 'flex',
-        gap: 16,
+        gap: token.margin,
         alignItems: 'center',
       }}
       className={className}
