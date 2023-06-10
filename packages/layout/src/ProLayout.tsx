@@ -1,6 +1,9 @@
 import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
-import { isNeedOpenHash } from '@ant-design/pro-provider';
-import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
+import {
+  isNeedOpenHash,
+  ProConfigProvider,
+  ProProvider,
+} from '@ant-design/pro-provider';
 import {
   isBrowser,
   useDocumentTitle,
@@ -472,7 +475,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [propsFormatMessage],
   );
 
-  const { data, mutate } = useSWR(
+  const { data, mutate, isLoading } = useSWR(
     [defaultId, menu?.params],
     async ([, params]) => {
       setMenuLoading(true);
@@ -489,6 +492,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       revalidateOnReconnect: false,
     },
   );
+
+  useEffect(() => {
+    setMenuLoading(isLoading);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
 
   const { cache } = useSWRConfig();
   useEffect(() => {

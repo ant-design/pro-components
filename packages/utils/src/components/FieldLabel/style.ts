@@ -9,7 +9,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
       display: 'inline-flex',
-      gap: '4px',
+      gap: token.marginXXS,
       alignItems: 'center',
       height: '30px',
       paddingBlock: 0,

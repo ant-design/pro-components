@@ -1,4 +1,4 @@
-﻿import type { ProAliasToken, GenerateStyle } from '@ant-design/pro-provider';
+﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 export interface stylishToken extends ProAliasToken {
   componentCls: string;

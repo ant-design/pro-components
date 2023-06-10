@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "2.12.1",
+  "version": "2.13.5",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -35,13 +35,13 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
-    "@ant-design/pro-field": "^2.8.0",
-    "@ant-design/pro-provider": "^2.9.0",
-    "@ant-design/pro-utils": "^2.10.0",
+    "@ant-design/pro-field": "^2.9.5",
+    "@ant-design/pro-provider": "^2.10.2",
+    "@ant-design/pro-utils": "^2.11.3",
     "@babel/runtime": "^7.18.0",
     "@chenshuai2144/sketch-color": "^1.0.7",
     "@umijs/use-params": "^1.0.9",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.2",
     "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
     "rc-resize-observer": "^1.1.0",
@@ -50,12 +50,12 @@
     "use-media-antd-query": "^1.1.0"
   },
   "devDependencies": {
-    "@types/classnames": "^2.3.1",
-    "@types/lodash.merge": "^4.6.7"
+    "@types/lodash.merge": "^4.6.7",
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "@types/lodash.merge": "^4.6.7",
-    "antd": ">=4.23.0",
+    "antd": ">=4.23.0 || >=5.0.0",
     "rc-field-form": "^1.22.0",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"

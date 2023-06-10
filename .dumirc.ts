@@ -1,7 +1,7 @@
 import chalk from 'chalk';
+import { defineConfig } from 'dumi';
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { defineConfig } from 'dumi';
 
 const headPkgList: string[] = [];
 // utils must build before core
@@ -19,7 +19,7 @@ const alias = pkgList.reduce((pre, pkg) => {
 
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
-const tailPkgList = pkgList.map((path) => `packages/${path}/src`);
+const tailPkgList = pkgList.map((path) => `packages/${path}/src/components`);
 
 export default defineConfig({
   sitemap: { hostname: 'https://procomponents.ant.design' },
@@ -70,14 +70,15 @@ export default defineConfig({
   ],
   alias,
   resolve: {
-    docDirs: ['docs', ...tailPkgList],
+    docDirs: ['docs'],
+    atomDirs: tailPkgList.map((dir) => ({ type: 'component', dir })),
   },
   styles: [`.markdown table{table-layout: fixed;}`],
   locales: [
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },
   ],
-  ssr: {},
+  // ssr: {},
   themeConfig: {
     hero: {
       title: 'ProComponents',

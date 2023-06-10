@@ -7,8 +7,7 @@ import type {
   TablePaginationConfig,
   TableProps,
 } from 'antd';
-import { version } from 'antd';
-import { ConfigProvider, List } from 'antd';
+import { ConfigProvider, List, version } from 'antd';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import usePagination from 'antd/lib/table/hooks/usePagination';
 import useSelection from 'antd/lib/table/hooks/useSelection';
@@ -21,8 +20,8 @@ import type { GetComponentProps } from './index';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
 
-import type { PaginationConfig } from 'antd/lib/pagination';
 import { compareVersions } from '@ant-design/pro-utils';
+import type { PaginationConfig } from 'antd/lib/pagination';
 import type { AnyObject } from 'antd/lib/table/Table';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;

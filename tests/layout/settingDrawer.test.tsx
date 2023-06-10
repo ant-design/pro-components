@@ -1,6 +1,5 @@
 import { SettingDrawer } from '@ant-design/pro-components';
-import { act, fireEvent, render } from '@testing-library/react';
-import { waitTime } from '../util';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { defaultSettings } from './defaultSettings';
 
 describe('settingDrawer.test', () => {
@@ -19,10 +18,6 @@ describe('settingDrawer.test', () => {
         },
       },
     });
-  });
-  beforeEach(() => {
-    // @ts-expect-error
-    window.MutationObserver = null;
   });
 
   it('🌺 base user', () => {
@@ -462,24 +457,15 @@ describe('settingDrawer.test', () => {
         collapse
       />,
     );
-    const { rerender } = html;
-    await waitTime(200);
-    act(() => {
-      expect(
-        (
-          html.baseElement.querySelectorAll(
-            '.ant-pro-setting-drawer-body-title',
-          )[0] as HTMLHeadingElement
-        ).textContent,
-      ).toEqual('整体风格设置');
-    });
+    await html.findAllByText('整体风格设置');
+
     act(() => {
       window.localStorage.setItem('umi_locale', 'en-US');
     });
-    await waitTime(1200);
+
     act(() => {
       fn?.();
-      rerender(
+      html.rerender(
         <SettingDrawer
           disableUrlParams
           settings={defaultSettings}
@@ -488,9 +474,10 @@ describe('settingDrawer.test', () => {
         />,
       );
     });
+
     addEventListenerSpy.mockRestore();
-    await waitTime(1200);
-    act(() => {
+
+    await waitFor(() => {
       expect(
         (
           html.baseElement.querySelectorAll(
@@ -499,8 +486,9 @@ describe('settingDrawer.test', () => {
         ).textContent,
       ).toEqual('Page style setting');
     });
-    await waitTime(200);
+
     html.unmount();
+
     window.localStorage.setItem('umi_locale', 'zh-CN');
   });
 });

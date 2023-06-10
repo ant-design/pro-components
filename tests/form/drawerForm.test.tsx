@@ -2,7 +2,7 @@
 import { act, fireEvent, render } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import React from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('DrawerForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
@@ -16,7 +16,7 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('新 建')).click();
@@ -41,7 +41,7 @@ describe('DrawerForm', () => {
         />
       </DrawerForm>,
     );
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     expect(!!wrapper.baseElement.querySelector('input#test')).toBeFalsy();
 
@@ -49,7 +49,7 @@ describe('DrawerForm', () => {
       (await wrapper.findByText('新 建')).click();
     });
 
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(!!wrapper.baseElement.querySelector('input#test')).toBeTruthy();
   });
 
@@ -69,7 +69,7 @@ describe('DrawerForm', () => {
         />
       </DrawerForm>,
     );
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(!!wrapper.baseElement.querySelector('input#test')).toBeTruthy();
   });
 
@@ -83,13 +83,13 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('新 建')).click();
     });
 
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     expect(
       !!wrapper.baseElement.querySelector('.ant-drawer-footer'),
@@ -111,7 +111,7 @@ describe('DrawerForm', () => {
         />
       </DrawerForm>,
     );
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(!!wrapper.baseElement.querySelector('input#test')).toBeFalsy();
 
     act(() => {
@@ -126,7 +126,7 @@ describe('DrawerForm', () => {
         </DrawerForm>,
       );
     });
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(!!wrapper.baseElement.querySelector('input#test')).toBeTruthy();
 
     act(() => {
@@ -146,7 +146,7 @@ describe('DrawerForm', () => {
         </DrawerForm>,
       );
     });
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(!!wrapper.baseElement.querySelector('input#test')).toBeFalsy();
   });
 
@@ -161,7 +161,7 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       (
@@ -170,7 +170,7 @@ describe('DrawerForm', () => {
         ) as HTMLButtonElement
       ).click();
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(fn).toBeCalledWith(false);
   });
 
@@ -186,7 +186,7 @@ describe('DrawerForm', () => {
       </DrawerForm>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       (
@@ -195,7 +195,7 @@ describe('DrawerForm', () => {
         ) as HTMLButtonElement
       ).click();
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(fn).toBeCalledWith(false);
   });
 
@@ -210,12 +210,12 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     await act(async () => {
       await (await wrapper.findByText('取 消')).click();
     });
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     expect(fn).toBeCalledWith(false);
   });
@@ -234,7 +234,7 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       (
@@ -243,7 +243,7 @@ describe('DrawerForm', () => {
         ) as HTMLButtonElement
       ).click();
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(fn).toBeCalledWith(false);
   });
 
@@ -261,7 +261,7 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('取 消')).click();
@@ -285,12 +285,12 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('取 消')).click();
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(fn).toBeCalledWith(false);
     expect(fn).toBeCalledTimes(2);
 
@@ -311,13 +311,13 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     await act(async () => {
       (await wrapper.findByText('确 认')).click();
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(fn).toBeCalledWith(false);
   });
@@ -333,13 +333,13 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     await act(async () => {
       (await wrapper.findByText('确 认')).click();
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(fn).toBeCalledTimes(1);
   });
 
@@ -366,12 +366,12 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('新 建')).click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn).toBeCalledWith(true);
 
     act(() => {
@@ -379,7 +379,7 @@ describe('DrawerForm', () => {
         .querySelector<HTMLButtonElement>('button#reset')
         ?.click?.();
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(fn).toBeCalledWith(false);
   });
 
@@ -399,13 +399,13 @@ describe('DrawerForm', () => {
         />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('新 建')).click();
     });
 
-    await waitTime(300);
+    await waitForWaitTime(300);
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-input#test')!, {
         target: {
@@ -413,26 +413,26 @@ describe('DrawerForm', () => {
         },
       });
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     expect(
       wrapper.baseElement.querySelector<HTMLInputElement>('.ant-input#test')
         ?.value,
     ).toEqual('test');
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       wrapper.baseElement
         .querySelector<HTMLInputElement>('.ant-drawer-close')
         ?.click();
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('新 建')).click();
     });
 
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     expect(
       wrapper.baseElement.querySelector<HTMLInputElement>('.ant-input#test')
@@ -459,13 +459,13 @@ describe('DrawerForm', () => {
         />
       </DrawerForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await wrapper.findByText('新 建')).click();
     });
 
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     act(() => {
       fireEvent.change(wrapper.baseElement.querySelector('.ant-input#test')!, {
@@ -475,12 +475,12 @@ describe('DrawerForm', () => {
       });
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
       wrapper.baseElement.querySelector<HTMLInputElement>('input#test')?.value,
     ).toEqual('1111');
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       wrapper.rerender(
@@ -503,7 +503,7 @@ describe('DrawerForm', () => {
         </DrawerForm>,
       );
     });
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     act(() => {
       wrapper.rerender(
@@ -531,7 +531,7 @@ describe('DrawerForm', () => {
       (await wrapper.findByText('新 建')).click();
     });
 
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     expect(
       wrapper.baseElement.querySelector<HTMLInputElement>('input#test')?.value,
@@ -576,13 +576,13 @@ describe('DrawerForm', () => {
       </DrawerForm>,
     );
 
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(ref.current).toBeFalsy();
 
     await act(async () => {
       (await html.findByText('新 建')).click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     act(() => {
       html.rerender(
@@ -653,12 +653,12 @@ describe('DrawerForm', () => {
         );
       };
       const html = render(<App />);
-      await waitTime(300);
+      await waitForWaitTime(300);
       // 点击取消按钮后重置
       act(() => {
         html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
       });
-      await waitTime(300);
+      await waitForWaitTime(300);
       act(() => {
         fireEvent.change(
           html.baseElement.querySelector<HTMLDivElement>('input#name')!,
@@ -669,7 +669,7 @@ describe('DrawerForm', () => {
           },
         );
       });
-      await waitTime(300);
+      await waitForWaitTime(300);
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBe('12345');
@@ -681,7 +681,7 @@ describe('DrawerForm', () => {
       act(() => {
         html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
       });
-      await waitTime(300);
+      await waitForWaitTime(300);
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();
@@ -696,7 +696,7 @@ describe('DrawerForm', () => {
           },
         );
       });
-      await waitTime(300);
+      await waitForWaitTime(300);
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBe('12345');
@@ -706,7 +706,7 @@ describe('DrawerForm', () => {
       act(() => {
         html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
       });
-      await waitTime(300);
+      await waitForWaitTime(300);
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();
@@ -721,7 +721,7 @@ describe('DrawerForm', () => {
           },
         );
       });
-      await waitTime(300);
+      await waitForWaitTime(300);
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBe('12345');
@@ -731,11 +731,11 @@ describe('DrawerForm', () => {
           .querySelectorAll<HTMLDivElement>('.ant-btn-primary')[0]
           .click();
       });
-      await waitTime(300);
+      await waitForWaitTime(300);
       act(() => {
         html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
       });
-      await waitTime(300);
+      await waitForWaitTime(300);
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();

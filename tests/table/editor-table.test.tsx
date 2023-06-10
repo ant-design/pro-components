@@ -13,9 +13,9 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { InputNumber } from 'antd';
-import React from 'react';
-import { waitTime } from '../util';
 import crypto from 'crypto';
+import React from 'react';
+import { waitForWaitTime } from '../util';
 
 type DataSourceType = {
   id: number | string;
@@ -168,7 +168,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
@@ -195,13 +195,13 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -223,7 +223,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     try {
       actionRef.current?.addEditRecord(undefined);
@@ -232,7 +232,7 @@ describe('EditorProTable', () => {
         '请设置 recordCreatorProps.record 并返回一个唯一的key',
       );
     }
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     spy.mockRestore();
     wrapper.unmount();
   });
@@ -402,13 +402,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(onchange).toBeCalledWith(2);
 
@@ -465,13 +465,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(onchange).toBeCalledWith(1);
 
@@ -526,13 +526,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(onchange).not.toBeCalled();
 
@@ -560,13 +560,13 @@ describe('EditorProTable', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect(fn).not.toBeCalled();
     act(() => {
@@ -582,7 +582,7 @@ describe('EditorProTable', () => {
       );
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(
       wrapper.container
@@ -602,7 +602,7 @@ describe('EditorProTable', () => {
         ?.click?.();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(
       wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-1')
@@ -621,7 +621,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
       wrapper.container.querySelectorAll('button.ant-btn-dashed').length,
     ).toBe(0);
@@ -637,7 +637,7 @@ describe('EditorProTable', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(
       wrapper.container.querySelectorAll('button.ant-btn-dashed').length,
@@ -657,7 +657,7 @@ describe('EditorProTable', () => {
         }}
       />,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     const firstRowKey = defaultData[0]?.id || 0;
 
@@ -669,7 +669,7 @@ describe('EditorProTable', () => {
       defaultData?.[0]?.title,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
@@ -697,7 +697,7 @@ describe('EditorProTable', () => {
         }}
       />,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     try {
       //@ts-expect-error
@@ -788,7 +788,7 @@ describe('EditorProTable', () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     expect(fn).toBeCalledWith('1234');
   });
@@ -820,7 +820,7 @@ describe('EditorProTable', () => {
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     const firstLineValue = wrapper.container
       .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
@@ -853,7 +853,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(wrapper.container.querySelector('div#test')?.textContent).toBe('xx');
   });
 
@@ -869,7 +869,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
@@ -901,7 +901,7 @@ describe('EditorProTable', () => {
         onChange={onChange}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(
       wrapper.container.querySelectorAll<HTMLInputElement>(
         '.ant-form-item-control-input input',
@@ -937,7 +937,7 @@ describe('EditorProTable', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
       wrapper.container.querySelectorAll<HTMLInputElement>(
         '.ant-form-item-control-input input',
@@ -989,13 +989,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1050,13 +1050,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1116,13 +1116,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1165,13 +1165,13 @@ describe('EditorProTable', () => {
       </ProForm>,
     );
 
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(valuesChangeFn).toBeCalledTimes(0);
 
     await act(async () => {
       (await wrapper.queryAllByText('编辑')).at(0)?.click();
     });
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     act(() => {
       fireEvent.change(
         wrapper.container
@@ -1241,13 +1241,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1301,13 +1301,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1371,13 +1371,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1430,13 +1430,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1502,11 +1502,11 @@ describe('EditorProTable', () => {
           value={[node]}
         />,
       );
-      await waitTime(1000);
+      await waitForWaitTime(1000);
       await act(async () => {
         (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
       });
-      await waitTime(1000);
+      await waitForWaitTime(1000);
 
       expect(fn).toBeCalledWith(recordId);
       const trDoms = wrapper.container.querySelectorAll(

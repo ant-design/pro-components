@@ -1,9 +1,9 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
-import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import React, { useContext, useEffect, useState } from 'react';
+import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {
@@ -92,6 +92,13 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       name={name}
       rules={rules}
       hasFeedback={false}
+      shouldUpdate={(prev, next) => {
+        try {
+          return JSON.stringify(prev) === JSON.stringify(next);
+        } catch (error) {
+          return true;
+        }
+      }}
       // @ts-ignore
       _internalItemRender={{
         mark: 'pro_table_render',

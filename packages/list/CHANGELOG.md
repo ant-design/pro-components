@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.4.4...@ant-design/pro-list@2.4.5) (2023-06-02)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.4.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.4.3...@ant-design/pro-list@2.4.4) (2023-05-31)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.4.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.4.2...@ant-design/pro-list@2.4.3) (2023-05-30)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.4.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.4.1...@ant-design/pro-list@2.4.2) (2023-05-30)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.4.0...@ant-design/pro-list@2.4.1) (2023-05-29)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [2.4.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.3.14...@ant-design/pro-list@2.4.0) (2023-05-29)
+
+### Bug Fixes
+
+- **list:** Extend ProListMeta<T> type with `renderFormItem` ([#7136](https://github.com/ant-design/pro-components/issues/7136)) ([39ab5ef](https://github.com/ant-design/pro-components/commit/39ab5efa787ebda9acc1b693fed7e73cdd1b8f78))
+- fix test case ([ab24418](https://github.com/ant-design/pro-components/commit/ab24418993d468b63f2711f21aae9ff58f91f191))
+
+### Features
+
+- **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
+
 ## [2.3.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.3.13...@ant-design/pro-list@2.3.14) (2023-05-18)
 
 **Note:** Version bump only for package @ant-design/pro-list

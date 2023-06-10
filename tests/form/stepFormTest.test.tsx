@@ -1,5 +1,4 @@
 ﻿import { ProFormText, StepsForm } from '@ant-design/pro-form';
-import userEvent from '@testing-library/user-event';
 import {
   act,
   fireEvent,
@@ -7,9 +6,10 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
 import React from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('StepsForm', () => {
   it('🐲 basic use', async () => {
@@ -125,13 +125,13 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
@@ -139,13 +139,13 @@ describe('StepsForm', () => {
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     expect(onFinish).toBeCalled();
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     html.unmount();
   });
 
@@ -490,18 +490,18 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitTime(200);
+    await waitForWaitTime(200);
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(submit).toBeCalledWith({
       info: {
         name: 'chenshuai',
@@ -533,7 +533,7 @@ describe('StepsForm', () => {
       );
     };
     const html = render(<Forms />);
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
     await act(async () => {
       (await html.findByText('隐藏表单3')).click();

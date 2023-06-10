@@ -49,19 +49,19 @@ import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
 import FieldHOC from './FieldHOC';
 
-import weekday from 'dayjs/plugin/weekday';
-import localeData from 'dayjs/plugin/localeData';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import isoWeek from 'dayjs/plugin/isoWeek';
+import localeData from 'dayjs/plugin/localeData';
+import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 
 import dayjs from 'dayjs';
 
-dayjs.extend(weekday);
 dayjs.extend(localeData);
 dayjs.extend(advancedFormat);
 dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
+dayjs.extend(weekday);
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 
@@ -595,8 +595,22 @@ const defaultRenderText = (
 };
 
 export { defaultRenderText };
-
 export type { ProFieldValueType, FieldMoneyProps };
+export {
+  FieldPercent,
+  FieldIndexColumn,
+  FieldProgress,
+  FieldMoney,
+  FieldDatePicker,
+  FieldRangePicker,
+  FieldCode,
+  FieldTimePicker,
+  FieldText,
+  FieldStatus,
+  FieldSelect,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
+};
 
 /** ProField 的类型 */
 export type ProFieldPropsType = {
@@ -682,25 +696,8 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
   );
 };
 
-const ProField = React.forwardRef(
+export const ProField = React.forwardRef(
   ProFieldComponent,
 ) as typeof ProFieldComponent;
-
-export {
-  ProField,
-  FieldPercent,
-  FieldIndexColumn,
-  FieldProgress,
-  FieldMoney,
-  FieldDatePicker,
-  FieldRangePicker,
-  FieldCode,
-  FieldTimePicker,
-  FieldText,
-  FieldStatus,
-  FieldSelect,
-  proFieldParsingText,
-  proFieldParsingValueEnumToArray,
-};
 
 export default ProField;

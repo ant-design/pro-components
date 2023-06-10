@@ -1,6 +1,6 @@
 import type { MutableRefObject, RefObject } from 'react';
-import { useRefCallback } from '../useRefCallback';
 import useForceRender from '../useForceRender';
+import { useRefCallback } from '../useRefCallback';
 
 export function useReactiveRef<T>(initialValue: T): MutableRefObject<T>;
 

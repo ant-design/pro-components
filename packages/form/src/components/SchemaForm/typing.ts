@@ -8,7 +8,6 @@ import type {
 import type { FormInstance, FormProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { CommonFormProps } from '../../BaseForm';
-import type { ProFormGridConfig } from '../../typing';
 import type {
   DrawerFormProps,
   LightFilterProps,
@@ -18,6 +17,7 @@ import type {
   StepFormProps,
   StepsFormProps,
 } from '../../layouts';
+import type { ProFormGridConfig } from '../../typing';
 
 export type ExtraProColumnType = {
   tooltip?: React.ReactNode;
@@ -34,6 +34,7 @@ export type ExtraProColumnType = {
   width?: string | number;
 
   name?: NamePath | NamePath[];
+  defaultKeyWords?: string;
 } & Pick<ProFormGridConfig, 'rowProps' | 'colProps'>;
 
 /**

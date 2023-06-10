@@ -1,6 +1,6 @@
 import { isUrl } from '@ant-design/pro-utils';
 import React from 'react';
-import type { AppListProps, AppItemProps } from './types';
+import type { AppItemProps, AppListProps } from './types';
 
 /**
  * simple模式渲染logo的方式

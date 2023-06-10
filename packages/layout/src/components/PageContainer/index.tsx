@@ -396,7 +396,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
       <>
         <div
           className={classNames(
-            `${basePageContainer}-children-content ${hashId}`,
+            `${basePageContainer}-children-container ${hashId}`.trim(),
           )}
           style={childrenContentStyle}
         >
@@ -425,8 +425,8 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     [`${basePageContainer}-stylish`]: !!restProps.stylish,
   });
 
-  return stylish.wrapSSR(
-    wrapSSR(
+  return wrapSSR(
+    stylish.wrapSSR(
       <>
         <div style={style} className={containerClassName}>
           {fixedHeader && pageHeaderDom ? (

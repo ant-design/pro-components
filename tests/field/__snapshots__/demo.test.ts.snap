@@ -266,10 +266,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 >
                   <div
                     class="ant-pro-field-color-picker"
-                    style="padding: 5px; width: 48px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer;"
+                    style="cursor: pointer; background-color: rgb(255, 255, 255);"
                   >
                     <div
-                      style="background-color: blue; width: 36px; height: 14px; border-radius: 2px;"
+                      style="background-color: blue; width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
                     />
                   </div>
                 </span>
@@ -999,6 +999,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuenow="40"
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
@@ -1656,14 +1657,16 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div
-                    class="ant-pro-field-color-picker"
-                    style="padding: 5px; width: 48px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer;"
-                  >
+                  <span>
                     <div
-                      style="background-color: rgb(24, 144, 255); width: 36px; height: 14px; border-radius: 2px;"
-                    />
-                  </div>
+                      class="ant-pro-field-color-picker"
+                      style="cursor: pointer; background-color: rgb(255, 255, 255);"
+                    >
+                      <div
+                        style="background-color: rgb(24, 144, 255); width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
+                      />
+                    </div>
+                  </span>
                 </span>
               </div>
             </td>
@@ -4610,35 +4613,24 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
     <form
@@ -4732,35 +4724,24 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>
@@ -5145,35 +5126,24 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
         </span>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>

@@ -1,3 +1,4 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
@@ -17,37 +18,28 @@ import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 // 兼容代码-----------
 import 'antd/lib/spin/style';
 import 'antd/lib/tree-select/style';
-import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
+} & FieldSelectProps;
 
+export type TreeSelectFieldProps = TreeSelectProps<any> & {
   /**
    * 当搜索关键词发生变化时是否请求远程数据
    *
    * @default true
    */
   fetchDataOnSearch?: boolean;
-} & FieldSelectProps;
-
+};
 /**
  * Tree select
  * A function that returns a React component.
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  {
-    radioType,
-    renderFormItem,
-    mode,
-    light,
-    label,
-    render,
-    fetchDataOnSearch = true,
-    ...rest
-  },
+  { radioType, renderFormItem, mode, light, label, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -63,12 +55,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     showSearch,
     autoClearSearchValue,
     treeData,
-    fetchDataOnSearch: propsFetchDataOnSearch,
+    fetchDataOnSearch,
     searchValue: propsSearchValue,
     ...fieldProps
-  } = rest.fieldProps as TreeSelectProps<any> & {
-    fetchDataOnSearch?: boolean;
-  };
+  } = rest.fieldProps as TreeSelectFieldProps;
 
   const intl = useIntl();
 
@@ -146,7 +136,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     );
 
     if (render) {
-      return render(rest.text, { mode, ...(fieldProps as any) }, dom) || null;
+      return render(rest.text, { mode, ...(fieldProps as any) }, dom) ?? null;
     }
     return dom;
   }
@@ -203,7 +193,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }}
           onChange={onChange}
           onSearch={(value) => {
-            if (fetchDataOnSearch) {
+            // fix 不支持请求的情况下不刷新options
+            if (fetchDataOnSearch && rest?.request) {
               fetchData(value);
             }
             setSearchValue(value);
@@ -220,7 +211,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
 
     if (renderFormItem) {
       dom =
-        renderFormItem(rest.text, { mode, ...(fieldProps as any) }, dom) ||
+        renderFormItem(rest.text, { mode, ...(fieldProps as any) }, dom) ??
         null;
     }
 

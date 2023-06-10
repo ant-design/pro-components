@@ -6,10 +6,11 @@ import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+
 // 兼容代码-----------
 import 'antd/lib/radio/style';
-
 //------------
+
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: RadioGroupProps['optionType'];
@@ -67,7 +68,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
     );
 
     if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
     return dom;
   }
@@ -88,7 +89,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
     );
     if (renderFormItem) {
       return (
-        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null
+        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) ?? null
       );
     }
     return dom;

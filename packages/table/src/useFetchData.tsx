@@ -7,6 +7,7 @@ import {
   useRefFunction,
 } from '@ant-design/pro-utils';
 import { useEffect, useRef } from 'react';
+import { unstable_batchedUpdates } from 'react-dom';
 import type {
   PageInfo,
   RequestData,
@@ -31,6 +32,7 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
   }
   return { current: 1, total: 0, pageSize: 20 };
 };
+
 /**
  * useFetchData hook 用来获取数据并控制数据的状态和分页
  * @template T
@@ -135,13 +137,15 @@ const useFetchData = <DataSource extends RequestData<any>>(
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: DataSource[], dataTotal: number) => {
-    setTableDataList(newData);
-    if (pageInfo?.total !== dataTotal) {
-      setPageInfo({
-        ...pageInfo,
-        total: dataTotal || newData.length,
-      });
-    }
+    unstable_batchedUpdates(() => {
+      setTableDataList(newData);
+      if (pageInfo?.total !== dataTotal) {
+        setPageInfo({
+          ...pageInfo,
+          total: dataTotal || newData.length,
+        });
+      }
+    });
   };
 
   /**
@@ -167,8 +171,10 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * https://github.com/ant-design/pro-components/issues/4390
    */
   const requestFinally = useRefFunction(() => {
-    setTableLoading(false);
-    setPollingLoading(false);
+    unstable_batchedUpdates(() => {
+      setTableLoading(false);
+      setPollingLoading(false);
+    });
   });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {

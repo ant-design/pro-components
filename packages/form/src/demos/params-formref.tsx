@@ -1,5 +1,5 @@
-﻿import { useState, useEffect, useRef } from 'react';
-import { BetaSchemaForm } from '@ant-design/pro-components';
+﻿import { BetaSchemaForm } from '@ant-design/pro-components';
+import { useEffect, useRef, useState } from 'react';
 
 export default () => {
   const targetRef = useRef();

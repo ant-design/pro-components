@@ -164,35 +164,24 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                           class="ant-space-item"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
-                            style="flex-wrap: wrap; margin-bottom: -8px;"
+                            style="display: flex; gap: 8px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px; padding-bottom: 8px;"
+                            <button
+                              class="ant-btn ant-btn-default"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="padding-bottom: 8px;"
+                              <span>
+                                重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                查 询
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -547,35 +536,24 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                           class="qixian-space-item"
                         >
                           <div
-                            class="qixian-space qixian-space-horizontal qixian-space-align-center"
-                            style="flex-wrap: wrap; margin-bottom: -8px;"
+                            style="display: flex; gap: 8px; align-items: center;"
                           >
-                            <div
-                              class="qixian-space-item"
-                              style="margin-right: 8px; padding-bottom: 8px;"
+                            <button
+                              class="qixian-btn qixian-btn-default"
+                              type="button"
                             >
-                              <button
-                                class="qixian-btn qixian-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                            </div>
-                            <div
-                              class="qixian-space-item"
-                              style="padding-bottom: 8px;"
+                              <span>
+                                重 置
+                              </span>
+                            </button>
+                            <button
+                              class="qixian-btn qixian-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="qixian-btn qixian-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                查 询
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -930,35 +908,24 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                           class="ant-space-item"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
-                            style="flex-wrap: wrap; margin-bottom: -8px;"
+                            style="display: flex; gap: 8px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px; padding-bottom: 8px;"
+                            <button
+                              class="ant-btn ant-btn-default"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="padding-bottom: 8px;"
+                              <span>
+                                重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                查 询
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>

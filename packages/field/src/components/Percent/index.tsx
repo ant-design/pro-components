@@ -1,3 +1,4 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 import type { ReactNode } from 'react';
@@ -10,7 +11,6 @@ import {
 } from './util';
 
 // 兼容代码-----------
-import { useIntl } from '@ant-design/pro-provider';
 import 'antd/lib/input-number/style';
 //------------
 

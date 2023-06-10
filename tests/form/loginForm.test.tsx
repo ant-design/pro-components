@@ -7,7 +7,7 @@ import {
 import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
 import { act, render } from '@testing-library/react';
 import { Alert, Space } from 'antd';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {
@@ -93,7 +93,7 @@ describe('LoginForm', () => {
         <ProFormText name="name" />
       </LoginForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     const dom = await wrapper.queryByText('登 录');
 
@@ -110,7 +110,7 @@ describe('LoginForm', () => {
         <ProFormText name="name" />
       </LoginForm>,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     const dom = await wrapper.queryByText('登录登录');
 
@@ -131,7 +131,7 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     const dom = await wrapper.findByText('登 录');
 
     act(() => {
@@ -155,7 +155,7 @@ describe('LoginForm', () => {
       </LoginFormPage>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     const dom = await wrapper.findByText('logo');
 
     expect(!!dom).toBeTruthy();
@@ -168,7 +168,7 @@ describe('LoginForm', () => {
       </LoginFormPage>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     const dom = await wrapper.baseElement.querySelector(
       '.ant-pro-form-login-page-header',
     );
@@ -190,7 +190,7 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     let dom = await wrapper.baseElement.querySelector('.ant-btn-loading');
 
     expect(!!dom).toBeTruthy();

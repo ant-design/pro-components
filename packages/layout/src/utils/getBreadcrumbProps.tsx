@@ -34,25 +34,25 @@ export type BreadcrumbProLayoutProps = {
   itemRender?: BreadcrumbProps['itemRender'];
 };
 
-// 渲染Breadcrumb 子节点
+// 渲染 Breadcrumb 子节点
 // Render the Breadcrumb child node
 const defaultItemRender: BreadcrumbProps['itemRender'] = (route, _, routes) => {
   const { breadcrumbName, title, path } = route as BreadcrumbItemType & {
     breadcrumbName: string;
   };
-  const last = routes.indexOf(route) === routes.length - 1;
+
+  const last =
+    routes.findIndex(
+      (i) =>
+        // @ts-ignore
+        i.linkPath === route.path,
+    ) ===
+    routes.length - 1;
+
   return last ? (
     <span>{title || breadcrumbName}</span>
   ) : (
-    <span
-      onClick={
-        path
-          ? () => {
-              location.href = path;
-            }
-          : undefined
-      }
-    >
+    <span onClick={path ? () => (location.href = path) : undefined}>
       {title || breadcrumbName}
     </span>
   );

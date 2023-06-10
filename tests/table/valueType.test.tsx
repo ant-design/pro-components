@@ -2,7 +2,7 @@ import { ProProvider } from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
 import { act, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 const cascaderOptions = [
   {
@@ -109,7 +109,7 @@ describe('BasicTable valueType', () => {
         />
       </ProProvider.Provider>,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect((await html.findAllByText('TradeCode 0')).length).toBe(1);
 
@@ -155,7 +155,7 @@ describe('BasicTable valueType', () => {
         />
       </ProProvider.Provider>,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect((await html.findAllByText('TradeCode 0red')).length).toBe(1);
 
@@ -169,7 +169,7 @@ describe('BasicTable valueType', () => {
   });
   it('🎏 table support filter when valueType is treeSelect', async () => {
     const html = render(<ProTable {...defaultProps} />);
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
@@ -178,7 +178,7 @@ describe('BasicTable valueType', () => {
         },
       });
     });
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(
       html.baseElement.querySelectorAll('span[title="Javascript"]').length,
     ).toBe(1);
@@ -199,7 +199,7 @@ describe('BasicTable valueType', () => {
         },
       });
     });
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(
       html.baseElement.querySelectorAll('span[title="Javascript"]').length,
     ).toBe(1);

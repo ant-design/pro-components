@@ -3,7 +3,7 @@ import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Button } from 'antd';
 import React, { createRef } from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('ModalForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
@@ -18,14 +18,14 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     await act(async () => {
       (await wrapper.findByText('新 建'))?.click();
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     expect(fn).toBeCalledWith(true);
   });
@@ -77,20 +77,20 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     await act(async () => {
       (await wrapper.findByText('新 建'))?.click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn).toBeCalledWith(true);
 
     await act(async () => {
       (await wrapper.findByText('取 消'))?.click();
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     expect(fn).toBeCalledWith(false);
   });
@@ -115,7 +115,7 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     expect(await wrapper.queryByDisplayValue('1234')).toBeFalsy();
@@ -124,7 +124,7 @@ describe('ModalForm', () => {
       (await wrapper.findByText('新 建'))?.click();
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     expect(await wrapper.findByDisplayValue('1234')).toBeTruthy();
   });
@@ -151,7 +151,7 @@ describe('ModalForm', () => {
         />
       </ModalForm>,
     );
-    await waitTime(120);
+    await waitForWaitTime(120);
 
     expect(await wrapper.findByDisplayValue('1234')).toBeTruthy();
   });
@@ -176,7 +176,7 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     expect(await wrapper.queryByDisplayValue('1234')).toBeFalsy();
@@ -202,7 +202,7 @@ describe('ModalForm', () => {
       );
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     expect(await wrapper.findByDisplayValue('1234')).toBeTruthy();
@@ -228,7 +228,7 @@ describe('ModalForm', () => {
         </ModalForm>,
       );
     });
-    await waitTime(2000);
+    await waitForWaitTime(2000);
 
     expect(await wrapper.queryByDisplayValue('1234')).toBeFalsy();
   });
@@ -245,7 +245,7 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     act(() => {
@@ -254,7 +254,7 @@ describe('ModalForm', () => {
         ?.click();
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     expect(fn).toBeCalledWith(false);
     expect(fn).toBeCalledTimes(2);
@@ -289,7 +289,7 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     await act(async () => {
@@ -313,7 +313,7 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     act(() => {
@@ -322,7 +322,7 @@ describe('ModalForm', () => {
         ?.click();
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     expect(fn).toBeCalledWith(false);
   });
@@ -339,19 +339,19 @@ describe('ModalForm', () => {
         <ProFormText name="name" />
       </ModalForm>,
     );
-    await waitTime(500);
+    await waitForWaitTime(500);
 
     await act(async () => {
       (await wrapper.findByText('确 认'))?.click();
     });
 
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     expect(fn).toBeCalledWith(false);
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
   });
 
@@ -366,14 +366,14 @@ describe('ModalForm', () => {
         <ProFormText name="name" />
       </ModalForm>,
     );
-    await waitTime(500);
+    await waitForWaitTime(500);
 
     await act(async () => {
       (await wrapper.findByText('确 认'))?.click();
     });
 
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     expect(fn).toBeCalledTimes(1);
   });
@@ -415,7 +415,7 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     await act(async () => {
@@ -423,7 +423,7 @@ describe('ModalForm', () => {
     });
 
     await waitFor(async () => {
-      await waitTime(300);
+      await waitForWaitTime(300);
     });
 
     act(() => {
@@ -434,11 +434,11 @@ describe('ModalForm', () => {
       });
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     expect(await wrapper.findByDisplayValue('test')).toBeTruthy();
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     act(() => {
@@ -447,13 +447,13 @@ describe('ModalForm', () => {
         ?.click();
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     await act(async () => {
       (await wrapper.findByText('新 建'))?.click();
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     expect(await wrapper.findByDisplayValue('test')).toBeTruthy();
@@ -480,14 +480,14 @@ describe('ModalForm', () => {
       </ModalForm>,
     );
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     await act(async () => {
       (await wrapper.findByText('新 建'))?.click();
     });
 
     await waitFor(async () => {
-      await waitTime(300);
+      await waitForWaitTime(300);
     });
     act(() => {
       fireEvent.change(wrapper.container.querySelector('.ant-input#test')!, {
@@ -498,12 +498,12 @@ describe('ModalForm', () => {
     });
 
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     expect(await wrapper.findByDisplayValue('1111')).toBeTruthy();
 
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     act(() => {
@@ -513,13 +513,13 @@ describe('ModalForm', () => {
     });
 
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
     await act(async () => {
       (await wrapper.findByText('新 建'))?.click();
     });
     await waitFor(async () => {
-      await waitTime(100);
+      await waitForWaitTime(100);
     });
 
     expect(await wrapper.findByDisplayValue('1234')).toBeTruthy();
@@ -591,13 +591,13 @@ describe('ModalForm', () => {
           onCancel: () => fn(),
         }}
         onFinish={async () => {
-          await waitTime(2000);
+          await waitForWaitTime(2000);
         }}
       />,
     );
 
     await waitFor(async () => {
-      await waitTime(500);
+      await waitForWaitTime(500);
     });
 
     await act(async () => {
@@ -605,7 +605,7 @@ describe('ModalForm', () => {
     });
 
     await waitFor(async () => {
-      await waitTime(500);
+      await waitForWaitTime(500);
     });
 
     expect(
@@ -621,7 +621,7 @@ describe('ModalForm', () => {
     });
 
     await waitFor(async () => {
-      await waitTime(500);
+      await waitForWaitTime(500);
     });
 
     expect(fn).toBeCalled();

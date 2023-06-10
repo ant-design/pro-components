@@ -193,7 +193,7 @@ describe('BasicTable Search', () => {
         search={false}
         request={async () => {
           fn();
-          await waitTime(500000);
+          await waitTime(5000000);
           return {
             data: [{ key: 1, name: '1', money: 1 }],
           };
@@ -208,7 +208,9 @@ describe('BasicTable Search', () => {
       expect(fn).toBeCalledTimes(1);
     });
 
-    expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
+    });
   });
 
   it('🎏 manualRequest no render loading dom', async () => {

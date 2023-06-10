@@ -12,7 +12,7 @@ export const turn = new Keyframes('turn', {
   '50%': { transform: 'rotate(180deg)' },
   '75%': { transform: 'rotate(270deg)' },
   '100%': { transform: 'rotate(360deg)' },
-});
+}) as any;
 
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
@@ -119,7 +119,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
     },
 
-    [`@media (max-width: ${token.screenXS})`]: {
+    [`@media (max-width: ${token.screenXS})px`]: {
       [token.componentCls]: {
         [`${token.antCls}-table`]: {
           width: '100%',

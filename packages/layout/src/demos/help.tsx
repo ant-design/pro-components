@@ -1,6 +1,6 @@
 import type { ProHelpDataSourceChildren } from '@ant-design/pro-components';
 import { ProHelp, ProHelpPanel } from '@ant-design/pro-components';
-import { Typography, App, Rate } from 'antd';
+import { App, Rate, Typography } from 'antd';
 
 export default () => {
   const map = new Map<

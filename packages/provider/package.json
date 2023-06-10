@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-provider",
-  "version": "2.9.0",
+  "version": "2.10.2",
   "description": "@ant-design/pro-provider",
   "keywords": [
     "antd",
@@ -40,10 +40,10 @@
     "swr": "^2.0.0"
   },
   "devDependencies": {
-    "@types/classnames": "^2.3.1"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0",
+    "antd": ">=4.23.0 || >=5.0.0",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

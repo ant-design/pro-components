@@ -3,11 +3,11 @@ import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
 
-import { useStyle } from './style';
-import classNames from 'classnames';
 import 'antd/lib/dropdown/style';
-import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
+import classNames from 'classnames';
+import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
+import { useStyle } from './style';
 
 export type FooterRender =
   | ((

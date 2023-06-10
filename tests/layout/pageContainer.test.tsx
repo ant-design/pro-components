@@ -6,7 +6,7 @@ import {
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React, { useEffect, useMemo, useState } from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {
@@ -365,14 +365,14 @@ describe('PageContainer', () => {
         ]}
       />,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
     act(() => {
       expect(wrapper.asFragment()).toMatchSnapshot();
     });
     act(() => {
       wrapper.rerender(<PageContainer />);
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     act(() => {
       expect(wrapper.asFragment()).toMatchSnapshot();
     });
@@ -522,12 +522,12 @@ describe('PageContainer', () => {
     };
 
     const wrapper = render(<App />);
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(
       1,
     );
     expect(wrapper.asFragment()).toMatchSnapshot();
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     expect(wrapper.baseElement.querySelectorAll('#customLoading').length).toBe(
       0,
     );

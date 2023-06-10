@@ -48,6 +48,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuenow="40"
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
@@ -91,6 +92,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuenow="100"
                     class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
@@ -155,6 +157,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuenow="-1"
                     class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"

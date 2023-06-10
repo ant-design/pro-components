@@ -23,7 +23,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           [`${token.proComponentsCls}-form-group`]: {
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: token.marginXS,
           },
           '&:last-child': {
             marginBlockEnd: 12,

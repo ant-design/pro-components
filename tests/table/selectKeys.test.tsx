@@ -1,7 +1,7 @@
 import ProTable from '@ant-design/pro-table';
 import { act, render, waitFor } from '@testing-library/react';
 import React, { useState } from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 import { getFetchData } from './demo';
 
 describe('BasicTable Search', () => {
@@ -67,7 +67,7 @@ describe('BasicTable Search', () => {
         rowKey="key"
       />,
     );
-    await waitTime(200);
+    await waitForWaitTime(200);
     act(() => {
       html.baseElement
         .querySelectorAll<HTMLInputElement>(
@@ -75,7 +75,7 @@ describe('BasicTable Search', () => {
         )[1]
         ?.click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn).toBeCalledTimes(1);
   });
 
@@ -123,6 +123,7 @@ describe('BasicTable Search', () => {
               setSelectedRowKeys(newSelectedRowKeys);
             },
           }}
+          tableAlertOptionRender={false}
           tableAlertRender={({ selectedRows }) => {
             const text = selectedRows.map((row) => row.name).join(',');
             fn(text);
