@@ -138,7 +138,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 
   const defaultExtraActions = {
     collapsePanelAction: (
-      <div className={`${className}-actions-item ${hashId}`}>
+      <div className={`${className}-actions-item ${hashId}`.trim()}>
         <ProfileOutlined
           title="collapse panel"
           onClick={() => {
@@ -159,7 +159,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       />
     ),
     closeAction: (
-      <div className={`${className}-actions-item ${hashId}`}>
+      <div className={`${className}-actions-item ${hashId}`.trim()}>
         <CloseOutlined
           title="close panel"
           onClick={() => {
@@ -172,7 +172,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
 
   const extraDomList = () => {
     return (
-      <div className={`${className}-actions ${hashId}`}>
+      <div className={`${className}-actions ${hashId}`.trim()}>
         {extraRender ? (
           extraRender(
             defaultExtraActions.collapsePanelAction,

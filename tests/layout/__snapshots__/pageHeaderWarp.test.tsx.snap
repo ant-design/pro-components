@@ -204,7 +204,7 @@ exports[`BasicLayout base use 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -214,16 +214,16 @@ exports[`BasicLayout base use 1`] = `
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="welcome"
                   >
                     welcome
@@ -443,7 +443,7 @@ exports[`BasicLayout content is text 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -453,16 +453,16 @@ exports[`BasicLayout content is text 1`] = `
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="welcome"
                   >
                     welcome
@@ -470,19 +470,19 @@ exports[`BasicLayout content is text 1`] = `
                 </div>
               </div>
               <div
-                class="ant-page-header-content "
+                class="ant-page-header-content"
               >
                 <div
-                  class="ant-pro-page-container-detail "
+                  class="ant-pro-page-container-detail"
                 >
                   <div
-                    class="ant-pro-page-container-main "
+                    class="ant-pro-page-container-main"
                   >
                     <div
-                      class="ant-pro-page-container-row "
+                      class="ant-pro-page-container-row"
                     >
                       <div
-                        class="ant-pro-page-container-content "
+                        class="ant-pro-page-container-content"
                       >
                         just so so
                       </div>

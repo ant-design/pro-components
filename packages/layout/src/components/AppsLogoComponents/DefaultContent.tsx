@@ -10,8 +10,8 @@ export const DefaultContent: React.FC<{
 }> = (props) => {
   const { appList, baseClassName, hashId, itemClick } = props;
   return (
-    <div className={`${baseClassName}-content ${hashId}`}>
-      <ul className={`${baseClassName}-content-list ${hashId}`}>
+    <div className={`${baseClassName}-content ${hashId}`.trim()}>
+      <ul className={`${baseClassName}-content-list ${hashId}`.trim()}>
         {appList?.map((app, index) => {
           if (app?.children?.length) {
             return (

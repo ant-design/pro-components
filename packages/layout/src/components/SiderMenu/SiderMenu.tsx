@@ -253,7 +253,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           style={{
             width: '100%',
           }}
-          className={`${baseClassName}-menu ${hashId}`}
+          className={`${baseClassName}-menu ${hashId}`.trim()}
         />
       ),
     [baseClassName, hashId, menuContentRender, onOpenChange, props],
@@ -302,7 +302,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             return (
               <div
                 key={index}
-                className={`${baseClassName}-actions-list-item ${hashId}`}
+                className={`${baseClassName}-actions-list-item ${hashId}`.trim()}
               >
                 {item}
               </div>
@@ -415,10 +415,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {menuRenderDom}
       </div>
       {links ? (
-        <div className={`${baseClassName}-links ${hashId}`}>
+        <div className={`${baseClassName}-links ${hashId}`.trim()}>
           <Menu
             inlineIndent={16}
-            className={`${baseClassName}-link-menu ${hashId}`}
+            className={`${baseClassName}-link-menu ${hashId}`.trim()}
             selectedKeys={[]}
             openKeys={[]}
             theme={theme}
@@ -491,7 +491,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       >
         {hideMenuWhenCollapsedClassName ? (
           <div
-            className={`${baseClassName}-hide-when-collapsed ${hashId}`}
+            className={`${baseClassName}-hide-when-collapsed ${hashId}`.trim()}
             style={{
               height: '100%',
               width: '100%',

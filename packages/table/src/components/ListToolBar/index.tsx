@@ -202,7 +202,9 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   /** 轻量筛选组件 */
   const filtersNode = useMemo(() => {
     if (filter)
-      return <div className={`${prefixCls}-filter ${hashId}`}>{filter}</div>;
+      return (
+        <div className={`${prefixCls}-filter ${hashId}`.trim()}>{filter}</div>
+      );
     return null;
   }, [filter, hashId, prefixCls]);
 
@@ -267,14 +269,14 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   const leftTitleDom = useMemo(() => {
     // 保留dom是为了占位，不然 right 就变到左边了
     if (!hasLeft && hasRight) {
-      return <div className={`${prefixCls}-left ${hashId}`} />;
+      return <div className={`${prefixCls}-left ${hashId}`.trim()} />;
     }
 
     // 减少 space 的dom，渲染的时候能节省点性能
     if (!menu && (hasTitle || !searchNode)) {
       return (
-        <div className={`${prefixCls}-left ${hashId}`}>
-          <div className={`${prefixCls}-title ${hashId}`}>
+        <div className={`${prefixCls}-left ${hashId}`.trim()}>
+          <div className={`${prefixCls}-title ${hashId}`.trim()}>
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
           </div>
         </div>
@@ -289,7 +291,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         })}
       >
         {hasTitle && !menu && (
-          <div className={`${prefixCls}-title ${hashId}`}>
+          <div className={`${prefixCls}-title ${hashId}`.trim()}>
             <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
           </div>
         )}
@@ -299,7 +301,9 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           <HeaderMenu {...menu} prefixCls={prefixCls} />
         )}
         {!hasTitle && searchNode ? (
-          <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
+          <div className={`${prefixCls}-search ${hashId}`.trim()}>
+            {searchNode}
+          </div>
         ) : null}
       </div>
     );
@@ -320,23 +324,25 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     if (!hasRight) return null;
     return (
       <div
-        className={`${prefixCls}-right ${hashId}`}
+        className={`${prefixCls}-right ${hashId}`.trim()}
         style={isMobile ? {} : { alignItems: 'center' }}
       >
         {!multipleLine ? filtersNode : null}
         {hasTitle && searchNode ? (
-          <div className={`${prefixCls}-search ${hashId}`}>{searchNode}</div>
+          <div className={`${prefixCls}-search ${hashId}`.trim()}>
+            {searchNode}
+          </div>
         ) : null}
         {actionDom}
         {settings?.length ? (
-          <div className={`${prefixCls}-setting-items ${hashId}`}>
+          <div className={`${prefixCls}-setting-items ${hashId}`.trim()}>
             {settings.map((setting, index) => {
               const settingItem = getSettingItem(setting);
               return (
                 // eslint-disable-next-line react/no-array-index-key
                 <div
                   key={index}
-                  className={`${prefixCls}-setting-item ${hashId}`}
+                  className={`${prefixCls}-setting-item ${hashId}`.trim()}
                 >
                   {settingItem}
                 </div>

@@ -43,10 +43,10 @@ const GlobalFooter = ({
   return wrapSSR(
     <div className={classNames(baseClassName, hashId, className)} style={style}>
       {links && (
-        <div className={`${baseClassName}-list ${hashId}`}>
+        <div className={`${baseClassName}-list ${hashId}`.trim()}>
           {links.map((link) => (
             <a
-              className={`${baseClassName}-list-link ${hashId}`}
+              className={`${baseClassName}-list-link ${hashId}`.trim()}
               key={link.key}
               title={link.key}
               target={link.blankTarget ? '_blank' : '_self'}
@@ -59,7 +59,7 @@ const GlobalFooter = ({
         </div>
       )}
       {copyright && (
-        <div className={`${baseClassName}-copyright ${hashId}`}>
+        <div className={`${baseClassName}-copyright ${hashId}`.trim()}>
           {copyright}
         </div>
       )}

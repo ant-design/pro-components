@@ -12,7 +12,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
       class="ant-pro-page-container ant-pro-page-container-with-footer"
     >
       <div
-        class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
+        class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
       >
         <nav
           class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -60,17 +60,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-page-header-heading "
         >
           <div
-            class="ant-page-header-heading-left "
+            class="ant-page-header-heading-left"
           >
             <span
-              class="ant-page-header-heading-title "
+              class="ant-page-header-heading-title"
               title="页面标题"
             >
               页面标题
             </span>
           </div>
           <span
-            class="ant-page-header-heading-extra "
+            class="ant-page-header-heading-extra"
           >
             <div
               class="ant-space ant-space-horizontal ant-space-align-center"
@@ -147,10 +147,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           </span>
         </div>
         <div
-          class="ant-page-header-footer "
+          class="ant-page-header-footer"
         >
           <div
-            class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card ant-pro-page-container-tabs "
+            class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card ant-pro-page-container-tabs"
           >
             <div
               class="ant-tabs-nav"
@@ -289,7 +289,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-pro-grid-content"
       >
         <div
-          class="ant-pro-grid-content-children "
+          class="ant-pro-grid-content-children"
         >
           <div
             class="ant-pro-page-container-children-container"
@@ -361,10 +361,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
       class="ant-pro-footer-bar"
     >
       <div
-        class="ant-pro-footer-bar-left "
+        class="ant-pro-footer-bar-left"
       />
       <div
-        class="ant-pro-footer-bar-right "
+        class="ant-pro-footer-bar-right"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -400,16 +400,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
       class="ant-pro-page-container ant-pro-page-container-with-affix"
     >
       <div
-        class="ant-pro-page-container-affix "
+        class="ant-pro-page-container-affix"
       >
         <div
           class=""
         >
           <div
-            class="ant-pro-page-container-warp "
+            class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-has-footer ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -457,10 +457,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="页面标题"
                   >
                     页面标题
@@ -468,10 +468,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </div>
               </div>
               <div
-                class="ant-page-header-footer "
+                class="ant-page-header-footer"
               >
                 <div
-                  class="ant-tabs ant-tabs-top ant-pro-page-container-tabs "
+                  class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
                 >
                   <div
                     class="ant-tabs-nav"
@@ -597,7 +597,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-pro-grid-content"
       >
         <div
-          class="ant-pro-grid-content-children "
+          class="ant-pro-grid-content-children"
         >
           <div
             class="ant-pro-page-container-children-container"
@@ -721,16 +721,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
       class="ant-pro-page-container"
     >
       <div
-        class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+        class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
       >
         <div
           class="ant-page-header-heading "
         >
           <div
-            class="ant-page-header-heading-left "
+            class="ant-page-header-heading-left"
           >
             <span
-              class="ant-page-header-heading-title "
+              class="ant-page-header-heading-title"
               title="页面标题"
             >
               页面标题
@@ -738,19 +738,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           </div>
         </div>
         <div
-          class="ant-page-header-content "
+          class="ant-page-header-content"
         >
           <div
-            class="ant-pro-page-container-detail "
+            class="ant-pro-page-container-detail"
           >
             <div
-              class="ant-pro-page-container-main "
+              class="ant-pro-page-container-main"
             >
               <div
-                class="ant-pro-page-container-row "
+                class="ant-pro-page-container-row"
               >
                 <div
-                  class="ant-pro-page-container-content "
+                  class="ant-pro-page-container-content"
                 >
                   <div
                     class="ant-descriptions"
@@ -861,7 +861,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-pro-grid-content"
       >
         <div
-          class="ant-pro-grid-content-children "
+          class="ant-pro-grid-content-children"
         >
           <div
             class="ant-pro-page-container-children-container"
@@ -951,7 +951,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-pro-page-container"
         >
           <div
-            class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+            class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
           >
             <nav
               class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -999,10 +999,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-page-header-heading "
             >
               <div
-                class="ant-page-header-heading-left "
+                class="ant-page-header-heading-left"
               >
                 <span
-                  class="ant-page-header-heading-title "
+                  class="ant-page-header-heading-title"
                   title="默认loading"
                 >
                   默认loading
@@ -1014,7 +1014,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-grid-content"
           >
             <div
-              class="ant-pro-grid-content-children "
+              class="ant-pro-grid-content-children"
             >
               <div
                 style="padding-block-start: 100px; text-align: center;"
@@ -1057,7 +1057,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-pro-page-container"
         >
           <div
-            class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+            class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
           >
             <nav
               class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -1105,10 +1105,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-page-header-heading "
             >
               <div
-                class="ant-page-header-heading-left "
+                class="ant-page-header-heading-left"
               >
                 <span
-                  class="ant-page-header-heading-title "
+                  class="ant-page-header-heading-title"
                   title="自定义loading属性"
                 >
                   自定义loading属性
@@ -1120,7 +1120,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-grid-content"
           >
             <div
-              class="ant-pro-grid-content-children "
+              class="ant-pro-grid-content-children"
             >
               <div
                 style="padding-block-start: 100px; text-align: center;"
@@ -1163,7 +1163,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-pro-page-container"
         >
           <div
-            class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+            class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
           >
             <nav
               class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -1211,10 +1211,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-page-header-heading "
             >
               <div
-                class="ant-page-header-heading-left "
+                class="ant-page-header-heading-left"
               >
                 <span
-                  class="ant-page-header-heading-title "
+                  class="ant-page-header-heading-title"
                   title="自定义loading，3s后显示内容"
                 >
                   自定义loading，3s后显示内容
@@ -1226,7 +1226,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-pro-grid-content"
           >
             <div
-              class="ant-pro-grid-content-children "
+              class="ant-pro-grid-content-children"
             >
               <div
                 style="color: red; padding: 30px; text-align: center;"
@@ -1262,7 +1262,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
         class="ant-pro-card-header ant-pro-card-header-border"
       >
         <div
-          class="ant-pro-card-title "
+          class="ant-pro-card-title"
         >
           水印自定义配置器
         </div>
@@ -1327,7 +1327,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
               class="ant-pro-card-header"
             >
               <div
-                class="ant-pro-card-title "
+                class="ant-pro-card-title"
               >
                 配置面板
               </div>
@@ -3766,7 +3766,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -4043,7 +4043,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -4053,22 +4053,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -4081,7 +4081,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -4269,7 +4269,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -4396,7 +4396,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -4406,7 +4406,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -4456,10 +4456,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="编辑申请单"
                     >
                       编辑申请单
@@ -4467,19 +4467,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                   </div>
                 </div>
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -4492,7 +4492,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -4680,7 +4680,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -5122,7 +5122,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -5132,22 +5132,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -5160,7 +5160,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -5348,7 +5348,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -5504,7 +5504,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -5514,22 +5514,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -5542,7 +5542,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -5730,7 +5730,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -6024,7 +6024,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -6034,22 +6034,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -6062,7 +6062,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -6250,7 +6250,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -6592,7 +6592,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -6602,7 +6602,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -6627,19 +6627,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   </ol>
                 </nav>
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -6652,7 +6652,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -6837,7 +6837,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -6978,7 +6978,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -7005,7 +7005,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                         data-menu-list="true"
                         role="menu"
                         style="background-color: transparent; width: 100%;"
@@ -7192,7 +7192,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                   </div>
                 </aside>
                 <div
-                  class="ant-pro-layout-container "
+                  class="ant-pro-layout-container"
                   style="position: relative; min-height: 0;"
                 >
                   <main
@@ -7202,7 +7202,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       class="ant-pro-page-container"
                     >
                       <div
-                        class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                        class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
                       >
                         <nav
                           class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -7230,10 +7230,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           class="ant-page-header-heading "
                         >
                           <div
-                            class="ant-page-header-heading-left "
+                            class="ant-page-header-heading-left"
                           >
                             <span
-                              class="ant-page-header-heading-title "
+                              class="ant-page-header-heading-title"
                               title="概述"
                             >
                               概述
@@ -7241,19 +7241,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           </div>
                         </div>
                         <div
-                          class="ant-page-header-content "
+                          class="ant-page-header-content"
                         >
                           <div
-                            class="ant-pro-page-container-detail "
+                            class="ant-pro-page-container-detail"
                           >
                             <div
-                              class="ant-pro-page-container-main "
+                              class="ant-pro-page-container-main"
                             >
                               <div
-                                class="ant-pro-page-container-row "
+                                class="ant-pro-page-container-row"
                               >
                                 <div
-                                  class="ant-pro-page-container-content "
+                                  class="ant-pro-page-container-content"
                                 >
                                   欢迎使用
                                 </div>
@@ -7266,7 +7266,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         class="ant-pro-grid-content"
                       >
                         <div
-                          class="ant-pro-grid-content-children "
+                          class="ant-pro-grid-content-children"
                         >
                           <div
                             class="ant-pro-page-container-children-container"
@@ -7309,7 +7309,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
         style="min-height: 100%; flex-direction: row;"
       >
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -7325,7 +7325,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                   class="ant-pro-top-nav-header-main-left "
                 >
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -7462,11 +7462,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -7669,7 +7669,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                         data-menu-list="true"
                         role="menu"
                         style="background-color: transparent; width: 100%;"
@@ -7824,7 +7824,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                   </div>
                 </aside>
                 <div
-                  class="ant-pro-layout-container "
+                  class="ant-pro-layout-container"
                   style="position: relative; min-height: 0;"
                 >
                   <main
@@ -7834,7 +7834,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       class="ant-pro-page-container"
                     >
                       <div
-                        class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                        class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
                       >
                         <nav
                           class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -7862,10 +7862,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-page-header-heading "
                         >
                           <div
-                            class="ant-page-header-heading-left "
+                            class="ant-page-header-heading-left"
                           >
                             <span
-                              class="ant-page-header-heading-title "
+                              class="ant-page-header-heading-title"
                               title="概述"
                             >
                               概述
@@ -7873,19 +7873,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           </div>
                         </div>
                         <div
-                          class="ant-page-header-content "
+                          class="ant-page-header-content"
                         >
                           <div
-                            class="ant-pro-page-container-detail "
+                            class="ant-pro-page-container-detail"
                           >
                             <div
-                              class="ant-pro-page-container-main "
+                              class="ant-pro-page-container-main"
                             >
                               <div
-                                class="ant-pro-page-container-row "
+                                class="ant-pro-page-container-row"
                               >
                                 <div
-                                  class="ant-pro-page-container-content "
+                                  class="ant-pro-page-container-content"
                                 >
                                   欢迎使用
                                 </div>
@@ -7898,7 +7898,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                         class="ant-pro-grid-content"
                       >
                         <div
-                          class="ant-pro-grid-content-children "
+                          class="ant-pro-grid-content-children"
                         >
                           <div
                             class="ant-pro-page-container-children-container"
@@ -8087,7 +8087,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -8291,7 +8291,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -8301,7 +8301,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -8329,10 +8329,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="two"
                   >
                     two
@@ -8340,19 +8340,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                 </div>
               </div>
               <div
-                class="ant-page-header-content "
+                class="ant-page-header-content"
               >
                 <div
-                  class="ant-pro-page-container-detail "
+                  class="ant-pro-page-container-detail"
                 >
                   <div
-                    class="ant-pro-page-container-main "
+                    class="ant-pro-page-container-main"
                   >
                     <div
-                      class="ant-pro-page-container-row "
+                      class="ant-pro-page-container-row"
                     >
                       <div
-                        class="ant-pro-page-container-content "
+                        class="ant-pro-page-container-content"
                       >
                         欢迎使用
                       </div>
@@ -8365,7 +8365,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -8764,7 +8764,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -9004,7 +9004,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -9014,16 +9014,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="欢迎"
                   >
                     欢迎
@@ -9031,19 +9031,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                 </div>
               </div>
               <div
-                class="ant-page-header-content "
+                class="ant-page-header-content"
               >
                 <div
-                  class="ant-pro-page-container-detail "
+                  class="ant-pro-page-container-detail"
                 >
                   <div
-                    class="ant-pro-page-container-main "
+                    class="ant-pro-page-container-main"
                   >
                     <div
-                      class="ant-pro-page-container-row "
+                      class="ant-pro-page-container-row"
                     >
                       <div
-                        class="ant-pro-page-container-content "
+                        class="ant-pro-page-container-content"
                       >
                         欢迎使用
                       </div>
@@ -9056,7 +9056,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -9075,10 +9075,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             class="ant-pro-global-footer"
           >
             <div
-              class="ant-pro-global-footer-list "
+              class="ant-pro-global-footer-list"
             >
               <a
-                class="ant-pro-global-footer-list-link "
+                class="ant-pro-global-footer-list-link"
                 href="https://pro.ant.design"
                 rel="noreferrer"
                 target="_blank"
@@ -9087,7 +9087,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                 Ant Design Pro
               </a>
               <a
-                class="ant-pro-global-footer-list-link "
+                class="ant-pro-global-footer-list-link"
                 href="https://github.com/ant-design/ant-design-pro"
                 rel="noreferrer"
                 target="_blank"
@@ -9114,7 +9114,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                 </span>
               </a>
               <a
-                class="ant-pro-global-footer-list-link "
+                class="ant-pro-global-footer-list-link"
                 href="https://ant.design"
                 rel="noreferrer"
                 target="_blank"
@@ -9124,7 +9124,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               </a>
             </div>
             <div
-              class="ant-pro-global-footer-copyright "
+              class="ant-pro-global-footer-copyright"
             >
               <span
                 aria-label="copyright"
@@ -9188,7 +9188,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -9489,7 +9489,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -9525,7 +9525,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -9662,11 +9662,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -9891,7 +9891,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -9901,10 +9901,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -9972,7 +9972,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -10273,7 +10273,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -10309,7 +10309,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -10446,11 +10446,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -10675,7 +10675,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -10685,10 +10685,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -10755,10 +10755,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/async-load-help.t
                 class="ant-card-extra"
               >
                 <div
-                  class="ant-pro-help-actions "
+                  class="ant-pro-help-actions"
                 >
                   <div
-                    class="ant-pro-help-actions-item "
+                    class="ant-pro-help-actions-item"
                   >
                     <span
                       aria-label="profile"
@@ -10986,7 +10986,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
         style="min-height: 100%; flex-direction: row;"
       >
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -11018,7 +11018,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -11155,11 +11155,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -11410,7 +11410,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -11420,7 +11420,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -11492,7 +11492,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -11526,7 +11526,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -11565,10 +11565,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -11580,7 +11580,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -11653,7 +11653,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light my-prefix-sider-menu  my-prefix-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light my-prefix-sider-menu my-prefix-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -11978,7 +11978,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           </div>
         </aside>
         <div
-          class="my-prefix-layout-container "
+          class="my-prefix-layout-container"
           style="position: relative;"
         >
           <header
@@ -12014,7 +12014,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     </svg>
                   </span>
                   <div
-                    class="my-prefix-top-nav-header-logo "
+                    class="my-prefix-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -12151,11 +12151,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   </div>
                 </div>
                 <div
-                  class="my-prefix-top-nav-header-menu "
+                  class="my-prefix-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light my-prefix-top-nav-header-base-menu  my-prefix-base-menu-horizontal my-prefix-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light my-prefix-top-nav-header-base-menu my-prefix-base-menu-horizontal my-prefix-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -12388,7 +12388,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -12398,7 +12398,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -12470,7 +12470,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div
                             class="ant-dropdown-trigger"
@@ -12504,7 +12504,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -12543,23 +12543,23 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
                     </span>
                     <span
-                      class="ant-page-header-heading-sub-title "
+                      class="ant-page-header-heading-sub-title"
                       title="简单的描述"
                     >
                       简单的描述
                     </span>
                   </div>
                   <span
-                    class="ant-page-header-heading-extra "
+                    class="ant-page-header-heading-extra"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -12610,7 +12610,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -12634,10 +12634,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               style="width: calc(100% - 215px);"
             >
               <div
-                class="ant-pro-footer-bar-left "
+                class="ant-pro-footer-bar-left"
               />
               <div
-                class="ant-pro-footer-bar-right "
+                class="ant-pro-footer-bar-right"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -12658,7 +12658,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </div>
             </div>
             <div
-              class="ant-pro-setting-drawer-handle "
+              class="ant-pro-setting-drawer-handle"
               style="width: 48px; height: 48px;"
             >
               <span
@@ -12740,7 +12740,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -13065,7 +13065,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -13101,7 +13101,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -13238,11 +13238,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -13475,7 +13475,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -13485,7 +13485,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -13557,7 +13557,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -13593,20 +13593,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <div
-                      class="ant-page-header-back "
+                      class="ant-page-header-back"
                     >
                       <div
                         aria-label="back"
-                        class="ant-page-header-back-button "
+                        class="ant-page-header-back-button"
                         role="button"
                       >
                         <span
@@ -13631,14 +13631,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       </div>
                     </div>
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
                     </span>
                   </div>
                   <span
-                    class="ant-page-header-heading-extra "
+                    class="ant-page-header-heading-extra"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -13689,7 +13689,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -13713,10 +13713,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
               style="width: calc(100% - 215px);"
             >
               <div
-                class="ant-pro-footer-bar-left "
+                class="ant-pro-footer-bar-left"
               />
               <div
-                class="ant-pro-footer-bar-right "
+                class="ant-pro-footer-bar-right"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -13745,7 +13745,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
       </section>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -13935,7 +13935,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -14104,7 +14104,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                 style="margin-bottom: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 />
               </div>
               <div
@@ -14112,7 +14112,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                 style="margin-bottom: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="info-circle"
@@ -14140,7 +14140,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                 style="margin-bottom: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="question-circle"
@@ -14167,7 +14167,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
                 class="ant-space-item"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="github"
@@ -14195,7 +14195,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -14205,16 +14205,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
             class="ant-pro-page-container ant-pro-page-container-with-footer"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 />
                 <span
-                  class="ant-page-header-heading-extra "
+                  class="ant-page-header-heading-extra"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -14265,7 +14265,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -14289,10 +14289,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
             style="width: calc(100% - 60px);"
           >
             <div
-              class="ant-pro-footer-bar-left "
+              class="ant-pro-footer-bar-left"
             />
             <div
-              class="ant-pro-footer-bar-right "
+              class="ant-pro-footer-bar-right"
             >
               <button
                 class="ant-btn ant-btn-default"
@@ -14504,7 +14504,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu  qixian-pro-base-menu-inline"
+              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu qixian-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -14785,7 +14785,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
         </div>
       </aside>
       <div
-        class="qixian-pro-layout-container "
+        class="qixian-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -14795,23 +14795,23 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             class="qixian-pro-page-container qixian-pro-page-container-with-footer"
           >
             <div
-              class="qixian-page-header qixian-pro-page-container-warp-page-header  qixian-page-header-has-footer qixian-page-header-ghost"
+              class="qixian-page-header qixian-pro-page-container-warp-page-header qixian-page-header-has-footer qixian-page-header-ghost"
             >
               <div
                 class="qixian-page-header-heading "
               >
                 <div
-                  class="qixian-page-header-heading-left "
+                  class="qixian-page-header-heading-left"
                 >
                   <span
-                    class="qixian-page-header-heading-title "
+                    class="qixian-page-header-heading-title"
                     title="欢迎"
                   >
                     欢迎
                   </span>
                 </div>
                 <span
-                  class="qixian-page-header-heading-extra "
+                  class="qixian-page-header-heading-extra"
                 >
                   <div
                     class="qixian-space qixian-space-horizontal qixian-space-align-center"
@@ -14858,19 +14858,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                 </span>
               </div>
               <div
-                class="qixian-page-header-content "
+                class="qixian-page-header-content"
               >
                 <div
-                  class="qixian-pro-page-container-detail "
+                  class="qixian-pro-page-container-detail"
                 >
                   <div
-                    class="qixian-pro-page-container-main "
+                    class="qixian-pro-page-container-main"
                   >
                     <div
-                      class="qixian-pro-page-container-row "
+                      class="qixian-pro-page-container-row"
                     >
                       <div
-                        class="qixian-pro-page-container-content "
+                        class="qixian-pro-page-container-content"
                       >
                         <div
                           class="qixian-descriptions qixian-descriptions-small"
@@ -14995,7 +14995,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                         </div>
                       </div>
                       <div
-                        class="qixian-pro-page-container-extraContent "
+                        class="qixian-pro-page-container-extraContent"
                       >
                         <div
                           class="qixian-space qixian-space-horizontal qixian-space-align-center"
@@ -15088,10 +15088,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                 </div>
               </div>
               <div
-                class="qixian-page-header-footer "
+                class="qixian-page-header-footer"
               >
                 <div
-                  class="qixian-tabs qixian-tabs-top qixian-pro-page-container-tabs "
+                  class="qixian-tabs qixian-tabs-top qixian-pro-page-container-tabs"
                 >
                   <div
                     class="qixian-tabs-nav"
@@ -15199,7 +15199,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
               class="qixian-pro-grid-content"
             >
               <div
-                class="qixian-pro-grid-content-children "
+                class="qixian-pro-grid-content-children"
               >
                 <div
                   class="qixian-pro-page-container-children-container"
@@ -15546,10 +15546,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             style="width: calc(100% - 256px);"
           >
             <div
-              class="qixian-pro-footer-bar-left "
+              class="qixian-pro-footer-bar-left"
             />
             <div
-              class="qixian-pro-footer-bar-right "
+              class="qixian-pro-footer-bar-right"
             >
               <button
                 class="qixian-btn qixian-btn-default"
@@ -15578,7 +15578,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
     </section>
   </div>
   <div
-    class="ant-pro-setting-drawer-handle "
+    class="ant-pro-setting-drawer-handle"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -15803,7 +15803,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -16391,7 +16391,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                   class="ant-space-item"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <div
                       style="height: 200px;"
@@ -16529,7 +16529,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -16539,7 +16539,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -16578,10 +16578,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -16593,7 +16593,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -16617,7 +16617,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
       </section>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -16674,7 +16674,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -16891,7 +16891,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -17091,16 +17091,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="欢迎"
                   >
                     欢迎
@@ -17112,7 +17112,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -17272,7 +17272,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -17520,7 +17520,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -17530,16 +17530,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="欢迎"
                     >
                       欢迎
@@ -17547,19 +17547,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                   </div>
                 </div>
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -17572,7 +17572,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -17771,7 +17771,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -18055,7 +18055,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                 style="margin-right: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 />
               </div>
               <div
@@ -18063,7 +18063,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                 style="margin-right: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="info-circle"
@@ -18091,7 +18091,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                 style="margin-right: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="question-circle"
@@ -18118,7 +18118,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                 class="ant-space-item"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="github"
@@ -18170,7 +18170,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -18180,7 +18180,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
             class="ant-pro-page-container ant-pro-page-container-with-footer"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -18219,17 +18219,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="一一级列表页面"
                   >
                     一一级列表页面
                   </span>
                 </div>
                 <span
-                  class="ant-page-header-heading-extra "
+                  class="ant-page-header-heading-extra"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -18280,7 +18280,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -18304,10 +18304,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
             style="width: calc(100% - 256px);"
           >
             <div
-              class="ant-pro-footer-bar-left "
+              class="ant-pro-footer-bar-left"
             />
             <div
-              class="ant-pro-footer-bar-right "
+              class="ant-pro-footer-bar-right"
             >
               <button
                 class="ant-btn ant-btn-default"
@@ -18367,7 +18367,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -18653,7 +18653,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -18689,7 +18689,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                   </svg>
                 </span>
                 <div
-                  class="ant-pro-top-nav-header-logo "
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <a>
@@ -18826,11 +18826,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -19063,7 +19063,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                 />
               </div>
               <div
-                class="ant-pro-global-header-right-content "
+                class="ant-pro-global-header-right-content"
                 style="min-width: auto; height: 100%;"
               >
                 <div
@@ -19073,7 +19073,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                     style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                   >
                     <div
-                      class="ant-pro-global-header-header-actions "
+                      class="ant-pro-global-header-header-actions"
                     >
                       <div
                         class="ant-pro-global-header-header-actions-item "
@@ -19209,7 +19209,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                         </span>
                       </div>
                       <span
-                        class="ant-pro-global-header-header-actions-avatar "
+                        class="ant-pro-global-header-header-actions-avatar"
                       >
                         <div>
                           <span
@@ -19241,7 +19241,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
             class="ant-pro-page-container ant-pro-page-container-with-footer"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -19280,17 +19280,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="一一级列表页面"
                   >
                     一一级列表页面
                   </span>
                 </div>
                 <span
-                  class="ant-page-header-heading-extra "
+                  class="ant-page-header-heading-extra"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -19341,7 +19341,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -19365,10 +19365,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
             style="width: calc(100% - 215px);"
           >
             <div
-              class="ant-pro-footer-bar-left "
+              class="ant-pro-footer-bar-left"
             />
             <div
-              class="ant-pro-footer-bar-right "
+              class="ant-pro-footer-bar-right"
             >
               <button
                 class="ant-btn ant-btn-default"
@@ -19445,7 +19445,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -19770,7 +19770,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -19806,7 +19806,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -19943,11 +19943,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -20180,7 +20180,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -20190,7 +20190,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -20262,7 +20262,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -20298,7 +20298,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -20337,17 +20337,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
                     </span>
                   </div>
                   <span
-                    class="ant-page-header-heading-extra "
+                    class="ant-page-header-heading-extra"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -20398,7 +20398,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -20422,10 +20422,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
               style="width: calc(100% - 215px);"
             >
               <div
-                class="ant-pro-footer-bar-left "
+                class="ant-pro-footer-bar-left"
               />
               <div
-                class="ant-pro-footer-bar-right "
+                class="ant-pro-footer-bar-right"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -20454,7 +20454,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
       </section>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -20680,7 +20680,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -21284,7 +21284,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   style="margin-right: 4px;"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="info-circle"
@@ -21312,7 +21312,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   style="margin-right: 4px;"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="question-circle"
@@ -21339,7 +21339,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   class="ant-space-item"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="github"
@@ -21382,7 +21382,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -21392,7 +21392,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -21431,10 +21431,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -21446,7 +21446,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -21470,7 +21470,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
       </section>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -21556,10 +21556,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/draggableHelp.tsx
                 class="ant-card-extra"
               >
                 <div
-                  class="ant-pro-help-actions "
+                  class="ant-pro-help-actions"
                 >
                   <div
-                    class="ant-pro-help-actions-item "
+                    class="ant-pro-help-actions-item"
                   >
                     <span
                       aria-label="profile"
@@ -22119,7 +22119,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -22400,7 +22400,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -22410,23 +22410,23 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-footer ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-footer ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="欢迎"
                     >
                       欢迎
                     </span>
                   </div>
                   <span
-                    class="ant-page-header-heading-extra "
+                    class="ant-page-header-heading-extra"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -22473,19 +22473,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                   </span>
                 </div>
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           <div
                             class="ant-descriptions ant-descriptions-small"
@@ -22610,7 +22610,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                           </div>
                         </div>
                         <div
-                          class="ant-pro-page-container-extraContent "
+                          class="ant-pro-page-container-extraContent"
                         >
                           <div
                             class="ant-space ant-space-horizontal ant-space-align-center"
@@ -22703,10 +22703,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                   </div>
                 </div>
                 <div
-                  class="ant-page-header-footer "
+                  class="ant-page-header-footer"
                 >
                   <div
-                    class="ant-tabs ant-tabs-top ant-pro-page-container-tabs "
+                    class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
                   >
                     <div
                       class="ant-tabs-nav"
@@ -22814,7 +22814,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-layout-watermark-wrapper"
@@ -23170,10 +23170,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               style="width: calc(100% - 256px);"
             >
               <div
-                class="ant-pro-footer-bar-left "
+                class="ant-pro-footer-bar-left"
               />
               <div
-                class="ant-pro-footer-bar-right "
+                class="ant-pro-footer-bar-right"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -23202,7 +23202,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
       </section>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -23395,7 +23395,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -23561,7 +23561,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -23571,7 +23571,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -23599,10 +23599,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="two"
                   >
                     two
@@ -23610,19 +23610,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                 </div>
               </div>
               <div
-                class="ant-page-header-content "
+                class="ant-page-header-content"
               >
                 <div
-                  class="ant-pro-page-container-detail "
+                  class="ant-pro-page-container-detail"
                 >
                   <div
-                    class="ant-pro-page-container-main "
+                    class="ant-pro-page-container-main"
                   >
                     <div
-                      class="ant-pro-page-container-row "
+                      class="ant-pro-page-container-row"
                     >
                       <div
-                        class="ant-pro-page-container-content "
+                        class="ant-pro-page-container-content"
                       >
                         欢迎使用
                       </div>
@@ -23635,7 +23635,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -23862,7 +23862,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -23954,7 +23954,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <div
@@ -24179,7 +24179,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -24403,7 +24403,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -24413,16 +24413,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="欢迎"
                   >
                     欢迎
@@ -24430,19 +24430,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                 </div>
               </div>
               <div
-                class="ant-page-header-content "
+                class="ant-page-header-content"
               >
                 <div
-                  class="ant-pro-page-container-detail "
+                  class="ant-pro-page-container-detail"
                 >
                   <div
-                    class="ant-pro-page-container-main "
+                    class="ant-pro-page-container-main"
                   >
                     <div
-                      class="ant-pro-page-container-row "
+                      class="ant-pro-page-container-row"
                     >
                       <div
-                        class="ant-pro-page-container-content "
+                        class="ant-pro-page-container-content"
                       >
                         欢迎使用
                       </div>
@@ -24455,7 +24455,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -24474,10 +24474,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             class="ant-pro-global-footer"
           >
             <div
-              class="ant-pro-global-footer-list "
+              class="ant-pro-global-footer-list"
             >
               <a
-                class="ant-pro-global-footer-list-link "
+                class="ant-pro-global-footer-list-link"
                 href="www.alipay.com"
                 rel="noreferrer"
                 target="_self"
@@ -24486,7 +24486,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                 layout
               </a>
               <a
-                class="ant-pro-global-footer-list-link "
+                class="ant-pro-global-footer-list-link"
                 href="www.alipay.com"
                 rel="noreferrer"
                 target="_self"
@@ -24496,7 +24496,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               </a>
             </div>
             <div
-              class="ant-pro-global-footer-copyright "
+              class="ant-pro-global-footer-copyright"
             >
               <span
                 aria-label="copyright"
@@ -24573,7 +24573,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -24898,7 +24898,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -24988,7 +24988,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -25125,11 +25125,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -25362,7 +25362,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -25372,7 +25372,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -25444,7 +25444,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -25476,7 +25476,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -25515,10 +25515,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -25530,7 +25530,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -25771,7 +25771,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -25999,7 +25999,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -26009,25 +26009,25 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               class="ant-pro-page-container ant-pro-page-container-with-affix"
             >
               <div
-                class="ant-pro-page-container-affix "
+                class="ant-pro-page-container-affix"
               >
                 <div
                   class=""
                 >
                   <div
-                    class="ant-pro-page-container-warp "
+                    class="ant-pro-page-container-warp"
                   >
                     <div
-                      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
                     >
                       <div
                         class="ant-page-header-heading "
                       >
                         <div
-                          class="ant-page-header-heading-left "
+                          class="ant-page-header-heading-left"
                         >
                           <span
-                            class="ant-page-header-heading-title "
+                            class="ant-page-header-heading-title"
                             title="欢迎"
                           >
                             欢迎
@@ -26035,19 +26035,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                         </div>
                       </div>
                       <div
-                        class="ant-page-header-content "
+                        class="ant-page-header-content"
                       >
                         <div
-                          class="ant-pro-page-container-detail "
+                          class="ant-pro-page-container-detail"
                         >
                           <div
-                            class="ant-pro-page-container-main "
+                            class="ant-pro-page-container-main"
                           >
                             <div
-                              class="ant-pro-page-container-row "
+                              class="ant-pro-page-container-row"
                             >
                               <div
-                                class="ant-pro-page-container-content "
+                                class="ant-pro-page-container-content"
                               >
                                 <div
                                   class="ant-descriptions ant-descriptions-small"
@@ -26183,7 +26183,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -26292,10 +26292,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/help.tsx correctl
                 class="ant-card-extra"
               >
                 <div
-                  class="ant-pro-help-actions "
+                  class="ant-pro-help-actions"
                 >
                   <div
-                    class="ant-pro-help-actions-item "
+                    class="ant-pro-help-actions-item"
                   >
                     <span
                       aria-label="profile"
@@ -27183,7 +27183,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -27412,7 +27412,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
         </aside>
       </div>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -27422,16 +27422,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="欢迎"
                   >
                     欢迎
@@ -27439,19 +27439,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                 </div>
               </div>
               <div
-                class="ant-page-header-content "
+                class="ant-page-header-content"
               >
                 <div
-                  class="ant-pro-page-container-detail "
+                  class="ant-pro-page-container-detail"
                 >
                   <div
-                    class="ant-pro-page-container-main "
+                    class="ant-pro-page-container-main"
                   >
                     <div
-                      class="ant-pro-page-container-row "
+                      class="ant-pro-page-container-row"
                     >
                       <div
-                        class="ant-pro-page-container-content "
+                        class="ant-pro-page-container-content"
                       >
                         欢迎使用
                       </div>
@@ -27464,7 +27464,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -27581,7 +27581,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -27781,7 +27781,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -28292,7 +28292,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -28492,7 +28492,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -28503,21 +28503,21 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="padding-block-start: 48px;"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               style="padding: 8px 16px; background-color: rgb(255, 255, 255); position: fixed; top: 0px; width: 100%; left: 0px; z-index: 999; box-shadow: 0 2px 8px #f0f1f2;"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <div
-                    class="ant-page-header-back "
+                    class="ant-page-header-back"
                   >
                     <div
                       aria-label="back"
-                      class="ant-page-header-back-button "
+                      class="ant-page-header-back-button"
                       role="button"
                     >
                       <span
@@ -28542,13 +28542,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                     </div>
                   </div>
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="欢迎"
                   >
                     欢迎
                   </span>
                   <span
-                    class="ant-page-header-heading-tags "
+                    class="ant-page-header-heading-tags"
                   >
                     <span
                       class="ant-tag ant-tag-blue"
@@ -28558,7 +28558,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                   </span>
                 </div>
                 <span
-                  class="ant-page-header-heading-extra "
+                  class="ant-page-header-heading-extra"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -28647,7 +28647,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -29165,7 +29165,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -29328,7 +29328,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                   style="margin-right: 4px;"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="info-circle"
@@ -29359,7 +29359,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                   style="margin-right: 4px;"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="question-circle"
@@ -29389,7 +29389,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                   class="ant-space-item"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="merge-cells"
@@ -29444,7 +29444,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -29457,7 +29457,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-layout-watermark-wrapper"
@@ -29867,7 +29867,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -30192,7 +30192,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -30228,7 +30228,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -30365,11 +30365,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -30602,7 +30602,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -30612,7 +30612,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -30684,7 +30684,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -30716,7 +30716,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -30755,10 +30755,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -30770,7 +30770,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -30843,7 +30843,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -31168,7 +31168,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -31204,7 +31204,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -31341,11 +31341,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -31578,7 +31578,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -31588,7 +31588,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -31660,7 +31660,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -31694,7 +31694,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -31733,10 +31733,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -31748,7 +31748,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -32047,7 +32047,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -32202,7 +32202,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -32212,7 +32212,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -32240,10 +32240,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="概述"
                     >
                       概述
@@ -32251,19 +32251,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   </div>
                 </div>
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -32276,7 +32276,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -32494,7 +32494,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -32934,7 +32934,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                   style="margin-right: 4px;"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="info-circle"
@@ -32962,7 +32962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                   style="margin-right: 4px;"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="question-circle"
@@ -32989,7 +32989,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                   class="ant-space-item"
                 >
                   <div
-                    class="ant-pro-sider-actions-list-item "
+                    class="ant-pro-sider-actions-list-item"
                   >
                     <span
                       aria-label="github"
@@ -33032,7 +33032,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main
@@ -33042,7 +33042,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -33081,10 +33081,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -33096,7 +33096,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -33120,7 +33120,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
       </section>
     </div>
     <div
-      class="ant-pro-setting-drawer-handle "
+      class="ant-pro-setting-drawer-handle"
       style="width: 48px; height: 48px;"
     >
       <span
@@ -33194,7 +33194,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -33519,7 +33519,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -33555,7 +33555,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -33692,11 +33692,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -33929,7 +33929,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -33939,7 +33939,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -34011,7 +34011,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -34043,7 +34043,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -34082,10 +34082,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -34097,7 +34097,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -34141,7 +34141,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
       style="min-height: 100%;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -34177,7 +34177,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </svg>
                 </span>
                 <div
-                  class="ant-pro-top-nav-header-logo "
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <a>
@@ -34314,11 +34314,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -34564,7 +34564,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -34584,7 +34584,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -34620,18 +34620,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </svg>
                 </span>
                 <div
-                  class="ant-pro-top-nav-header-logo "
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <div />
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -34875,7 +34875,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
       style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -34888,11 +34888,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               class="ant-pro-top-nav-header-main ant-pro-top-nav-header-wide"
             >
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -35139,7 +35139,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 />
               </div>
               <div
-                class="ant-pro-global-header-right-content "
+                class="ant-pro-global-header-right-content"
                 style="min-width: auto; height: 100%;"
               >
                 <div
@@ -35149,10 +35149,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                   >
                     <div
-                      class="ant-pro-global-header-header-actions "
+                      class="ant-pro-global-header-header-actions"
                     >
                       <span
-                        class="ant-pro-global-header-header-actions-avatar "
+                        class="ant-pro-global-header-header-actions-avatar"
                       >
                         <div>
                           <span
@@ -35189,7 +35189,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -35206,11 +35206,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               class="ant-pro-top-nav-header-main ant-pro-top-nav-header-wide"
             >
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                   data-menu-list="true"
                   role="menu"
                   style="background-color: transparent; width: 100%;"
@@ -35435,7 +35435,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 />
               </div>
               <div
-                class="ant-pro-global-header-right-content "
+                class="ant-pro-global-header-right-content"
                 style="min-width: auto; height: 100%;"
               >
                 <div
@@ -35445,10 +35445,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                   >
                     <div
-                      class="ant-pro-global-header-header-actions "
+                      class="ant-pro-global-header-header-actions"
                     >
                       <span
-                        class="ant-pro-global-header-header-actions-avatar "
+                        class="ant-pro-global-header-header-actions-avatar"
                       >
                         <div>
                           <span
@@ -35500,7 +35500,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -35728,7 +35728,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -35896,7 +35896,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               style="flex: 1;"
             />
             <div
-              class="ant-pro-global-header-right-content "
+              class="ant-pro-global-header-right-content"
               style="min-width: auto; height: 100%;"
             >
               <div
@@ -35906,7 +35906,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                 >
                   <div
-                    class="ant-pro-global-header-header-actions "
+                    class="ant-pro-global-header-header-actions"
                   >
                     <div
                       class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -35916,7 +35916,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       </a>
                     </div>
                     <span
-                      class="ant-pro-global-header-header-actions-avatar "
+                      class="ant-pro-global-header-header-actions-avatar"
                     >
                       <div>
                         <span
@@ -35967,7 +35967,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -36195,7 +36195,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -36371,16 +36371,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-wide ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-wide ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="欢迎"
                   >
                     欢迎
@@ -36392,7 +36392,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
               class="ant-pro-grid-content ant-pro-grid-content-wide"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -36407,7 +36407,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </section>
   </div>
   <div
-    class="ant-pro-setting-drawer-handle "
+    class="ant-pro-setting-drawer-handle"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -36615,7 +36615,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -36899,7 +36899,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 style="margin-right: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 />
               </div>
               <div
@@ -36907,7 +36907,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 style="margin-right: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="info-circle"
@@ -36935,7 +36935,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 style="margin-right: 4px;"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="question-circle"
@@ -36962,7 +36962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 class="ant-space-item"
               >
                 <div
-                  class="ant-pro-sider-actions-list-item "
+                  class="ant-pro-sider-actions-list-item"
                 >
                   <span
                     aria-label="github"
@@ -37014,7 +37014,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -37024,7 +37024,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
             class="ant-pro-page-container ant-pro-page-container-with-footer"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -37063,17 +37063,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="一一级列表页面"
                   >
                     一一级列表页面
                   </span>
                 </div>
                 <span
-                  class="ant-page-header-heading-extra "
+                  class="ant-page-header-heading-extra"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -37124,7 +37124,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -37148,10 +37148,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
             style="width: calc(100% - 256px);"
           >
             <div
-              class="ant-pro-footer-bar-left "
+              class="ant-pro-footer-bar-left"
             />
             <div
-              class="ant-pro-footer-bar-right "
+              class="ant-pro-footer-bar-right"
             >
               <button
                 class="ant-btn ant-btn-default"
@@ -37214,7 +37214,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -37341,7 +37341,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -37561,16 +37561,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="编辑申请单"
                     >
                       编辑申请单
@@ -37578,19 +37578,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                   </div>
                 </div>
                 <div
-                  class="ant-page-header-content "
+                  class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail "
+                    class="ant-pro-page-container-detail"
                   >
                     <div
-                      class="ant-pro-page-container-main "
+                      class="ant-pro-page-container-main"
                     >
                       <div
-                        class="ant-pro-page-container-row "
+                        class="ant-pro-page-container-row"
                       >
                         <div
-                          class="ant-pro-page-container-content "
+                          class="ant-pro-page-container-content"
                         >
                           欢迎使用
                         </div>
@@ -37603,7 +37603,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"
@@ -37656,7 +37656,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
         style="min-height: 100%; flex-direction: row;"
       >
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <header
@@ -37688,7 +37688,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-top-nav-header-logo "
+                    class="ant-pro-top-nav-header-logo"
                     id="logo"
                   >
                     <a>
@@ -37825,11 +37825,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                   </div>
                 </div>
                 <div
-                  class="ant-pro-top-nav-header-menu "
+                  class="ant-pro-top-nav-header-menu"
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu  ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-pro-top-nav-header-base-menu ant-pro-base-menu-horizontal ant-pro-base-menu-horizontal-horizontal"
                     data-menu-list="true"
                     role="menu"
                     style="background-color: transparent; width: 100%;"
@@ -38080,7 +38080,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                   />
                 </div>
                 <div
-                  class="ant-pro-global-header-right-content "
+                  class="ant-pro-global-header-right-content"
                   style="min-width: auto; height: 100%;"
                 >
                   <div
@@ -38090,7 +38090,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                       style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
-                        class="ant-pro-global-header-header-actions "
+                        class="ant-pro-global-header-header-actions"
                       >
                         <div
                           class="ant-pro-global-header-header-actions-item  ant-pro-global-header-header-actions-hover"
@@ -38162,7 +38162,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                           </span>
                         </div>
                         <span
-                          class="ant-pro-global-header-header-actions-avatar "
+                          class="ant-pro-global-header-header-actions-avatar"
                         >
                           <div>
                             <span
@@ -38194,7 +38194,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
               >
                 <nav
                   class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -38233,10 +38233,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                   class="ant-page-header-heading "
                 >
                   <div
-                    class="ant-page-header-heading-left "
+                    class="ant-page-header-heading-left"
                   >
                     <span
-                      class="ant-page-header-heading-title "
+                      class="ant-page-header-heading-title"
                       title="一一级列表页面"
                     >
                       一一级列表页面
@@ -38248,7 +38248,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                 class="ant-pro-grid-content"
               >
                 <div
-                  class="ant-pro-grid-content-children "
+                  class="ant-pro-grid-content-children"
                 >
                   <div
                     class="ant-pro-page-container-children-container"

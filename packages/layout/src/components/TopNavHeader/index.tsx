@@ -54,7 +54,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
       <BaseMenu
         theme={dark ? 'dark' : 'light'}
         {...props}
-        className={`${prefixCls}-base-menu ${hashId}`}
+        className={`${prefixCls}-base-menu ${hashId}`.trim()}
         {...props.menuProps}
         style={{
           width: '100%',
@@ -91,12 +91,19 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
             onClick={onMenuHeaderClick}
           >
             <AppsLogoComponents {...props} />
-            <div className={`${prefixCls}-logo ${hashId}`} key="logo" id="logo">
+            <div
+              className={`${prefixCls}-logo ${hashId}`.trim()}
+              key="logo"
+              id="logo"
+            >
               {headerDom}
             </div>
           </div>
         )}
-        <div style={{ flex: 1 }} className={`${prefixCls}-menu ${hashId}`}>
+        <div
+          style={{ flex: 1 }}
+          className={`${prefixCls}-menu ${hashId}`.trim()}
+        >
           {contentDom}
         </div>
         {(rightContentRender || actionsRender || props.avatarProps) && (

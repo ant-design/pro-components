@@ -816,7 +816,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             </ConfigProvider>
             <div
               style={genLayoutStyle}
-              className={`${proLayoutClassName}-container ${hashId}`}
+              className={`${proLayoutClassName}-container ${hashId}`.trim()}
             >
               <ConfigProvider
                 // @ts-ignore

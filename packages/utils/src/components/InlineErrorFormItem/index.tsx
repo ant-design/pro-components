@@ -64,7 +64,7 @@ const InlineErrorFormItemPopover: React.FC<{
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
-        <div className={`${prefixCls}-form-item-with-help ${hashId}`}>
+        <div className={`${prefixCls}-form-item-with-help ${hashId}`.trim()}>
           {loading ? <LoadingOutlined /> : null}
           {errorList}
         </div>,

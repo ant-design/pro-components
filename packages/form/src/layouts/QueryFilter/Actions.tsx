@@ -91,7 +91,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
         <a
           className={`${getPrefixCls(
             'pro-query-filter-collapse-button',
-          )} ${hashId}`}
+          )} ${hashId}`.trim()}
           onClick={() => setCollapsed(!collapsed)}
         >
           {collapseRender?.(collapsed, props, intl, hiddenNum)}
