@@ -1,22 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.11.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.3...@ant-design/pro-utils@2.11.4) (2023-06-12)
 
-
 ### Bug Fixes
 
-* **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
-* **components:** remove hashid empty ([b46bb80](https://github.com/ant-design/pro-components/commit/b46bb808db287979fe7d2d5afe115185860422c9))
-* **form:** 修复 fn[curK] 为函数时，参数 undefined 导致的报错 ([#7163](https://github.com/ant-design/pro-components/issues/7163)) ([ac8c651](https://github.com/ant-design/pro-components/commit/ac8c6516dcdcaca758ed489829dd9b109363c063))
-* **layout:** support antd@5.6 token ([28291fe](https://github.com/ant-design/pro-components/commit/28291fea2ab1417640f79534d132b5e3db228d2c))
-* **table:** 修复Editable的record.id使用index，且index为 0 时，导致无法添加新行 ([#7176](https://github.com/ant-design/pro-components/issues/7176)) ([b62443c](https://github.com/ant-design/pro-components/commit/b62443c3f310f99b5912a4cb9f2da5dd74cb5ac3))
-
-
-
-
+- **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
+- **components:** remove hashid empty ([b46bb80](https://github.com/ant-design/pro-components/commit/b46bb808db287979fe7d2d5afe115185860422c9))
+- **form:** 修复 fn[curK] 为函数时，参数 undefined 导致的报错 ([#7163](https://github.com/ant-design/pro-components/issues/7163)) ([ac8c651](https://github.com/ant-design/pro-components/commit/ac8c6516dcdcaca758ed489829dd9b109363c063))
+- **layout:** support antd@5.6 token ([28291fe](https://github.com/ant-design/pro-components/commit/28291fea2ab1417640f79534d132b5e3db228d2c))
+- **table:** 修复 Editable 的 record.id 使用 index，且 index 为 0 时，导致无法添加新行 ([#7176](https://github.com/ant-design/pro-components/issues/7176)) ([b62443c](https://github.com/ant-design/pro-components/commit/b62443c3f310f99b5912a4cb9f2da5dd74cb5ac3))
 
 ## [2.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.2...@ant-design/pro-utils@2.11.3) (2023-05-31)
 

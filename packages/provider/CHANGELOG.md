@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.10.2...@ant-design/pro-provider@2.10.3) (2023-06-12)
 
-
 ### Bug Fixes
 
-* **provider:** token should be correct in useStyle ([#7191](https://github.com/ant-design/pro-components/issues/7191)) ([d2859e3](https://github.com/ant-design/pro-components/commit/d2859e35b037649d234e60f34caa092134059378))
-
-
-
-
+- **provider:** token should be correct in useStyle ([#7191](https://github.com/ant-design/pro-components/issues/7191)) ([d2859e3](https://github.com/ant-design/pro-components/commit/d2859e35b037649d234e60f34caa092134059378))
 
 ## [2.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.10.1...@ant-design/pro-provider@2.10.2) (2023-05-31)
 

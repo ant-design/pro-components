@@ -1,23 +1,17 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.13.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.13.5...@ant-design/pro-form@2.13.6) (2023-06-12)
 
-
 ### Bug Fixes
 
-* **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
-* **components:** remove hashid empty ([b46bb80](https://github.com/ant-design/pro-components/commit/b46bb808db287979fe7d2d5afe115185860422c9))
-* **form:** fix set addonAfter valuePropName will no work error ([8072666](https://github.com/ant-design/pro-components/commit/8072666d47b98bcc172646205f7cb24db6a765b4))
-* **form:** ProFormColorPicker support disable ([973ac28](https://github.com/ant-design/pro-components/commit/973ac28ea2ec5b194013c691c74d8a326134c1a1))
-* **form:** 修复 ProTable 的 columns.proFieldProps 不生效 ([#7205](https://github.com/ant-design/pro-components/issues/7205)) ([91ea897](https://github.com/ant-design/pro-components/commit/91ea8977d422e208f6e29f4c5a4245e51c91ef8a))
-* 修复select的defaultKeyWords在schemaForm下不生效的bug ([#7195](https://github.com/ant-design/pro-components/issues/7195)) ([68ef5c9](https://github.com/ant-design/pro-components/commit/68ef5c9e1553d4ed514241b437be4ef2ef69687e))
-
-
-
-
+- **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
+- **components:** remove hashid empty ([b46bb80](https://github.com/ant-design/pro-components/commit/b46bb808db287979fe7d2d5afe115185860422c9))
+- **form:** fix set addonAfter valuePropName will no work error ([8072666](https://github.com/ant-design/pro-components/commit/8072666d47b98bcc172646205f7cb24db6a765b4))
+- **form:** ProFormColorPicker support disable ([973ac28](https://github.com/ant-design/pro-components/commit/973ac28ea2ec5b194013c691c74d8a326134c1a1))
+- **form:** 修复 ProTable 的 columns.proFieldProps 不生效 ([#7205](https://github.com/ant-design/pro-components/issues/7205)) ([91ea897](https://github.com/ant-design/pro-components/commit/91ea8977d422e208f6e29f4c5a4245e51c91ef8a))
+- 修复 select 的 defaultKeyWords 在 schemaForm 下不生效的 bug ([#7195](https://github.com/ant-design/pro-components/issues/7195)) ([68ef5c9](https://github.com/ant-design/pro-components/commit/68ef5c9e1553d4ed514241b437be4ef2ef69687e))
 
 ## [2.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.13.4...@ant-design/pro-form@2.13.5) (2023-06-02)
 

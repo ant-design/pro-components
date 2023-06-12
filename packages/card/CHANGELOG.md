@@ -1,20 +1,14 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.4.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.4.13...@ant-design/pro-card@2.4.14) (2023-06-12)
 
-
 ### Bug Fixes
 
-* **card:** fix ProCard small header style error ([17ccf69](https://github.com/ant-design/pro-components/commit/17ccf69bb4af2e6ffdf3d992b5cff5b6faeadafc))
-* **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
-* **components:** remove hashid empty ([b46bb80](https://github.com/ant-design/pro-components/commit/b46bb808db287979fe7d2d5afe115185860422c9))
-
-
-
-
+- **card:** fix ProCard small header style error ([17ccf69](https://github.com/ant-design/pro-components/commit/17ccf69bb4af2e6ffdf3d992b5cff5b6faeadafc))
+- **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
+- **components:** remove hashid empty ([b46bb80](https://github.com/ant-design/pro-components/commit/b46bb808db287979fe7d2d5afe115185860422c9))
 
 ## [2.4.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.4.12...@ant-design/pro-card@2.4.13) (2023-05-31)
 
