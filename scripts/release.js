@@ -115,6 +115,7 @@ async function release() {
         'version',
         ...major,
         ...minor,
+        '--exact',
         '--message',
         '🎨 chore(release): Publish',
         '--conventional-commits',
