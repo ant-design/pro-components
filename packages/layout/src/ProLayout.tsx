@@ -818,60 +818,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               style={genLayoutStyle}
               className={`${proLayoutClassName}-container ${hashId}`.trim()}
             >
-              <ConfigProvider
-                // @ts-ignore
-                theme={{
-                  hashed: isNeedOpenHash(),
-                  components: {
-                    Layout: {
-                      colorBgHeader: 'transparent',
-                      colorBgBody: 'transparent',
-                    },
-                    Menu: {
-                      ...coverToNewToken({
-                        colorItemBg:
-                          token?.layout?.header?.colorBgHeader || 'transparent',
-                        colorSubItemBg:
-                          token?.layout?.header?.colorBgHeader || 'transparent',
-                        radiusItem: 4,
-                        colorItemBgSelected:
-                          token?.layout?.header?.colorBgMenuItemSelected ||
-                          token?.colorBgTextHover,
-                        colorItemBgActive:
-                          token?.layout?.header?.colorBgMenuItemHover ||
-                          token?.colorBgTextHover,
-                        colorItemBgSelectedHorizontal:
-                          token?.layout?.header?.colorBgMenuItemSelected ||
-                          token?.colorBgTextHover,
-                        colorActiveBarWidth: 0,
-                        colorActiveBarHeight: 0,
-                        colorActiveBarBorderSize: 0,
-                        colorItemText:
-                          token?.layout?.header?.colorTextMenu ||
-                          token?.colorTextSecondary,
-                        colorItemTextHoverHorizontal:
-                          token?.layout?.header?.colorTextMenuActive ||
-                          token?.colorText,
-                        colorItemTextSelectedHorizontal:
-                          token?.layout?.header?.colorTextMenuSelected ||
-                          token?.colorTextBase,
-                        horizontalItemBorderRadius: 4,
-                        colorItemTextHover:
-                          token?.layout?.header?.colorTextMenuActive ||
-                          'rgba(0, 0, 0, 0.85)',
-                        horizontalItemHoverBg:
-                          token?.layout?.header?.colorBgMenuItemHover ||
-                          'rgba(0, 0, 0, 0.04)',
-                        colorItemTextSelected:
-                          token?.layout?.header?.colorTextMenuSelected ||
-                          'rgba(0, 0, 0, 1)',
-                      }),
-                    },
-                  },
-                }}
-              >
-                {headerDom}
-              </ConfigProvider>
+              {headerDom}
               <WrapContent
                 hasPageContainer={hasPageContainer}
                 isChildrenLayout={isChildrenLayout}

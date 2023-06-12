@@ -39,10 +39,10 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
           paddingInlineStart: token.padding,
           paddingInlineEnd: token.padding,
           cursor: 'pointer',
-          color: token.colorTextSecondary,
+          color: token?.layout?.header?.colorTextRightActionsItem,
           '> div': {
             height: '44px',
-            color: token.colorTextSecondary,
+            color: token?.layout?.header?.colorTextRightActionsItem,
             paddingInline: 8,
             paddingBlock: 8,
             cursor: 'pointer',
