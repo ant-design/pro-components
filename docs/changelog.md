@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.5.6
+﻿## @ant-design/pro-components@2.5.7
+
+`2023-06-12`
+
+- fix(components): fix useToken no supoort antd@4 的问题. [58b96e9](https://github.com/ant-design/pro-components/commit/58b96e9)
+
+## @ant-design/pro-components@2.5.6
 
 `2023-06-12`
 
