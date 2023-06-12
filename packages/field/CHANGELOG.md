@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.9.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.6...@ant-design/pro-field@2.9.7) (2023-06-12)
+
+
+### Bug Fixes
+
+* **components:** fix useToken no supoort antd@4  的问题 ([58b96e9](https://github.com/ant-design/pro-components/commit/58b96e91632c0c84c429d5384c13ee6f3146e017))
+
+
+
+
 
 ## [2.9.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.5...@ant-design/pro-field@2.9.6) (2023-06-12)
 
