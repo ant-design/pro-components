@@ -22,6 +22,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
+import { stringify } from 'use-json-comparison';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 
@@ -180,8 +181,6 @@ function EditableTable<
     },
   );
 
-  preData.current = value;
-
   const getRowKey = React.useMemo<
     GetRowKey<DataType>
   >((): GetRowKey<DataType> => {
@@ -219,7 +218,7 @@ function EditableTable<
           getRowKey?.(item, index)?.toString() === finlayRowKey?.toString()
         );
       });
-      return rowIndex;
+      if (rowIndex !== -1) return rowIndex;
     }
     return finlayRowKey;
   };
@@ -290,8 +289,6 @@ function EditableTable<
           );
           const updateValues = set({}, rowKeyName, newRowData);
           formRef.current?.setFieldsValue(updateValues);
-
-          console.log(formRef.current?.getFieldsValue());
           return true;
         },
       } as EditableFormInstance<DataType>;
@@ -307,7 +304,7 @@ function EditableTable<
       });
     }, {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, props.controlled]);
+  }, [stringify(value), props.controlled]);
 
   useEffect(() => {
     if (props.name) {
@@ -473,6 +470,10 @@ function EditableTable<
       {props.name ? (
         <ProFormDependency name={[props.name!]}>
           {(changeValue) => {
+            if (!preData.current) {
+              preData.current = value;
+              return null;
+            }
             const list = get(
               changeValue,
               [props.name].flat(1) as string[],
@@ -480,11 +481,11 @@ function EditableTable<
             const changeItem = list?.find((item, index) => {
               return !isDeepEqualReact(item, preData.current?.[index]);
             });
-            if (!changeItem) return null;
+            preData.current = value;
 
+            if (!changeItem) return null;
             // 如果不存在 preData 说明是初始化，此时不需要触发 onValuesChange
-            if (preData.current)
-              props?.editable?.onValuesChange?.(changeItem, list);
+            props?.editable?.onValuesChange?.(changeItem, list);
             return null;
           }}
         </ProFormDependency>
@@ -518,7 +519,7 @@ function FieldEditableTable<
         const name = [props.name].flat(1) as string[];
         try {
           return (
-            JSON.stringify(get(prev, name)) === JSON.stringify(get(next, name))
+            JSON.stringify(get(prev, name)) !== JSON.stringify(get(next, name))
           );
         } catch (error) {
           return true;
