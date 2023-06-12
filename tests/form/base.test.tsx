@@ -1,4 +1,5 @@
 import { FontSizeOutlined } from '@ant-design/icons';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   ProFormCaptcha,
   ProFormCheckbox,
@@ -9,7 +10,6 @@ import ProForm, {
   ProFormDigit,
   ProFormDigitRange,
   ProFormField,
-  ProFormInstance,
   ProFormSelect,
   ProFormText,
   ProFormTimePicker,

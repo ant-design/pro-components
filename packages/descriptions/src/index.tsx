@@ -17,15 +17,8 @@ import {
   LabelIconTip,
   useEditableMap,
 } from '@ant-design/pro-utils';
-import {
-  ConfigProvider,
-  Descriptions,
-  DescriptionsProps,
-  FormInstance,
-  FormProps,
-  Space,
-  theme,
-} from 'antd';
+import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
+import { ConfigProvider, Descriptions, Space } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
@@ -36,6 +29,7 @@ import useFetchData from './useFetchData';
 
 // 兼容代码-----------
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
+import { proTheme } from '@ant-design/pro-provider';
 import 'antd/lib/descriptions/style';
 //----------------------
 
@@ -179,7 +173,7 @@ export const FieldRender: React.FC<
   } = props;
   const form = ProForm.useFormInstance();
 
-  const { token } = theme.useToken();
+  const { token } = proTheme.useToken?.();
 
   const fieldConfig = {
     text,

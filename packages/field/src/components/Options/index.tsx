@@ -1,8 +1,9 @@
-import { ConfigProvider, theme } from 'antd';
+import { ConfigProvider } from 'antd';
 import React, { useContext, useImperativeHandle } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
+import { proTheme } from '@ant-design/pro-provider';
 import 'antd/lib/space/style';
 //----------------------
 
@@ -36,7 +37,7 @@ const FieldOptions: ProFieldFC = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-field-option');
 
-  const { token } = theme.useToken();
+  const { token } = proTheme.useToken();
 
   useImperativeHandle(ref, () => ({}));
 

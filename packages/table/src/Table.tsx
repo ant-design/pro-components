@@ -6,7 +6,7 @@ import 'antd/lib/typography/style';
 import ProCard from '@ant-design/pro-card';
 import ProForm from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
-import { ProConfigProvider, useIntl } from '@ant-design/pro-provider';
+import { ProConfigProvider, proTheme, useIntl } from '@ant-design/pro-provider';
 import {
   editableRowByKey,
   ErrorBoundary,
@@ -17,7 +17,8 @@ import {
   useEditableArray,
   useMountMergeState,
 } from '@ant-design/pro-utils';
-import { ConfigProvider, Table, TablePaginationConfig, theme } from 'antd';
+import type { TablePaginationConfig } from 'antd';
+import { ConfigProvider, Table } from 'antd';
 import type {
   GetRowKey,
   SortOrder,
@@ -692,7 +693,7 @@ const ProTable = <
   });
 
   // ============================ Render ============================
-  const { token } = theme.useToken();
+  const { token } = proTheme?.useToken();
 
   /** 绑定 action */
   useActionType(actionRef, action, {
