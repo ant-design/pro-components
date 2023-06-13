@@ -7,4 +7,4 @@ export type AppItemProps = {
   children?: Omit<AppItemProps, 'children'>[];
 };
 
-export type AppListProps = AppItemProps[];
+export type AppListProps = AppItemProps[] | React.ReactNode;

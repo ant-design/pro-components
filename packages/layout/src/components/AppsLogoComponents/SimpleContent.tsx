@@ -42,7 +42,7 @@ export const SimpleContent: React.FC<{
   return (
     <div className={`${baseClassName}-content ${hashId}`.trim()}>
       <ul className={`${baseClassName}-content-list ${hashId}`.trim()}>
-        {appList?.map((app, index) => {
+        {(appList as AppItemProps[])?.map((app, index) => {
           if (app?.children?.length) {
             return (
               <div

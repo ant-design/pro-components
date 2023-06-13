@@ -53,30 +53,33 @@ export const AppsLogoComponents: React.FC<{
   };
 
   const popoverContent = useMemo(() => {
-    const isSimple = appList?.some((app) => {
-      return !app?.desc;
-    });
-    if (isSimple) {
+    if (Array.isArray(appList) && appList?.length) {
+      const isSimple = appList?.some((app) => {
+        return !app?.desc;
+      });
+      if (isSimple) {
+        return (
+            <SimpleContent
+                hashId={hashId}
+                appList={appList}
+                itemClick={itemClick ? cloneItemClick : undefined}
+                baseClassName={`${baseClassName}-simple`}
+            />
+        );
+      }
       return (
-        <SimpleContent
-          hashId={hashId}
-          appList={appList}
-          itemClick={itemClick ? cloneItemClick : undefined}
-          baseClassName={`${baseClassName}-simple`}
-        />
+          <DefaultContent
+              hashId={hashId}
+              appList={appList}
+              itemClick={itemClick ? cloneItemClick : undefined}
+              baseClassName={`${baseClassName}-default`}
+          />
       );
     }
-    return (
-      <DefaultContent
-        hashId={hashId}
-        appList={appList}
-        itemClick={itemClick ? cloneItemClick : undefined}
-        baseClassName={`${baseClassName}-default`}
-      />
-    );
+    return appList as React.ReactNode
   }, [appList, baseClassName, hashId]);
 
-  if (!props?.appList?.length) return null;
+  if ((Array.isArray(appList) && appList?.length && !(props?.appList as AppItemProps[])?.length) || !props.appList) return null;
 
   const popoverOpenProps = openVisibleCompatible(
     undefined,
