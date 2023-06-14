@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.7.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.8...@ant-design/pro-table@3.7.9) (2023-06-14)
 
-
 ### Bug Fixes
 
-* **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
-
-
-
-
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
 
 ## [3.7.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.7...@ant-design/pro-table@3.7.8) (2023-06-14)
 

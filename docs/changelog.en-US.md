@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.5.7
+﻿## @ant-design/pro-components@2.5.9
+
+`2023-06-14`
+
+- fix(form): fix shouldUpdate no work error. [ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbef)
+
+## @ant-design/pro-components@2.5.7
 
 `2023-06-12`
 
