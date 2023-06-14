@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-table",
-  "version": "3.7.7",
+  "version": "3.7.8",
   "description": "🏆 Use Ant Design Table like a Pro!",
   "keywords": [
     "antd",
@@ -35,11 +35,11 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
-    "@ant-design/pro-card": "2.4.15",
-    "@ant-design/pro-field": "2.9.7",
-    "@ant-design/pro-form": "2.13.7",
-    "@ant-design/pro-provider": "2.10.3",
-    "@ant-design/pro-utils": "2.11.5",
+    "@ant-design/pro-card": "2.4.16",
+    "@ant-design/pro-field": "2.9.8",
+    "@ant-design/pro-form": "2.13.8",
+    "@ant-design/pro-provider": "2.10.4",
+    "@ant-design/pro-utils": "2.11.6",
     "@babel/runtime": "^7.18.0",
     "@dnd-kit/core": "^6.0.8",
     "@dnd-kit/sortable": "^7.0.2",

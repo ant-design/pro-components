@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.7.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.7...@ant-design/pro-table@3.7.8) (2023-06-14)
+
+
+### Bug Fixes
+
+* **table:** fix key is -1 when rowIndex is bigger to value ([c362ff7](https://github.com/ant-design/pro-components/commit/c362ff7a7053d91c32ea85081559db032a7d9fad))
+
+
+
+
 
 ## [3.7.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.6...@ant-design/pro-table@3.7.7) (2023-06-12)
 
