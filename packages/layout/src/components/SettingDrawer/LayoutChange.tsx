@@ -29,7 +29,7 @@ const LayoutSetting: React.FC<{
 
   return (
     <List
-      className={`${prefixCls}-list ${hashId}`}
+      className={`${prefixCls}-list ${hashId}`.trim()}
       split={false}
       dataSource={[
         {
@@ -41,7 +41,7 @@ const LayoutSetting: React.FC<{
             <Select
               value={contentWidth || 'Fixed'}
               size="small"
-              className={`content-width ${hashId}`}
+              className={`content-width ${hashId}`.trim()}
               onSelect={(value: string) => {
                 changeSetting('contentWidth', value);
               }}

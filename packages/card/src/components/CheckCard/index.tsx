@@ -235,7 +235,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     }
 
     const avatarDom = avatar ? (
-      <div className={`${prefixCls}-avatar ${hashId}`}>
+      <div className={`${prefixCls}-avatar ${hashId}`.trim()}>
         {typeof avatar === 'string' ? (
           <Avatar size={48} shape="square" src={avatar} />
         ) : (
@@ -245,14 +245,18 @@ const CheckCard: React.FC<CheckCardProps> & {
     ) : null;
 
     const headerDom = (title ?? extra) != null && (
-      <div className={`${prefixCls}-header ${hashId}`}>
-        <div className={`${prefixCls}-title ${hashId}`}>{title}</div>
-        {extra && <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>}
+      <div className={`${prefixCls}-header ${hashId}`.trim()}>
+        <div className={`${prefixCls}-title ${hashId}`.trim()}>{title}</div>
+        {extra && (
+          <div className={`${prefixCls}-extra ${hashId}`.trim()}>{extra}</div>
+        )}
       </div>
     );
 
     const descriptionDom = description ? (
-      <div className={`${prefixCls}-description ${hashId}`}>{description}</div>
+      <div className={`${prefixCls}-description ${hashId}`.trim()}>
+        {description}
+      </div>
     ) : null;
 
     const metaClass = classNames(`${prefixCls}-content`, hashId, {
@@ -263,7 +267,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       <div className={metaClass}>
         {avatarDom}
         {headerDom || descriptionDom ? (
-          <div className={`${prefixCls}-detail ${hashId}`}>
+          <div className={`${prefixCls}-detail ${hashId}`.trim()}>
             {headerDom}
             {descriptionDom}
           </div>

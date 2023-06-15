@@ -23,6 +23,7 @@ import {
   useStyle,
 } from '@ant-design/pro-provider';
 import { compareVersions } from './compareVersions';
+import { coverToNewToken } from './compareVersions/coverToNewToken';
 import { menuOverlayCompatible } from './compareVersions/menuOverlayCompatible';
 import { openVisibleCompatible } from './compareVersions/openVisibleCompatible';
 import { useDebounceFn } from './hooks/useDebounceFn';
@@ -105,6 +106,7 @@ export {
   useDocumentTitle,
   isImg,
   omitBoolean,
+  coverToNewToken,
   isNil,
   merge,
   isDropdownValueType,

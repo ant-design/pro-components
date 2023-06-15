@@ -82,7 +82,7 @@ const StatisticCard: React.FC<StatisticCardProps> & {
     ));
 
   const footerDom = footer && (
-    <div className={`${prefixCls}-footer ${hashId}`}>{footer}</div>
+    <div className={`${prefixCls}-footer ${hashId}`.trim()}>{footer}</div>
   );
 
   return wrapSSR(

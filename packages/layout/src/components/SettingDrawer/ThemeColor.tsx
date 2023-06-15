@@ -39,7 +39,7 @@ const ThemeColor: React.ForwardRefRenderFunction<
   }
   const baseClassName = `${prefixCls}-theme-color`;
   return (
-    <div className={`${baseClassName} ${hashId}`}>
+    <div className={`${baseClassName} ${hashId}`.trim()}>
       {colorList?.map(({ key, color, title }) => {
         if (!key) return null;
         return (
@@ -53,7 +53,7 @@ const ThemeColor: React.ForwardRefRenderFunction<
             }
           >
             <Tag
-              className={`${baseClassName}-block ${hashId}`}
+              className={`${baseClassName}-block ${hashId}`.trim()}
               color={color}
               check={value === color}
               onClick={() => onChange && onChange(color)}

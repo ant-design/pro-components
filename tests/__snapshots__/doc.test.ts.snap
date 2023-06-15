@@ -13,7 +13,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title "
+        class="ant-pro-card-title"
       >
         SchemaForm
       </div>
@@ -34,7 +34,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
           class="ant-pro-form-group"
         >
           <div
-            class="ant-pro-form-group-title "
+            class="ant-pro-form-group-title"
           >
             标签
           </div>
@@ -131,7 +131,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
           class="ant-pro-form-group"
         >
           <div
-            class="ant-pro-form-group-title "
+            class="ant-pro-form-group-title"
           >
             路径
           </div>
@@ -289,7 +289,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title "
+        class="ant-pro-card-title"
       >
         ProTable
       </div>
@@ -316,7 +316,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
               style="margin-left: -12px; margin-right: -12px;"
             >
               <div
-                class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+                class="ant-col ant-col-8 ant-pro-query-filter-row-split"
                 style="padding-left: 12px; padding-right: 12px;"
               >
                 <div
@@ -363,7 +363,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
                 </div>
               </div>
               <div
-                class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+                class="ant-col ant-col-8 ant-pro-query-filter-row-split"
                 style="padding-left: 12px; padding-right: 12px;"
               >
                 <div
@@ -420,7 +420,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
                 style="padding-left: 12px; padding-right: 12px; text-align: end;"
               >
                 <div
-                  class="ant-form-item ant-pro-query-filter-actions "
+                  class="ant-form-item ant-pro-query-filter-actions"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -578,7 +578,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
       class="ant-pro-card-header"
     >
       <div
-        class="ant-pro-card-title "
+        class="ant-pro-card-title"
       >
         ProDescriptions
       </div>
@@ -680,7 +680,7 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -780,7 +780,7 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
             </div>
           </div>
           <div
-            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -979,7 +979,7 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
             style="padding-left: 12px; padding-right: 12px; text-align: end;"
           >
             <div
-              class="ant-form-item ant-pro-query-filter-actions "
+              class="ant-form-item ant-pro-query-filter-actions"
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -1035,7 +1035,7 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
                           class="ant-space-item"
                         >
                           <a
-                            class="ant-pro-query-filter-collapse-button "
+                            class="ant-pro-query-filter-collapse-button"
                           >
                             展开
                             <span
@@ -1084,17 +1084,17 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-pro-table-list-toolbar-left "
+              class="ant-pro-table-list-toolbar-left"
             />
             <div
-              class="ant-pro-table-list-toolbar-right "
+              class="ant-pro-table-list-toolbar-right"
               style="align-items: center;"
             >
               <div
-                class="ant-pro-table-list-toolbar-setting-items "
+                class="ant-pro-table-list-toolbar-setting-items"
               >
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -1119,7 +1119,7 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
                   </span>
                 </div>
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -1145,7 +1145,7 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
                   </span>
                 </div>
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
                     aria-label="setting"
@@ -1395,7 +1395,7 @@ exports[`docs/components demos 📸 renders ./docs/components/valueType.tsx corr
       class="ant-pro-form-group"
     >
       <div
-        class="ant-pro-form-group-title "
+        class="ant-pro-form-group-title"
       >
         分组
       </div>

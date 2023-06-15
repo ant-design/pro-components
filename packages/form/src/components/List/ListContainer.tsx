@@ -107,7 +107,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     } = creatorButtonProps || {};
     return (
       <Button
-        className={`${prefixCls}-creator-button-${position} ${hashId}`}
+        className={`${prefixCls}-creator-button-${position} ${hashId}`.trim()}
         type="dashed"
         loading={loading}
         block

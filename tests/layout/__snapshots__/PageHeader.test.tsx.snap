@@ -10,10 +10,10 @@ exports[`PageContainer pageHeader should render correctly int RTL direction 1`] 
     class="ant-page-header-heading "
   >
     <div
-      class="ant-page-header-heading-left "
+      class="ant-page-header-heading-left"
     >
       <span
-        class="ant-page-header-heading-title "
+        class="ant-page-header-heading-title"
         title="Page Title"
       >
         Page Title
@@ -31,10 +31,10 @@ exports[`PageContainer pageHeader should support className 1`] = `
     class="ant-page-header-heading "
   >
     <div
-      class="ant-page-header-heading-left "
+      class="ant-page-header-heading-left"
     >
       <span
-        class="ant-page-header-heading-title "
+        class="ant-page-header-heading-title"
         title="Page Title"
       >
         Page Title
@@ -53,10 +53,10 @@ exports[`PageContainer 💄 base use 1`] = `
       class="ant-page-header-heading "
     >
       <div
-        class="ant-page-header-heading-left "
+        class="ant-page-header-heading-left"
       >
         <span
-          class="ant-page-header-heading-title "
+          class="ant-page-header-heading-title"
           title="期贤"
         >
           期贤

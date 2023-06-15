@@ -1,4 +1,30 @@
-﻿## @ant-design/pro-components@2.5.5
+﻿## @ant-design/pro-components@2.5.9
+
+`2023-06-14`
+
+- fix(form): fix shouldUpdate no work error. [ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbef)
+
+## @ant-design/pro-components@2.5.7
+
+`2023-06-12`
+
+- fix(components): fix useToken no supoort antd@4 的问题. [58b96e9](https://github.com/ant-design/pro-components/commit/58b96e9)
+
+## @ant-design/pro-components@2.5.6
+
+`2023-06-12`
+
+- fix(components): remove hashid empty. [b46bb80](https://github.com/ant-design/pro-components/commit/b46bb80)
+- fix(layout): support antd@5.6 token. [28291fe](https://github.com/ant-design/pro-components/commit/28291fe)
+- fix(form): 修复 ProTable 的 columns.proFieldProps 不生效 (#7205). [#7205](https://github.com/ant-design/pro-components/pull/#7205) [@fanck0605](https://github.com/fanck0605)
+- fix(form): ColorPicker use antd style-n. [8d3cd04](https://github.com/ant-design/pro-components/commit/8d3cd04)
+- fix(form): ProFormColorPicker support disable. [973ac28](https://github.com/ant-design/pro-components/commit/973ac28)
+- fix(form): fix set addonAfter valuePropName will no work error. [8072666](https://github.com/ant-design/pro-components/commit/8072666)
+- fix(form): 修复 fn[curK] 为函数时，参数 undefined 导致的报错 (#7163). [#7163](https://github.com/ant-design/pro-components/pull/#7163) [@Soulwail](https://github.com/Soulwail)
+- fix(table): 修复 Editable 的 record.id 使用 index，且 index 为 0 时，导致无法添加新行 (#7176). [#7176](https://github.com/ant-design/pro-components/pull/#7176) [@Soulwail](https://github.com/Soulwail)
+- fix(card): fix ProCard small header style error. [17ccf69](https://github.com/ant-design/pro-components/commit/17ccf69)
+
+## @ant-design/pro-components@2.5.5
 
 `2023-06-02`
 

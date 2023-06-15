@@ -11,12 +11,12 @@ exports[`utils 🪓 LabelIconTip 1`] = `
       xxx
     </div>
     <div
-      class="ant-pro-core-label-tip-subtitle "
+      class="ant-pro-core-label-tip-subtitle"
     >
       xxx
     </div>
     <span
-      class="ant-pro-core-label-tip-icon "
+      class="ant-pro-core-label-tip-icon"
     >
       <span
         aria-label="code"

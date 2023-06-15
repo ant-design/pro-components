@@ -207,7 +207,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     return [
       <div
         key="action"
-        className={`${className}-actions ${hashId}`}
+        className={`${className}-actions ${hashId}`.trim()}
         onClick={(e) => e.stopPropagation()}
       >
         {actions}
@@ -217,10 +217,14 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
   const titleDom =
     title || subTitle ? (
-      <div className={`${className}-header-title ${hashId}`}>
-        {title && <div className={`${className}-title ${hashId}`}>{title}</div>}
+      <div className={`${className}-header-title ${hashId}`.trim()}>
+        {title && (
+          <div className={`${className}-title ${hashId}`.trim()}>{title}</div>
+        )}
         {subTitle && (
-          <div className={`${className}-subTitle ${hashId}`}>{subTitle}</div>
+          <div className={`${className}-subTitle ${hashId}`.trim()}>
+            {subTitle}
+          </div>
         )}
       </div>
     ) : null;
@@ -235,7 +239,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         description={
           description &&
           needExpanded && (
-            <div className={`${className}-description ${hashId}`}>
+            <div className={`${className}-description ${hashId}`.trim()}>
               {description}
             </div>
           )
@@ -253,7 +257,11 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       return (
         <>
           {avatar}
-          <span className={`${getPrefixCls('list-item-meta-title')} ${hashId}`}>
+          <span
+            className={`${getPrefixCls(
+              'list-item-meta-title',
+            )} ${hashId}`.trim()}
+          >
             {title}
           </span>
         </>
@@ -281,10 +289,10 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       }}
     >
       <Skeleton avatar title={false} loading={loading} active>
-        <div className={`${className}-header ${hashId}`}>
-          <div className={`${className}-header-option ${hashId}`}>
+        <div className={`${className}-header ${hashId}`.trim()}>
+          <div className={`${className}-header-option ${hashId}`.trim()}>
             {!!checkbox && (
-              <div className={`${className}-checkbox ${hashId}`}>
+              <div className={`${className}-checkbox ${hashId}`.trim()}>
                 {checkbox}
               </div>
             )}
@@ -303,7 +311,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
             metaDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
-          <div className={`${className}-content ${hashId}`}>
+          <div className={`${className}-content ${hashId}`.trim()}>
             {content}
             {expandedRowRender && rowSupportExpand && (
               <div
@@ -336,7 +344,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       {...onItem?.(record, index)}
     >
       <Skeleton avatar title={false} loading={loading} active>
-        <div className={`${className}-header ${hashId}`}>
+        <div className={`${className}-header ${hashId}`.trim()}>
           {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
           {content}
         </div>

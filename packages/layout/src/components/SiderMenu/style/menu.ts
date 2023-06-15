@@ -67,7 +67,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           height: '14px',
         },
       },
-      '& &-item-title': {
+      '&-item-title': {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',

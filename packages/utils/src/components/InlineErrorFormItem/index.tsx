@@ -64,7 +64,7 @@ const InlineErrorFormItemPopover: React.FC<{
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
-        <div className={`${prefixCls}-form-item-with-help ${hashId}`}>
+        <div className={`${prefixCls}-form-item-with-help ${hashId}`.trim()}>
           {loading ? <LoadingOutlined /> : null}
           {errorList}
         </div>,
@@ -94,7 +94,7 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       hasFeedback={false}
       shouldUpdate={(prev, next) => {
         try {
-          return JSON.stringify(prev) === JSON.stringify(next);
+          return JSON.stringify(prev) !== JSON.stringify(next);
         } catch (error) {
           return true;
         }

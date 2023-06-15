@@ -98,7 +98,7 @@ export const AppsLogoComponents: React.FC<{
         zIndex={9999}
         arrow={false}
         {...popoverOpenProps}
-        overlayClassName={`${baseClassName}-popover ${hashId}`}
+        overlayClassName={`${baseClassName}-popover ${hashId}`.trim()}
         content={popoverContent}
         getPopupContainer={() => ref.current || document.body}
       >

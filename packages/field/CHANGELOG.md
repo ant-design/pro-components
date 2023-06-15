@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.8...@ant-design/pro-field@2.9.9) (2023-06-14)
+
+### Bug Fixes
+
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
+
+## [2.9.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.7...@ant-design/pro-field@2.9.8) (2023-06-14)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.9.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.6...@ant-design/pro-field@2.9.7) (2023-06-12)
+
+### Bug Fixes
+
+- **components:** fix useToken no supoort antd@4 的问题 ([58b96e9](https://github.com/ant-design/pro-components/commit/58b96e91632c0c84c429d5384c13ee6f3146e017))
+
+## [2.9.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.5...@ant-design/pro-field@2.9.6) (2023-06-12)
+
+### Bug Fixes
+
+- **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
+- 修复 select 的 defaultKeyWords 在 schemaForm 下不生效的 bug ([#7195](https://github.com/ant-design/pro-components/issues/7195)) ([68ef5c9](https://github.com/ant-design/pro-components/commit/68ef5c9e1553d4ed514241b437be4ef2ef69687e))
+- **form:** ColorPicker use antd style-n ([8d3cd04](https://github.com/ant-design/pro-components/commit/8d3cd04eb581c6e03b31e79998c7df7556ed3471))
+- **form:** ProFormColorPicker support disable ([973ac28](https://github.com/ant-design/pro-components/commit/973ac28ea2ec5b194013c691c74d8a326134c1a1))
+- **treeSelect:** 1.新增 treeSelect 不支持请求的情况下不刷新 options 2.修复 fetchDataOnSearch 不生效 ([#7180](https://github.com/ant-design/pro-components/issues/7180)) ([8ee1d33](https://github.com/ant-design/pro-components/commit/8ee1d33bea2ad78d1015d829fac2ac89d4e99873))
+
 ## [2.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.4...@ant-design/pro-field@2.9.5) (2023-06-02)
 
 ### Bug Fixes

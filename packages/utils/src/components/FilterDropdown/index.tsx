@@ -78,7 +78,9 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
               return htmlRef.current || document.body;
             }}
           >
-            <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
+            <div className={`${prefixCls}-content ${hashId}`.trim()}>
+              {children}
+            </div>
           </ConfigProvider>
           {footer && (
             <DropdownFooter
@@ -90,7 +92,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
         </div>
       }
     >
-      <span className={`${prefixCls}-label ${hashId}`}>{label}</span>
+      <span className={`${prefixCls}-label ${hashId}`.trim()}>{label}</span>
     </Popover>,
   );
 };

@@ -204,7 +204,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -224,7 +224,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -240,7 +240,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
                 class="ant-pro-top-nav-header-main-left "
               >
                 <div
-                  class="ant-pro-top-nav-header-logo "
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <a>
@@ -377,7 +377,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <div
@@ -475,7 +475,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -841,7 +841,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -1057,7 +1057,7 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -1275,7 +1275,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -1451,7 +1451,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
@@ -1539,7 +1539,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main

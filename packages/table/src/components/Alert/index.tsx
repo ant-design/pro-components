@@ -76,12 +76,16 @@ function TableAlert<T>({
     return null;
   }
   return wrapSSR(
-    <div className={`${className} ${hashId}`}>
-      <div className={`${className}-container ${hashId}`}>
-        <div className={`${className}-info ${hashId}`}>
-          <div className={`${className}-info-content ${hashId}`}>{dom}</div>
+    <div className={`${className} ${hashId}`.trim()}>
+      <div className={`${className}-container ${hashId}`.trim()}>
+        <div className={`${className}-info ${hashId}`.trim()}>
+          <div className={`${className}-info-content ${hashId}`.trim()}>
+            {dom}
+          </div>
           {option ? (
-            <div className={`${className}-info-option ${hashId}`}>{option}</div>
+            <div className={`${className}-info-option ${hashId}`.trim()}>
+              {option}
+            </div>
           ) : null}
         </div>
       </div>

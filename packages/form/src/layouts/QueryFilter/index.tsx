@@ -399,7 +399,7 @@ const QueryFilterContent: React.FC<{
         <Col
           key={itemKey}
           span={colSpan}
-          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`}
+          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`.trim()}
         >
           {itemDom}
         </Col>
@@ -409,7 +409,7 @@ const QueryFilterContent: React.FC<{
     return (
       <Col
         key={itemKey}
-        className={`${props.baseClassName}-row-split ${hashId}`}
+        className={`${props.baseClassName}-row-split ${hashId}`.trim()}
         span={colSpan}
       >
         {itemDom}
@@ -465,7 +465,7 @@ const QueryFilterContent: React.FC<{
           <Form.Item
             label=" "
             colon={false}
-            className={`${baseClassName}-actions ${hashId}`}
+            className={`${baseClassName}-actions ${hashId}`.trim()}
           >
             <Actions
               hiddenNum={hiddenNum}

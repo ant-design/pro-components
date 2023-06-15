@@ -49,11 +49,13 @@ export const LabelIconTip: React.FC<{
         {label}
       </div>
       {subTitle && (
-        <div className={`${className}-subtitle ${hashId}`}>{subTitle}</div>
+        <div className={`${className}-subtitle ${hashId}`.trim()}>
+          {subTitle}
+        </div>
       )}
       {tooltip && (
         <Tooltip {...tooltipProps}>
-          <span className={`${className}-icon ${hashId}`}>{icon}</span>
+          <span className={`${className}-icon ${hashId}`.trim()}>{icon}</span>
         </Tooltip>
       )}
     </div>,

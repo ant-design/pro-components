@@ -5,6 +5,7 @@ import {
   ProProvider,
 } from '@ant-design/pro-provider';
 import {
+  coverToNewToken,
   isBrowser,
   useDocumentTitle,
   useMountMergeState,
@@ -772,7 +773,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               theme={{
                 hashed: isNeedOpenHash(),
                 components: {
-                  Menu: {
+                  Menu: coverToNewToken({
                     colorItemBg:
                       token?.layout?.sider?.colorMenuBackground ||
                       'transparent',
@@ -807,7 +808,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorBgElevated:
                       token?.layout?.sider?.colorBgMenuItemCollapsedElevated ||
                       '#fff',
-                  },
+                  }),
                 },
               }}
             >
@@ -815,56 +816,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             </ConfigProvider>
             <div
               style={genLayoutStyle}
-              className={`${proLayoutClassName}-container ${hashId}`}
+              className={`${proLayoutClassName}-container ${hashId}`.trim()}
             >
-              <ConfigProvider
-                // @ts-ignore
-                theme={{
-                  hashed: isNeedOpenHash(),
-                  components: {
-                    Layout: {
-                      colorBgHeader: 'transparent',
-                      colorBgBody: 'transparent',
-                    },
-                    Menu: {
-                      colorItemBg:
-                        token?.layout?.header?.colorBgHeader || 'transparent',
-                      colorSubItemBg:
-                        token?.layout?.header?.colorBgHeader || 'transparent',
-                      radiusItem: 4,
-                      colorItemBgSelected:
-                        token?.layout?.header?.colorBgMenuItemSelected ||
-                        token?.colorBgTextHover,
-                      colorItemBgActive:
-                        token?.layout?.header?.colorBgMenuItemHover ||
-                        token?.colorBgTextHover,
-                      colorItemBgSelectedHorizontal:
-                        token?.layout?.header?.colorBgMenuItemSelected ||
-                        token?.colorBgTextHover,
-                      colorActiveBarWidth: 0,
-                      colorActiveBarHeight: 0,
-                      colorActiveBarBorderSize: 0,
-                      colorItemText:
-                        token?.layout?.header?.colorTextMenu ||
-                        token?.colorTextSecondary,
-                      colorItemTextHoverHorizontal:
-                        token?.layout?.header?.colorTextMenuActive ||
-                        token?.colorText,
-                      colorItemTextSelectedHorizontal:
-                        token?.layout?.header?.colorTextMenuSelected ||
-                        token?.colorTextBase,
-                      colorItemTextHover:
-                        token?.layout?.header?.colorTextMenuActive ||
-                        'rgba(0, 0, 0, 0.85)',
-                      colorItemTextSelected:
-                        token?.layout?.header?.colorTextMenuSelected ||
-                        'rgba(0, 0, 0, 1)',
-                    },
-                  },
-                }}
-              >
-                {headerDom}
-              </ConfigProvider>
+              {headerDom}
               <WrapContent
                 hasPageContainer={hasPageContainer}
                 isChildrenLayout={isChildrenLayout}

@@ -147,7 +147,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                     style="display: flex; align-items: flex-end;"
                   >
                     <div
-                      class="ant-pro-form-list-container undefined "
+                      class="ant-pro-form-list-container undefined"
                     >
                       <div
                         class="ant-pro-form-group"
@@ -410,7 +410,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                       </div>
                     </div>
                     <div
-                      class="ant-pro-form-list-action "
+                      class="ant-pro-form-list-action"
                     >
                       <div
                         class="ant-spin-nested-loading"
@@ -420,7 +420,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                         >
                           <span
                             aria-label="copy"
-                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                             role="img"
                             tabindex="-1"
                           >
@@ -448,7 +448,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                         >
                           <span
                             aria-label="delete"
-                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                             role="img"
                             tabindex="-1"
                           >
@@ -471,7 +471,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -947,7 +947,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
               class="ant-pro-form-group"
             >
               <div
-                class="ant-pro-form-group-title "
+                class="ant-pro-form-group-title"
               >
                 c.d
               </div>
@@ -987,7 +987,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                     style="display: flex; align-items: flex-end;"
                                   >
                                     <div
-                                      class="ant-pro-form-list-container undefined "
+                                      class="ant-pro-form-list-container undefined"
                                     >
                                       <div
                                         class="ant-pro-form-group"
@@ -1208,7 +1208,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                       </div>
                                     </div>
                                     <div
-                                      class="ant-pro-form-list-action "
+                                      class="ant-pro-form-list-action"
                                     >
                                       <div
                                         class="ant-spin-nested-loading"
@@ -1218,7 +1218,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                         >
                                           <span
                                             aria-label="copy"
-                                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                             role="img"
                                             tabindex="-1"
                                           >
@@ -1246,7 +1246,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                         >
                                           <span
                                             aria-label="delete"
-                                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                             role="img"
                                             tabindex="-1"
                                           >
@@ -1269,7 +1269,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                     </div>
                                   </div>
                                   <button
-                                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                     type="button"
                                   >
                                     <span
@@ -1324,7 +1324,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
               class="ant-pro-form-group"
             >
               <div
-                class="ant-pro-form-group-title "
+                class="ant-pro-form-group-title"
               >
                 c.e
               </div>
@@ -1364,7 +1364,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                     style="display: flex; align-items: flex-end;"
                                   >
                                     <div
-                                      class="ant-pro-form-list-container undefined "
+                                      class="ant-pro-form-list-container undefined"
                                     >
                                       <div
                                         class="ant-pro-form-group"
@@ -1575,7 +1575,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                       </div>
                                     </div>
                                     <div
-                                      class="ant-pro-form-list-action "
+                                      class="ant-pro-form-list-action"
                                     >
                                       <div
                                         class="ant-spin-nested-loading"
@@ -1585,7 +1585,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                         >
                                           <span
                                             aria-label="copy"
-                                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                             role="img"
                                             tabindex="-1"
                                           >
@@ -1613,7 +1613,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                         >
                                           <span
                                             aria-label="delete"
-                                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                             role="img"
                                             tabindex="-1"
                                           >
@@ -1636,7 +1636,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                     </div>
                                   </div>
                                   <button
-                                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                     type="button"
                                   >
                                     <span
@@ -1691,7 +1691,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
       class="ant-pro-form-group"
     >
       <div
-        class="ant-pro-form-group-title "
+        class="ant-pro-form-group-title"
       >
         收集依赖值（情形1) &lt;ProFormDependency name={["a","b",["c","a"],["c","b"],["c","c","a"],["c","d"],["c","e"]]}&gt;
       </div>
@@ -1876,7 +1876,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         class="ant-pro-form-group"
       >
         <div
-          class="ant-pro-form-group-title "
+          class="ant-pro-form-group-title"
         >
           文本类
         </div>
@@ -2041,7 +2041,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         style="gap: 0 32px;"
       >
         <div
-          class="ant-pro-form-group-title "
+          class="ant-pro-form-group-title"
         >
           <div>
             <span
@@ -3165,7 +3165,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         class="ant-pro-form-group"
       >
         <div
-          class="ant-pro-form-group-title "
+          class="ant-pro-form-group-title"
         >
           数字类
         </div>
@@ -4411,7 +4411,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         class="ant-pro-form-group"
       >
         <div
-          class="ant-pro-form-group-title "
+          class="ant-pro-form-group-title"
         >
           基础数据
         </div>
@@ -6052,7 +6052,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         class="ant-pro-form-group"
       >
         <div
-          class="ant-pro-form-group-title "
+          class="ant-pro-form-group-title"
         >
           日期相关分组
         </div>
@@ -6497,7 +6497,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         class="ant-pro-form-group"
       >
         <div
-          class="ant-pro-form-group-title "
+          class="ant-pro-form-group-title"
         >
           其他相关分组
         </div>
@@ -6787,7 +6787,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
         class="ant-pro-form-group"
       >
         <div
-          class="ant-pro-form-group-title "
+          class="ant-pro-form-group-title"
         >
           日期相关分组
         </div>
@@ -9839,7 +9839,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                     style="display: flex; align-items: flex-end;"
                   >
                     <div
-                      class="ant-pro-form-list-container undefined "
+                      class="ant-pro-form-list-container undefined"
                     >
                       <div
                         class="ant-pro-form-group"
@@ -10106,7 +10106,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                       </div>
                     </div>
                     <div
-                      class="ant-pro-form-list-action "
+                      class="ant-pro-form-list-action"
                     >
                       <div
                         class="ant-spin-nested-loading"
@@ -10116,7 +10116,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                         >
                           <span
                             aria-label="copy"
-                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                             role="img"
                             tabindex="-1"
                           >
@@ -10144,7 +10144,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                         >
                           <span
                             aria-label="delete"
-                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                             role="img"
                             tabindex="-1"
                           >
@@ -10167,7 +10167,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -10285,7 +10285,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
                     style="display: flex; align-items: flex-end;"
                   >
                     <div
-                      class="ant-pro-form-list-container undefined "
+                      class="ant-pro-form-list-container undefined"
                     >
                       <div
                         class="ant-form-item"
@@ -10360,7 +10360,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
                       </div>
                     </div>
                     <div
-                      class="ant-pro-form-list-action "
+                      class="ant-pro-form-list-action"
                     >
                       <div
                         class="ant-spin-nested-loading"
@@ -10370,7 +10370,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
                         >
                           <span
                             aria-label="snippets"
-                            class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy "
+                            class="anticon anticon-snippets ant-pro-form-list-action-icon action-copy"
                             role="img"
                             tabindex="-1"
                           >
@@ -10393,7 +10393,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -10527,7 +10527,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                               style="display: flex; align-items: flex-end;"
                             >
                               <div
-                                class="ant-pro-form-list-container undefined "
+                                class="ant-pro-form-list-container undefined"
                               >
                                 <div
                                   class="ant-pro-form-group"
@@ -10693,7 +10693,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                 </div>
                               </div>
                               <div
-                                class="ant-pro-form-list-action "
+                                class="ant-pro-form-list-action"
                               >
                                 <div
                                   class="ant-spin-nested-loading"
@@ -10703,7 +10703,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                   >
                                     <span
                                       aria-label="copy"
-                                      class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                      class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                       role="img"
                                       tabindex="-1"
                                     >
@@ -10731,7 +10731,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                   >
                                     <span
                                       aria-label="delete"
-                                      class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                      class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                       role="img"
                                       tabindex="-1"
                                     >
@@ -10754,7 +10754,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                               </div>
                             </div>
                             <button
-                              class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                              class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                               type="button"
                             >
                               <span
@@ -10832,7 +10832,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title "
+              class="ant-pro-card-title"
             >
               配置菜单
             </div>
@@ -10852,7 +10852,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                 class="ant-pro-form-group"
               >
                 <div
-                  class="ant-pro-form-group-title "
+                  class="ant-pro-form-group-title"
                 >
                   <div
                     style="display: flex; width: 100%; align-items: center; justify-content: space-between;"
@@ -11380,7 +11380,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                 class="ant-pro-form-group"
               >
                 <div
-                  class="ant-pro-form-group-title "
+                  class="ant-pro-form-group-title"
                 >
                   <div
                     style="display: flex; width: 100%; align-items: center; justify-content: space-between;"
@@ -11654,7 +11654,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                 class="ant-pro-form-group"
               >
                 <div
-                  class="ant-pro-form-group-title "
+                  class="ant-pro-form-group-title"
                 >
                   <div
                     style="display: flex; width: 100%; align-items: center; justify-content: space-between;"
@@ -12009,7 +12009,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                     style="display: flex; align-items: flex-end;"
                   >
                     <div
-                      class="ant-pro-form-list-container undefined "
+                      class="ant-pro-form-list-container undefined"
                     >
                       <div
                         class="ant-pro-form-group"
@@ -12348,7 +12348,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                       </div>
                     </div>
                     <div
-                      class="ant-pro-form-list-action "
+                      class="ant-pro-form-list-action"
                     >
                       <div
                         class="ant-spin-nested-loading"
@@ -12358,7 +12358,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                         >
                           <span
                             aria-label="copy"
-                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                             role="img"
                             tabindex="-1"
                           >
@@ -12386,7 +12386,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                         >
                           <span
                             aria-label="delete"
-                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                             role="img"
                             tabindex="-1"
                           >
@@ -12409,7 +12409,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -12528,7 +12528,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                       class="ant-pro-card-header"
                     >
                       <div
-                        class="ant-pro-card-title "
+                        class="ant-pro-card-title"
                       >
                         规格1
                       </div>
@@ -12538,7 +12538,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                       style="padding-block-end: 0;"
                     >
                       <div
-                        class="ant-pro-form-list-container undefined "
+                        class="ant-pro-form-list-container undefined"
                       >
                         <div
                           class="ant-form-item"
@@ -12663,7 +12663,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                   style="display: inline-flex; margin-inline-end: 25px;"
                                                 >
                                                   <div
-                                                    class="ant-pro-form-list-container undefined "
+                                                    class="ant-pro-form-list-container undefined"
                                                   >
                                                     <div
                                                       class="ant-form-item"
@@ -12694,7 +12694,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                     </div>
                                                   </div>
                                                   <div
-                                                    class="ant-pro-form-list-action "
+                                                    class="ant-pro-form-list-action"
                                                   >
                                                     <div
                                                       class="ant-spin-nested-loading"
@@ -12704,7 +12704,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                       >
                                                         <span
                                                           aria-label="delete"
-                                                          class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                                          class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                                           role="img"
                                                           tabindex="-1"
                                                         >
@@ -12730,7 +12730,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                   style="display: inline-flex; margin-inline-end: 25px;"
                                                 >
                                                   <div
-                                                    class="ant-pro-form-list-container undefined "
+                                                    class="ant-pro-form-list-container undefined"
                                                   >
                                                     <div
                                                       class="ant-form-item"
@@ -12761,7 +12761,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                     </div>
                                                   </div>
                                                   <div
-                                                    class="ant-pro-form-list-action "
+                                                    class="ant-pro-form-list-action"
                                                   >
                                                     <div
                                                       class="ant-spin-nested-loading"
@@ -12771,7 +12771,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                       >
                                                         <span
                                                           aria-label="delete"
-                                                          class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                                          class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                                           role="img"
                                                           tabindex="-1"
                                                         >
@@ -12794,7 +12794,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                                                   </div>
                                                 </div>
                                                 <button
-                                                  class="ant-btn ant-btn-link ant-btn-block ant-pro-form-list-creator-button-bottom "
+                                                  class="ant-btn ant-btn-link ant-btn-block ant-pro-form-list-creator-button-bottom"
                                                   type="button"
                                                 >
                                                   <span>
@@ -12817,7 +12817,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -13211,7 +13211,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                     style="display: flex; align-items: flex-end;"
                   >
                     <div
-                      class="ant-pro-form-list-container undefined "
+                      class="ant-pro-form-list-container undefined"
                     >
                       <div
                         class="ant-pro-form-group"
@@ -13809,7 +13809,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                       </div>
                     </div>
                     <div
-                      class="ant-pro-form-list-action "
+                      class="ant-pro-form-list-action"
                     >
                       <div
                         class="ant-spin-nested-loading"
@@ -13819,7 +13819,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                         >
                           <span
                             aria-label="copy"
-                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                             role="img"
                             tabindex="-1"
                           >
@@ -13847,7 +13847,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                         >
                           <span
                             aria-label="delete"
-                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                             role="img"
                             tabindex="-1"
                           >
@@ -13870,7 +13870,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -14059,7 +14059,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                     style="display: flex; align-items: flex-end;"
                   >
                     <div
-                      class="ant-pro-form-list-container undefined "
+                      class="ant-pro-form-list-container undefined"
                     >
                       <div
                         class="ant-pro-form-group"
@@ -14225,7 +14225,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                       </div>
                     </div>
                     <div
-                      class="ant-pro-form-list-action "
+                      class="ant-pro-form-list-action"
                     >
                       <div
                         class="ant-spin-nested-loading"
@@ -14235,7 +14235,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                         >
                           <span
                             aria-label="smile"
-                            class="anticon anticon-smile ant-pro-form-list-action-icon action-copy "
+                            class="anticon anticon-smile ant-pro-form-list-action-icon action-copy"
                             role="img"
                             tabindex="-1"
                           >
@@ -14263,7 +14263,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                         >
                           <span
                             aria-label="close-circle"
-                            class="anticon anticon-close-circle ant-pro-form-list-action-icon action-remove "
+                            class="anticon anticon-close-circle ant-pro-form-list-action-icon action-remove"
                             role="img"
                             tabindex="-1"
                           >
@@ -14289,7 +14289,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -14479,15 +14479,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                       class="ant-pro-card-header"
                     >
                       <div
-                        class="ant-pro-card-title "
+                        class="ant-pro-card-title"
                       >
                         1111
                       </div>
                       <div
-                        class="ant-pro-card-extra "
+                        class="ant-pro-card-extra"
                       >
                         <div
-                          class="ant-pro-form-list-action "
+                          class="ant-pro-form-list-action"
                         >
                           <div
                             class="ant-spin-nested-loading"
@@ -14497,7 +14497,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                             >
                               <span
                                 aria-label="copy"
-                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                 role="img"
                                 tabindex="-1"
                               >
@@ -14525,7 +14525,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                             >
                               <span
                                 aria-label="delete"
-                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                 role="img"
                                 tabindex="-1"
                               >
@@ -14552,7 +14552,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                       class="ant-pro-card-body"
                     >
                       <div
-                        class="ant-pro-form-list-container undefined "
+                        class="ant-pro-form-list-container undefined"
                       >
                         <div
                           class="ant-pro-form-group"
@@ -14754,7 +14754,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                         style="display: flex; align-items: flex-end;"
                                       >
                                         <div
-                                          class="ant-pro-form-list-container undefined "
+                                          class="ant-pro-form-list-container undefined"
                                         >
                                           <div
                                             class="ant-pro-form-group"
@@ -14920,7 +14920,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                           </div>
                                         </div>
                                         <div
-                                          class="ant-pro-form-list-action "
+                                          class="ant-pro-form-list-action"
                                         >
                                           <div
                                             class="ant-spin-nested-loading"
@@ -14930,7 +14930,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                             >
                                               <span
                                                 aria-label="copy"
-                                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                                 role="img"
                                                 tabindex="-1"
                                               >
@@ -14958,7 +14958,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                             >
                                               <span
                                                 aria-label="delete"
-                                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                                 role="img"
                                                 tabindex="-1"
                                               >
@@ -14981,7 +14981,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                         </div>
                                       </div>
                                       <button
-                                        class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                                        class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                         type="button"
                                       >
                                         <span
@@ -15028,7 +15028,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -15216,15 +15216,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
                       class="ant-pro-card-header"
                     >
                       <div
-                        class="ant-pro-card-title "
+                        class="ant-pro-card-title"
                       >
                         1111
                       </div>
                       <div
-                        class="ant-pro-card-extra "
+                        class="ant-pro-card-extra"
                       >
                         <div
-                          class="ant-pro-form-list-action "
+                          class="ant-pro-form-list-action"
                         >
                           <div
                             class="ant-spin-nested-loading"
@@ -15234,7 +15234,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
                             >
                               <span
                                 aria-label="copy"
-                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                 role="img"
                                 tabindex="-1"
                               >
@@ -15262,7 +15262,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
                             >
                               <span
                                 aria-label="delete"
-                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                 role="img"
                                 tabindex="-1"
                               >
@@ -15289,7 +15289,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
                       class="ant-pro-card-body"
                     >
                       <div
-                        class="ant-pro-form-list-container undefined "
+                        class="ant-pro-form-list-container undefined"
                       >
                         <div
                           class="ant-pro-form-group"
@@ -15457,7 +15457,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -15536,7 +15536,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
       class="ant-pro-form-login-container "
     >
       <div
-        class="ant-pro-form-login-top  "
+        class="ant-pro-form-login-top"
       >
         <div
           class="ant-pro-form-login-header "
@@ -16877,10 +16877,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
       >
         <div
-          class="ant-pro-form-light-filter-container "
+          class="ant-pro-form-light-filter-container"
         >
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17012,7 +17012,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17321,7 +17321,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17339,7 +17339,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -17373,7 +17373,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17532,7 +17532,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17656,7 +17656,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17674,7 +17674,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -17708,7 +17708,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17726,7 +17726,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -17795,7 +17795,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17813,7 +17813,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -17881,7 +17881,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -17899,7 +17899,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -17968,7 +17968,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -18048,7 +18048,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -18096,7 +18096,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -18146,7 +18146,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -18291,7 +18291,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -18341,7 +18341,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -18489,7 +18489,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -18507,7 +18507,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -18541,10 +18541,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <span
-              class="ant-pro-core-field-dropdown-label "
+              class="ant-pro-core-field-dropdown-label"
             >
               <span
                 class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -18596,10 +18596,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
     >
       <div
-        class="ant-pro-form-light-filter-container "
+        class="ant-pro-form-light-filter-container"
       >
         <div
-          class="ant-pro-form-light-filter-item "
+          class="ant-pro-form-light-filter-item"
         >
           <div
             class="ant-form-item"
@@ -18773,7 +18773,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-          class="ant-pro-form-light-filter-item "
+          class="ant-pro-form-light-filter-item"
         >
           <div
             class="ant-form-item"
@@ -18878,7 +18878,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-          class="ant-pro-form-light-filter-item "
+          class="ant-pro-form-light-filter-item"
         >
           <div
             class="ant-form-item"
@@ -18927,7 +18927,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-          class="ant-pro-form-light-filter-item "
+          class="ant-pro-form-light-filter-item"
         >
           <div
             class="ant-form-item"
@@ -18956,7 +18956,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-          class="ant-pro-form-light-filter-item "
+          class="ant-pro-form-light-filter-item"
         >
           <div
             class="ant-form-item"
@@ -18974,7 +18974,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-form-item-control-input-content"
                   >
                     <span
-                      class="ant-pro-core-field-dropdown-label "
+                      class="ant-pro-core-field-dropdown-label"
                     >
                       <span
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
@@ -19008,7 +19008,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-          class="ant-pro-form-light-filter-item "
+          class="ant-pro-form-light-filter-item"
         >
           <div
             class="ant-form-item"
@@ -19077,17 +19077,17 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
     >
       <div
-        class="ant-pro-form-light-filter-container "
+        class="ant-pro-form-light-filter-container"
       >
         <div
-          class="ant-pro-form-light-filter-item "
+          class="ant-pro-form-light-filter-item"
         >
           <span
-            class="ant-pro-core-field-dropdown-label "
+            class="ant-pro-core-field-dropdown-label"
           >
             <span
               aria-label="filter"
-              class="anticon anticon-filter ant-pro-form-light-filter-collapse-icon "
+              class="anticon anticon-filter ant-pro-form-light-filter-collapse-icon"
               role="img"
             >
               <svg
@@ -19182,10 +19182,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
           >
             <div
-              class="ant-pro-form-light-filter-container "
+              class="ant-pro-form-light-filter-container"
             >
               <div
-                class="ant-pro-form-light-filter-item "
+                class="ant-pro-form-light-filter-item"
               >
                 <div
                   class="ant-form-item"
@@ -19203,7 +19203,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-pro-core-field-dropdown-label "
+                            class="ant-pro-core-field-dropdown-label"
                           >
                             <span
                               class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -19291,10 +19291,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
           >
             <div
-              class="ant-pro-form-light-filter-container "
+              class="ant-pro-form-light-filter-container"
             >
               <div
-                class="ant-pro-form-light-filter-item "
+                class="ant-pro-form-light-filter-item"
               >
                 <div
                   class="ant-form-item"
@@ -19312,7 +19312,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-pro-core-field-dropdown-label "
+                            class="ant-pro-core-field-dropdown-label"
                           >
                             <span
                               class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -19400,13 +19400,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
           >
             <div
-              class="ant-pro-form-light-filter-container "
+              class="ant-pro-form-light-filter-container"
             >
               <div
-                class="ant-pro-form-light-filter-item "
+                class="ant-pro-form-light-filter-item"
               >
                 <span
-                  class="ant-pro-core-field-dropdown-label "
+                  class="ant-pro-core-field-dropdown-label"
                 >
                   footer为false
                 </span>
@@ -19430,13 +19430,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
           >
             <div
-              class="ant-pro-form-light-filter-container "
+              class="ant-pro-form-light-filter-container"
             >
               <div
-                class="ant-pro-form-light-filter-item "
+                class="ant-pro-form-light-filter-item"
               >
                 <span
-                  class="ant-pro-core-field-dropdown-label "
+                  class="ant-pro-core-field-dropdown-label"
                 >
                   自定义footer
                 </span>
@@ -19550,10 +19550,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         class="ant-pro-form-light-filter ant-pro-form-light-filter-middle"
       >
         <div
-          class="ant-pro-form-light-filter-container "
+          class="ant-pro-form-light-filter-container"
         >
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -19668,7 +19668,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -19798,7 +19798,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -19816,7 +19816,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19850,7 +19850,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -19868,7 +19868,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19902,7 +19902,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -19920,7 +19920,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -19954,7 +19954,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -19972,7 +19972,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -20006,7 +20006,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20056,7 +20056,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20104,7 +20104,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20154,7 +20154,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20204,7 +20204,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20254,7 +20254,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20304,7 +20304,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20322,7 +20322,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -20356,10 +20356,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <span
-              class="ant-pro-core-field-dropdown-label "
+              class="ant-pro-core-field-dropdown-label"
             >
               <span
                 class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -20457,10 +20457,10 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
       >
         <div
-          class="ant-pro-form-light-filter-container "
+          class="ant-pro-form-light-filter-container"
         >
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20592,7 +20592,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20722,7 +20722,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20740,7 +20740,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -20774,7 +20774,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20792,7 +20792,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -20861,7 +20861,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20879,7 +20879,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -20947,7 +20947,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             </div>
           </div>
           <div
-            class="ant-pro-form-light-filter-item "
+            class="ant-pro-form-light-filter-item"
           >
             <div
               class="ant-form-item"
@@ -20965,7 +20965,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-pro-core-field-dropdown-label "
+                        class="ant-pro-core-field-dropdown-label"
                       >
                         <span
                           class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
@@ -21058,7 +21058,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -21138,7 +21138,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -21581,7 +21581,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -21637,7 +21637,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         展开
                         <span
@@ -21692,7 +21692,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -21772,7 +21772,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22156,7 +22156,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -22212,7 +22212,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         展开
                         <span
@@ -22267,7 +22267,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22347,7 +22347,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22427,7 +22427,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split-line ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split-line ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22507,7 +22507,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -22741,7 +22741,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -22797,7 +22797,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         展开
                         <span
@@ -22852,7 +22852,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-24 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-24 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -23685,7 +23685,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -23741,7 +23741,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         展开
                         <span
@@ -23793,7 +23793,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -23838,7 +23838,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -23918,7 +23918,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24002,7 +24002,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -24075,7 +24075,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24155,7 +24155,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24235,7 +24235,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-6 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-6 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24319,7 +24319,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -24392,7 +24392,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24472,7 +24472,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24552,7 +24552,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24632,7 +24632,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24712,7 +24712,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24792,7 +24792,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -24876,7 +24876,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -24932,7 +24932,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         收起
                         <span
@@ -24979,7 +24979,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25059,7 +25059,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25139,7 +25139,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25219,7 +25219,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25299,7 +25299,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25379,7 +25379,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-24 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-24 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25463,7 +25463,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -25519,7 +25519,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         收起
                         <span
@@ -25566,7 +25566,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25646,7 +25646,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25726,7 +25726,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25806,7 +25806,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25886,7 +25886,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -25966,7 +25966,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-24 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-24 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26050,7 +26050,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -26106,7 +26106,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         收起
                         <span
@@ -26153,7 +26153,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26233,7 +26233,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26313,7 +26313,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26393,7 +26393,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26473,7 +26473,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-4 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-4 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26553,7 +26553,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-12 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-12 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26637,7 +26637,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -26693,7 +26693,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         收起
                         <span
@@ -26748,7 +26748,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-left: -12px; margin-right: -12px;"
     >
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -26825,7 +26825,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
       </div>
       <div
-        class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+        class="ant-col ant-col-8 ant-pro-query-filter-row-split"
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
@@ -27184,7 +27184,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="padding-left: 12px; padding-right: 12px; text-align: end;"
       >
         <div
-          class="ant-form-item ant-pro-query-filter-actions "
+          class="ant-form-item ant-pro-query-filter-actions"
         >
           <div
             class="ant-row ant-form-item-row"
@@ -27240,7 +27240,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-space-item"
                     >
                       <a
-                        class="ant-pro-query-filter-collapse-button "
+                        class="ant-pro-query-filter-collapse-button"
                       >
                         展开
                         <span
@@ -27488,14 +27488,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         style="margin-left: -12px; margin-right: -12px;"
       >
         <div
-          class="ant-col ant-col-24 ant-pro-query-filter-row-split-line ant-pro-query-filter-row-split "
+          class="ant-col ant-col-24 ant-pro-query-filter-row-split-line ant-pro-query-filter-row-split"
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
             class="ant-pro-form-group"
           >
             <div
-              class="ant-pro-form-group-title "
+              class="ant-pro-form-group-title"
               style="display: inline-block; margin-inline-end: 16px;"
             >
               姓名
@@ -27575,14 +27575,14 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           </div>
         </div>
         <div
-          class="ant-col ant-col-24 ant-pro-query-filter-row-split "
+          class="ant-col ant-col-24 ant-pro-query-filter-row-split"
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
             class="ant-pro-form-group"
           >
             <div
-              class="ant-pro-form-group-title "
+              class="ant-pro-form-group-title"
               style="display: inline-block; margin-inline-end: 16px;"
             >
               详情
@@ -27937,7 +27937,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       class="ant-pro-form-group"
     >
       <div
-        class="ant-pro-form-group-title "
+        class="ant-pro-form-group-title"
       >
         标签
       </div>
@@ -28034,7 +28034,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       class="ant-pro-form-group"
     >
       <div
-        class="ant-pro-form-group-title "
+        class="ant-pro-form-group-title"
       >
         路径
       </div>
@@ -29860,7 +29860,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       class="ant-pro-form-group"
     >
       <div
-        class="ant-pro-form-group-title "
+        class="ant-pro-form-group-title"
       >
         分组
       </div>
@@ -30184,7 +30184,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                   style="max-width: 100%; min-width: 100%;"
                 >
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -31335,7 +31335,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
           class="ant-pro-form-group"
         >
           <div
-            class="ant-pro-form-group-title "
+            class="ant-pro-form-group-title"
           >
             分组
           </div>
@@ -31567,7 +31567,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                           style="display: flex; align-items: flex-end;"
                         >
                           <div
-                            class="ant-pro-form-list-container undefined "
+                            class="ant-pro-form-list-container undefined"
                             style="width: 100%;"
                           >
                             <div
@@ -31877,7 +31877,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             </div>
                           </div>
                           <div
-                            class="ant-pro-form-list-action "
+                            class="ant-pro-form-list-action"
                           >
                             <div
                               class="ant-spin-nested-loading"
@@ -31887,7 +31887,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                               >
                                 <span
                                   aria-label="copy"
-                                  class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                  class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                   role="img"
                                   tabindex="-1"
                                 >
@@ -31915,7 +31915,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                               >
                                 <span
                                   aria-label="delete"
-                                  class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                  class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                   role="img"
                                   tabindex="-1"
                                 >
@@ -31938,7 +31938,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                           </div>
                         </div>
                         <button
-                          class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                          class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                           type="button"
                         >
                           <span
@@ -32380,7 +32380,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-pro-steps-form-steps-container "
+          class="ant-pro-steps-form-steps-container"
           style="max-width: 960px;"
         >
           <div
@@ -32486,7 +32486,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-pro-steps-form-container "
+          class="ant-pro-steps-form-container"
         >
           <div
             class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
@@ -32823,7 +32823,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 class="ant-pro-form-group"
               >
                 <div
-                  class="ant-pro-form-group-title "
+                  class="ant-pro-form-group-title"
                 >
                   分组
                 </div>
@@ -33059,7 +33059,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                               style="display: flex; align-items: flex-end;"
                             >
                               <div
-                                class="ant-pro-form-list-container undefined "
+                                class="ant-pro-form-list-container undefined"
                               >
                                 <div
                                   class="ant-pro-form-group"
@@ -33273,7 +33273,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                 </div>
                               </div>
                               <div
-                                class="ant-pro-form-list-action "
+                                class="ant-pro-form-list-action"
                               >
                                 <div
                                   class="ant-spin-nested-loading"
@@ -33283,7 +33283,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                   >
                                     <span
                                       aria-label="copy"
-                                      class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                      class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                       role="img"
                                       tabindex="-1"
                                     >
@@ -33311,7 +33311,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                   >
                                     <span
                                       aria-label="delete"
-                                      class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                      class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                       role="img"
                                       tabindex="-1"
                                     >
@@ -33334,7 +33334,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                               </div>
                             </div>
                             <button
-                              class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                              class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                               type="button"
                             >
                               <span
@@ -33851,7 +33851,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       class="ant-pro-form-group"
     >
       <div
-        class="ant-pro-form-group-title "
+        class="ant-pro-form-group-title"
       >
         分组
       </div>
@@ -34070,7 +34070,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-pro-steps-form-steps-container "
+          class="ant-pro-steps-form-steps-container"
           style="max-width: 640px;"
         >
           <div
@@ -34147,7 +34147,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-pro-steps-form-container "
+          class="ant-pro-steps-form-container"
         >
           <div
             class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
@@ -34619,7 +34619,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
-              class="ant-pro-steps-form-steps-container "
+              class="ant-pro-steps-form-steps-container"
               style="max-width: 960px;"
             >
               <div
@@ -34725,7 +34725,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
-              class="ant-pro-steps-form-container "
+              class="ant-pro-steps-form-container"
             >
               <div
                 class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
@@ -35873,7 +35873,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-pro-steps-form-steps-container "
+          class="ant-pro-steps-form-steps-container"
           style="max-width: 960px;"
         >
           <div
@@ -35979,7 +35979,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-pro-steps-form-container "
+          class="ant-pro-steps-form-container"
         >
           <div
             class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
@@ -36001,11 +36001,11 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
                 >
                   <div
-                    class="ant-pro-card-title "
+                    class="ant-pro-card-title"
                   >
                     <span
                       aria-label="right"
-                      class="anticon anticon-right ant-pro-card-collapsible-icon "
+                      class="anticon anticon-right ant-pro-card-collapsible-icon"
                       role="img"
                     >
                       <svg
@@ -36127,7 +36127,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     class="ant-pro-form-group"
                   >
                     <div
-                      class="ant-pro-form-group-title "
+                      class="ant-pro-form-group-title"
                     >
                       节点
                     </div>
@@ -36320,11 +36320,11 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   class="ant-pro-card-header ant-pro-card-header-border ant-pro-card-header-collapsible"
                 >
                   <div
-                    class="ant-pro-card-title "
+                    class="ant-pro-card-title"
                   >
                     <span
                       aria-label="right"
-                      class="anticon anticon-right ant-pro-card-collapsible-icon "
+                      class="anticon anticon-right ant-pro-card-collapsible-icon"
                       role="img"
                     >
                       <svg
@@ -37665,7 +37665,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
-              class="ant-pro-steps-form-steps-container "
+              class="ant-pro-steps-form-steps-container"
               style="height: 100%;"
             >
               <div
@@ -37784,7 +37784,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
               style="display: flex; align-items: center; width: 100%; height: 100%;"
             >
               <div
-                class="ant-pro-steps-form-container "
+                class="ant-pro-steps-form-container"
               >
                 <div
                   class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
@@ -38988,7 +38988,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
-              class="ant-pro-steps-form-steps-container "
+              class="ant-pro-steps-form-steps-container"
               style="max-width: 960px;"
             >
               <div
@@ -39109,7 +39109,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
-              class="ant-pro-steps-form-container "
+              class="ant-pro-steps-form-container"
             >
               <div
                 class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
@@ -41520,7 +41520,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   style="max-width: 100%; min-width: 100%;"
                 >
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -42917,7 +42917,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                     style="display: flex; align-items: flex-end;"
                   >
                     <div
-                      class="ant-pro-form-list-container undefined "
+                      class="ant-pro-form-list-container undefined"
                     >
                       <div
                         class="ant-form-item"
@@ -43005,7 +43005,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                       </div>
                     </div>
                     <div
-                      class="ant-pro-form-list-action "
+                      class="ant-pro-form-list-action"
                     >
                       <div
                         class="ant-spin-nested-loading"
@@ -43015,7 +43015,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                         >
                           <span
                             aria-label="copy"
-                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                             role="img"
                             tabindex="-1"
                           >
@@ -43043,7 +43043,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                         >
                           <span
                             aria-label="delete"
-                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                             role="img"
                             tabindex="-1"
                           >
@@ -43066,7 +43066,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span
@@ -43621,7 +43621,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-pro-steps-form-steps-container "
+          class="ant-pro-steps-form-steps-container"
           style="max-width: 320px;"
         >
           <div
@@ -43669,7 +43669,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
         style="padding-left: 12px; padding-right: 12px;"
       >
         <div
-          class="ant-pro-steps-form-container "
+          class="ant-pro-steps-form-container"
         >
           <div
             class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
@@ -44075,7 +44075,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
       </div>
     </div>
     <span
-      class="ant-pro-core-field-dropdown-label "
+      class="ant-pro-core-field-dropdown-label"
     >
       <span
         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -44102,7 +44102,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
       </span>
     </span>
     <span
-      class="ant-pro-core-field-dropdown-label "
+      class="ant-pro-core-field-dropdown-label"
     >
       <span
         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
@@ -47708,7 +47708,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu  ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline ant-pro-base-menu-inline-collapsed ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="background-color: transparent; width: 100%;"
@@ -47792,7 +47792,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -47952,7 +47952,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -47980,10 +47980,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="输入表单"
                   >
                     输入表单
@@ -47995,7 +47995,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
@@ -49416,10 +49416,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                           style="width: calc(100% - 60px);"
                         >
                           <div
-                            class="ant-pro-footer-bar-left "
+                            class="ant-pro-footer-bar-left"
                           />
                           <div
-                            class="ant-pro-footer-bar-right "
+                            class="ant-pro-footer-bar-right"
                           >
                             <button
                               class="ant-btn ant-btn-default"
@@ -49480,7 +49480,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
-              class="ant-pro-steps-form-steps-container "
+              class="ant-pro-steps-form-steps-container"
               style="max-width: 960px;"
             >
               <div
@@ -49586,7 +49586,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
-              class="ant-pro-steps-form-container "
+              class="ant-pro-steps-form-container"
             >
               <div
                 class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
@@ -50767,7 +50767,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/modalform-test.tsx co
                           class="ant-pro-card-header"
                         >
                           <div
-                            class="ant-pro-card-title "
+                            class="ant-pro-card-title"
                           >
                             规格1
                           </div>
@@ -50777,7 +50777,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/modalform-test.tsx co
                           style="padding-block-end: 0;"
                         >
                           <div
-                            class="ant-pro-form-list-container undefined "
+                            class="ant-pro-form-list-container undefined"
                           >
                             <div
                               class="ant-form-item"
@@ -50902,7 +50902,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/modalform-test.tsx co
                                                       style="display: inline-flex; margin-inline-end: 25px;"
                                                     >
                                                       <div
-                                                        class="ant-pro-form-list-container undefined "
+                                                        class="ant-pro-form-list-container undefined"
                                                       >
                                                         <div
                                                           class="ant-form-item"
@@ -50970,7 +50970,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/modalform-test.tsx co
                                                       </div>
                                                     </div>
                                                     <button
-                                                      class="ant-btn ant-btn-link ant-btn-block ant-pro-form-list-creator-button-bottom "
+                                                      class="ant-btn ant-btn-link ant-btn-block ant-pro-form-list-creator-button-bottom"
                                                       type="button"
                                                     >
                                                       <span>
@@ -51029,7 +51029,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/modalform-test.tsx co
                         </div>
                       </div>
                       <button
-                        class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                        class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                         type="button"
                       >
                         <span
@@ -52266,15 +52266,15 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                       class="ant-pro-card-header"
                     >
                       <div
-                        class="ant-pro-card-title "
+                        class="ant-pro-card-title"
                       >
                         1111
                       </div>
                       <div
-                        class="ant-pro-card-extra "
+                        class="ant-pro-card-extra"
                       >
                         <div
-                          class="ant-pro-form-list-action "
+                          class="ant-pro-form-list-action"
                         >
                           <div
                             class="ant-spin-nested-loading"
@@ -52284,7 +52284,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                             >
                               <span
                                 aria-label="copy"
-                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                 role="img"
                                 tabindex="-1"
                               >
@@ -52312,7 +52312,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                             >
                               <span
                                 aria-label="delete"
-                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                 role="img"
                                 tabindex="-1"
                               >
@@ -52339,7 +52339,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                       class="ant-pro-card-body"
                     >
                       <div
-                        class="ant-pro-form-list-container undefined "
+                        class="ant-pro-form-list-container undefined"
                       >
                         <div
                           class="ant-pro-form-group"
@@ -52465,7 +52465,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                         style="display: flex; align-items: flex-end;"
                                       >
                                         <div
-                                          class="ant-pro-form-list-container undefined "
+                                          class="ant-pro-form-list-container undefined"
                                         >
                                           <div
                                             class="ant-pro-form-group"
@@ -52536,7 +52536,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                           </div>
                                         </div>
                                         <div
-                                          class="ant-pro-form-list-action "
+                                          class="ant-pro-form-list-action"
                                         >
                                           <div
                                             class="ant-spin-nested-loading"
@@ -52546,7 +52546,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                             >
                                               <span
                                                 aria-label="copy"
-                                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy "
+                                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
                                                 role="img"
                                                 tabindex="-1"
                                               >
@@ -52574,7 +52574,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                             >
                                               <span
                                                 aria-label="delete"
-                                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove "
+                                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
                                                 role="img"
                                                 tabindex="-1"
                                               >
@@ -52597,7 +52597,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                         </div>
                                       </div>
                                       <button
-                                        class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                                        class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                         type="button"
                                       >
                                         <span
@@ -52644,7 +52644,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom "
+                    class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                     type="button"
                   >
                     <span

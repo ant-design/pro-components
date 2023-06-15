@@ -1,7 +1,8 @@
-﻿import { useStyle } from '@ant-design/pro-provider';
+﻿import { proTheme, useStyle } from '@ant-design/pro-provider';
 import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import { SketchPicker } from '@chenshuai2144/sketch-color';
-import { ConfigProvider, Popover, PopoverProps, theme } from 'antd';
+import type { PopoverProps } from 'antd';
+import { ConfigProvider, Popover } from 'antd';
 
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useImperativeHandle } from 'react';
@@ -39,7 +40,7 @@ const ColorPicker = React.forwardRef(
     const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
     const prefixCls = getPrefixCls('pro-field-color-picker');
 
-    const { token } = theme.useToken();
+    const { token } = proTheme.useToken();
     const [color, setColor] = useMergedState('#1890ff', {
       value: rest.value,
       onChange: rest.onChange,

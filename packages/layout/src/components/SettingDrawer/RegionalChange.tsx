@@ -14,7 +14,7 @@ const RegionalSetting: React.FC<{
   const regionalSetting = ['header', 'footer', 'menu', 'menuHeader'];
   return (
     <List
-      className={`${prefixCls}-list ${hashId}`}
+      className={`${prefixCls}-list ${hashId}`.trim()}
       split={false}
       renderItem={renderLayoutSettingItem}
       dataSource={regionalSetting.map((key) => {
@@ -23,7 +23,7 @@ const RegionalSetting: React.FC<{
           action: (
             <Switch
               size="small"
-              className={`regional-${key} ${hashId}`}
+              className={`regional-${key} ${hashId}`.trim()}
               checked={
                 settings[`${key}Render`] ||
                 settings[`${key}Render`] === undefined
