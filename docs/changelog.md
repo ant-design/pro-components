@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.5.9
+﻿## @ant-design/pro-components@2.5.10
+
+`2023-06-15`
+
+- fix(form): fix table render less error. [dcd3888](https://github.com/ant-design/pro-components/commit/dcd3888)
+
+## @ant-design/pro-components@2.5.9
 
 `2023-06-14`
 
