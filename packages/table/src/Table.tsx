@@ -956,6 +956,7 @@ const ProviderTableContainer = <
   props: ProTableProps<DataType, Params, ValueType>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
   const ErrorComponent =
     props.ErrorBoundary === false
       ? React.Fragment
