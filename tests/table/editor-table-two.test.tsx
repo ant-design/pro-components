@@ -620,6 +620,8 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       return wrapper.findByDisplayValue('动态设置的title' + i);
     });
+
+    expect(formRef.current?.getFieldValue('table').length).toEqual(2);
   });
 
   it('📝 EditableProTable ensures that xxxProps are functions also executed', async () => {
