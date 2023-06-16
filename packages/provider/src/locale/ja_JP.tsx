@@ -5,22 +5,22 @@ export default {
       more: '更に',
       clear: 'クリア',
       confirm: '確認',
-      itemUnit: '項目',
+      itemUnit: 'アイテム',
     },
   },
   tableForm: {
     search: '検索',
     reset: 'リセット',
-    submit: 'サミット',
-    collapsed: '展開',
-    expand: '収納',
+    submit: '送信',
+    collapsed: '拡大',
+    expand: '折畳',
     inputPlaceholder: '入力してください',
     selectPlaceholder: '選択してください',
   },
   alert: {
     clear: 'クリア',
     selected: '選択した',
-    item: '項目',
+    item: 'アイテム',
   },
   pagination: {
     total: {
@@ -49,8 +49,8 @@ export default {
     densitySmall: '小',
   },
   stepsForm: {
-    next: '次のステップ',
-    prev: '前',
+    next: '次へ',
+    prev: '前へ',
     submit: '送信',
   },
   loginForm: {
@@ -61,7 +61,7 @@ export default {
       save: '保存',
       cancel: 'キャンセル',
       delete: '削除',
-      add: '1行のデータを追加します',
+      add: '追加',
     },
   },
   switch: {
