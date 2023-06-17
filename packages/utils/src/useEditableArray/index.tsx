@@ -367,9 +367,15 @@ export function SaveEditableAction<T>(
       throw error;
     }
   });
-  useImperativeHandle(ref, () => ({
-    save,
-  }));
+
+  // 保存数据
+  useImperativeHandle(
+    ref,
+    () => ({
+      save,
+    }),
+    [save],
+  );
 
   return (
     <a

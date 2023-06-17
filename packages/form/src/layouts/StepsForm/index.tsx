@@ -225,14 +225,16 @@ function StepsForm<T = Record<string, any>>(
     formDataRef.current.delete(name);
   }, []);
 
-  useImperativeHandle(propsFormMapRef, () => formArrayRef.current);
+  useImperativeHandle(propsFormMapRef, () => formArrayRef.current, [
+    formArrayRef.current,
+  ]);
 
   useImperativeHandle(
     formRef,
     () => {
       return formArrayRef.current[step || 0]?.current;
     },
-    [step],
+    [step, formArrayRef.current],
   );
 
   /**

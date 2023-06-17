@@ -171,7 +171,9 @@ function EditableTable<
   const formRef = useRef<ProFormInstance>();
 
   // 设置 ref
-  useImperativeHandle(rest.actionRef, () => actionRef.current);
+  useImperativeHandle(rest.actionRef, () => actionRef.current, [
+    actionRef.current,
+  ]);
 
   const [value, setValue] = useMergedState<readonly DataType[]>(
     () => props.value || defaultValue || [],

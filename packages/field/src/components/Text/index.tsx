@@ -23,7 +23,9 @@ const FieldText: ProFieldFC<{
 
   const intl = useIntl();
   const inputRef = useRef<HTMLInputElement>();
-  useImperativeHandle(ref, () => inputRef.current);
+
+  useImperativeHandle(ref, () => inputRef.current, []);
+
   useEffect(() => {
     if (autoFocus) {
       inputRef.current?.focus();

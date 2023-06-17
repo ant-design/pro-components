@@ -520,10 +520,14 @@ const FieldSelect: ProFieldFC<
   const { componentSize } = ConfigProvider?.useConfig?.() || {
     componentSize: 'middle',
   };
-  useImperativeHandle(ref, () => ({
-    ...(inputRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(inputRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;

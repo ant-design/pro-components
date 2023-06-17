@@ -42,10 +42,14 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   const cascaderRef = useRef();
   const [open, setOpen] = useState(false);
 
-  useImperativeHandle(ref, () => ({
-    ...(cascaderRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(cascaderRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;

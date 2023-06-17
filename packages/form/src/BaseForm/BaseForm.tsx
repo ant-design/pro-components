@@ -341,7 +341,6 @@ function BaseFormComponents<T = Record<string, any>>(
         const transformedKey = transformKey(values, omitNil);
         return transformedKey ? transformedKey : {};
       },
-      formRef,
     }),
     [omitNil, transformKey],
   );
@@ -447,18 +446,26 @@ function BaseFormComponents<T = Record<string, any>>(
         ...formatValues,
       };
     },
-    [],
+    [formatValues, formRef.current],
   );
   useEffect(() => {
     const finalValues = transformKey(
       formRef.current?.getFieldsValue?.(true),
       omitNil,
     );
-    onInit?.(finalValues, formRef.current);
+    onInit?.(finalValues, {
+      ...formRef.current,
+      ...formatValues,
+    });
   }, []);
 
   return (
-    <ProFormContext.Provider value={formatValues}>
+    <ProFormContext.Provider
+      value={{
+        ...formatValues,
+        formRef,
+      }}
+    >
       <ConfigProvider componentSize={rest.size || componentSize}>
         <GridContext.Provider value={{ grid, colProps }}>
           {rest.component !== false && (
