@@ -94,10 +94,15 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       rules={rules}
       hasFeedback={false}
       shouldUpdate={(prev, next) => {
+        if (prev === next) return false;
+        const shouldName = [name].flat(1);
+        if (shouldName.length > 1) {
+          shouldName.pop();
+        }
         try {
           return (
-            JSON.stringify(get(prev, [name].flat(1))) !==
-            JSON.stringify(get(next, [name].flat(1)))
+            JSON.stringify(get(prev, shouldName)) !==
+            JSON.stringify(get(next, shouldName))
           );
         } catch (error) {
           return true;
@@ -155,10 +160,15 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
       shouldUpdate={
         name
           ? (prev, next) => {
+              if (prev === next) return false;
+              const shouldName = [name].flat(1);
+              if (shouldName.length > 1) {
+                shouldName.pop();
+              }
               try {
                 return (
-                  JSON.stringify(get(prev, [name].flat(1))) !==
-                  JSON.stringify(get(next, [name].flat(1)))
+                  JSON.stringify(get(prev, shouldName)) !==
+                  JSON.stringify(get(next, shouldName))
                 );
               } catch (error) {
                 return true;
