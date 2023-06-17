@@ -2,6 +2,7 @@
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
+import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect, useState } from 'react';
 import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import { useStyle } from './style';
@@ -94,7 +95,10 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       hasFeedback={false}
       shouldUpdate={(prev, next) => {
         try {
-          return JSON.stringify(prev) !== JSON.stringify(next);
+          return (
+            JSON.stringify(get(prev, [name].flat(1))) !==
+            JSON.stringify(get(next, [name].flat(1)))
+          );
         } catch (error) {
           return true;
         }
@@ -148,6 +152,20 @@ export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
   return (
     <Form.Item
       rules={rules}
+      shouldUpdate={
+        name
+          ? (prev, next) => {
+              try {
+                return (
+                  JSON.stringify(get(prev, [name].flat(1))) !==
+                  JSON.stringify(get(next, [name].flat(1)))
+                );
+              } catch (error) {
+                return true;
+              }
+            }
+          : undefined
+      }
       {...rest}
       style={{ ...FIX_INLINE_STYLE, ...rest.style }}
       name={name}

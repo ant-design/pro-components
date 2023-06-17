@@ -91,7 +91,7 @@
     "@umijs/utils": "^4.0.70",
     "animated-scroll-to": "^2.3.0",
     "antd": "^5.6.1",
-    "antd-style": "beta",
+    "antd-style": "^3.3.0",
     "babel-loader": "^9.1.2",
     "babel-types": "^6.26.0",
     "chalk": "^4.1.2",

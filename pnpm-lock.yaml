@@ -153,8 +153,8 @@ importers:
         specifier: ^5.6.1
         version: 5.6.1(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
       antd-style:
-        specifier: beta
-        version: 3.3.0-beta.2(@types/react@18.2.9)(antd@5.6.1)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^3.3.0
+        version: 3.3.0(@types/react@18.2.9)(antd@5.6.1)(react-dom@18.2.0)(react@18.2.0)
       babel-loader:
         specifier: ^9.1.2
         version: 9.1.2(@babel/core@7.22.5)
@@ -7342,28 +7342,6 @@ packages:
 
   /antd-style@3.3.0(@types/react@18.2.9)(antd@5.6.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-GgZCcM1S1Z8tWzHra0up3mVSM8lOQ2MlG4CRMTG3zjZ2nDelvjiFzEP8RYyndPA0DrWGhJvCMCrVniCSSZb9cQ==}
-    peerDependencies:
-      antd: ^5
-      react: '>=18'
-    dependencies:
-      '@ant-design/cssinjs': 1.10.1(react-dom@18.2.0)(react@18.2.0)
-      '@babel/runtime': 7.22.5
-      '@emotion/cache': 11.11.0
-      '@emotion/css': 11.11.0
-      '@emotion/react': 11.11.1(@types/react@18.2.9)(react@18.2.0)
-      '@emotion/serialize': 1.1.2
-      '@emotion/server': 11.11.0(@emotion/css@11.11.0)
-      '@emotion/utils': 1.2.1
-      antd: 5.6.1(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      use-merge-value: 1.2.0(react@18.2.0)
-    transitivePeerDependencies:
-      - '@types/react'
-      - react-dom
-    dev: true
-
-  /antd-style@3.3.0-beta.2(@types/react@18.2.9)(antd@5.6.1)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-u2QYSG2+0+uSx6b/yEXZaHVvoB1z4e6/o6HmAhUv04KkgcrdhzRLr8p8uEIRAVQ08Q+RG2JIOsvvWMPMRLc+kA==}
     peerDependencies:
       antd: ^5
       react: '>=18'

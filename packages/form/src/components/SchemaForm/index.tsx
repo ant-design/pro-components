@@ -14,6 +14,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { stringify } from 'use-json-comparison';
 import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
@@ -57,7 +58,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     layoutType = 'Form',
     type = 'form',
     action,
-    shouldUpdate = true,
+    shouldUpdate = (pre, next) => stringify(pre) !== stringify(next),
     formRef: propsFormRef,
     ...restProps
   } = props;
