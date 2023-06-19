@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.8...@ant-design/pro-layout@7.15.0) (2023-06-19)
+
+
+### Features
+
+* **field:** LightFilter中使用ProFormSelect的两个bug修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
+
+
+
+
 
 ## [7.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.7...@ant-design/pro-layout@7.14.8) (2023-06-16)
 

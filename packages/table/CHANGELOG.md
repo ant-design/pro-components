@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.11...@ant-design/pro-table@3.8.0) (2023-06-19)
+
+
+### Bug Fixes
+
+* **form:** onInit use ProFormInstance ([ad537a5](https://github.com/ant-design/pro-components/commit/ad537a563c1f09dafde29bb2ecff0aa0df24122f))
+* **table:** add Form.Item shouldUpdate function ([db3224b](https://github.com/ant-design/pro-components/commit/db3224b041008a1397e91e4b2a5da21991f2de4f))
+
+
+### Features
+
+* **field:** LightFilter中使用ProFormSelect的两个bug修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
+
+
+
+
 
 ## [3.7.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.10...@ant-design/pro-table@3.7.11) (2023-06-16)
 
