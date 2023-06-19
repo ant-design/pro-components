@@ -89,7 +89,6 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
 }) => {
   return (
     <Form.Item
-      preserve={false}
       name={name}
       rules={rules}
       hasFeedback={false}
