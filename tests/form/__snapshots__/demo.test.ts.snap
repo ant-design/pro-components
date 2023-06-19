@@ -16978,7 +16978,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 性别: 
                               </span>
                               <span
-                                style="padding-inline-start: 4px;"
+                                style="padding-inline-start: 4px; display: flex;"
                               >
                                 打开,关闭
                               </span>
@@ -17266,7 +17266,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 地区: 
                               </span>
                               <span
-                                style="padding-inline-start: 4px;"
+                                style="padding-inline-start: 4px; display: flex;"
                               >
                                 zhejiang,杭州,xihu
                               </span>
@@ -17733,7 +17733,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         >
                           <span
                             style="display: inline-flex; align-items: center;"
-                            title="20,80"
                           >
                             <span
                               class="ant-pro-core-field-label-text"
@@ -17741,9 +17740,18 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               范围: 
                             </span>
                             <span
-                              style="padding-inline-start: 4px;"
+                              style="padding-inline-start: 4px; display: flex;"
                             >
-                              20,80
+                              <span
+                                style="display: flex;"
+                              >
+                                20,
+                              </span>
+                              <span
+                                style="display: flex;"
+                              >
+                                80
+                              </span>
                             </span>
                           </span>
                           <span
@@ -17827,7 +17835,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               范围: 
                             </span>
                             <span
-                              style="padding-inline-start: 4px;"
+                              style="padding-inline-start: 4px; display: flex;"
                             >
                               20
                             </span>
@@ -17914,7 +17922,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               名称: 
                             </span>
                             <span
-                              style="padding-inline-start: 4px;"
+                              style="padding-inline-start: 4px; display: flex;"
                             >
                               yutingzhao1991
                             </span>
@@ -18718,7 +18726,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                             title="男"
                           >
                             <span
-                              style="padding-inline-start: 4px;"
+                              style="padding-inline-start: 4px; display: flex;"
                             >
                               男
                             </span>
@@ -19218,7 +19226,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                   名称: 
                                 </span>
                                 <span
-                                  style="padding-inline-start: 4px;"
+                                  style="padding-inline-start: 4px; display: flex;"
                                 >
                                   Jack2
                                 </span>
@@ -19327,7 +19335,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                   名称: 
                                 </span>
                                 <span
-                                  style="padding-inline-start: 4px;"
+                                  style="padding-inline-start: 4px; display: flex;"
                                 >
                                   Jack2
                                 </span>
@@ -20558,7 +20566,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 性别: 
                               </span>
                               <span
-                                style="padding-inline-start: 4px;"
+                                style="padding-inline-start: 4px; display: flex;"
                               >
                                 打开,关闭
                               </span>
@@ -20799,7 +20807,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         >
                           <span
                             style="display: inline-flex; align-items: center;"
-                            title="20,80"
                           >
                             <span
                               class="ant-pro-core-field-label-text"
@@ -20807,9 +20814,18 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               范围: 
                             </span>
                             <span
-                              style="padding-inline-start: 4px;"
+                              style="padding-inline-start: 4px; display: flex;"
                             >
-                              20,80
+                              <span
+                                style="display: flex;"
+                              >
+                                20,
+                              </span>
+                              <span
+                                style="display: flex;"
+                              >
+                                80
+                              </span>
                             </span>
                           </span>
                           <span
@@ -20893,7 +20909,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               范围: 
                             </span>
                             <span
-                              style="padding-inline-start: 4px;"
+                              style="padding-inline-start: 4px; display: flex;"
                             >
                               20
                             </span>
@@ -20980,7 +20996,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               名称: 
                             </span>
                             <span
-                              style="padding-inline-start: 4px;"
+                              style="padding-inline-start: 4px; display: flex;"
                             >
                               yutingzhao1991
                             </span>
