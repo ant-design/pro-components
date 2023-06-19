@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.1...@ant-design/pro-utils@2.12.2) (2023-06-19)
 
-
 ### Bug Fixes
 
-* **form:** fix inline form reset value for destoy ([dc9420a](https://github.com/ant-design/pro-components/commit/dc9420aa2a1ba71ff537d4b1585cec84f3afacb9))
-
-
-
-
+- **form:** fix inline form reset value for destoy ([dc9420a](https://github.com/ant-design/pro-components/commit/dc9420aa2a1ba71ff537d4b1585cec84f3afacb9))
 
 ## [2.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.0...@ant-design/pro-utils@2.12.1) (2023-06-19)
 

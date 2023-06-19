@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.0
+﻿## @ant-design/pro-components@2.6.2
+
+`2023-06-19`
+
+- fix(form): fix inline form reset value for destoy. [dc9420a](https://github.com/ant-design/pro-components/commit/dc9420a)
+
+## @ant-design/pro-components@2.6.0
 
 `2023-06-19`
 
