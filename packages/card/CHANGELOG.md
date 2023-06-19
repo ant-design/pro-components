@@ -1,15 +1,20 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.4.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.4.17...@ant-design/pro-card@2.4.18) (2023-06-16)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.4.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.4.16...@ant-design/pro-card@2.4.17) (2023-06-14)
+
+### Bug Fixes
+
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
 
 ## [2.4.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.4.15...@ant-design/pro-card@2.4.16) (2023-06-14)
 
 **Note:** Version bump only for package @ant-design/pro-card
-
-
-
-
 
 ## [2.4.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.4.14...@ant-design/pro-card@2.4.15) (2023-06-12)
 

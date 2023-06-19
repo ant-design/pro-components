@@ -1,15 +1,20 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.11.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.7...@ant-design/pro-utils@2.11.8) (2023-06-16)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.11.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.6...@ant-design/pro-utils@2.11.7) (2023-06-14)
+
+### Bug Fixes
+
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
 
 ## [2.11.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.5...@ant-design/pro-utils@2.11.6) (2023-06-14)
 
 **Note:** Version bump only for package @ant-design/pro-utils
-
-
-
-
 
 ## [2.11.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.4...@ant-design/pro-utils@2.11.5) (2023-06-12)
 

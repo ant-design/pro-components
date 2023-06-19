@@ -444,7 +444,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
   /**
    * 错误边界自定义
    */
-  ErrorBoundary?: any;
+  ErrorBoundary?: React.ComponentClass<any, any> | false;
 } & Omit<TableProps<DataSource>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {

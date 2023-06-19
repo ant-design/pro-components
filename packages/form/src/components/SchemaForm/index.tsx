@@ -57,7 +57,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     layoutType = 'Form',
     type = 'form',
     action,
-    shouldUpdate,
+    shouldUpdate = true,
     formRef: propsFormRef,
     ...restProps
   } = props;

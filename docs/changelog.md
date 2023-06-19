@@ -1,4 +1,23 @@
-﻿## @ant-design/pro-components@2.5.7
+﻿## @ant-design/pro-components@2.5.11
+
+`2023-06-16`
+
+- fix(layout): fix ErrorBoundary types error. [5bb5be1](https://github.com/ant-design/pro-components/commit/5bb5be1)
+- fix(table): fix editableFormRef no work error. [0cd2e4d](https://github.com/ant-design/pro-components/commit/0cd2e4d)
+
+## @ant-design/pro-components@2.5.10
+
+`2023-06-15`
+
+- fix(form): fix table render less error. [dcd3888](https://github.com/ant-design/pro-components/commit/dcd3888)
+
+## @ant-design/pro-components@2.5.9
+
+`2023-06-14`
+
+- fix(form): fix shouldUpdate no work error. [ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbef)
+
+## @ant-design/pro-components@2.5.7
 
 `2023-06-12`
 

@@ -293,7 +293,7 @@ function EditableTable<
         },
       } as EditableFormInstance<DataType>;
     },
-    [props.name],
+    [props.name, formRef.current],
   );
 
   useEffect(() => {

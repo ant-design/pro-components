@@ -1,18 +1,29 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.7.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.7...@ant-design/pro-table@3.7.8) (2023-06-14)
-
+## [3.7.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.10...@ant-design/pro-table@3.7.11) (2023-06-16)
 
 ### Bug Fixes
 
-* **table:** fix key is -1 when rowIndex is bigger to value ([c362ff7](https://github.com/ant-design/pro-components/commit/c362ff7a7053d91c32ea85081559db032a7d9fad))
+- **layout:** fix ErrorBoundary types error ([5bb5be1](https://github.com/ant-design/pro-components/commit/5bb5be1b6c289deb4d9a79acd22a5e5c97666ae9))
+- **table:** fix editableFormRef no work error ([0cd2e4d](https://github.com/ant-design/pro-components/commit/0cd2e4d1fe2a743c9a9a7d31e894962365f9fec6))
 
+## [3.7.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.9...@ant-design/pro-table@3.7.10) (2023-06-15)
 
+**Note:** Version bump only for package @ant-design/pro-table
 
+## [3.7.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.8...@ant-design/pro-table@3.7.9) (2023-06-14)
 
+### Bug Fixes
+
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
+
+## [3.7.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.7...@ant-design/pro-table@3.7.8) (2023-06-14)
+
+### Bug Fixes
+
+- **table:** fix key is -1 when rowIndex is bigger to value ([c362ff7](https://github.com/ant-design/pro-components/commit/c362ff7a7053d91c32ea85081559db032a7d9fad))
 
 ## [3.7.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.7.6...@ant-design/pro-table@3.7.7) (2023-06-12)
 

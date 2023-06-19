@@ -1,19 +1,25 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [7.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.5...@ant-design/pro-layout@7.14.6) (2023-06-14)
-
+## [7.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.7...@ant-design/pro-layout@7.14.8) (2023-06-16)
 
 ### Bug Fixes
 
-* **layout:** fix top menu popupmenu bgColor no work error ([fdceeb7](https://github.com/ant-design/pro-components/commit/fdceeb718dbb7d6f967322baaf7f62572838f919))
-* **layout:** tootip use menu name ([e7ac6ab](https://github.com/ant-design/pro-components/commit/e7ac6abe44e007a0f089eee367343d98e1ae9251))
+- **layout:** fix ErrorBoundary types error ([5bb5be1](https://github.com/ant-design/pro-components/commit/5bb5be1b6c289deb4d9a79acd22a5e5c97666ae9))
 
+## [7.14.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.6...@ant-design/pro-layout@7.14.7) (2023-06-14)
 
+### Bug Fixes
 
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
 
+## [7.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.5...@ant-design/pro-layout@7.14.6) (2023-06-14)
+
+### Bug Fixes
+
+- **layout:** fix top menu popupmenu bgColor no work error ([fdceeb7](https://github.com/ant-design/pro-components/commit/fdceeb718dbb7d6f967322baaf7f62572838f919))
+- **layout:** tootip use menu name ([e7ac6ab](https://github.com/ant-design/pro-components/commit/e7ac6abe44e007a0f089eee367343d98e1ae9251))
 
 ## [7.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.4...@ant-design/pro-layout@7.14.5) (2023-06-12)
 

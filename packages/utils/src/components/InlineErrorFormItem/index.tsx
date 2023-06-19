@@ -94,7 +94,7 @@ const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
       hasFeedback={false}
       shouldUpdate={(prev, next) => {
         try {
-          return JSON.stringify(prev) === JSON.stringify(next);
+          return JSON.stringify(prev) !== JSON.stringify(next);
         } catch (error) {
           return true;
         }
