@@ -923,10 +923,10 @@ export function useEditableArray<RecordType>(
       },
       newLine?: NewLineConfig<RecordType>,
     ) => {
+      const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
       // 保存时解除编辑模式,这个要提前一下不然数据会被清空
       await cancelEditable(recordKey);
 
-      const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
       const { options } = newLine || newLineRecordRef.current || {};
       if (!options?.parentKey && options?.recordKey === recordKey) {
         if (options?.position === 'top') {
@@ -956,6 +956,7 @@ export function useEditableArray<RecordType>(
           options?.position === 'top' ? 'top' : 'update',
         ),
       );
+      await cancelEditable(recordKey);
       return res;
     },
   );
