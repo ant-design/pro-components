@@ -1,25 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.8...@ant-design/pro-utils@2.12.0) (2023-06-19)
 
-
 ### Bug Fixes
 
-* **form:** alway use shouldUpdate for json ([7933961](https://github.com/ant-design/pro-components/commit/7933961ccd5de7a67178165039b197f2b53d92e8))
-* **form:** onInit use ProFormInstance ([ad537a5](https://github.com/ant-design/pro-components/commit/ad537a563c1f09dafde29bb2ecff0aa0df24122f))
-* **table:** add Form.Item shouldUpdate function ([db3224b](https://github.com/ant-design/pro-components/commit/db3224b041008a1397e91e4b2a5da21991f2de4f))
-
+- **form:** alway use shouldUpdate for json ([7933961](https://github.com/ant-design/pro-components/commit/7933961ccd5de7a67178165039b197f2b53d92e8))
+- **form:** onInit use ProFormInstance ([ad537a5](https://github.com/ant-design/pro-components/commit/ad537a563c1f09dafde29bb2ecff0aa0df24122f))
+- **table:** add Form.Item shouldUpdate function ([db3224b](https://github.com/ant-design/pro-components/commit/db3224b041008a1397e91e4b2a5da21991f2de4f))
 
 ### Features
 
-* **field:** LightFilter中使用ProFormSelect的两个bug修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
-
-
-
-
+- **field:** LightFilter 中使用 ProFormSelect 的两个 bug 修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
 
 ## [2.11.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.7...@ant-design/pro-utils@2.11.8) (2023-06-16)
 

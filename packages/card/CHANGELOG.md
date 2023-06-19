@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.4.18...@ant-design/pro-card@2.5.0) (2023-06-19)
 
-
 ### Features
 
-* **field:** LightFilter中使用ProFormSelect的两个bug修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
-
-
-
-
+- **field:** LightFilter 中使用 ProFormSelect 的两个 bug 修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
 
 ## [2.4.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.4.17...@ant-design/pro-card@2.4.18) (2023-06-16)
 

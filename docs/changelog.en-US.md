@@ -1,4 +1,13 @@
-﻿## @ant-design/pro-components@2.5.11
+﻿## @ant-design/pro-components@2.6.0
+
+`2023-06-19`
+
+- fix(form): alway use shouldUpdate for json. [7933961](https://github.com/ant-design/pro-components/commit/7933961)
+- fix(form): onInit use ProFormInstance. [ad537a5](https://github.com/ant-design/pro-components/commit/ad537a5)
+- fix(table): add Form.Item shouldUpdate function. [db3224b](https://github.com/ant-design/pro-components/commit/db3224b)
+- feat(field): LightFilter 中使用 ProFormSelect 的两个 bug 修复 (#7225) (#7233). [#7225](https://github.com/ant-design/pro-components/pull/#7225) [@Rabbit](https://github.com/Rabbit)
+
+## @ant-design/pro-components@2.5.11
 
 `2023-06-16`
 

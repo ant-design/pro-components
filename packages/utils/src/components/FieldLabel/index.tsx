@@ -61,16 +61,28 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     labelRef,
     clearRef,
   }));
-  
-  const wrapElements = (array: (string | JSX.Element)[]): JSX.Element[] | string => {
+
+  const wrapElements = (
+    array: (string | JSX.Element)[],
+  ): JSX.Element[] | string => {
     if (array.every((item) => typeof item === 'string')) return array.join(',');
 
     return array.map((item, index) => {
       const comma = index === array.length - 1 ? '' : ',';
       if (typeof item === 'string') {
-        return <span key={index}>{item}{comma}</span>;
+        return (
+          <span key={index}>
+            {item}
+            {comma}
+          </span>
+        );
       }
-      return <span style={{ display: 'flex' }}>{item}{comma}</span>;
+      return (
+        <span style={{ display: 'flex' }}>
+          {item}
+          {comma}
+        </span>
+      );
     });
   };
 
