@@ -80,7 +80,6 @@ export const AppsLogoComponents: React.FC<{
   }, [appListRender, baseClassName, hashId]);
 
   if(!appListRender) return null;
-  if(isValidElement(appListRender) && !appListRender) return null;
   if(Array.isArray(appListRender) && !appListRender.length) return null;
 
   const popoverOpenProps = openVisibleCompatible(
