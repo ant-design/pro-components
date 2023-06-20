@@ -123,7 +123,9 @@ function NoProVideProList<
 
   const actionRef = useRef<ActionType>();
 
-  useImperativeHandle(rest.actionRef, () => actionRef.current);
+  useImperativeHandle(rest.actionRef, () => actionRef.current, [
+    actionRef.current,
+  ]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 

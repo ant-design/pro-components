@@ -26,10 +26,14 @@ const FieldSegmented: ProFieldFC<
 
   const [loading, options, fetchData] = useFieldFetchData(rest);
 
-  useImperativeHandle(ref, () => ({
-    ...(inputRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(inputRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   if (loading) {
     return <Spin size="small" />;

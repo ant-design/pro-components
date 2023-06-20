@@ -1,7 +1,9 @@
-import ProTable from '@ant-design/pro-table';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
+import dayjs from 'dayjs';
 import React, { createRef } from 'react';
 import { waitTime } from '../util';
 
@@ -716,5 +718,58 @@ describe('BasicTable Search', () => {
     await waitFor(() => {
       expect(fn2).toBeCalledWith('2020-09-11 00:00:00');
     });
+  });
+
+  it('🎏 ProTable support formRef', async () => {
+    const onSubmitFn = jest.fn();
+    const formRef = React.createRef<ProFormInstance | undefined>();
+    const html = render(
+      <ProTable
+        formRef={formRef as any}
+        columns={[
+          {
+            title: '创建时间',
+            key: 'since',
+            dataIndex: 'createdAt',
+            valueType: 'date',
+            initialValue: dayjs('2020-09-11 00:00:00'),
+          },
+        ]}
+        request={() => {
+          return Promise.resolve({
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          });
+        }}
+        dateFormatter="string"
+        onSubmit={(params) => {
+          onSubmitFn(params.since);
+        }}
+        rowKey="key"
+        pagination={{
+          showSizeChanger: true,
+        }}
+        options={false}
+        headerTitle="表单赋值"
+      />,
+    );
+
+    await html.findAllByText('创建时间');
+
+    act(() => {
+      formRef.current?.submit();
+    });
+
+    await waitFor(() => {
+      expect(onSubmitFn).toBeCalledWith('2020-09-11');
+    });
+
+    expect(formRef.current?.getFieldFormatValue?.().since).toBe('2020-09-11');
   });
 });

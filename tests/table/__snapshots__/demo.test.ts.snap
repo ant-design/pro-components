@@ -30098,7 +30098,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                             日期范围: 
                                           </span>
                                           <span
-                                            style="padding-inline-start: 4px;"
+                                            style="padding-inline-start: 4px; display: flex;"
                                           >
                                             2016-11-22 ~ 2016-11-23
                                           </span>

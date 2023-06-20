@@ -1,6 +1,43 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.1...@ant-design/pro-field@2.10.2) (2023-06-19)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+
+
+
+
+## [2.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.0...@ant-design/pro-field@2.10.1) (2023-06-19)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.10...@ant-design/pro-field@2.10.0) (2023-06-19)
+
+### Bug Fixes
+
+- **form:** onInit use ProFormInstance ([ad537a5](https://github.com/ant-design/pro-components/commit/ad537a563c1f09dafde29bb2ecff0aa0df24122f))
+
+### Features
+
+- **field:** LightFilter 中使用 ProFormSelect 的两个 bug 修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
+
+## [2.9.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.9...@ant-design/pro-field@2.9.10) (2023-06-16)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.9.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.8...@ant-design/pro-field@2.9.9) (2023-06-14)
+
+### Bug Fixes
+
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
+
+## [2.9.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.7...@ant-design/pro-field@2.9.8) (2023-06-14)
+
+**Note:** Version bump only for package @ant-design/pro-field
 
 ## [2.9.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.6...@ant-design/pro-field@2.9.7) (2023-06-12)
 

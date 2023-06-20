@@ -129,9 +129,13 @@ function DrawerForm<T = Record<string, any>>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propVisible, open]);
 
-  useImperativeHandle(rest.formRef, () => {
-    return formRef.current;
-  });
+  useImperativeHandle(
+    rest.formRef,
+    () => {
+      return formRef.current;
+    },
+    [formRef.current],
+  );
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
