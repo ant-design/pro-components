@@ -465,6 +465,7 @@ const QueryFilterContent: React.FC<{
           <Form.Item
             label=" "
             colon={false}
+            shouldUpdate={false}
             className={`${baseClassName}-actions ${hashId}`.trim()}
           >
             <Actions

@@ -2,11 +2,10 @@ import { createFromIconfontCN } from '@ant-design/icons';
 import type { ProTokenType } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
-import type { MenuProps } from 'antd';
-import { Menu, Skeleton } from 'antd';
+import { Menu, MenuProps, Skeleton, Tooltip } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
-import React, { useContext, useEffect, useMemo, useRef } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { PureSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
 import type {
@@ -26,6 +25,32 @@ export type MenuMode =
   | 'vertical-right'
   | 'horizontal'
   | 'inline';
+
+const MenuItemTooltip = (props: {
+  collapsed?: boolean;
+  children: React.ReactNode;
+  title?: React.ReactNode;
+}) => {
+  const [collapsed, setCollapsed] = useState(props.collapsed);
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    setOpen(false);
+    setTimeout(() => {
+      setCollapsed(props.collapsed);
+    }, 400);
+  }, [props.collapsed]);
+
+  return (
+    <Tooltip
+      title={props.title}
+      open={collapsed && props.collapsed ? open : false}
+      placement="right"
+      onOpenChange={setOpen}
+    >
+      {props.children}
+    </Tooltip>
+  );
+};
 
 export type BaseMenuProps = {
   className?: string;
@@ -199,44 +224,46 @@ class MenuUtil {
         collapsed && shouldHasIcon ? getMenuTitleSymbol(name) : null;
 
       const defaultTitle = (
-        <div
-          className={classNames(
-            `${baseClassName}-item-title`,
-            this.props?.hashId,
-            {
-              [`${baseClassName}-item-title-collapsed`]: collapsed,
-              [`${baseClassName}-group-item-title`]: menuType === 'group',
-              [`${baseClassName}-item-collapsed-show-title`]:
-                menu?.collapsedShowTitle && collapsed,
-            },
-          )}
-        >
-          {/* 收起的时候group模式就不要展示icon了，放不下 */}
-          {menuType === 'group' && collapsed ? null : shouldHasIcon &&
-            iconDom ? (
-            <span
-              className={`${baseClassName}-item-icon ${this.props?.hashId}`}
-            >
-              {iconDom}
-            </span>
-          ) : (
-            defaultIcon
-          )}
-          <span
+        <MenuItemTooltip collapsed={collapsed} title={name}>
+          <div
             className={classNames(
-              `${baseClassName}-item-text`,
+              `${baseClassName}-item-title`,
               this.props?.hashId,
               {
-                [`${baseClassName}-item-text-has-icon`]:
-                  menuType !== 'group' &&
-                  shouldHasIcon &&
-                  (iconDom || defaultIcon),
+                [`${baseClassName}-item-title-collapsed`]: collapsed,
+                [`${baseClassName}-group-item-title`]: menuType === 'group',
+                [`${baseClassName}-item-collapsed-show-title`]:
+                  menu?.collapsedShowTitle && collapsed,
               },
             )}
           >
-            {name}
-          </span>
-        </div>
+            {/* 收起的时候group模式就不要展示icon了，放不下 */}
+            {menuType === 'group' && collapsed ? null : shouldHasIcon &&
+              iconDom ? (
+              <span
+                className={`${baseClassName}-item-icon ${this.props?.hashId}`}
+              >
+                {iconDom}
+              </span>
+            ) : (
+              defaultIcon
+            )}
+            <span
+              className={classNames(
+                `${baseClassName}-item-text`,
+                this.props?.hashId,
+                {
+                  [`${baseClassName}-item-text-has-icon`]:
+                    menuType !== 'group' &&
+                    shouldHasIcon &&
+                    (iconDom || defaultIcon),
+                },
+              )}
+            >
+              {name}
+            </span>
+          </div>
+        </MenuItemTooltip>
       );
 
       // subMenu only title render
@@ -337,39 +364,41 @@ class MenuUtil {
         );
     const defaultIcon = collapsed && hasIcon ? getMenuTitleSymbol(name) : null;
     let defaultItem = (
-      <div
-        key={itemPath}
-        className={classNames(
-          `${baseClassName}-item-title`,
-          this.props?.hashId,
-          {
-            [`${baseClassName}-item-title-collapsed`]: collapsed,
-            [`${baseClassName}-item-collapsed-show-title`]:
-              menu?.collapsedShowTitle && collapsed,
-          },
-        )}
-      >
-        <span
-          className={`${baseClassName}-item-icon ${this.props?.hashId}`}
-          style={{
-            display: defaultIcon === null && !icon ? 'none' : '',
-          }}
-        >
-          {icon || <span className="anticon">{defaultIcon}</span>}
-        </span>
-        <span
+      <MenuItemTooltip collapsed={collapsed} title={name}>
+        <div
+          key={itemPath}
           className={classNames(
-            `${baseClassName}-item-text`,
+            `${baseClassName}-item-title`,
             this.props?.hashId,
             {
-              [`${baseClassName}-item-text-has-icon`]:
-                hasIcon && (icon || defaultIcon),
+              [`${baseClassName}-item-title-collapsed`]: collapsed,
+              [`${baseClassName}-item-collapsed-show-title`]:
+                menu?.collapsedShowTitle && collapsed,
             },
           )}
         >
-          {name}
-        </span>
-      </div>
+          <span
+            className={`${baseClassName}-item-icon ${this.props?.hashId}`}
+            style={{
+              display: defaultIcon === null && !icon ? 'none' : '',
+            }}
+          >
+            {icon || <span className="anticon">{defaultIcon}</span>}
+          </span>
+          <span
+            className={classNames(
+              `${baseClassName}-item-text`,
+              this.props?.hashId,
+              {
+                [`${baseClassName}-item-text-has-icon`]:
+                  hasIcon && (icon || defaultIcon),
+              },
+            )}
+          >
+            {name}
+          </span>
+        </div>
+      </MenuItemTooltip>
     );
     const isHttpUrl = isUrl(itemPath);
 
@@ -620,6 +649,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   return wrapSSR(
     <Menu
       {...openKeysProps}
+      _internalDisableMenuItemTitleTooltip
       key="Menu"
       mode={mode}
       inlineIndent={16}

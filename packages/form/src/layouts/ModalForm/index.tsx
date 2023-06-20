@@ -121,9 +121,13 @@ function ModalForm<T = Record<string, any>>({
     }
   }, [modalProps?.destroyOnClose, rest.form, rest.formRef]);
 
-  useImperativeHandle(rest.formRef, () => {
-    return formRef.current;
-  });
+  useImperativeHandle(
+    rest.formRef,
+    () => {
+      return formRef.current;
+    },
+    [formRef.current],
+  );
 
   useEffect(() => {
     if (open && (propsOpen || propVisible)) {

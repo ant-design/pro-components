@@ -51,10 +51,14 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     };
   });
   const checkBoxRef = useRef();
-  useImperativeHandle(ref, () => ({
-    ...(checkBoxRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(checkBoxRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   if (loading) {
     return <Spin size="small" />;

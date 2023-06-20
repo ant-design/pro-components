@@ -174,9 +174,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(5);
-      expect(fieldPropsFn).toBeCalledTimes(1);
-      expect(formItemPropsFn).toBeCalledTimes(1);
+      expect(renderFormItemFn).toBeCalledTimes(6);
+      expect(fieldPropsFn).toBeCalledTimes(2);
+      expect(formItemPropsFn).toBeCalledTimes(2);
       expect(onValuesChangeFn).toBeCalled();
     });
   });

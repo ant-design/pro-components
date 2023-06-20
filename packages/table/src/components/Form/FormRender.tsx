@@ -1,8 +1,12 @@
-﻿import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
+﻿import type {
+  BaseQueryFilterProps,
+  ProFormInstance,
+  ProFormProps,
+} from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
-import type { FormInstance, FormItemProps } from 'antd';
+import type { FormItemProps } from 'antd';
 import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -99,7 +103,7 @@ export type TableFormItem<T, U = any> = {
   dateFormatter?: ProTableProps<T, U, any>['dateFormatter'];
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
-  formRef: React.MutableRefObject<FormInstance | undefined>;
+  formRef: React.MutableRefObject<ProFormInstance | undefined>;
   submitButtonLoading?: boolean;
   manualRequest?: boolean;
   bordered?: boolean;

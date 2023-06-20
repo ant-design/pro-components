@@ -62,11 +62,35 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     clearRef,
   }));
 
+  const wrapElements = (
+    array: (string | JSX.Element)[],
+  ): JSX.Element[] | string => {
+    if (array.every((item) => typeof item === 'string')) return array.join(',');
+
+    return array.map((item, index) => {
+      const comma = index === array.length - 1 ? '' : ',';
+      if (typeof item === 'string') {
+        return (
+          <span key={index}>
+            {item}
+            {comma}
+          </span>
+        );
+      }
+      return (
+        <span style={{ display: 'flex' }}>
+          {item}
+          {comma}
+        </span>
+      );
+    });
+  };
+
   const formatterText = (aValue: any) => {
     if (formatter) {
       return formatter(aValue);
     }
-    return Array.isArray(aValue) ? aValue.join(',') : aValue;
+    return Array.isArray(aValue) ? wrapElements(aValue) : aValue;
   };
 
   const getTextByValue = (
@@ -131,7 +155,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           }}
         >
           {prefix}
-          <span style={{ paddingInlineStart: 4 }}>
+          <span style={{ paddingInlineStart: 4, display: 'flex' }}>
             {typeof str === 'string'
               ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH)
               : str}

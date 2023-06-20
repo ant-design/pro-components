@@ -1544,6 +1544,7 @@ describe('ProForm List', () => {
     await waitForWaitTime(300);
     expect((await html.findAllByText('列表不能为空')).length).toBe(1);
   });
+
   it('⛲  ProForm.List transform should be call', async () => {
     const handleFinish1 = jest.fn();
     const handleFinish2 = jest.fn();

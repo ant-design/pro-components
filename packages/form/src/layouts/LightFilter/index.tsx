@@ -269,7 +269,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   });
   const formRef = useRef<ProFormInstance>();
 
-  useImperativeHandle(userFormRef, () => formRef.current);
+  useImperativeHandle(userFormRef, () => formRef.current, [formRef.current]);
 
   return (
     <BaseForm

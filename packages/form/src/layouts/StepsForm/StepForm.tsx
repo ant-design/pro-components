@@ -27,8 +27,11 @@ function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
 
   //@ts-expect-error
   noteOnce(!restProps.submitter, 'StepForm 不包含提交按钮，请在 StepsForm 上');
+
   /** 重置 formRef */
-  useImperativeHandle(propFormRef, () => formRef.current);
+  useImperativeHandle(propFormRef, () => formRef.current, [
+    propFormRef?.current,
+  ]);
 
   /** Dom 不存在的时候解除挂载 */
   useEffect(() => {

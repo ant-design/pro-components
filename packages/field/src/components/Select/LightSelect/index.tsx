@@ -60,6 +60,7 @@ const LightSelect: React.ForwardRefRenderFunction<
     lightLabel,
     labelTrigger,
     optionFilterProp,
+    optionLabelProp = '',
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -99,12 +100,12 @@ const LightSelect: React.ForwardRefRenderFunction<
   const valueMap: Record<string, string> = useMemo(() => {
     const values = {};
     options?.forEach((item) => {
-      const optionLabel = item[labelPropsName];
+      const optionLabel = item[optionLabelProp] || item[labelPropsName];
       const optionValue = item[valuePropsName];
       values[optionValue!] = optionLabel || optionValue;
     });
     return values;
-  }, [labelPropsName, options, valuePropsName]);
+  }, [labelPropsName, options, valuePropsName, optionLabelProp]);
 
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))

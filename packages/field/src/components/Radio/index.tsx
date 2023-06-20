@@ -31,10 +31,14 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const radioRef = useRef();
 
-  useImperativeHandle(ref, () => ({
-    ...(radioRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(radioRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   // css
   const { wrapSSR, hashId } = useStyle('FieldRadioRadio', (token) => {

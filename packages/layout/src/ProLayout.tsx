@@ -245,9 +245,9 @@ export type ProLayoutProps = GlobalTypes & {
   /**
    * @name 错误处理组件
    *
-   * @example ErrorBoundary={<MyErrorBoundary/>}
+   * @example ErrorBoundary={MyErrorBoundary}
    */
-  ErrorBoundary?: any;
+  ErrorBoundary?: React.ComponentClass<any, any> | boolean;
 
   /**
    * @name  侧边菜单的类型, menu.type 的快捷方式

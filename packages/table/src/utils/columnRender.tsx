@@ -102,7 +102,7 @@ export function columnRender<T>({
   counter,
   type,
   subName,
-  marginSM = 8,
+  marginSM,
   editableUtils,
 }: ColumnRenderInterface<T>): any {
   const { action, prefixName } = counter;
