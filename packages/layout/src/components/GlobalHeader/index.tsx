@@ -41,7 +41,7 @@ export type GlobalHeaderProps = {
   className?: string;
   prefixCls?: string;
   /** 相关品牌的列表 */
-  appList?: AppListProps;
+  appListRender?: AppListProps;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
   itemClick?: (
     item: AppItemProps,

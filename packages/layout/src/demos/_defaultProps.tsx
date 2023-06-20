@@ -97,7 +97,7 @@ export default {
   location: {
     pathname: '/',
   },
-  appList: [
+  appListRender: [
     {
       icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
       title: 'Ant Design',

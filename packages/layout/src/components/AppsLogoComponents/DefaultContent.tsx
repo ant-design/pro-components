@@ -1,18 +1,18 @@
 import React from 'react';
 import { defaultRenderLogo } from './index';
-import type { AppItemProps, AppListProps } from './types';
+import type { AppItemProps } from './types';
 
 export const DefaultContent: React.FC<{
-  appList?: AppListProps;
+  appListRender?: AppItemProps[];
   itemClick?: (item: AppItemProps) => void;
   baseClassName: string;
   hashId?: string;
 }> = (props) => {
-  const { appList, baseClassName, hashId, itemClick } = props;
+  const { appListRender, baseClassName, hashId, itemClick } = props;
   return (
     <div className={`${baseClassName}-content ${hashId}`.trim()}>
       <ul className={`${baseClassName}-content-list ${hashId}`.trim()}>
-        {(appList as AppItemProps[])?.map((app, index) => {
+        {appListRender?.map((app, index) => {
           if (app?.children?.length) {
             return (
               <div
@@ -28,7 +28,7 @@ export const DefaultContent: React.FC<{
                 <DefaultContent
                   hashId={hashId}
                   itemClick={itemClick}
-                  appList={app?.children}
+                  appListRender={app?.children}
                   baseClassName={baseClassName}
                 />
               </div>

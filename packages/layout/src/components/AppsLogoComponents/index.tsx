@@ -1,7 +1,7 @@
 ﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
 import { Popover } from 'antd';
 import classNames from 'classnames';
-import React, { useMemo, useState } from 'react';
+import React, {isValidElement, useMemo, useState} from 'react';
 import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
@@ -33,14 +33,14 @@ export const defaultRenderLogo = (
  * @returns
  */
 export const AppsLogoComponents: React.FC<{
-  appList?: AppListProps;
+  appListRender?: AppListProps;
   onItemClick?: (
     item: AppItemProps,
     popoverRef?: React.RefObject<HTMLSpanElement>,
   ) => void;
   prefixCls?: string;
 }> = (props) => {
-  const { appList, prefixCls = 'ant-pro', onItemClick: itemClick } = props;
+  const { appListRender, prefixCls = 'ant-pro', onItemClick: itemClick } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
@@ -53,33 +53,35 @@ export const AppsLogoComponents: React.FC<{
   };
 
   const popoverContent = useMemo(() => {
-    if (Array.isArray(appList) && appList?.length) {
-      const isSimple = appList?.some((app) => {
-        return !app?.desc;
-      });
-      if (isSimple) {
-        return (
-            <SimpleContent
-                hashId={hashId}
-                appList={appList}
-                itemClick={itemClick ? cloneItemClick : undefined}
-                baseClassName={`${baseClassName}-simple`}
-            />
-        );
-      }
+    if (isValidElement(appListRender)) {
+      return appListRender as React.ReactNode
+    }
+    const isSimple = appListRender?.some((app) => {
+      return !app?.desc;
+    });
+    if (isSimple) {
       return (
-          <DefaultContent
+          <SimpleContent
               hashId={hashId}
-              appList={appList}
+              appListRender={appListRender}
               itemClick={itemClick ? cloneItemClick : undefined}
-              baseClassName={`${baseClassName}-default`}
+              baseClassName={`${baseClassName}-simple`}
           />
       );
     }
-    return appList as React.ReactNode
-  }, [appList, baseClassName, hashId]);
+    return (
+        <DefaultContent
+            hashId={hashId}
+            appListRender={appListRender}
+            itemClick={itemClick ? cloneItemClick : undefined}
+            baseClassName={`${baseClassName}-default`}
+        />
+    );
+  }, [appListRender, baseClassName, hashId]);
 
-  if ((Array.isArray(appList) && appList?.length && !(props?.appList as AppItemProps[])?.length) || !props.appList) return null;
+  if(!appListRender) return null;
+  if(isValidElement(appListRender) && !appListRender) return null;
+  if(Array.isArray(appListRender) && !appListRender.length) return null;
 
   const popoverOpenProps = openVisibleCompatible(
     undefined,

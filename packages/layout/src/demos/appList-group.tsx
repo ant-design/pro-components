@@ -113,7 +113,7 @@ export default () => {
       <ProConfigProvider hashed={false}>
         <ProLayout
           {...defaultProps}
-          appList={AppGroupList}
+          appListRender={AppGroupList}
           itemClick={itemClick}
           location={{ pathname: '/list/sub-page/sub-sub-page1' }}
           siderMenuType="group"

@@ -66,7 +66,7 @@ export type SiderMenuProps = {
   /** 品牌logo的标识 */
   logo?: React.ReactNode;
   /** 相关品牌的列表 */
-  appList?: AppListProps;
+  appListRender?: AppListProps;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
   itemClick?: (
     item: AppItemProps,
@@ -319,11 +319,11 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     return (
       <AppsLogoComponents
         onItemClick={props.itemClick}
-        appList={props.appList}
+        appListRender={props.appListRender}
         prefixCls={props.prefixCls}
       />
     );
-  }, [props.appList, props.prefixCls]);
+  }, [props.appListRender, props.prefixCls]);
 
   const collapsedDom = useMemo(() => {
     if (collapsedButtonRender === false) return null;
