@@ -254,8 +254,8 @@ function DrawerForm<T = Record<string, any>>({
           <BaseForm
             formComponentType="DrawerForm"
             layout="vertical"
-            formRef={formRef}
             {...rest}
+            formRef={formRef}
             onInit={(_, form) => {
               if (rest.formRef) {
                 (
