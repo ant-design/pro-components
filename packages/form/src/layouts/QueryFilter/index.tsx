@@ -191,7 +191,7 @@ const flatMapItems = (
   items: React.ReactNode[],
   ignoreRules?: boolean,
 ): React.ReactNode[] => {
-  return items.flatMap((item: any) => {
+  return items?.flatMap((item: any) => {
     if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
     }
