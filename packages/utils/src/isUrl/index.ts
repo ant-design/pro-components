@@ -1,4 +1,10 @@
-const isUrl = (path: string): boolean => {
+/**
+ * 判断是不是一个 url
+ * @param  {string|undefined} path
+ * @returns boolean
+ */
+export const isUrl = (path: string | undefined): boolean => {
+  if (!path) return false;
   if (!path.startsWith('http')) {
     return false;
   }
@@ -9,5 +15,3 @@ const isUrl = (path: string): boolean => {
     return false;
   }
 };
-
-export default isUrl;

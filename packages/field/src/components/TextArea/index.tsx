@@ -1,9 +1,11 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { Input } from 'antd';
 import React from 'react';
-import { useIntl } from '@ant-design/pro-provider';
-
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/lib/input/style';
+//------------
 /**
  * 最基本的组件，就是个普通的 Input.TextArea
  *
@@ -15,7 +17,20 @@ const FieldTextArea: ProFieldFC<{
   const intl = useIntl();
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text ?? '-'}</span>;
+    const dom = (
+      <span
+        ref={ref}
+        style={{
+          display: 'inline-block',
+          padding: '4px 11px',
+          lineHeight: '1.5715',
+          maxWidth: '100%',
+          whiteSpace: 'pre-wrap',
+        }}
+      >
+        {text ?? '-'}
+      </span>
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, dom);
     }

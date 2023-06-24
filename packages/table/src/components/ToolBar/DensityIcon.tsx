@@ -1,35 +1,40 @@
-import { useIntl } from '@ant-design/pro-provider';
-import React from 'react';
 import { ColumnHeightOutlined } from '@ant-design/icons';
-import { Menu, Dropdown, Tooltip } from 'antd';
-import Container from '../../container';
+import { useIntl } from '@ant-design/pro-provider';
+import { menuOverlayCompatible } from '@ant-design/pro-utils';
+import { Dropdown, Tooltip } from 'antd';
+import React, { useContext } from 'react';
+import { TableContext } from '../../Store/Provide';
 
 export type DensitySize = 'middle' | 'small' | 'large' | undefined;
 
 const DensityIcon = () => {
-  const counter = Container.useContainer();
+  const counter = useContext(TableContext);
   const intl = useIntl();
+  const props = menuOverlayCompatible({
+    selectedKeys: [counter.tableSize as string],
+    onClick: ({ key }) => {
+      counter.setTableSize?.(key as DensitySize);
+    },
+    style: {
+      width: 80,
+    },
+    items: [
+      {
+        key: 'large',
+        label: intl.getMessage('tableToolBar.densityLarger', '默认'),
+      },
+      {
+        key: 'middle',
+        label: intl.getMessage('tableToolBar.densityMiddle', '中等'),
+      },
+      {
+        key: 'small',
+        label: intl.getMessage('tableToolBar.densitySmall', '紧凑'),
+      },
+    ],
+  });
   return (
-    <Dropdown
-      overlay={
-        <Menu
-          selectedKeys={[counter.tableSize as string]}
-          onClick={({ key }) => {
-            counter.setTableSize?.(key as DensitySize);
-          }}
-          style={{
-            width: 80,
-          }}
-        >
-          <Menu.Item key="large">{intl.getMessage('tableToolBar.densityLarger', '默认')}</Menu.Item>
-          <Menu.Item key="middle">
-            {intl.getMessage('tableToolBar.densityMiddle', '中等')}
-          </Menu.Item>
-          <Menu.Item key="small">{intl.getMessage('tableToolBar.densitySmall', '紧凑')}</Menu.Item>
-        </Menu>
-      }
-      trigger={['click']}
-    >
+    <Dropdown {...props} trigger={['click']}>
       <Tooltip title={intl.getMessage('tableToolBar.density', '表格密度')}>
         <ColumnHeightOutlined />
       </Tooltip>

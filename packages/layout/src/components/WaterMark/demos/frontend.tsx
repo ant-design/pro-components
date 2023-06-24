@@ -1,10 +1,6 @@
 /** Title: 前置水印 */
-import React from 'react';
-import { WaterMark } from '@ant-design/pro-layout';
-import { Tooltip } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable, TableDropdown, WaterMark } from '@ant-design/pro-components';
 
 const valueEnum = {
   0: 'close',
@@ -34,7 +30,10 @@ for (let i = 0; i < 10; i += 1) {
     creator: creators[Math.floor(Math.random() * creators.length)],
     status: valueEnum[Math.floor(Math.random() * 10) % 4],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
-    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
+    memo:
+      i % 2 === 1
+        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
+        : '简短备注文案',
   });
 }
 
@@ -76,21 +75,6 @@ const columns: ProColumns<TableListItem>[] = [
       陈帅帅: { text: '陈帅帅' },
       兼某某: { text: '兼某某' },
     },
-  },
-  {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
   },
   {
     title: '备注',

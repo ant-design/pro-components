@@ -1,8 +1,8 @@
-import { Popconfirm, Space, Menu, Dropdown } from 'antd';
-import React from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
 import { DownOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+import { Dropdown, Popconfirm, Space } from 'antd';
+import React from 'react';
 
 export type Member = {
   avatar: string;
@@ -40,14 +40,20 @@ const tableListDataSource: Member[] = [];
 
 const realNames = ['马巴巴', '测试', '测试2', '测试3'];
 const nickNames = ['巴巴', '测试', '测试2', '测试3'];
-const emails = ['baba@antfin.com', 'test@antfin.com', 'test2@antfin.com', 'test3@antfin.com'];
+const emails = [
+  'baba@antfin.com',
+  'test@antfin.com',
+  'test2@antfin.com',
+  'test3@antfin.com',
+];
 const phones = ['12345678910', '10923456789', '109654446789', '109223346789'];
 const permissions = [[], ['权限点名称1', '权限点名称4'], ['权限点名称1'], []];
 
 for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     outUserNo: `${102047 + i}`,
-    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+    avatar:
+      'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     role: i === 0 ? 'admin' : 'operator',
     realName: realNames[i % 4],
     nickName: nickNames[i % 4],
@@ -57,16 +63,14 @@ for (let i = 0; i < 5; i += 1) {
   });
 }
 
-const roleMenu = (
-  <Menu>
-    <Menu.Item key="admin">管理员</Menu.Item>
-    <Menu.Item key="operator">操作员</Menu.Item>
-  </Menu>
-);
-
 const MemberList: React.FC = () => {
   const renderRemoveUser = (text: string) => (
-    <Popconfirm key="popconfirm" title={`确认${text}吗?`} okText="是" cancelText="否">
+    <Popconfirm
+      key="popconfirm"
+      title={`确认${text}吗?`}
+      okText="是"
+      cancelText="否"
+    >
       <a>{text}</a>
     </Popconfirm>
   );
@@ -89,17 +93,26 @@ const MemberList: React.FC = () => {
       title: '账号',
     },
     {
-      dataIndex: 'phone',
-      title: '手机号',
-    },
-    {
       dataIndex: 'role',
       title: '角色',
       render: (_, record) => (
-        <Dropdown overlay={roleMenu}>
-          <span>
+        <Dropdown
+          menu={{
+            items: [
+              {
+                label: '管理员',
+                key: 'admin',
+              },
+              {
+                label: '操作员',
+                key: 'operator',
+              },
+            ],
+          }}
+        >
+          <a>
             {RoleMap[record.role || 'admin'].name} <DownOutlined />
-          </span>
+          </a>
         </Dropdown>
       ),
     },
@@ -111,7 +124,9 @@ const MemberList: React.FC = () => {
         if (role === 'admin') {
           return '所有权限';
         }
-        return permission && permission.length > 0 ? permission.join('、') : '无';
+        return permission && permission.length > 0
+          ? permission.join('、')
+          : '无';
       },
     },
     {

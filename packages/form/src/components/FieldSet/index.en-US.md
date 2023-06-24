@@ -1,11 +1,9 @@
 ---
 title: ProFormFields
 order: 1
-group:
-  path: /
+atomId: ProFormText
 nav:
   title: Components
-  path: /components
 ---
 
 # ProFormFields
@@ -32,27 +30,27 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 ### Full amount of form field
 
-<code src="./demos/components-other.tsx" heigh="774px"/>
+<code src="./demos/components-other.tsx"></code>
 
 ### Query form
 
-<code src="./demos/search-select.tsx" heigh="774px" title=" Query form"/>
+<code src="./demos/search-select.tsx" oldtitle=" Query form"></code>
 
 ### Date form
 
-<code src="./demos/datatime.tsx" heigh="774px" title="Date form"/>
+<code src="./demos/datatime.tsx" oldtitle="Date form"></code>
 
 ### Upload form
 
-<code src="./demos/upload.tsx" heigh="774px" title="Upload form"/>
+<code src="./demos/upload.tsx" oldtitle="Upload form"></code>
 
 ### Structured data
 
-<code src="./demos/form-fieldset.tsx" heigh="774px" title="Structured data"/>
+<code src="./demos/form-fieldset.tsx" oldtitle="Structured data"></code>
 
 ### Read-only for form field
 
-<code src="./demos/components-other-readonly.tsx" heigh="774px" debug/>
+<code src="./demos/components-other-readonly.tsx" debug></code>
 
 ## API
 
@@ -61,11 +59,13 @@ ProForm comes with Filed , which basically corresponds to the valueType one by o
 ### Generic properties
 
 | parameter | description | type | default |
-| --- | --- | --- | --- | --- |
-| width | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - | tooltip |
+| --- | --- | --- | --- |
+| width | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
+| rowProps | Passed to `Row` when `grid` mode is enabled, Applies only to `ProFormGroup`, `ProFormList`, `ProFormFieldSet` | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
+| colProps | Passed to `Col` when `grid` mode is enabled | [ColProps](https://ant.design/components/grid/#Col) | { xs: 24 } |
 | tooltip | will add an icon next to the label to show the configured information when hovered | `string \| tooltipProps` | - |
 | secondary | Whether secondary control, only valid for LightFilter | `boolean` | `false` |
-| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` | `boolean` | `true` | if actively set. |
+| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` if actively set. | `boolean` | `true` |
 
 ### Width
 
@@ -84,7 +84,12 @@ In some cases, we need to adapt the input box according to the page display, exc
 Same as [Input](https://ant.design/components/input/).
 
 ```tsx | pure
-<ProFormText name="text" label="Name" placeholder="Please enter a name" fieldProps={inputProps} />
+<ProFormText
+  name="text"
+  label="Name"
+  placeholder="Please enter a name"
+  fieldProps={inputProps}
+/>
 ```
 
 ### ProFormCaptcha
@@ -114,7 +119,9 @@ ProFormCaptcha is a component developed to support common CAPTCHA functionality 
   // throw new Error("Error getting captcha")
   onGetCaptcha={async (phone) => {
     await waitTime(1000);
-    message.success(`phone number ${phone} Verification code sent successfully! `);
+    message.success(
+      `phone number ${phone} Verification code sent successfully! `,
+    );
   }}
 />
 ```
@@ -193,7 +200,10 @@ Same as [Input.TextArea](https://ant.design/components/input/#Input.TextArea).
 
 Same as [checkbox](https://ant.design/components/checkbox/), but supports `options` and `layout`.
 
-| parameters | description | type | default | | --- | --- | --- | --- | options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - | | layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
+| parameters | description | type | default |
+| --- | --- | --- | --- | --- |
+| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
 
 ```tsx | pure
 <ProFormCheckbox.Group
@@ -210,7 +220,9 @@ Same as [checkbox](https://ant.design/components/checkbox/), but supports `optio
 
 Same as [radio](https://ant.design/components/radio/) but with support for `options`.
 
-| parameters | description | type | default | | --- | --- | --- | --- | options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - | | radioType | Set whether button mode or radio mode | `button` \| `radio` | `radio` |
+| parameters | description | type | default |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |  | radioType | Set whether button mode or radio mode | `default` \| `button` | `default` |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -272,11 +284,11 @@ Same as [slider](https://ant.design/components/slider/).
 
 Same as [upload](https://ant.design/components/upload/). Dragger style is preset, otherwise it is the same as Upload.
 
-| Parameters  | Description               | Type            | Default                          |
-| ----------- | ------------------------- | --------------- | -------------------------------- | -------------------------------------------- |
-| icon        | The chart of the Dragger. | `ReactNode`     | InboxOutlined                    |
-| title       | Title                     | Dragger's title | `ReactNode`                      | 'Click or drag files to this area to upload' |
-| description | Dragger's description     | `ReactNode`     | 'Support single or bulk uploads' |
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- | --- |
+| icon | The chart of the Dragger. | `ReactNode` | InboxOutlined |
+| title | Title | Dragger's title | `ReactNode` | 'Click or drag files to this area to upload' |
+| description | Dragger's description | `ReactNode` | 'Support single or bulk uploads' |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
@@ -358,6 +370,75 @@ Customize options：
 />
 ```
 
+### ProFormTreeSelect
+
+Same as [tree-select](https://ant.design/components/tree-select/). Both request and valueEnum are supported to generate options.
+
+> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+
+> Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
+
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+
+```tsx | pure
+<ProFormTreeSelect
+  name="name"
+  placeholder="Please select"
+  allowClear
+  width={330}
+  secondary
+  request={async () => {
+    return [
+      {
+        title: 'Node1',
+        value: '0-0',
+        children: [
+          {
+            title: 'Child Node1',
+            value: '0-0-0',
+          },
+        ],
+      },
+      {
+        title: 'Node2',
+        value: '0-1',
+        children: [
+          {
+            title: 'Child Node3',
+            value: '0-1-0',
+          },
+          {
+            title: 'Child Node4',
+            value: '0-1-1',
+          },
+          {
+            title: 'Child Node5',
+            value: '0-1-2',
+          },
+        ],
+      },
+    ];
+  }}
+  // tree-select args
+  fieldProps={{
+    showArrow: false,
+    filterTreeNode: true,
+    showSearch: true,
+    dropdownMatchSelectWidth: false,
+    labelInValue: true,
+    autoClearSearchValue: true,
+    multiple: true,
+    treeNodeFilterProp: 'title',
+    fieldNames: {
+      label: 'title',
+    },
+  }}
+/>
+```
+
 ### ProFormDigit
 
 Same as [inputNumber](https://ant.design/components/input-number/). It comes with a formatting (retains 2 decimal places, minimum value is 0), you can turn it off if needed.
@@ -433,14 +514,15 @@ ProFormMoney's input box for entering amounts supports the display of currency s
 "ru-RU": "₽",
 "sr-RS": "RSD",
 "ms-MY": "RM",
-"zh-TW": "$"
+"zh-TW": "NT$"
 "fr-FR": "€",
 "pt-BR": "R$",
 "ko-KR": "₩",
 "id-ID": "RP",
 "de-DE": "€",
 "fa-IR": "تومان",
-"tr-TR": "$",
+"tr-TR": "₺",
 "pl-PL": "zł",
+"hr-HR": "kn",
 }
 ```

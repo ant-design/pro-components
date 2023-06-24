@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
 import { ConfigProvider } from 'antd';
+
 import classNames from 'classnames';
+import React, { useContext, useEffect, useState } from 'react';
 
 export type WaterMarkProps = {
   /** 类名 */
@@ -32,7 +33,7 @@ export type WaterMarkProps = {
   /** 高清印图片源, 为了高清屏幕显示，建议使用 2倍或3倍图，优先使用图片渲染水印。 */
   image?: string;
   /** 水印文字内容 */
-  content?: string;
+  content?: string | string[];
   /** 文字颜色 */
   fontColor?: string;
   /** 文字样式 */
@@ -43,6 +44,8 @@ export type WaterMarkProps = {
   fontWeight?: 'normal' | 'light' | 'weight' | number;
   /** 文字大小 */
   fontSize?: number | string;
+
+  children?: React.ReactNode;
 };
 /**
  * 返回当前显示设备的物理像素分辨率与CSS像素分辨率之比
@@ -60,12 +63,11 @@ const getPixelRatio = (context: any) => {
     context.mozBackingStorePixelRatio ||
     context.msBackingStorePixelRatio ||
     context.oBackingStorePixelRatio ||
-    context.backingStorePixelRatio ||
     1;
   return (window.devicePixelRatio || 1) / backingStore;
 };
 
-const WaterMark: React.FC<WaterMarkProps> = (props) => {
+export const WaterMark: React.FC<WaterMarkProps> = (props) => {
   const {
     children,
     style,
@@ -130,7 +132,13 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
         const markSize = Number(fontSize) * ratio;
         ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`;
         ctx.fillStyle = fontColor;
-        ctx.fillText(content, 0, 0);
+        if (Array.isArray(content)) {
+          content?.forEach((item: string, index: number) =>
+            ctx.fillText(item, 0, index * markSize),
+          );
+        } else {
+          ctx.fillText(content, 0, 0);
+        }
         setBase64Url(canvas.toDataURL());
       }
     } else {
@@ -175,12 +183,14 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
           backgroundSize: `${gapX + width}px`,
           pointerEvents: 'none',
           backgroundRepeat: 'repeat',
-          backgroundImage: `url('${base64Url}')`,
+          ...(base64Url
+            ? {
+                backgroundImage: `url('${base64Url}')`,
+              }
+            : {}),
           ...markStyle,
         }}
       />
     </div>
   );
 };
-
-export default WaterMark;

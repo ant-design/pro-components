@@ -1,32 +1,31 @@
-import React from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 
 const cascaderOptions = [
   {
-    label: 'front end',
+    field: 'front end',
     value: 'fe',
-    children: [
+    language: [
       {
-        label: 'Javascript',
+        field: 'Javascript',
         value: 'js',
       },
       {
-        label: 'Typescript',
+        field: 'Typescript',
         value: 'ts',
       },
     ],
   },
   {
-    label: 'back end',
+    field: 'back end',
     value: 'be',
-    children: [
+    language: [
       {
-        label: 'Java',
+        field: 'Java',
         value: 'java',
       },
       {
-        label: 'Go',
+        field: 'Go',
         value: 'go',
       },
     ],
@@ -43,6 +42,7 @@ export type TableListItem = {
   key: number;
   status: string | number;
   cascader: string[];
+  treeSelect: string[];
 };
 const tableListDataSource: TableListItem[] = [];
 
@@ -51,6 +51,7 @@ for (let i = 0; i < 2; i += 1) {
     key: i,
     status: valueEnumMap[Math.floor(Math.random() * 10) % 3],
     cascader: ['fe', 'js'],
+    treeSelect: ['fe', 'js'],
   });
 }
 
@@ -64,7 +65,6 @@ const valueEnum = {
 const columns: ProColumns<TableListItem>[] = [
   {
     title: '状态',
-    key: 'select',
     valueType: 'select',
     dataIndex: 'status',
     initialValue: ['all'],
@@ -73,7 +73,6 @@ const columns: ProColumns<TableListItem>[] = [
   },
   {
     title: '单选状态',
-    key: 'radio',
     dataIndex: 'status',
     valueType: 'radio',
     initialValue: 'all',
@@ -81,7 +80,6 @@ const columns: ProColumns<TableListItem>[] = [
     valueEnum,
   },
   {
-    key: 'radioButton',
     title: '单选按钮状态',
     dataIndex: 'status',
     valueType: 'radioButton',
@@ -90,7 +88,6 @@ const columns: ProColumns<TableListItem>[] = [
     valueEnum,
   },
   {
-    key: 'status',
     title: '多选状态',
     dataIndex: 'status',
     initialValue: ['all'],
@@ -105,8 +102,48 @@ const columns: ProColumns<TableListItem>[] = [
     width: 100,
     fieldProps: {
       options: cascaderOptions,
+      fieldNames: {
+        children: 'language',
+        label: 'field',
+      },
     },
     valueType: 'cascader',
+  },
+  {
+    title: '树形下拉框',
+    key: 'treeSelect',
+    dataIndex: 'treeSelect',
+    width: 100,
+    // request: async () => cascaderOptions,
+    fieldProps: {
+      options: cascaderOptions,
+      fieldNames: {
+        children: 'language',
+        label: 'field',
+      },
+      showSearch: true,
+      filterTreeNode: true,
+      multiple: true,
+      treeNodeFilterProp: 'field',
+    },
+    valueType: 'treeSelect',
+  },
+  {
+    title: '时间范围',
+    key: 'dateTimeRange',
+    dataIndex: 'dateTimeRange',
+    hideInTable: true,
+    valueType: 'dateTimeRange',
+    fieldProps: {
+      // placeholder: []
+    },
+    renderFormItem: (_, { type, defaultRender }) => {
+      if (type === 'form') {
+        return null;
+      }
+
+      return defaultRender(_);
+    },
   },
   {
     title: '操作',
@@ -140,6 +177,9 @@ export default () => (
         defaultCollapsed: false,
         span: 12,
         labelWidth: 'auto',
+      }}
+      editable={{
+        type: 'multiple',
       }}
       rowKey="key"
       headerTitle="样式类"

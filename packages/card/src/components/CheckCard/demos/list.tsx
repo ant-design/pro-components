@@ -1,7 +1,4 @@
-/** Uuid: 69aec291 title: 应用列表示例 */
-
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-components';
 import { Avatar } from 'antd';
 
 const dataSource = [
@@ -80,7 +77,7 @@ const dataSource = [
 ];
 
 export default () => (
-  <div style={{ padding: 24, backgroundColor: '#F0F2F5' }}>
+  <div style={{ padding: 24, backgroundColor: '#f7f8fa' }}>
     <CheckCard.Group options={dataSource} />
   </div>
 );

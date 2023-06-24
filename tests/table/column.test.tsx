@@ -1,15 +1,14 @@
-import { mount } from 'enzyme';
-import React from 'react';
-import { ConfigProvider } from 'antd';
 import ProTable from '@ant-design/pro-table';
+import { fireEvent, render, waitFor } from '@testing-library/react';
+import { ConfigProvider, Table } from 'antd';
+import dayjs from 'dayjs';
+import type { RequestOptionsType } from 'packages/utils/src/typing';
 import { request } from './demo';
-import { waitForComponentToPaint } from '../util';
-import moment from 'moment';
 
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -24,14 +23,16 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(callBack).toBeCalled();
-    expect(callBack).toBeCalledWith('Edward King 0');
+
+    await waitFor(() => {
+      expect(callBack).toBeCalled();
+      expect(callBack).toBeCalledWith('Edward King 0');
+    });
   });
 
   it('🎏 query should parse by valueType', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -44,17 +45,16 @@ describe('Table ColumnSetting', () => {
         ]}
         form={{
           initialValues: {
-            date: moment(),
+            date: dayjs(),
           },
         }}
         request={async (params) => {
-          console.log(params);
           callBack(params.date);
           return {
             data: [
               {
                 key: '1',
-                date: moment(),
+                date: dayjs(),
               },
             ],
             success: true,
@@ -63,13 +63,15 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(callBack).toBeCalled();
-    expect(callBack).toBeCalledWith('2016-11-22');
+
+    await waitFor(() => {
+      expect(callBack).toBeCalled();
+      expect(callBack).toBeCalledWith('2016-11-22');
+    });
   });
 
   it('🎏 config provide render', async () => {
-    const html = mount(
+    const { container } = render(
       <ConfigProvider prefixCls="qixian">
         <ProTable
           size="small"
@@ -85,13 +87,13 @@ describe('Table ColumnSetting', () => {
         />
       </ConfigProvider>,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.render()).toMatchSnapshot();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('🎏 render text', async () => {
     const callBack = jest.fn();
-    const html = mount(
+    render(
       <ProTable
         size="small"
         columns={[
@@ -112,13 +114,15 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(callBack).toBeCalled();
-    expect(callBack).toBeCalledWith('Edward King 0');
+
+    await waitFor(() => {
+      expect(callBack).toBeCalled();
+      expect(callBack).toBeCalledWith('Edward King 0');
+    });
   });
 
   it('🎏 change text by renderText', async () => {
-    const html = mount(
+    const { container } = render(
       <ProTable
         size="small"
         columns={[
@@ -142,7 +146,160 @@ describe('Table ColumnSetting', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    expect(html.find('td.ant-table-cell').text()).toMatchSnapshot();
+
+    expect(container.querySelector('td.ant-table-cell')).toMatchSnapshot();
+  });
+
+  it('🎏 columns request support params function', async () => {
+    const paramsKeys: string[] = [];
+    render(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            renderText: (text) => `${text}2144`,
+          },
+
+          {
+            title: 'Name',
+            key: 'name',
+            valueType: 'select',
+            dataIndex: 'name',
+            params: (rowData) => {
+              return {
+                key: rowData.key,
+              };
+            },
+            request: async (params) => {
+              paramsKeys.push(params.key);
+              return [];
+            },
+          },
+        ]}
+        search={false}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Edward King',
+            age: 10,
+            status: 1,
+            sex: 'man',
+          },
+          {
+            key: '2',
+            name: 'Edward King',
+            age: 10,
+            status: 1,
+            sex: 'man',
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+
+    expect(paramsKeys.length).toBe(2);
+    expect(paramsKeys.join('-')).toBe('1-2');
+  });
+
+  it('🎏 extra columns', async () => {
+    const { container } = render(
+      <ProTable
+        rowKey="key"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+          Table.EXPAND_COLUMN,
+          Table.SELECTION_COLUMN,
+        ]}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Name 1',
+          },
+          {
+            key: '2',
+            name: 'Name 2',
+          },
+        ]}
+        expandable={{
+          expandedRowRender: (record) => <div>{record.name}</div>,
+        }}
+        rowSelection={{}}
+      />,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('🎏 columns proFieldProps support custom', async () => {
+    const selectOptionsRequest = (a: any) => {
+      return new Promise<RequestOptionsType[]>((resolve) => {
+        setTimeout(() => {
+          const data = [
+            {
+              label: '1',
+              value: 1,
+            },
+            {
+              label: '2',
+              value: 2,
+            },
+            {
+              label: '3',
+              value: 3,
+            },
+            {
+              label: '4',
+              value: 4,
+            },
+          ];
+          const result = data.filter((x) => x.value === a);
+          resolve(result);
+        }, 1000);
+      });
+    };
+    const { container } = render(
+      <ProTable
+        rowKey="key"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            valueType: 'select',
+            request: async (v) => {
+              const { keyWords } = v;
+              const result = await selectOptionsRequest(keyWords);
+              return result;
+            },
+            proFieldProps: {
+              debounceTime: 1000,
+            },
+          },
+        ]}
+      />,
+    );
+
+    expect(container).toMatchSnapshot();
+
+    fireEvent.change(
+      container.querySelector('.ant-select-selection-search-input')!,
+      {
+        target: {
+          value: '1',
+        },
+      },
+    );
+    expect(container.querySelectorAll('.ant-select-item')).toHaveLength(0);
+
+    setTimeout(() => {
+      expect(container.querySelectorAll('.ant-select-item')).toHaveLength(1);
+    }, 1000);
   });
 });

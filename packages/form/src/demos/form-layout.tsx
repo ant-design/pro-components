@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { message, Row, Col, Space } from 'antd';
-import ProForm, { ProFormText, ProFormRadio } from '@ant-design/pro-form';
+import { ProForm, ProFormRadio, ProFormText } from '@ant-design/pro-components';
+import { Col, message, Row, Space } from 'antd';
+import { useState } from 'react';
 
 type LayoutType = Parameters<typeof ProForm>[0]['layout'];
 const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
@@ -14,7 +14,9 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const [formLayoutType, setFormLayoutType] = useState<LayoutType>(LAYOUT_TYPE_HORIZONTAL);
+  const [formLayoutType, setFormLayoutType] = useState<LayoutType>(
+    LAYOUT_TYPE_HORIZONTAL,
+  );
 
   const formItemLayout =
     formLayoutType === LAYOUT_TYPE_HORIZONTAL
@@ -78,7 +80,12 @@ export default () => {
         tooltip="最长为 24 位"
         placeholder="请输入名称"
       />
-      <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+      <ProFormText
+        width="md"
+        name="company"
+        label="我方公司名称"
+        placeholder="请输入名称"
+      />
       <ProFormText
         name={['contract', 'name']}
         width="md"

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import ProCard from '@ant-design/pro-card';
+import type { ProColumns } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+} from '@ant-design/pro-components';
 import { Button } from 'antd';
-import { ProFormField } from '@ant-design/pro-form';
+import React, { useState } from 'react';
 
 type DataSourceType = {
   id: React.Key;
@@ -20,7 +22,7 @@ const defaultData: DataSourceType[] = new Array(20).fill(1).map((_, index) => {
     title: `活动名称${index}`,
     decs: '这个活动真好玩',
     state: 'open',
-    created_at: '2020-05-26T09:42:56Z',
+    created_at: '1590486176000',
   };
 });
 
@@ -28,7 +30,9 @@ export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
     defaultData.map((item) => item.id),
   );
-  const [dataSource, setDataSource] = useState<DataSourceType[]>(() => defaultData);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
+    () => defaultData,
+  );
 
   const columns: ProColumns<DataSourceType>[] = [
     {
@@ -96,6 +100,9 @@ export default () => {
         headerTitle="可编辑表格"
         columns={columns}
         rowKey="id"
+        scroll={{
+          x: 960,
+        }}
         value={dataSource}
         onChange={setDataSource}
         recordCreatorProps={{

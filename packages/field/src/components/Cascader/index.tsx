@@ -1,11 +1,23 @@
-﻿import React, { useContext, useMemo, useImperativeHandle, useRef } from 'react';
+﻿import { LoadingOutlined } from '@ant-design/icons';
+import { useIntl } from '@ant-design/pro-provider';
+import { FieldLabel } from '@ant-design/pro-utils';
 import type { RadioGroupProps } from 'antd';
-import { ConfigProvider, Spin, Cascader } from 'antd';
+import { Cascader, ConfigProvider } from 'antd';
 import classNames from 'classnames';
+import React, {
+  useContext,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { ProFieldFC } from '../../index';
-import './index.less';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+
+// 兼容代码-----------
+import 'antd/lib/cascader/style';
+//----------------------
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -13,26 +25,34 @@ export type GroupProps = {
 } & FieldSelectProps;
 
 /**
- * 单选组件
+ * 级联选择组件
  *
  * @param param0
  * @param ref
  */
 const FieldCascader: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, render, ...rest },
+  { radioType, renderFormItem, mode, render, label, light, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
   const layoutClassName = getPrefixCls('pro-field-cascader');
   const [loading, options, fetchData] = useFieldFetchData(rest);
+  const intl = useIntl();
   const cascaderRef = useRef();
+  const [open, setOpen] = useState(false);
 
-  useImperativeHandle(ref, () => ({
-    ...(cascaderRef.current || {}),
-    fetchData: () => fetchData(),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(cascaderRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
-  const optionsValueEnum = useMemo<Record<string, any>>(() => {
+  const optionsValueEnum = useMemo(() => {
+    if (mode !== 'read') return;
     /**
      * Support cascader fieldNames
      *
@@ -44,45 +64,90 @@ const FieldCascader: ProFieldFC<GroupProps> = (
       children: childrenPropsName = 'children',
     } = rest.fieldProps?.fieldNames || {};
 
-    const traverseOptions = (_options: typeof options): Record<string, any> => {
-      return _options?.length > 0
-        ? _options?.reduce((pre, cur) => {
-            const label = cur[labelPropsName],
-              value = cur[valuePropsName],
-              children = cur[childrenPropsName];
-            return {
-              ...pre,
-              [value]: label,
-              ...traverseOptions(children),
-            };
-          }, {})
-        : {};
+    const valuesMap = new Map();
+
+    const traverseOptions = (_options: typeof options) => {
+      if (!_options?.length) {
+        return valuesMap;
+      }
+
+      const length = _options.length;
+      let i = 0;
+      while (i < length) {
+        const cur = _options[i++];
+        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
+        traverseOptions(cur[childrenPropsName]);
+      }
+      return valuesMap;
     };
+
     return traverseOptions(options);
-  }, [options, rest.fieldProps?.fieldNames]);
+  }, [mode, options, rest.fieldProps?.fieldNames]);
 
   if (mode === 'read') {
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          ObjToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
     return dom;
   }
 
   if (mode === 'edit') {
-    const dom = (
-      <Spin spinning={loading}>
-        <Cascader
-          ref={cascaderRef}
-          {...rest.fieldProps}
-          className={classNames(rest.fieldProps?.className, layoutClassName)}
-          options={options}
-        />
-      </Spin>
+    let dom = (
+      <Cascader
+        bordered={!light}
+        ref={cascaderRef}
+        open={open}
+        suffixIcon={loading ? <LoadingOutlined /> : undefined}
+        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+        allowClear={rest.fieldProps?.allowClear !== false}
+        {...rest.fieldProps}
+        onDropdownVisibleChange={(isOpen) => {
+          rest?.fieldProps?.onDropdownVisibleChange?.(isOpen);
+          setOpen(isOpen);
+        }}
+        className={classNames(rest.fieldProps?.className, layoutClassName)}
+        options={options}
+      />
     );
+
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      dom =
+        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
+    }
+
+    if (light) {
+      const { disabled, value } = rest.fieldProps;
+      const notEmpty = !!value && value?.length !== 0;
+      return (
+        <FieldLabel
+          label={label}
+          disabled={disabled}
+          bordered={rest.bordered}
+          value={notEmpty || open ? dom : null}
+          style={
+            notEmpty
+              ? {
+                  paddingInlineEnd: 0,
+                }
+              : undefined
+          }
+          allowClear={false}
+          downIcon={notEmpty || open ? false : undefined}
+          onClick={() => {
+            setOpen(true);
+            rest?.fieldProps?.onDropdownVisibleChange?.(true);
+          }}
+        />
+      );
     }
     return dom;
   }

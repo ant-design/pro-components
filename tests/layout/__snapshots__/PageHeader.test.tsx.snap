@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageContainer pageHeader should not render blank dom 1`] = `null`;
+
+exports[`PageContainer pageHeader should render correctly int RTL direction 1`] = `
+<div
+  class="ant-page-header ant-page-header-ghost"
+>
+  <div
+    class="ant-page-header-heading "
+  >
+    <div
+      class="ant-page-header-heading-left"
+    >
+      <span
+        class="ant-page-header-heading-title"
+        title="Page Title"
+      >
+        Page Title
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer pageHeader should support className 1`] = `
+<div
+  class="ant-page-header not-works ant-page-header-ghost"
+>
+  <div
+    class="ant-page-header-heading "
+  >
+    <div
+      class="ant-page-header-heading-left"
+    >
+      <span
+        class="ant-page-header-heading-title"
+        title="Page Title"
+      >
+        Page Title
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer 💄 base use 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-page-header ant-page-header-ghost"
+  >
+    <div
+      class="ant-page-header-heading "
+    >
+      <div
+        class="ant-page-header-heading-left"
+      >
+        <span
+          class="ant-page-header-heading-title"
+          title="期贤"
+        >
+          期贤
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

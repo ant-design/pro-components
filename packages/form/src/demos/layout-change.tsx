@@ -1,17 +1,3 @@
-import React, { useState } from 'react';
-import { Button, message, Space } from 'antd';
-import ProForm, {
-  ModalForm,
-  DrawerForm,
-  QueryFilter,
-  LightFilter,
-  StepsForm,
-  ProFormText,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormRadio,
-  LoginForm,
-} from '@ant-design/pro-form';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -20,9 +6,24 @@ import {
   UserOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
+import {
+  DrawerForm,
+  LightFilter,
+  LoginForm,
+  ModalForm,
+  ProForm,
+  ProFormDateRangePicker,
+  ProFormRadio,
+  ProFormSelect,
+  ProFormText,
+  QueryFilter,
+  StepsForm,
+} from '@ant-design/pro-components';
+import { Button, message, Space } from 'antd';
+import { useState } from 'react';
 
 const iconStyles = {
-  marginLeft: '16px',
+  marginInlineStart: '16px',
   color: 'rgba(0, 0, 0, 0.2)',
   fontSize: '24px',
   verticalAlign: 'middle',
@@ -184,7 +185,7 @@ export default () => {
         />
         <FormComponents
           title="Github"
-          subTitle="全球最大同性交友网站"
+          subTitle="全球最大的代码托管平台"
           actions={
             <Space>
               其他登录方式
@@ -279,7 +280,12 @@ export default () => {
               tooltip="最长为 24 位"
               placeholder="请输入名称"
             />
-            <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+            <ProFormText
+              width="md"
+              name="company"
+              label="我方公司名称"
+              placeholder="请输入名称"
+            />
           </ProForm.Group>
           <ProForm.Group>
             <ProFormText
@@ -327,7 +333,13 @@ export default () => {
             label="项目名称"
             initialValue="xxxx项目"
           />
-          <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
+          <ProFormText
+            width="xs"
+            name="mangerName"
+            disabled
+            label="商务经理"
+            initialValue="启途"
+          />
         </FormComponents>
       </div>
     </>

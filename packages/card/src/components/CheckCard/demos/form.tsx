@@ -1,9 +1,5 @@
-/** Uuid: 5277507c title: 表单中使用 */
-
-/* eslint-disable no-console */
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
-import { Form, Button, Avatar } from 'antd';
+import { CheckCard } from '@ant-design/pro-components';
+import { Avatar, Button, Form } from 'antd';
 
 export default () => {
   const [form] = Form.useForm();

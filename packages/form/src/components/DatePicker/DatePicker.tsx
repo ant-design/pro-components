@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import ProFormField from '../Field';
 import type { DatePickerProps } from 'antd';
-import type { ProFormFieldItemProps } from '../../interface';
+import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
+import type { ProFormFieldItemProps } from '../../typing';
+import ProFormField from '../Field';
 
 const valueType = 'date' as const;
 /**
@@ -10,15 +10,18 @@ const valueType = 'date' as const;
  *
  * @param
  */
-const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
-  ({ proFieldProps, fieldProps, ...rest }, ref) => {
+const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> =
+  React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref) => {
     const context = useContext(FieldContext);
+
     return (
       <ProFormField
         ref={ref}
-        mode="edit"
         valueType={valueType}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+        fieldProps={{
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
         proFieldProps={proFieldProps}
         filedConfig={{
           valueType,
@@ -27,7 +30,6 @@ const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = Reac
         {...rest}
       />
     );
-  },
-);
+  });
 
 export default ProFormDatePicker;

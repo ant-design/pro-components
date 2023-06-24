@@ -1,9 +1,12 @@
+import { Result } from 'antd';
 import type { ErrorInfo } from 'react';
 import React from 'react';
-import { Result } from 'antd';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-class ErrorBoundary extends React.Component<{}, { hasError: boolean; errorInfo: string }> {
+class ErrorBoundary extends React.Component<
+  { children?: React.ReactNode },
+  { hasError: boolean; errorInfo: string }
+> {
   state = { hasError: false, errorInfo: '' };
 
   static getDerivedStateFromError(error: Error) {
@@ -19,10 +22,16 @@ class ErrorBoundary extends React.Component<{}, { hasError: boolean; errorInfo: 
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
-      return <Result status="error" title="Something went wrong." extra={this.state.errorInfo} />;
+      return (
+        <Result
+          status="error"
+          title="Something went wrong."
+          extra={this.state.errorInfo}
+        />
+      );
     }
     return this.props.children;
   }
 }
 
-export default ErrorBoundary;
+export { ErrorBoundary };

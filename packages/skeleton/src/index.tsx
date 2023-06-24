@@ -1,20 +1,21 @@
+import 'antd/lib/skeleton/style';
 import React from 'react';
-import type { ListPageSkeletonProps } from './component/List';
+import type { DescriptionsPageSkeletonProps } from './components/Descriptions';
+import DescriptionsPageSkeleton, {
+  DescriptionsSkeleton,
+  TableItemSkeleton,
+  TableSkeleton,
+} from './components/Descriptions';
+import type { ListPageSkeletonProps } from './components/List';
 import ListPageSkeleton, {
-  PageHeaderSkeleton,
-  ListToolbarSkeleton,
   ListSkeleton,
   ListSkeletonItem,
-} from './component/List';
-import ResultPageSkeleton from './component/Result';
-import type { DescriptionsPageSkeletonProps } from './component/Descriptions';
-import DescriptionsPageSkeleton, {
-  TableItemSkeleton,
-  DescriptionsSkeleton,
-  TableSkeleton,
-} from './component/Descriptions';
+  ListToolbarSkeleton,
+  PageHeaderSkeleton,
+} from './components/List';
+import ResultPageSkeleton from './components/Result';
 
-const PageSkeleton: React.FC<
+const ProSkeleton: React.FC<
   ListPageSkeletonProps &
     DescriptionsPageSkeletonProps & {
       type?: 'list' | 'result' | 'descriptions';
@@ -24,13 +25,16 @@ const PageSkeleton: React.FC<
   if (type === 'result') {
     return <ResultPageSkeleton {...rest} />;
   }
+
   if (type === 'descriptions') {
     return <DescriptionsPageSkeleton {...rest} />;
   }
+
   return <ListPageSkeleton {...rest} />;
 };
 
 export {
+  ProSkeleton,
   ListPageSkeleton,
   ListSkeleton,
   ListSkeletonItem,
@@ -41,4 +45,4 @@ export {
   TableItemSkeleton,
 };
 
-export default PageSkeleton;
+export default ProSkeleton;

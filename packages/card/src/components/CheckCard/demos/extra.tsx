@@ -1,9 +1,6 @@
-/** Uuid: 1d7b8f42 title: 操作栏 */
-
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
-import { Dropdown, Menu, message } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
+import { CheckCard } from '@ant-design/pro-components';
+import { Dropdown, message } from 'antd';
 
 export default () => (
   <CheckCard
@@ -13,18 +10,26 @@ export default () => (
     extra={
       <Dropdown
         placement="topCenter"
-        overlay={
-          <Menu
-            onClick={({ domEvent }) => {
-              domEvent.stopPropagation();
-              message.info('menu click');
-            }}
-          >
-            <Menu.Item key="1">菜单</Menu.Item>
-            <Menu.Item key="2">列表</Menu.Item>
-            <Menu.Item key="3">表单</Menu.Item>
-          </Menu>
-        }
+        menu={{
+          onClick: ({ domEvent }) => {
+            domEvent.stopPropagation();
+            message.info('menu click');
+          },
+          items: [
+            {
+              label: '菜单',
+              key: '1',
+            },
+            {
+              label: '列表',
+              key: '2',
+            },
+            {
+              label: '表单',
+              key: '3',
+            },
+          ],
+        }}
       >
         <EllipsisOutlined
           style={{ fontSize: 22, color: 'rgba(0,0,0,0.5)' }}

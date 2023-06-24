@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { Alert, Space, ConfigProvider } from 'antd';
-import './index.less';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
+import { ConfigProvider, Space } from 'antd';
+import React, { useContext } from 'react';
+import { useStyle } from './style';
 
 export type AlertRenderType<T> =
   | ((props: {
@@ -22,7 +22,10 @@ export type TableAlertProps<T> = {
   alertOptionRender?: AlertRenderType<T>;
 };
 
-const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () => void }) => {
+const defaultAlertOptionRender = (props: {
+  intl: IntlType;
+  onCleanSelected: () => void;
+}) => {
   const { intl, onCleanSelected } = props;
   return [
     <a onClick={onCleanSelected} key="0">
@@ -32,7 +35,7 @@ const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () =
 };
 
 function TableAlert<T>({
-  selectedRowKeys,
+  selectedRowKeys = [],
   onCleanSelected,
   alwaysShowAlert,
   selectedRows,
@@ -58,26 +61,35 @@ function TableAlert<T>({
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-alert');
+  const { wrapSSR, hashId } = useStyle(className);
   if (alertInfoRender === false) {
     return null;
   }
-  const dom = alertInfoRender({ intl, selectedRowKeys, selectedRows, onCleanSelected });
+  const dom = alertInfoRender({
+    intl,
+    selectedRowKeys,
+    selectedRows,
+    onCleanSelected,
+  });
 
   if (dom === false || (selectedRowKeys.length < 1 && !alwaysShowAlert)) {
     return null;
   }
-  return (
-    <div className={className}>
-      <Alert
-        message={
-          <div className={`${className}-info`}>
-            <div className={`${className}-info-content`}>{dom}</div>
-            {option ? <div className={`${className}-info-option`}>{option}</div> : null}
+  return wrapSSR(
+    <div className={`${className} ${hashId}`.trim()}>
+      <div className={`${className}-container ${hashId}`.trim()}>
+        <div className={`${className}-info ${hashId}`.trim()}>
+          <div className={`${className}-info-content ${hashId}`.trim()}>
+            {dom}
           </div>
-        }
-        type="info"
-      />
-    </div>
+          {option ? (
+            <div className={`${className}-info-option ${hashId}`.trim()}>
+              {option}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </div>,
   );
 }
 

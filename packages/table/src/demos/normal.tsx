@@ -1,8 +1,7 @@
-import React from 'react';
-import { Button, Tooltip } from 'antd';
-import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import { DownOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import { Button } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -32,7 +31,10 @@ for (let i = 0; i < 5; i += 1) {
     creator: creators[Math.floor(Math.random() * creators.length)],
     status: valueEnum[Math.floor(Math.random() * 10) % 4],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
-    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
+    memo:
+      i % 2 === 1
+        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
+        : '简短备注文案',
   });
 }
 
@@ -76,27 +78,6 @@ const columns: ProColumns<TableListItem>[] = [
     },
   },
   {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
-    title: '备注',
-    dataIndex: 'memo',
-    ellipsis: true,
-    copyable: true,
-  },
-  {
     title: '操作',
     width: 180,
     key: 'option',
@@ -119,19 +100,12 @@ const columns: ProColumns<TableListItem>[] = [
 export default () => {
   return (
     <ProTable<TableListItem>
-      columns={columns}
-      request={(params, sorter, filter) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
-        return Promise.resolve({
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
+      dataSource={tableListDataSource}
       rowKey="key"
       pagination={{
         showQuickJumper: true,
       }}
+      columns={columns}
       search={false}
       dateFormatter="string"
       headerTitle="表格标题"

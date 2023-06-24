@@ -1,8 +1,7 @@
-import React from 'react';
-import moment from 'moment';
 import type { ProColumns } from '@ant-design/pro-table';
-import { TableStatus, TableDropdown } from '@ant-design/pro-table';
+import { TableDropdown, TableStatus } from '@ant-design/pro-table';
 import { Input, message } from 'antd';
+import dayjs from 'dayjs';
 
 const getFetchData = (
   size: number,
@@ -35,7 +34,7 @@ const getFetchData = (
       status: Math.floor(i) % 4,
       sex: i / 2 > 1 ? 'man' : 'woman',
       money: parseFloat((10000.26 * (i + 1)).toFixed(2)),
-      date: moment('2019-11-16 12:50:26').valueOf() + i * 1000 * 60 * 2,
+      date: dayjs('2019-11-16 12:50:26').valueOf() + i * 1000 * 60 * 2,
       address: `London, Park Lane no. ${i}`,
     });
   }
@@ -126,7 +125,7 @@ export const columns: ProColumns[] = [
     key: 'time',
     dataIndex: 'date',
     valueType: 'time',
-    renderText: () => moment('2019-11-16 12:50:26'),
+    renderText: () => dayjs('2019-11-16 12:50:26'),
   },
   {
     title: '状态',
@@ -182,8 +181,8 @@ export const columns: ProColumns[] = [
 export { getFetchData };
 
 export const request = (params?: {
-  pageSize?: number | undefined;
-  current?: number | undefined;
+  pageSize?: number;
+  current?: number;
 }): Promise<{
   data: {
     key: string | number;

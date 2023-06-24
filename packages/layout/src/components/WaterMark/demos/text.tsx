@@ -1,6 +1,5 @@
 /** Title: 文字水印 */
-import React from 'react';
-import { WaterMark } from '@ant-design/pro-layout';
+import { WaterMark } from '@ant-design/pro-components';
 
 export default () => (
   <WaterMark content="蚂蚁集团">

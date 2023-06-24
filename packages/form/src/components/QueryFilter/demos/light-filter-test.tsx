@@ -1,14 +1,15 @@
-import React from 'react';
-import ProForm, {
+import {
   LightFilter,
-  ProFormText,
-  ProFormSelect,
+  ProForm,
   ProFormDigit,
+  ProFormSelect,
   ProFormSlider,
-} from '@ant-design/pro-form';
+  ProFormText,
+} from '@ant-design/pro-components';
 import { Radio } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import React from 'react';
 
 export default () => {
   const [size, setSize] = React.useState<SizeType>('middle');
@@ -27,7 +28,6 @@ export default () => {
       <br />
       <LightFilter<{
         sex: string;
-        company: string;
       }>
         initialValues={{
           name1: 'yutingzhao1991',
@@ -45,12 +45,12 @@ export default () => {
             },
           ],
           datetimeRanger: [
-            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            moment('2019-11-16 12:50:26').valueOf(),
+            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            dayjs('2019-11-16 12:50:26').valueOf(),
           ],
           timeRanger: [
-            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            moment('2019-11-16 12:50:26').valueOf(),
+            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            dayjs('2019-11-16 12:50:26').valueOf(),
           ],
         }}
         size={size}
@@ -83,7 +83,7 @@ export default () => {
         <ProForm.Group label="范围组">
           <ProFormDigit name="count" label="数量" />
           <ProFormSlider name="range" label="范围" range />
-          <ProFormSlider name="slider" label="范围" range />
+          <ProFormSlider name="slider" label="范围" />
         </ProForm.Group>
         <ProFormText name="name1" label="名称" />
       </LightFilter>

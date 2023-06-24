@@ -1,12 +1,12 @@
-﻿import React from 'react';
-import ProForm, {
+﻿import {
+  ProCard,
+  ProForm,
+  ProFormDependency,
   ProFormGroup,
   ProFormList,
-  ProFormText,
   ProFormSwitch,
-  ProFormDependency,
-} from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
+  ProFormText,
+} from '@ant-design/pro-components';
 
 const Demo = () => {
   return (
@@ -27,7 +27,7 @@ const Demo = () => {
               extra={action}
               title={record?.name}
               style={{
-                marginBottom: 8,
+                marginBlockEnd: 8,
               }}
             >
               {listDom}

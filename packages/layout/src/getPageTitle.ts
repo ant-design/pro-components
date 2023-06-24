@@ -1,25 +1,32 @@
 import pathToRegexp from 'path-to-regexp';
-import type { MenuDataItem } from './typings';
 import type { ProSettings } from './defaultSettings';
+import type { MenuDataItem } from './typing';
 
+type BreadcrumbItem = Omit<MenuDataItem, 'children' | 'routes'> & {
+  routes?: BreadcrumbItem;
+};
 export const matchParamsPath = (
   pathname: string,
-  breadcrumb?: Record<string, MenuDataItem>,
-  breadcrumbMap?: Map<string, MenuDataItem>,
-): MenuDataItem => {
+  breadcrumb?: Record<string, BreadcrumbItem>,
+  breadcrumbMap?: Map<string, BreadcrumbItem>,
+): BreadcrumbItem => {
   // Internal logic use breadcrumbMap to ensure the order
   // 内部逻辑使用 breadcrumbMap 来确保查询顺序
   if (breadcrumbMap) {
-    const pathKey = [...breadcrumbMap.keys()].find((key) => pathToRegexp(key).test(pathname));
+    const pathKey = [...breadcrumbMap.keys()].find((key) =>
+      pathToRegexp(key).test(pathname),
+    );
     if (pathKey) {
-      return breadcrumbMap.get(pathKey) as MenuDataItem;
+      return breadcrumbMap.get(pathKey) as BreadcrumbItem;
     }
   }
 
   // External uses use breadcrumb
   // 外部用户使用 breadcrumb 参数
   if (breadcrumb) {
-    const pathKey = Object.keys(breadcrumb).find((key) => pathToRegexp(key).test(pathname));
+    const pathKey = Object.keys(breadcrumb).find((key) =>
+      pathToRegexp(key).test(pathname),
+    );
 
     if (pathKey) {
       return breadcrumb[pathKey];
@@ -33,8 +40,8 @@ export const matchParamsPath = (
 
 export type GetPageTitleProps = {
   pathname?: string;
-  breadcrumb?: Record<string, MenuDataItem>;
-  breadcrumbMap?: Map<string, MenuDataItem>;
+  breadcrumb?: Record<string, BreadcrumbItem>;
+  breadcrumbMap?: Map<string, BreadcrumbItem>;
   menu?: ProSettings['menu'];
   title?: ProSettings['title'];
   pageName?: string;
@@ -47,7 +54,7 @@ export type GetPageTitleProps = {
  * @param props
  * @param ignoreTitle
  */
-const getPageTitleInfo = (
+export const getPageTitleInfo = (
   props: GetPageTitleProps,
   ignoreTitle?: boolean,
 ): {
@@ -107,10 +114,9 @@ const getPageTitleInfo = (
   };
 };
 
-export { getPageTitleInfo };
-
-const getPageTitle = (props: GetPageTitleProps, ignoreTitle?: boolean) => {
+export const getPageTitle = (
+  props: GetPageTitleProps,
+  ignoreTitle?: boolean,
+) => {
   return getPageTitleInfo(props, ignoreTitle).title;
 };
-
-export default getPageTitle;

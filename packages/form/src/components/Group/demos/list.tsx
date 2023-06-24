@@ -1,14 +1,15 @@
-﻿import React, { useState } from 'react';
-import ProForm, {
-  ProFormRadio,
-  ProFormList,
-  ProFormText,
-  ProFormFieldSet,
-  ProFormDigit,
-  ProFormSelect,
+﻿import {
+  ProForm,
   ProFormDatePicker,
+  ProFormDigit,
+  ProFormFieldSet,
   ProFormGroup,
-} from '@ant-design/pro-form';
+  ProFormList,
+  ProFormRadio,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-components';
+import { useState } from 'react';
 
 const Demo = () => {
   const [position, setPosition] = useState<'bottom' | 'top'>('bottom');
@@ -36,13 +37,24 @@ const Demo = () => {
         }}
       >
         <ProFormText width="sm" name="id" label="主合同编号" />
-        <ProFormText name="project" width="md" label="项目名称" initialValue="xxxx项目" />
-        <ProFormText width="xs" name="mangerName" label="商务经理" initialValue="启途" />
+        <ProFormText
+          name="project"
+          width="md"
+          label="项目名称"
+          initialValue="xxxx项目"
+        />
+        <ProFormText
+          width="xs"
+          name="mangerName"
+          label="商务经理"
+          initialValue="启途"
+        />
         <ProFormList
           name="users"
           label="用户信息"
           rules={[
             {
+              required: true,
               validator: async (_, value) => {
                 console.log(value);
                 if (value && value.length > 0) {
@@ -69,7 +81,7 @@ const Demo = () => {
             },
           ]}
         >
-          <ProFormGroup>
+          <ProFormGroup key="group">
             <ProFormText
               rules={[
                 {

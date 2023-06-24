@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import { ProDescriptions } from '@ant-design/pro-components';
 import { Input, Tooltip } from 'antd';
-
-import ProDescriptions from '@ant-design/pro-descriptions';
+import { useRef } from 'react';
 
 export default () => {
   const actionRef = useRef();
@@ -32,6 +31,8 @@ export default () => {
           title: '文本',
           key: 'text',
           dataIndex: 'id',
+          copyable: true,
+          ellipsis: true,
         },
         {
           title: '状态',
@@ -56,9 +57,27 @@ export default () => {
           key: 'state2',
           dataIndex: 'state2',
           renderFormItem: () => {
-            return <Input />;
+            return <Input placeholder="输入 Success 切换分值" />;
           },
         },
+        {
+          title: '分值',
+          dataIndex: 'fraction',
+          valueType: (record) => {
+            const scoringMethod = record?.state2;
+            if (scoringMethod === 'Success') return 'select';
+            return 'digit';
+          },
+          fieldProps: {
+            mode: 'multiple',
+          },
+          request: async () =>
+            ['A', 'B', 'D', 'E', 'F'].map((item, index) => ({
+              label: item,
+              value: index,
+            })),
+        },
+
         {
           title: '时间',
           key: 'date',
@@ -107,7 +126,11 @@ export default () => {
         },
       ]}
     >
-      <ProDescriptions.Item dataIndex="percent" label="百分比" valueType="percent">
+      <ProDescriptions.Item
+        dataIndex="percent"
+        label="百分比"
+        valueType="percent"
+      >
         100
       </ProDescriptions.Item>
     </ProDescriptions>

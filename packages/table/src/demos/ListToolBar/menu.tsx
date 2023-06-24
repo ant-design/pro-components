@@ -1,9 +1,11 @@
-import React from 'react';
-import { Button } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
-import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import {
+  LightFilter,
+  ProFormDatePicker,
+  ProTable,
+} from '@ant-design/pro-components';
+import { Button } from 'antd';
 
 export type TableListItem = {
   key: number;
@@ -99,7 +101,7 @@ export default () => {
           </Button>,
         ],
         menu: {
-          type: 'dropdown',
+          type: 'tab',
           items: [
             {
               label: '全部事项',
@@ -108,6 +110,30 @@ export default () => {
             {
               label: '已办事项',
               key: 'done',
+            },
+            {
+              key: 'tab1',
+              label: <span>应用</span>,
+            },
+            {
+              key: 'tab2',
+              label: <span>项目</span>,
+            },
+            {
+              key: 'tab3',
+              label: <span>文章</span>,
+            },
+            {
+              key: 'tab4',
+              label: <span>文章1</span>,
+            },
+            {
+              key: 'tab5',
+              label: <span>文章2</span>,
+            },
+            {
+              key: 'tab6',
+              label: <span>文章3</span>,
             },
           ],
           onChange: (activeKey) => {

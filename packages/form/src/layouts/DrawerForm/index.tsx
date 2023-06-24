@@ -1,43 +1,65 @@
-﻿import React, {
+﻿import { openVisibleCompatible, useRefFunction } from '@ant-design/pro-utils';
+import type { DrawerProps, FormProps } from 'antd';
+import { ConfigProvider, Drawer } from 'antd';
+import merge from 'lodash.merge';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { noteOnce } from 'rc-util/lib/warning';
+import React, {
+  useCallback,
   useContext,
   useEffect,
-  useMemo,
   useImperativeHandle,
+  useMemo,
   useRef,
   useState,
 } from 'react';
-import type { DrawerProps, FormInstance, FormProps } from 'antd';
-import { ConfigProvider, Drawer } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { createPortal } from 'react-dom';
-import omit from 'omit.js';
+import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 
-import type { CommonFormProps } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
-import { noteOnce } from 'rc-util/lib/warning';
-import ScrollLocker from 'rc-util/lib/Dom/scrollLocker';
-
-export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
+export type DrawerFormProps<T = Record<string, any>> = Omit<
+  FormProps,
+  'onFinish' | 'title'
+> &
   CommonFormProps<T> & {
     /**
-     * 接受返回一个boolean，返回 true 会关掉这个抽屉
+     * 接收任意值，返回 真值 会关掉这个抽屉
      *
      * @name 表单结束后调用
+     *
+     * @example 结束后关闭抽屉
+     * onFinish: async ()=> {await save(); return true}
+     *
+     * @example 结束后不关闭抽屉
+     * onFinish: async ()=> {await save(); return false}
      */
-    onFinish?: (formData: T) => Promise<boolean | void>;
+    onFinish?: (formData: T) => Promise<any>;
 
-    /** @name 用于触发抽屉打开的 dom */
+    /** @name 提交数据时，禁用取消按钮的超时时间（毫秒）。 */
+    submitTimeout?: number;
+
+    /** @name 用于触发抽屉打开的 dom ，只能设置一个*/
     trigger?: JSX.Element;
 
-    /** @name 受控的打开关闭 */
-    visible?: DrawerProps['visible'];
-
-    /** @name 打开关闭的事件 */
+    /**
+     * @deprecated use onOpenChange replace
+     */
     onVisibleChange?: (visible: boolean) => void;
+    /**
+     * @deprecated use open replace
+     */
+    visible?: boolean;
+
+    /** @name 受控的打开关闭 */
+    open?: DrawerProps['open'];
+
+    /**
+     * @name 打开关闭的事件 */
+    onOpenChange?: (visible: boolean) => void;
     /**
      * 不支持 'visible'，请使用全局的 visible
      *
-     * @name 抽屉的属性
+     * @name 抽屉的配置
      */
     drawerProps?: Omit<DrawerProps, 'visible'>;
 
@@ -54,206 +76,210 @@ function DrawerForm<T = Record<string, any>>({
   onVisibleChange,
   drawerProps,
   onFinish,
+  submitTimeout,
   title,
   width,
+  onOpenChange,
+  visible: propVisible,
+  open: propsOpen,
   ...rest
 }: DrawerFormProps<T>) {
-  const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
-    value: rest.visible,
-    onChange: onVisibleChange,
-  });
-  const [key, setKey] = useMergedState<number>(0);
-  const context = useContext(ConfigProvider.ConfigContext);
-
-  const renderDom = useMemo(() => {
-    if (drawerProps?.getContainer === false) {
-      return false;
-    }
-    if (drawerProps?.getContainer) {
-      if (typeof drawerProps?.getContainer === 'function') {
-        return drawerProps?.getContainer?.();
-      }
-      if (typeof drawerProps?.getContainer === 'string') {
-        return document.getElementById(drawerProps?.getContainer);
-      }
-      return drawerProps?.getContainer;
-    }
-    return context?.getPopupContainer?.(document.body);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context, drawerProps, visible]);
-
-  const [scrollLocker] = useState(() => {
-    if (typeof window === 'undefined') return undefined;
-    return new ScrollLocker({
-      container: renderDom || document.body,
-    });
-  });
-
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
+  const context = useContext(ConfigProvider.ConfigContext);
 
-  useEffect(() => {
-    if (visible) {
-      scrollLocker?.lock();
-    } else {
-      scrollLocker?.unLock();
-    }
-    if (visible && rest.visible) {
-      onVisibleChange?.(true);
-    }
+  const [, forceUpdate] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-    // 如果打开了窗口，并且是用户设置的 visible，就触发一下重新更新
-    if (visible && rest.visible && drawerProps?.destroyOnClose) {
-      setKey(key + 1);
-    }
+  const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
+    value: propsOpen || propVisible,
+    onChange: onOpenChange || onVisibleChange,
+  });
 
-    return () => {
-      if (!visible) scrollLocker?.unLock?.();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [visible]);
+  const footerRef = useRef<HTMLDivElement | null>(null);
 
-  /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
-  const isFirstRender = useRef(!drawerProps?.forceRender);
-
-  /**
-   * IsFirstRender.current 或者 visible 为 true 的时候就渲染 不渲染能会造成一些问题,比如再次打开值不对了 只有手动配置
-   * drawerProps?.destroyOnClose 为 true 的时候才会每次关闭的时候删除 dom
-   */
-  const shouldRenderFormItems = useMemo(() => {
-    if (isFirstRender.current && visible === false) {
-      return false;
-    }
-    if (visible === false && drawerProps?.destroyOnClose) {
-      return false;
-    }
-    return true;
-  }, [visible, drawerProps?.destroyOnClose]);
-  /** 同步 props 和 本地 */
-  const formRef = useRef<FormInstance>();
-
-  /** 如果 destroyOnClose ，重置一下表单 */
-  useEffect(() => {
-    if (visible) {
-      isFirstRender.current = false;
-    }
-  }, [drawerProps?.destroyOnClose, visible]);
-
-  useEffect(
-    () => () => {
-      scrollLocker?.unLock?.();
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback(
+    (element) => {
+      if (footerRef.current === null && element) {
+        forceUpdate([]);
+      }
+      footerRef.current = element;
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
 
-  useImperativeHandle(rest.formRef, () => formRef.current);
+  const formRef = useRef<ProFormInstance>();
 
-  const formDom = (
-    <div onClick={(e) => e.stopPropagation()}>
-      <BaseForm
-        formComponentType="DrawerForm"
-        layout="vertical"
-        key={key}
-        {...omit(rest, ['visible'])}
-        formRef={formRef}
-        submitter={
-          rest.submitter === false
-            ? false
-            : {
-                ...rest.submitter,
-                searchConfig: {
-                  submitText: '确认',
-                  resetText: '取消',
-                  ...rest.submitter?.searchConfig,
-                },
-                resetButtonProps: {
-                  preventDefault: true,
-                  onClick: (e: any) => {
-                    setVisible(false);
-                    drawerProps?.onClose?.(e);
-                  },
-                  ...rest.submitter?.resetButtonProps,
-                },
-              }
-        }
-        onFinish={async (values) => {
-          if (!onFinish) {
-            return;
-          }
-          const success = await onFinish(values);
-          if (success) {
-            setVisible(false);
-            setTimeout(() => {
-              if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
-            }, 300);
-          }
-        }}
-        contentRender={(item, submitter) => {
-          return (
-            <Drawer
-              title={title}
-              width={width || 800}
-              {...drawerProps}
-              getContainer={false}
-              visible={visible}
-              onClose={(e) => {
-                setVisible(false);
-                drawerProps?.onClose?.(e);
-              }}
-              footer={
-                !!submitter && (
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'flex-end',
-                    }}
-                  >
-                    {submitter}
-                  </div>
-                )
-              }
-            >
-              {shouldRenderFormItems ? item : null}
-            </Drawer>
-          );
-        }}
-      >
-        {children}
-      </BaseForm>
-    </div>
+  const resetFields = useCallback(() => {
+    const form = rest.formRef?.current ?? rest.form ?? formRef.current;
+    // 重置表单
+    if (form && drawerProps?.destroyOnClose) {
+      form.resetFields();
+    }
+  }, [drawerProps?.destroyOnClose, rest.form, rest.formRef]);
+
+  useEffect(() => {
+    if (open && (propsOpen || propVisible)) {
+      onOpenChange?.(true);
+      onVisibleChange?.(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [propVisible, open]);
+
+  useImperativeHandle(
+    rest.formRef,
+    () => {
+      return formRef.current;
+    },
+    [formRef.current],
   );
-  /** 这个是为了支持 ssr */
-  const portalRenderDom = useMemo(() => {
-    if (typeof window === 'undefined') return undefined;
-    return renderDom || document.body;
-  }, [renderDom]);
 
-  const triggerDom = (
-    <React.Fragment key="trigger">
-      {trigger &&
-        React.cloneElement(trigger, {
-          ...trigger.props,
-          onClick: async (e: any) => {
-            setVisible(!visible);
-            trigger.props?.onClick?.(e);
+  const triggerDom = useMemo(() => {
+    if (!trigger) {
+      return null;
+    }
+
+    return React.cloneElement(trigger, {
+      key: 'trigger',
+      ...trigger.props,
+      onClick: async (e: any) => {
+        setOpen(!open);
+        trigger.props?.onClick?.(e);
+      },
+    });
+  }, [setOpen, trigger, open]);
+
+  const submitterConfig = useMemo(() => {
+    if (rest.submitter === false) {
+      return false;
+    }
+
+    return merge(
+      {
+        searchConfig: {
+          submitText: context.locale?.Modal?.okText ?? '确认',
+          resetText: context.locale?.Modal?.cancelText ?? '取消',
+        },
+        resetButtonProps: {
+          preventDefault: true,
+          // 提交表单loading时，不可关闭弹框
+          disabled: submitTimeout ? loading : undefined,
+          onClick: (e: any) => {
+            setOpen(false);
+            // fix: #6006 点击取消按钮时,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
+            drawerProps?.onClose?.(e);
           },
-        })}
-    </React.Fragment>
-  );
-  /** 如果destroyOnClose，关闭的时候解除渲染Form */
-  if (drawerProps?.destroyOnClose && !visible) return triggerDom;
+        },
+      },
+      rest.submitter,
+    );
+  }, [
+    rest.submitter,
+    context.locale?.Modal?.okText,
+    context.locale?.Modal?.cancelText,
+    submitTimeout,
+    loading,
+    setOpen,
+    drawerProps,
+  ]);
 
-  /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
+  const contentRender = useCallback((formDom: any, submitter: any) => {
+    return (
+      <>
+        {formDom}
+        {footerRef.current && submitter ? (
+          <React.Fragment key="submitter">
+            {createPortal(submitter, footerRef.current)}
+          </React.Fragment>
+        ) : (
+          submitter
+        )}
+      </>
+    );
+  }, []);
+
+  const onFinishHandle = useRefFunction(async (values: T) => {
+    const response = onFinish?.(values);
+    if (submitTimeout && response instanceof Promise) {
+      setLoading(true);
+      const timer = setTimeout(() => setLoading(false), submitTimeout);
+      response.finally(() => {
+        clearTimeout(timer);
+        setLoading(false);
+      });
+    }
+    const result = await response;
+    // 返回真值，关闭弹框
+    if (result) {
+      setOpen(false);
+    }
+    return result;
+  });
+
+  const drawerOpenProps = openVisibleCompatible(open, onVisibleChange);
+
   return (
     <>
-      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
+      <Drawer
+        title={title}
+        width={width || 800}
+        {...drawerProps}
+        {...drawerOpenProps}
+        afterOpenChange={(e) => {
+          if (!e) resetFields();
+          drawerProps?.afterOpenChange?.(e);
+        }}
+        onClose={(e) => {
+          // 提交表单loading时，阻止弹框关闭
+          if (submitTimeout && loading) return;
+          setOpen(false);
+          drawerProps?.onClose?.(e);
+        }}
+        footer={
+          rest.submitter !== false && (
+            <div
+              ref={footerDomRef}
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+              }}
+            />
+          )
+        }
+      >
+        <>
+          <BaseForm
+            formComponentType="DrawerForm"
+            layout="vertical"
+            formRef={formRef}
+            {...rest}
+            onInit={(_, form) => {
+              if (rest.formRef) {
+                (
+                  rest.formRef as React.MutableRefObject<ProFormInstance<T>>
+                ).current = form;
+              }
+              rest?.onInit?.(_, form);
+              formRef.current = form;
+            }}
+            submitter={submitterConfig}
+            onFinish={async (values) => {
+              const result = await onFinishHandle(values);
+              // fix: #6006 如果 result 为 true,那么必然会触发抽屉关闭，我们无需在 此处重置表单，只需在抽屉关闭时重置即可
+              return result;
+            }}
+            contentRender={contentRender}
+          >
+            {children}
+          </BaseForm>
+        </>
+      </Drawer>
       {triggerDom}
     </>
   );
 }
 
-export default DrawerForm;
+export { DrawerForm };

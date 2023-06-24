@@ -1,8 +1,11 @@
+import type { ProColumns } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProForm,
+  ProFormText,
+} from '@ant-design/pro-components';
+import { Input, message } from 'antd';
 import React, { useState } from 'react';
-import { message } from 'antd';
-import ProForm, { ProFormText } from '@ant-design/pro-form';
-import type { ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -27,14 +30,14 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     decs: '这个活动真好玩',
     state: 'open',
-    created_at: '2020-05-26T09:42:56Z',
+    created_at: '1590486176000',
   },
   {
     id: 624691229,
     title: '活动名称二',
     decs: '这个活动真好玩',
     state: 'closed',
-    created_at: '2020-05-26T08:19:22Z',
+    created_at: '1590481162000',
   },
 ];
 
@@ -64,6 +67,10 @@ const columns: ProColumns<DataSourceType>[] = [
   {
     title: '描述',
     dataIndex: 'decs',
+    renderFormItem: (_, { record }) => {
+      console.log('----===>', record);
+      return <Input addonBefore={(record as any)?.addonBefore} />;
+    },
   },
   {
     title: '操作',
@@ -98,7 +105,12 @@ export default () => {
           tooltip="最长为 24 位"
           placeholder="请输入名称"
         />
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ProForm.Group>
       <ProFormText width="sm" name="id" label="主合同编号" />
       <ProForm.Item
@@ -116,6 +128,8 @@ export default () => {
             position: 'top',
             record: () => ({
               id: Date.now(),
+              addonBefore: 'ccccccc',
+              decs: 'testdesc',
             }),
           }}
           editable={{

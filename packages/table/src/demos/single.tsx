@@ -1,9 +1,20 @@
-import React, { useRef } from 'react';
-import { PlusOutlined, EllipsisOutlined } from '@ant-design/icons';
-import { Button, Tag, Space, Menu, Dropdown } from 'antd';
-import type { ProColumns, ActionType } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import { EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
+import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import { Button, Dropdown, Space, Tag } from 'antd';
+import { useRef } from 'react';
 import request from 'umi-request';
+export const waitTimePromise = async (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
+
+export const waitTime = async (time: number = 100) => {
+  await waitTimePromise(time);
+};
 
 type GithubIssueItem = {
   url: string;
@@ -43,13 +54,15 @@ const columns: ProColumns<GithubIssueItem>[] = [
     },
   },
   {
+    disable: true,
     title: '状态',
     dataIndex: 'state',
     filters: true,
     onFilter: true,
+    ellipsis: true,
     valueType: 'select',
     valueEnum: {
-      all: { text: '全部', status: 'Default' },
+      all: { text: '超长'.repeat(50) },
       open: {
         text: '未解决',
         status: 'Error',
@@ -66,6 +79,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     },
   },
   {
+    disable: true,
     title: '标签',
     dataIndex: 'labels',
     search: false,
@@ -86,7 +100,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '创建时间',
     key: 'showTime',
     dataIndex: 'created_at',
-    valueType: 'dateTime',
+    valueType: 'date',
     sorter: true,
     hideInSearch: true,
   },
@@ -107,6 +121,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '操作',
     valueType: 'option',
+    key: 'option',
     render: (text, record, _, action) => [
       <a
         key="editable"
@@ -131,22 +146,16 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
 ];
 
-const menu = (
-  <Menu>
-    <Menu.Item key="1">1st item</Menu.Item>
-    <Menu.Item key="2">2nd item</Menu.Item>
-    <Menu.Item key="3">3rd item</Menu.Item>
-  </Menu>
-);
-
 export default () => {
   const actionRef = useRef<ActionType>();
   return (
     <ProTable<GithubIssueItem>
       columns={columns}
       actionRef={actionRef}
+      cardBordered
       request={async (params = {}, sort, filter) => {
         console.log(sort, filter);
+        await waitTime(2000);
         return request<{
           data: GithubIssueItem[];
         }>('https://proapi.azurewebsites.net/github/issues', {
@@ -159,10 +168,18 @@ export default () => {
       columnsState={{
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
+        onChange(value) {
+          console.log('value: ', value);
+        },
       }}
       rowKey="id"
       search={{
         labelWidth: 'auto',
+      }}
+      options={{
+        setting: {
+          listsHeight: 400,
+        },
       }}
       form={{
         // 由于配置了 transform，提交的参与与定义的不同这里需要转化一下
@@ -178,14 +195,40 @@ export default () => {
       }}
       pagination={{
         pageSize: 5,
+        onChange: (page) => console.log(page),
       }}
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [
-        <Button key="button" icon={<PlusOutlined />} type="primary">
+        <Button
+          key="button"
+          icon={<PlusOutlined />}
+          onClick={() => {
+            actionRef.current?.reload();
+          }}
+          type="primary"
+        >
           新建
         </Button>,
-        <Dropdown key="menu" overlay={menu}>
+        <Dropdown
+          key="menu"
+          menu={{
+            items: [
+              {
+                label: '1st item',
+                key: '1',
+              },
+              {
+                label: '2nd item',
+                key: '1',
+              },
+              {
+                label: '3rd item',
+                key: '1',
+              },
+            ],
+          }}
+        >
           <Button>
             <EllipsisOutlined />
           </Button>

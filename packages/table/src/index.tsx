@@ -1,37 +1,44 @@
+import { FieldIndexColumn, FieldStatus } from '@ant-design/pro-field';
 import type { IntlType } from '@ant-design/pro-provider';
 import {
-  ConfigProviderWrap,
-  ConfigProvider,
+  arEGIntl,
+  caESIntl,
   ConfigConsumer,
   createIntl,
-  arEGIntl,
-  zhCNIntl,
   enUSIntl,
-  viVNIntl,
+  esESIntl,
+  frFRIntl,
   itITIntl,
   jaJPIntl,
-  esESIntl,
-  ruRUIntl,
   msMYIntl,
-  zhTWIntl,
-  frFRIntl,
   ptBRIntl,
+  ruRUIntl,
+  thTHIntl,
+  viVNIntl,
+  zhCNIntl,
+  zhTWIntl,
 } from '@ant-design/pro-provider';
-import type { ProFieldValueType, RowEditableConfig } from '@ant-design/pro-utils';
-
-import { FieldStatus, FieldIndexColumn } from '@ant-design/pro-field';
-import ProTable from './Table';
-import TableDropdown from './components/Dropdown';
-import type { ListToolBarProps } from './components/ListToolBar';
-import ListToolBar from './components/ListToolBar';
-
-import Search from './components/Form';
-import cellRenderToFromItem from './utils/cellRenderToFromItem';
-import type { ColumnsState } from './container';
-import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
-import EditableProTable from './components/EditableTable';
+import type {
+  ProFieldValueType,
+  RowEditableConfig,
+} from '@ant-design/pro-utils';
 import type { DragTableProps } from './components/DragSortTable';
 import DragSortTable from './components/DragSortTable';
+import TableDropdown from './components/Dropdown';
+import type { EditableFormInstance } from './components/EditableTable';
+import EditableProTable from './components/EditableTable';
+import Search from './components/Form';
+import type { ListToolBarProps } from './components/ListToolBar';
+import ListToolBar from './components/ListToolBar';
+import type { ColumnsState } from './Store/Provide';
+import ProTable from './Table';
+import type {
+  ActionType,
+  ProColumns,
+  ProColumnType,
+  ProTableProps,
+  RequestData,
+} from './typing';
 
 type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;
@@ -40,6 +47,7 @@ export type {
   ProTableProps,
   IntlType,
   ActionType,
+  EditableFormInstance,
   TableRowEditable,
   ColumnsState,
   ProColumnsValueType,
@@ -49,22 +57,17 @@ export type {
   ListToolBarProps,
   DragTableProps,
 };
-
 export {
-  ConfigProviderWrap,
   TableDropdown,
   ListToolBar,
   FieldStatus as TableStatus,
   Search,
   EditableProTable,
   DragSortTable,
-  ConfigProvider as IntlProvider,
-  ConfigProvider,
   ConfigConsumer as IntlConsumer,
   ConfigConsumer,
   zhCNIntl,
   FieldIndexColumn as IndexColumn,
-  cellRenderToFromItem as defaultRenderText,
   createIntl,
   arEGIntl,
   enUSIntl,
@@ -72,11 +75,14 @@ export {
   itITIntl,
   jaJPIntl,
   esESIntl,
+  caESIntl,
   ruRUIntl,
   msMYIntl,
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
+  thTHIntl,
+  ProTable,
 };
 
 export default ProTable;

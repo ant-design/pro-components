@@ -1,36 +1,44 @@
-﻿import React, { useState, useEffect } from 'react';
-import { Form, Popover } from 'antd';
+﻿import { LoadingOutlined } from '@ant-design/icons';
 import type { FormItemProps, PopoverProps } from 'antd';
+import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
-import './index.less';
-import { LoadingOutlined } from '@ant-design/icons';
+import get from 'rc-util/lib/utils/get';
+import React, { useContext, useEffect, useState } from 'react';
+import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
+import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   popoverProps?: PopoverProps;
+  children: any;
 }
 
 interface InternalProps extends InlineErrorFormItemProps {
   name: NamePath;
   rules: FormItemProps['rules'];
+  children: any;
 }
 
 const FIX_INLINE_STYLE = {
-  marginTop: -5,
-  marginBottom: -5,
-  marginLeft: 0,
-  marginRight: 0,
+  marginBlockStart: -5,
+  marginBlockEnd: -5,
+  marginInlineStart: 0,
+  marginInlineEnd: 0,
 };
 
-const InlineErrorFormItem: React.FC<{
+const InlineErrorFormItemPopover: React.FC<{
   inputProps: any;
   input: JSX.Element;
   errorList: JSX.Element;
   extra: JSX.Element;
   popoverProps?: PopoverProps;
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
-  const [visible, setVisible] = useState<boolean | undefined>(false);
+  const [open, setOpen] = useState<boolean | undefined>(false);
   const [errorStringList, setErrorList] = useState<string[]>([]);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls();
+
+  const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);
 
   useEffect(() => {
     if (inputProps.validateStatus !== 'validating') {
@@ -38,22 +46,31 @@ const InlineErrorFormItem: React.FC<{
     }
   }, [inputProps.errors, inputProps.validateStatus]);
 
+  const popoverOpenProps = openVisibleCompatible(
+    errorStringList.length < 1 ? false : open,
+    (changeOpen: boolean) => {
+      if (changeOpen === open) return;
+      setOpen(changeOpen);
+    },
+  );
+
+  const loading = inputProps.validateStatus === 'validating';
+
   return (
     <Popover
       key="popover"
       trigger={popoverProps?.trigger || 'focus'}
       placement={popoverProps?.placement || 'topRight'}
-      visible={errorStringList.length < 1 ? false : visible}
-      onVisibleChange={(visibleParams) => {
-        if (visibleParams === visible) return;
-        setVisible(visibleParams);
-      }}
-      content={
-        <div className="ant-form-item-with-help">
-          {inputProps.validateStatus === 'validating' ? <LoadingOutlined /> : null}
+      {...popoverOpenProps}
+      getPopupContainer={popoverProps?.getPopupContainer}
+      getTooltipContainer={popoverProps?.getTooltipContainer}
+      content={wrapSSR(
+        <div className={`${prefixCls}-form-item-with-help ${hashId}`.trim()}>
+          {loading ? <LoadingOutlined /> : null}
           {errorList}
-        </div>
-      }
+        </div>,
+      )}
+      {...popoverProps}
     >
       <div>
         {input}
@@ -63,8 +80,7 @@ const InlineErrorFormItem: React.FC<{
   );
 };
 
-const InternalFormItem: React.FC<InternalProps> = ({
-  label,
+const InternalFormItemFunction: React.FC<InternalProps & FormItemProps> = ({
   rules,
   name,
   children,
@@ -73,10 +89,24 @@ const InternalFormItem: React.FC<InternalProps> = ({
 }) => {
   return (
     <Form.Item
-      preserve={false}
       name={name}
       rules={rules}
-      hasFeedback
+      hasFeedback={false}
+      shouldUpdate={(prev, next) => {
+        if (prev === next) return false;
+        const shouldName = [name].flat(1);
+        if (shouldName.length > 1) {
+          shouldName.pop();
+        }
+        try {
+          return (
+            JSON.stringify(get(prev, shouldName)) !==
+            JSON.stringify(get(next, shouldName))
+          );
+        } catch (error) {
+          return true;
+        }
+      }}
       // @ts-ignore
       _internalItemRender={{
         mark: 'pro_table_render',
@@ -89,7 +119,13 @@ const InternalFormItem: React.FC<InternalProps> = ({
             errorList: JSX.Element;
             extra: JSX.Element;
           },
-        ) => <InlineErrorFormItem inputProps={inputProps} {...doms} />,
+        ) => (
+          <InlineErrorFormItemPopover
+            inputProps={inputProps}
+            popoverProps={popoverProps}
+            {...doms}
+          />
+        ),
       }}
       {...rest}
       style={{
@@ -102,18 +138,47 @@ const InternalFormItem: React.FC<InternalProps> = ({
   );
 };
 
-export default (props: InlineErrorFormItemProps) => {
+export const InlineErrorFormItem = (props: InlineErrorFormItemProps) => {
   const { errorType, rules, name, popoverProps, children, ...rest } = props;
 
   if (name && rules?.length && errorType === 'popover') {
     return (
-      <InternalFormItem name={name} rules={rules!} popoverProps={popoverProps} {...rest}>
+      <InternalFormItemFunction
+        name={name}
+        rules={rules!}
+        popoverProps={popoverProps}
+        {...rest}
+      >
         {children}
-      </InternalFormItem>
+      </InternalFormItemFunction>
     );
   }
   return (
-    <Form.Item rules={rules} {...rest} style={{ ...FIX_INLINE_STYLE, ...rest.style }} name={name}>
+    <Form.Item
+      rules={rules}
+      shouldUpdate={
+        name
+          ? (prev, next) => {
+              if (prev === next) return false;
+              const shouldName = [name].flat(1);
+              if (shouldName.length > 1) {
+                shouldName.pop();
+              }
+              try {
+                return (
+                  JSON.stringify(get(prev, shouldName)) !==
+                  JSON.stringify(get(next, shouldName))
+                );
+              } catch (error) {
+                return true;
+              }
+            }
+          : undefined
+      }
+      {...rest}
+      style={{ ...FIX_INLINE_STYLE, ...rest.style }}
+      name={name}
+    >
       {children}
     </Form.Item>
   );

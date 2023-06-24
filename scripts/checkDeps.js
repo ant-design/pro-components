@@ -3,12 +3,9 @@ const parser = require('@babel/parser');
 const traverse = require('@babel/traverse');
 const t = require('babel-types');
 const glob = require('glob');
-const slash = require('slash');
+const slash = require('slash2');
 const fs = require('fs');
-const ora = require('ora');
 const { join, posix } = require('path');
-
-const spinner = ora();
 
 const peerDependencies = ['antd', 'react', 'rc-field-form'];
 
@@ -35,7 +32,9 @@ const checkDepsByAst = (ast, filePath) => {
           }
 
           if (importPath.startsWith('.')) {
-            const importFile = slash(join(__dirname, '..', filePath, '..', importPath));
+            const importFile = slash(
+              join(__dirname, '..', filePath, '..', importPath),
+            );
             if (importFile.split('.').length > 1) {
               if (fs.existsSync(`${importFile}`)) return;
               resolve({
@@ -59,18 +58,27 @@ const checkDepsByAst = (ast, filePath) => {
             }
           }
           if (!importPath.startsWith('.') && path.node.importKind !== 'type') {
-            const packagePath = slash(filePath.split(posix.sep).splice(0, 2).join(posix.sep));
+            const packagePath = slash(
+              filePath.split(posix.sep).splice(0, 2).join(posix.sep),
+            );
             try {
+              if (importPath.includes('@ant-design/pro')) return;
               // 检查包在不在
               require.resolve(importPath, {
                 paths: [slash(join(__dirname, '..', packagePath))],
               });
-              if (peerDependencies.every((item) => !importPath.startsWith(item))) {
+              if (
+                peerDependencies.every((item) => !importPath.startsWith(item))
+              ) {
                 const packageName = importPath.split(posix.sep)[0];
                 const packageJson = require(slash(
                   join(__dirname, '..', packagePath, 'package.json'),
                 ));
-                if (!JSON.stringify(packageJson.dependencies).includes(packageName)) {
+                if (
+                  !JSON.stringify(packageJson.dependencies).includes(
+                    packageName,
+                  )
+                ) {
                   resolve({
                     success: false,
                     message: `${packagePath} 的 ${packageName} 依赖没有在 ${slash(
@@ -101,7 +109,13 @@ const checkDepsByAst = (ast, filePath) => {
 const forEachFile = (code, filePath) => {
   const ast = parser.parse(code, {
     sourceType: 'module',
-    plugins: ['jsx', 'typescript', 'dynamicImport', 'classProperties', 'decorators-legacy'],
+    plugins: [
+      'jsx',
+      'typescript',
+      'dynamicImport',
+      'classProperties',
+      'decorators-legacy',
+    ],
   });
   return checkDepsByAst(ast, filePath);
 };
@@ -117,23 +131,22 @@ const globList = (patternList, options) => {
 const checkDeps = ({ cwd }) => {
   console.log(cwd);
   // 寻找项目下的所有 ts
-  spinner.start('🕵️‍  find all code files');
-  const tsFiles = globList(['packages/**/src/**/*.tsx', 'packages/**/src/**/*.tsx'], {
-    cwd,
-    ignore: [
-      '**/*.d.ts',
-      '**/demos/**',
-      '**/dist/**',
-      '**/public/**',
-      '**/locales/**',
-      '**/node_modules/**',
-    ],
-  });
-  spinner.succeed();
+  const tsFiles = globList(
+    ['packages/**/src/**/*.tsx', 'packages/**/src/**/*.tsx'],
+    {
+      cwd,
+      ignore: [
+        '**/*.d.ts',
+        '**/demos/**',
+        '**/dist/**',
+        '**/public/**',
+        '**/locales/**',
+        '**/node_modules/**',
+      ],
+    },
+  );
 
   const getFileContent = (path) => fs.readFileSync(slash(path), 'utf-8');
-
-  spinner.start('🕵️ check deps');
 
   tsFiles.forEach(async (path) => {
     const source = getFileContent(slash(join(cwd, path)));
@@ -145,7 +158,6 @@ const checkDeps = ({ cwd }) => {
       }
     }
   });
-  spinner.succeed();
 };
 
 /** 检查所有的根目录文件 */

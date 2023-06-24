@@ -1,12 +1,12 @@
-﻿import React from 'react';
-import { Button, message } from 'antd';
-import ProForm, {
+﻿import { PlusOutlined } from '@ant-design/icons';
+import {
   ModalForm,
-  ProFormText,
+  ProForm,
   ProFormDateRangePicker,
   ProFormSelect,
-} from '@ant-design/pro-form';
-import { PlusOutlined } from '@ant-design/icons';
+  ProFormText,
+} from '@ant-design/pro-components';
+import { Button, Form, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -17,6 +17,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const [form] = Form.useForm<{ name: string; company: string }>();
   return (
     <ModalForm<{
       name: string;
@@ -29,11 +30,13 @@ export default () => {
           新建表单
         </Button>
       }
+      form={form}
       autoFocusFirstInput
       modalProps={{
         destroyOnClose: true,
         onCancel: () => console.log('run'),
       }}
+      submitTimeout={2000}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values.name);
@@ -50,10 +53,20 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormText width="md" name="contract" label="合同名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="contract"
+          label="合同名称"
+          placeholder="请输入名称"
+        />
         <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
       </ProForm.Group>
       <ProForm.Group>
@@ -81,8 +94,19 @@ export default () => {
         />
       </ProForm.Group>
       <ProFormText width="sm" name="id" label="主合同编号" />
-      <ProFormText name="project" disabled label="项目名称" initialValue="xxxx项目" />
-      <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
+      <ProFormText
+        name="project"
+        disabled
+        label="项目名称"
+        initialValue="xxxx项目"
+      />
+      <ProFormText
+        width="xs"
+        name="mangerName"
+        disabled
+        label="商务经理"
+        initialValue="启途"
+      />
     </ModalForm>
   );
 };

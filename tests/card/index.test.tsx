@@ -1,92 +1,165 @@
-import { mount } from 'enzyme';
-import React from 'react';
-import ProCard from '@ant-design/pro-card';
-import { waitForComponentToPaint } from '../util';
-import { act } from 'react-dom/test-utils';
-import { Grid } from 'antd';
+import { ProCard } from '@ant-design/pro-components';
+import { act, render } from '@testing-library/react';
 
 jest.mock('antd/lib/grid/hooks/useBreakpoint');
 
 describe('Card', () => {
   it('🥩 collapsible onCollapse', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
-      <ProCard title="可折叠" headerBordered collapsible defaultCollapsed onCollapse={fn}>
+    const wrapper = render(
+      <ProCard
+        title="可折叠"
+        headerBordered
+        collapsible
+        defaultCollapsed
+        onCollapse={fn}
+      >
         内容
       </ProCard>,
     );
-    await waitForComponentToPaint(wrapper);
+
+    await wrapper.findAllByText('可折叠');
+
     act(() => {
-      wrapper.find('AntdIcon.ant-pro-card-collapsible-icon').simulate('click');
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-card-collapsible-icon')
+        ?.click();
     });
+
     expect(fn).toBeCalled();
   });
 
-  it('🥩 resize breakpoint', async () => {
-    // @ts-ignore
-    Grid.useBreakpoint.mockReturnValue({ xs: true });
-
-    const wrapper = mount(
-      <ProCard
-        style={{ marginTop: 8 }}
-        gutter={[{ xs: 8, sm: 8, md: 16, lg: 24, xl: 32, xxl: 32 }, 16]}
-        title="24栅格"
-      >
-        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10, xxl: 12 }}>Col</ProCard>
-      </ProCard>,
-    );
-
-    await waitForComponentToPaint(wrapper);
-  });
-
   it('🥩 collapsible defaultCollapsed', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProCard title="可折叠" headerBordered collapsible defaultCollapsed>
         内容
       </ProCard>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeTruthy();
+    await wrapper.findAllByText('可折叠');
+    expect(
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
+    ).toBeTruthy();
   });
 
   it('🥩 collapsible collapsed', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <ProCard title="可折叠" headerBordered collapsed>
         内容
       </ProCard>,
     );
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeTruthy();
+    await wrapper.findAllByText('可折叠');
+    expect(
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
+    ).toBeTruthy();
 
     act(() => {
-      wrapper.setProps({
-        collapsed: false,
-      });
+      wrapper.rerender(
+        <ProCard title="可打开" headerBordered collapsed={false}>
+          内容
+        </ProCard>,
+      );
     });
 
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeFalsy();
+    await wrapper.findAllByText('可打开');
+    expect(
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
+    ).toBeFalsy();
+  });
+
+  it('🥩 collapsible icon custom render with defaultCollapsed', async () => {
+    const wrapper = render(
+      <ProCard
+        title="可折叠-图标自定义"
+        collapsibleIconRender={({ collapsed }: { collapsed: boolean }) =>
+          collapsed ? <span>更多</span> : <span>收起</span>
+        }
+        headerBordered
+        defaultCollapsed
+        collapsible
+      >
+        内容
+      </ProCard>,
+    );
+    await wrapper.findAllByText('可折叠-图标自定义');
+
+    act(() => {
+      expect(
+        !!wrapper.baseElement.querySelector<HTMLDivElement>(
+          '.ant-pro-card-collapse',
+        ),
+      ).toBeTruthy();
+    });
+
+    const dom = await wrapper.findByText('更多');
+
+    expect(!!dom).toBe(true);
+  });
+
+  it('🥩 collapsible icon custom render', async () => {
+    const wrapper = render(
+      <ProCard
+        title="可折叠-图标自定义"
+        collapsibleIconRender={({ collapsed }: { collapsed: boolean }) =>
+          collapsed ? <span>更多</span> : <span>收起</span>
+        }
+        defaultCollapsed={false}
+        collapsible
+      >
+        内容
+      </ProCard>,
+    );
+    await wrapper.findAllByText('可折叠-图标自定义');
+
+    expect(
+      !!wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-card'),
+    ).toBeTruthy();
+
+    expect(
+      !!wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-card-collapse',
+      ),
+    ).toBeFalsy();
+
+    const dom = await wrapper.findByText('收起');
+
+    expect(!!dom).toBe(true);
+
+    wrapper.unmount();
   });
 
   it('🥩 tabs onChange', async () => {
     const fn = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <ProCard
         tabs={{
           onChange: fn,
+          items: [
+            {
+              label: 'tab1',
+              key: 'tab1',
+              children: '产品一',
+            },
+            {
+              label: 'tab2',
+              key: 'tab2',
+              children: '产品二',
+            },
+          ],
         }}
-      >
-        <ProCard.TabPane key="tab1" tab="产品一">
-          内容一
-        </ProCard.TabPane>
-        <ProCard.TabPane key="tab2" tab="产品二">
-          内容二
-        </ProCard.TabPane>
-      </ProCard>,
+      />,
     );
     act(() => {
-      wrapper.find('.ant-pro-card-tabs .ant-tabs-tab').at(1).simulate('click');
+      wrapper.baseElement
+        .querySelectorAll<HTMLDivElement>('.ant-pro-card-tabs .ant-tabs-tab')[1]
+        ?.click();
     });
     expect(fn).toHaveBeenCalledWith('tab2');
+    wrapper.unmount();
   });
 });

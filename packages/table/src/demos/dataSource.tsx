@@ -1,8 +1,7 @@
-import React from 'react';
-import { Button, Tooltip, Dropdown, Menu, Input } from 'antd';
-import { EllipsisOutlined, QuestionCircleOutlined, SearchOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import { EllipsisOutlined, SearchOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable, TableDropdown } from '@ant-design/pro-components';
+import { Button, Dropdown, Input } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -36,7 +35,10 @@ for (let i = 0; i < 5; i += 1) {
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
-    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
+    memo:
+      i % 2 === 1
+        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
+        : '简短备注文案',
   });
 }
 
@@ -54,7 +56,7 @@ const columns: ProColumns<TableListItem>[] = [
     // 自定义筛选项功能具体实现请参考 https://ant.design/components/table-cn/#components-table-demo-custom-filter-panel
     filterDropdown: () => (
       <div style={{ padding: 8 }}>
-        <Input style={{ width: 188, marginBottom: 8, display: 'block' }} />
+        <Input style={{ width: 188, marginBlockEnd: 8, display: 'block' }} />
       </div>
     ),
     filterIcon: (filtered) => (
@@ -88,21 +90,6 @@ const columns: ProColumns<TableListItem>[] = [
     },
   },
   {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
     title: '备注',
     dataIndex: 'memo',
     ellipsis: true,
@@ -127,14 +114,6 @@ const columns: ProColumns<TableListItem>[] = [
     ],
   },
 ];
-
-const menu = (
-  <Menu>
-    <Menu.Item key="1">1st item</Menu.Item>
-    <Menu.Item key="2">2nd item</Menu.Item>
-    <Menu.Item key="3">3rd item</Menu.Item>
-  </Menu>
-);
 
 export default () => {
   return (
@@ -169,7 +148,26 @@ export default () => {
         <Button type="primary" key="primary">
           创建应用
         </Button>,
-        <Dropdown key="menu" overlay={menu}>
+
+        <Dropdown
+          key="menu"
+          menu={{
+            items: [
+              {
+                label: '1st item',
+                key: '1',
+              },
+              {
+                label: '2nd item',
+                key: '2',
+              },
+              {
+                label: '3rd item',
+                key: '3',
+              },
+            ],
+          }}
+        >
           <Button>
             <EllipsisOutlined />
           </Button>

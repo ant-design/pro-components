@@ -1,6 +1,4 @@
-import React from 'react';
-
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 
 export default () => (
   <div
@@ -15,7 +13,7 @@ export default () => (
       breadcrumbRender={(routes) => [
         {
           path: '/',
-          breadcrumbName: '主页',
+          title: '主页',
         },
         ...(routes || []),
       ]}
@@ -27,7 +25,7 @@ export default () => (
         {
           path: '/admin',
           name: '管理',
-          routes: [
+          children: [
             {
               name: '申请单列表',
               path: '/admin/process',

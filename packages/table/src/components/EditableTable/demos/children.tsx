@@ -1,8 +1,11 @@
+import type { ProColumns } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+  useRefFunction,
+} from '@ant-design/pro-components';
 import React, { useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import ProCard from '@ant-design/pro-card';
-import { ProFormField } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -28,16 +31,16 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     decs: '这个活动真好玩',
     state: 'open',
-    created_at: '2020-05-26T09:42:56Z',
-    update_at: '2020-05-26T09:42:56Z',
+    created_at: '1590486176000',
+    update_at: '1590486176000',
     children: [
       {
         id: 6246912293,
         title: '活动名称二',
         decs: '这个活动真好玩',
         state: 'closed',
-        created_at: '2020-05-26T08:19:22Z',
-        update_at: '2020-05-26T08:19:22Z',
+        created_at: '1590481162000',
+        update_at: '1590481162000',
       },
     ],
   },
@@ -46,13 +49,13 @@ const defaultData: DataSourceType[] = [
     title: '活动名称二',
     decs: '这个活动真好玩',
     state: 'closed',
-    created_at: '2020-05-26T08:19:22Z',
-    update_at: '2020-05-26T08:19:22Z',
+    created_at: '1590481162000',
+    update_at: '1590481162000',
   },
 ];
 
 const loopDataSourceFilter = (
-  data: DataSourceType[],
+  data: readonly DataSourceType[],
   id: React.Key | undefined,
 ): DataSourceType[] => {
   return data
@@ -71,16 +74,24 @@ const loopDataSourceFilter = (
     })
     .filter(Boolean) as DataSourceType[];
 };
+
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<DataSourceType[]>(() => defaultData);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
+    () => defaultData,
+  );
+
+  const removeRow = useRefFunction((record: DataSourceType) => {
+    setDataSource(loopDataSourceFilter(dataSource, record.id));
+  });
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',
       dataIndex: 'title',
       formItemProps: (form, { rowIndex }) => {
         return {
-          rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+          rules:
+            rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
       width: '30%',
@@ -105,8 +116,8 @@ export default () => {
     {
       title: '描述',
       dataIndex: 'decs',
-      fieldProps: (from, { rowKey, rowIndex }) => {
-        if (from.getFieldValue([rowKey || '', 'title']) === '不好玩') {
+      fieldProps: (form, { rowKey, rowIndex }) => {
+        if (form.getFieldValue([rowKey || '', 'title']) === '不好玩') {
           return {
             disabled: true,
           };
@@ -132,7 +143,7 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            setDataSource(loopDataSourceFilter(dataSource, record.id));
+            removeRow(record);
           }}
         >
           删除
@@ -147,6 +158,9 @@ export default () => {
         expandable={{
           // 使用 request 请求数据时无效
           defaultExpandAllRows: true,
+        }}
+        scroll={{
+          x: 960,
         }}
         rowKey="id"
         headerTitle="可编辑表格"

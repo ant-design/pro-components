@@ -1,6 +1,10 @@
-import React from 'react';
-import { Form, message } from 'antd';
-import ProForm, { ProFormText, ProFormSelect, ProFormDependency } from '@ant-design/pro-form';
+import {
+  ProForm,
+  ProFormDependency,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-components';
+import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -51,13 +55,15 @@ export default () => {
               ]}
               width="md"
               name="useMode"
-              label={`与《${name || ''}》 与 《${name2?.text || ''}》合同约定生效方式`}
+              label={`与《${name || ''}》 与 《${
+                name2?.text || ''
+              }》合同约定生效方式`}
             />
           );
         }}
       </ProFormDependency>
       {/* noStyle shouldUpdate 是必选的，写了 name 就会失效 */}
-      <Form.Item noStyle shouldUpdate>
+      <ProForm.Item noStyle shouldUpdate>
         {(form) => {
           return (
             <ProFormSelect
@@ -73,7 +79,7 @@ export default () => {
             />
           );
         }}
-      </Form.Item>
+      </ProForm.Item>
     </ProForm>
   );
 };

@@ -15,7 +15,8 @@ _roadhog-api-doc
 .DS_Store
 npm-debug.log*
 yarn-error.log
-
+.jest
+jest/**
 /coverage
 .idea
 package-lock.json
@@ -37,5 +38,9 @@ functions/mock
 screenshot
 .firebase
 .eslintcache
-.changelog
+.changelogs
 .changelog.md
+packages/components/src/version.ts
+.dumi/tmp
+.dumi/tmp-production
+server

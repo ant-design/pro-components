@@ -1,16 +1,17 @@
-import React, { useRef } from 'react';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import ProForm, {
-  StepsForm,
-  ProFormText,
-  ProFormDatePicker,
-  ProFormSelect,
-  ProFormTextArea,
+import type { ProFormInstance } from '@ant-design/pro-components';
+import {
+  ProCard,
+  ProForm,
   ProFormCheckbox,
+  ProFormDatePicker,
   ProFormDateRangePicker,
-} from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
+  ProFormSelect,
+  ProFormText,
+  ProFormTextArea,
+  StepsForm,
+} from '@ant-design/pro-components';
 import { message } from 'antd';
+import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -63,7 +64,12 @@ export default () => {
           />
           <ProFormDatePicker name="date" label="日期" />
           <ProFormDateRangePicker name="dateTime" label="时间区间" />
-          <ProFormTextArea name="remark" label="备注" width="lg" placeholder="请输入备注" />
+          <ProFormTextArea
+            name="remark"
+            label="备注"
+            width="lg"
+            placeholder="请输入备注"
+          />
         </StepsForm.StepForm>
         <StepsForm.StepForm<{
           checkbox: string;
@@ -86,7 +92,11 @@ export default () => {
           />
           <ProForm.Group>
             <ProFormText name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
+            <ProFormDatePicker
+              name="datetime"
+              label="记录保存时间"
+              width="sm"
+            />
             <ProFormCheckbox.Group
               name="checkbox"
               label="迁移类型"

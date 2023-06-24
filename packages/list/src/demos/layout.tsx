@@ -1,11 +1,11 @@
-import React from 'react';
+import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
+import { ProList } from '@ant-design/pro-components';
 import { Button, Tag } from 'antd';
-import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-import ProList from '@ant-design/pro-list';
+import React from 'react';
 
 const IconText = ({ icon, text }: { icon: any; text: string }) => (
   <span>
-    {React.createElement(icon, { style: { marginRight: 8 } })}
+    {React.createElement(icon, { style: { marginInlineEnd: 8 } })}
     {text}
   </span>
 );
@@ -52,9 +52,21 @@ export default () => {
         },
         actions: {
           render: () => [
-            <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-            <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-            <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+            <IconText
+              icon={StarOutlined}
+              text="156"
+              key="list-vertical-star-o"
+            />,
+            <IconText
+              icon={LikeOutlined}
+              text="156"
+              key="list-vertical-like-o"
+            />,
+            <IconText
+              icon={MessageOutlined}
+              text="2"
+              key="list-vertical-message"
+            />,
           ],
         },
         extra: {

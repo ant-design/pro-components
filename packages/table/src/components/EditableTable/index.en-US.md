@@ -1,10 +1,8 @@
 ---
 title: EditableProTable
-group:
-  path: /
+atomId: EditableProTable
 nav:
   title: Components
-  path: /components
 ---
 
 # EditableProTable - Editable Tables
@@ -15,21 +13,19 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ### Editable forms
 
-<code src="./demos/basic.tsx" background="#f5f5f5" height="420px" title="Editable Form" />
+<code src="./demos/basic.tsx"  background="var(--main-bg-color)" oldtitle="Editable Form"></code>
 
 ### Link with content outside the edit form
 
-<code src="./demos/form-linkage.tsx" background="#f5f5f5" height="420px" title="Link with content outside the edit form" />
+<code src="./demos/form-linkage.tsx"  background="var(--main-bg-color)" oldtitle="Link with content outside the edit form"></code>
 
 ### Custom Editable Tables
 
-<code src="./demos/custom.tsx" background="#f5f5f5" height="420px" title="Custom Editable Form" />
+<code src="./demos/custom.tsx"  background="var(--main-bg-color)" oldtitle="Custom Editable Form"></code>
 
 ### Live Saved Editable Forms
 
-<code src="./demos/real-time-editing.tsx" background="#f5f5f5" height="420px" title="Real-time saved editing form" />
-
-## API
+<code src="./demos/real-time-editing.tsx"  background="var(--main-bg-color)" oldtitle="Real-time saved editing form"></code>
 
 ## API
 
@@ -39,10 +35,70 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 | `onChange` | The dataSource is triggered when the table is modified, both deletion and modification. | `(value:T[])=>void` | `undefined` |
 | `recordCreatorProps` | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](<https://ant.design/components/button/> #API) | - |
 | `maxLength` | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
-| `editable` | Related configuration of editable table | [TableRowEditable<T>](#editable-Editable row configuration) | - |
+| `editable` | Related configuration of editable table | [TableRowEditable](#editable-Editable row configuration) | - |
 | `controlled` | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
+| `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>>` | `undefined` |
 
 > Other APIs are the same as ProTable.
+
+### Editable New row
+
+When adding a new line, make sure that the `recordCreatorProps.record` key is unique, otherwise it will cause editing errors.
+
+```tsx | pure
+<EditableTable
+  rowKey="id"
+  recordCreatorProps={{
+    position: position as 'top',
+    // Each time you add a new key, you need it
+    record: () => ({ id: getNewId() }),
+  }}
+/>
+```
+
+### EditableFormInstance Form list form operation
+
+Compared with the ProForm form, the editable form adds the following three methods.
+
+```tsx | pure
+  /**
+   * Get a row of data
+   * @param rowIndex
+   * @returns T | undefined
+   *
+   * @example getRowData(1) can pass in the data of the first row
+   * @example getRowData("id") can also pass in rowKey to get it according to the unique key of your column.
+   */
+  getRowData?: (rowIndex: string | number) => T | undefined;
+  /**
+   * Get the data of the entire table
+   * @returns T[] | undefined
+   */
+  getRowsData?: () => T[] | undefined;
+  /**
+   * Setting a row of data will simply merge the data
+   *
+   * {title:"old", decs:"old",id:"old"} -> set {title:"new"} -> {title:"new", decs:"old",id:"old" }
+   *
+   * @description will only do the merge of the first level object.
+   * {title:"old", decs:{name:"old",key:"old"},id:"old"} -> set {decs:{name:"new"}} -> {title:" old", decs:{name:"new"},id:"old"} -> set {decs:{name:"old"}}
+   *
+   * @param rowIndex
+   * @param data
+   * @returns void
+   *
+   * Set according to line number
+   * @example setRowData(1, { title:"new" }) You can pass in which row to modify
+   *
+   * set according to row id
+   * @example setRowData("id", { title:"new" }) can also pass in rowKey, set it according to the unique key of your column.
+   *
+   * Clear the original data
+   * @example setRowData(1, { title:undefined })
+   *
+   */
+  setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
+```
 
 ### editable edit line configuration
 
@@ -64,12 +120,12 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 In order to use it, we preset a New function, which in most cases already meets most new creation needs, but many times the needs are always strange. We have also prepared `recordCreatorProps` to control the generation of buttons. Same API as the Pro series components, `recordCreatorProps={false}` turns off the button and uses `actionRef.current?.addEditRecord(row)` to control the new row.
 
-`recordCreatorProps` also supports some custom styles, `position='top'|'end'` can be configured to add at the head or at the end of the table. `record` can be configured to add a new row with default data. Here is an example
+`recordCreatorProps` also supports some custom styles, `position='top'|'bottom'` can be configured to add at the head or at the end of the table. `record` can be configured to add a new row with default data. Here is an example
 
 ```typescript
 recordCreatorProps = {
   // 顶部添加还是末尾添加
-  position: 'end',
+  position: 'bottom',
   // 新增一行的方式，默认是缓存，取消后就会消失
   // 如果设置为 dataSource 会触发 onchange，取消后也不会消失，只能删除
   newRecordType: 'dataSource',
@@ -88,7 +144,7 @@ recordCreatorProps = {
 ```typescript
 recordCreatorProps = {
   // Add at the top or at the end
-  position: 'end',
+  position: 'bottom',
   // the way to add a new line, default is cached, will disappear when cancelled
   // if set to dataSource it will trigger onchange, it won't disappear if cancelled, only deleted
   newRecordType: 'dataSource',
@@ -150,8 +206,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -229,6 +291,9 @@ render: (text, record, _, action) => [
 
 ```typescript
 const editable = {
-  actionRender: (row, config, defaultDom) => [defaultDom.save, defaultDom.cancel],
+  actionRender: (row, config, defaultDom) => [
+    defaultDom.save,
+    defaultDom.cancel,
+  ],
 };
 ```

@@ -1,5 +1,4 @@
-import React from 'react';
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 
 const valueEnum = {
   0: 'close',
@@ -63,12 +62,31 @@ export default () => (
           valueType: 'dateRange',
         },
         {
+          title: '时间范围',
+          key: 'dateTimeRangeCustom',
+          dataIndex: 'dateTimeRange',
+          hideInTable: true,
+          valueType: 'dateTimeRange',
+          fieldProps: {
+            // placeholder: ['1', '2']
+          },
+          renderFormItem: (_, { type, defaultRender }) => {
+            if (type === 'form') {
+              return null;
+            }
+            return defaultRender(_);
+          },
+        },
+        {
           title: '时间区间',
           key: 'dateTimeRange',
           dataIndex: 'createdAtRange',
           valueType: 'dateTimeRange',
           search: {
-            transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+            transform: (value: any) => ({
+              startTime: value[0],
+              endTime: value[1],
+            }),
           },
         },
         {

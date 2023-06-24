@@ -12,10 +12,14 @@ export default {
   'app.setting.themecolor.sunset': '日暮',
   'app.setting.themecolor.cyan': '明青',
   'app.setting.themecolor.green': '极光绿',
-  'app.setting.themecolor.daybreak': '拂晓蓝（默认）',
+  'app.setting.themecolor.techBlue': '科技蓝（默认）',
+  'app.setting.themecolor.daybreak': '拂晓',
   'app.setting.themecolor.geekblue': '极客蓝',
   'app.setting.themecolor.purple': '酱紫',
   'app.setting.navigationmode': '导航模式',
+  'app.setting.sidermenutype': '侧边菜单类型',
+  'app.setting.sidermenutype-sub': '经典模式',
+  'app.setting.sidermenutype-group': '分组模式',
   'app.setting.regionalsettings': '内容区域',
   'app.setting.regionalsettings.header': '顶栏',
   'app.setting.regionalsettings.menu': '菜单',
@@ -34,7 +38,8 @@ export default {
   'app.setting.weakmode': '色弱模式',
   'app.setting.copy': '拷贝设置',
   'app.setting.loading': '正在加载主题',
-  'app.setting.copyinfo': '拷贝成功，请到 src/defaultSettings.js 中替换默认配置',
+  'app.setting.copyinfo':
+    '拷贝成功，请到 src/defaultSettings.js 中替换默认配置',
   'app.setting.production.hint':
     '配置栏只在开发环境用于预览，生产环境不会展现，请拷贝后手动修改配置文件',
 };

@@ -1,5 +1,7 @@
 export default {
   moneySymbol: '$',
+  deleteThisLine: 'Delete this line',
+  copyThisLine: 'Copy this line',
   form: {
     lightFilter: {
       more: 'More',
@@ -57,10 +59,12 @@ export default {
     submitText: 'Login',
   },
   editableTable: {
+    onlyOneLineEditor: 'Only one line can be edited',
     action: {
       save: 'Save',
       cancel: 'Cancel',
       delete: 'Delete',
+      add: 'add a row of data',
     },
   },
   switch: {

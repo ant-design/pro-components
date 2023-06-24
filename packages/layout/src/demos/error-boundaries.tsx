@@ -1,8 +1,7 @@
-﻿import React, { useState } from 'react';
-import type { ErrorInfo } from 'react';
+﻿import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import { Button, Result } from 'antd';
-
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import type { ErrorInfo } from 'react';
+import React, { useState } from 'react';
 
 class CustomBoundary extends React.Component<
   Record<string, any>,
@@ -41,15 +40,15 @@ class CustomBoundary extends React.Component<
               <div
                 style={{
                   maxWidth: 620,
-                  textAlign: 'left',
+                  textAlign: 'start',
                   backgroundColor: 'rgba(255,229,100,0.3)',
-                  borderLeftColor: '#ffe564',
-                  borderLeftWidth: '9px',
-                  borderLeftStyle: 'solid',
+                  borderInlineStartColor: '#ffe564',
+                  borderInlineStartWidth: '9px',
+                  borderInlineStartStyle: 'solid',
                   padding: '20px 45px 20px 26px',
                   margin: 'auto',
-                  marginBottom: '30px',
-                  marginTop: '20px',
+                  marginBlockEnd: '30px',
+                  marginBlockStart: '20px',
                 }}
               >
                 <p>注意</p>
@@ -69,8 +68,8 @@ class CustomBoundary extends React.Component<
                     ）
                   </li>
                   <li>
-                    异步代码（例如 <code>setTimeout</code> 或 <code>requestAnimationFrame</code>{' '}
-                    回调函数）
+                    异步代码（例如 <code>setTimeout</code> 或{' '}
+                    <code>requestAnimationFrame</code> 回调函数）
                   </li>
                   <li>服务端渲染</li>
                   <li>它自身抛出来的错误（并非它的子组件）</li>

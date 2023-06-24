@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { DownOutlined, CloseOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import { ConfigProvider } from 'antd';
+import { CloseCircleFilled, DownOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
-import './index.less';
+import { ConfigProvider } from 'antd';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import classNames from 'classnames';
+import React, { useContext, useImperativeHandle, useRef } from 'react';
+import { useStyle } from './style';
 
 export type FieldLabelProps = {
   label?: React.ReactNode;
@@ -14,38 +14,83 @@ export type FieldLabelProps = {
   size?: SizeType;
   ellipsis?: boolean;
   placeholder?: React.ReactNode;
-  expanded?: boolean;
   className?: string;
-  formatter?: (value: any) => string;
+  formatter?: (value: any) => React.ReactNode;
   style?: React.CSSProperties;
   bordered?: boolean;
   allowClear?: boolean;
+  downIcon?: React.ReactNode | false;
+  onClick?: () => void;
+  /**
+   * 点击标签的事件，用来唤醒 down menu 状态
+   */
+  onLabelClick?: () => void;
 };
 
-const FieldLabel: React.FC<FieldLabelProps> = (props) => {
+const FieldLabelFunction: React.ForwardRefRenderFunction<
+  any,
+  FieldLabelProps
+> = (props, ref) => {
   const {
     label,
     onClear,
     value,
-    size = 'middle',
     disabled,
+    onLabelClick,
     ellipsis,
     placeholder,
     className,
-    style,
     formatter,
     bordered,
+    style,
+    downIcon,
     allowClear = true,
   } = props;
+  const { componentSize } = ConfigProvider?.useConfig?.() || {
+    componentSize: 'middle',
+  };
+  const size = componentSize;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const intl = useIntl();
+  const clearRef = useRef<HTMLElement>(null);
+  const labelRef = useRef<HTMLElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    labelRef,
+    clearRef,
+  }));
+
+  const wrapElements = (
+    array: (string | JSX.Element)[],
+  ): JSX.Element[] | string => {
+    if (array.every((item) => typeof item === 'string')) return array.join(',');
+
+    return array.map((item, index) => {
+      const comma = index === array.length - 1 ? '' : ',';
+      if (typeof item === 'string') {
+        return (
+          <span key={index}>
+            {item}
+            {comma}
+          </span>
+        );
+      }
+      return (
+        <span style={{ display: 'flex' }}>
+          {item}
+          {comma}
+        </span>
+      );
+    });
+  };
 
   const formatterText = (aValue: any) => {
     if (formatter) {
       return formatter(aValue);
     }
-    return Array.isArray(aValue) ? aValue.join(',') : String(aValue);
+    return Array.isArray(aValue) ? wrapElements(aValue) : aValue;
   };
 
   const getTextByValue = (
@@ -59,27 +104,42 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       (!Array.isArray(aValue) || aValue.length)
     ) {
       const prefix = aLabel ? (
-        <>
+        <span
+          onClick={() => {
+            onLabelClick?.();
+          }}
+          className={`${prefixCls}-text`}
+        >
           {aLabel}
           {': '}
-        </>
+        </span>
       ) : (
         ''
       );
       const str = formatterText(aValue);
       if (!ellipsis) {
         return (
-          <span>
+          <span
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+            }}
+          >
             {prefix}
             {formatterText(aValue)}
           </span>
         );
       }
-
+      // 普通表单值最大长度41，如2022-06-21 20:11:25 ~ 2022-06-22 20:11:25
+      const VALUE_MAX_LENGTH = 41;
       const getText = () => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
-        if (str.length > 32 && isArrayValue) {
+        if (
+          typeof str === 'string' &&
+          str.length > VALUE_MAX_LENGTH &&
+          isArrayValue
+        ) {
           return `...${aValue.length}${unitText}`;
         }
         return '';
@@ -87,20 +147,31 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       const tail = getText();
 
       return (
-        <span title={str}>
+        <span
+          title={typeof str === 'string' ? str : undefined}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+          }}
+        >
           {prefix}
-          {str?.toString()?.substr?.(0, 32)}
+          <span style={{ paddingInlineStart: 4, display: 'flex' }}>
+            {typeof str === 'string'
+              ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH)
+              : str}
+          </span>
           {tail}
         </span>
       );
     }
     return aLabel || placeholder;
   };
-  return (
+  return wrapSSR(
     <span
       className={classNames(
         prefixCls,
-        `${prefixCls}-${size}`,
+        hashId,
+        `${prefixCls}-${props.size ?? size ?? 'middle'}`,
         {
           [`${prefixCls}-active`]: !!value || value === 0,
           [`${prefixCls}-disabled`]: disabled,
@@ -110,22 +181,41 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
         className,
       )}
       style={style}
+      ref={labelRef}
+      onClick={() => {
+        props?.onClick?.();
+      }}
     >
       {getTextByValue(label, value)}
       {(value || value === 0) && allowClear && (
-        <CloseOutlined
-          className={classNames(`${prefixCls}-icon`, `${prefixCls}-close`)}
+        <CloseCircleFilled
+          role="button"
+          title={intl.getMessage('form.lightFilter.clear', '清除')}
+          className={classNames(
+            `${prefixCls}-icon`,
+            hashId,
+            `${prefixCls}-close`,
+          )}
           onClick={(e) => {
-            if (onClear && !disabled) {
-              onClear();
-            }
+            if (!disabled) onClear?.();
             e.stopPropagation();
           }}
+          ref={clearRef}
         />
       )}
-      <DownOutlined className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)} />
-    </span>
+      {downIcon !== false
+        ? downIcon ?? (
+            <DownOutlined
+              className={classNames(
+                `${prefixCls}-icon`,
+                hashId,
+                `${prefixCls}-arrow`,
+              )}
+            />
+          )
+        : null}
+    </span>,
   );
 };
 
-export default FieldLabel;
+export const FieldLabel = React.forwardRef(FieldLabelFunction);

@@ -1,6 +1,4 @@
-import React from 'react';
-
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 
 export default () => (
   <div
@@ -11,6 +9,9 @@ export default () => (
     <ProLayout
       location={{
         pathname: '/config/template/new',
+      }}
+      menu={{
+        hideMenuWhenCollapsed: true,
       }}
       route={{
         routes: [

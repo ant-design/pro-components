@@ -1,9 +1,11 @@
-import React from 'react';
 import type { InputNumberProps } from 'antd';
+import React from 'react';
+import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
-import type { ProFormFieldItemProps } from '../../interface';
 
-export type ProFormDigitProps = ProFormFieldItemProps<InputNumberProps> & {
+export type ProFormDigitProps = ProFormFieldItemProps<
+  InputNumberProps<number>
+> & {
   min?: InputNumberProps['min'];
   max?: InputNumberProps['max'];
 };
@@ -18,7 +20,6 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
 ) => {
   return (
     <ProFormField
-      mode="edit"
       valueType="digit"
       fieldProps={{
         min,
@@ -37,4 +38,6 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
   );
 };
 
-export default React.forwardRef(ProFormDigit);
+const ForwardRefProFormDigit = React.forwardRef(ProFormDigit);
+
+export default ForwardRefProFormDigit;

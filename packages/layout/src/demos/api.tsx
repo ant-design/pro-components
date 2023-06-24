@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { Switch, Avatar } from 'antd';
-import ProLayout, { PageContainer, DefaultFooter } from '@ant-design/pro-layout';
-import defaultProps from './_defaultProps';
 import { GithubOutlined } from '@ant-design/icons';
+import {
+  DefaultFooter,
+  PageContainer,
+  ProLayout,
+} from '@ant-design/pro-components';
+import { Switch } from 'antd';
+import { useState } from 'react';
+import defaultProps from './_defaultProps';
 
 export default () => {
   const [loading, setLoading] = useState(false);
@@ -103,13 +107,9 @@ export default () => {
         collapsed={collapsed}
         loading={loading}
         onCollapse={setCollapsed}
-        rightContentRender={() =>
-          right ? (
-            <div>
-              <Avatar src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4" />
-            </div>
-          ) : null
-        }
+        avatarProps={{
+          src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4',
+        }}
         location={{
           pathname: '/welcome',
         }}
@@ -137,6 +137,7 @@ export default () => {
                   blankTarget: true,
                 },
               ]}
+              copyright="2022 蚂蚁金服体验技术部出品"
             />
           ) : null
         }

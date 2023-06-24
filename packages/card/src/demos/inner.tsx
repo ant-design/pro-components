@@ -1,5 +1,4 @@
-import React from 'react';
-import ProCard from '@ant-design/pro-card';
+import { ProCard } from '@ant-design/pro-components';
 
 export default () => {
   return (
@@ -19,7 +18,7 @@ export default () => {
         headerBordered
         direction="column"
         gutter={[0, 16]}
-        style={{ marginTop: 8 }}
+        style={{ marginBlockStart: 8 }}
       >
         <ProCard title="内部卡片标题" type="inner" bordered>
           内部卡片内容

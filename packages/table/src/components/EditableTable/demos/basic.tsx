@@ -1,8 +1,11 @@
+import type { ProColumns } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+  ProFormRadio,
+} from '@ant-design/pro-components';
 import React, { useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import { ProFormRadio, ProFormField } from '@ant-design/pro-form';
-import ProCard from '@ant-design/pro-card';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -15,6 +18,7 @@ const waitTime = (time: number = 100) => {
 type DataSourceType = {
   id: React.Key;
   title?: string;
+  readonly?: string;
   decs?: string;
   state?: string;
   created_at?: string;
@@ -26,40 +30,53 @@ const defaultData: DataSourceType[] = [
   {
     id: 624748504,
     title: '活动名称一',
+    readonly: '活动名称一',
     decs: '这个活动真好玩',
     state: 'open',
-    created_at: '2020-05-26T09:42:56Z',
-    update_at: '2020-05-26T09:42:56Z',
+    created_at: '1590486176000',
+    update_at: '1590486176000',
   },
   {
     id: 624691229,
     title: '活动名称二',
+    readonly: '活动名称二',
     decs: '这个活动真好玩',
     state: 'closed',
-    created_at: '2020-05-26T08:19:22Z',
-    update_at: '2020-05-26T08:19:22Z',
+    created_at: '1590481162000',
+    update_at: '1590481162000',
   },
 ];
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
-  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
+  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
+    'bottom',
+  );
 
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',
       dataIndex: 'title',
+      tooltip: '只读，使用form.getFieldValue获取不到值',
       formItemProps: (form, { rowIndex }) => {
         return {
-          rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+          rules:
+            rowIndex > 1 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
       // 第一行不允许编辑
       editable: (text, record, index) => {
         return index !== 0;
       },
-      width: '30%',
+      width: '15%',
+    },
+    {
+      title: '活动名称二',
+      dataIndex: 'readonly',
+      tooltip: '只读，使用form.getFieldValue可以获取到值',
+      readonly: true,
+      width: '15%',
     },
     {
       title: '状态',
@@ -81,8 +98,8 @@ export default () => {
     {
       title: '描述',
       dataIndex: 'decs',
-      fieldProps: (from, { rowKey, rowIndex }) => {
-        if (from.getFieldValue([rowKey || '', 'title']) === '不好玩') {
+      fieldProps: (form, { rowKey, rowIndex }) => {
+        if (form.getFieldValue([rowKey || '', 'title']) === '不好玩') {
           return {
             disabled: true,
           };
@@ -131,6 +148,9 @@ export default () => {
         rowKey="id"
         headerTitle="可编辑表格"
         maxLength={5}
+        scroll={{
+          x: 960,
+        }}
         recordCreatorProps={
           position !== 'hidden'
             ? {
@@ -139,6 +159,7 @@ export default () => {
               }
             : false
         }
+        loading={false}
         toolBarRender={() => [
           <ProFormRadio.Group
             key="render"

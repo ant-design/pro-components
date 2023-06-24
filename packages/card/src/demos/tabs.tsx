@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import type { ProCardTabsProps } from '@ant-design/pro-card';
-import ProCard from '@ant-design/pro-card';
-import { Space, Select } from 'antd';
+import type { ProCardTabsProps } from '@ant-design/pro-components';
+import { ProCard } from '@ant-design/pro-components';
+import { Select, Space } from 'antd';
+import { useState } from 'react';
 
 const { Option } = Select;
 
 export default () => {
   const [tab, setTab] = useState('tab2');
-  const [tabPosition, setTabPosition] = useState<ProCardTabsProps['tabPosition']>('top');
+  const [tabPosition, setTabPosition] =
+    useState<ProCardTabsProps['tabPosition']>('top');
 
   return (
     <div>
-      <Space style={{ marginBottom: 16 }}>
+      <Space style={{ marginBlockEnd: 16 }}>
         Tab position：
         <Select
           value={tabPosition}
@@ -28,18 +29,28 @@ export default () => {
         tabs={{
           tabPosition,
           activeKey: tab,
+          items: [
+            {
+              label: `产品一`,
+              key: 'tab1',
+              children: `内容一`,
+            },
+            {
+              label: `产品二`,
+              key: 'tab2',
+              children: `内容二`,
+            },
+            {
+              label: `产品三`,
+              key: 'tab3',
+              children: `内容三`,
+            },
+          ],
           onChange: (key) => {
             setTab(key);
           },
         }}
-      >
-        <ProCard.TabPane key="tab1" tab="产品一">
-          内容一
-        </ProCard.TabPane>
-        <ProCard.TabPane key="tab2" tab="产品二">
-          内容二
-        </ProCard.TabPane>
-      </ProCard>
+      />
     </div>
   );
 };

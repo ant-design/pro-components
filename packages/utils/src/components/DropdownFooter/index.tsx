@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { Button, ConfigProvider } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
-
-import './index.less';
+import { Button, ConfigProvider } from 'antd';
+import classNames from 'classnames';
+import React, { useContext } from 'react';
+import { useStyle } from './style';
 
 type LightFilterFooterRender =
   | ((
@@ -18,6 +18,7 @@ export type DropdownFooterProps = {
   onConfirm?: OnClick;
   disabled?: boolean;
   footerRender?: LightFilterFooterRender;
+  children?: React.ReactNode;
 };
 
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
@@ -25,6 +26,7 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const { onClear, onConfirm, disabled, footerRender } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-dropdown-footer');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
   const defaultFooter = [
     <Button
       key="clear"
@@ -61,16 +63,17 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
 
   const renderDom = footerRender?.(onConfirm, onClear) || defaultFooter;
 
-  return (
+  return wrapSSR(
     <div
-      className={prefixCls}
+      className={classNames(prefixCls, hashId)}
       onClick={(e) =>
-        (e.target as Element).getAttribute('data-type') !== 'confirm' && e.stopPropagation()
+        (e.target as Element).getAttribute('data-type') !== 'confirm' &&
+        e.stopPropagation()
       }
     >
       {renderDom}
-    </div>
+    </div>,
   );
 };
 
-export default DropdownFooter;
+export { DropdownFooter };

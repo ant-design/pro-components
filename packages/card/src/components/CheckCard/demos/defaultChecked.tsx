@@ -1,7 +1,4 @@
-/** Uuid: 47390657 title: 默认选中 */
-
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
   <CheckCard

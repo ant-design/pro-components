@@ -3,7 +3,7 @@
     "baseUrl": "./",
     "target": "esnext",
     "moduleResolution": "node",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "strict": true,
@@ -12,7 +12,9 @@
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
     "skipLibCheck": true,
+    "resolveJsonModule": true,
     "paths": {
+      "@@/*": [".dumi/tmp/*"],
       "@ant-design/pro-layout": ["./packages/layout/src/index.tsx"],
       "@ant-design/pro-form": ["./packages/form/src/index.tsx"],
       "@ant-design/pro-table": ["./packages/table/src/index.tsx"],
@@ -22,10 +24,15 @@
       "@ant-design/pro-provider": ["./packages/provider/src/index.tsx"],
       "@ant-design/pro-descriptions": ["./packages/descriptions/src/index.tsx"],
       "@ant-design/pro-utils": ["./packages/utils/src/index.tsx"],
-      "@ant-design/pro-card": ["./packages/card/src/index.tsx"]
+      "@ant-design/pro-card": ["./packages/card/src/index.tsx"],
+      "@ant-design/pro-components": ["./packages/components/src/index.tsx"]
     }
   },
   "include": [
+    "./tests/setupTests.ts",
+    ".dumi/**/*",
+    "jest.config.ts",
+    ".dumirc.ts",
     "typings.d.ts",
     "**/src/**/*",
     "**/docs/**/*",
@@ -33,10 +40,9 @@
     "**/demos",
     ".eslintrc.js",
     "tests",
-    "jest.config.js",
+    "jest.config.ts",
     "**/fixtures",
     "./tests/no-duplicated.ts",
     "packages/descriptions/src/demos/.tsx"
-  ],
-  "plugins": [{ "transform": "typescript-transform-paths", "afterDeclarations": true }]
+  ]
 }

@@ -1,16 +1,12 @@
 ---
 title: ProFormFields - 表单项
+atomId: ProFormText
 order: 1
-group:
-  path: /
-nav:
-  title: 组件
-  path: /components
 ---
 
 # ProFormFields 表单项
 
-一个表单除了 Form 之外还是需要一系列的表单项，ProForm 自带了数量可观的表单项, 这些组件本质上是 Form.Item 和 组件的结合，我们可以帮他们当成一个 FormItem 来使用，并且支持各种 `props`。每个表单项都支持 `fieldProps` 属性来支持设置输入组件的`props`。 我们支持了 `placeholder` 的透传，你可以直接在组件上设置 `placeholder`。
+一个表单除了 Form 之外还是需要一系列的表单项，ProForm 自带了数量可观的表单项, 这些组件本质上是 Form.Item 和 组件的结合，我们可以把他们当成一个 FormItem 来使用，并且支持各种 `props`。每个表单项都支持 `fieldProps` 属性来支持设置输入组件的`props`。 我们支持了 `placeholder` 的透传，你可以直接在组件上设置 `placeholder`。
 
 每个表单项同时也支持了 `readonly` ，不同的组件会有不同的只读样式，与 `disable` 相比 `readonly` 展示更加友好。生成的 dom 也更小，比如 ProFormDigit 会自动格式化小数位数。
 
@@ -42,6 +38,7 @@ const ProFormText = (props) => {
 | [ProFormDateRangePicker](https://ant.design/components/date-picker-cn/) | 日期区间选择器用于输入一个日期区间 |
 | [ProFormDateTimeRangePicker](https://ant.design/components/date-picker-cn/) | 日期+时间区间选择器，用于输入一个日期+时间的区间 |
 | [ProFormSelect](https://ant.design/components/select-cn/) | 支持 `request` 和 `valueEnum` 两种方式来生成子项，用于从两项以上中选择一项 |
+| [ProFormTreeSelect](https://ant.design/components/tree-select-cn/) | 支持 `request` 和 `valueEnum` 两种方式来生成子项，用于从两项以上中选择一项 |
 | [ProFormCheckbox](https://ant.design/components/checkbox-cn/) | 在 Checkbox 基础上支持了 layout，也支持 `request` 和 `valueEnum` 两种方式来生成子项 |
 | [ProFormRadio.Group](https://ant.design/components/radio-cn/) | 在 Radio 基础上也支持 `request` 和 `valueEnum` 两种方式来生成子项，用于单选某项，但是可以展示出来所有选项。 |
 | [ProFormSlider](https://ant.design/components/slider-cn/) | 当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。 |
@@ -49,32 +46,21 @@ const ProFormText = (props) => {
 | [ProFormUploadButton](https://ant.design/components/upload-cn/) | 按钮样式的上传文件 |
 | [ProFormUploadDragger](https://ant.design/components/upload-cn/) | 区域的上传文件，一般用于突出上传文件的表单中 |
 | ProFormMoney | 通用金额输入组件 |
+| [ProFormSegmented](https://ant.design/components/segmented-cn/) | 分段控制器 |
 
 ## 代码示例
 
-### 表单项
+<code src="./demos/components-other.tsx" title="表单项" ></code>
 
-<code src="./demos/components-other.tsx" heigh="774px" title="表单项"/>
+<code src="./demos/search-select.tsx" title="查询表单" ></code>
 
-### 查询表单
+<code src="./demos/form-fieldset.tsx" title="结构化数据" ></code>
 
-<code src="./demos/search-select.tsx" heigh="774px" title="查询表单"/>
+<code src="./demos/datatime.tsx" title="日期表单"></code>
 
-### 结构化数据
+<code src="./demos/upload.tsx" title="上传表单"></code>
 
-<code src="./demos/form-fieldset.tsx" heigh="774px" title="结构化数据"/>
-
-### 日期表单
-
-<code src="./demos/datatime.tsx" heigh="574px" title="日期表单"/>
-
-### 上传表单
-
-<code src="./demos/upload.tsx" heigh="574px" title="上传表单"/>
-
-### 只读表单
-
-<code src="./demos/components-other-readonly.tsx" heigh="774px"  debug/>
+<code src="./demos/components-other-readonly.tsx" title="只读表单" ></code>
 
 ## API
 
@@ -85,6 +71,8 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | width | Field 的长度，我们归纳了常用的 Field 长度以及适合的场景，支持了一些枚举 "xs" , "sm" , "md" ,"lg" , "xl" | `number \| "xs" \| "sm" \| "md" \| "lg" \| "xl"` | - |
+| rowProps | [RowProps](https://ant.design/components/grid/#Row) | 开启 `grid` 模式时传递给 Row, 仅在`ProFormGroup`, `ProFormList`, `ProFormFieldSet` 中有效 | { gutter: 8 } |
+| colProps | [ColProps](https://ant.design/components/grid/#Col) | 开启 `grid` 模式时传递给 Col | { xs: 24 } |
 | tooltip | 会在 label 旁增加一个 icon，悬浮后展示配置的信息 | `string \| tooltipProps` | - |
 | secondary | 是否是次要控件，只针对 LightFilter 下有效 | `boolean` | `false` |
 | allowClear | 支持清除，针对 LightFilter 下有效，主动设置情况下同时也会透传给 `fieldProps` | `boolean` | `true` |
@@ -106,12 +94,19 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 与 [Input](https://ant.design/components/input-cn/) 相同。
 
 ```tsx | pure
-<ProFormText name="text" label="名称" placeholder="请输入名称" fieldProps={inputProps} />
+<ProFormText
+  name="text"
+  label="名称"
+  placeholder="请输入名称"
+  fieldProps={inputProps}
+/>
 ```
 
 ### ProFormCaptcha
 
 ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组件。
+
+<code src="./demos/pro-form-captCha.tsx" title="captcha"></code>
 
 ```tsx | pure
 <ProFormCaptcha
@@ -187,6 +182,14 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
   max={10}
   fieldProps={{ precision: 0 }}
 />
+```
+
+### ProFormDigitRange
+
+与 [inputNumber](https://ant.design/components/input-number-cn/) 类似。 它提供输入数字范围。
+
+```tsx | pure
+<ProFormDigitRange label="InputNumberRange" name="input-number-range" />
 ```
 
 ### ProFormDatePicker
@@ -274,6 +277,24 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 </>
 ```
 
+联动的 ProFormSelect
+
+````tsx | pure
+  <ProFormText name="name" label="姓名" />
+  <ProFormSelect
+    name="addr"
+    width="md"
+    label="与 name 联动的选择器"
+    // dependencies 的内容会注入 request 中
+    dependencies={['name']}
+    request={async (params) => [
+      { label: params.name, value: 'all' },
+      { label: 'Unresolved', value: 'open' },
+      { label: 'Resolved', value: 'closed' },
+      { label: 'Resolving', value: 'processing' },
+    ]}
+  />
+```
 自定义选项：
 
 ```tsx | pure
@@ -293,6 +314,78 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
   }}
   placeholder="Please select a country"
   rules={[{ required: true, message: 'Please select your country!' }]}
+/>
+````
+
+### ProFormTreeSelect
+
+与 [tree-select](https://ant.design/components/tree-select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `` (form,config)=>TreeSelectProps`\| `TreeSelectProps `` | - |
+
+> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
+
+```tsx | pure
+<ProFormTreeSelect
+  name="name"
+  placeholder="Please select"
+  allowClear
+  width={330}
+  secondary
+  request={async () => {
+    return [
+      {
+        title: 'Node1',
+        value: '0-0',
+        children: [
+          {
+            title: 'Child Node1',
+            value: '0-0-0',
+          },
+        ],
+      },
+      {
+        title: 'Node2',
+        value: '0-1',
+        children: [
+          {
+            title: 'Child Node3',
+            value: '0-1-0',
+          },
+          {
+            title: 'Child Node4',
+            value: '0-1-1',
+          },
+          {
+            title: 'Child Node5',
+            value: '0-1-2',
+          },
+        ],
+      },
+    ];
+  }}
+  // tree-select args
+  fieldProps={{
+    showArrow: false,
+    filterTreeNode: true,
+    showSearch: true,
+    popupMatchSelectWidth: false,
+    labelInValue: true,
+    autoClearSearchValue: true,
+    multiple: true,
+    treeNodeFilterProp: 'title',
+    fieldNames: {
+      label: 'title',
+    },
+  }}
 />
 ```
 
@@ -329,7 +422,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | --- | --- | --- | --- |
 | options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
-| radioType | 设置是按钮模式还是 radio 模式 | `button`\|`radio` | `radio` |
+| radioType | 设置是按钮模式还是 radio 模式 | `default`\|`button` | `default` |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
 | fieldProps | antd 组件的 props | `(form,config)=>RadioProps \|RadioProps` | - |
 
@@ -398,9 +491,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [switch](https://ant.design/components/switch-cn/) 相同，通过 filedProps 配置 switch 的数据。
 
-| 参数       | 说明              | 类型                                        | 默认值 |
-| ---------- | ----------------- | ------------------------------------------- | ------ |
-| fieldProps | antd 组件的 props | `(form,config)=>SwitchProps \| SwitchProps` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| fieldProps | antd 组件的 props | `(form,config)=>SwitchProps \| SwitchProps` | - |
 
 ```tsx | pure
 <ProFormSwitch name="switch" label="Switch" />
@@ -408,9 +501,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormRate
 
-| 参数       | 说明              | 类型                                    | 默认值 |
-| ---------- | ----------------- | --------------------------------------- | ------ |
-| fieldProps | antd 组件的 props | `(form,config)=>RateProps \| RateProps` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| fieldProps | antd 组件的 props | `(form,config)=>RateProps \| RateProps` | - |
 
 与 [rate](https://ant.design/components/rate-cn/) 相同，通过 filedProps 配置 rate 的数据。
 
@@ -422,9 +515,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [slider](https://ant.design/components/slider-cn/) 相同，通过 filedProps 配置 slider 的数据。
 
-| 参数       | 说明              | 类型                                        | 默认值 |
-| ---------- | ----------------- | ------------------------------------------- | ------ |
-| fieldProps | antd 组件的 props | `(form,config)=>SliderProps \| SliderProps` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| fieldProps | antd 组件的 props | `(form,config)=>SliderProps \| SliderProps` | - |
 
 ```tsx | pure
 <ProFormSlider
@@ -445,11 +538,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Dragger 的样式，其他与 Upload 相同。
 
-| 参数        | 说明           | 类型        | 默认值                           |
-| ----------- | -------------- | ----------- | -------------------------------- |
-| icon        | Dragger 的图标 | `ReactNode` | InboxOutlined                    |
-| title       | Dragger 的标题 | `ReactNode` | '单击或拖动文件到此区域进行上传' |
-| description | Dragger 的描述 | `ReactNode` | '支持单次或批量上传'             |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| icon | Dragger 的图标 | `ReactNode` | InboxOutlined |
+| title | Dragger 的标题 | `ReactNode` | '单击或拖动文件到此区域进行上传' |
+| description | Dragger 的描述 | `ReactNode` | '支持单次或批量上传' |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
@@ -459,11 +552,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Button 的样式，其他与 Upload 相同。
 
-| 参数  | 说明                                       | 类型        | 默认值         |
-| ----- | ------------------------------------------ | ----------- | -------------- |
-| icon  | Button 的图标                              | `ReactNode` | UploadOutlined |
-| title | Button 的标题                              | `ReactNode` | 单击上传       |
-| max   | 最大上传数量, 超过最大数量就会隐藏上传按钮 | `number`    | -              |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| icon | Button 的图标 | `ReactNode` | UploadOutlined |
+| title | Button 的标题 | `ReactNode` | 单击上传 |
+| max | 最大上传数量, 超过最大数量就会隐藏上传按钮 | `number` | - |
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />
@@ -524,14 +617,59 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 "ru-RU": "₽",
 "sr-RS": "RSD",
 "ms-MY": "RM",
-"zh-TW": "$"
+"zh-TW": "NT$"
 "fr-FR": "€",
 "pt-BR": "R$",
 "ko-KR": "₩",
 "id-ID": "RP",
 "de-DE": "€",
 "fa-IR": "تومان",
-"tr-TR": "$",
+"tr-TR": "₺",
 "pl-PL": "zł",
+"hr-HR": "kn",
 }
+```
+
+### ProFormSegmented
+
+> antd 版本需要 >= antd@4.20.0
+
+与 [Segmented](https://ant.design/components/segmented-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `` (form,config)=>SelectProps`\| `SelectProps `` | - |
+
+> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
+
+```tsx | pure
+<>
+  <ProFormSegmented
+    name="segmented"
+    label="segmented"
+    valueEnum={{
+      open: '未解决',
+      closed: '已解决',
+    }}
+    rules={[{ required: true, message: 'Please select your country!' }]}
+  />
+
+  <ProFormSegmented
+    name="segmented"
+    label="segmented"
+    request={async () => [
+      { label: '全部', value: 'all' },
+      { label: '未解决', value: 'open' },
+      { label: '已解决', value: 'closed' },
+      { label: '解决中', value: 'processing' },
+    ]}
+    rules={[{ required: true, message: 'Please select your country!' }]}
+  />
+</>
 ```

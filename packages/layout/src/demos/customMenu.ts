@@ -1,7 +1,7 @@
 export default [
   {
     path: '/',
-    name: 'welcome',
+    name: '欢迎',
     routes: [
       {
         path: '/welcome',
@@ -18,6 +18,6 @@ export default [
   },
   {
     path: '/demo',
-    name: 'demo',
+    name: '例子',
   },
 ];

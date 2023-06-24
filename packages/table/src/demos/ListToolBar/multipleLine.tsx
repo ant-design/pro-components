@@ -1,9 +1,11 @@
-import React from 'react';
-import { Button, Dropdown, Menu } from 'antd';
-import { EllipsisOutlined, DownOutlined } from '@ant-design/icons';
-import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import {
+  LightFilter,
+  ProFormDatePicker,
+  ProTable,
+} from '@ant-design/pro-components';
+import { Button, Dropdown } from 'antd';
 
 export type TableListItem = {
   key: number;
@@ -92,19 +94,29 @@ export default () => {
         actions: [
           <Dropdown
             key="overlay"
-            overlay={
-              <Menu onClick={() => alert('menu click')}>
-                <Menu.Item key="1">菜单</Menu.Item>
-                <Menu.Item key="2">列表</Menu.Item>
-                <Menu.Item key="3">表单</Menu.Item>
-              </Menu>
-            }
+            menu={{
+              items: [
+                {
+                  label: '菜单',
+                  key: '1',
+                },
+                {
+                  label: '列表',
+                  key: '2',
+                },
+                {
+                  label: '表单',
+                  key: '3',
+                },
+              ],
+              onClick: () => alert('menu click'),
+            }}
           >
             <Button>
               移动自
               <DownOutlined
                 style={{
-                  marginLeft: 8,
+                  marginInlineStart: 8,
                 }}
               />
             </Button>

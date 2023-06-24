@@ -1,8 +1,6 @@
-import React from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Menu } from 'antd';
-import { PageContainer } from '@ant-design/pro-layout';
-import ProCard from '@ant-design/pro-card';
+import { PageContainer, ProCard } from '@ant-design/pro-components';
+import { Button, Dropdown } from 'antd';
 
 export default () => (
   <div
@@ -15,18 +13,18 @@ export default () => (
         title: '页面标题',
         ghost: true,
         breadcrumb: {
-          routes: [
+          items: [
             {
               path: '',
-              breadcrumbName: '一级页面',
+              title: '一级页面',
             },
             {
               path: '',
-              breadcrumbName: '二级页面',
+              title: '二级页面',
             },
             {
               path: '',
-              breadcrumbName: '当前页面',
+              title: '当前页面',
             },
           ],
         },
@@ -39,13 +37,22 @@ export default () => (
           <Dropdown
             key="dropdown"
             trigger={['click']}
-            overlay={
-              <Menu>
-                <Menu.Item key="1">下拉菜单</Menu.Item>
-                <Menu.Item key="2">下拉菜单2</Menu.Item>
-                <Menu.Item key="3">下拉菜单3</Menu.Item>
-              </Menu>
-            }
+            menu={{
+              items: [
+                {
+                  label: '下拉菜单',
+                  key: '1',
+                },
+                {
+                  label: '下拉菜单2',
+                  key: '2',
+                },
+                {
+                  label: '下拉菜单3',
+                  key: '3',
+                },
+              ],
+            }}
           >
             <Button key="4" style={{ padding: '0 8px' }}>
               <EllipsisOutlined />

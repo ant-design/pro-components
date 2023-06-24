@@ -1,16 +1,16 @@
-import React, { useState, useContext, useMemo } from 'react';
-import classNames from 'classnames';
 import {
-  FilterDropdown,
-  FieldLabel,
-  useMountMergeState,
   dateArrayFormatter,
   dateFormatterMap,
+  FieldLabel,
+  FilterDropdown,
+  useMountMergeState,
 } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
-
-import './index.less';
-import type { LightFilterFooterRender } from '../../interface';
+import type { TooltipPlacement } from 'antd/lib/tooltip';
+import classNames from 'classnames';
+import React, { useContext, useMemo, useState } from 'react';
+import type { LightFilterFooterRender } from '../../typing';
+import { useStyle } from './style';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -28,15 +28,24 @@ export type LightWrapperProps = {
   valuePropName?: string;
   customLightMode?: boolean;
   light?: boolean;
-  labelFormatter?: (value: any) => string;
+  /**
+   * @name 自定义label的值
+   *
+   * @example <caption>自定义数组的转化</caption>
+   * labelFormatter={(value) =>value.join('-')} }
+   */
+  labelFormatter?: (value: any) => React.ReactNode;
   bordered?: boolean;
   otherFieldProps?: any;
   valueType?: string;
   allowClear?: boolean;
   footerRender?: LightFilterFooterRender;
+  placement?: TooltipPlacement;
 };
 
-const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
+const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
+  props,
+) => {
   const {
     label,
     size,
@@ -53,11 +62,16 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     allowClear,
     otherFieldProps,
     valueType,
+    placement,
     ...rest
   } = props;
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
-  const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const [tempValue, setTempValue] = useState<string | undefined>(
+    props[valuePropName!],
+  );
   const [open, setOpen] = useMountMergeState<boolean>(false);
 
   const onChange = (...restParams: any[]) => {
@@ -67,25 +81,34 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
 
   const labelValue = props[valuePropName!];
 
-  /** DataRange的转化，moment 的 toString 有点不好用 */
+  /** DataRange的转化，dayjs 的 toString 有点不好用 */
   const labelText = useMemo(() => {
-    if (valueType?.toLowerCase()?.endsWith('range') && !labelFormatter) {
-      return dateArrayFormatter(labelValue, dateFormatterMap[valueType] || 'YYYY-MM-DD');
+    if (
+      valueType?.toLowerCase()?.endsWith('range') &&
+      valueType !== 'digitRange' &&
+      !labelFormatter
+    ) {
+      return dateArrayFormatter(
+        labelValue,
+        dateFormatterMap[valueType] || 'YYYY-MM-DD',
+      );
     }
     return labelValue;
   }, [labelValue, valueType, labelFormatter]);
-  return (
+
+  return wrapSSR(
     <FilterDropdown
       disabled={disabled}
-      onVisibleChange={setOpen}
-      visible={open}
+      open={open}
+      onOpenChange={setOpen}
+      placement={placement}
       label={
         <FieldLabel
           ellipsis
           size={size}
           onClear={() => {
             onChange?.();
-            setTempValue(undefined);
+            setTempValue('');
           }}
           bordered={bordered}
           style={style}
@@ -94,13 +117,12 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           placeholder={placeholder}
           value={labelText}
           disabled={disabled}
-          expanded={open}
           formatter={labelFormatter}
           allowClear={allowClear}
         />
       }
       footer={{
-        onClear: () => setTempValue(undefined),
+        onClear: () => setTempValue(''),
         onConfirm: () => {
           onChange?.(tempValue);
           setOpen(false);
@@ -108,7 +130,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       }}
       footerRender={footerRender}
     >
-      <div className={classNames(`${prefixCls}-container`, className)} style={style}>
+      <div
+        className={classNames(`${prefixCls}-container`, hashId, className)}
+        style={style}
+      >
         {React.cloneElement(children as JSX.Element, {
           ...rest,
           [valuePropName!]: tempValue,
@@ -118,8 +143,8 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           ...(children as JSX.Element).props,
         })}
       </div>
-    </FilterDropdown>
+    </FilterDropdown>,
   );
 };
 
-export default LightWrapper;
+export { LightWrapper };

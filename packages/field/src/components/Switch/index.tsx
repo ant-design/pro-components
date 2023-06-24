@@ -1,9 +1,13 @@
-import React, { useMemo } from 'react';
+import { useIntl } from '@ant-design/pro-provider';
 import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
 import Omit from 'omit.js';
+import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
-import { useIntl } from '@ant-design/pro-provider';
+
+// 兼容代码-----------
+import 'antd/lib/switch/style';
+//------------
 
 /**
  * 评分组件
@@ -16,12 +20,11 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
 ) => {
   const intl = useIntl();
   const dom = useMemo(() => {
-    if (text === undefined || text === null || `${text}`.length < 1) {
-      return '-';
-    }
+    if (text === undefined || text === null || `${text}`.length < 1) return '-';
     return text
       ? fieldProps?.checkedChildren ?? intl.getMessage('switch.open', '打开')
-      : fieldProps?.unCheckedChildren ?? intl.getMessage('switch.close', '关闭');
+      : fieldProps?.unCheckedChildren ??
+          intl.getMessage('switch.close', '关闭');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fieldProps?.checkedChildren, fieldProps?.unCheckedChildren, text]);
 
@@ -36,7 +39,7 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
       <Switch
         ref={ref}
         {...Omit(fieldProps, ['value'])}
-        checked={fieldProps?.checked || fieldProps?.value}
+        checked={fieldProps?.checked ?? fieldProps?.value}
       />
     );
     if (renderFormItem) {

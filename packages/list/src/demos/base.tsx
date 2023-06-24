@@ -1,6 +1,5 @@
-import React from 'react';
-import { Button, Tag, Space } from 'antd';
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
+import { Button, Space, Tag } from 'antd';
 
 const dataSource = [
   {
@@ -76,13 +75,28 @@ export default () => (
       },
       actions: {
         render: (text, row) => [
-          <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="link">
+          <a
+            href={row.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            key="link"
+          >
             链路
           </a>,
-          <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="warning">
+          <a
+            href={row.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            key="warning"
+          >
             报警
           </a>,
-          <a href={row.html_url} target="_blank" rel="noopener noreferrer" key="view">
+          <a
+            href={row.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            key="view"
+          >
             查看
           </a>,
         ],

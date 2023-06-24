@@ -1,14 +1,16 @@
-import React, { useContext } from 'react';
-import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
-import type { CardProps, Gutter, Breakpoint } from '../../type';
+import { ConfigProvider, Grid, Tabs } from 'antd';
+
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Loading from '../Loading';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useContext } from 'react';
+import type { Breakpoint, CardProps, Gutter } from '../../typing';
 import Actions from '../Actions';
-import './index.less';
+import Loading from '../Loading';
+import { useLegacyItems } from '../TabPane';
+import useStyle from './style';
 
 const { useBreakpoint } = Grid;
 
@@ -32,6 +34,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     split,
     headerBordered = false,
     bordered = false,
+    boxShadow = false,
     children,
     size,
     actions,
@@ -40,6 +43,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     direction,
     collapsed: controlCollapsed,
     collapsible = false,
+    collapsibleIconRender,
     defaultCollapsed = false,
     onCollapse,
     checked,
@@ -50,7 +54,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = useBreakpoint();
-
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
@@ -58,6 +61,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   // 顺序决定如何进行响应式取值，按最大响应值依次取值，请勿修改。
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+  // 修改组合传给antd tabs的参数
+  // @ts-ignore
+  const ModifyTabItemsContant = useLegacyItems(tabs?.items, children, tabs);
 
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
@@ -108,17 +114,21 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     }
 
     // 当 colSpan 为 30% 或 300px 时
-    const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
-      width: span as string,
-      flexShrink: 0,
-    });
+    const colSpanStyle = getStyle(
+      typeof span === 'string' && /\d%|\dpx/i.test(span),
+      {
+        width: span as string,
+        flexShrink: 0,
+      },
+    );
 
     return { span, colSpanStyle };
   };
 
   const prefixCls = getPrefixCls('pro-card');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
 
-  const [horizonalGutter, verticalGutter] = getNormalizedGutter(gutter);
+  const [horizontalGutter, verticalGutter] = getNormalizedGutter(gutter);
 
   // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
   let containProCard = false;
@@ -132,39 +142,43 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       const { colSpan } = element.props;
       const { span, colSpanStyle } = getColSpanStyle(colSpan);
 
-      const columnClassName = classNames([`${prefixCls}-col`], {
-        [`${prefixCls}-split-vertical`]: split === 'vertical' && index !== childrenArray.length - 1,
+      const columnClassName = classNames([`${prefixCls}-col`], hashId, {
+        [`${prefixCls}-split-vertical`]:
+          split === 'vertical' && index !== childrenArray.length - 1,
         [`${prefixCls}-split-horizontal`]:
           split === 'horizontal' && index !== childrenArray.length - 1,
-        [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
+        [`${prefixCls}-col-${span}`]:
+          typeof span === 'number' && span >= 0 && span <= 24,
       });
 
-      return (
+      const wrappedElement = wrapSSR(
         <div
           style={{
             ...colSpanStyle,
-            ...getStyle(horizonalGutter! > 0, {
-              paddingRight: horizonalGutter / 2,
-              paddingLeft: horizonalGutter / 2,
+            ...getStyle(horizontalGutter! > 0, {
+              paddingInlineEnd: horizontalGutter / 2,
+              paddingInlineStart: horizontalGutter / 2,
             }),
             ...getStyle(verticalGutter! > 0, {
-              paddingTop: verticalGutter / 2,
-              paddingBottom: verticalGutter / 2,
+              paddingBlockStart: verticalGutter / 2,
+              paddingBlockEnd: verticalGutter / 2,
             }),
           }}
-          // eslint-disable-next-line react/no-array-index-key
-          key={`pro-card-col-${index}`}
           className={columnClassName}
         >
           {React.cloneElement(element)}
-        </div>
+        </div>,
       );
+      return React.cloneElement(wrappedElement, {
+        key: `pro-card-col-${element?.key || index}`,
+      });
     }
     return element;
   });
 
-  const cardCls = classNames(`${prefixCls}`, className, {
+  const cardCls = classNames(`${prefixCls}`, className, hashId, {
     [`${prefixCls}-border`]: bordered,
+    [`${prefixCls}-box-shadow`]: boxShadow,
     [`${prefixCls}-contain-card`]: containProCard,
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-split`]: split === 'vertical' || split === 'horizontal',
@@ -176,42 +190,41 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     [`${prefixCls}-checked`]: checked,
   });
 
-  const bodyCls = classNames(`${prefixCls}-body`, {
+  const bodyCls = classNames(`${prefixCls}-body`, hashId, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-direction-column`]: split === 'horizontal' || direction === 'column',
+    [`${prefixCls}-body-direction-column`]:
+      split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
-  const cardBodyStyle = {
-    ...getStyle(horizonalGutter! > 0, {
-      marginRight: -horizonalGutter / 2,
-      marginLeft: -horizonalGutter / 2,
-    }),
-    ...getStyle(verticalGutter! > 0, {
-      marginTop: -verticalGutter / 2,
-      marginBottom: -verticalGutter / 2,
-    }),
-    ...bodyStyle,
-  };
+  const cardBodyStyle = bodyStyle;
 
   const loadingDOM = React.isValidElement(loading) ? (
     loading
   ) : (
     <Loading
       prefix={prefixCls}
-      style={bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined}
+      style={
+        bodyStyle.padding === 0 || bodyStyle.padding === '0px'
+          ? { padding: 24 }
+          : undefined
+      }
     />
   );
-
   // 非受控情况下展示
-  const collapsibleButton = collapsible && controlCollapsed === undefined && (
-    <RightOutlined
-      rotate={!collapsed ? 90 : undefined}
-      className={`${prefixCls}-collapsible-icon`}
-    />
-  );
+  const collapsibleButton =
+    collapsible &&
+    controlCollapsed === undefined &&
+    (collapsibleIconRender ? (
+      collapsibleIconRender({ collapsed })
+    ) : (
+      <RightOutlined
+        rotate={!collapsed ? 90 : undefined}
+        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
+      />
+    ));
 
-  return (
+  return wrapSSR(
     <div
       className={cardCls}
       style={style}
@@ -224,7 +237,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     >
       {(title || extra || collapsibleButton) && (
         <div
-          className={classNames(`${prefixCls}-header`, {
+          className={classNames(`${prefixCls}-header`, hashId, {
             [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
             [`${prefixCls}-header-collapsible`]: collapsibleButton,
           })}
@@ -233,16 +246,27 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             if (collapsibleButton) setCollapsed(!collapsed);
           }}
         >
-          <div className={`${prefixCls}-title`}>
+          <div className={`${prefixCls}-title ${hashId}`.trim()}>
             {collapsibleButton}
-            <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
+            <LabelIconTip
+              label={title}
+              tooltip={tooltip || tip}
+              subTitle={subTitle}
+            />
           </div>
-          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          {extra && (
+            <div className={`${prefixCls}-extra ${hashId}`.trim()}>{extra}</div>
+          )}
         </div>
       )}
       {tabs ? (
-        <div className={`${prefixCls}-tabs`}>
-          <Tabs onChange={tabs.onChange} {...tabs}>
+        <div className={`${prefixCls}-tabs ${hashId}`.trim()}>
+          <Tabs
+            onChange={tabs.onChange}
+            {...tabs}
+            // @ts-ignore
+            items={ModifyTabItemsContant}
+          >
             {loading ? loadingDOM : children}
           </Tabs>
         </div>
@@ -251,8 +275,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {<Actions actions={actions} prefixCls={prefixCls} />}
-    </div>
+      {actions ? <Actions actions={actions} prefixCls={prefixCls} /> : null}
+    </div>,
   );
 });
 

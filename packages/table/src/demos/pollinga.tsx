@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Button } from 'antd';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
 import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
-import moment from 'moment';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+import { Button } from 'antd';
+import dayjs from 'dayjs';
+import { useState } from 'react';
 
 const valueEnum = {
   0: 'close',
@@ -98,7 +98,7 @@ export default () => {
       }}
       polling={polling || undefined}
       request={async () => {
-        await timeAwait(1000);
+        await timeAwait(2000);
         setTime(Date.now());
         return {
           data: tableListDataSource,
@@ -107,7 +107,7 @@ export default () => {
         };
       }}
       dateFormatter="string"
-      headerTitle={`上次更新时间：${moment(time).format('HH:mm:ss')}`}
+      headerTitle={`上次更新时间：${dayjs(time).format('HH:mm:ss')}`}
       toolBarRender={() => [
         <Button
           key="3"

@@ -1,15 +1,17 @@
-﻿import React, { useContext, useMemo } from 'react';
-import type { FormInstance, FormItemProps } from 'antd';
-import { ConfigProvider } from 'antd';
-import type { BaseQueryFilterProps, ProFormProps } from '@ant-design/pro-form';
+﻿import type {
+  BaseQueryFilterProps,
+  ProFormInstance,
+  ProFormProps,
+} from '@ant-design/pro-form';
+import { BetaSchemaForm } from '@ant-design/pro-form';
+import { ProProvider } from '@ant-design/pro-provider';
+import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
+import type { FormItemProps } from 'antd';
+import { ConfigProvider, Table } from 'antd';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { BetaSchemaForm } from '@ant-design/pro-form';
-
-import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
-import type { ActionType, ProColumns } from '../../typing';
-
-import './index.less';
+import React, { useContext, useMemo } from 'react';
+import type { ActionType, ProColumns, ProTableProps } from '../../typing';
 
 function toLowerLine(str: string) {
   let temp = str.replace(/[A-Z]/g, (match) => {
@@ -98,14 +100,15 @@ export type TableFormItem<T, U = any> = {
   onReset?: (value: T) => void;
   form?: Omit<ProFormProps, 'form'>;
   type?: ProSchemaComponentTypes;
-  dateFormatter?: 'string' | 'number' | false;
+  dateFormatter?: ProTableProps<T, U, any>['dateFormatter'];
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
-  formRef: React.MutableRefObject<FormInstance | undefined>;
+  formRef: React.MutableRefObject<ProFormInstance | undefined>;
   submitButtonLoading?: boolean;
   manualRequest?: boolean;
   bordered?: boolean;
   action: React.MutableRefObject<ActionType | undefined>;
+  ghost?: boolean;
 } & Omit<FormItemProps, 'children' | 'onReset'>;
 
 /**
@@ -121,6 +124,7 @@ const FormRender = <T, U = any>({
   type,
   columns,
   action,
+  ghost,
   manualRequest,
   onReset,
   submitButtonLoading,
@@ -128,6 +132,7 @@ const FormRender = <T, U = any>({
   form: formConfig,
   bordered,
 }: TableFormItem<T, U>) => {
+  const { hashId } = useContext(ProProvider);
   const isForm = type === 'form';
   /** 提交表单，根据两种模式不同，方法不相同 */
   const submit = async (values: T, firstLoad: boolean) => {
@@ -141,6 +146,9 @@ const FormRender = <T, U = any>({
   const columnsList = useMemo(() => {
     return columns
       .filter((item) => {
+        if (item === Table.EXPAND_COLUMN || item === Table.SELECTION_COLUMN) {
+          return false;
+        }
         if ((item.hideInSearch || item.search === false) && type !== 'form') {
           return false;
         }
@@ -152,14 +160,21 @@ const FormRender = <T, U = any>({
       .map((item) => {
         const finalValueType =
           !item.valueType ||
-          (['textarea', 'jsonCode', 'code'].includes(item?.valueType) && type === 'table')
+          (['textarea', 'jsonCode', 'code'].includes(item?.valueType) &&
+            type === 'table')
             ? 'text'
             : (item?.valueType as 'text');
+        const columnKey = item?.key || item?.dataIndex?.toString();
+
         return {
           ...item,
           width: undefined,
           ...(item.search ? item.search : {}),
           valueType: finalValueType,
+          proFieldProps: {
+            ...item.proFieldProps,
+            proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
+          },
         };
       });
   }, [columns, type]);
@@ -186,10 +201,15 @@ const FormRender = <T, U = any>({
 
   return (
     <div
-      className={classNames(className, {
+      className={classNames(hashId, {
+        [getPrefixCls('pro-card')]: true,
+        [`${getPrefixCls('pro-card')}-border`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-bordered`]: !!bordered,
+        [`${getPrefixCls('pro-card')}-ghost`]: !!ghost,
+        [className]: true,
         [formClassName]: isForm,
         [getPrefixCls(`pro-table-search-${toLowerLine(competentName)}`)]: true,
-        [`${getPrefixCls('card')}-bordered`]: !!bordered,
+        [`${className}-ghost`]: ghost,
         [(searchConfig as { className: string })?.className]:
           searchConfig !== false && searchConfig?.className,
       })}
@@ -210,7 +230,10 @@ const FormRender = <T, U = any>({
             // 修改 pageSize，变成从 url 中获取的
             const pageInfo = action.current?.pageInfo;
             // 从 values 里获取是因为有时候要从 url中获取的 pageSize。
-            const { current = pageInfo?.current, pageSize = pageInfo?.pageSize } = values as any;
+            const {
+              current = pageInfo?.current,
+              pageSize = pageInfo?.pageSize,
+            } = values as any;
             action.current?.setPageInfo?.({
               ...pageInfo,
               current: parseInt(current, 10),

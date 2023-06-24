@@ -1,20 +1,23 @@
-﻿import React, { useState } from 'react';
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import type { BasicLayoutProps } from '@ant-design/pro-layout';
-
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import { ProFormRadio } from '@ant-design/pro-form';
+﻿import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import type { ProLayoutProps } from '@ant-design/pro-components';
+import {
+  PageContainer,
+  ProFormRadio,
+  ProLayout,
+} from '@ant-design/pro-components';
+import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 export default () => {
   const [pathname, setPathname] = useState('/welcome');
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [position, setPosition] = useState<'header' | 'menu'>('header');
   const children = (
     <PageContainer>
       <div
         style={{
           height: '120vh',
+          minHeight: 600,
         }}
       >
         <ProFormRadio.Group
@@ -31,12 +34,11 @@ export default () => {
       </div>
     </PageContainer>
   );
-  const props: BasicLayoutProps = {
+  const props: ProLayoutProps = {
     ...defaultProps,
     location: {
       pathname,
     },
-    navTheme: 'light',
     collapsed,
     fixSiderbar: true,
     collapsedButtonRender: false,
@@ -54,6 +56,7 @@ export default () => {
     return (
       <ProLayout
         {...props}
+        layout="mix"
         onCollapse={setCollapsed}
         postMenuData={(menuData) => {
           return [
@@ -73,6 +76,7 @@ export default () => {
   return (
     <ProLayout
       {...props}
+      layout="mix"
       onCollapse={setCollapsed}
       headerContentRender={() => {
         return (

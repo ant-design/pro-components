@@ -1,19 +1,39 @@
-import moment from 'moment';
-import isNil from '../isNil';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { isNil } from '../isNil';
 
-type DateValue = moment.Moment | moment.Moment[] | string | string[] | number | number[];
+dayjs.extend(customParseFormat);
 
-const parseValueToMoment = (
+type DateValue =
+  | dayjs.Dayjs
+  | dayjs.Dayjs[]
+  | string
+  | string[]
+  | number
+  | number[];
+
+/**
+ * 一个比较hack的moment判断工具
+ * @param value
+ * @returns
+ */
+const isMoment = (value: any) => !!value?._isAMomentObject;
+
+export const parseValueToDay = (
   value: DateValue,
   formatter?: string,
-): moment.Moment | moment.Moment[] | null | undefined => {
-  if (isNil(value) || moment.isMoment(value)) {
-    return value as moment.Moment | null | undefined;
+): dayjs.Dayjs | dayjs.Dayjs[] | null | undefined => {
+  if (isNil(value) || dayjs.isDayjs(value) || isMoment(value)) {
+    if (isMoment(value)) {
+      return dayjs(value as dayjs.Dayjs);
+    }
+    return value as dayjs.Dayjs | null | undefined;
   }
   if (Array.isArray(value)) {
-    return (value as any[]).map((v) => parseValueToMoment(v, formatter) as moment.Moment);
+    return (value as any[]).map(
+      (v) => parseValueToDay(v, formatter) as dayjs.Dayjs,
+    );
   }
-  return moment(value, formatter);
+  if (typeof value === 'number') return dayjs(value);
+  return dayjs(value, formatter);
 };
-
-export default parseValueToMoment;

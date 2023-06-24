@@ -1,11 +1,13 @@
-import React, { useRef, useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
-import type { ActionType } from '@ant-design/pro-table';
-import ProCard from '@ant-design/pro-card';
-import { Button, Input, Space, Tag, Form } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import { ProFormField } from '@ant-design/pro-form';
+import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+} from '@ant-design/pro-components';
+import type { InputRef } from 'antd';
+import { Button, Form, Input, Space, Tag } from 'antd';
+import React, { useRef, useState } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -27,7 +29,7 @@ const TagList: React.FC<{
     }[],
   ) => void;
 }> = ({ value, onChange }) => {
-  const ref = useRef<Input | null>(null);
+  const ref = useRef<InputRef | null>(null);
   const [newTags, setNewTags] = useState<
     {
       key: string;
@@ -42,8 +44,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -87,14 +95,14 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     labels: [{ key: 'woman', label: '川妹子' }],
     state: 'open',
-    created_at: '2020-05-26T09:42:56Z',
+    created_at: '1590486176000',
   },
   {
     id: 624691229,
     title: '活动名称二',
     labels: [{ key: 'man', label: '西北汉子' }],
     state: 'closed',
-    created_at: '2020-05-26T08:19:22Z',
+    created_at: '1590481162000',
   },
 ];
 
@@ -144,7 +152,8 @@ const columns: ProColumns<DataSourceType>[] = [
     renderFormItem: (_, { isEditable }) => {
       return isEditable ? <TagList /> : <Input />;
     },
-    render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
+    render: (_, row) =>
+      row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
   {
     title: '操作',
@@ -175,7 +184,7 @@ const columns: ProColumns<DataSourceType>[] = [
 export default () => {
   const actionRef = useRef<ActionType>();
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>([]);
   const [form] = Form.useForm();
   return (
     <>
@@ -204,6 +213,9 @@ export default () => {
 
       <EditableProTable<DataSourceType>
         rowKey="id"
+        scroll={{
+          x: 960,
+        }}
         actionRef={actionRef}
         headerTitle="可编辑表格"
         maxLength={5}

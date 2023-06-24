@@ -51,8 +51,21 @@ export default {
   stepsForm: {
     next: 'التالي',
     prev: 'السابق',
+    submit: 'أنهى',
   },
   loginForm: {
     submitText: 'تسجيل الدخول',
+  },
+  editableTable: {
+    action: {
+      save: 'أنقذ',
+      cancel: 'إلغاء الأمر',
+      delete: 'حذف',
+      add: 'إضافة صف من البيانات',
+    },
+  },
+  switch: {
+    open: 'مفتوح',
+    close: 'غلق',
   },
 };

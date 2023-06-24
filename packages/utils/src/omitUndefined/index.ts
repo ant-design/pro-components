@@ -1,14 +1,16 @@
-const omitUndefined = <T>(obj: T): T => {
+type OmitUndefined<T> = {
+  [P in keyof T]: NonNullable<T[P]>;
+};
+
+export const omitUndefined = <T>(obj: T): OmitUndefined<T> => {
   const newObj = {} as T;
   Object.keys(obj || {}).forEach((key) => {
     if (obj[key] !== undefined) {
       newObj[key] = obj[key];
     }
   });
-  if (Object.keys(newObj).length < 1) {
+  if (Object.keys(newObj as Record<string, any>).length < 1) {
     return undefined as any;
   }
-  return newObj;
+  return newObj as OmitUndefined<T>;
 };
-
-export default omitUndefined;

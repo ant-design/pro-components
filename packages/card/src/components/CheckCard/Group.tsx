@@ -1,14 +1,23 @@
-import React, { createContext, useCallback, useMemo, useRef, useContext } from 'react';
-import classNames from 'classnames';
-import { ConfigProvider, Row, Col } from 'antd';
-import omit from 'omit.js';
-import CheckCard from './index';
-import './index.less';
 import { useMountMergeState } from '@ant-design/pro-utils';
+import { Col, ConfigProvider, Row } from 'antd';
+
+import classNames from 'classnames';
+import omit from 'omit.js';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useRef,
+} from 'react';
+import CheckCard from './index';
 
 export type CheckCardValueType = string | number | boolean;
 
-export type CheckGroupValueType = CheckCardValueType[] | CheckCardValueType | undefined;
+export type CheckGroupValueType =
+  | CheckCardValueType[]
+  | CheckCardValueType
+  | undefined;
 
 export interface CheckCardOptionType {
   /**
@@ -99,7 +108,7 @@ export const CardLoading: React.FC<{
         <Col span={8}>
           <div className={loadingBlockClass} />
         </Col>
-        <Col span={15}>
+        <Col span={14}>
           <div className={loadingBlockClass} />
         </Col>
       </Row>
@@ -107,7 +116,7 @@ export const CardLoading: React.FC<{
         <Col span={6}>
           <div className={loadingBlockClass} />
         </Col>
-        <Col span={18}>
+        <Col span={16}>
           <div className={loadingBlockClass} />
         </Col>
       </Row>
@@ -126,7 +135,7 @@ export const CardLoading: React.FC<{
         <Col span={3}>
           <div className={loadingBlockClass} />
         </Col>
-        <Col span={16}>
+        <Col span={14}>
           <div className={loadingBlockClass} />
         </Col>
       </Row>
@@ -186,7 +195,8 @@ export type CheckCardGroupConnextType = {
   cancelValue?: (value: any) => void;
 };
 
-export const CheckCardGroupConnext = createContext<CheckCardGroupConnextType | null>(null);
+export const CheckCardGroupConnext =
+  createContext<CheckCardGroupConnextType | null>(null);
 
 const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
   const {
@@ -215,11 +225,20 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     });
   }, [options]);
 
-  const prefixCls = antdContext.getPrefixCls('pro-checkcard', customizePrefixCls);
+  const prefixCls = antdContext.getPrefixCls(
+    'pro-checkcard',
+    customizePrefixCls,
+  );
 
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const domProps = omit(restProps, ['children', 'defaultValue', 'value', 'disabled', 'size']);
+  const domProps = omit(restProps, [
+    'children',
+    'defaultValue',
+    'value',
+    'disabled',
+    'size',
+  ]);
 
   const [stateValue, setStateValue] = useMountMergeState<
     CheckCardValueType[] | CheckCardValueType | undefined
@@ -261,7 +280,9 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
         changeValue.push(option.value);
       }
       if (hasOption) {
-        changeValue = changeValue.filter((itemValue) => itemValue !== option.value);
+        changeValue = changeValue.filter(
+          (itemValue) => itemValue !== option.value,
+        );
       }
       const newOptions = getOptions();
       const newValue = changeValue
@@ -279,15 +300,21 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
   const children = useMemo((): React.ReactNode => {
     if (loading) {
       return (
-        new Array(options.length || React.Children.toArray(props.children).length || 1)
+        new Array(
+          options.length || React.Children.toArray(props.children).length || 1,
+        )
           .fill(0)
           // eslint-disable-next-line react/no-array-index-key
-          .map((_, index) => <CheckCard key={index} loading />) as React.ReactNode[]
+          .map((_, index) => (
+            <CheckCard key={index} loading />
+          )) as React.ReactNode[]
       );
     }
 
     if (options && options.length > 0) {
-      const optionValue = stateValue as CheckCardValueType[] | CheckCardValueType;
+      const optionValue = stateValue as
+        | CheckCardValueType[]
+        | CheckCardValueType;
       return getOptions().map((option) => (
         <CheckCard
           key={option.value.toString()}
@@ -308,7 +335,15 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
       )) as React.ReactNode[];
     }
     return props.children as React.ReactNode;
-  }, [getOptions, loading, multiple, options, props.children, props.size, stateValue]);
+  }, [
+    getOptions,
+    loading,
+    multiple,
+    options,
+    props.children,
+    props.size,
+    stateValue,
+  ]);
 
   const classString = classNames(groupPrefixCls, className);
 

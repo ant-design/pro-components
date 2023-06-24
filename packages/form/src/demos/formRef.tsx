@@ -1,9 +1,12 @@
-import React, { useRef } from 'react';
-import { message, Button } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormDatePicker } from '@ant-design/pro-form';
-import ProForm, { ProFormText } from '@ant-design/pro-form';
-import moment from 'moment';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormDatePicker,
+  ProFormText,
+} from '@ant-design/pro-components';
+import { Button, message } from 'antd';
+import dayjs from 'dayjs';
+import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -15,7 +18,6 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   const formRef = useRef<ProFormInstance>();
-
   const onFill = () => {
     formRef?.current?.setFieldsValue({
       name: '张三',
@@ -28,7 +30,10 @@ export default () => {
   };
 
   const getFormatValues = () => {
-    console.log('格式化后的所有数据：', formRef.current?.getFieldsFormatValue?.());
+    console.log(
+      '格式化后的所有数据：',
+      formRef.current?.getFieldsFormatValue?.(),
+    );
   };
 
   const validateAndGetFormatValue = () => {
@@ -55,7 +60,11 @@ export default () => {
               <Button htmlType="button" onClick={getFormatValues} key="format">
                 获取格式化后的所有数据
               </Button>
-              <Button htmlType="button" onClick={validateAndGetFormatValue} key="format">
+              <Button
+                htmlType="button"
+                onClick={validateAndGetFormatValue}
+                key="format2"
+              >
                 校验表单并返回格式化后的所有数据
               </Button>
             </Button.Group>,
@@ -77,8 +86,13 @@ export default () => {
         placeholder="请输入名称"
       />
 
-      <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
-      <ProFormDatePicker name="date" initialValue={moment('2021-08-09')} />
+      <ProFormText
+        width="md"
+        name="company"
+        label="我方公司名称"
+        placeholder="请输入名称"
+      />
+      <ProFormDatePicker name="date" initialValue={dayjs('2021-08-09')} />
     </ProForm>
   );
 };

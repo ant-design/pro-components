@@ -1,11 +1,14 @@
-import React from 'react';
-import moment from 'moment';
-import ProDescriptions from '@ant-design/pro-descriptions';
+import { ProDescriptions } from '@ant-design/pro-components';
+import dayjs from 'dayjs';
 
 export default () => {
   return (
     <>
-      <ProDescriptions column={2} title="高级定义列表" tooltip="包含了从服务器请求，columns等功能">
+      <ProDescriptions
+        column={2}
+        title="高级定义列表"
+        tooltip="包含了从服务器请求，columns等功能"
+      >
         <ProDescriptions.Item
           label="日期"
           fieldProps={{
@@ -13,7 +16,7 @@ export default () => {
           }}
           valueType="date"
         >
-          {moment().valueOf()}
+          {dayjs().valueOf()}
         </ProDescriptions.Item>
         <ProDescriptions.Item
           label="日期区间"
@@ -22,7 +25,7 @@ export default () => {
           }}
           valueType="dateTimeRange"
         >
-          {[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
+          {[dayjs().add(-1, 'd').valueOf(), dayjs().valueOf()]}
         </ProDescriptions.Item>
         <ProDescriptions.Item
           label="时间"
@@ -31,17 +34,17 @@ export default () => {
           }}
           valueType="time"
         >
-          {moment().valueOf()}
+          {dayjs().valueOf()}
         </ProDescriptions.Item>
 
         <ProDescriptions.Item
           label="时间日期"
           fieldProps={{
-            format: 'YYYY.MM.DD HH:mm:SS',
+            format: 'YYYY.MM.DD HH:mm:ss',
           }}
           valueType="dateTime"
         >
-          {moment().valueOf()}
+          {dayjs().valueOf()}
         </ProDescriptions.Item>
 
         <ProDescriptions.Item
@@ -51,7 +54,7 @@ export default () => {
           }}
           valueType="fromNow"
         >
-          {moment().add(-1, 'month').valueOf()}
+          {dayjs().add(-1, 'month').valueOf()}
         </ProDescriptions.Item>
       </ProDescriptions>
     </>

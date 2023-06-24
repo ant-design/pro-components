@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { ProForm, ProFormMoney } from '@ant-design/pro-components';
 import { message } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import ProForm, { ProFormMoney } from '@ant-design/pro-form';
+import { useRef } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -59,7 +59,7 @@ export default () => {
       />
       <ProFormMoney
         label="宽度"
-        name="amount0"
+        name="amount1"
         locale="en-US"
         initialValue={22.22}
         min={0}
@@ -67,14 +67,42 @@ export default () => {
       />
       <ProFormMoney
         label="限制金额最小为0"
-        name="amount1"
+        name="amount2"
         locale="en-US"
         initialValue={22.22}
         min={0}
       />
-      <ProFormMoney label="不限制金额大小" name="amount2" locale="en-GB" initialValue={22.22} />
-      <ProFormMoney label="货币符号跟随全局国际化" name="amount3" initialValue={22.22} />
-      <ProFormMoney label="自定义货币符号" name="amount4" initialValue={22.22} customSymbol="💰" />
+      <ProFormMoney
+        label="不限制金额大小"
+        name="amount3"
+        locale="en-GB"
+        initialValue={22.22}
+      />
+      <ProFormMoney
+        label="货币符号跟随全局国际化"
+        name="amount4"
+        initialValue={22.22}
+      />
+      <ProFormMoney
+        label="自定义货币符号"
+        name="amount5"
+        initialValue={22.22}
+        customSymbol="💰"
+      />
+      <ProFormMoney
+        label="小数点精度"
+        name="amount6"
+        initialValue={2222222222.222222}
+        fieldProps={{ precision: 2 }}
+        customSymbol="💰"
+      />
+      <ProFormMoney
+        label="小数点精度-0"
+        name="amount6"
+        initialValue={2222222222.222222}
+        fieldProps={{ precision: 0 }}
+        customSymbol="💰"
+      />
     </ProForm>
   );
 };

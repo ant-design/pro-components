@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
 import { ConfigProvider } from 'antd';
+
 import classNames from 'classnames';
-
-import './index.less';
-
+import React, { useContext } from 'react';
+import useStyle from './style';
 export type ProCardDividerProps = {
   /**
    * 样式
@@ -27,15 +26,17 @@ export type ProCardDividerProps = {
 
 const ProCardDivider: React.FC<ProCardDividerProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-card-divider');
+  const proCardPrefixCls = getPrefixCls('pro-card');
+  const prefixCls = `${proCardPrefixCls}-divider`;
+  const { wrapSSR, hashId } = useStyle(proCardPrefixCls);
 
   const { className, style = {}, type } = props;
 
-  const classString = classNames(prefixCls, className, {
+  const classString = classNames(prefixCls, className, hashId, {
     [`${prefixCls}-${type}`]: type,
   });
 
-  return <div className={classString} style={style} />;
+  return wrapSSR(<div className={classString} style={style} />);
 };
 
 export default ProCardDivider;

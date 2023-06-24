@@ -1,11 +1,16 @@
-import { DatePicker, Tooltip } from 'antd';
-import React from 'react';
-import { parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
-import moment from 'moment';
-
+import { parseValueToDay } from '@ant-design/pro-utils';
+import { DatePicker, Tooltip } from 'antd';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import type { ProFieldFC } from '../../index';
 
+// 兼容代码-----------
+import 'antd/lib/date-picker/style';
+import React from 'react';
+//----------------------
+
+dayjs.extend(relativeTime);
 /**
  * 与当前的时间进行比较 http://momentjs.cn/docs/displaying/fromnow.html
  *
@@ -14,13 +19,17 @@ import type { ProFieldFC } from '../../index';
 const FieldFromNow: ProFieldFC<{
   text: string;
   format?: string;
-}> = ({ text, mode, render, renderFormItem, format, fieldProps }) => {
+}> = ({ text, mode, render, renderFormItem, format, fieldProps }, ref) => {
   const intl = useIntl();
 
   if (mode === 'read') {
     const dom = (
-      <Tooltip title={moment(text).format(fieldProps?.format || format || 'YYYY-MM-DD HH:mm:ss')}>
-        {moment(text).fromNow()}
+      <Tooltip
+        title={dayjs(text).format(
+          fieldProps?.format || format || 'YYYY-MM-DD HH:mm:ss',
+        )}
+      >
+        {dayjs(text).fromNow()}
       </Tooltip>
     );
     if (render) {
@@ -29,10 +38,19 @@ const FieldFromNow: ProFieldFC<{
     return <>{dom}</>;
   }
   if (mode === 'edit' || mode === 'update') {
-    const placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择');
-    const momentValue = parseValueToMoment(fieldProps.value) as moment.Moment;
+    const placeholder = intl.getMessage(
+      'tableForm.selectPlaceholder',
+      '请选择',
+    );
+    const momentValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs;
     const dom = (
-      <DatePicker placeholder={placeholder} showTime {...fieldProps} value={momentValue} />
+      <DatePicker
+        ref={ref}
+        placeholder={placeholder}
+        showTime
+        {...fieldProps}
+        value={momentValue}
+      />
     );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
@@ -42,4 +60,4 @@ const FieldFromNow: ProFieldFC<{
   return null;
 };
 
-export default FieldFromNow;
+export default React.forwardRef(FieldFromNow);

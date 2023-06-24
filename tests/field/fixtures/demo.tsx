@@ -1,14 +1,24 @@
-import React from 'react';
-import { Descriptions } from 'antd';
+import type { ProFieldFCMode } from '@ant-design/pro-components';
 import Field from '@ant-design/pro-field';
-import moment from 'moment';
-import type { ProFieldFCMode } from '@ant-design/pro-utils';
+import { Descriptions } from 'antd';
+import dayjs from 'dayjs';
 
-export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => (
+export default ({
+  state,
+  plain,
+}: {
+  state: ProFieldFCMode;
+  plain: boolean;
+}) => (
   <>
     <Descriptions column={2}>
       <Descriptions.Item label="文本">
-        <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
+        <Field
+          text="这是一段文本"
+          valueType="text"
+          mode={state}
+          plain={plain}
+        />
       </Descriptions.Item>
       <Descriptions.Item label="头像">
         <Field
@@ -23,8 +33,8 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
       <Descriptions.Item label="日期区间">
         <Field
           text={[
-            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            moment('2019-11-16 12:50:26').valueOf(),
+            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            dayjs('2019-11-16 12:50:26').valueOf(),
           ]}
           plain={plain}
           valueType="dateRange"
@@ -79,7 +89,7 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
       </Descriptions.Item>
       <Descriptions.Item label="日期时间">
         <Field
-          text={moment('2019-11-16 12:50:26').valueOf()}
+          text={dayjs('2019-11-16 12:50:26').valueOf()}
           valueType="dateTime"
           mode={state}
           plain={plain}
@@ -87,7 +97,7 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
       </Descriptions.Item>
       <Descriptions.Item label="日期">
         <Field
-          text={moment('2019-11-16 12:50:26').valueOf()}
+          text={dayjs('2019-11-16 12:50:26').valueOf()}
           valueType="date"
           mode={state}
           plain={plain}
@@ -96,8 +106,8 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
       <Descriptions.Item label="日期区间">
         <Field
           text={[
-            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            moment('2019-11-16 12:50:26').valueOf(),
+            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            dayjs('2019-11-16 12:50:26').valueOf(),
           ]}
           plain={plain}
           valueType="dateTimeRange"
@@ -107,8 +117,8 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
       <Descriptions.Item label="dateRange">
         <Field
           text={[
-            moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
-            moment('2019-11-16 12:50:26').valueOf(),
+            dayjs('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+            dayjs('2019-11-16 12:50:26').valueOf(),
           ]}
           plain={plain}
           valueType="dateTimeRange"
@@ -117,14 +127,19 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
       </Descriptions.Item>
       <Descriptions.Item label="时间">
         <Field
-          text={moment('2019-11-16 12:50:26').valueOf()}
+          text={dayjs('2019-11-16 12:50:26').valueOf()}
           plain={plain}
           valueType="time"
           mode={state}
         />
       </Descriptions.Item>
       <Descriptions.Item label="密码">
-        <Field text="password" plain={plain} valueType="password" mode={state} />
+        <Field
+          text="password"
+          plain={plain}
+          valueType="password"
+          mode={state}
+        />
       </Descriptions.Item>
       <Descriptions.Item label="代码块">
         <Field

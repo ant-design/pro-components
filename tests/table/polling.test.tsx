@@ -1,127 +1,299 @@
-import { mount } from 'enzyme';
-import React from 'react';
-import { act } from 'react-dom/test-utils';
 import ProTable from '@ant-design/pro-table';
+import { act, render, waitFor } from '@testing-library/react';
+import useFetchData from '../../packages/table/src/useFetchData';
 import { columns } from './demo';
-import { waitForComponentToPaint } from '../util';
 
 describe('polling', () => {
   it('⏱️ polling should clearTime', async () => {
     const fn = jest.fn();
-    const html = mount(
+    jest.useFakeTimers();
+    const html = render(
       <ProTable
         size="small"
         cardBordered
-        columns={columns}
+        search={false}
+        pagination={false}
+        toolBarRender={false}
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+          },
+        ]}
         polling={1500}
-        request={async () => {
-          fn();
+        request={async (params) => {
+          fn(params);
           return Promise.resolve({
-            data: [],
-            total: 20,
+            data: [
+              {
+                key: '1',
+                name: 'John Brown',
+              },
+            ],
             success: true,
           });
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(fn).toBeCalledTimes(1);
-    await waitForComponentToPaint(html, 1500);
 
-    expect(fn).toBeCalledTimes(2);
+    await waitFor(() => {
+      return html.findAllByText('暂无数据');
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
 
     act(() => {
-      html.unmount();
+      jest.runOnlyPendingTimers();
     });
-    await waitForComponentToPaint(html, 1500);
+
+    await waitFor(() => {
+      expect(fn).toBeCalled();
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
 
     expect(fn).toBeCalledTimes(2);
+
+    jest.useRealTimers();
+  });
+
+  it('⏱️ polling should clearTime when useFetchData', async () => {
+    const fn = jest.fn();
+    jest.useFakeTimers();
+    const App = (props: { getData: () => void }) => {
+      useFetchData(
+        async () => {
+          props.getData?.();
+          return {
+            data: [],
+          };
+        },
+        [],
+        {
+          pageInfo: {},
+          polling: 1500,
+          manual: false,
+          postData: () => [],
+          loading: false,
+        },
+      );
+      return <div />;
+    };
+
+    render(
+      <App
+        getData={() => {
+          fn();
+        }}
+      />,
+    );
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
+
+    expect(fn).toBeCalledTimes(2);
+
+    jest.useRealTimers();
   });
 
   it('⏱️ polling min time is 2000', async () => {
     const fn = jest.fn();
-    const html = mount(
+    jest.useFakeTimers();
+    const html = render(
       <ProTable
         size="small"
         cardBordered
+        search={false}
+        pagination={false}
         columns={columns}
         polling={1000}
         request={async () => {
           fn();
           return Promise.resolve({
             data: [],
-            total: 20,
             success: true,
           });
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(fn).toBeCalledTimes(1);
 
-    await waitForComponentToPaint(html, 2000);
+    await waitFor(() => {
+      return html.findAllByText('暂无数据');
+    });
 
-    expect(fn).toBeCalledTimes(2);
+    await act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    await act(() => {
+      jest.advanceTimersByTime(2000);
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
+    jest.useRealTimers();
   });
 
   it('⏱️ polling time=3000', async () => {
     const fn = jest.fn();
-    const html = mount(
+    jest.useFakeTimers();
+    const html = render(
       <ProTable
+        polling={3000}
         size="small"
         cardBordered
-        columns={columns}
-        polling={3000}
-        request={async () => {
-          fn();
+        search={false}
+        pagination={false}
+        toolBarRender={false}
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+          },
+        ]}
+        request={async (params) => {
+          fn(params);
           return Promise.resolve({
-            data: [],
-            total: 20,
+            data: [
+              {
+                key: '1',
+                name: 'John Brown',
+              },
+            ],
             success: true,
           });
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(fn).toBeCalledTimes(1);
 
-    await waitForComponentToPaint(html, 1000);
+    await waitFor(() => {
+      return html.findAllByText('暂无数据');
+    });
 
-    expect(fn).toBeCalledTimes(1);
+    await act(() => {
+      return jest.advanceTimersByTime(1000);
+    });
 
-    await waitForComponentToPaint(html, 2000);
-    expect(fn).toBeCalledTimes(2);
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    await act(() => {
+      return jest.advanceTimersByTime(1000);
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    await act(() => {
+      return jest.advanceTimersByTime(2000);
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
+    jest.useRealTimers();
   });
 
   it('⏱️ polling support function', async () => {
     const fn = jest.fn();
-    const html = mount(
+    jest.useFakeTimers();
+    const html = render(
       <ProTable
-        size="small"
-        cardBordered
-        columns={columns}
         polling={() => {
           return 2000;
         }}
-        request={async () => {
-          fn();
+        size="small"
+        cardBordered
+        search={false}
+        pagination={false}
+        toolBarRender={false}
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+          },
+        ]}
+        request={async (params) => {
+          fn(params);
           return Promise.resolve({
-            data: [],
-            total: 20,
+            data: [
+              {
+                key: '1',
+                name: 'John Brown',
+              },
+            ],
             success: true,
           });
         }}
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1000);
-    expect(fn).toBeCalledTimes(1);
 
-    await waitForComponentToPaint(html, 2000);
+    await waitFor(() => {
+      return html.findAllByText('暂无数据');
+    });
 
-    expect(fn).toBeCalledTimes(2);
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(1);
+    });
+
+    await waitFor(() => {
+      expect(fn).toBeCalledTimes(2);
+    });
+
+    jest.useRealTimers();
   });
 });

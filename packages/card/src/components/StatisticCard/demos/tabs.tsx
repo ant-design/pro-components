@@ -1,6 +1,5 @@
-import React from 'react';
-import ProCard, { StatisticCard } from '@ant-design/pro-card';
-import type { StatisticProps } from '@ant-design/pro-card';
+import type { StatisticProps } from '@ant-design/pro-components';
+import { ProCard, StatisticCard } from '@ant-design/pro-components';
 
 const { Statistic } = StatisticCard;
 
@@ -31,7 +30,10 @@ export default () => {
               title={item.title}
               value={item.value}
               status={item.status as StatisticProps['status']}
-              style={{ width: 120, borderRight: item.total ? '1px solid #f0f0f0' : undefined }}
+              style={{
+                width: 120,
+                borderInlineEnd: item.total ? '1px solid #f0f0f0' : undefined,
+              }}
             />
           }
         >

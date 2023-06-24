@@ -1,44 +1,45 @@
-import React, { useEffect, useMemo } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
-import type { TableColumnType } from 'antd';
-import { Tooltip } from 'antd';
-import type { SearchProps } from 'antd/lib/input';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
+import { isDeepEqualReact, omitUndefined } from '@ant-design/pro-utils';
+import type { TableColumnType } from 'antd';
+import { Tooltip } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import React, { useContext, useEffect, useMemo } from 'react';
+import { TableContext } from '../../Store/Provide';
+import type {
+  ActionType,
+  OptionSearchProps,
+  ProTableProps,
+} from '../../typing';
+import ColumnSetting from '../ColumnSetting';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
-import ColumnSetting from '../ColumnSetting';
-import './index.less';
-import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
-import Container from '../../container';
-import type { ActionType, ProTableProps } from '../../typing';
-import { omitUndefined, isDeepEqualReact } from '@ant-design/pro-utils';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import FullScreenIcon from './FullscreenIcon';
 
-type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
-  /** 如果 onSearch 返回一个false，直接拦截请求 */
-  onSearch?: (keyword: string) => boolean | undefined;
+export type SettingOptionType = {
+  draggable?: boolean;
+  checkable?: boolean;
+  checkedReset?: boolean;
+  listsHeight?: number;
+  extra?: React.ReactNode;
+  children?: React.ReactNode;
 };
-
 export type OptionConfig = {
   density?: boolean;
   fullScreen?: OptionsType;
   reload?: OptionsType;
-  setting?:
-    | boolean
-    | {
-        draggable?: boolean;
-        checkable?: boolean;
-        checkedReset?: boolean;
-        extra?: React.ReactNode;
-      };
+  setting?: boolean | SettingOptionType;
   search?: (OptionSearchProps & { name?: string }) | boolean;
 };
 
-export type OptionsType =
-  | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
-  | boolean;
+export type OptionsFunctionType = (
+  e: React.MouseEvent<HTMLSpanElement>,
+  action?: ActionType,
+) => void;
+
+export type OptionsType = OptionsFunctionType | boolean;
 
 export type ToolBarProps<T = unknown> = {
   headerTitle?: React.ReactNode;
@@ -53,7 +54,7 @@ export type ToolBarProps<T = unknown> = {
       selectedRows?: T[];
     },
   ) => React.ReactNode[];
-  action?: React.MutableRefObject<ActionType | undefined>;
+  action: React.MutableRefObject<ActionType | undefined>;
   options?: OptionConfig | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
@@ -98,6 +99,7 @@ function renderDefaultOption<T>(
   defaultOptions: OptionConfig & {
     intl: IntlType;
   },
+  actions: React.MutableRefObject<ActionType | undefined>,
   columns: TableColumnType<T>[],
 ) {
   return Object.keys(options)
@@ -107,12 +109,28 @@ function renderDefaultOption<T>(
       if (!value) {
         return null;
       }
+
+      let onClick: OptionsFunctionType =
+        value === true
+          ? defaultOptions[key]
+          : (event) => value?.(event, actions.current);
+
+      if (typeof onClick !== 'function') {
+        onClick = () => {};
+      }
+
       if (key === 'setting') {
-        return <ColumnSetting {...options[key]} columns={columns} key={key} />;
+        return (
+          <ColumnSetting
+            {...(options[key] as SettingOptionType)}
+            columns={columns}
+            key={key}
+          />
+        );
       }
       if (key === 'fullScreen') {
         return (
-          <span key={key} onClick={value === true ? defaultOptions[key] : value}>
+          <span key={key} onClick={onClick}>
             <FullScreenIcon />
           </span>
         );
@@ -120,18 +138,7 @@ function renderDefaultOption<T>(
       const optionItem = getButtonText(defaultOptions)[key];
       if (optionItem) {
         return (
-          <span
-            key={key}
-            onClick={() => {
-              if (value && defaultOptions[key] !== true) {
-                if (value !== true) {
-                  value();
-                  return;
-                }
-                defaultOptions[key]();
-              }
-            }}
-          >
+          <span key={key} onClick={onClick}>
             <Tooltip title={optionItem.text}>{optionItem.icon}</Tooltip>
           </span>
         );
@@ -154,7 +161,7 @@ function ToolBar<T>({
   columns,
   ...rest
 }: ToolBarProps<T>) {
-  const counter = Container.useContainer();
+  const counter = useContext(TableContext);
 
   const intl = useIntl();
   const optionDom = useMemo(() => {
@@ -181,6 +188,7 @@ function ToolBar<T>({
         ...defaultOptions,
         intl,
       },
+      action,
       columns,
     );
   }, [action, columns, intl, propsOptions]);
@@ -189,7 +197,7 @@ function ToolBar<T>({
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
     : [];
 
-  const searchConfig = useMemo(() => {
+  const searchConfig: any = useMemo(() => {
     if (!propsOptions) {
       return false;
     }
@@ -198,7 +206,8 @@ function ToolBar<T>({
     /** 受控的value 和 onChange */
     const defaultSearchConfig = {
       value: counter.keyWords,
-      onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+        counter.setKeyWords(e.target.value),
     };
 
     if (propsOptions.search === true) return defaultSearchConfig;

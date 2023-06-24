@@ -1,8 +1,8 @@
-import React from 'react';
 import type { InputProps } from 'antd';
-import type { PasswordProps } from 'antd/lib/input';
+import type { InputRef, PasswordProps } from 'antd/lib/input';
+import React from 'react';
+import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
-import type { ProFormFieldItemProps } from '../../interface';
 
 const valueType = 'text' as const;
 /**
@@ -10,14 +10,13 @@ const valueType = 'text' as const;
  *
  * @param
  */
-const ProFormText: React.FC<ProFormFieldItemProps<InputProps>> = ({
+const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
   fieldProps,
   proFieldProps,
   ...rest
-}: ProFormFieldItemProps<InputProps>) => {
+}: ProFormFieldItemProps<InputProps, InputRef>) => {
   return (
     <ProField
-      mode="edit"
       valueType={valueType}
       fieldProps={fieldProps}
       filedConfig={
@@ -31,14 +30,13 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps>> = ({
   );
 };
 
-const Password: React.FC<ProFormFieldItemProps<PasswordProps>> = ({
+const Password: React.FC<ProFormFieldItemProps<PasswordProps, InputRef>> = ({
   fieldProps,
   proFieldProps,
   ...rest
-}: ProFormFieldItemProps<InputProps>) => {
+}: ProFormFieldItemProps<InputProps, InputRef>) => {
   return (
     <ProField
-      mode="edit"
       valueType="password"
       fieldProps={fieldProps}
       proFieldProps={proFieldProps}

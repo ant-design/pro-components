@@ -1,7 +1,6 @@
-import React from 'react';
-import { Progress, Tag } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
-import ProList from '@ant-design/pro-list';
+import { ProList } from '@ant-design/pro-components';
+import { Progress, Tag } from 'antd';
 
 const data = [
   '语雀的天空',
@@ -15,13 +14,14 @@ const data = [
   title: item,
   subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
   actions: [
-    <a>邀请</a>,
-    <a>操作</a>,
-    <a>
+    <a key="invite">邀请</a>,
+    <a key="operate">操作</a>,
+    <a key="rest">
       <EllipsisOutlined />
     </a>,
   ],
-  avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
+  avatar:
+    'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
     <div
       style={{

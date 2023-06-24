@@ -1,6 +1,4 @@
-import React from 'react';
-
-import ProDescriptions from '@ant-design/pro-descriptions';
+import { ProDescriptions } from '@ant-design/pro-components';
 
 export default () => {
   return (
@@ -13,6 +11,7 @@ export default () => {
             id: '这是一段文本columns',
             date: '20200809',
             money: '1212100',
+            money2: -12345.33,
             state: 'all',
             switch: true,
             state2: 'open',
@@ -78,6 +77,24 @@ export default () => {
           },
         },
         {
+          title: 'money无符号',
+          key: 'money',
+          dataIndex: 'money',
+          valueType: 'money',
+          fieldProps: {
+            moneySymbol: false,
+          },
+        },
+        {
+          title: 'money负数无符号',
+          key: 'money2',
+          dataIndex: 'money2',
+          valueType: 'money',
+          fieldProps: {
+            moneySymbol: false,
+          },
+        },
+        {
           title: '操作',
           valueType: 'option',
           render: () => [
@@ -94,9 +111,14 @@ export default () => {
         },
       ]}
     >
-      <ProDescriptions.Item dataIndex="percent" label="百分比" valueType="percent">
+      <ProDescriptions.Item
+        dataIndex="percent"
+        label="百分比"
+        valueType="percent"
+      >
         100
       </ProDescriptions.Item>
+      <div>多余的dom</div>
     </ProDescriptions>
   );
 };

@@ -1,19 +1,51 @@
-﻿import moment from 'moment';
+﻿import dayjs from 'dayjs';
+
+type FormatType = ((dayjs: any) => string) | string;
 
 /**
- * 格式化区域日期
- *
- * @param value
+ * 通过 format 来格式化日期，因为支持了function 所以需要单独的方法来处理
+ * @param  {any} endText
+ * @param  {FormatType} format
+ * @return string
  */
-const dateArrayFormatter = (value: any[], format: string) => {
+const formatString = (endText: any, format: FormatType): string => {
+  if (typeof format === 'function') {
+    return format(dayjs(endText));
+  }
+  return dayjs(endText).format(format);
+};
+/**
+ * 格式化区域日期,如果是一个数组，会返回 start ~ end
+ * @param  {any} value
+ * @param  {FormatType | FormatType[]} format
+ * returns string
+ */
+export const dateArrayFormatter = (
+  value: any[],
+  format: FormatType | FormatType[],
+): string => {
   const [startText, endText] = Array.isArray(value) ? value : [];
+
+  let formatFirst: FormatType;
+  let formatEnd: FormatType;
+
+  if (Array.isArray(format)) {
+    formatFirst = format[0];
+    formatEnd = format[1];
+  } else {
+    formatFirst = format;
+    formatEnd = format;
+  }
+
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
-  const parsedStartText: string = startText ? moment(startText).format(format) : '';
-  const parsedEndText: string = endText ? moment(endText).format(format) : '';
+  const parsedStartText: string = startText
+    ? formatString(startText, formatFirst)
+    : '';
+  const parsedEndText: string = endText ? formatString(endText, formatEnd) : '';
   const valueStr: string =
-    parsedStartText && parsedEndText && `${parsedStartText} ~ ${parsedEndText}`;
+    parsedStartText && parsedEndText
+      ? `${parsedStartText} ~ ${parsedEndText}`
+      : '';
 
   return valueStr;
 };
-
-export default dateArrayFormatter;

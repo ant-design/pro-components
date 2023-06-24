@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { StatisticCard } from '@ant-design/pro-card';
+import { StatisticCard } from '@ant-design/pro-components';
 import RcResizeObserver from 'rc-resize-observer';
+import { useState } from 'react';
 
 const { Divider } = StatisticCard;
 
@@ -14,7 +14,10 @@ export default () => {
         setResponsive(offset.width < 596);
       }}
     >
-      <StatisticCard.Group title="核心指标" direction={responsive ? 'column' : 'row'}>
+      <StatisticCard.Group
+        title="核心指标"
+        direction={responsive ? 'column' : 'row'}
+      >
         <StatisticCard
           statistic={{
             title: '今日UV',

@@ -1,11 +1,15 @@
+import { Badge } from 'antd';
 import type { CSSProperties } from 'react';
 import React from 'react';
-import { Badge } from 'antd';
-import './index.less';
+
+// 兼容代码-----------
+import 'antd/lib/badge/style';
+//------------
 
 type StatusProps = {
   className?: string;
   style?: CSSProperties;
+  children?: React.ReactNode;
 };
 
 /** 快捷操作，用于快速的展示一个状态 */

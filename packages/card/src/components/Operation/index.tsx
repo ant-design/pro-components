@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
-import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
-
-import './index.less';
+import classNames from 'classnames';
+import React, { useContext } from 'react';
+import { useStyle } from './style';
 
 export interface ProCardOperationProps {
   /**
@@ -17,6 +16,8 @@ export interface ProCardOperationProps {
    * @ignore
    */
   className?: string;
+
+  children?: any;
 }
 
 const ProCardOperation: React.FC<ProCardOperationProps> = (props) => {
@@ -24,13 +25,13 @@ const ProCardOperation: React.FC<ProCardOperationProps> = (props) => {
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-operation');
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+  const classString = classNames(prefixCls, className, hashId);
 
-  const classString = classNames(prefixCls, className);
-
-  return (
+  return wrapSSR(
     <div className={classString} style={style}>
       {children}
-    </div>
+    </div>,
   );
 };
 

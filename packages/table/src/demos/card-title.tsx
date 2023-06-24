@@ -1,8 +1,7 @@
-import React from 'react';
-import { Button } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+import { Button } from 'antd';
 
 export type TableListItem = {
   key: number;

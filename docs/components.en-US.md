@@ -1,11 +1,6 @@
 ---
 title: Component Overview
 order: 0
-group:
-  path: /
-nav:
-  title: Component
-  path: /components
 ---
 
 # Architecture Design
@@ -23,7 +18,7 @@ ProComponents was developed to reduce the cost of implementing CRUD in the middl
 
 The main feature of ProForm is that it has a lot of pre-defined layouts, so if you need to switch you just need to change the Layout of the outer wrapper, here is a demo.
 
-<code src="../packages/form/src/demos/layout-change.tsx">
+<code src="../packages/form/src/demos/layout-change.tsx"></code>
 
 ## Configuring Use with the Web Request Library
 
@@ -100,7 +95,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    * @name Determines the unique value of this column
    */
-  key?: React.ReactText;
+  key?: (string | number);
   /**
    * @name The key mapped to the entity
    * @description supports a number, [a,b] will be converted to obj.a.b

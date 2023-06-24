@@ -1,18 +1,21 @@
-import type { MenuDataItem } from '../typings';
+import type { MenuDataItem } from '../typing';
 
 export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
   return (menuData || []).reduce((pre, item) => {
     if (item.key) {
       pre.push(item.key);
     }
-    if (item.routes) {
-      const newArray: string[] = pre.concat(getOpenKeysFromMenuData(item.routes) || []);
+    if (item.children || item.routes) {
+      const newArray: string[] = pre.concat(
+        getOpenKeysFromMenuData(item.children || item.routes) || [],
+      );
       return newArray;
     }
     return pre;
   }, [] as string[]);
 };
 const themeConfig = {
+  techBlue: '#1677FF',
   daybreak: '#1890ff',
   dust: '#F5222D',
   volcano: '#FA541C',
@@ -33,24 +36,28 @@ export function genStringToTheme(val?: string): string {
 export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
   return menusData
     .map((item) => {
+      const children: MenuDataItem[] = item.children || [];
       const finalItem = { ...item };
+      if (!finalItem.children && finalItem.routes) {
+        finalItem.children = finalItem.routes;
+      }
       if (!finalItem.name || finalItem.hideInMenu) {
         return null;
       }
-
-      if (finalItem && finalItem?.routes) {
+      if (finalItem && finalItem?.children) {
         if (
           !finalItem.hideChildrenInMenu &&
-          finalItem.routes.some((child) => child && child.name && !child.hideInMenu)
+          children.some((child) => child && child.name && !child.hideInMenu)
         ) {
           return {
             ...item,
-            routes: clearMenuItem(finalItem.routes),
+            children: clearMenuItem(children),
           };
         }
         // children 为空就直接删掉
-        delete finalItem.routes;
+        delete finalItem.children;
       }
+      delete finalItem.routes;
       return finalItem;
     })
     .filter((item) => item) as MenuDataItem[];

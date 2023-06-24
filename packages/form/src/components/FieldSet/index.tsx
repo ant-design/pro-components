@@ -1,10 +1,12 @@
-﻿import React, { useImperativeHandle } from 'react';
-import { Space, Input } from 'antd';
+﻿import { useRefFunction } from '@ant-design/pro-utils';
 import type { FormItemProps, SpaceProps } from 'antd';
-import toArray from 'rc-util/lib/Children/toArray';
+import { Input, Space } from 'antd';
 import type { GroupProps } from 'antd/lib/input';
-import createField from '../../BaseForm/createField';
-import { useRefFunction } from '@ant-design/pro-utils';
+import toArray from 'rc-util/lib/Children/toArray';
+import React, { useCallback, useImperativeHandle, useMemo } from 'react';
+import { createField } from '../../BaseForm/createField';
+import { useGridHelpers } from '../../helpers';
+import type { ProFormItemProps } from '../FormItem';
 
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
@@ -13,6 +15,9 @@ export type ProFormFieldSetProps<T = any> = {
   valuePropName?: string;
   type?: 'space' | 'group';
   fieldProps?: any;
+  convertValue?: ProFormItemProps['convertValue'];
+  transform?: ProFormItemProps['transform'];
+  children?: React.ReactNode;
 };
 
 const FieldSetType = {
@@ -36,16 +41,22 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   fieldProps,
   space,
   type = 'space',
+  transform,
+  convertValue,
+  ...rest
 }) => {
   /**
-   * 使用方法的饮用防止闭包
+   * 使用方法的引用防止闭包
    *
    * @param fileValue
    * @param index
    */
   const fieldSetOnChange = useRefFunction((fileValue: any, index: number) => {
     const newValues = [...value];
-    newValues[index] = defaultGetValueFromEvent(valuePropName || 'value', fileValue);
+    newValues[index] = defaultGetValueFromEvent(
+      valuePropName || 'value',
+      fileValue,
+    );
 
     onChange?.(newValues);
     fieldProps?.onChange?.(newValues);
@@ -71,13 +82,13 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
                 fieldSetOnChange(restParams[0], index);
               },
             },
-            value: value[index],
+            value: value?.[index],
             onChange: undefined,
           }
         : {
             key: index,
             ...((item.props as any) || {}),
-            value: value[index],
+            value: value?.[index],
             onChange: (itemValue: any) => {
               fieldSetOnChange(itemValue, index);
               (item as any).props.onChange?.(itemValue);
@@ -89,17 +100,28 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   });
   const Components = FieldSetType[type] as React.FC<SpaceProps>;
 
+  const { RowWrapper } = useGridHelpers(rest);
+
   /** Input.Group 需要配置 compact */
-  const typeProps = { ...(type === 'group' ? { compact: true } : {}) };
-  return (
-    <Components {...typeProps} {...(space as SpaceProps)} align="start">
-      {list}
-    </Components>
+  const typeProps = useMemo(
+    () => ({ ...(type === 'group' ? { compact: true } : {}) }),
+    [type],
   );
+
+  const Wrapper: React.FC = useCallback(
+    ({ children: dom }: { children?: React.ReactNode }) => (
+      <Components {...typeProps} {...(space as SpaceProps)} align="start">
+        {dom}
+      </Components>
+    ),
+    [Components, space, typeProps],
+  );
+
+  return <RowWrapper Wrapper={Wrapper}>{list}</RowWrapper>;
 };
 
-const ProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.forwardRef(
-  ({ children, space, valuePropName, ...rest }, ref) => {
+const BaseProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> =
+  React.forwardRef(({ children, space, valuePropName, ...rest }, ref) => {
     useImperativeHandle(ref, () => ({}));
     return (
       <FieldSet
@@ -113,7 +135,10 @@ const ProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.fo
         {children}
       </FieldSet>
     );
-  },
-);
+  });
 
-export default createField<FormItemProps & ProFormFieldSetProps>(ProFormFieldSet);
+const ProFormFieldSet = createField<FormItemProps & ProFormFieldSetProps>(
+  BaseProFormFieldSet,
+) as typeof BaseProFormFieldSet;
+
+export default ProFormFieldSet;

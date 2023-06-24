@@ -1,15 +1,14 @@
-import React, { useMemo, useState, useCallback, useRef, useContext } from 'react';
-import { useDragSort } from '../../utils/useDragSort';
+import { HolderOutlined } from '@ant-design/icons';
 import type { ParamsType } from '@ant-design/pro-provider';
-import ProTable from '../../Table';
-import { SortableHandle } from 'react-sortable-hoc';
-import { MenuOutlined } from '@ant-design/icons';
-import type { ProColumns, ProTableProps } from '../../typing';
-import { useDeepCompareEffectDebounce } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
-import './index.less';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useContext, useMemo } from 'react';
+import ProTable from '../../Table';
+import type { ProTableProps } from '../../typing';
+import { useDragSort } from '../../utils/useDragSort';
+import { useStyle } from './style';
 
-export type DragTableProps<T, U extends ParamsType> = {
+export type DragTableProps<T, U> = {
   /** @name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 */
   dragSortKey?: string;
   /** @name 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 */
@@ -18,108 +17,91 @@ export type DragTableProps<T, U extends ParamsType> = {
   onDragSortEnd?: (newDataSource: T[]) => Promise<void> | void;
 } & ProTableProps<T, U>;
 
-// 用于创建可拖拽把手组件的工厂
-const handleCreator = (handle: React.ReactNode) => SortableHandle(() => <>{handle}</>);
-
-function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
+function DragSortTable<
+  T extends Record<string, any>,
+  U extends ParamsType = ParamsType,
+  ValueType = 'text',
+>(props: DragTableProps<T, U>) {
   const {
     rowKey,
     dragSortKey,
     dragSortHandlerRender,
     onDragSortEnd,
     onDataSourceChange,
-    columns: propsColumns,
-    dataSource: oriDs,
+    defaultData,
+    dataSource: originDataSource,
+    onLoad,
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const [dataSource, setDataSource] = useMergedState<T[]>(
+    () => defaultData || [],
+    {
+      value: originDataSource as T[],
+      onChange: onDataSourceChange,
+    },
+  );
+
+  const { wrapSSR, hashId } = useStyle(getPrefixCls('pro-table-drag'));
 
   // 默认拖拽把手
-  const DragHandle = useMemo(
-    () => handleCreator(<MenuOutlined className={getPrefixCls('pro-table-drag-icon')} />),
-    [getPrefixCls],
-  );
+  const DragHandle = useMemo(() => {
+    return (dragHandleProps: any) => {
+      const { rowData, index, className, ...rest } = dragHandleProps;
+      const defaultDom = (
+        <HolderOutlined
+          {...rest}
+          className={`${getPrefixCls('pro-table-drag-icon')} ${
+            className || ''
+          } ${hashId || ''}`.trim()}
+        />
+      );
 
-  const [columns, setRefColumns] = useState<DragTableProps<T, U>['columns']>(propsColumns);
+      const handel = dragSortHandlerRender
+        ? dragSortHandlerRender(
+            dragHandleProps?.rowData,
+            dragHandleProps?.index,
+          )
+        : defaultDom;
+      return <div {...rest}>{handel}</div>;
+    };
+  }, [getPrefixCls]);
 
-  const isDragSortColumn = useCallback(
-    (item: ProColumns<T, any>) => {
-      return item.key === dragSortKey || item.dataIndex === dragSortKey;
-    },
-    [dragSortKey],
-  );
-  // 根据 dragSortKey 查找目标列配置
-  const handleColumn = useMemo(() => {
-    return propsColumns?.find((item) => isDragSortColumn(item));
-  }, [propsColumns, isDragSortColumn]);
-
-  // 记录原始列配置
-  const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({ ...handleColumn });
   // 使用自定义hooks获取拖拽相关组件的components集合
-  const { components } = useDragSort<T>({
-    data: oriDs?.slice(),
+  const { components, DndContext } = useDragSort<T>({
+    dataSource: dataSource?.slice(),
     dragSortKey,
     onDragSortEnd,
     components: props.components,
     rowKey,
+    DragHandle,
   });
 
-  // 重写列配置的render,并在卸载时恢复原始render
-  useDeepCompareEffectDebounce(
-    () => {
-      const originColumn = originColumnRef.current!;
-      if (!handleColumn) return () => {};
-      const dargRender = (...args: any[]) => {
-        const [dom, rowData, index, action, schema] = args;
-        const RealHandle = dragSortHandlerRender
-          ? handleCreator(dragSortHandlerRender(rowData, index))
-          : DragHandle;
-        return (
-          <div className={getPrefixCls('pro-table-drag-visible-cell')}>
-            <RealHandle />
-            {originColumn.render?.(dom, rowData, index, action, schema)}
-          </div>
-        );
-      };
-      // 重新生成数据
-      setRefColumns(
-        columns?.map((item) => {
-          if (!isDragSortColumn(item)) {
-            return item;
-          }
-          return {
-            ...item,
-            render: dargRender,
-          };
-        }),
-      );
-      /* istanbul ignore next */
-      return () => {
-        setRefColumns(props.columns);
-      };
-    },
-    [dragSortHandlerRender, handleColumn],
-    ['render', 'renderFormItem'],
-  );
+  const wrapOnload = async (ds: T[]) => {
+    setDataSource(ds);
+    return onLoad?.(ds);
+  };
 
-  return handleColumn ? (
-    <ProTable
-      {...otherProps}
+  return wrapSSR(
+    <ProTable<T, U, ValueType>
+      {...(otherProps as ProTableProps<T, U, ValueType>)}
+      columns={otherProps.columns?.map((item): any => {
+        if (item.dataIndex == dragSortKey || item.key === dragSortKey) {
+          if (!item.render) {
+            item.render = () => null;
+          }
+        }
+        return item;
+      })}
+      onLoad={wrapOnload}
       rowKey={rowKey}
-      dataSource={oriDs}
+      tableViewRender={(_, defaultDom) => {
+        return <DndContext>{defaultDom}</DndContext>;
+      }}
+      dataSource={dataSource}
       components={components}
-      columns={columns}
       onDataSourceChange={onDataSourceChange}
-    />
-  ) : (
-    /* istanbul ignore next */
-    <ProTable
-      {...otherProps}
-      rowKey={rowKey}
-      dataSource={oriDs}
-      columns={columns}
-      onDataSourceChange={onDataSourceChange}
-    />
+    />,
   );
 }
 

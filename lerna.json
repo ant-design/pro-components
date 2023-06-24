@@ -1,6 +1,6 @@
 {
   "version": "independent",
-  "npmClient": "yarn",
+  "npmClient": "pnpm",
   "useWorkspaces": true,
   "changelog": {
     "repo": "ant-design/pro-components",
@@ -16,5 +16,6 @@
     "**/lib/**",
     "**/es/**",
     "**/test/**"
-  ]
+  ],
+  "packages": ["packages/*"]
 }

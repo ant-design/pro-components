@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Tabs, Tag, Space, message } from 'antd';
-import type { ProDescriptionsItemProps } from '@ant-design/pro-descriptions';
-import ProDescriptions from '@ant-design/pro-descriptions';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import type {
+  ProColumns,
+  ProDescriptionsItemProps,
+} from '@ant-design/pro-components';
+import {
+  ProCard,
+  ProDescriptions,
+  ProTable,
+  TableDropdown,
+} from '@ant-design/pro-components';
+import { Button, message, Space, Tabs, Tag } from 'antd';
+import { useState } from 'react';
 import request from 'umi-request';
-import ProCard from '@ant-design/pro-card';
 
 type GithubIssueItem = {
   url: string;
@@ -84,12 +89,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
         ))}
       </Space>
     ),
-  },
-  {
-    title: '创建时间',
-    key: 'since',
-    dataIndex: 'created_at',
-    valueType: 'dateTime',
   },
   {
     title: 'option',

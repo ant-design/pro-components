@@ -1,7 +1,8 @@
-/** Uuid: 900875c6 title: 单选模式 */
+/**
+ * title: 单选模式
+ */
 
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
   <CheckCard.Group
@@ -12,6 +13,11 @@ export default () => (
   >
     <CheckCard title="Card A" description="选项一" value="A" />
     <CheckCard title="Card B" description="选项二" value="B" />
-    <CheckCard title="Card C" disabled description="选项三，这是一个不可选项" value="C" />
+    <CheckCard
+      title="Card C"
+      disabled
+      description="选项三，这是一个不可选项"
+      value="C"
+    />
   </CheckCard.Group>
 );

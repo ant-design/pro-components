@@ -1,15 +1,12 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "1.18.12",
+  "version": "2.5.2",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
-  ],
-  "sideEffects": [
-    "*.less"
   ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/card#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
@@ -18,14 +15,18 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
+  "sideEffects": false,
   "main": "lib/index.js",
   "module": "es/index.js",
-  "types": "lib/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
     "lib",
     "es",
     "dist"
   ],
+  "scripts": {
+    "build": "father build"
+  },
   "browserslist": [
     "last 2 versions",
     "Firefox ESR",
@@ -33,16 +34,21 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-utils": "1.30.0",
-    "@babel/runtime": "^7.16.3",
-    "classnames": "^2.2.6",
+    "@ant-design/icons": "^5.0.0",
+    "@ant-design/pro-provider": "2.10.5",
+    "@ant-design/pro-utils": "2.12.2",
+    "@babel/runtime": "^7.18.0",
+    "classnames": "^2.3.2",
     "omit.js": "^2.0.2",
+    "rc-resize-observer": "^1.0.0",
     "rc-util": "^5.4.0"
   },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
   "peerDependencies": {
-    "antd": "4.x",
-    "react": ">=16.9.0"
+    "antd": ">=4.23.0 || >=5.0.0",
+    "react": ">=17.0.0"
   },
   "publishConfig": {
     "access": "public"
@@ -50,8 +56,5 @@
   "authors": [
     "rdmclin2 <rdmclin2@gmail.com> (https://github.com/rdmclin2)",
     "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)"
-  ],
-  "devDependencies": {
-    "rc-resize-observer": "^0.2.3"
-  }
+  ]
 }

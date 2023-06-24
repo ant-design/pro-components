@@ -1,42 +1,57 @@
-import './index.less';
 import {
-  CopyOutlined,
   CloseOutlined,
+  CopyOutlined,
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { isBrowser, merge } from '@ant-design/pro-utils';
+import {
+  compareVersions,
+  isBrowser,
+  merge,
+  openVisibleCompatible,
+} from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
-
-import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
-import React, { useState, useEffect, useRef } from 'react';
-import { disable as darkreaderDisable, enable as darkreaderEnable } from '@umijs/ssr-darkreader';
-
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import {
+  Alert,
+  Button,
+  ConfigProvider as AntConfigProvider,
+  Divider,
+  Drawer,
+  List,
+  message,
+  Switch,
+  version,
+} from 'antd';
 import omit from 'omit.js';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';
-import defaultSettings from '../../defaultSettings';
-
-import BlockCheckbox from './BlockCheckbox';
-import ThemeColor from './ThemeColor';
-import { gLocaleObject, getLanguage } from '../../locales';
-import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
-import RegionalSetting from './RegionalChange';
+import { defaultSettings } from '../../defaultSettings';
+import { getLanguage, gLocaleObject } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
+import { BlockCheckbox } from './BlockCheckbox';
+import { GroupIcon } from './icon/group';
+import { SubIcon } from './icon/sub';
+import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
+import { RegionalSetting } from './RegionalChange';
+import { useStyle } from './style/index';
+import { ThemeColor } from './ThemeColor';
 
 type BodyProps = {
   title: string;
   prefixCls: string;
+  children?: React.ReactNode;
+  hashId: string;
 };
 
 type MergerSettingsType<T> = Partial<T> & {
-  primaryColor?: string;
+  colorPrimary?: string;
   colorWeak?: boolean;
 };
 
-const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
-  <div style={{ marginBottom: 24 }}>
-    <h3 className={`${prefixCls}-drawer-title`}>{title}</h3>
+const Body: React.FC<BodyProps> = ({ children, hashId, prefixCls, title }) => (
+  <div style={{ marginBlockEnd: 12 }}>
+    <h3 className={`${prefixCls}-body-title ${hashId}`.trim()}>{title}</h3>
     {children}
   </div>
 );
@@ -59,10 +74,11 @@ export type SettingDrawerProps = {
   /** 使用实验性质的黑色主题 */
   enableDarkTheme?: boolean;
   prefixCls?: string;
-  colorList?: false | { key: string; color: string }[];
+  colorList?: false | { key: string; color: string; title?: string }[];
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
   pathname?: string;
   disableUrlParams?: boolean;
+  themeOnly?: boolean;
 };
 
 export type SettingDrawerState = {
@@ -70,7 +86,9 @@ export type SettingDrawerState = {
   language?: string;
 } & MergerSettingsType<ProSettings>;
 
-const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> => {
+const getDifferentSetting = (
+  state: Partial<ProSettings>,
+): Record<string, any> => {
   const stateObj: Partial<ProSettings> = {};
   Object.keys(state).forEach((key) => {
     if (state[key] !== defaultSettings[key] && key !== 'collapse') {
@@ -78,49 +96,27 @@ const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> =
     } else {
       stateObj[key] = undefined;
     }
-    if (key.includes('Render')) stateObj[key] = state[key] === false ? false : undefined;
+    if (key.includes('Render'))
+      stateObj[key] = state[key] === false ? false : undefined;
   });
   stateObj.menu = undefined;
   return stateObj;
 };
 
-export const getFormatMessage = (): ((data: { id: string; defaultMessage?: string }) => string) => {
-  const formatMessage = ({ id }: { id: string; defaultMessage?: string }): string => {
+export const getFormatMessage = (): ((data: {
+  id: string;
+  defaultMessage?: string;
+}) => string) => {
+  const formatMessage = ({
+    id,
+  }: {
+    id: string;
+    defaultMessage?: string;
+  }): string => {
     const locales = gLocaleObject();
     return locales[id];
   };
   return formatMessage;
-};
-
-const updateTheme = async (dark: boolean, color?: string) => {
-  if (typeof window === 'undefined') return;
-  if (typeof window.MutationObserver === 'undefined') return;
-
-  if (!ConfigProvider.config) return;
-  ConfigProvider.config({
-    theme: {
-      primaryColor: genStringToTheme(color) || '#1890ff',
-    },
-  });
-
-  if (dark) {
-    const defaultTheme = {
-      brightness: 100,
-      contrast: 90,
-      sepia: 10,
-    };
-
-    const defaultFixes = {
-      invert: [],
-      css: '',
-      ignoreInlineStyle: ['.react-switch-handle'],
-      ignoreImageAnalysis: [],
-      disableStyleSheetsProxy: true,
-    };
-    if (window.MutationObserver) darkreaderEnable(defaultTheme, defaultFixes);
-  } else {
-    if (window.MutationObserver) darkreaderDisable();
-  }
 };
 
 /**
@@ -138,24 +134,24 @@ const initState = (
   const replaceSetting = {};
   Object.keys(urlParams).forEach((key) => {
     if (defaultSettings[key] || defaultSettings[key] === undefined) {
-      if (key === 'primaryColor') {
+      if (key === 'colorPrimary') {
         replaceSetting[key] = genStringToTheme(urlParams[key]);
         return;
       }
       replaceSetting[key] = urlParams[key];
     }
   });
-  const newSettings: MergerSettingsType<ProSettings> = merge({}, settings, replaceSetting);
+  const newSettings: MergerSettingsType<ProSettings> = merge(
+    {},
+    settings,
+    replaceSetting,
+  );
   delete newSettings.menu;
   delete newSettings.title;
   delete newSettings.iconfontUrl;
+
   // 同步数据到外部
   onSettingChange?.(newSettings);
-
-  // 如果 url 中设置主题，进行一次加载。
-  if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor);
-  }
 };
 
 const getParamsFromUrl = (
@@ -176,7 +172,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
     omit(
       {
         ...settingState,
-        primaryColor: settingState.primaryColor,
+        colorPrimary: settingState.colorPrimary,
       },
       ['colorWeak'],
     ),
@@ -189,13 +185,14 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
  *
  * @param props
  */
-const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
+export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const {
     defaultSettings: propsDefaultSettings = undefined,
     settings: propsSettings = undefined,
     hideHintAlert,
     hideCopyButton,
     colorList = [
+      { key: 'techBlue', color: '#1677FF' },
       { key: 'daybreak', color: '#1890ff' },
       { key: 'dust', color: '#F5222D' },
       { key: 'volcano', color: '#FA541C' },
@@ -210,11 +207,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     enableDarkTheme,
     prefixCls = 'ant-pro',
     pathname = window.location.pathname,
-    disableUrlParams = false,
+    disableUrlParams = true,
+    themeOnly,
   } = props;
   const firstRender = useRef<boolean>(true);
 
-  const [show, setShow] = useMergedState(false, {
+  const [open, setOpen] = useMergedState(false, {
     value: props.collapse,
     onChange: props.onCollapseChange,
   });
@@ -226,6 +224,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       disabled: disableUrlParams,
     },
   );
+
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
     () => getParamsFromUrl(urlParams, propsSettings || propsDefaultSettings),
     {
@@ -234,7 +233,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     },
   );
 
-  const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
+  const { navTheme, colorPrimary, siderMenuType, layout, colorWeak } =
+    settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -246,18 +246,29 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
     /** 如果不是浏览器 都没有必要做了 */
     if (!isBrowser()) return () => null;
-    initState(getParamsFromUrl(urlParams, propsSettings), settingState, setSettingState);
+    initState(
+      getParamsFromUrl(urlParams, propsSettings),
+      settingState,
+      setSettingState,
+    );
     window.document.addEventListener('languagechange', onLanguageChange, {
       passive: true,
     });
 
-    return () => window.document.removeEventListener('languagechange', onLanguageChange);
+    return () =>
+      window.document.removeEventListener('languagechange', onLanguageChange);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    updateTheme(settingState.navTheme === 'realDark', settingState.primaryColor);
-  }, [settingState.primaryColor, settingState.navTheme]);
+    if (compareVersions(version, '5.0.0') < 0) {
+      AntConfigProvider.config({
+        theme: {
+          primaryColor: settingState.colorPrimary,
+        },
+      });
+    }
+  }, [settingState.colorPrimary, settingState.navTheme]);
   /**
    * 修改设置
    *
@@ -294,6 +305,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     delete nextState.menu;
     delete nextState.title;
     delete nextState.iconfontUrl;
+    delete nextState.logo;
+    delete nextState.pwa;
+
     setSettingState({ ...settingState, ...nextState });
   };
 
@@ -307,194 +321,272 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       firstRender.current = false;
       return;
     }
-    const diffParams = getDifferentSetting({ ...urlParams, ...settingState });
+
+    /** 每次从url拿最新的防止记忆 */
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params = Object.fromEntries(urlSearchParams.entries());
+    const diffParams = getDifferentSetting({ ...params, ...settingState });
+
+    delete diffParams.logo;
+    delete diffParams.menu;
+    delete diffParams.title;
+    delete diffParams.iconfontUrl;
+    delete diffParams.pwa;
+
     setUrlParams(diffParams);
   }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
-  const baseClassName = `${prefixCls}-setting`;
+  const baseClassName = `${prefixCls}-setting-drawer`;
+  const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  return (
-    <Drawer
-      visible={show}
-      width={300}
-      closable={false}
-      onClose={() => setShow(false)}
-      placement="right"
-      getContainer={getContainer}
-      handler={
-        <div className={`${baseClassName}-drawer-handle`} onClick={() => setShow(!show)}>
-          {show ? (
-            <CloseOutlined
-              style={{
-                color: '#fff',
-                fontSize: 20,
-              }}
-            />
-          ) : (
-            <SettingOutlined
-              style={{
-                color: '#fff',
-                fontSize: 20,
-              }}
-            />
-          )}
-        </div>
-      }
-      style={{
-        zIndex: 999,
-      }}
-    >
-      <div className={`${baseClassName}-drawer-content`}>
-        <Body
-          title={formatMessage({
-            id: 'app.setting.pagestyle',
-            defaultMessage: 'Page style setting',
-          })}
-          prefixCls={baseClassName}
-        >
-          <BlockCheckbox
-            prefixCls={baseClassName}
-            list={[
-              {
-                key: 'light',
-                title: formatMessage({
-                  id: 'app.setting.pagestyle.light',
-                  defaultMessage: '亮色菜单风格',
-                }),
-              },
-              {
-                key: 'dark',
-                title: formatMessage({
-                  id: 'app.setting.pagestyle.dark',
-                  defaultMessage: '暗色菜单风格',
-                }),
-              },
-              {
-                key: 'realDark',
-                title: formatMessage({
-                  id: 'app.setting.pagestyle.realdark',
-                  defaultMessage: '暗色菜单风格',
-                }),
-              },
-            ].filter((item) => {
-              if (item.key === 'dark' && settingState.layout === 'mix') return false;
-              if (item.key === 'realDark' && !enableDarkTheme) return false;
-              return true;
-            })}
-            value={navTheme!}
-            configType="theme"
-            key="navTheme"
-            onChange={(value) => changeSetting('navTheme', value)}
-          />
-        </Body>
-        {colorList !== false && (
-          <Body
-            title={formatMessage({
-              id: 'app.setting.themecolor',
-              defaultMessage: 'Theme color',
-            })}
-            prefixCls={baseClassName}
-          >
-            <ThemeColor
-              colorList={colorList}
-              value={genStringToTheme(primaryColor)!}
-              formatMessage={formatMessage}
-              onChange={(color) => changeSetting('primaryColor', color)}
-            />
-          </Body>
-        )}
+  const drawerOpenProps = openVisibleCompatible(open);
 
-        <Divider />
-
-        <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.navigationmode' })}>
-          <BlockCheckbox
-            prefixCls={baseClassName}
-            value={layout!}
-            key="layout"
-            configType="layout"
-            list={[
-              {
-                key: 'side',
-                title: formatMessage({ id: 'app.setting.sidemenu' }),
-              },
-              {
-                key: 'top',
-                title: formatMessage({ id: 'app.setting.topmenu' }),
-              },
-              {
-                key: 'mix',
-                title: formatMessage({ id: 'app.setting.mixmenu' }),
-              },
-            ]}
-            onChange={(value) => changeSetting('layout', value)}
-          />
-        </Body>
-        <LayoutSetting settings={settingState} changeSetting={changeSetting} />
-        <Divider />
-
-        <Body
-          prefixCls={baseClassName}
-          title={formatMessage({ id: 'app.setting.regionalsettings' })}
-        >
-          <RegionalSetting settings={settingState} changeSetting={changeSetting} />
-        </Body>
-
-        <Divider />
-
-        <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.othersettings' })}>
-          <List
-            split={false}
-            renderItem={renderLayoutSettingItem}
-            dataSource={[
-              {
-                title: formatMessage({ id: 'app.setting.weakmode' }),
-                action: (
-                  <Switch
-                    size="small"
-                    className="color-weak"
-                    checked={!!colorWeak}
-                    onChange={(checked) => {
-                      changeSetting('colorWeak', checked);
-                    }}
-                  />
-                ),
-              },
-            ]}
-          />
-        </Body>
-        {hideHintAlert && hideCopyButton ? null : <Divider />}
-
-        {hideHintAlert ? null : (
-          <Alert
-            type="warning"
-            message={formatMessage({
-              id: 'app.setting.production.hint',
-            })}
-            icon={<NotificationOutlined />}
-            showIcon
-            style={{ marginBottom: 16 }}
-          />
-        )}
-
-        {hideCopyButton ? null : (
-          <Button
-            block
-            icon={<CopyOutlined />}
-            style={{ marginBottom: 24 }}
-            onClick={async () => {
-              try {
-                await navigator.clipboard.writeText(genCopySettingJson(settingState));
-                message.success(formatMessage({ id: 'app.setting.copyinfo' }));
-              } catch (error) {
-                // console.log(error);
-              }
+  return wrapSSR(
+    <>
+      <div
+        className={`${baseClassName}-handle ${hashId}`.trim()}
+        onClick={() => setOpen(!open)}
+        style={{
+          width: 48,
+          height: 48,
+        }}
+      >
+        {open ? (
+          <CloseOutlined
+            style={{
+              color: '#fff',
+              fontSize: 20,
             }}
-          >
-            {formatMessage({ id: 'app.setting.copy' })}
-          </Button>
+          />
+        ) : (
+          <SettingOutlined
+            style={{
+              color: '#fff',
+              fontSize: 20,
+            }}
+          />
         )}
       </div>
-    </Drawer>
+      <Drawer
+        {...drawerOpenProps}
+        width={300}
+        onClose={() => setOpen(false)}
+        closable={false}
+        placement="right"
+        getContainer={getContainer}
+        style={{
+          zIndex: 999,
+        }}
+      >
+        <div className={`${baseClassName}-drawer-content ${hashId}`.trim()}>
+          <Body
+            title={formatMessage({
+              id: 'app.setting.pagestyle',
+              defaultMessage: 'Page style setting',
+            })}
+            hashId={hashId}
+            prefixCls={baseClassName}
+          >
+            <BlockCheckbox
+              hashId={hashId}
+              prefixCls={baseClassName}
+              list={[
+                {
+                  key: 'light',
+                  title: formatMessage({
+                    id: 'app.setting.pagestyle.light',
+                    defaultMessage: '亮色菜单风格',
+                  }),
+                },
+                {
+                  key: 'realDark',
+                  title: formatMessage({
+                    id: 'app.setting.pagestyle.realdark',
+                    defaultMessage: '暗色菜单风格',
+                  }),
+                },
+              ].filter((item) => {
+                if (item.key === 'dark' && settingState.layout === 'mix')
+                  return false;
+                if (item.key === 'realDark' && !enableDarkTheme) return false;
+                return true;
+              })}
+              value={navTheme!}
+              configType="theme"
+              key="navTheme"
+              onChange={(value) => changeSetting('navTheme', value)}
+            />
+          </Body>
+          {colorList !== false && (
+            <Body
+              hashId={hashId}
+              title={formatMessage({
+                id: 'app.setting.themecolor',
+                defaultMessage: 'Theme color',
+              })}
+              prefixCls={baseClassName}
+            >
+              <ThemeColor
+                hashId={hashId}
+                prefixCls={baseClassName}
+                colorList={colorList}
+                value={genStringToTheme(colorPrimary)!}
+                formatMessage={formatMessage}
+                onChange={(color) => changeSetting('colorPrimary', color)}
+              />
+            </Body>
+          )}
+          {!themeOnly && (
+            <>
+              <Divider />
+              <Body
+                hashId={hashId}
+                prefixCls={baseClassName}
+                title={formatMessage({ id: 'app.setting.navigationmode' })}
+              >
+                <BlockCheckbox
+                  prefixCls={baseClassName}
+                  value={layout!}
+                  key="layout"
+                  hashId={hashId}
+                  configType="layout"
+                  list={[
+                    {
+                      key: 'side',
+                      title: formatMessage({ id: 'app.setting.sidemenu' }),
+                    },
+                    {
+                      key: 'top',
+                      title: formatMessage({ id: 'app.setting.topmenu' }),
+                    },
+                    {
+                      key: 'mix',
+                      title: formatMessage({ id: 'app.setting.mixmenu' }),
+                    },
+                  ]}
+                  onChange={(value) => changeSetting('layout', value)}
+                />
+              </Body>
+              {settingState.layout == 'side' || settingState.layout == 'mix' ? (
+                <Body
+                  hashId={hashId}
+                  prefixCls={baseClassName}
+                  title={formatMessage({ id: 'app.setting.sidermenutype' })}
+                >
+                  <BlockCheckbox
+                    prefixCls={baseClassName}
+                    value={siderMenuType!}
+                    key="siderMenuType"
+                    hashId={hashId}
+                    configType="siderMenuType"
+                    list={[
+                      {
+                        key: 'sub',
+                        icon: <SubIcon />,
+                        title: formatMessage({
+                          id: 'app.setting.sidermenutype-sub',
+                        }),
+                      },
+                      {
+                        key: 'group',
+                        icon: <GroupIcon />,
+                        title: formatMessage({
+                          id: 'app.setting.sidermenutype-group',
+                        }),
+                      },
+                    ]}
+                    onChange={(value) => changeSetting('siderMenuType', value)}
+                  />
+                </Body>
+              ) : null}
+              <LayoutSetting
+                prefixCls={baseClassName}
+                hashId={hashId}
+                settings={settingState}
+                changeSetting={changeSetting}
+              />
+              <Divider />
+
+              <Body
+                hashId={hashId}
+                prefixCls={baseClassName}
+                title={formatMessage({ id: 'app.setting.regionalsettings' })}
+              >
+                <RegionalSetting
+                  hashId={hashId}
+                  prefixCls={baseClassName}
+                  settings={settingState}
+                  changeSetting={changeSetting}
+                />
+              </Body>
+
+              <Divider />
+
+              <Body
+                hashId={hashId}
+                prefixCls={baseClassName}
+                title={formatMessage({ id: 'app.setting.othersettings' })}
+              >
+                <List
+                  className={`${baseClassName}-list ${hashId}`.trim()}
+                  split={false}
+                  size="small"
+                  renderItem={renderLayoutSettingItem}
+                  dataSource={[
+                    {
+                      title: formatMessage({ id: 'app.setting.weakmode' }),
+                      action: (
+                        <Switch
+                          size="small"
+                          className="color-weak"
+                          checked={!!colorWeak}
+                          onChange={(checked) => {
+                            changeSetting('colorWeak', checked);
+                          }}
+                        />
+                      ),
+                    },
+                  ]}
+                />
+              </Body>
+              {hideHintAlert && hideCopyButton ? null : <Divider />}
+
+              {hideHintAlert ? null : (
+                <Alert
+                  type="warning"
+                  message={formatMessage({
+                    id: 'app.setting.production.hint',
+                  })}
+                  icon={<NotificationOutlined />}
+                  showIcon
+                  style={{ marginBlockEnd: 16 }}
+                />
+              )}
+
+              {hideCopyButton ? null : (
+                <Button
+                  block
+                  icon={<CopyOutlined />}
+                  style={{ marginBlockEnd: 24 }}
+                  onClick={async () => {
+                    try {
+                      await navigator.clipboard.writeText(
+                        genCopySettingJson(settingState),
+                      );
+                      message.success(
+                        formatMessage({ id: 'app.setting.copyinfo' }),
+                      );
+                    } catch (error) {
+                      // console.log(error);
+                    }
+                  }}
+                >
+                  {formatMessage({ id: 'app.setting.copy' })}
+                </Button>
+              )}
+            </>
+          )}
+        </div>
+      </Drawer>
+    </>,
   );
 };
-
-export default SettingDrawer;

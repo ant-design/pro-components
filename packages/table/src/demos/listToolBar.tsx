@@ -1,9 +1,11 @@
+import type { ProColumns } from '@ant-design/pro-components';
+import {
+  LightFilter,
+  ProFormDatePicker,
+  ProTable,
+} from '@ant-design/pro-components';
+import { Badge, Button } from 'antd';
 import React, { useState } from 'react';
-import { Button, Badge, Tooltip } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
-import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
 
 export type TableListItem = {
   key: number;
@@ -75,31 +77,18 @@ const columns: ProColumns<TableListItem>[] = [
     sorter: (a, b) => a.containers - b.containers,
   },
   {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    width: 140,
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
     title: '操作',
     key: 'option',
     width: 120,
     valueType: 'option',
     render: (_, record) => [
       record.status === 'close' && <a key="link">发布</a>,
-      (record.status === 'running' || record.status === 'online') && <a key="warn">停用</a>,
+      (record.status === 'running' || record.status === 'online') && (
+        <a key="warn">停用</a>
+      ),
       record.status === 'error' && <a key="republish">重新发布</a>,
       <a
-        key="republish"
+        key="monitor"
         style={
           record.status === 'running'
             ? {
@@ -120,8 +109,8 @@ const renderBadge = (count: number, active = false) => {
     <Badge
       count={count}
       style={{
-        marginTop: -2,
-        marginLeft: 4,
+        marginBlockStart: -2,
+        marginInlineStart: 4,
         color: active ? '#1890FF' : '#999',
         backgroundColor: active ? '#E6F7FF' : '#eee',
       }}
@@ -130,7 +119,7 @@ const renderBadge = (count: number, active = false) => {
 };
 
 export default () => {
-  const [activekey, setActiveKey] = useState<React.Key>('tab1');
+  const [activeKey, setActiveKey] = useState<React.Key>('tab1');
 
   return (
     <ProTable<TableListItem>
@@ -151,19 +140,19 @@ export default () => {
         ),
         menu: {
           type: 'tab',
-          activeKey: activekey,
+          activeKey: activeKey,
           items: [
             {
               key: 'tab1',
-              label: <span>应用{renderBadge(99, activekey === 'tab1')}</span>,
+              label: <span>应用{renderBadge(99, activeKey === 'tab1')}</span>,
             },
             {
               key: 'tab2',
-              label: <span>项目{renderBadge(30, activekey === 'tab2')}</span>,
+              label: <span>项目{renderBadge(30, activeKey === 'tab2')}</span>,
             },
             {
               key: 'tab3',
-              label: <span>文章{renderBadge(30, activekey === 'tab3')}</span>,
+              label: <span>文章{renderBadge(30, activeKey === 'tab3')}</span>,
             },
           ],
           onChange: (key) => {
@@ -187,7 +176,7 @@ export default () => {
           draggable: true,
           checkable: true,
           checkedReset: false,
-          extra: [<a>确认</a>],
+          extra: [<a key="confirm">确认</a>],
         },
       }}
     />

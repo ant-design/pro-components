@@ -1,6 +1,4 @@
-import React from 'react';
-
-import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 
 export default () => (
   <div
@@ -12,6 +10,8 @@ export default () => (
       location={{
         pathname: '/data_hui/data_hui2',
       }}
+      collapsed={false}
+      collapsedButtonRender={false}
       route={{
         routes: [
           {
@@ -42,6 +42,7 @@ export default () => (
                 collapsed: true,
                 menuName: '域买家维度交易',
                 name: '域买家维度交易',
+                path: '/xx',
                 routes: [
                   {
                     id: 2,
@@ -73,7 +74,11 @@ export default () => (
           },
         ],
       }}
-      menu={{ defaultOpenAll: true, ignoreFlatMenu: true }}
+      menu={{
+        defaultOpenAll: true,
+        hideMenuWhenCollapsed: true,
+        ignoreFlatMenu: true,
+      }}
     >
       <PageContainer content="欢迎使用">
         <div>Hello World</div>

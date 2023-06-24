@@ -1,5 +1,5 @@
-﻿import React, { useState } from 'react';
-import { ProFormSelect } from '@ant-design/pro-form';
+﻿import { ProFormSelect } from '@ant-design/pro-components';
+import { useState } from 'react';
 
 export default function App() {
   const [searchValue, setSearchValue] = useState('');
@@ -39,15 +39,31 @@ export default function App() {
         allowClear
         width={330}
         secondary
-        valueEnum={{
-          1001: 'jack',
-          1002: 'lucy',
-          1003: 'emliy',
-        }}
+        options={
+          [
+            {
+              v: 'v1',
+              l: 'l1',
+            },
+            {
+              v: 'v2',
+              l: 'l3',
+            },
+            {
+              v: 'v4',
+              l: 'l5',
+            },
+          ] as any
+        }
         fieldProps={{
+          fieldNames: {
+            value: 'v',
+            label: 'l',
+            options: 'options',
+          },
           showArrow: false,
           showSearch: true, // 使单选模式可搜索
-          dropdownMatchSelectWidth: false,
+          popupMatchSelectWidth: false,
           optionFilterProp: 'label', // 搜索时过滤对应的 option 属性
           optionLabelProp: 'label', // 回填到选择框的 Option 的属性值
           searchValue,
@@ -66,7 +82,7 @@ export default function App() {
               key={item}
               onClick={onClick}
               style={{
-                marginLeft: 8,
+                marginInlineStart: 8,
                 cursor: 'pointer',
               }}
             >

@@ -1,6 +1,5 @@
-import React from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
-import { StatisticCard } from '@ant-design/pro-card';
+import { StatisticCard } from '@ant-design/pro-components';
 
 const { Statistic } = StatisticCard;
 
@@ -23,8 +22,18 @@ export default () => {
       }
       footer={
         <>
-          <Statistic value={15.1} title="累计注册数" suffix="万" layout="horizontal" />
-          <Statistic value={15.1} title="本月注册数" suffix="万" layout="horizontal" />
+          <Statistic
+            value={15.1}
+            title="累计注册数"
+            suffix="万"
+            layout="horizontal"
+          />
+          <Statistic
+            value={15.1}
+            title="本月注册数"
+            suffix="万"
+            layout="horizontal"
+          />
         </>
       }
       style={{ width: 250 }}

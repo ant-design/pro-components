@@ -1,5 +1,4 @@
-import React from 'react';
-import ProCard from '@ant-design/pro-card';
+import { ProCard } from '@ant-design/pro-components';
 
 export default () => {
   return (

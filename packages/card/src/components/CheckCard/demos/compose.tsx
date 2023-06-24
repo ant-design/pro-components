@@ -1,7 +1,4 @@
-/** Uuid: 2c9c6174 title: 组合样式 */
-
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
   <>

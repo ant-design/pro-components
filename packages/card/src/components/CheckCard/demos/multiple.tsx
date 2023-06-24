@@ -1,7 +1,4 @@
-/** Uuid: 9c5425b1 title: 多选模式 */
-
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
   <CheckCard.Group

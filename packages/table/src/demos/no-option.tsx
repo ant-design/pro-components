@@ -1,8 +1,7 @@
-import React from 'react';
-import { Button, Tooltip } from 'antd';
-import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import { DownOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+import { Button } from 'antd';
 
 const valueEnum = {
   0: 'close',
@@ -32,7 +31,10 @@ for (let i = 0; i < 5; i += 1) {
     creator: creators[Math.floor(Math.random() * creators.length)],
     status: valueEnum[Math.floor(Math.random() * 10) % 4],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
-    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
+    memo:
+      i % 2 === 1
+        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
+        : '简短备注文案',
   });
 }
 
@@ -63,56 +65,14 @@ const columns: ProColumns<TableListItem>[] = [
     },
   },
   {
-    title: '创建者',
-    width: 80,
-    dataIndex: 'creator',
-    valueEnum: {
-      all: { text: '全部' },
-      付小小: { text: '付小小' },
-      曲丽丽: { text: '曲丽丽' },
-      林东东: { text: '林东东' },
-      陈帅帅: { text: '陈帅帅' },
-      兼某某: { text: '兼某某' },
-    },
-  },
-  {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
-        </Tooltip>
-      </>
-    ),
+    title: '创建时间',
+    tooltip: '这是一段描述',
     width: 140,
     key: 'since',
+    hideInSearch: true,
     dataIndex: 'createdAt',
     valueType: 'date',
     sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
-    title: '备注',
-    dataIndex: 'memo',
-    ellipsis: true,
-    copyable: true,
-  },
-  {
-    title: '操作',
-    width: 180,
-    key: 'option',
-    valueType: 'option',
-    render: () => [
-      <a key="link">链路</a>,
-      <a key="link2">报警</a>,
-      <a key="link3">监控</a>,
-      <TableDropdown
-        key="actionGroup"
-        menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
-        ]}
-      />,
-    ],
   },
 ];
 

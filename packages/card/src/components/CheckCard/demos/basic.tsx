@@ -1,7 +1,6 @@
-/** Uuid: d502a5cf title: 基本使用 */
+/** Title: 基本使用 */
 
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-components';
 
 export default () => (
   <CheckCard

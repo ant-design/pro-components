@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
-import { Button, Result, Avatar, Space, Tag } from 'antd';
-import { CrownOutlined, LeftOutlined, UserOutlined, SmileOutlined } from '@ant-design/icons';
-import ProLayout from '@ant-design/pro-layout';
+import {
+  CrownOutlined,
+  LeftOutlined,
+  SmileOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+import { ProLayout } from '@ant-design/pro-components';
+import { Button, Result, Space, Tag } from 'antd';
+import { useState } from 'react';
 
 const defaultProps = {
   routes: [
@@ -52,7 +57,6 @@ export default () => {
         location={{
           pathname,
         }}
-        navTheme="light"
         logoStyle={{
           backgroundColor: '#eee',
         }}
@@ -107,15 +111,14 @@ export default () => {
             {dom}
           </a>
         )}
-        rightContentRender={() => (
-          <div>
-            <Avatar shape="square" size="small" icon={<UserOutlined />} />
-          </div>
-        )}
+        avatarProps={{
+          icon: <UserOutlined />,
+        }}
       >
         <div
           style={{
             height: '120vh',
+            minHeight: 600,
           }}
         >
           <Result

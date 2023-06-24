@@ -1,7 +1,10 @@
 import { Input } from 'antd';
 import React from 'react';
-
 import type { ProFieldFC } from '../../index';
+
+// 兼容代码-----------
+import 'antd/lib/input/style';
+//----------------------
 
 const languageFormat = (text: string, language: string) => {
   if (typeof text !== 'string') {
@@ -25,7 +28,10 @@ const languageFormat = (text: string, language: string) => {
 const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
-}> = ({ text, mode, render, language = 'text', renderFormItem, plain, fieldProps }, ref) => {
+}> = (
+  { text, mode, render, language = 'text', renderFormItem, plain, fieldProps },
+  ref,
+) => {
   const code = languageFormat(text, language);
   if (mode === 'read') {
     const dom = (
@@ -57,7 +63,7 @@ const FieldCode: ProFieldFC<{
       dom = <Input {...fieldProps} ref={ref} />;
     }
     if (renderFormItem) {
-      return renderFormItem(code, { mode, ...fieldProps, ref }, dom);
+      return renderFormItem(code, { mode, ...fieldProps, ref }, dom) ?? null;
     }
     return dom;
   }

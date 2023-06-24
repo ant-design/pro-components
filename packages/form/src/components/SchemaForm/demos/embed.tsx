@@ -1,7 +1,10 @@
-﻿import React from 'react';
-import type { ProFormColumnsType } from '@ant-design/pro-form';
-import { ProFormSelect, ProFormText } from '@ant-design/pro-form';
-import ProForm, { BetaSchemaForm } from '@ant-design/pro-form';
+﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
+import {
+  BetaSchemaForm,
+  ProForm,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-components';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -65,24 +68,19 @@ export default () => {
           mode: 'multiple',
         }}
         placeholder="Please select favorite colors"
-        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Please select your favorite colors!',
+            type: 'array',
+          },
+        ]}
       />
       <h1>表单1 </h1>
-      <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
-        layoutType="Embed"
-        onFinish={async (values) => {
-          console.log(values);
-        }}
-        columns={columns}
-      />
+      <BetaSchemaForm<DataItem> layoutType="Embed" columns={columns} />
       <h1>表单2</h1>
       <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
         layoutType="Embed"
-        onFinish={async (values) => {
-          console.log(values);
-        }}
         columns={[
           {
             title: '创建时间',

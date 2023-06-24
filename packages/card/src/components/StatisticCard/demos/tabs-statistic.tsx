@@ -1,6 +1,5 @@
-import React from 'react';
-import ProCard, { StatisticCard } from '@ant-design/pro-card';
-import type { StatisticProps } from '@ant-design/pro-card';
+import type { StatisticProps } from '@ant-design/pro-components';
+import { ProCard, StatisticCard } from '@ant-design/pro-components';
 
 const { Statistic } = StatisticCard;
 
@@ -19,35 +18,38 @@ export default () => {
         onChange: (key) => {
           console.log('key', key);
         },
+        items: items.map((item) => {
+          return {
+            key: item.key,
+            style: { width: '100%' },
+            label: (
+              <Statistic
+                layout="vertical"
+                title={item.title}
+                value={item.value}
+                status={item.status as StatisticProps['status']}
+                style={{
+                  width: 120,
+                  borderInlineEnd: item.total ? '1px solid #f0f0f0' : undefined,
+                }}
+              />
+            ),
+            children: (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: '#fafafa',
+                  height: 100,
+                }}
+              >
+                关联展示内容 {item.title}
+              </div>
+            ),
+          };
+        }),
       }}
-    >
-      {items.map((item) => (
-        <ProCard.TabPane
-          style={{ width: '100%' }}
-          key={item.key}
-          tab={
-            <Statistic
-              layout="vertical"
-              title={item.title}
-              value={item.value}
-              status={item.status as StatisticProps['status']}
-              style={{ width: 120, borderRight: item.total ? '1px solid #f0f0f0' : undefined }}
-            />
-          }
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: '#fafafa',
-              height: 100,
-            }}
-          >
-            关联展示内容 {item.title}
-          </div>
-        </ProCard.TabPane>
-      ))}
-    </ProCard>
+    />
   );
 };

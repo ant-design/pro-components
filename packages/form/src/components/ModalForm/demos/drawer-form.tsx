@@ -1,13 +1,12 @@
-﻿import React, { useRef } from 'react';
-import { Button, message } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import ProForm, {
+﻿import { PlusOutlined } from '@ant-design/icons';
+import {
   DrawerForm,
-  ProFormText,
+  ProForm,
   ProFormDateRangePicker,
   ProFormSelect,
-} from '@ant-design/pro-form';
-import { PlusOutlined } from '@ant-design/icons';
+  ProFormText,
+} from '@ant-design/pro-components';
+import { Button, Form, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -18,14 +17,15 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const formRef = useRef<ProFormInstance>();
+  const [form] = Form.useForm<{ name: string; company: string }>();
+
   return (
     <DrawerForm<{
       name: string;
       company: string;
     }>
       title="新建表单"
-      formRef={formRef}
+      form={form}
       trigger={
         <Button type="primary">
           <PlusOutlined />
@@ -34,9 +34,9 @@ export default () => {
       }
       autoFocusFirstInput
       drawerProps={{
-        forceRender: true,
         destroyOnClose: true,
       }}
+      submitTimeout={2000}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values.name);
@@ -53,10 +53,25 @@ export default () => {
           tooltip="最长为 24 位"
           placeholder="请输入名称"
         />
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormText width="md" name="contract" label="合同名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="contract"
+          label="合同名称"
+          placeholder="请输入名称"
+        />
         <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
       </ProForm.Group>
       <ProForm.Group>
@@ -79,13 +94,29 @@ export default () => {
               label: '履行完终止',
             },
           ]}
+          formItemProps={{
+            style: {
+              margin: 0,
+            },
+          }}
           name="unusedMode"
           label="合同约定失效效方式"
         />
       </ProForm.Group>
       <ProFormText width="sm" name="id" label="主合同编号" />
-      <ProFormText name="project" disabled label="项目名称" initialValue="xxxx项目" />
-      <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
+      <ProFormText
+        name="project"
+        disabled
+        label="项目名称"
+        initialValue="xxxx项目"
+      />
+      <ProFormText
+        width="xs"
+        name="mangerName"
+        disabled
+        label="商务经理"
+        initialValue="启途"
+      />
     </DrawerForm>
   );
 };

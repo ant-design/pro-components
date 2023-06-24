@@ -1,7 +1,7 @@
+import { List, Select, Switch, Tooltip } from 'antd';
 import React from 'react';
-import { List, Tooltip, Select, Switch } from 'antd';
 import type { ProSettings } from '../../defaultSettings';
-import defaultSettings from '../../defaultSettings';
+import { defaultSettings } from '../../defaultSettings';
 import type { SettingItemProps } from './index';
 import { getFormatMessage } from './index';
 
@@ -20,13 +20,16 @@ export const renderLayoutSettingItem = (item: SettingItemProps) => {
 const LayoutSetting: React.FC<{
   settings: Partial<ProSettings>;
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
-}> = ({ settings = {}, changeSetting }) => {
+  hashId: string;
+  prefixCls: string;
+}> = ({ settings = {}, prefixCls, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
   const { contentWidth, splitMenus, fixedHeader, layout, fixSiderbar } =
     settings || defaultSettings;
 
   return (
     <List
+      className={`${prefixCls}-list ${hashId}`.trim()}
       split={false}
       dataSource={[
         {
@@ -35,11 +38,11 @@ const LayoutSetting: React.FC<{
             defaultMessage: 'Content Width',
           }),
           action: (
-            <Select<string>
+            <Select
               value={contentWidth || 'Fixed'}
               size="small"
-              className="content-width"
-              onSelect={(value) => {
+              className={`content-width ${hashId}`.trim()}
+              onSelect={(value: string) => {
                 changeSetting('contentWidth', value);
               }}
               style={{ width: 80 }}
@@ -116,4 +119,4 @@ const LayoutSetting: React.FC<{
   );
 };
 
-export default LayoutSetting;
+export { LayoutSetting };

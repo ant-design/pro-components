@@ -1,12 +1,11 @@
-import './GridContent.less';
-
-import type { CSSProperties } from 'react';
-import React, { useContext } from 'react';
-import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
 
-import RouteContext from '../../RouteContext';
+import classNames from 'classnames';
+import type { CSSProperties } from 'react';
+import React, { useContext } from 'react';
+import { RouteContext } from '../../context/RouteContext';
 import type { PureSettings } from '../../defaultSettings';
+import { useStyle } from './style';
 
 type GridContentProps = {
   contentWidth?: PureSettings['contentWidth'];
@@ -24,23 +23,32 @@ type GridContentProps = {
  */
 const GridContent: React.FC<GridContentProps> = (props) => {
   const value = useContext(RouteContext);
-  const { children, contentWidth: propsContentWidth, className: propsClassName, style } = props;
+  const {
+    children,
+    contentWidth: propsContentWidth,
+    className: propsClassName,
+    style,
+  } = props;
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
   const contentWidth = propsContentWidth || value.contentWidth;
   const className = `${prefixCls}-grid-content`;
+  const { wrapSSR, hashId } = useStyle(className);
+  const isWide = contentWidth === 'Fixed';
 
-  return (
+  return wrapSSR(
     <div
-      className={classNames(className, propsClassName, {
-        wide: contentWidth === 'Fixed',
+      className={classNames(className, hashId, propsClassName, {
+        [`${className}-wide`]: isWide,
       })}
       style={style}
     >
-      <div className={`${prefixCls}-grid-content-children`}>{children}</div>
-    </div>
+      <div className={`${prefixCls}-grid-content-children ${hashId}`.trim()}>
+        {children}
+      </div>
+    </div>,
   );
 };
 
-export default GridContent;
+export { GridContent };

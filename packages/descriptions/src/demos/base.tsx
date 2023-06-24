@@ -1,21 +1,38 @@
-import React from 'react';
-import moment from 'moment';
-
-import ProDescriptions from '@ant-design/pro-descriptions';
+import { ProDescriptions } from '@ant-design/pro-components';
 import { Button } from 'antd';
+import dayjs from 'dayjs';
 
 export default () => {
   return (
-    <ProDescriptions column={2} title="高级定义列表" tooltip="包含了从服务器请求，columns等功能">
-      <ProDescriptions.Item label="文本" valueType="option">
+    <ProDescriptions
+      column={2}
+      title="高级定义列表"
+      tooltip="包含了从服务器请求，columns等功能"
+    >
+      <ProDescriptions.Item valueType="option">
         <Button key="primary" type="primary">
           提交
         </Button>
       </ProDescriptions.Item>
-      <ProDescriptions.Item span={2} label="文本">
+      <ProDescriptions.Item
+        span={2}
+        valueType="text"
+        contentStyle={{
+          maxWidth: '80%',
+        }}
+        renderText={(_) => {
+          return _ + _;
+        }}
+        ellipsis
+        label="文本"
+      >
         这是一段很长很长超级超级长的无意义说明文本并且重复了很多没有意义的词语，就是为了让它变得很长很长超级超级长
       </ProDescriptions.Item>
-      <ProDescriptions.Item label="金额" tooltip="仅供参考，以实际为准" valueType="money">
+      <ProDescriptions.Item
+        label="金额"
+        tooltip="仅供参考，以实际为准"
+        valueType="money"
+      >
         100
       </ProDescriptions.Item>
       <ProDescriptions.Item label="百分比" valueType="percent">
@@ -56,16 +73,16 @@ export default () => {
         40
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期时间" valueType="dateTime">
-        {moment().valueOf()}
+        {dayjs().valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期" valueType="date">
-        {moment().valueOf()}
+        {dayjs().valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="日期区间" valueType="dateTimeRange">
-        {[moment().add(-1, 'd').valueOf(), moment().valueOf()]}
+        {[dayjs().add(-1, 'd').valueOf(), dayjs().valueOf()]}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="时间" valueType="time">
-        {moment().valueOf()}
+        {dayjs().valueOf()}
       </ProDescriptions.Item>
       <ProDescriptions.Item label="代码块" valueType="code">
         {`

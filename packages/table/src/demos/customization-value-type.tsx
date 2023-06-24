@@ -1,8 +1,8 @@
-import React, { useContext, useRef, useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
-import ProProvider from '@ant-design/pro-provider';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProProvider, ProTable } from '@ant-design/pro-components';
+import type { InputRef } from 'antd';
 import { Input, Space, Tag } from 'antd';
+import React, { useContext, useRef, useState } from 'react';
 
 const valueEnum = {
   0: 'close',
@@ -50,7 +50,7 @@ const TagList: React.FC<{
     }[],
   ) => void;
 }> = ({ value, onChange }) => {
-  const ref = useRef<Input | null>(null);
+  const ref = useRef<InputRef | null>(null);
   const [newTags, setNewTags] = useState<
     {
       key: string;
@@ -65,8 +65,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -144,7 +150,9 @@ export default () => {
                 </>
               );
             },
-            renderFormItem: (text, props) => <TagList {...props} {...props?.fieldProps} />,
+            renderFormItem: (text, props) => (
+              <TagList {...props} {...props?.fieldProps} />
+            ),
           },
         },
       }}

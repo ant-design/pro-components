@@ -1,15 +1,14 @@
-﻿import React from 'react';
-import ProForm, {
-  StepsForm,
-  ProFormText,
+﻿import {
+  ProCard,
+  ProForm,
+  ProFormCheckbox,
   ProFormDatePicker,
   ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormCheckbox,
   ProFormDigit,
-} from '@ant-design/pro-form';
-
-import ProCard from '@ant-design/pro-card';
+  ProFormSelect,
+  ProFormText,
+  StepsForm,
+} from '@ant-design/pro-components';
 import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
@@ -49,7 +48,7 @@ export default () => {
             headerBordered
             collapsible
             style={{
-              marginBottom: 16,
+              marginBlockEnd: 16,
               minWidth: 800,
               maxWidth: '100%',
             }}
@@ -63,8 +62,16 @@ export default () => {
               rules={[{ required: true }]}
             />
             <ProForm.Group title="节点" size={8}>
-              <ProFormSelect width="sm" name="source" placeholder="选择来源节点" />
-              <ProFormSelect width="sm" name="target" placeholder="选择目标节点" />
+              <ProFormSelect
+                width="sm"
+                name="source"
+                placeholder="选择来源节点"
+              />
+              <ProFormSelect
+                width="sm"
+                name="target"
+                placeholder="选择目标节点"
+              />
             </ProForm.Group>
           </ProCard>
 
@@ -75,7 +82,7 @@ export default () => {
             collapsible
             style={{
               minWidth: 800,
-              marginBottom: 16,
+              marginBlockEnd: 16,
             }}
           >
             <ProFormDigit
@@ -86,7 +93,12 @@ export default () => {
               placeholder="请输入名称"
               width="xs"
             />
-            <ProFormText name="s" label="S号表单" placeholder="请输入名称" width="sm" />
+            <ProFormText
+              name="s"
+              label="S号表单"
+              placeholder="请输入名称"
+              width="sm"
+            />
             <ProFormDateRangePicker name="m" label="M 号表单" />
             <ProFormSelect
               name="l"
@@ -107,7 +119,7 @@ export default () => {
           <ProCard
             style={{
               minWidth: 800,
-              marginBottom: 16,
+              marginBlockEnd: 16,
               maxWidth: '100%',
             }}
           >
@@ -119,7 +131,11 @@ export default () => {
             />
             <ProForm.Group>
               <ProFormText name="dbname" label="业务 DB 用户名" />
-              <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
+              <ProFormDatePicker
+                name="datetime"
+                label="记录保存时间"
+                width="sm"
+              />
             </ProForm.Group>
             <ProFormCheckbox.Group
               name="checkbox"
@@ -131,7 +147,7 @@ export default () => {
         <StepsForm.StepForm name="time" title="第三步骤">
           <ProCard
             style={{
-              marginBottom: 16,
+              marginBlockEnd: 16,
               minWidth: 800,
               maxWidth: '100%',
             }}

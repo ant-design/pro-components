@@ -1,5 +1,4 @@
-import React from 'react';
-import { StatisticCard } from '@ant-design/pro-card';
+import { StatisticCard } from '@ant-design/pro-components';
 
 const { Divider } = StatisticCard;
 

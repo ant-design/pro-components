@@ -1,8 +1,7 @@
-import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
+import type { ProColumns } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
 
 type GithubIssueItem = {
   key: number;
@@ -26,12 +25,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: 100,
     valueType: 'money',
     renderText: () => (Math.random() * 100).toFixed(2),
-  },
-  {
-    title: 'Created Time',
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'dateTime',
   },
 ];
 
@@ -58,7 +51,9 @@ export default () => (
       labelWidth: 'auto',
       optionRender: (searchConfig, formProps, dom) => [
         ...dom.reverse(),
-        <Button key="out">导出</Button>,
+        <Button key="out" onClick={() => {}}>
+          导出
+        </Button>,
       ],
     }}
     toolBarRender={() => [

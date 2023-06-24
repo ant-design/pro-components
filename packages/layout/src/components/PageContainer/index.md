@@ -1,10 +1,6 @@
 ---
 title: PageContainer - 页容器
-group:
-  path: /
-nav:
-  title: 组件
-  path: /components
+atomId: PageContainer
 ---
 
 # PageContainer - 页容器
@@ -50,23 +46,23 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 基本使用
 
-<code src="./demos/basic.tsx" iframe="500px" title="基本使用" desc="基本使用" />
+<code src="./demos/basic.tsx" title="基本使用" iframe="650px" desc="基本使用"></code>
 
 ### 固定表头
 
-<code src="./demos/fixHeader.tsx" iframe="500px" title="固定表头" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。" />
+<code src="./demos/fixHeader.tsx" title="固定表头" iframe="650px" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"></code>
 
 ### 隐藏面包屑
 
-<code src="./demos/hideBreadMenu.tsx" iframe="500px" title="隐藏面包屑" desc="不配置 `header` 属性中的 `breadcrumb` 即可。" />
+<code src="./demos/hideBreadMenu.tsx" title="隐藏面包屑" iframe="650px" desc="不配置 `header` 属性中的 `breadcrumb` 即可。"></code>
 
 ### 页面加载中
 
-<code src="./demos/loading.tsx" iframe="800px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
+<code src="./demos/loading.tsx" title="页面加载中" iframe="650px" desc="通过 `loading` 属性配置页面加载。"></code>
 
 ## API
 
-PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
+PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://4x.ant.design/components/page-header-cn/) 的所有属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -88,10 +84,10 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 
 ### FooterToolbar
 
-| 参数     | 说明                            | 类型                       | 默认值 |
-| -------- | ------------------------------- | -------------------------- | ------ |
-| extra    | 额外内容区，位于 content 的右侧 | `ReactNode`                | -      |
-| children | 内容区域                        | `ReactNode`\|`ReactNode[]` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| extra | 额外内容区，位于 content 的右侧 | `ReactNode` | - |
+| children | 内容区域 | `ReactNode`\|`ReactNode[]` | - |
 
 FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控制浮动，使其不会挡住菜单。如果你没有使用 ProLayout 需要通过 style 来自定义宽度和浮动。
 
@@ -111,7 +107,7 @@ FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控
 配置与面包屑相同，只是增加了自动根据路由计算面包屑的功能。此功能必须要在 ProLayout 中使用。
 
 ```tsx | pure
-import { ProLayout, ProBreadcrumb } from '@ant-design/pro-layout';
+import { ProBreadcrumb, ProLayout } from '@ant-design/pro-components';
 
 return (props) => (
   <ProLayout

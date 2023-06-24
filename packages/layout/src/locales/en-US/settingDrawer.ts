@@ -12,9 +12,13 @@ export default {
   'app.setting.themecolor.sunset': 'Sunset Orange',
   'app.setting.themecolor.cyan': 'Cyan',
   'app.setting.themecolor.green': 'Polar Green',
-  'app.setting.themecolor.daybreak': 'Daybreak Blue (default)',
+  'app.setting.themecolor.techBlue': 'Tech Blue (default)',
+  'app.setting.themecolor.daybreak': 'Daybreak Blue',
   'app.setting.themecolor.geekblue': 'Geek Blue',
   'app.setting.themecolor.purple': 'Golden Purple',
+  'app.setting.sidermenutype': 'SideMenu Type',
+  'app.setting.sidermenutype-sub': 'Classic',
+  'app.setting.sidermenutype-group': 'Grouping',
   'app.setting.navigationmode': 'Navigation Mode',
   'app.setting.regionalsettings': 'Regional Settings',
   'app.setting.regionalsettings.header': 'Header',
@@ -34,7 +38,8 @@ export default {
   'app.setting.weakmode': 'Weak Mode',
   'app.setting.copy': 'Copy Setting',
   'app.setting.loading': 'Loading theme',
-  'app.setting.copyinfo': 'copy success，please replace defaultSettings in src/models/setting.js',
+  'app.setting.copyinfo':
+    'copy success，please replace defaultSettings in src/models/setting.js',
   'app.setting.production.hint':
     'Setting panel shows in development environment only, please manually modify',
 };

@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { ModalForm, ProFormText } from '@ant-design/pro-components';
 import { Button, message, Space } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import { ModalForm, ProFormText } from '@ant-design/pro-form';
+import { useRef, useState } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -21,7 +21,7 @@ export default () => {
       <ModalForm
         title="新建表单"
         formRef={restFormRef}
-        visible={modalVisible}
+        open={modalVisible}
         trigger={
           <Button
             type="primary"
@@ -32,7 +32,7 @@ export default () => {
             通过 formRef 重置
           </Button>
         }
-        onVisibleChange={setModalVisible}
+        onOpenChange={setModalVisible}
         submitter={{
           searchConfig: {
             resetText: '重置',
@@ -59,7 +59,12 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ModalForm>
       <ModalForm
         title="新建表单"
@@ -95,7 +100,12 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ModalForm>
     </Space>
   );

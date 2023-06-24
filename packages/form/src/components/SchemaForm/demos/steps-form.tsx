@@ -1,8 +1,10 @@
-﻿import React from 'react';
-import type { FormInstance, ProFormColumnsType } from '@ant-design/pro-form';
-import { BetaSchemaForm } from '@ant-design/pro-form';
-import { useRef } from 'react';
+﻿import type {
+  FormInstance,
+  ProFormColumnsType,
+} from '@ant-design/pro-components';
+import { BetaSchemaForm } from '@ant-design/pro-components';
 import { message } from 'antd';
+import { useRef } from 'react';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -181,6 +183,9 @@ export default () => {
           title: '第三步',
         },
       ]}
+      onCurrentChange={(current) => {
+        console.log('current: ', current);
+      }}
       formRef={formRef}
       onFinish={async (values) => {
         return new Promise((resolve) => {

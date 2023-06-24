@@ -1,10 +1,14 @@
-import React from 'react';
+import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber } from 'antd';
+import React from 'react';
 import type { ProFieldFC } from '../../index';
+// 兼容代码-----------
+import 'antd/lib/input-number/style';
+//------------
 
 export type FieldDigitProps = {
   text: number;
-  placeholder?: any;
+  placeholder?: string;
 };
 
 /**
@@ -41,6 +45,9 @@ const Second: ProFieldFC<FieldDigitProps> = (
   { text, mode: type, render, renderFormItem, fieldProps, placeholder },
   ref,
 ) => {
+  const intl = useIntl();
+  const placeholderValue =
+    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   if (type === 'read') {
     const secondText = formatSecond(Number(text) as number);
     const dom = <span ref={ref}>{secondText}</span>;
@@ -57,7 +64,7 @@ const Second: ProFieldFC<FieldDigitProps> = (
         style={{
           width: '100%',
         }}
-        placeholder={placeholder}
+        placeholder={placeholderValue}
         {...fieldProps}
       />
     );

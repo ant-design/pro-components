@@ -1,9 +1,6 @@
-/** Uuid: e9c5486d title: 自定义标题 */
-
-import React from 'react';
-import { CheckCard } from '@ant-design/pro-card';
-import { Tag } from 'antd';
 import { AppstoreOutlined } from '@ant-design/icons';
+import { CheckCard } from '@ant-design/pro-components';
+import { Tag } from 'antd';
 
 export default () => (
   <>
@@ -11,7 +8,7 @@ export default () => (
       title={
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <AppstoreOutlined />
-          <span style={{ marginRight: 8, marginLeft: 8 }}>示例</span>
+          <span style={{ marginInlineEnd: 8, marginInlineStart: 8 }}>示例</span>
           <Tag color="blue">blue</Tag>
         </div>
       }

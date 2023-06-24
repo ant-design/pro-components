@@ -1,110 +1,179 @@
-import React, { useRef, useState } from 'react';
+import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
+import { coverToNewToken } from '@ant-design/pro-utils';
+import { ConfigProvider } from 'antd';
+
 import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
-import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
-import { defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
-import './index.less';
-
-import BaseMenu from '../SiderMenu/BaseMenu';
+import React, { useContext, useMemo, useRef } from 'react';
+import { AppsLogoComponents } from '../AppsLogoComponents';
 import type { GlobalHeaderProps } from '../GlobalHeader';
-import { useDebounceFn } from '@ant-design/pro-utils';
+import { ActionsContent } from '../GlobalHeader/ActionsContent';
+import { BaseMenu } from '../SiderMenu/BaseMenu';
+import type {
+  HeaderRenderKey,
+  PrivateSiderMenuProps,
+  SiderMenuProps,
+} from '../SiderMenu/SiderMenu';
+import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
+import { useStyle } from './style';
 
-export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
+export type TopNavHeaderProps = SiderMenuProps &
+  GlobalHeaderProps &
+  PrivateSiderMenuProps;
 
-/**
- * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
- *
- * @param param0
- */
-export const RightContent: React.FC<TopNavHeaderProps> = ({
-  rightContentRender,
-  prefixCls,
-  ...props
-}) => {
-  const [rightSize, setRightSize] = useState<number | string>('auto');
-
-  /** 减少一下渲染的次数 */
-  const setRightSizeDebounceFn = useDebounceFn(
-    async (width: number) => {
-      setRightSize(width);
-    },
-    [],
-    160,
-  );
-
-  return (
-    <div
-      className={`${prefixCls}-right-content`}
-      style={{
-        minWidth: rightSize,
-      }}
-    >
-      <div
-        style={{
-          paddingRight: 8,
-        }}
-      >
-        <ResizeObserver
-          onResize={({ width }: { width: number }) => {
-            setRightSizeDebounceFn.run(width);
-          }}
-        >
-          {rightContentRender && (
-            <div className={`${prefixCls}-right-content-resize`}>
-              {rightContentRender({
-                ...props,
-                // 测试专用
-                //@ts-ignore
-                rightContentSize: rightSize,
-              })}
-            </div>
-          )}
-        </ResizeObserver>
-      </div>
-    </div>
-  );
-};
-
-const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
+const TopNavHeader: React.FC<TopNavHeaderProps> = (
+  props: TopNavHeaderProps,
+) => {
   const ref = useRef(null);
   const {
-    theme,
     onMenuHeaderClick,
     contentWidth,
     rightContentRender,
     className: propsClassName,
     style,
+    headerContentRender,
     layout,
+    actionsRender,
   } = props;
-  const prefixCls = `${props.prefixCls || 'ant-pro'}-top-nav-header`;
-  const headerDom = defaultRenderLogoAndTitle(
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { dark } = useContext(ProProvider);
+
+  const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
+
+  const { wrapSSR, hashId } = useStyle(prefixCls);
+  let renderKey: HeaderRenderKey | undefined = undefined;
+  if (props.menuHeaderRender !== undefined) {
+    renderKey = 'menuHeaderRender';
+  } else if (layout === 'mix' || layout === 'top') {
+    renderKey = 'headerTitleRender';
+  }
+  const headerDom = renderLogoAndTitle(
     { ...props, collapsed: false },
-    layout === 'mix' ? 'headerTitleRender' : undefined,
+    renderKey,
   );
+  const { token } = useContext(ProProvider);
+  const contentDom = useMemo(() => {
+    const defaultDom = (
+      <ConfigProvider // @ts-ignore
+        theme={{
+          hashed: isNeedOpenHash(),
+          components: {
+            Layout: {
+              colorBgHeader: 'transparent',
+              colorBgBody: 'transparent',
+            },
+            Menu: {
+              ...coverToNewToken({
+                colorItemBg:
+                  token?.layout?.header?.colorBgHeader || 'transparent',
+                colorSubItemBg:
+                  token?.layout?.header?.colorBgHeader || 'transparent',
+                radiusItem: 4,
+                colorItemBgSelected:
+                  token?.layout?.header?.colorBgMenuItemSelected ||
+                  token?.colorBgTextHover,
+                colorItemBgActive:
+                  token?.layout?.header?.colorBgMenuItemHover ||
+                  token?.colorBgTextHover,
+                colorItemBgSelectedHorizontal:
+                  token?.layout?.header?.colorBgMenuItemSelected ||
+                  token?.colorBgTextHover,
+                colorActiveBarWidth: 0,
+                colorActiveBarHeight: 0,
+                colorActiveBarBorderSize: 0,
+                colorItemText:
+                  token?.layout?.header?.colorTextMenu ||
+                  token?.colorTextSecondary,
+                colorItemTextHoverHorizontal:
+                  token?.layout?.header?.colorTextMenuActive ||
+                  token?.colorText,
+                colorItemTextSelectedHorizontal:
+                  token?.layout?.header?.colorTextMenuSelected ||
+                  token?.colorTextBase,
+                horizontalItemBorderRadius: 4,
+                colorItemTextHover:
+                  token?.layout?.header?.colorTextMenuActive ||
+                  'rgba(0, 0, 0, 0.85)',
+                horizontalItemHoverBg:
+                  token?.layout?.header?.colorBgMenuItemHover ||
+                  'rgba(0, 0, 0, 0.04)',
+                colorItemTextSelected:
+                  token?.layout?.header?.colorTextMenuSelected ||
+                  'rgba(0, 0, 0, 1)',
+              }),
+            },
+          },
+          token: {
+            colorBgElevated:
+              token?.layout?.header?.colorBgHeader || 'transparent',
+          },
+        }}
+      >
+        <BaseMenu
+          theme={dark ? 'dark' : 'light'}
+          {...props}
+          className={`${prefixCls}-base-menu ${hashId}`.trim()}
+          {...props.menuProps}
+          style={{
+            width: '100%',
+            ...props.menuProps?.style,
+          }}
+          collapsed={false}
+          menuRenderType="header"
+          mode="horizontal"
+        />
+      </ConfigProvider>
+    );
 
-  const className = classNames(prefixCls, propsClassName, {
-    light: theme === 'light',
-  });
+    if (headerContentRender) {
+      return headerContentRender(props, defaultDom);
+    }
+    return defaultDom;
+  }, [props, prefixCls, hashId, headerContentRender]);
 
-  return (
-    <div className={className} style={style}>
-      <div ref={ref} className={`${prefixCls}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
+  return wrapSSR(
+    <div
+      className={classNames(prefixCls, hashId, propsClassName, {
+        [`${prefixCls}-light`]: true,
+      })}
+      style={style}
+    >
+      <div
+        ref={ref}
+        className={classNames(`${prefixCls}-main`, hashId, {
+          [`${prefixCls}-wide`]: contentWidth === 'Fixed',
+        })}
+      >
         {headerDom && (
-          <div className={`${prefixCls}-main-left`} onClick={onMenuHeaderClick}>
-            <div className={`${prefixCls}-logo`} key="logo" id="logo">
+          <div
+            className={classNames(`${prefixCls}-main-left ${hashId}`)}
+            onClick={onMenuHeaderClick}
+          >
+            <AppsLogoComponents {...props} />
+            <div
+              className={`${prefixCls}-logo ${hashId}`.trim()}
+              key="logo"
+              id="logo"
+            >
               {headerDom}
             </div>
           </div>
         )}
-        <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
-          <BaseMenu {...props} {...props.menuProps} />
+        <div
+          style={{ flex: 1 }}
+          className={`${prefixCls}-menu ${hashId}`.trim()}
+        >
+          {contentDom}
         </div>
-        {rightContentRender && (
-          <RightContent rightContentRender={rightContentRender} prefixCls={prefixCls} {...props} />
+        {(rightContentRender || actionsRender || props.avatarProps) && (
+          <ActionsContent
+            rightContentRender={rightContentRender}
+            {...props}
+            prefixCls={prefixCls}
+          />
         )}
       </div>
-    </div>
+    </div>,
   );
 };
 
-export default TopNavHeader;
+export { TopNavHeader };

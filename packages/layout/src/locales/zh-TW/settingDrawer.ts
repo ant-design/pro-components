@@ -12,7 +12,8 @@ export default {
   'app.setting.themecolor.sunset': '日暮',
   'app.setting.themecolor.cyan': '明青',
   'app.setting.themecolor.green': '極光綠',
-  'app.setting.themecolor.daybreak': '拂曉藍（默認）',
+  'app.setting.themecolor.techBlue': '科技蓝（默認）',
+  'app.setting.themecolor.daybreak': '拂曉藍',
   'app.setting.themecolor.geekblue': '極客藍',
   'app.setting.themecolor.purple': '醬紫',
   'app.setting.navigationmode': '導航模式',
@@ -29,7 +30,8 @@ export default {
   'app.setting.weakmode': '色弱模式',
   'app.setting.copy': '拷貝設置',
   'app.setting.loading': '正在加載主題',
-  'app.setting.copyinfo': '拷貝成功，請到 src/defaultSettings.js 中替換默認配置',
+  'app.setting.copyinfo':
+    '拷貝成功，請到 src/defaultSettings.js 中替換默認配置',
   'app.setting.production.hint':
     '配置欄只在開發環境用於預覽，生產環境不會展現，請拷貝後手動修改配置文件',
 };

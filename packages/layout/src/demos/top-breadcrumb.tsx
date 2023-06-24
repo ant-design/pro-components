@@ -1,6 +1,8 @@
-import React from 'react';
-
-import ProLayout, { PageContainer, ProBreadcrumb } from '@ant-design/pro-layout';
+import {
+  PageContainer,
+  ProBreadcrumb,
+  ProLayout,
+} from '@ant-design/pro-components';
 
 export default () => (
   <div
@@ -12,16 +14,17 @@ export default () => (
       location={{
         pathname: '/admin/process/edit/123',
       }}
+      layout="mix"
       ErrorBoundary={false}
       headerContentRender={() => <ProBreadcrumb />}
       breadcrumbRender={(routers = []) => [
         {
           path: '/',
-          breadcrumbName: '主页',
+          title: '主页',
         },
         {
           path: '/',
-          breadcrumbName: '测试页',
+          title: '测试页',
         },
         ...routers,
       ]}
@@ -33,7 +36,7 @@ export default () => (
         {
           path: '/admin',
           name: '管理',
-          routes: [
+          children: [
             {
               name: '申请单列表',
               path: '/admin/process',

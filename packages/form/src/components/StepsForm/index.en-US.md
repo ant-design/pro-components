@@ -1,11 +1,9 @@
 ---
 title: StepsForm
 order: 1
-group:
-  path: /
+atomId: StepsForm
 nav:
   title: Components
-  path: /components
 ---
 
 # StepsForm
@@ -16,19 +14,19 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 
 ## Step-by-Step Forms
 
-<code src="./demos/steps-from.tsx" height="532px"/>
+<code src="./demos/steps-from.tsx" ></code>
 
 ## Step-by-Step Forms - Multi-Card
 
-<code src="./demos/multi-card-step-form.tsx"  background="#f5f5f5" height="868px"/>
+<code src="./demos/multi-card-step-form.tsx"  background="var(--main-bg-color)" ></code>
 
 ## Step-by-Step Forms - Works with Modal
 
-<code src="./demos/modal-step-form.tsx"  background="#f5f5f5" height="32px"/>
+<code src="./demos/modal-step-form.tsx"  background="var(--main-bg-color)" ></code>
 
 ## StepForm in edit scene
 
-<code src="./demos/add-or-edit-step-form.tsx" height="532px" title="自定义分步表单按钮"/>
+<code src="./demos/add-or-edit-step-form.tsx" oldtitle="自定义分步表单按钮"></code>
 
 ## API
 

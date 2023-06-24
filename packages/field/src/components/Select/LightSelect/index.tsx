@@ -1,16 +1,17 @@
-import React, { useState, useContext, useMemo } from 'react';
-import type { SelectProps } from 'antd';
-import { Select, Input, ConfigProvider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
-import { FieldLabel } from '@ant-design/pro-utils';
+import { FieldLabel, useStyle } from '@ant-design/pro-utils';
+import type { SelectProps } from 'antd';
+import { ConfigProvider, Input, Select } from 'antd';
 
-import './index.less';
+import classNames from 'classnames';
+import toArray from 'rc-util/lib/Children/toArray';
+import React, { useContext, useMemo, useState } from 'react';
+import type { ProFieldLightProps } from '../../../index';
 
 export type LightSelectProps = {
   label?: string;
   placeholder?: any;
-};
+} & ProFieldLightProps;
 
 /**
  * 如果有 label 就优先使用 label
@@ -33,10 +34,10 @@ const getValueOrLabel = (
   return valueMap[v?.value] || v.label;
 };
 
-const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightSelectProps> = (
-  props,
-  ref,
-) => {
+const LightSelect: React.ForwardRefRenderFunction<
+  any,
+  SelectProps<any> & LightSelectProps
+> = (props, ref) => {
   const {
     label,
     prefixCls: customizePrefixCls,
@@ -55,38 +56,82 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     onSearch,
     allowClear,
     labelInValue,
+    fieldNames,
+    lightLabel,
+    labelTrigger,
+    optionFilterProp,
+    optionLabelProp = '',
     ...restProps
   } = props;
   const { placeholder = label } = props;
+  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } =
+    fieldNames || {};
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-select-light-select');
   const [open, setOpen] = useState<boolean>(false);
   const [keyword, setKeyword] = useState<string>('');
 
+  // css
+  const { wrapSSR, hashId } = useStyle('LightSelect', (token) => {
+    return {
+      [`.${prefixCls}`]: {
+        [`${token.antCls}-select`]: {
+          position: 'absolute',
+          width: '153px',
+          height: '28px',
+          visibility: 'hidden',
+          '&-selector': {
+            height: 28,
+          },
+        },
+
+        [`&.${prefixCls}-searchable`]: {
+          [`${token.antCls}-select`]: {
+            width: '200px',
+            '&-selector': {
+              height: 28,
+            },
+          },
+        },
+      },
+    };
+  });
+
   const valueMap: Record<string, string> = useMemo(() => {
     const values = {};
-    options?.forEach(({ label: aLabel, value: aValue }) => {
-      values[aValue] = aLabel || aValue;
+    options?.forEach((item) => {
+      const optionLabel = item[optionLabelProp] || item[labelPropsName];
+      const optionValue = item[valuePropsName];
+      values[optionValue!] = optionLabel || optionValue;
     });
     return values;
-  }, [options]);
+  }, [labelPropsName, options, valuePropsName, optionLabelProp]);
 
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))
     : getValueOrLabel(valueMap, value);
 
-  return (
+  return wrapSSR(
     <div
       className={classNames(
         prefixCls,
+        hashId,
         {
           [`${prefixCls}-searchable`]: showSearch,
         },
+        `${prefixCls}-container-${restProps.placement}`,
         className,
       )}
       style={style}
-      onClick={() => {
-        if (!disabled) {
+      onClick={(e) => {
+        if (disabled) return;
+        // 点击label切换下拉菜单
+        const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
+          e.target as HTMLElement,
+        );
+        if (isLabelClick) {
+          setOpen(!open);
+        } else {
           setOpen(true);
         }
       }}
@@ -102,9 +147,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         onChange={(v, option) => {
           onChange?.(v, option);
           if (mode !== 'multiple') {
-            setTimeout(() => {
-              setOpen(false);
-            }, 0);
+            setOpen(false);
           }
         }}
         bordered={bordered}
@@ -120,7 +163,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
                     value={keyword}
                     allowClear={allowClear}
                     onChange={(e) => {
-                      setKeyword(e.target.value.toLowerCase());
+                      setKeyword(e.target.value);
                       onSearch?.(e.target.value);
                     }}
                     onKeyDown={(e) => {
@@ -137,34 +180,53 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
           );
         }}
         open={open}
-        onDropdownVisibleChange={setOpen}
+        onDropdownVisibleChange={(isOpen) => {
+          if (!isOpen) {
+            //  测试环境下直接跑
+            setKeyword('');
+          }
+          if (!labelTrigger) {
+            setOpen(isOpen);
+          }
+          restProps?.onDropdownVisibleChange?.(isOpen);
+        }}
         prefixCls={customizePrefixCls}
         options={
-          keyword
-            ? options?.filter((o) => {
+          onSearch || !keyword
+            ? options
+            : options?.filter((o) => {
+                if (optionFilterProp) {
+                  return toArray(o[optionFilterProp])
+                    .join('')
+                    .toLowerCase()
+                    .includes(keyword);
+                }
                 return (
-                  String(o.label).toLowerCase().includes(keyword) ||
-                  o.value.toLowerCase().includes(keyword)
+                  String(o[labelPropsName])
+                    ?.toLowerCase()
+                    ?.includes(keyword?.toLowerCase()) ||
+                  o[valuePropsName]
+                    ?.toString()
+                    ?.toLowerCase()
+                    ?.includes(keyword?.toLowerCase())
                 );
               })
-            : options
         }
       />
       <FieldLabel
         ellipsis
-        size={size}
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        expanded={open}
         bordered={bordered}
         allowClear={allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {
           onChange?.(undefined, undefined as any);
         }}
+        ref={lightLabel}
       />
-    </div>
+    </div>,
   );
 };
 
