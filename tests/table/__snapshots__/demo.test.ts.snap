@@ -30171,7 +30171,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                   >
                                     <div>
                                       <div
-                                        class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-undefined"
+                                        class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-bottomLeft"
                                       >
                                         <div
                                           class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"

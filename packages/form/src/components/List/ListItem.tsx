@@ -457,7 +457,9 @@ const ProFormListItem: React.FC<
     {
       listDom: (
         <div
-          className={`${prefixCls}-container ${containerClassName} ${hashId}`.trim()}
+          className={`${prefixCls}-container ${containerClassName || ''} ${
+            hashId || ''
+          }`.trim()}
           style={{
             width: grid ? '100%' : undefined,
             ...containerStyle,
@@ -480,7 +482,9 @@ const ProFormListItem: React.FC<
       }}
     >
       <div
-        className={`${prefixCls}-container ${containerClassName} ${hashId}`.trim()}
+        className={`${prefixCls}-container ${
+          containerClassName || ''
+        } ${hashId}`.trim()}
         style={{
           width: grid ? '100%' : undefined,
           ...containerStyle,
