@@ -224,7 +224,8 @@ const FormRender = <T, U = any>({
         formRef={formRef}
         action={action}
         dateFormatter={dateFormatter}
-        onInit={(values: T) => {
+        onInit={(values: T, form) => {
+          formRef.current = form;
           // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
           if (type !== 'form') {
             // 修改 pageSize，变成从 url 中获取的
