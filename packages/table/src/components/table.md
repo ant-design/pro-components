@@ -76,7 +76,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<ActionType>` | - |
 | formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `MutableRefObject<FormInstance>` | - |
 | toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => ReactNode[]` | - |
-| onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
+| onLoad | 数据加载完成后触发，会多次触发 | `(dataSource: T[]) => void` | - |
 | onLoadingChange | loading 被修改时触发，一般是网络请求导致的 | `(loading:boolean)=>void` | - |
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
 | tableClassName | 封装的 table 的 className | `string` | - |
@@ -95,7 +95,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | tableRender | 自定义渲染表格函数 | `(props,dom,domList:{ toolbar,alert,table}) => ReactNode` | - |
 | toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
-| manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
+| manualRequest | 是否需要手动触发首次请求，配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | 防抖时间 | `number` | 10 |

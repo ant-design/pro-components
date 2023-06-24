@@ -176,9 +176,9 @@ function EditableTable<
   ]);
 
   const [value, setValue] = useMergedState<readonly DataType[]>(
-    () => props.value || defaultValue || [],
+    () => props.value || defaultValue || props.dataSource || [],
     {
-      value: props.value,
+      value: props.value || props.dataSource,
       onChange: props.onChange,
     },
   );
