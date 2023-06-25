@@ -241,11 +241,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       } else {
         const sorterOfColumn = sorter.column?.sorter;
         const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
+
         onSortChange(
           omitUndefined({
             [`${isSortByField ? sorterOfColumn : sorter.field}`]:
               sorter.order as SortOrder,
-          }) || {},
+          }),
         );
       }
     },
@@ -930,11 +931,11 @@ const ProTable = <
       alertDom={alertDom}
       toolbarDom={toolbarDom}
       onSortChange={(sortConfig) => {
-        if (Object.keys(sortConfig).length === 0) return;
+        if (proSort === sortConfig) return;
         setProSort(sortConfig);
       }}
       onFilterChange={(filterConfig) => {
-        if (Object.keys(filterConfig).length === 0) return;
+        if (filterConfig === proFilter) return;
         setProFilter(filterConfig);
       }}
       editableUtils={editableUtils}
