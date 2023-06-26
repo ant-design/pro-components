@@ -34,13 +34,17 @@ export const defaultRenderLogo = (
  */
 export const AppsLogoComponents: React.FC<{
   appList?: AppListProps;
+  appListRender?: (
+      props: AppListProps,
+      defaultDom: React.ReactNode
+  ) => React.ReactNode;
   onItemClick?: (
     item: AppItemProps,
     popoverRef?: React.RefObject<HTMLSpanElement>,
   ) => void;
   prefixCls?: string;
 }> = (props) => {
-  const { appList, prefixCls = 'ant-pro', onItemClick: itemClick } = props;
+  const {appList, appListRender, prefixCls = 'ant-pro', onItemClick: itemClick} = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
@@ -52,7 +56,7 @@ export const AppsLogoComponents: React.FC<{
     itemClick?.(app, popoverRef);
   };
 
-  const popoverContent = useMemo(() => {
+  const defaultDomContent = useMemo(() => {
     const isSimple = appList?.some((app) => {
       return !app?.desc;
     });
@@ -77,6 +81,8 @@ export const AppsLogoComponents: React.FC<{
   }, [appList, baseClassName, hashId]);
 
   if (!props?.appList?.length) return null;
+
+  const popoverContent = appListRender ? appListRender(props?.appList, defaultDomContent) : defaultDomContent;
 
   const popoverOpenProps = openVisibleCompatible(
     undefined,
