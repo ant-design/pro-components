@@ -280,7 +280,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
         return (
           <LightFilterContainer
             prefixCls={prefixCls}
-            items={items.flatMap((item: any) => {
+            items={items?.flatMap((item: any) => {
               /** 如果是 ProFormGroup，直接拼接dom */
               if (item?.type.displayName === 'ProForm-Group')
                 return item.props.children;

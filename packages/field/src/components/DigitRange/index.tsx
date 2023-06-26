@@ -1,4 +1,4 @@
-import { useIntl } from '@ant-design/pro-provider';
+import { proTheme, useIntl } from '@ant-design/pro-provider';
 import { Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
@@ -40,6 +40,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
   const { value, defaultValue, onChange, id } = fieldProps;
   const intl = useIntl();
 
+  const { token } = proTheme.useToken();
   const [valuePair, setValuePair] = useMergedState(() => defaultValue, {
     value: value,
     onChange: onChange,
@@ -117,7 +118,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
             borderInlineStart: 0,
             borderInlineEnd: 0,
             pointerEvents: 'none',
-            backgroundColor: '#FFF',
+            backgroundColor: token?.colorBgContainer,
           }}
           placeholder={separator}
           disabled

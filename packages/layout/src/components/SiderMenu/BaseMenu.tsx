@@ -224,46 +224,44 @@ class MenuUtil {
         collapsed && shouldHasIcon ? getMenuTitleSymbol(name) : null;
 
       const defaultTitle = (
-        <MenuItemTooltip collapsed={collapsed} title={name}>
-          <div
+        <div
+          className={classNames(
+            `${baseClassName}-item-title`,
+            this.props?.hashId,
+            {
+              [`${baseClassName}-item-title-collapsed`]: collapsed,
+              [`${baseClassName}-group-item-title`]: menuType === 'group',
+              [`${baseClassName}-item-collapsed-show-title`]:
+                menu?.collapsedShowTitle && collapsed,
+            },
+          )}
+        >
+          {/* 收起的时候group模式就不要展示icon了，放不下 */}
+          {menuType === 'group' && collapsed ? null : shouldHasIcon &&
+            iconDom ? (
+            <span
+              className={`${baseClassName}-item-icon ${this.props?.hashId}`}
+            >
+              {iconDom}
+            </span>
+          ) : (
+            defaultIcon
+          )}
+          <span
             className={classNames(
-              `${baseClassName}-item-title`,
+              `${baseClassName}-item-text`,
               this.props?.hashId,
               {
-                [`${baseClassName}-item-title-collapsed`]: collapsed,
-                [`${baseClassName}-group-item-title`]: menuType === 'group',
-                [`${baseClassName}-item-collapsed-show-title`]:
-                  menu?.collapsedShowTitle && collapsed,
+                [`${baseClassName}-item-text-has-icon`]:
+                  menuType !== 'group' &&
+                  shouldHasIcon &&
+                  (iconDom || defaultIcon),
               },
             )}
           >
-            {/* 收起的时候group模式就不要展示icon了，放不下 */}
-            {menuType === 'group' && collapsed ? null : shouldHasIcon &&
-              iconDom ? (
-              <span
-                className={`${baseClassName}-item-icon ${this.props?.hashId}`}
-              >
-                {iconDom}
-              </span>
-            ) : (
-              defaultIcon
-            )}
-            <span
-              className={classNames(
-                `${baseClassName}-item-text`,
-                this.props?.hashId,
-                {
-                  [`${baseClassName}-item-text-has-icon`]:
-                    menuType !== 'group' &&
-                    shouldHasIcon &&
-                    (iconDom || defaultIcon),
-                },
-              )}
-            >
-              {name}
-            </span>
-          </div>
-        </MenuItemTooltip>
+            {name}
+          </span>
+        </div>
       );
 
       // subMenu only title render

@@ -119,7 +119,7 @@ const LightSelect: React.ForwardRefRenderFunction<
         {
           [`${prefixCls}-searchable`]: showSearch,
         },
-        `${prefixCls}-container-${restProps.placement}`,
+        `${prefixCls}-container-${restProps.placement || 'bottomLeft'}`,
         className,
       )}
       style={style}

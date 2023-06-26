@@ -255,7 +255,19 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             />
           </div>
           {extra && (
-            <div className={`${prefixCls}-extra ${hashId}`.trim()}>{extra}</div>
+            <div
+              className={`${prefixCls}-extra ${hashId}`.trim()}
+              onChange={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+              }}
+            >
+              {extra}
+            </div>
           )}
         </div>
       )}
