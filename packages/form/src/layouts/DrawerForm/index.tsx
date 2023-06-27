@@ -140,7 +140,6 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
   }, [drawerProps?.destroyOnClose, rest.form, rest.formRef]);
 
   useEffect(() => {
-    console.log(isResizable,"hello")
     if (open && (propsOpen || propVisible)) {
       onOpenChange?.(true);
       onVisibleChange?.(true);
