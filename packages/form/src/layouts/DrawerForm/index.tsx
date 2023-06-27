@@ -71,10 +71,17 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
     /** @name 抽屉的宽度 */
     width?: DrawerProps['width'];
 
+    /**
+     * if width is not assigned, and isResizable is true
+     * will show the width fullscreen
+     * 
+     * @name draggableDrawer
+     */
     isResizable?: boolean;
   };
 
-function DrawerForm<T = Record<string, any>>({
+
+  function DrawerForm<T = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -83,6 +90,7 @@ function DrawerForm<T = Record<string, any>>({
   submitTimeout,
   title,
   width,
+  isResizable = false,
   onOpenChange,
   visible: propVisible,
   open: propsOpen,
@@ -99,11 +107,10 @@ function DrawerForm<T = Record<string, any>>({
   const getCls = (className: string) =>
     `${baseClassName}-${className} ${hashId}`;
 
-  let isResizing: any = null;
-
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(undefined);
+  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(800);
+  const [resizableDrawer, setResizableDrawer] = useState<boolean>(false);
 
   const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
     value: propsOpen || propVisible,
@@ -133,13 +140,17 @@ function DrawerForm<T = Record<string, any>>({
   }, [drawerProps?.destroyOnClose, rest.form, rest.formRef]);
 
   useEffect(() => {
+    console.log(isResizable,"hello")
     if (open && (propsOpen || propVisible)) {
       onOpenChange?.(true);
       onVisibleChange?.(true);
     }
-    setDrawerWidth(width);
+
+    if (isResizable) {
+      setDrawerWidth(width ?? 800);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, open]);
+  }, [propVisible, open, isResizable]);
 
   useImperativeHandle(rest.formRef, () => {
     return formRef.current;
@@ -155,10 +166,11 @@ function DrawerForm<T = Record<string, any>>({
       ...trigger.props,
       onClick: async (e: any) => {
         setOpen(!open);
+        setResizableDrawer(!resizableDrawer);
         trigger.props?.onClick?.(e);
       },
     });
-  }, [setOpen, trigger, open]);
+  }, [setOpen, trigger, open, setResizableDrawer, resizableDrawer]);
 
   const submitterConfig = useMemo(() => {
     if (rest.submitter === false) {
@@ -230,8 +242,8 @@ function DrawerForm<T = Record<string, any>>({
   const drawerOpenProps = openVisibleCompatible(open, onVisibleChange);
 
   const handleMouseUp = () => {
-    if (!isResizing) return;
-    isResizing = false;
+    if (!isResizable) return;
+    isResizable = true;
     document.removeEventListener('mousemove', cbHandleMouseMove);
     document.removeEventListener('mouseup', cbHandleMouseUp);
   };
@@ -239,8 +251,8 @@ function DrawerForm<T = Record<string, any>>({
   const handleMouseMove = (e: MouseEvent) => {
     let offsetRight =
       document.body.offsetWidth - (e.clientX - document.body.offsetLeft);
-    let minWidth = 11;
-    let maxWidth = 1000;
+    let minWidth = width ?? 800;
+    let maxWidth = window.innerWidth * 0.8;
 
     if (offsetRight > minWidth && offsetRight < maxWidth) {
       setDrawerWidth(offsetRight);
@@ -254,7 +266,7 @@ function DrawerForm<T = Record<string, any>>({
     <>
       <Drawer
         title={title}
-        width={drawerWidth || 800}
+        width={drawerWidth}
         {...drawerProps}
         {...drawerOpenProps}
         afterOpenChange={(e) => {
@@ -280,14 +292,14 @@ function DrawerForm<T = Record<string, any>>({
         }
       >
         <div
-          className={classNames(getCls('sidebar-dragger'), hashId)}
+          className={isResizable ? classNames(getCls('sidebar-dragger'), hashId) : null}
           onMouseDown={(e) => {
             e.stopPropagation();
             e.preventDefault();
 
             document.addEventListener('mousemove', cbHandleMouseMove);
             document.addEventListener('mouseup', cbHandleMouseUp);
-            isResizing = true;
+            isResizable = true;
           }}
         />
         <>

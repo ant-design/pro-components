@@ -60,6 +60,7 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | --- | --- | --- | --- |
 | trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
 | open | 是否打开 | `boolean` | - |
+| isResizable | 是否调整大小 | `boolean` | - |
 | onOpenChange | open 改变时触发 | `(open:boolean)=>void` | - |
 | drawerProps | Drawer 的 props，使用方式与 [antd](https://ant.design/components/drawer-cn/) 相同。注意：不支持 'visible'，请使用全局的 visible | [props](https://ant.design/components/drawer-cn/#API) | - |
 | title | 抽屉的标题 | `ReactNode` | - |
