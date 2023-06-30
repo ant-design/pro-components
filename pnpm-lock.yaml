@@ -403,22 +403,22 @@ importers:
   packages/components:
     dependencies:
       '@ant-design/pro-card':
-        specifier: 2.5.2
+        specifier: 2.5.3
         version: link:../card
       '@ant-design/pro-descriptions':
-        specifier: 2.4.2
+        specifier: 2.4.3
         version: link:../descriptions
       '@ant-design/pro-field':
-        specifier: 2.10.2
+        specifier: 2.10.3
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.14.2
+        specifier: 2.14.3
         version: link:../form
       '@ant-design/pro-layout':
-        specifier: 7.15.2
+        specifier: 7.15.3
         version: link:../layout
       '@ant-design/pro-list':
-        specifier: 2.5.2
+        specifier: 2.5.3
         version: link:../list
       '@ant-design/pro-provider':
         specifier: 2.10.5
@@ -427,7 +427,7 @@ importers:
         specifier: 2.1.6
         version: link:../skeleton
       '@ant-design/pro-table':
-        specifier: 3.8.2
+        specifier: 3.8.3
         version: link:../table
       '@ant-design/pro-utils':
         specifier: 2.12.2
@@ -439,10 +439,10 @@ importers:
   packages/descriptions:
     dependencies:
       '@ant-design/pro-field':
-        specifier: 2.10.2
+        specifier: 2.10.3
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.14.2
+        specifier: 2.14.3
         version: link:../form
       '@ant-design/pro-skeleton':
         specifier: 2.1.6
@@ -522,7 +522,7 @@ importers:
         specifier: ^5.0.0
         version: 5.1.4(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-field':
-        specifier: 2.10.2
+        specifier: 2.10.3
         version: link:../field
       '@ant-design/pro-provider':
         specifier: 2.10.5
@@ -629,13 +629,13 @@ importers:
         specifier: ^5.0.0
         version: 5.1.4(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
-        specifier: 2.5.2
+        specifier: 2.5.3
         version: link:../card
       '@ant-design/pro-field':
-        specifier: 2.10.2
+        specifier: 2.10.3
         version: link:../field
       '@ant-design/pro-table':
-        specifier: 3.8.2
+        specifier: 3.8.3
         version: link:../table
       '@ant-design/pro-utils':
         specifier: 2.12.2
@@ -704,13 +704,13 @@ importers:
         specifier: ^5.0.0
         version: 5.1.4(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
-        specifier: 2.5.2
+        specifier: 2.5.3
         version: link:../card
       '@ant-design/pro-field':
-        specifier: 2.10.2
+        specifier: 2.10.3
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.14.2
+        specifier: 2.14.3
         version: link:../form
       '@ant-design/pro-provider':
         specifier: 2.10.5

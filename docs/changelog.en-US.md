@@ -1,4 +1,16 @@
-﻿## @ant-design/pro-components@2.6.2
+﻿## @ant-design/pro-components@2.6.3
+
+`2023-06-30`
+
+- fix(layout): submenu close tooltip. [a550039](https://github.com/ant-design/pro-components/commit/a550039)
+- fix(form): fix block when QueryFilter set grid. [393fbe8](https://github.com/ant-design/pro-components/commit/393fbe8)
+- fix(form): fix className is undefined error. [a27d453](https://github.com/ant-design/pro-components/commit/a27d453)
+- fix(form): fix DigitRange un support theme error. [70ad3bc](https://github.com/ant-design/pro-components/commit/70ad3bc)
+- fix(form): formRef.current change will update formitem list. [5e977db](https://github.com/ant-design/pro-components/commit/5e977db)
+- fix(table): fix filter and sort is null no trigger change error. [8c444d7](https://github.com/ant-design/pro-components/commit/8c444d7)
+- fix(card): close onClick and onchange Propagation. [c86532f](https://github.com/ant-design/pro-components/commit/c86532f)
+
+## @ant-design/pro-components@2.6.2
 
 `2023-06-19`
 

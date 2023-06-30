@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.15.2...@ant-design/pro-layout@7.15.3) (2023-06-30)
 
-
 ### Bug Fixes
 
-* **layout:** submenu close tooltip ([a550039](https://github.com/ant-design/pro-components/commit/a550039489b76d23d286d00f6d46b8bdb93de2cc))
-
-
-
-
+- **layout:** submenu close tooltip ([a550039](https://github.com/ant-design/pro-components/commit/a550039489b76d23d286d00f6d46b8bdb93de2cc))
 
 ## [7.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.15.1...@ant-design/pro-layout@7.15.2) (2023-06-19)
 

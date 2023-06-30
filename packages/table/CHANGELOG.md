@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.8.2...@ant-design/pro-table@3.8.3) (2023-06-30)
 
-
 ### Bug Fixes
 
-* **form:** fix DigitRange un support theme error ([70ad3bc](https://github.com/ant-design/pro-components/commit/70ad3bc7dc704a8636e696ae088107affeb78423))
-* **table:** fix filter and sort is null no trigger change error ([8c444d7](https://github.com/ant-design/pro-components/commit/8c444d79c7c6178047dfa867f9e325f087f9b89f))
-
-
-
-
+- **form:** fix DigitRange un support theme error ([70ad3bc](https://github.com/ant-design/pro-components/commit/70ad3bc7dc704a8636e696ae088107affeb78423))
+- **table:** fix filter and sort is null no trigger change error ([8c444d7](https://github.com/ant-design/pro-components/commit/8c444d79c7c6178047dfa867f9e325f087f9b89f))
 
 ## [3.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.8.1...@ant-design/pro-table@3.8.2) (2023-06-19)
 

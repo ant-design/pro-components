@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.2...@ant-design/pro-card@2.5.3) (2023-06-30)
 
-
 ### Bug Fixes
 
-* **card:** close onClick and onchange Propagation ([c86532f](https://github.com/ant-design/pro-components/commit/c86532f5fa5ab1c39d26ee7bbd289a35b59ba851))
-
-
-
-
+- **card:** close onClick and onchange Propagation ([c86532f](https://github.com/ant-design/pro-components/commit/c86532f5fa5ab1c39d26ee7bbd289a35b59ba851))
 
 ## [2.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.1...@ant-design/pro-card@2.5.2) (2023-06-19)
 
