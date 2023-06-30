@@ -886,7 +886,7 @@ const ProTable = <
     search,
     searchFormRender,
     type,
-  ])
+  ]);
 
   const selectedRows = useMemo(
     () => selectedRowKeys?.map((key) => preserveRecordsRef.current?.get(key)),
