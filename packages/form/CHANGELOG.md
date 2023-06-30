@@ -1,6 +1,20 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.14.2...@ant-design/pro-form@2.14.3) (2023-06-30)
+
+
+### Bug Fixes
+
+* **form:** fix block when QueryFilter set grid ([393fbe8](https://github.com/ant-design/pro-components/commit/393fbe8d2fd0a960a2eb2c19c7e09670fabb2061))
+* **form:** fix className is undefined error ([a27d453](https://github.com/ant-design/pro-components/commit/a27d453b03c7ede8123c02fc6f773e288ee9660a))
+* **form:** formRef.current change will update formitem list ([5e977db](https://github.com/ant-design/pro-components/commit/5e977db5871271db2d94d2b58d5ddb1e40442b28))
+
+
+
+
 
 ## [2.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.14.1...@ant-design/pro-form@2.14.2) (2023-06-19)
 
