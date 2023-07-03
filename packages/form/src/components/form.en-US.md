@@ -57,8 +57,8 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
 <ProForm
   <ProForm.Item name="switch" label="Switch" valuePropName="checked">
     <Switch />
-  </ProForm.Item
-</ProForm
+  </ProForm.Item>
+</ProForm>
 ```
 
 ## Data conversion
