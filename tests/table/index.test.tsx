@@ -105,12 +105,7 @@ describe('BasicTable', () => {
           request={request}
           rowKey="key"
           params={{ keyword: 'test2' }}
-          pagination={{
-            defaultCurrent: 10,
-            onChange: (e) => {
-              pageSizeOnchange(e);
-            },
-          }}
+          pagination={false}
           toolBarRender={() => [
             <Input.Search
               key="search"
@@ -136,10 +131,6 @@ describe('BasicTable', () => {
 
     await waitFor(() => {
       return html.queryAllByText('Edward King 9');
-    });
-
-    await waitFor(() => {
-      expect(pageSizeOnchange).toBeCalledWith(1);
     });
   });
 

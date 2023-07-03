@@ -194,6 +194,7 @@ export default () => {
               <a
                 key="set"
                 onClick={() => {
+                  console.log(config.index);
                   i++;
                   editorFormRef.current?.setRowData?.(config.index!, {
                     title: '动态设置的title' + i,

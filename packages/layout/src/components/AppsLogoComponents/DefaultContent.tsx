@@ -1,6 +1,6 @@
 import React from 'react';
 import { defaultRenderLogo } from './index';
-import type { AppListProps, AppItemProps } from './types';
+import type { AppItemProps, AppListProps } from './types';
 
 export const DefaultContent: React.FC<{
   appList?: AppListProps;
@@ -10,18 +10,18 @@ export const DefaultContent: React.FC<{
 }> = (props) => {
   const { appList, baseClassName, hashId, itemClick } = props;
   return (
-    <div className={`${baseClassName}-content ${hashId}`}>
-      <ul className={`${baseClassName}-content-list ${hashId}`}>
+    <div className={`${baseClassName}-content ${hashId}`.trim()}>
+      <ul className={`${baseClassName}-content-list ${hashId}`.trim()}>
         {appList?.map((app, index) => {
           if (app?.children?.length) {
             return (
               <div
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
-                className={`${baseClassName}-content-list-item-group ${hashId}`}
+                className={`${baseClassName}-content-list-item-group ${hashId}`.trim()}
               >
                 <div
-                  className={`${baseClassName}-content-list-item-group-title ${hashId}`}
+                  className={`${baseClassName}-content-list-item-group-title ${hashId}`.trim()}
                 >
                   {app.title}
                 </div>
@@ -38,10 +38,10 @@ export const DefaultContent: React.FC<{
             <li
               // eslint-disable-next-line react/no-array-index-key
               key={index}
-              className={`${baseClassName}-content-list-item ${hashId}`}
+              className={`${baseClassName}-content-list-item ${hashId}`.trim()}
             >
               <a
-                href={itemClick ? 'javascript:;' : app.url}
+                href={itemClick ? undefined : app.url}
                 onClick={() => itemClick?.(app)}
                 target={app.target}
                 rel="noreferrer"

@@ -1,4 +1,5 @@
-﻿import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
+﻿import { proTheme, useStyle } from '@ant-design/pro-provider';
+import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import { SketchPicker } from '@chenshuai2144/sketch-color';
 import type { PopoverProps } from 'antd';
 import { ConfigProvider, Popover } from 'antd';
@@ -32,42 +33,65 @@ const ColorPicker = React.forwardRef(
       mode?: 'read' | 'edit';
       onChange?: (color: string) => void;
       colors?: string[];
+      disabled?: boolean;
     },
     ref,
   ) => {
     const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
     const prefixCls = getPrefixCls('pro-field-color-picker');
+
+    const { token } = proTheme.useToken();
     const [color, setColor] = useMergedState('#1890ff', {
       value: rest.value,
       onChange: rest.onChange,
     });
-    const readDom = (
+
+    const { wrapSSR, hashId } = useStyle('ProFiledColorPicker' + color, () => {
+      return {
+        [`.${prefixCls}`]: {
+          width: 32,
+          height: 32,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxSizing: 'border-box',
+          border: `1px solid ${token.colorSplit}`,
+          borderRadius: token.borderRadius,
+          '&:hover': {
+            borderColor: color,
+          },
+        },
+      };
+    });
+
+    const readDom = wrapSSR(
       <div
-        className={prefixCls}
+        className={`${prefixCls} ${hashId}`.trim()}
         style={{
-          padding: 5,
-          width: 48,
-          border: '1px solid #ddd',
-          borderRadius: '2px',
-          cursor: 'pointer',
+          cursor: rest.disabled ? 'not-allowed' : 'pointer',
+          backgroundColor: rest.disabled
+            ? token.colorBgContainerDisabled
+            : token.colorBgContainer,
         }}
       >
         <div
           style={{
             backgroundColor: color,
-            width: 36,
-            height: 14,
-            borderRadius: '2px',
+            width: 24,
+            boxSizing: 'border-box',
+            height: 24,
+            borderRadius: token.borderRadius,
           }}
         />
-      </div>
+      </div>,
     );
 
     useImperativeHandle(ref, () => {});
 
-    if (mode === 'read') {
+    if (mode === 'read' || rest.disabled) {
       return readDom;
     }
+
     return (
       <Popover
         trigger="click"

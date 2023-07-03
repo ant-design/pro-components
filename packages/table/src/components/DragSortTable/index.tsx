@@ -1,11 +1,10 @@
-import { MenuOutlined } from '@ant-design/icons';
+import { HolderOutlined } from '@ant-design/icons';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useCallback, useContext, useMemo, useRef } from 'react';
-import { SortableHandle } from 'react-sortable-hoc';
+import React, { useContext, useMemo } from 'react';
 import ProTable from '../../Table';
-import type { ProColumns, ProTableProps } from '../../typing';
+import type { ProTableProps } from '../../typing';
 import { useDragSort } from '../../utils/useDragSort';
 import { useStyle } from './style';
 
@@ -18,10 +17,6 @@ export type DragTableProps<T, U> = {
   onDragSortEnd?: (newDataSource: T[]) => Promise<void> | void;
 } & ProTableProps<T, U>;
 
-// 用于创建可拖拽把手组件的工厂
-const handleCreator = (handle: React.ReactNode) =>
-  SortableHandle(() => <>{handle}</>);
-
 function DragSortTable<
   T extends Record<string, any>,
   U extends ParamsType = ParamsType,
@@ -33,14 +28,13 @@ function DragSortTable<
     dragSortHandlerRender,
     onDragSortEnd,
     onDataSourceChange,
-    columns: propsColumns,
     defaultData,
     dataSource: originDataSource,
     onLoad,
     ...otherProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const [dataSource, setMergedDs] = useMergedState<T[]>(
+  const [dataSource, setDataSource] = useMergedState<T[]>(
     () => defaultData || [],
     {
       value: originDataSource as T[],
@@ -48,105 +42,66 @@ function DragSortTable<
     },
   );
 
+  const { wrapSSR, hashId } = useStyle(getPrefixCls('pro-table-drag'));
+
   // 默认拖拽把手
-  const DragHandle = useMemo(
-    () =>
-      handleCreator(
-        <MenuOutlined className={getPrefixCls('pro-table-drag-icon')} />,
-      ),
-    [getPrefixCls],
-  );
+  const DragHandle = useMemo(() => {
+    return (dragHandleProps: any) => {
+      const { rowData, index, className, ...rest } = dragHandleProps;
+      const defaultDom = (
+        <HolderOutlined
+          {...rest}
+          className={`${getPrefixCls('pro-table-drag-icon')} ${
+            className || ''
+          } ${hashId || ''}`.trim()}
+        />
+      );
 
-  const { wrapSSR } = useStyle(getPrefixCls('pro-table-drag-icon'));
+      const handel = dragSortHandlerRender
+        ? dragSortHandlerRender(
+            dragHandleProps?.rowData,
+            dragHandleProps?.index,
+          )
+        : defaultDom;
+      return <div {...rest}>{handel}</div>;
+    };
+  }, [getPrefixCls]);
 
-  const isDragSortColumn = useCallback(
-    (item: ProColumns<T, any>) => {
-      return item.key === dragSortKey || item.dataIndex === dragSortKey;
-    },
-    [dragSortKey],
-  );
-  // 根据 dragSortKey 查找目标列配置
-  const handleColumn = useMemo(() => {
-    return propsColumns?.find((item) => isDragSortColumn(item));
-  }, [propsColumns, isDragSortColumn]);
-
-  // 记录原始列配置
-  const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({
-    ...handleColumn,
-  });
   // 使用自定义hooks获取拖拽相关组件的components集合
-  const { components } = useDragSort<T>({
+  const { components, DndContext } = useDragSort<T>({
     dataSource: dataSource?.slice(),
     dragSortKey,
     onDragSortEnd,
     components: props.components,
     rowKey,
+    DragHandle,
   });
 
-  // 重写列配置的render
-  const columns: any = useMemo(() => {
-    const originColumn = originColumnRef.current!;
-    if (!handleColumn) return propsColumns;
-    const dargRender = (...args: any[]) => {
-      const [dom, rowData, index, action, schema] = args;
-      const RealHandle = dragSortHandlerRender
-        ? handleCreator(dragSortHandlerRender(rowData, index))
-        : DragHandle;
-      return (
-        <div className={getPrefixCls('pro-table-drag-visible-cell')}>
-          <>
-            <RealHandle />
-            {originColumn.render?.(dom, rowData, index, action, schema)}
-          </>
-        </div>
-      );
-    };
-    // 重新生成数据
-    return propsColumns?.map((item) => {
-      if (!isDragSortColumn(item)) {
-        return item;
-      }
-      return {
-        ...item,
-        render: dargRender,
-      };
-    });
-  }, [
-    DragHandle,
-    dragSortHandlerRender,
-    getPrefixCls,
-    handleColumn,
-    isDragSortColumn,
-    propsColumns,
-  ]);
-
   const wrapOnload = async (ds: T[]) => {
-    setMergedDs(ds);
+    setDataSource(ds);
     return onLoad?.(ds);
   };
 
   return wrapSSR(
-    handleColumn ? (
-      <ProTable<T, U, ValueType>
-        {...(otherProps as ProTableProps<T, U, ValueType>)}
-        onLoad={wrapOnload}
-        rowKey={rowKey}
-        dataSource={dataSource}
-        components={components}
-        columns={columns}
-        onDataSourceChange={onDataSourceChange}
-      />
-    ) : (
-      /* istanbul ignore next */
-      <ProTable<T, U, ValueType>
-        {...(otherProps as ProTableProps<T, U, ValueType>)}
-        onLoad={wrapOnload}
-        rowKey={rowKey}
-        dataSource={dataSource}
-        columns={columns}
-        onDataSourceChange={onDataSourceChange}
-      />
-    ),
+    <ProTable<T, U, ValueType>
+      {...(otherProps as ProTableProps<T, U, ValueType>)}
+      columns={otherProps.columns?.map((item): any => {
+        if (item.dataIndex == dragSortKey || item.key === dragSortKey) {
+          if (!item.render) {
+            item.render = () => null;
+          }
+        }
+        return item;
+      })}
+      onLoad={wrapOnload}
+      rowKey={rowKey}
+      tableViewRender={(_, defaultDom) => {
+        return <DndContext>{defaultDom}</DndContext>;
+      }}
+      dataSource={dataSource}
+      components={components}
+      onDataSourceChange={onDataSourceChange}
+    />,
   );
 }
 

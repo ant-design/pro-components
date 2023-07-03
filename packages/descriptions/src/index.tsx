@@ -28,8 +28,9 @@ import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
 // 兼容代码-----------
-import 'antd/lib/descriptions/style';
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
+import { proTheme } from '@ant-design/pro-provider';
+import 'antd/lib/descriptions/style';
 //----------------------
 
 // todo remove it
@@ -172,6 +173,8 @@ export const FieldRender: React.FC<
   } = props;
   const form = ProForm.useFormInstance();
 
+  const { token } = proTheme.useToken?.();
+
   const fieldConfig = {
     text,
     valueEnum,
@@ -248,7 +251,9 @@ export const FieldRender: React.FC<
         )
       : undefined;
     return (
-      <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+      <div
+        style={{ display: 'flex', gap: token.marginXS, alignItems: 'center' }}
+      >
         <InlineErrorFormItem
           name={dataIndex}
           {...formItemProps}

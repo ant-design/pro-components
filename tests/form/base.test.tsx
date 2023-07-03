@@ -2,6 +2,7 @@ import { FontSizeOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   ProFormCaptcha,
+  ProFormCheckbox,
   ProFormColorPicker,
   ProFormDatePicker,
   ProFormDateTimePicker,
@@ -11,6 +12,7 @@ import ProForm, {
   ProFormField,
   ProFormSelect,
   ProFormText,
+  ProFormTimePicker,
   ProFormTreeSelect,
 } from '@ant-design/pro-form';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
@@ -40,6 +42,35 @@ describe('ProForm', () => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-sm').length,
     ).toBe(1);
     wrapper.unmount();
+  });
+
+  it('📦 addonAfter should work for ProFormCheck', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <ProForm
+        onFinish={async (e) => {
+          fn(e.checked);
+        }}
+      >
+        <ProFormCheckbox addonAfter="选择" name="checked">
+          确定同意
+        </ProFormCheckbox>
+      </ProForm>,
+    );
+
+    wrapper.findAllByText('确定同意');
+
+    await act(async () => {
+      (await wrapper.findByText('确定同意')).click?.();
+    });
+
+    await act(async () => {
+      (await wrapper.findByText('提 交')).click?.();
+    });
+
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(true);
+    });
   });
 
   it('📦 ProForm support sync form url', async () => {
@@ -2935,6 +2966,8 @@ describe('ProForm', () => {
             initialValue={dayjs('2021-08-09 12:12:12')}
             fieldProps={{ open: true }}
           />
+
+          <ProFormTimePicker name="time2" label="时间" />
         </ProForm>
       );
     };

@@ -4,8 +4,8 @@ import {
   ProHelpPanel,
   ProHelpSelect,
 } from '@ant-design/pro-components';
+import { App, Typography } from 'antd';
 import Draggable from 'react-draggable';
-import { Typography, App } from 'antd';
 
 export default () => {
   const map = new Map<

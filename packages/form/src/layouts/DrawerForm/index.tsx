@@ -151,9 +151,13 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propVisible, open, isResizable]);
 
-  useImperativeHandle(rest.formRef, () => {
-    return formRef.current;
-  });
+  useImperativeHandle(
+    rest.formRef,
+    () => {
+      return formRef.current;
+    },
+    [formRef.current],
+  );
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -305,8 +309,8 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
           <BaseForm
             formComponentType="DrawerForm"
             layout="vertical"
-            formRef={formRef}
             {...rest}
+            formRef={formRef}
             onInit={(_, form) => {
               if (rest.formRef) {
                 (

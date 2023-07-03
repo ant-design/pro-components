@@ -21,10 +21,10 @@ exports[`👍🏻 ProHelpPanel 🎏 ProHelp is empty 1`] = `
             class="ant-card-extra"
           >
             <div
-              class="ant-pro-help-actions "
+              class="ant-pro-help-actions"
             >
               <div
-                class="ant-pro-help-actions-item "
+                class="ant-pro-help-actions-item"
               >
                 <span
                   aria-label="profile"

@@ -1,11 +1,6 @@
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
-import {
-  FieldContext,
-  ProForm,
-  ProFormDependency,
-  ProFormField,
-} from '@ant-design/pro-form';
+import { FieldContext, ProForm, ProFormField } from '@ant-design/pro-form';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
@@ -16,6 +11,8 @@ import {
   InlineErrorFormItem,
   runFunction,
 } from '@ant-design/pro-utils';
+import { Form } from 'antd';
+import get from 'rc-util/lib/utils/get';
 import React, {
   useCallback,
   useContext,
@@ -23,8 +20,8 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import type { ContainerType } from '../Store/Provide';
 import type { ProColumnType } from '../index';
+import type { ContainerType } from '../Store/Provide';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -237,9 +234,23 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     typeof columnProps?.formItemProps === 'function'
   ) {
     return (
-      <ProFormDependency name={[rowName]}>
+      <Form.Item
+        noStyle
+        shouldUpdate={(pre, next) => {
+          if (pre === next) return false;
+          const shouldName = [rowName].flat(1);
+          try {
+            return (
+              JSON.stringify(get(pre, shouldName)) !==
+              JSON.stringify(get(next, shouldName))
+            );
+          } catch (error) {
+            return true;
+          }
+        }}
+      >
         {() => generateFormItem()}
-      </ProFormDependency>
+      </Form.Item>
     );
   }
   return generateFormItem();

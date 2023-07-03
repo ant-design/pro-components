@@ -1,7 +1,7 @@
 import { Segmented, Spin } from 'antd';
+import omit from 'omit.js';
 import React, { useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
-import omit from 'omit.js';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
@@ -26,10 +26,14 @@ const FieldSegmented: ProFieldFC<
 
   const [loading, options, fetchData] = useFieldFetchData(rest);
 
-  useImperativeHandle(ref, () => ({
-    ...(inputRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(inputRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   if (loading) {
     return <Spin size="small" />;

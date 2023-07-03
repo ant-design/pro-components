@@ -13,9 +13,9 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { InputNumber } from 'antd';
+import crypto from 'crypto';
 import React from 'react';
 import { waitForWaitTime } from '../util';
-import crypto from 'crypto';
 
 type DataSourceType = {
   id: number | string;

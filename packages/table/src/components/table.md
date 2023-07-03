@@ -115,7 +115,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| defaultValue | 列状态的默认值，只有初次生效 | `Record<string, ColumnsState>;` | - |
+| defaultValue | 列状态的默认值，只有初次生效，並用于重置使用 | `Record<string, ColumnsState>;` | - |
 | value | 列状态的值，支持受控模式 | `Record<string, ColumnsState>;` | - |
 | onChange | 列状态的值发生改变之后触发 | `(value:Record<string, ColumnsState>)=>void` | - |
 | persistenceKey | 持久化列的 key，用于判断是否是同一个 table | `string \| number` | - |

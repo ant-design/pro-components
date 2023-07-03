@@ -13,10 +13,10 @@ import msMYIntl from 'antd/lib/locale/ms_MY';
 import ptBRIntl from 'antd/lib/locale/pt_BR';
 import ruRUIntl from 'antd/lib/locale/ru_RU';
 import srRSIntl from 'antd/lib/locale/sr_RS';
+import thTHIntl from 'antd/lib/locale/th_TH';
 import viVNIntl from 'antd/lib/locale/vi_VN';
 import zhCNIntl from 'antd/lib/locale/zh_CN';
 import zhTWIntl from 'antd/lib/locale/zh_TW';
-import thTHIntl from 'antd/lib/locale/th_TH';
 import dayjs from 'dayjs';
 import { useRef, useState } from 'react';
 

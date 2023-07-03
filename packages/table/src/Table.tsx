@@ -6,7 +6,7 @@ import 'antd/lib/typography/style';
 import ProCard from '@ant-design/pro-card';
 import ProForm from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
-import { ProConfigProvider, useIntl } from '@ant-design/pro-provider';
+import { ProConfigProvider, proTheme, useIntl } from '@ant-design/pro-provider';
 import {
   editableRowByKey,
   ErrorBoundary,
@@ -25,6 +25,7 @@ import type {
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
 import classNames from 'classnames';
+import type Summary from 'rc-table/lib/Footer/Summary';
 import React, {
   useCallback,
   useContext,
@@ -58,7 +59,6 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import type Summary from 'rc-table/lib/Footer/Summary';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -129,7 +129,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     return loopFilter(tableColumns);
   }, [counter.columnsMap, tableColumns]);
 
-  /** 如果所有列中的 filters=true| undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
+  /** 如果所有列中的 filters = true | undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
   const useLocaleFilter = useMemo(() => {
     const _columns: any[] = [];
     // 平铺所有columns, 用于判断是用的是本地筛选
@@ -226,6 +226,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       if (!useLocaleFilter) {
         onFilterChange(omitUndefined<any>(filters));
       }
+
       // 制造筛选的数据
       // 制造一个排序的数据
       if (Array.isArray(sorter)) {
@@ -240,11 +241,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       } else {
         const sorterOfColumn = sorter.column?.sorter;
         const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
+
         onSortChange(
           omitUndefined({
             [`${isSortByField ? sorterOfColumn : sorter.field}`]:
               sorter.order as SortOrder,
-          }) || {},
+          }),
         );
       }
     },
@@ -330,12 +332,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         paddingBlockStart: 0,
       };
     }
-    if (!toolbarDom) {
-      return {
-        padding: 0,
-      };
-    }
-    return {};
+    // if (!toolbarDom)
+    return {
+      padding: 0,
+    };
   }, [notNeedCardDom, pagination, props.name, propsCardProps, toolbarDom]);
 
   /** Table 区域的 dom，为了方便 render */
@@ -649,7 +649,6 @@ const ProTable = <
     return mergePagination<T>(newPropsPagination, pageConfig, intl);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
-
   useDeepCompareEffect(() => {
     // request 存在且params不为空，且已经请求过数据才需要设置。
     if (
@@ -693,6 +692,9 @@ const ProTable = <
       action.setDataSource(data);
     },
   });
+
+  // ============================ Render ============================
+  const { token } = proTheme?.useToken();
 
   /** 绑定 action */
   useActionType(actionRef, action, {
@@ -743,6 +745,7 @@ const ProTable = <
       counter,
       columnEmptyText,
       type,
+      marginSM: token.marginSM,
       editableUtils,
       rowKey,
       childrenColumnName: props.expandable?.childrenColumnName,
@@ -927,8 +930,14 @@ const ProTable = <
       action={action}
       alertDom={alertDom}
       toolbarDom={toolbarDom}
-      onSortChange={setProSort}
-      onFilterChange={setProFilter}
+      onSortChange={(sortConfig) => {
+        if (proSort === sortConfig) return;
+        setProSort(sortConfig);
+      }}
+      onFilterChange={(filterConfig) => {
+        if (filterConfig === proFilter) return;
+        setProFilter(filterConfig);
+      }}
       editableUtils={editableUtils}
       getRowKey={getRowKey}
     />,
@@ -948,6 +957,7 @@ const ProviderTableContainer = <
   props: ProTableProps<DataType, Params, ValueType>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
   const ErrorComponent =
     props.ErrorBoundary === false
       ? React.Fragment

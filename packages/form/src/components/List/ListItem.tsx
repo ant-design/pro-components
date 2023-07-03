@@ -359,7 +359,7 @@ const ProFormListItem: React.FC<
       <Tooltip title={tooltipText} key="copy">
         <Spin spinning={loadingCopy}>
           <Icon
-            className={`${prefixCls}-action-icon action-copy ${hashId}`}
+            className={`${prefixCls}-action-icon action-copy ${hashId}`.trim()}
             onClick={async () => {
               setLoadingCopy(true);
               const row = formInstance?.getFieldValue(
@@ -395,7 +395,7 @@ const ProFormListItem: React.FC<
       <Tooltip title={tooltipText} key="delete">
         <Spin spinning={loadingRemove}>
           <Icon
-            className={`${prefixCls}-action-icon action-remove ${hashId}`}
+            className={`${prefixCls}-action-icon action-remove ${hashId}`.trim()}
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
@@ -431,7 +431,7 @@ const ProFormListItem: React.FC<
 
   const dom =
     actions.length > 0 ? (
-      <div className={`${prefixCls}-action ${hashId}`}>{actions}</div>
+      <div className={`${prefixCls}-action ${hashId}`.trim()}>{actions}</div>
     ) : null;
 
   const options = {
@@ -457,7 +457,9 @@ const ProFormListItem: React.FC<
     {
       listDom: (
         <div
-          className={`${prefixCls}-container ${containerClassName} ${hashId}`}
+          className={`${prefixCls}-container ${containerClassName || ''} ${
+            hashId || ''
+          }`.trim()}
           style={{
             width: grid ? '100%' : undefined,
             ...containerStyle,
@@ -480,7 +482,9 @@ const ProFormListItem: React.FC<
       }}
     >
       <div
-        className={`${prefixCls}-container ${containerClassName} ${hashId}`}
+        className={`${prefixCls}-container ${
+          containerClassName || ''
+        } ${hashId}`.trim()}
         style={{
           width: grid ? '100%' : undefined,
           ...containerStyle,

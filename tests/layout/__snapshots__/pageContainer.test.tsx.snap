@@ -6,16 +6,16 @@ exports[`PageContainer ⚡️ support fixHeader 1`] = `
     class="ant-pro-page-container"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
         class="ant-page-header-heading "
       >
         <div
-          class="ant-page-header-heading-left "
+          class="ant-page-header-heading-left"
         >
           <span
-            class="ant-page-header-heading-title "
+            class="ant-page-header-heading-title"
             title="期贤"
           >
             期贤
@@ -35,16 +35,16 @@ exports[`PageContainer ⚡️ support footer 1`] = `
     class="ant-pro-page-container ant-pro-page-container-with-footer"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
         class="ant-page-header-heading "
       >
         <div
-          class="ant-page-header-heading-left "
+          class="ant-page-header-heading-left"
         >
           <span
-            class="ant-page-header-heading-title "
+            class="ant-page-header-heading-title"
             title="期贤"
           >
             期贤
@@ -57,10 +57,10 @@ exports[`PageContainer ⚡️ support footer 1`] = `
     class="ant-pro-footer-bar"
   >
     <div
-      class="ant-pro-footer-bar-left "
+      class="ant-pro-footer-bar-left"
     />
     <div
-      class="ant-pro-footer-bar-right "
+      class="ant-pro-footer-bar-right"
     >
       <button
         type="button"
@@ -80,16 +80,16 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
     class="ant-pro-page-container"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
         class="ant-page-header-heading "
       >
         <div
-          class="ant-page-header-heading-left "
+          class="ant-page-header-heading-left"
         >
           <span
-            class="ant-page-header-heading-title "
+            class="ant-page-header-heading-title"
             title="期贤"
           >
             期贤
@@ -101,7 +101,7 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
       class="ant-pro-grid-content"
     >
       <div
-        class="ant-pro-grid-content-children "
+        class="ant-pro-grid-content-children"
       >
         <div
           style="padding-block-start: 100px; text-align: center;"
@@ -141,16 +141,16 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
     class="ant-pro-page-container custom-className"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
         class="ant-page-header-heading "
       >
         <div
-          class="ant-page-header-heading-left "
+          class="ant-page-header-heading-left"
         >
           <span
-            class="ant-page-header-heading-title "
+            class="ant-page-header-heading-title"
             title="页面标题"
           >
             页面标题
@@ -162,7 +162,7 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
       class="ant-pro-grid-content"
     >
       <div
-        class="ant-pro-grid-content-children "
+        class="ant-pro-grid-content-children"
       >
         <div
           id="customLoading"
@@ -182,16 +182,16 @@ exports[`PageContainer 🐛 className prop should not be passed to its page head
     class="ant-pro-page-container custom-className"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
         class="ant-page-header-heading "
       >
         <div
-          class="ant-page-header-heading-left "
+          class="ant-page-header-heading-left"
         >
           <span
-            class="ant-page-header-heading-title "
+            class="ant-page-header-heading-title"
             title="页面标题"
           >
             页面标题
@@ -216,7 +216,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -232,7 +232,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                 class="ant-pro-top-nav-header-main-left "
               >
                 <div
-                  class="ant-pro-top-nav-header-logo "
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <a>
@@ -369,7 +369,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <div
@@ -405,20 +405,20 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
               class="ant-pro-grid-content"
             >
               <div
-                class="ant-pro-grid-content-children "
+                class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-content "
+                  class="ant-pro-page-container-children-container"
                 >
                   <div
                     class="ant-pro-footer-bar"
                     style="width: 100%;"
                   >
                     <div
-                      class="ant-pro-footer-bar-left "
+                      class="ant-pro-footer-bar-left"
                     />
                     <div
-                      class="ant-pro-footer-bar-right "
+                      class="ant-pro-footer-bar-right"
                     >
                       <button
                         type="button"
@@ -448,22 +448,22 @@ exports[`PageContainer 🐲 content is text and title is null 1`] = `
     class="ant-pro-page-container"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
-        class="ant-page-header-content "
+        class="ant-page-header-content"
       >
         <div
-          class="ant-pro-page-container-detail "
+          class="ant-pro-page-container-detail"
         >
           <div
-            class="ant-pro-page-container-main "
+            class="ant-pro-page-container-main"
           >
             <div
-              class="ant-pro-page-container-row "
+              class="ant-pro-page-container-row"
             >
               <div
-                class="ant-pro-page-container-content "
+                class="ant-pro-page-container-content"
               >
                 just so so
               </div>
@@ -482,22 +482,22 @@ exports[`PageContainer 🐲 content is text and title is null 2`] = `
     class="ant-pro-page-container"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
-        class="ant-page-header-content "
+        class="ant-page-header-content"
       >
         <div
-          class="ant-pro-page-container-detail "
+          class="ant-pro-page-container-detail"
         >
           <div
-            class="ant-pro-page-container-main "
+            class="ant-pro-page-container-main"
           >
             <div
-              class="ant-pro-page-container-row "
+              class="ant-pro-page-container-row"
             >
               <div
-                class="ant-pro-page-container-extraContent "
+                class="ant-pro-page-container-extraContent"
               >
                 <div>
                   extraContent
@@ -521,10 +521,10 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
     class="ant-pro-footer-bar"
   >
     <div
-      class="ant-pro-footer-bar-left "
+      class="ant-pro-footer-bar-left"
     />
     <div
-      class="ant-pro-footer-bar-right "
+      class="ant-pro-footer-bar-right"
     >
       <button
         type="button"
@@ -557,7 +557,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -573,7 +573,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
                 class="ant-pro-top-nav-header-main-left "
               >
                 <div
-                  class="ant-pro-top-nav-header-logo "
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <a>
@@ -710,7 +710,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <div
@@ -743,16 +743,16 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
             class="ant-pro-page-container ant-pro-page-container-with-footer"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
             >
               <div
                 class="ant-page-header-heading "
               >
                 <div
-                  class="ant-page-header-heading-left "
+                  class="ant-page-header-heading-left"
                 >
                   <span
-                    class="ant-page-header-heading-title "
+                    class="ant-page-header-heading-title"
                     title="期贤"
                   >
                     期贤
@@ -766,10 +766,10 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
             style="width: 100%;"
           >
             <div
-              class="ant-pro-footer-bar-left "
+              class="ant-pro-footer-bar-left"
             />
             <div
-              class="ant-pro-footer-bar-right "
+              class="ant-pro-footer-bar-right"
             >
               <button
                 type="button"
@@ -993,7 +993,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -1003,7 +1003,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
             class="ant-pro-page-container"
           >
             <div
-              class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
             >
               <nav
                 class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -1053,16 +1053,16 @@ exports[`PageContainer 💄 base use 1`] = `
     class="ant-pro-page-container"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
     >
       <div
         class="ant-page-header-heading "
       >
         <div
-          class="ant-page-header-heading-left "
+          class="ant-page-header-heading-left"
         >
           <span
-            class="ant-page-header-heading-title "
+            class="ant-page-header-heading-title"
             title="期贤"
           >
             期贤
@@ -1088,7 +1088,7 @@ exports[`PageContainer 🔥 footer bar support extra 1`] = `
     class="qixian_footer ant-pro-footer-bar"
   >
     <div
-      class="ant-pro-footer-bar-left "
+      class="ant-pro-footer-bar-left"
     >
       <img
         alt="logo"
@@ -1096,7 +1096,7 @@ exports[`PageContainer 🔥 footer bar support extra 1`] = `
       />
     </div>
     <div
-      class="ant-pro-footer-bar-right "
+      class="ant-pro-footer-bar-right"
     >
       <button
         type="button"
@@ -1124,7 +1124,7 @@ exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
     class="ant-pro-page-container ant-pro-page-container-with-footer"
   >
     <div
-      class="ant-page-header ant-pro-page-container-warp-page-header  ant-page-header-has-breadcrumb ant-page-header-ghost"
+      class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
     >
       <nav
         class="ant-breadcrumb ant-page-header-breadcrumb"
@@ -1144,10 +1144,10 @@ exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
         class="ant-page-header-heading "
       >
         <div
-          class="ant-page-header-heading-left "
+          class="ant-page-header-heading-left"
         >
           <span
-            class="ant-page-header-heading-title "
+            class="ant-page-header-heading-title"
             title="期贤"
           >
             期贤
@@ -1160,10 +1160,10 @@ exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
     class="ant-pro-footer-bar"
   >
     <div
-      class="ant-pro-footer-bar-left "
+      class="ant-pro-footer-bar-left"
     />
     <div
-      class="ant-pro-footer-bar-right "
+      class="ant-pro-footer-bar-right"
     >
       <button
         type="button"

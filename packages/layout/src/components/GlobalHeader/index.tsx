@@ -8,6 +8,7 @@ import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
+import type { AppItemProps, AppListProps } from '../AppsLogoComponents/types';
 import type { HeaderViewProps } from '../Header';
 import type {
   PrivateSiderMenuProps,
@@ -15,9 +16,8 @@ import type {
 } from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { TopNavHeader } from '../TopNavHeader';
-import { ActionsContent as ActionsContent } from './ActionsContent';
+import { ActionsContent } from './ActionsContent';
 import { useStyle } from './style';
-import type { AppListProps, AppItemProps } from '../AppsLogoComponents/types';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -150,7 +150,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
     <div className={className} style={{ ...style }}>
       {isMobile && (
         <span
-          className={`${baseClassName}-collapsed-button ${hashId}`}
+          className={`${baseClassName}-collapsed-button ${hashId}`.trim()}
           onClick={() => {
             onCollapse?.(!collapsed);
           }}

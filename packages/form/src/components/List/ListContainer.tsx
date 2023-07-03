@@ -4,8 +4,7 @@ import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
 import omit from 'omit.js';
 import type { CSSProperties } from 'react';
-import { useContext } from 'react';
-import { useMemo, useRef, useState } from 'react';
+import { useContext, useMemo, useRef, useState } from 'react';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
@@ -108,7 +107,9 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     } = creatorButtonProps || {};
     return (
       <Button
-        className={`${prefixCls}-creator-button-${position} ${hashId}`}
+        className={`${prefixCls}-creator-button-${position} ${
+          hashId || ''
+        }`.trim()}
         type="dashed"
         loading={loading}
         block

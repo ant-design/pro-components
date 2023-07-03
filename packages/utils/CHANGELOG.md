@@ -2,6 +2,83 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.1...@ant-design/pro-utils@2.12.2) (2023-06-19)
+
+### Bug Fixes
+
+- **form:** fix inline form reset value for destoy ([dc9420a](https://github.com/ant-design/pro-components/commit/dc9420aa2a1ba71ff537d4b1585cec84f3afacb9))
+
+## [2.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.0...@ant-design/pro-utils@2.12.1) (2023-06-19)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.8...@ant-design/pro-utils@2.12.0) (2023-06-19)
+
+### Bug Fixes
+
+- **form:** alway use shouldUpdate for json ([7933961](https://github.com/ant-design/pro-components/commit/7933961ccd5de7a67178165039b197f2b53d92e8))
+- **form:** onInit use ProFormInstance ([ad537a5](https://github.com/ant-design/pro-components/commit/ad537a563c1f09dafde29bb2ecff0aa0df24122f))
+- **table:** add Form.Item shouldUpdate function ([db3224b](https://github.com/ant-design/pro-components/commit/db3224b041008a1397e91e4b2a5da21991f2de4f))
+
+### Features
+
+- **field:** LightFilter 中使用 ProFormSelect 的两个 bug 修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
+
+## [2.11.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.7...@ant-design/pro-utils@2.11.8) (2023-06-16)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.11.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.6...@ant-design/pro-utils@2.11.7) (2023-06-14)
+
+### Bug Fixes
+
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
+
+## [2.11.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.5...@ant-design/pro-utils@2.11.6) (2023-06-14)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.11.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.4...@ant-design/pro-utils@2.11.5) (2023-06-12)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.11.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.3...@ant-design/pro-utils@2.11.4) (2023-06-12)
+
+### Bug Fixes
+
+- **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
+- **components:** remove hashid empty ([b46bb80](https://github.com/ant-design/pro-components/commit/b46bb808db287979fe7d2d5afe115185860422c9))
+- **form:** 修复 fn[curK] 为函数时，参数 undefined 导致的报错 ([#7163](https://github.com/ant-design/pro-components/issues/7163)) ([ac8c651](https://github.com/ant-design/pro-components/commit/ac8c6516dcdcaca758ed489829dd9b109363c063))
+- **layout:** support antd@5.6 token ([28291fe](https://github.com/ant-design/pro-components/commit/28291fea2ab1417640f79534d132b5e3db228d2c))
+- **table:** 修复 Editable 的 record.id 使用 index，且 index 为 0 时，导致无法添加新行 ([#7176](https://github.com/ant-design/pro-components/issues/7176)) ([b62443c](https://github.com/ant-design/pro-components/commit/b62443c3f310f99b5912a4cb9f2da5dd74cb5ac3))
+
+## [2.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.2...@ant-design/pro-utils@2.11.3) (2023-05-31)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.1...@ant-design/pro-utils@2.11.2) (2023-05-30)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.11.0...@ant-design/pro-utils@2.11.1) (2023-05-30)
+
+### Bug Fixes
+
+- **form:** fix \_transformArray is null will throw error ([ba1d9e9](https://github.com/ant-design/pro-components/commit/ba1d9e9c3bc9416ef4954081038730c5910b27a6))
+
+# [2.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.10.0...@ant-design/pro-utils@2.11.0) (2023-05-29)
+
+### Bug Fixes
+
+- **form:** 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 ([#7138](https://github.com/ant-design/pro-components/issues/7138)) ([2e83b18](https://github.com/ant-design/pro-components/commit/2e83b184fae0f68013c0c1db39837981f70d1ec3))
+- **table:** component EditableProTable actionDeleteRef function Single row status Locked ([#7124](https://github.com/ant-design/pro-components/issues/7124)) ([79c6c93](https://github.com/ant-design/pro-components/commit/79c6c93a6b7d8d9ee50598b8a48972a89eb7d02a))
+- fix test case ([ab24418](https://github.com/ant-design/pro-components/commit/ab24418993d468b63f2711f21aae9ff58f91f191))
+- **form:** close icon style ([#7091](https://github.com/ant-design/pro-components/issues/7091)) ([28a3402](https://github.com/ant-design/pro-components/commit/28a3402bc5207499d681a5a9df4e0e777b863a6c))
+
+### Features
+
+- **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
+
 # [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.9.0...@ant-design/pro-utils@2.10.0) (2023-05-18)
 
 ### Bug Fixes

@@ -10,7 +10,7 @@ export const techUiListActive = new Keyframes('techUiListActive', {
   '0%': { backgroundColor: 'unset' },
   '30%': { background: '#fefbe6' },
   '100%': { backgroundColor: 'unset' },
-});
+}) as any;
 
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {

@@ -1,6 +1,5 @@
 import type { IntlType } from '@ant-design/pro-provider';
 import type { UseEditableUtilType } from '@ant-design/pro-utils';
-import { arrayMoveImmutable } from '@ant-design/pro-utils';
 import type { TablePaginationConfig } from 'antd';
 import type { SortOrder } from 'antd/lib/table/interface';
 import type React from 'react';
@@ -218,29 +217,4 @@ export function parseDefaultColumnConfig<T, Value>(
     }
   });
   return { sort, filter };
-}
-
-export type SortDataParams = { oldIndex: number; newIndex: number };
-
-/**
- * 数据排序核心逻辑
- *
- * @param oldIndex 原始位置
- * @param newIndex 新位置
- * @param data 原始数组
- */
-export function sortData<T>(
-  { oldIndex, newIndex }: SortDataParams,
-  data: T[],
-): T[] | null {
-  if (oldIndex !== newIndex) {
-    const newData = arrayMoveImmutable<T>({
-      array: [...(data || [])],
-      fromIndex: oldIndex,
-      toIndex: newIndex,
-    }).filter((el) => !!el);
-    return [...newData];
-  }
-  /* istanbul ignore next */
-  return null;
 }

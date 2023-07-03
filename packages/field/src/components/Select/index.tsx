@@ -56,6 +56,8 @@ export type FieldSelectProps<FieldProps = any> = {
   id?: string;
 
   children?: ReactNode;
+  /** 默认搜素条件 */
+  defaultKeyWords?: string;
 } & ProFieldLightProps;
 
 export const ObjToMap = (
@@ -483,10 +485,7 @@ export const useFieldFetchData = (
  * @param
  */
 const FieldSelect: ProFieldFC<
-  FieldSelectProps &
-    Pick<SelectProps, 'fieldNames' | 'style' | 'className'> & {
-      defaultKeyWords?: string;
-    }
+  FieldSelectProps & Pick<SelectProps, 'fieldNames' | 'style' | 'className'>
 > = (props, ref) => {
   const {
     mode,
@@ -521,10 +520,14 @@ const FieldSelect: ProFieldFC<
   const { componentSize } = ConfigProvider?.useConfig?.() || {
     componentSize: 'middle',
   };
-  useImperativeHandle(ref, () => ({
-    ...(inputRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(inputRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;
@@ -567,7 +570,7 @@ const FieldSelect: ProFieldFC<
     );
 
     if (render) {
-      return render(rest.text, { mode, ...fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...fieldProps }, dom) ?? null;
     }
     return dom;
   }
@@ -635,7 +638,7 @@ const FieldSelect: ProFieldFC<
     const dom = renderDom();
     if (renderFormItem) {
       return (
-        renderFormItem(rest.text, { mode, ...fieldProps, options }, dom) || null
+        renderFormItem(rest.text, { mode, ...fieldProps, options }, dom) ?? null
       );
     }
     return dom;

@@ -3,6 +3,7 @@ import React, { useContext, useImperativeHandle } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
+import { proTheme } from '@ant-design/pro-provider';
 import 'antd/lib/space/style';
 //----------------------
 
@@ -36,6 +37,8 @@ const FieldOptions: ProFieldFC = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-field-option');
 
+  const { token } = proTheme.useToken();
+
   useImperativeHandle(ref, () => ({}));
 
   if (render) {
@@ -53,7 +56,7 @@ const FieldOptions: ProFieldFC = (
       <div
         style={{
           display: 'flex',
-          gap: 16,
+          gap: token.margin,
           alignItems: 'center',
         }}
         className={className}
@@ -74,7 +77,7 @@ const FieldOptions: ProFieldFC = (
     <div
       style={{
         display: 'flex',
-        gap: 16,
+        gap: token.margin,
         alignItems: 'center',
       }}
       className={className}

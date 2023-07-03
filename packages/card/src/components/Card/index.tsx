@@ -220,7 +220,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ) : (
       <RightOutlined
         rotate={!collapsed ? 90 : undefined}
-        className={`${prefixCls}-collapsible-icon ${hashId}`}
+        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
       />
     ));
 
@@ -246,7 +246,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             if (collapsibleButton) setCollapsed(!collapsed);
           }}
         >
-          <div className={`${prefixCls}-title ${hashId}`}>
+          <div className={`${prefixCls}-title ${hashId}`.trim()}>
             {collapsibleButton}
             <LabelIconTip
               label={title}
@@ -255,12 +255,24 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             />
           </div>
           {extra && (
-            <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>
+            <div
+              className={`${prefixCls}-extra ${hashId}`.trim()}
+              onChange={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+              }}
+            >
+              {extra}
+            </div>
           )}
         </div>
       )}
       {tabs ? (
-        <div className={`${prefixCls}-tabs ${hashId}`}>
+        <div className={`${prefixCls}-tabs ${hashId}`.trim()}>
           <Tabs
             onChange={tabs.onChange}
             {...tabs}

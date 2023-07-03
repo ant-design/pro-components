@@ -6,7 +6,7 @@ import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
-import type { AppListProps, AppItemProps } from './types';
+import type { AppItemProps, AppListProps } from './types';
 
 /**
  * 默认渲染logo的方式，如果是个string，用img。否则直接返回
@@ -34,13 +34,13 @@ export const defaultRenderLogo = (
  */
 export const AppsLogoComponents: React.FC<{
   appList?: AppListProps;
-  itemClick?: (
+  onItemClick?: (
     item: AppItemProps,
     popoverRef?: React.RefObject<HTMLSpanElement>,
   ) => void;
   prefixCls?: string;
 }> = (props) => {
-  const { appList, prefixCls = 'ant-pro', itemClick } = props;
+  const { appList, prefixCls = 'ant-pro', onItemClick: itemClick } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
@@ -98,7 +98,7 @@ export const AppsLogoComponents: React.FC<{
         zIndex={9999}
         arrow={false}
         {...popoverOpenProps}
-        overlayClassName={`${baseClassName}-popover ${hashId}`}
+        overlayClassName={`${baseClassName}-popover ${hashId}`.trim()}
         content={popoverContent}
         getPopupContainer={() => ref.current || document.body}
       >

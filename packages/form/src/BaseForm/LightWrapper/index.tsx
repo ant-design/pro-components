@@ -6,11 +6,11 @@ import {
   useMountMergeState,
 } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
+import type { TooltipPlacement } from 'antd/lib/tooltip';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 

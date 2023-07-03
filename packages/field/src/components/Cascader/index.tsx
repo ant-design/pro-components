@@ -42,10 +42,14 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   const cascaderRef = useRef();
   const [open, setOpen] = useState(false);
 
-  useImperativeHandle(ref, () => ({
-    ...(cascaderRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(cascaderRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;
@@ -91,7 +95,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     );
 
     if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
     return dom;
   }
@@ -117,7 +121,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
 
     if (renderFormItem) {
       dom =
-        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+        renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
 
     if (light) {
@@ -128,7 +132,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
           label={label}
           disabled={disabled}
           bordered={rest.bordered}
-          value={notEmpty ? dom : null}
+          value={notEmpty || open ? dom : null}
           style={
             notEmpty
               ? {
@@ -137,7 +141,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
               : undefined
           }
           allowClear={false}
-          downIcon={false}
+          downIcon={notEmpty || open ? false : undefined}
           onClick={() => {
             setOpen(true);
             rest?.fieldProps?.onDropdownVisibleChange?.(true);

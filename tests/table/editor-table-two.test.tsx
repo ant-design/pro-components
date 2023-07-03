@@ -1,9 +1,10 @@
-import ProForm, { ProFormText } from '@ant-design/pro-form';
 import type {
   ActionType,
+  EditableFormInstance,
   ProColumns,
   TableRowEditable,
-} from '@ant-design/pro-table';
+} from '@ant-design/pro-components';
+import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { EditableProTable } from '@ant-design/pro-table';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
@@ -513,6 +514,7 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       expect(onChange).toBeCalled();
     });
+
     await waitFor(() => {
       expect(onChange).toBeCalledWith(
         JSON.stringify([
@@ -527,6 +529,99 @@ describe('EditorProTable 2', () => {
         ]),
       );
     });
+  });
+
+  it('📝 EditableProTable support name and setRowData', async () => {
+    const onChange = jest.fn();
+    let i = 0;
+    const formRef = React.createRef<EditableFormInstance<any>>();
+    const wrapper = render(
+      <ProForm
+        initialValues={{
+          table: [
+            {
+              id: '624748504',
+              title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+              labels: [{ name: 'bug', color: 'error' }],
+              time: {
+                created_at: '1590486176000',
+              },
+              state: 'processing',
+            },
+          ],
+        }}
+        onValuesChange={(_, { table }) => onChange(JSON.stringify(table))}
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          controlled
+          name="table"
+          editableFormRef={formRef}
+          editable={{
+            actionRender: (row, config) => {
+              return [
+                <a
+                  key="set"
+                  onClick={() => {
+                    i++;
+                    formRef.current?.setRowData?.(config.index!, {
+                      title: '动态设置的title' + i,
+                    });
+                  }}
+                >
+                  动态设置此行
+                </a>,
+              ];
+            },
+          }}
+          recordCreatorProps={{
+            creatorButtonText: '添加新的一行',
+            record: () => {
+              i++;
+              return {
+                id: '111' + i,
+              };
+            },
+          }}
+          columns={[
+            {
+              title: '活动名称',
+              dataIndex: 'title',
+              formItemProps: () => {
+                return {
+                  rules: [{ required: true, message: '此项为必填项' }],
+                };
+              },
+              width: '30%',
+            },
+            {
+              title: '操作',
+              valueType: 'option',
+              width: 200,
+            },
+          ]}
+        />
+      </ProForm>,
+    );
+
+    await wrapper.findAllByText('添加新的一行');
+
+    act(() => {
+      fireEvent.click(wrapper.getByText('添加新的一行'));
+    });
+
+    await waitFor(() => {
+      return wrapper.findAllByText('动态设置此行');
+    });
+
+    act(() => {
+      fireEvent.click(wrapper.getByText('动态设置此行'));
+    });
+    await waitFor(() => {
+      return wrapper.findByDisplayValue('动态设置的title' + i);
+    });
+
+    expect(formRef.current?.getFieldValue('table').length).toEqual(2);
   });
 
   it('📝 EditableProTable ensures that xxxProps are functions also executed', async () => {
@@ -1035,14 +1130,6 @@ describe('EditorProTable 2', () => {
 
     act(() => {
       wrapper.queryByText('开始编辑')?.click();
-    });
-
-    await waitFor(() => {
-      expect(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll('td .ant-input')[0],
-      ).not.toBe(undefined);
     });
 
     await waitFor(

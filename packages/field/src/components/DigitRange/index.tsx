@@ -1,3 +1,4 @@
+import { proTheme, useIntl } from '@ant-design/pro-provider';
 import { Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
@@ -5,7 +6,6 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/lib/input-number/style';
-import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 
 export type Value = string | number | undefined | null;
@@ -40,6 +40,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
   const { value, defaultValue, onChange, id } = fieldProps;
   const intl = useIntl();
 
+  const { token } = proTheme.useToken();
   const [valuePair, setValuePair] = useMergedState(() => defaultValue, {
     value: value,
     onChange: onChange,
@@ -94,15 +95,16 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         intl.getMessage('tableForm.inputPlaceholder', '请输入'),
       ];
 
+    const getInputNumberPlaceholder = (index: number) =>
+      Array.isArray(placeholderValue)
+        ? placeholderValue[index]
+        : placeholderValue;
+
     const dom = (
       <Input.Group compact onBlur={handleGroupBlur}>
         <InputNumber<number>
           {...fieldProps}
-          placeholder={
-            Array.isArray(placeholderValue)
-              ? placeholderValue[0]
-              : placeholderValue
-          }
+          placeholder={getInputNumberPlaceholder(0)}
           id={id ?? `${id}-0`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)` }}
           value={valuePair?.[0]}
@@ -116,18 +118,14 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
             borderInlineStart: 0,
             borderInlineEnd: 0,
             pointerEvents: 'none',
-            backgroundColor: '#FFF',
+            backgroundColor: token?.colorBgContainer,
           }}
           placeholder={separator}
           disabled
         />
         <InputNumber<number>
           {...fieldProps}
-          placeholder={
-            Array.isArray(placeholderValue)
-              ? placeholderValue[1]
-              : placeholderValue
-          }
+          placeholder={getInputNumberPlaceholder(1)}
           id={id ?? `${id}-1`}
           style={{
             width: `calc((100% - ${separatorWidth}px) / 2)`,

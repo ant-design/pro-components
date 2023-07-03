@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.10.4...@ant-design/pro-provider@2.10.5) (2023-06-16)
+
+### Bug Fixes
+
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
+
+## [2.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.10.3...@ant-design/pro-provider@2.10.4) (2023-06-14)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [2.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.10.2...@ant-design/pro-provider@2.10.3) (2023-06-12)
+
+### Bug Fixes
+
+- **provider:** token should be correct in useStyle ([#7191](https://github.com/ant-design/pro-components/issues/7191)) ([d2859e3](https://github.com/ant-design/pro-components/commit/d2859e35b037649d234e60f34caa092134059378))
+
+## [2.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.10.1...@ant-design/pro-provider@2.10.2) (2023-05-31)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [2.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.10.0...@ant-design/pro-provider@2.10.1) (2023-05-30)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+# [2.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.9.0...@ant-design/pro-provider@2.10.0) (2023-05-29)
+
+### Features
+
+- **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
+
 # [2.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.7...@ant-design/pro-provider@2.9.0) (2023-05-18)
 
 ### Features

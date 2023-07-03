@@ -71,7 +71,7 @@ const CheckboxListItem: React.FC<{
   const { hashId } = useContext(ProProvider);
 
   const dom = (
-    <span className={`${className}-list-item-option ${hashId}`}>
+    <span className={`${className}-list-item-option ${hashId}`.trim()}>
       <ToolTipIcon
         columnKey={columnKey}
         fixed="left"
@@ -99,8 +99,10 @@ const CheckboxListItem: React.FC<{
     </span>
   );
   return (
-    <span className={`${className}-list-item ${hashId}`} key={columnKey}>
-      <div className={`${className}-list-item-title ${hashId}`}>{title}</div>
+    <span className={`${className}-list-item ${hashId}`.trim()} key={columnKey}>
+      <div className={`${className}-list-item-title ${hashId}`.trim()}>
+        {title}
+      </div>
       {!isLeaf ? dom : null}
     </span>
   );
@@ -280,7 +282,9 @@ const CheckboxList: React.FC<{
   return (
     <>
       {showTitle && (
-        <span className={`${className}-list-title ${hashId}`}>{listTitle}</span>
+        <span className={`${className}-list-title ${hashId}`.trim()}>
+          {listTitle}
+        </span>
       )}
       {listDom}
     </>
@@ -418,8 +422,8 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const clearClick = useRefFunction(() => {
     clearPersistenceStorage?.();
     setColumnsMap(
-      columnRef.current ||
-        counter.propsRef.current?.columnsState?.defaultValue ||
+      counter.propsRef.current?.columnsState?.defaultValue ||
+        columnRef.current ||
         counter.defaultColumnKeyMap!,
     );
   });
@@ -441,7 +445,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     <Popover
       arrow={false}
       title={
-        <div className={`${className}-title ${hashId}`}>
+        <div className={`${className}-title ${hashId}`.trim()}>
           <Checkbox
             indeterminate={indeterminate}
             checked={
@@ -457,7 +461,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           {checkedReset ? (
             <a
               onClick={clearClick}
-              className={`${className}-action-rest-button ${hashId}`}
+              className={`${className}-action-rest-button ${hashId}`.trim()}
             >
               {intl.getMessage('tableToolBar.reset', '重置')}
             </a>
@@ -469,7 +473,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           ) : null}
         </div>
       }
-      overlayClassName={`${className}-overlay ${hashId}`}
+      overlayClassName={`${className}-overlay ${hashId}`.trim()}
       trigger="click"
       placement="bottomRight"
       content={

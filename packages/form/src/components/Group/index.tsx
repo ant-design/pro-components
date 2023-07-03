@@ -140,7 +140,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         {hiddenDoms}
         {(title || tooltip || extra) && (
           <div
-            className={`${className}-title ${hashId}`}
+            className={`${className}-title ${hashId}`.trim()}
             style={titleStyle}
             onClick={() => {
               setCollapsed(!collapsed);

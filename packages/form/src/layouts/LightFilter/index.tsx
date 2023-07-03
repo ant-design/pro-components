@@ -120,7 +120,7 @@ const LightFilterContainer: React.FC<{
     if (collapse) {
       return (
         <FilterOutlined
-          className={`${lightFilterClassName}-collapse-icon ${hashId}`}
+          className={`${lightFilterClassName}-collapse-icon ${hashId}`.trim()}
         />
       );
     }
@@ -145,7 +145,7 @@ const LightFilterContainer: React.FC<{
         },
       )}
     >
-      <div className={`${lightFilterClassName}-container ${hashId}`}>
+      <div className={`${lightFilterClassName}-container ${hashId}`.trim()}>
         {outsideItems.map((child: any, index) => {
           const { key } = child;
           const { fieldProps } = child.props;
@@ -154,7 +154,7 @@ const LightFilterContainer: React.FC<{
             : placement;
           return (
             <div
-              className={`${lightFilterClassName}-item ${hashId}`}
+              className={`${lightFilterClassName}-item ${hashId}`.trim()}
               key={key || index}
             >
               {React.cloneElement(child, {
@@ -164,6 +164,7 @@ const LightFilterContainer: React.FC<{
                 },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
+                  ...child.props.proFieldProps,
                   light: true,
                   label: child.props.label,
                   bordered,
@@ -174,7 +175,10 @@ const LightFilterContainer: React.FC<{
           );
         })}
         {collapseItems.length ? (
-          <div className={`${lightFilterClassName}-item ${hashId}`} key="more">
+          <div
+            className={`${lightFilterClassName}-item ${hashId}`.trim()}
+            key="more"
+          >
             <FilterDropdown
               padding={24}
               open={open}
@@ -223,7 +227,7 @@ const LightFilterContainer: React.FC<{
                   : placement;
                 return (
                   <div
-                    className={`${lightFilterClassName}-line ${hashId}`}
+                    className={`${lightFilterClassName}-line ${hashId}`.trim()}
                     key={key}
                   >
                     {React.cloneElement(child, {
@@ -265,7 +269,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   });
   const formRef = useRef<ProFormInstance>();
 
-  useImperativeHandle(userFormRef, () => formRef.current);
+  useImperativeHandle(userFormRef, () => formRef.current, [formRef.current]);
 
   return (
     <BaseForm
@@ -276,7 +280,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
         return (
           <LightFilterContainer
             prefixCls={prefixCls}
-            items={items.flatMap((item: any) => {
+            items={items?.flatMap((item: any) => {
               /** 如果是 ProFormGroup，直接拼接dom */
               if (item?.type.displayName === 'ProForm-Group')
                 return item.props.children;

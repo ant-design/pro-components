@@ -1,7 +1,6 @@
 import { DownOutlined } from '@ant-design/icons';
 import type { IntlType } from '@ant-design/pro-provider';
-import { ProProvider } from '@ant-design/pro-provider';
-import { useIntl } from '@ant-design/pro-provider';
+import { ProProvider, useIntl } from '@ant-design/pro-provider';
 import { omitBoolean } from '@ant-design/pro-utils';
 import { ConfigProvider, Space } from 'antd';
 
@@ -92,7 +91,7 @@ const Actions: React.FC<ActionsProps> = (props) => {
         <a
           className={`${getPrefixCls(
             'pro-query-filter-collapse-button',
-          )} ${hashId}`}
+          )} ${hashId}`.trim()}
           onClick={() => setCollapsed(!collapsed)}
         >
           {collapseRender?.(collapsed, props, intl, hiddenNum)}

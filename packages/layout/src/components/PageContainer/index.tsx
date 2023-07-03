@@ -142,7 +142,7 @@ const renderFooter: React.FC<
   if (Array.isArray(tabList) || tabBarExtraContent) {
     return (
       <Tabs
-        className={`${prefixedClassName}-tabs ${hashId}`}
+        className={`${prefixedClassName}-tabs ${hashId}`.trim()}
         activeKey={tabActiveKey}
         onChange={(key) => {
           if (onTabChange) {
@@ -179,16 +179,18 @@ const renderPageHeader = (
     return null;
   }
   return (
-    <div className={`${prefixedClassName}-detail ${hashId}`}>
-      <div className={`${prefixedClassName}-main ${hashId}`}>
-        <div className={`${prefixedClassName}-row ${hashId}`}>
+    <div className={`${prefixedClassName}-detail ${hashId}`.trim()}>
+      <div className={`${prefixedClassName}-main ${hashId}`.trim()}>
+        <div className={`${prefixedClassName}-row ${hashId}`.trim()}>
           {content && (
-            <div className={`${prefixedClassName}-content ${hashId}`}>
+            <div className={`${prefixedClassName}-content ${hashId}`.trim()}>
               {content}
             </div>
           )}
           {extraContent && (
-            <div className={`${prefixedClassName}-extraContent ${hashId}`}>
+            <div
+              className={`${prefixedClassName}-extraContent ${hashId}`.trim()}
+            >
               {extraContent}
             </div>
           )}
@@ -304,7 +306,7 @@ const memoRenderPageHeader = (
   return (
     <PageHeader
       {...pageHeaderProps}
-      className={`${prefixedClassName}-warp-page-header ${hashId}`}
+      className={`${prefixedClassName}-warp-page-header ${hashId}`.trim()}
       breadcrumb={
         breadcrumbRender === false
           ? undefined
@@ -396,7 +398,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
       <>
         <div
           className={classNames(
-            `${basePageContainer}-children-content ${hashId}`,
+            `${basePageContainer}-children-container ${hashId}`.trim(),
           )}
           style={childrenContentStyle}
         >
@@ -425,8 +427,8 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     [`${basePageContainer}-stylish`]: !!restProps.stylish,
   });
 
-  return stylish.wrapSSR(
-    wrapSSR(
+  return wrapSSR(
+    stylish.wrapSSR(
       <>
         <div style={style} className={containerClassName}>
           {fixedHeader && pageHeaderDom ? (
@@ -438,9 +440,9 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
                   : 1
               }
               {...affixProps}
-              className={`${basePageContainer}-affix ${hashId}`}
+              className={`${basePageContainer}-affix ${hashId}`.trim()}
             >
-              <div className={`${basePageContainer}-warp ${hashId}`}>
+              <div className={`${basePageContainer}-warp ${hashId}`.trim()}>
                 {pageHeaderDom}
               </div>
             </Affix>

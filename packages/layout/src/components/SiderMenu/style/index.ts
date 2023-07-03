@@ -1,6 +1,6 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
-import { Keyframes } from '@ant-design/cssinjs';
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
   proLayoutCollapsedWidth: number;
@@ -16,7 +16,7 @@ export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
     display: 'unset',
     opacity: 1,
   },
-});
+}) as any;
 
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   return {
@@ -133,7 +133,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingBlock: 8,
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: token.marginXS,
             borderRadius: token.borderRadius,
             '& *': {
               cursor: 'pointer',

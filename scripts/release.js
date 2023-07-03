@@ -115,6 +115,7 @@ async function release() {
         'version',
         ...major,
         ...minor,
+        '--exact',
         '--message',
         '🎨 chore(release): Publish',
         '--conventional-commits',
@@ -142,7 +143,8 @@ async function release() {
   ]);
   process.env.NPM_CONFIG_OTP = otp;
 
-  const publishList = pkgs.map((pkg, index) => {
+  for await (const pkg of pkgs) {
+    console.log('发布中' + pkg);
     const pkgPath = join(cwd, 'packages', pkg.replace('pro-', ''));
     const { name, version } = require(join(pkgPath, 'package.json'));
     const isNext = isNextVersion(version);
@@ -157,11 +159,7 @@ async function release() {
     }
 
     if (!args.publishOnly || !isPackageExist) {
-      console.log(
-        `[${index + 1}/${pkgs.length}] Publish package ${name} ${
-          isNext ? 'with next tag' : ''
-        }`,
-      );
+      console.log(` Publish package ${name} ${isNext ? 'with next tag' : ''}`);
       // 默认设置为 tag 检查通过之后在设置为 latest
       let cliArgs = isNext
         ? ['publish', '--tag', 'next']
@@ -170,16 +168,13 @@ async function release() {
       if (args.tag) {
         cliArgs = ['publish', '--tag', args.tag];
       }
-      return execa('npm', cliArgs, {
+      await execa('npm', cliArgs, {
         cwd: pkgPath,
       });
     }
-  });
-  console.log('发布中' + pkgs.join('/'));
-  await Promise.all(publishList);
+  }
   console.log('发布成功！');
   await exec('npm', ['run', 'prettier']);
-
   logStep('done');
 }
 

@@ -7,8 +7,56 @@ export default () => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        padding: 24,
+        gap: 12,
+      }}
+    >
       <ProCard
+        title="可折叠"
+        headerBordered
+        collapsible
+        defaultCollapsed
+        onCollapse={(collapse) => console.log(collapse)}
+        extra={
+          <Button
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            提交
+          </Button>
+        }
+      >
+        内容
+      </ProCard>
+      <ProCard
+        title="可折叠"
+        bordered
+        headerBordered
+        collapsible
+        defaultCollapsed
+        onCollapse={(collapse) => console.log(collapse)}
+        extra={
+          <Button
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            提交
+          </Button>
+        }
+      >
+        内容
+      </ProCard>
+      <ProCard
+        bordered
+        size="small"
         title="可折叠"
         headerBordered
         collapsible
@@ -57,6 +105,6 @@ export default () => {
       >
         内容
       </ProCard>
-    </>
+    </div>
   );
 };

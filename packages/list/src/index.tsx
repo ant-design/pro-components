@@ -1,4 +1,5 @@
 import type { ProCardProps } from '@ant-design/pro-card';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import type {
   ActionType,
   ProColumnType,
@@ -13,7 +14,6 @@ import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ItemProps } from './Item';
 import ListView from './ListView';
 import { useStyle } from './style/index';
-import { ProConfigProvider } from '@ant-design/pro-provider';
 
 // 兼容性代码
 import 'antd/lib/list/style';
@@ -31,6 +31,7 @@ export type ProListMeta<T> = Pick<
   | 'editable'
   | 'fieldProps'
   | 'formItemProps'
+  | 'renderFormItem'
 >;
 
 type ProListMetaAction<T> = ProListMeta<T> & {
@@ -122,7 +123,9 @@ function NoProVideProList<
 
   const actionRef = useRef<ActionType>();
 
-  useImperativeHandle(rest.actionRef, () => actionRef.current);
+  useImperativeHandle(rest.actionRef, () => actionRef.current, [
+    actionRef.current,
+  ]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 

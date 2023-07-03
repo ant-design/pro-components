@@ -14,6 +14,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import { stringify } from 'use-json-comparison';
 import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
@@ -57,7 +58,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     layoutType = 'Form',
     type = 'form',
     action,
-    shouldUpdate,
+    shouldUpdate = (pre, next) => stringify(pre) !== stringify(next),
     formRef: propsFormRef,
     ...restProps
   } = props;
@@ -68,7 +69,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   const formInstance = Form.useFormInstance();
 
   const [, forceUpdate] = useState<[]>([]);
-  const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
+  const [formDomsDeps, updatedFormDoms] = useState<[]>(() => []);
 
   const formRef = useReactiveRef<ProFormInstance | undefined>(
     props.form || formInstance || form,
@@ -150,6 +151,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
               transform: originItem.transform,
               convertValue: originItem.convertValue,
               debounceTime: originItem.debounceTime,
+              defaultKeyWords: originItem.defaultKeyWords,
             }) as ItemType<any, any>;
 
             return renderValueType(item, {
@@ -164,7 +166,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             return Boolean(field);
           });
       },
-      [action, formRef, type],
+      [action, !!formRef.current, type],
     );
 
   const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
@@ -182,14 +184,13 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     },
     [propsRef, shouldUpdate],
   );
-
   const formChildrenDoms = useMemo(() => {
     if (!formRef.current) return;
     // like StepsForm's columns but not only for StepsForm
     if (columns.length && Array.isArray(columns[0])) return;
     return genItems(columns as ProFormColumnsType<T, ValueType>[]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [columns, genItems, formDomsDeps]);
+  }, [columns, genItems, formDomsDeps, !!formRef.current]);
 
   /**
    * Append layoutType component specific props
@@ -205,9 +206,13 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     return {};
   }, [columns, layoutType]);
 
-  useImperativeHandle(propsFormRef, () => {
-    return formRef.current;
-  });
+  useImperativeHandle(
+    propsFormRef,
+    () => {
+      return formRef.current;
+    },
+    [formRef.current],
+  );
 
   return (
     <FormRenderComponents

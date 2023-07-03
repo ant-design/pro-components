@@ -191,7 +191,7 @@ const flatMapItems = (
   items: React.ReactNode[],
   ignoreRules?: boolean,
 ): React.ReactNode[] => {
-  return items.flatMap((item: any) => {
+  return items?.flatMap((item: any) => {
     if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
     }
@@ -399,7 +399,7 @@ const QueryFilterContent: React.FC<{
         <Col
           key={itemKey}
           span={colSpan}
-          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`}
+          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`.trim()}
         >
           {itemDom}
         </Col>
@@ -409,7 +409,7 @@ const QueryFilterContent: React.FC<{
     return (
       <Col
         key={itemKey}
-        className={`${props.baseClassName}-row-split ${hashId}`}
+        className={`${props.baseClassName}-row-split ${hashId}`.trim()}
         span={colSpan}
       >
         {itemDom}
@@ -465,7 +465,8 @@ const QueryFilterContent: React.FC<{
           <Form.Item
             label=" "
             colon={false}
-            className={`${baseClassName}-actions ${hashId}`}
+            shouldUpdate={false}
+            className={`${baseClassName}-actions ${hashId}`.trim()}
           >
             <Actions
               hiddenNum={hiddenNum}

@@ -29,7 +29,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -133,7 +133,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
             style="padding-left: 12px; padding-right: 12px; text-align: end;"
           >
             <div
-              class="ant-form-item ant-pro-query-filter-actions "
+              class="ant-form-item ant-pro-query-filter-actions"
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -164,35 +164,24 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                           class="ant-space-item"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
-                            style="flex-wrap: wrap; margin-bottom: -8px;"
+                            style="display: flex; gap: 8px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px; padding-bottom: 8px;"
+                            <button
+                              class="ant-btn ant-btn-default"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="padding-bottom: 8px;"
+                              <span>
+                                重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                查 询
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -219,17 +208,17 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-pro-table-list-toolbar-left "
+              class="ant-pro-table-list-toolbar-left"
             />
             <div
-              class="ant-pro-table-list-toolbar-right "
+              class="ant-pro-table-list-toolbar-right"
               style="align-items: center;"
             >
               <div
-                class="ant-pro-table-list-toolbar-setting-items "
+                class="ant-pro-table-list-toolbar-setting-items"
               >
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -254,7 +243,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -280,7 +269,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
                     aria-label="setting"
@@ -432,7 +421,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="qixian-col qixian-col-8 qixian-pro-query-filter-row-split "
+            class="qixian-col qixian-col-8 qixian-pro-query-filter-row-split"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -516,7 +505,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             style="padding-left: 12px; padding-right: 12px; text-align: end;"
           >
             <div
-              class="qixian-form-item qixian-pro-query-filter-actions "
+              class="qixian-form-item qixian-pro-query-filter-actions"
             >
               <div
                 class="qixian-row qixian-form-item-row"
@@ -547,35 +536,24 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                           class="qixian-space-item"
                         >
                           <div
-                            class="qixian-space qixian-space-horizontal qixian-space-align-center"
-                            style="flex-wrap: wrap; margin-bottom: -8px;"
+                            style="display: flex; gap: 8px; align-items: center;"
                           >
-                            <div
-                              class="qixian-space-item"
-                              style="margin-right: 8px; padding-bottom: 8px;"
+                            <button
+                              class="qixian-btn qixian-btn-default"
+                              type="button"
                             >
-                              <button
-                                class="qixian-btn qixian-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                            </div>
-                            <div
-                              class="qixian-space-item"
-                              style="padding-bottom: 8px;"
+                              <span>
+                                重 置
+                              </span>
+                            </button>
+                            <button
+                              class="qixian-btn qixian-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="qixian-btn qixian-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                查 询
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -602,17 +580,17 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             class="qixian-pro-table-list-toolbar-container"
           >
             <div
-              class="qixian-pro-table-list-toolbar-left "
+              class="qixian-pro-table-list-toolbar-left"
             />
             <div
-              class="qixian-pro-table-list-toolbar-right "
+              class="qixian-pro-table-list-toolbar-right"
               style="align-items: center;"
             >
               <div
-                class="qixian-pro-table-list-toolbar-setting-items "
+                class="qixian-pro-table-list-toolbar-setting-items"
               >
                 <div
-                  class="qixian-pro-table-list-toolbar-setting-item "
+                  class="qixian-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -637,7 +615,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                   </span>
                 </div>
                 <div
-                  class="qixian-pro-table-list-toolbar-setting-item "
+                  class="qixian-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -663,7 +641,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                   </span>
                 </div>
                 <div
-                  class="qixian-pro-table-list-toolbar-setting-item "
+                  class="qixian-pro-table-list-toolbar-setting-item"
                 >
                   <span
                     aria-label="setting"
@@ -815,7 +793,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -899,7 +877,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
             style="padding-left: 12px; padding-right: 12px; text-align: end;"
           >
             <div
-              class="ant-form-item ant-pro-query-filter-actions "
+              class="ant-form-item ant-pro-query-filter-actions"
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -930,35 +908,24 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                           class="ant-space-item"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
-                            style="flex-wrap: wrap; margin-bottom: -8px;"
+                            style="display: flex; gap: 8px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px; padding-bottom: 8px;"
+                            <button
+                              class="ant-btn ant-btn-default"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="padding-bottom: 8px;"
+                              <span>
+                                重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                查 询
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -985,17 +952,17 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-pro-table-list-toolbar-left "
+              class="ant-pro-table-list-toolbar-left"
             />
             <div
-              class="ant-pro-table-list-toolbar-right "
+              class="ant-pro-table-list-toolbar-right"
               style="align-items: center;"
             >
               <div
-                class="ant-pro-table-list-toolbar-setting-items "
+                class="ant-pro-table-list-toolbar-setting-items"
               >
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -1020,7 +987,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -1046,7 +1013,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
                     aria-label="setting"

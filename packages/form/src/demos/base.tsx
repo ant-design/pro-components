@@ -258,20 +258,68 @@ export default () => {
           };
         }}
       />
-      <ProFormList
-        name="datas"
-        initialValue={[{ date: '2022-10-12 10:00:00' }]}
-      >
+      <ProFormList name="datas">
         {() => {
           return (
-            <ProFormDatePicker
-              name="date"
-              transform={(value) => {
-                return {
-                  date: moment(value).unix(),
-                };
-              }}
-            />
+            <>
+              <ProFormDatePicker
+                name="date"
+                transform={(value) => {
+                  return {
+                    date: moment(value).unix(),
+                  };
+                }}
+              />
+
+              <ProFormList name="innerDatas">
+                {() => {
+                  return (
+                    <>
+                      <ProFormDatePicker
+                        name="date"
+                        transform={(value) => {
+                          return {
+                            date: moment(value).unix(),
+                          };
+                        }}
+                      />
+                      <ProFormList name="innerDatas">
+                        {() => {
+                          return (
+                            <>
+                              <ProFormDatePicker
+                                name="date"
+                                transform={(value) => {
+                                  return {
+                                    date: moment(value).unix(),
+                                  };
+                                }}
+                              />
+                              <ProFormList name="innerDatas">
+                                {() => {
+                                  return (
+                                    <>
+                                      <ProFormDatePicker
+                                        name="date"
+                                        transform={(value) => {
+                                          return {
+                                            date: moment(value).unix(),
+                                          };
+                                        }}
+                                      />
+                                    </>
+                                  );
+                                }}
+                              </ProFormList>
+                            </>
+                          );
+                        }}
+                      </ProFormList>
+                    </>
+                  );
+                }}
+              </ProFormList>
+            </>
           );
         }}
       </ProFormList>

@@ -2,6 +2,82 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.15.2...@ant-design/pro-layout@7.15.3) (2023-06-30)
+
+### Bug Fixes
+
+- **layout:** submenu close tooltip ([a550039](https://github.com/ant-design/pro-components/commit/a550039489b76d23d286d00f6d46b8bdb93de2cc))
+
+## [7.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.15.1...@ant-design/pro-layout@7.15.2) (2023-06-19)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.15.0...@ant-design/pro-layout@7.15.1) (2023-06-19)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.8...@ant-design/pro-layout@7.15.0) (2023-06-19)
+
+### Features
+
+- **field:** LightFilter 中使用 ProFormSelect 的两个 bug 修复 ([#7225](https://github.com/ant-design/pro-components/issues/7225)) ([#7233](https://github.com/ant-design/pro-components/issues/7233)) ([b3050e4](https://github.com/ant-design/pro-components/commit/b3050e4e82db6809ce93f6913e3903a9dd05da15))
+
+## [7.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.7...@ant-design/pro-layout@7.14.8) (2023-06-16)
+
+### Bug Fixes
+
+- **layout:** fix ErrorBoundary types error ([5bb5be1](https://github.com/ant-design/pro-components/commit/5bb5be1b6c289deb4d9a79acd22a5e5c97666ae9))
+
+## [7.14.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.6...@ant-design/pro-layout@7.14.7) (2023-06-14)
+
+### Bug Fixes
+
+- **form:** fix shouldUpdate no work error ([ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbefc6b67d83925e83f2559f0016014748323))
+
+## [7.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.5...@ant-design/pro-layout@7.14.6) (2023-06-14)
+
+### Bug Fixes
+
+- **layout:** fix top menu popupmenu bgColor no work error ([fdceeb7](https://github.com/ant-design/pro-components/commit/fdceeb718dbb7d6f967322baaf7f62572838f919))
+- **layout:** tootip use menu name ([e7ac6ab](https://github.com/ant-design/pro-components/commit/e7ac6abe44e007a0f089eee367343d98e1ae9251))
+
+## [7.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.4...@ant-design/pro-layout@7.14.5) (2023-06-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.3...@ant-design/pro-layout@7.14.4) (2023-06-12)
+
+### Bug Fixes
+
+- **compoents:** gap use token margin ([#7204](https://github.com/ant-design/pro-components/issues/7204)) ([bd62243](https://github.com/ant-design/pro-components/commit/bd62243f4bc6a3ea6e97ad5e0db977c84394426f))
+- **components:** remove hashid empty ([b46bb80](https://github.com/ant-design/pro-components/commit/b46bb808db287979fe7d2d5afe115185860422c9))
+- **layout:** support antd@5.6 token ([28291fe](https://github.com/ant-design/pro-components/commit/28291fea2ab1417640f79534d132b5e3db228d2c))
+
+## [7.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.2...@ant-design/pro-layout@7.14.3) (2023-05-31)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.1...@ant-design/pro-layout@7.14.2) (2023-05-30)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.14.0...@ant-design/pro-layout@7.14.1) (2023-05-30)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.5...@ant-design/pro-layout@7.14.0) (2023-05-29)
+
+### Bug Fixes
+
+- **form:** 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 ([#7138](https://github.com/ant-design/pro-components/issues/7138)) ([2e83b18](https://github.com/ant-design/pro-components/commit/2e83b184fae0f68013c0c1db39837981f70d1ec3))
+- fix test case ([68500fc](https://github.com/ant-design/pro-components/commit/68500fc78165c55fb53da4e805136aace859bb5b))
+- update lock file and fix test case ([d991d5d](https://github.com/ant-design/pro-components/commit/d991d5d6e1d19fa721d9c25ef0318a0c0e134e7e))
+- **layout:** 修复 collapsedShowTitle 样式错误问题 ([#7098](https://github.com/ant-design/pro-components/issues/7098)) ([d6ba262](https://github.com/ant-design/pro-components/commit/d6ba262410cc2afe04ac788f1bae6fa2ea29cad1))
+
+### Features
+
+- **table:** use [@dnd-kit](https://github.com/dnd-kit) ([#7131](https://github.com/ant-design/pro-components/issues/7131)) ([26b6aa6](https://github.com/ant-design/pro-components/commit/26b6aa611a0c5d88232cda88ca7cec893ee2160b))
+
 ## [7.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.13.4...@ant-design/pro-layout@7.13.5) (2023-05-18)
 
 ### Bug Fixes

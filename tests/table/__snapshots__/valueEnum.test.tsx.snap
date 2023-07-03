@@ -21,7 +21,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
           style="margin-left: -12px; margin-right: -12px;"
         >
           <div
-            class="ant-col ant-col-8 ant-pro-query-filter-row-split "
+            class="ant-col ant-col-8 ant-pro-query-filter-row-split"
             style="padding-left: 12px; padding-right: 12px;"
           >
             <div
@@ -72,7 +72,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
             style="padding-left: 12px; padding-right: 12px; text-align: end;"
           >
             <div
-              class="ant-form-item ant-pro-query-filter-actions "
+              class="ant-form-item ant-pro-query-filter-actions"
             >
               <div
                 class="ant-row ant-form-item-row"
@@ -103,35 +103,24 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                           class="ant-space-item"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
-                            style="flex-wrap: wrap; margin-bottom: -8px;"
+                            style="display: flex; gap: 8px; align-items: center;"
                           >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px; padding-bottom: 8px;"
+                            <button
+                              class="ant-btn ant-btn-default"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                              style="padding-bottom: 8px;"
+                              <span>
+                                重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
                             >
-                              <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                            </div>
+                              <span>
+                                查 询
+                              </span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -158,17 +147,17 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-pro-table-list-toolbar-left "
+              class="ant-pro-table-list-toolbar-left"
             />
             <div
-              class="ant-pro-table-list-toolbar-right "
+              class="ant-pro-table-list-toolbar-right"
               style="align-items: center;"
             >
               <div
-                class="ant-pro-table-list-toolbar-setting-items "
+                class="ant-pro-table-list-toolbar-setting-items"
               >
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -193,7 +182,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span>
                     <span
@@ -219,7 +208,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-table-list-toolbar-setting-item "
+                  class="ant-pro-table-list-toolbar-setting-item"
                 >
                   <span
                     aria-label="setting"
@@ -481,7 +470,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -500,11 +489,8 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                           autocomplete="off"
                           class="ant-select-selection-search-input"
                           id="rc_select_TEST_OR_SSR"
-                          readonly=""
                           role="combobox"
-                          style="opacity: 0;"
                           type="search"
-                          unselectable="on"
                           value=""
                         />
                       </span>

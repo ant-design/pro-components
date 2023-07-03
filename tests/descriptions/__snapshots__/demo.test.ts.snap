@@ -253,7 +253,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
             高级定义列表
           </div>
           <span
-            class="ant-pro-core-label-tip-icon "
+            class="ant-pro-core-label-tip-icon"
           >
             <span
               aria-label="info-circle"
@@ -359,7 +359,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
             高级定义列表
           </div>
           <span
-            class="ant-pro-core-label-tip-icon "
+            class="ant-pro-core-label-tip-icon"
           >
             <span
               aria-label="info-circle"
@@ -456,7 +456,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                       金额
                     </div>
                     <span
-                      class="ant-pro-core-label-tip-icon "
+                      class="ant-pro-core-label-tip-icon"
                     >
                       <span
                         aria-label="info-circle"
@@ -586,6 +586,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuenow="40"
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
@@ -1490,13 +1491,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title "
+              class="ant-pro-card-title"
             >
               配置菜单
             </div>
           </div>
           <div
-            class="ant-pro-card-tabs "
+            class="ant-pro-card-tabs"
           >
             <div
               class="ant-tabs ant-tabs-top"
@@ -3093,7 +3094,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
             高级定义列表
           </div>
           <span
-            class="ant-pro-core-label-tip-icon "
+            class="ant-pro-core-label-tip-icon"
           >
             <span
               aria-label="info-circle"

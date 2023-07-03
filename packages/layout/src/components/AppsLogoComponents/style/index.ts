@@ -24,6 +24,7 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
         width: 28,
         cursor: 'pointer',
         color: token?.layout?.colorTextAppListIcon,
+        borderRadius: token.borderRadius,
         '&:hover': {
           color: token?.layout?.colorTextAppListIconHover,
           backgroundColor: token?.layout?.colorBgAppListIconHover,

@@ -1,8 +1,16 @@
 import { ProConfigProvider, useIntl } from '@ant-design/pro-provider';
 import { compareVersions, merge, useRefFunction } from '@ant-design/pro-utils';
 import type { FormInstance, StepsProps } from 'antd';
-import { version } from 'antd';
-import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
+import {
+  Button,
+  Col,
+  ConfigProvider,
+  Form,
+  Row,
+  Space,
+  Steps,
+  version,
+} from 'antd';
 
 import type { FormProviderProps } from 'antd/lib/form/context';
 import classNames from 'classnames';
@@ -217,14 +225,16 @@ function StepsForm<T = Record<string, any>>(
     formDataRef.current.delete(name);
   }, []);
 
-  useImperativeHandle(propsFormMapRef, () => formArrayRef.current);
+  useImperativeHandle(propsFormMapRef, () => formArrayRef.current, [
+    formArrayRef.current,
+  ]);
 
   useImperativeHandle(
     formRef,
     () => {
       return formArrayRef.current[step || 0]?.current;
     },
-    [step],
+    [step, formArrayRef.current],
   );
 
   /**
@@ -275,7 +285,7 @@ function StepsForm<T = Record<string, any>>(
 
     return (
       <div
-        className={`${prefixCls}-steps-container ${hashId}`}
+        className={`${prefixCls}-steps-container ${hashId}`.trim()}
         style={{
           maxWidth: Math.min(formArray.length * 320, 1160),
         }}
@@ -459,7 +469,7 @@ function StepsForm<T = Record<string, any>>(
   const formContainer = useMemo(
     () => (
       <div
-        className={`${prefixCls}-container ${hashId}`}
+        className={`${prefixCls}-container ${hashId}`.trim()}
         style={containerStyle}
       >
         {formDom}

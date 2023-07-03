@@ -1,7 +1,11 @@
 import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
-import { isNeedOpenHash } from '@ant-design/pro-provider';
-import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
 import {
+  isNeedOpenHash,
+  ProConfigProvider,
+  ProProvider,
+} from '@ant-design/pro-provider';
+import {
+  coverToNewToken,
   isBrowser,
   useDocumentTitle,
   useMountMergeState,
@@ -241,9 +245,9 @@ export type ProLayoutProps = GlobalTypes & {
   /**
    * @name 错误处理组件
    *
-   * @example ErrorBoundary={<MyErrorBoundary/>}
+   * @example ErrorBoundary={MyErrorBoundary}
    */
-  ErrorBoundary?: any;
+  ErrorBoundary?: React.ComponentClass<any, any> | boolean;
 
   /**
    * @name  侧边菜单的类型, menu.type 的快捷方式
@@ -472,7 +476,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [propsFormatMessage],
   );
 
-  const { data, mutate } = useSWR(
+  const { data, mutate, isLoading } = useSWR(
     [defaultId, menu?.params],
     async ([, params]) => {
       setMenuLoading(true);
@@ -489,6 +493,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       revalidateOnReconnect: false,
     },
   );
+
+  useEffect(() => {
+    setMenuLoading(isLoading);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
 
   const { cache } = useSWRConfig();
   useEffect(() => {
@@ -764,7 +773,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               theme={{
                 hashed: isNeedOpenHash(),
                 components: {
-                  Menu: {
+                  Menu: coverToNewToken({
                     colorItemBg:
                       token?.layout?.sider?.colorMenuBackground ||
                       'transparent',
@@ -799,7 +808,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorBgElevated:
                       token?.layout?.sider?.colorBgMenuItemCollapsedElevated ||
                       '#fff',
-                  },
+                  }),
                 },
               }}
             >
@@ -807,56 +816,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             </ConfigProvider>
             <div
               style={genLayoutStyle}
-              className={`${proLayoutClassName}-container ${hashId}`}
+              className={`${proLayoutClassName}-container ${hashId}`.trim()}
             >
-              <ConfigProvider
-                // @ts-ignore
-                theme={{
-                  hashed: isNeedOpenHash(),
-                  components: {
-                    Layout: {
-                      colorBgHeader: 'transparent',
-                      colorBgBody: 'transparent',
-                    },
-                    Menu: {
-                      colorItemBg:
-                        token?.layout?.header?.colorBgHeader || 'transparent',
-                      colorSubItemBg:
-                        token?.layout?.header?.colorBgHeader || 'transparent',
-                      radiusItem: 4,
-                      colorItemBgSelected:
-                        token?.layout?.header?.colorBgMenuItemSelected ||
-                        token?.colorBgTextHover,
-                      colorItemBgActive:
-                        token?.layout?.header?.colorBgMenuItemHover ||
-                        token?.colorBgTextHover,
-                      colorItemBgSelectedHorizontal:
-                        token?.layout?.header?.colorBgMenuItemSelected ||
-                        token?.colorBgTextHover,
-                      colorActiveBarWidth: 0,
-                      colorActiveBarHeight: 0,
-                      colorActiveBarBorderSize: 0,
-                      colorItemText:
-                        token?.layout?.header?.colorTextMenu ||
-                        token?.colorTextSecondary,
-                      colorItemTextHoverHorizontal:
-                        token?.layout?.header?.colorTextMenuActive ||
-                        token?.colorText,
-                      colorItemTextSelectedHorizontal:
-                        token?.layout?.header?.colorTextMenuSelected ||
-                        token?.colorTextBase,
-                      colorItemTextHover:
-                        token?.layout?.header?.colorTextMenuActive ||
-                        'rgba(0, 0, 0, 0.85)',
-                      colorItemTextSelected:
-                        token?.layout?.header?.colorTextMenuSelected ||
-                        'rgba(0, 0, 0, 1)',
-                    },
-                  },
-                }}
-              >
-                {headerDom}
-              </ConfigProvider>
+              {headerDom}
               <WrapContent
                 hasPageContainer={hasPageContainer}
                 isChildrenLayout={isChildrenLayout}

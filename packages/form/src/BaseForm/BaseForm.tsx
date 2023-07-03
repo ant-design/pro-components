@@ -32,7 +32,6 @@ import get from 'rc-util/lib/utils/get';
 import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -337,11 +336,11 @@ function BaseFormComponents<T = Record<string, any>>(
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
         if (!Array.isArray(nameList) && nameList)
           throw new Error('nameList must be array');
+
         const values = await getFormInstance()?.validateFields(nameList);
         const transformedKey = transformKey(values, omitNil);
         return transformedKey ? transformedKey : {};
       },
-      formRef,
     }),
     [omitNil, transformKey],
   );
@@ -447,18 +446,26 @@ function BaseFormComponents<T = Record<string, any>>(
         ...formatValues,
       };
     },
-    [],
+    [formatValues, formRef.current],
   );
   useEffect(() => {
     const finalValues = transformKey(
       formRef.current?.getFieldsValue?.(true),
       omitNil,
     );
-    onInit?.(finalValues, formRef.current);
+    onInit?.(finalValues, {
+      ...formRef.current,
+      ...formatValues,
+    });
   }, []);
 
   return (
-    <ProFormContext.Provider value={formatValues}>
+    <ProFormContext.Provider
+      value={{
+        ...formatValues,
+        formRef,
+      }}
+    >
       <ConfigProvider componentSize={rest.size || componentSize}>
         <GridContext.Provider value={{ grid, colProps }}>
           {rest.component !== false && (
@@ -602,9 +609,9 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   >({});
 
   /** 使用 callback 的类型 */
-  const transformKey = useCallback(
-    (values: any, paramsOmitNil: boolean, parentKey?: NamePath) =>
-      transformKeySubmitValue(
+  const transformKey = useRefFunction(
+    (values: any, paramsOmitNil: boolean, parentKey?: NamePath) => {
+      return transformKeySubmitValue(
         conversionMomentValue(
           values,
           dateFormatter,
@@ -614,8 +621,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         ),
         transformKeyRef.current,
         paramsOmitNil,
-      ),
-    [dateFormatter],
+      );
+    },
   );
 
   useEffect(() => {
@@ -721,11 +728,13 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
               { valueType = 'text', dateFormat, transform },
             ) => {
               if (!Array.isArray(name)) return;
+
               transformKeyRef.current = namePathSet(
                 transformKeyRef.current,
                 name,
                 transform,
               );
+
               fieldsValueType.current = namePathSet(
                 fieldsValueType.current,
                 name,

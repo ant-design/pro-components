@@ -1,4 +1,103 @@
-﻿## @ant-design/pro-components@2.4.15
+﻿## @ant-design/pro-components@2.6.3
+
+`2023-06-30`
+
+- fix(layout): submenu close tooltip. [a550039](https://github.com/ant-design/pro-components/commit/a550039)
+- fix(form): fix block when QueryFilter set grid. [393fbe8](https://github.com/ant-design/pro-components/commit/393fbe8)
+- fix(form): fix className is undefined error. [a27d453](https://github.com/ant-design/pro-components/commit/a27d453)
+- fix(form): fix DigitRange un support theme error. [70ad3bc](https://github.com/ant-design/pro-components/commit/70ad3bc)
+- fix(form): formRef.current change will update formitem list. [5e977db](https://github.com/ant-design/pro-components/commit/5e977db)
+- fix(table): fix filter and sort is null no trigger change error. [8c444d7](https://github.com/ant-design/pro-components/commit/8c444d7)
+- fix(card): close onClick and onchange Propagation. [c86532f](https://github.com/ant-design/pro-components/commit/c86532f)
+
+## @ant-design/pro-components@2.6.2
+
+`2023-06-19`
+
+- fix(form): fix inline form reset value for destoy. [dc9420a](https://github.com/ant-design/pro-components/commit/dc9420a)
+
+## @ant-design/pro-components@2.6.0
+
+`2023-06-19`
+
+- fix(form): alway use shouldUpdate for json. [7933961](https://github.com/ant-design/pro-components/commit/7933961)
+- fix(form): onInit use ProFormInstance. [ad537a5](https://github.com/ant-design/pro-components/commit/ad537a5)
+- fix(table): add Form.Item shouldUpdate function. [db3224b](https://github.com/ant-design/pro-components/commit/db3224b)
+- feat(field): LightFilter 中使用 ProFormSelect 的两个 bug 修复 (#7225) (#7233). [#7225](https://github.com/ant-design/pro-components/pull/#7225) [@Rabbit](https://github.com/Rabbit)
+
+## @ant-design/pro-components@2.5.11
+
+`2023-06-16`
+
+- fix(layout): fix ErrorBoundary types error. [5bb5be1](https://github.com/ant-design/pro-components/commit/5bb5be1)
+- fix(table): fix editableFormRef no work error. [0cd2e4d](https://github.com/ant-design/pro-components/commit/0cd2e4d)
+
+## @ant-design/pro-components@2.5.10
+
+`2023-06-15`
+
+- fix(form): fix table render less error. [dcd3888](https://github.com/ant-design/pro-components/commit/dcd3888)
+
+## @ant-design/pro-components@2.5.9
+
+`2023-06-14`
+
+- fix(form): fix shouldUpdate no work error. [ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbef)
+
+## @ant-design/pro-components@2.5.7
+
+`2023-06-12`
+
+- fix(components): fix useToken no supoort antd@4 的问题. [58b96e9](https://github.com/ant-design/pro-components/commit/58b96e9)
+
+## @ant-design/pro-components@2.5.6
+
+`2023-06-12`
+
+- fix(components): remove hashid empty. [b46bb80](https://github.com/ant-design/pro-components/commit/b46bb80)
+- fix(layout): support antd@5.6 token. [28291fe](https://github.com/ant-design/pro-components/commit/28291fe)
+- fix(form): 修复 ProTable 的 columns.proFieldProps 不生效 (#7205). [#7205](https://github.com/ant-design/pro-components/pull/#7205) [@fanck0605](https://github.com/fanck0605)
+- fix(form): ColorPicker use antd style-n. [8d3cd04](https://github.com/ant-design/pro-components/commit/8d3cd04)
+- fix(form): ProFormColorPicker support disable. [973ac28](https://github.com/ant-design/pro-components/commit/973ac28)
+- fix(form): fix set addonAfter valuePropName will no work error. [8072666](https://github.com/ant-design/pro-components/commit/8072666)
+- fix(form): 修复 fn[curK] 为函数时，参数 undefined 导致的报错 (#7163). [#7163](https://github.com/ant-design/pro-components/pull/#7163) [@Soulwail](https://github.com/Soulwail)
+- fix(table): 修复 Editable 的 record.id 使用 index，且 index 为 0 时，导致无法添加新行 (#7176). [#7176](https://github.com/ant-design/pro-components/pull/#7176) [@Soulwail](https://github.com/Soulwail)
+- fix(card): fix ProCard small header style error. [17ccf69](https://github.com/ant-design/pro-components/commit/17ccf69)
+
+## @ant-design/pro-components@2.5.5
+
+`2023-06-02`
+
+- fix(form): fix Cascader light mode no work error. [4ce56dc](https://github.com/ant-design/pro-components/commit/4ce56dc)
+
+## @ant-design/pro-components@2.5.3
+
+`2023-05-30`
+
+- chore: 修复 ts 定义缺失的问题。
+
+## @ant-design/pro-components@2.5.2
+
+`2023-05-30`
+
+- fix(form): fix \_transformArray is null will throw error. [ba1d9e9](https://github.com/ant-design/pro-components/commit/ba1d9e9)
+
+## @ant-design/pro-components@2.5.0
+
+`2023-05-29`
+
+- fix(layout): 修复 collapsedShowTitle 样式错误问题 (#7098). [#7098](https://github.com/ant-design/pro-components/pull/#7098) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 (#7138). [#7138](https://github.com/ant-design/pro-components/pull/#7138) [@kaneruan](https://github.com/kaneruan)
+- fix(form): use oninit reset formRef. [1deedf2](https://github.com/ant-design/pro-components/commit/1deedf2)
+- fix(form): close icon style (#7091). [#7091](https://github.com/ant-design/pro-components/pull/#7091) [@kungege](https://github.com/kungege)
+- fix(list): Extend ProListMeta&lt;T&gt; type with `renderFormItem` (#7136). [#7136](https://github.com/ant-design/pro-components/pull/#7136) [@bartelemi](https://github.com/bartelemi)
+- fix(list): 修复 ProFormList 使用 className 无效问题(#7128). [#7128](https://github.com/ant-design/pro-components/pull/#7128) [@leshalv](https://github.com/leshalv)
+- fix(list): `onChange ` prop don't work (#7129). [#7129](https://github.com/ant-design/pro-components/pull/#7129) [@kungege](https://github.com/kungege)
+- fix(table): Edit to make defaultValue become higher priority to reset column setting (#7113). [#7113](https://github.com/ant-design/pro-components/pull/#7113) [@ianccy](https://github.com/ianccy)
+- feat(table): use @dnd-kit (#7131). [#7131](https://github.com/ant-design/pro-components/pull/#7131) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): component EditableProTable actionDeleteRef function Single row status Locked (#7124). [#7124](https://github.com/ant-design/pro-components/pull/#7124) [@varown](https://github.com/varown)
+
+## @ant-design/pro-components@2.4.15
 
 `2023-05-15`
 

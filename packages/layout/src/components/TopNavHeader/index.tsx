@@ -1,4 +1,5 @@
-import { ProProvider } from '@ant-design/pro-provider';
+import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
+import { coverToNewToken } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 
 import classNames from 'classnames';
@@ -49,21 +50,78 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     { ...props, collapsed: false },
     renderKey,
   );
+  const { token } = useContext(ProProvider);
   const contentDom = useMemo(() => {
     const defaultDom = (
-      <BaseMenu
-        theme={dark ? 'dark' : 'light'}
-        {...props}
-        className={`${prefixCls}-base-menu ${hashId}`}
-        {...props.menuProps}
-        style={{
-          width: '100%',
-          ...props.menuProps?.style,
+      <ConfigProvider // @ts-ignore
+        theme={{
+          hashed: isNeedOpenHash(),
+          components: {
+            Layout: {
+              colorBgHeader: 'transparent',
+              colorBgBody: 'transparent',
+            },
+            Menu: {
+              ...coverToNewToken({
+                colorItemBg:
+                  token?.layout?.header?.colorBgHeader || 'transparent',
+                colorSubItemBg:
+                  token?.layout?.header?.colorBgHeader || 'transparent',
+                radiusItem: 4,
+                colorItemBgSelected:
+                  token?.layout?.header?.colorBgMenuItemSelected ||
+                  token?.colorBgTextHover,
+                colorItemBgActive:
+                  token?.layout?.header?.colorBgMenuItemHover ||
+                  token?.colorBgTextHover,
+                colorItemBgSelectedHorizontal:
+                  token?.layout?.header?.colorBgMenuItemSelected ||
+                  token?.colorBgTextHover,
+                colorActiveBarWidth: 0,
+                colorActiveBarHeight: 0,
+                colorActiveBarBorderSize: 0,
+                colorItemText:
+                  token?.layout?.header?.colorTextMenu ||
+                  token?.colorTextSecondary,
+                colorItemTextHoverHorizontal:
+                  token?.layout?.header?.colorTextMenuActive ||
+                  token?.colorText,
+                colorItemTextSelectedHorizontal:
+                  token?.layout?.header?.colorTextMenuSelected ||
+                  token?.colorTextBase,
+                horizontalItemBorderRadius: 4,
+                colorItemTextHover:
+                  token?.layout?.header?.colorTextMenuActive ||
+                  'rgba(0, 0, 0, 0.85)',
+                horizontalItemHoverBg:
+                  token?.layout?.header?.colorBgMenuItemHover ||
+                  'rgba(0, 0, 0, 0.04)',
+                colorItemTextSelected:
+                  token?.layout?.header?.colorTextMenuSelected ||
+                  'rgba(0, 0, 0, 1)',
+              }),
+            },
+          },
+          token: {
+            colorBgElevated:
+              token?.layout?.header?.colorBgHeader || 'transparent',
+          },
         }}
-        collapsed={false}
-        menuRenderType="header"
-        mode="horizontal"
-      />
+      >
+        <BaseMenu
+          theme={dark ? 'dark' : 'light'}
+          {...props}
+          className={`${prefixCls}-base-menu ${hashId}`.trim()}
+          {...props.menuProps}
+          style={{
+            width: '100%',
+            ...props.menuProps?.style,
+          }}
+          collapsed={false}
+          menuRenderType="header"
+          mode="horizontal"
+        />
+      </ConfigProvider>
     );
 
     if (headerContentRender) {
@@ -91,12 +149,19 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
             onClick={onMenuHeaderClick}
           >
             <AppsLogoComponents {...props} />
-            <div className={`${prefixCls}-logo ${hashId}`} key="logo" id="logo">
+            <div
+              className={`${prefixCls}-logo ${hashId}`.trim()}
+              key="logo"
+              id="logo"
+            >
               {headerDom}
             </div>
           </div>
         )}
-        <div style={{ flex: 1 }} className={`${prefixCls}-menu ${hashId}`}>
+        <div
+          style={{ flex: 1 }}
+          className={`${prefixCls}-menu ${hashId}`.trim()}
+        >
           {contentDom}
         </div>
         {(rightContentRender || actionsRender || props.avatarProps) && (

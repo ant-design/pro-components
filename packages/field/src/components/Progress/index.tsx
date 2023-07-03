@@ -1,10 +1,10 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber, Progress } from 'antd';
 import toNumber from 'lodash.tonumber';
 import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import { useIntl } from '@ant-design/pro-provider';
 import 'antd/lib/input-number/style';
 import 'antd/lib/progress/style';
 //------------

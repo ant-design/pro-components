@@ -1,6 +1,6 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
-import { Input } from 'antd';
 import { fireEvent, render } from '@testing-library/react';
+import { Input } from 'antd';
 
 describe('ProForm.Item', () => {
   it('📦 ProForm support fieldProps.onBlur', async () => {
