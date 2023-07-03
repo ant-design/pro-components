@@ -1,8 +1,8 @@
 ﻿import { openVisibleCompatible, useRefFunction } from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
-import merge from 'lodash.merge';
 import classNames from 'classnames';
+import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, {
@@ -74,14 +74,13 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
     /**
      * if width is not assigned, and isResizable is true
      * will show the width fullscreen
-     * 
+     *
      * @name draggableDrawer
      */
     isResizable?: boolean;
   };
 
-
-  function DrawerForm<T = Record<string, any>>({
+function DrawerForm<T = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -110,7 +109,7 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
   const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(800);
-  const [resizableDrawer, setResizableDrawer] = useState<boolean>(false);
+  const [resizableDrawer, setResizableDrawer] = useState<boolean>(isResizable);
 
   const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
     value: propsOpen || propVisible,
@@ -145,11 +144,11 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
       onVisibleChange?.(true);
     }
 
-    if (isResizable) {
+    if (resizableDrawer) {
       setDrawerWidth(width ?? 800);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, open, isResizable]);
+  }, [propVisible, open, resizableDrawer]);
 
   useImperativeHandle(
     rest.formRef,
@@ -244,26 +243,22 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
 
   const drawerOpenProps = openVisibleCompatible(open, onVisibleChange);
 
-  const handleMouseUp = () => {
-    if (!isResizable) return;
-    isResizable = true;
-    document.removeEventListener('mousemove', cbHandleMouseMove);
-    document.removeEventListener('mouseup', cbHandleMouseUp);
-  };
-
-  const handleMouseMove = (e: MouseEvent) => {
-    let offsetRight =
+  const cbHandleMouseMove = useCallback((e: MouseEvent) => {
+    const offsetRight =
       document.body.offsetWidth - (e.clientX - document.body.offsetLeft);
-    let minWidth = width ?? 800;
-    let maxWidth = window.innerWidth * 0.8;
+    const minWidth = width ?? 800;
+    const maxWidth = window.innerWidth * 0.8;
 
     if (offsetRight > minWidth && offsetRight < maxWidth) {
       setDrawerWidth(offsetRight);
     }
-  };
-
-  const cbHandleMouseMove = useCallback(handleMouseMove, []);
-  const cbHandleMouseUp = useCallback(handleMouseUp, []);
+  }, []);
+  const cbHandleMouseUp = useCallback(() => {
+    if (!resizableDrawer) return;
+    setResizableDrawer(true);
+    document.removeEventListener('mousemove', cbHandleMouseMove);
+    document.removeEventListener('mouseup', cbHandleMouseUp);
+  }, []);
 
   return wrapSSR(
     <>
@@ -295,14 +290,18 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
         }
       >
         <div
-          className={isResizable ? classNames(getCls('sidebar-dragger'), hashId) : null}
+          className={
+            resizableDrawer
+              ? classNames(getCls('sidebar-dragger'), hashId)
+              : null
+          }
           onMouseDown={(e) => {
             e.stopPropagation();
             e.preventDefault();
 
             document.addEventListener('mousemove', cbHandleMouseMove);
             document.addEventListener('mouseup', cbHandleMouseUp);
-            isResizable = true;
+            setResizableDrawer(true);
           }}
         />
         <>
@@ -333,7 +332,7 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<
         </>
       </Drawer>
       {triggerDom}
-    </>
+    </>,
   );
 }
 

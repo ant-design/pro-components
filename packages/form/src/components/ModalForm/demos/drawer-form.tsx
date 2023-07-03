@@ -7,7 +7,6 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Button, Form, message } from 'antd';
-import { useState } from 'react';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
