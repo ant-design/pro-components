@@ -449,6 +449,7 @@ const ProTable = <
     polling,
     tooltip,
     revalidateOnFocus = false,
+    searchFormRender,
     ...rest
   } = props;
   const { wrapSSR, hashId } = useStyle(props.defaultClassName);
@@ -843,8 +844,8 @@ const ProTable = <
     return action.loading;
   }, [action.loading]);
 
-  const searchNode =
-    search === false && type !== 'form' ? null : (
+  const searchNode = useMemo(() => {
+    const node = search === false && type !== 'form' ? null : (
       <FormRender<T, U>
         pagination={pagination}
         beforeSearchSubmit={beforeSearchSubmit}
@@ -866,6 +867,26 @@ const ProTable = <
         dateFormatter={props.dateFormatter}
       />
     );
+
+    if (searchFormRender && node) {
+      return <>{searchFormRender(props, node)}</>;
+    } else {
+      return node;
+    }
+  }, [
+    beforeSearchSubmit,
+    formRef,
+    ghost,
+    loading,
+    manualRequest,
+    onFormSearchSubmit,
+    pagination,
+    props,
+    propsColumns,
+    search,
+    searchFormRender,
+    type,
+  ]);
 
   const selectedRows = useMemo(
     () => selectedRowKeys?.map((key) => preserveRecordsRef.current?.get(key)),
