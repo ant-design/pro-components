@@ -21,7 +21,7 @@ import { BaseForm } from '../../BaseForm';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 
-export type LightFilterProps<T> = {
+export type LightFilterProps<T, U = Record<string, any>> = {
   collapse?: boolean;
   /**
    * @name 收起的label dom
@@ -52,7 +52,7 @@ export type LightFilterProps<T> = {
    */
   placement?: TooltipPlacement;
 } & Omit<FormProps<T>, 'onFinish'> &
-  CommonFormProps<T>;
+  CommonFormProps<T, U>;
 
 /**
  * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域

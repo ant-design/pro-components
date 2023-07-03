@@ -183,7 +183,7 @@ export type CommonFormProps<
   readonly?: boolean;
 } & ProFormGridConfig;
 
-export type BaseFormProps<T = Record<string, any>> = {
+export type BaseFormProps<T = Record<string, any>, U = Record<string, any>> = {
   contentRender?: (
     items: React.ReactNode[],
     submitter: React.ReactElement<SubmitterProps> | undefined,
@@ -200,7 +200,7 @@ export type BaseFormProps<T = Record<string, any>> = {
   /** Form 组件的类型，内部使用 */
   formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter';
 } & Omit<FormProps, 'onFinish'> &
-  CommonFormProps<T>;
+  CommonFormProps<T, U>;
 
 const genParams = (
   syncUrl: BaseFormProps<any>['syncToUrl'],
