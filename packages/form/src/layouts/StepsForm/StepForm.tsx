@@ -6,12 +6,12 @@ import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { StepsFormProvide } from './index';
 
-export type StepFormProps<T = Record<string, any>> = {
+export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   step?: number;
   stepProps?: StepProps;
   index?: number;
 } & Omit<FormProps<T>, 'onFinish' | 'form'> &
-  Omit<CommonFormProps<T>, 'submitter' | 'form'>;
+  Omit<CommonFormProps<T, U>, 'submitter' | 'form'>;
 
 function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
