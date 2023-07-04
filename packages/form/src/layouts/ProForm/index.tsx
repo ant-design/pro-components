@@ -5,11 +5,10 @@ import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { Group, ProFormItem } from '../../components';
 
-export type ProFormProps<T = Record<string, any>, U = Record<string, any>> = Omit<
-  FormProps<T>,
-  'onFinish'
-> &
-  CommonFormProps<T, U>;
+export type ProFormProps<
+  T = Record<string, any>,
+  U = Record<string, any>,
+> = Omit<FormProps<T>, 'onFinish'> & CommonFormProps<T, U>;
 
 function ProForm<T = Record<string, any>>(
   props: ProFormProps<T> & {

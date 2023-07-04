@@ -67,8 +67,8 @@ export type SiderMenuProps = {
   /** 相关品牌的列表 */
   appList?: AppListProps;
   appListRender?: (
-      props: AppListProps,
-      defaultDom: React.ReactNode
+    props: AppListProps,
+    defaultDom: React.ReactNode,
   ) => React.ReactNode;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
   itemClick?: (

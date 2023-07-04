@@ -845,28 +845,29 @@ const ProTable = <
   }, [action.loading]);
 
   const searchNode = useMemo(() => {
-    const node = search === false && type !== 'form' ? null : (
-      <FormRender<T, U>
-        pagination={pagination}
-        beforeSearchSubmit={beforeSearchSubmit}
-        action={actionRef}
-        columns={propsColumns}
-        onFormSearchSubmit={(values) => {
-          onFormSearchSubmit(values);
-        }}
-        ghost={ghost}
-        onReset={props.onReset}
-        onSubmit={props.onSubmit}
-        loading={!!loading}
-        manualRequest={manualRequest}
-        search={search}
-        form={props.form}
-        formRef={formRef}
-        type={props.type || 'table'}
-        cardBordered={props.cardBordered}
-        dateFormatter={props.dateFormatter}
-      />
-    );
+    const node =
+      search === false && type !== 'form' ? null : (
+        <FormRender<T, U>
+          pagination={pagination}
+          beforeSearchSubmit={beforeSearchSubmit}
+          action={actionRef}
+          columns={propsColumns}
+          onFormSearchSubmit={(values) => {
+            onFormSearchSubmit(values);
+          }}
+          ghost={ghost}
+          onReset={props.onReset}
+          onSubmit={props.onSubmit}
+          loading={!!loading}
+          manualRequest={manualRequest}
+          search={search}
+          form={props.form}
+          formRef={formRef}
+          type={props.type || 'table'}
+          cardBordered={props.cardBordered}
+          dateFormatter={props.dateFormatter}
+        />
+      );
 
     if (searchFormRender && node) {
       return <>{searchFormRender(props, node)}</>;
