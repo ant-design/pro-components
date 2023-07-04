@@ -19,11 +19,11 @@ import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { useStyle } from './style';
 
-export type DrawerFormProps<T = Record<string, any>> = Omit<
+export type DrawerFormProps<T = Record<string, any>, U = Record<string, any>> = Omit<
   FormProps,
   'onFinish' | 'title'
 > &
-  CommonFormProps<T> & {
+  CommonFormProps<T, U> & {
     /**
      * 接收任意值，返回 真值 会关掉这个抽屉
      *

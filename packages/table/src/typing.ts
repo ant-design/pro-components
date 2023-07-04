@@ -276,6 +276,14 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
     dataSource: DataSource[],
   ) => React.ReactNode;
 
+  /**
+   * @name 渲染搜索表单
+   */
+  searchFormRender?: (
+    props: ProTableProps<DataSource, U, ValueType>,
+    defaultDom: JSX.Element,
+  ) => React.ReactNode;
+
   /** @name 一个获得 dataSource 的方法 */
   request?: (
     params: U & {

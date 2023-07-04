@@ -215,6 +215,18 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       searchValue={searchValue}
       optionFilterProp={optionFilterProp}
       optionLabelProp={optionLabelProp}
+      filterOption={(inputValue, option) => {
+        return !!(
+          option?.label
+            ?.toString()
+            .toLowerCase()
+            .includes(inputValue.toLowerCase()) ||
+          option?.value
+            ?.toString()
+            .toLowerCase()
+            .includes(inputValue.toLowerCase())
+        );
+      }} // 这里使用pro-components的过滤逻辑
       onClear={() => {
         onClear?.();
         fetchData(undefined);
