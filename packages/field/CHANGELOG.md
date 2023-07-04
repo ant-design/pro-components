@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.3...@ant-design/pro-field@2.10.4) (2023-07-04)
+
+
+### Bug Fixes
+
+* **form:** 修复当value为搜索条件option显示不出来的问题 ([#7283](https://github.com/ant-design/pro-components/issues/7283)) ([a30e3e7](https://github.com/ant-design/pro-components/commit/a30e3e7bbc6cfafaee35e8dd34d6814f5b9be74a))
+
+
+
+
 
 ## [2.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.2...@ant-design/pro-field@2.10.3) (2023-06-30)
 
