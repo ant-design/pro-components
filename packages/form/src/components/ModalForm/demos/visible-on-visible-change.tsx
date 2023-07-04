@@ -13,7 +13,6 @@ import { useState } from 'react';
 export default () => {
   const [modalVisit, setModalVisit] = useState(false);
   const [drawerVisit, setDrawerVisit] = useState(false);
-  const [resizableDrawerVisit, setResizableDrawerVisit] = useState(false);
 
   return (
     <>
@@ -35,15 +34,6 @@ export default () => {
         >
           <PlusOutlined />
           Drawer 展示
-        </Button>
-        <Button
-          type="primary"
-          onClick={() => {
-            setResizableDrawerVisit(true);
-          }}
-        >
-          <PlusOutlined />
-          Resizable Drawer 展示
         </Button>
       </Space>
       <ModalForm
