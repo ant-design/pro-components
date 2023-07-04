@@ -39,7 +39,7 @@
     "@ant-design/pro-utils": "2.12.2",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.8",
+    "dayjs": "^1.11.9",
     "rc-resize-observer": "^1.0.0",
     "rc-util": "^4.19.0",
     "use-media-antd-query": "^1.1.0"

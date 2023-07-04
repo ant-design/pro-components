@@ -78,7 +78,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
         );
       }
       return (
-        <span style={{ display: 'flex' }}>
+        <span key={index} style={{ display: 'flex' }}>
           {item}
           {comma}
         </span>

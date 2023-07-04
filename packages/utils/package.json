@@ -38,7 +38,7 @@
     "@ant-design/pro-provider": "2.10.5",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.8",
+    "dayjs": "^1.11.9",
     "rc-util": "^5.0.6",
     "swr": "^2.0.0"
   },

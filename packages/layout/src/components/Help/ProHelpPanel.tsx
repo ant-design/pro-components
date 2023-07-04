@@ -1,5 +1,6 @@
 ﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
 import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
+import { coverToNewToken } from '@ant-design/pro-utils';
 import { Card, ConfigProvider, Menu } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useContext, useMemo, useState } from 'react';
@@ -221,7 +222,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
               theme={{
                 hashed: isNeedOpenHash(),
                 components: {
-                  Menu: {
+                  Menu: coverToNewToken({
                     lineHeight: 1.2,
                     controlHeightLG: 26,
                     fontSize: 12,
@@ -248,7 +249,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                     colorBgElevated:
                       token?.layout?.sider?.colorBgMenuItemCollapsedElevated ||
                       '#fff',
-                  },
+                  }),
                 },
               }}
             >
