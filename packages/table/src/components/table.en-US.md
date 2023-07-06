@@ -96,6 +96,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | manualRequest | Do you need to manually trigger the first request? When configured as `true`, the search form cannot be hidden | `boolean` | false |
 | editable | Related configuration of editable table | [TableRowEditable](/components/editable-table#editable-Editable row configuration) | - |
 | cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
+| ghost | Ghost mode, that is, whether to cancel the padding of the table content area. | `boolean` | false |
 | debounceTime | Debounce time | `number` | 10 |
 | revalidateOnFocus | Automatically re-request when the window is focused | `boolean` | `false` |
 | columnsState | Column Status Control, you can operate the display hide | `ColumnStateType` | - |
