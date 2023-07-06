@@ -25,7 +25,10 @@ import type {
 import type { DragTableProps } from './components/DragSortTable';
 import DragSortTable from './components/DragSortTable';
 import TableDropdown from './components/Dropdown';
-import type { EditableFormInstance } from './components/EditableTable';
+import type {
+  EditableFormInstance,
+  EditableProTableProps,
+} from './components/EditableTable';
 import EditableProTable from './components/EditableTable';
 import Search from './components/Form';
 import type { ListToolBarProps } from './components/ListToolBar';
@@ -56,6 +59,7 @@ export type {
   RequestData,
   ListToolBarProps,
   DragTableProps,
+  EditableProTableProps,
 };
 export {
   TableDropdown,
