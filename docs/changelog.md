@@ -1,4 +1,14 @@
-﻿## @ant-design/pro-components@2.6.3
+﻿## @ant-design/pro-components@2.6.4
+
+`2023-07-04`
+
+- fix(layout): support antd@5.6.4. [a6ee785](https://github.com/ant-design/pro-components/commit/a6ee785)
+- feat(layout): 添加 appListRender api (#7286). [#7286](https://github.com/ant-design/pro-components/pull/#7286) [@sansheng741](https://github.com/sansheng741)
+- feat(form): ProForm 支持第二个泛型参数 (#7318). [#7318](https://github.com/ant-design/pro-components/pull/#7318) [@q1uxu](https://github.com/q1uxu)
+- fix(form): 修复当 value 为搜索条件 option 显示不出来的问题 (#7283). [#7283](https://github.com/ant-design/pro-components/pull/#7283) [@ldwonday](https://github.com/ldwonday)
+- feat(table): add support of custom render serch form (#7307). [#7307](https://github.com/ant-design/pro-components/pull/#7307) [@mashirozx](https://github.com/mashirozx)
+
+## @ant-design/pro-components@2.6.3
 
 `2023-06-30`
 

@@ -17,10 +17,10 @@ import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 
-export type ModalFormProps<T = Record<string, any>, U = Record<string, any>> = Omit<
-  FormProps<T>,
-  'onFinish' | 'title'
-> &
+export type ModalFormProps<
+  T = Record<string, any>,
+  U = Record<string, any>,
+> = Omit<FormProps<T>, 'onFinish' | 'title'> &
   CommonFormProps<T, U> & {
     /**
      * 接收任意值，返回 真值 会关掉这个抽屉

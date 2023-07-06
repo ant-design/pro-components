@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.14.3...@ant-design/pro-form@2.15.0) (2023-07-04)
+
+### Features
+
+- **form:** ProForm 支持第二个泛型参数 ([#7318](https://github.com/ant-design/pro-components/issues/7318)) ([da90c1a](https://github.com/ant-design/pro-components/commit/da90c1a65b96be301f872ae8d91198e4d76aa11f))
+
 ## [2.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.14.2...@ant-design/pro-form@2.14.3) (2023-06-30)
 
 ### Bug Fixes

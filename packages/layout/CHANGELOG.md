@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.15.3...@ant-design/pro-layout@7.16.0) (2023-07-04)
+
+### Bug Fixes
+
+- **layout:** support antd@5.6.4 ([a6ee785](https://github.com/ant-design/pro-components/commit/a6ee785207603de7965c2a1c6fff6fd1b4311410))
+
+### Features
+
+- **layout:** 添加 appListRender api ([#7286](https://github.com/ant-design/pro-components/issues/7286)) ([0cb1a4a](https://github.com/ant-design/pro-components/commit/0cb1a4ab13a7987825cf24ac13852feb500a764a))
+
 ## [7.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.15.2...@ant-design/pro-layout@7.15.3) (2023-06-30)
 
 ### Bug Fixes

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.8.3...@ant-design/pro-table@3.9.0) (2023-07-04)
+
+### Features
+
+- **table:** add support of custom render serch form ([#7307](https://github.com/ant-design/pro-components/issues/7307)) ([7f83ae0](https://github.com/ant-design/pro-components/commit/7f83ae084d0ed48aca9c978b13053dda801c6898))
+
 ## [3.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.8.2...@ant-design/pro-table@3.8.3) (2023-06-30)
 
 ### Bug Fixes

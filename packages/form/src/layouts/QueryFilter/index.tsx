@@ -208,10 +208,10 @@ const flatMapItems = (
   });
 };
 
-export type QueryFilterProps<T = Record<string, any>, U = Record<string, any>> = Omit<
-  FormProps<T>,
-  'onFinish'
-> &
+export type QueryFilterProps<
+  T = Record<string, any>,
+  U = Record<string, any>,
+> = Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T, U> &
   BaseQueryFilterProps & {
     onReset?: (values: T) => void;

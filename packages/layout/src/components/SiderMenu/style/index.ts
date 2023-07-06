@@ -21,16 +21,17 @@ export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   return {
     [`${token.proComponentsCls}-layout`]: {
+      [`${token.antCls}-layout-sider${token.componentCls}`]: {
+        background: token.layout?.sider?.colorMenuBackground || 'transparent',
+      },
       [token.componentCls]: {
         position: 'relative',
-        background: token.layout?.sider?.colorMenuBackground || 'transparent',
         boxSizing: 'border-box',
         '&-menu': {
           position: 'relative',
           zIndex: 10,
           minHeight: '100%',
         },
-
         [`${token.antCls}-layout-sider-children`]: {
           position: 'relative',
           display: 'flex',

@@ -1,7 +1,6 @@
 import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
-import type { AvatarProps, SiderProps } from 'antd';
-import { Avatar, Layout, Menu, Space } from 'antd';
+import { Avatar, AvatarProps, Layout, Menu, SiderProps, Space } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
@@ -68,8 +67,8 @@ export type SiderMenuProps = {
   /** 相关品牌的列表 */
   appList?: AppListProps;
   appListRender?: (
-      props: AppListProps,
-      defaultDom: React.ReactNode
+    props: AppListProps,
+    defaultDom: React.ReactNode,
   ) => React.ReactNode;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
   itemClick?: (
@@ -474,6 +473,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           }}
         />
       )}
+
       <Sider
         collapsible
         trigger={null}
