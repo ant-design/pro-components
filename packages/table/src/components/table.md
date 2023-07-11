@@ -98,6 +98,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
+| ghost | 幽灵模式，即是否取消表格区域的 padding | `boolean` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
 | revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `true` |
 | columnsState | 受控的列状态，可以操作显示隐藏 | `ColumnStateType` | - |

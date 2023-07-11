@@ -7,7 +7,7 @@ export interface ProListToken extends ProAliasToken {
 }
 
 const proCheckCardActive = (token: ProListToken) => ({
-  backgroundColor: token.colorPrimaryBgHover,
+  backgroundColor: token.colorPrimaryBg,
   borderColor: token.colorPrimary,
 });
 const proCheckCardDisabled = (token: ProListToken) => ({

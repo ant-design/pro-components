@@ -232,6 +232,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       onClick={(e) => {
         onChecked?.(e);
         rest?.onClick?.(e);
+        e.stopPropagation();
       }}
       {...omit(rest, ['prefixCls', 'colSpan'])}
     >
@@ -257,14 +258,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {extra && (
             <div
               className={`${prefixCls}-extra ${hashId}`.trim()}
-              onChange={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-              }}
+              onClick={(e) => e.stopPropagation()}
             >
               {extra}
             </div>
