@@ -1,11 +1,25 @@
-import { ProCard } from '@ant-design/pro-components';
+import {
+  ProCard,
+  ProFormGroup,
+  ProFormSwitch,
+} from '@ant-design/pro-components';
 
 export default () => {
   return (
     <>
       <ProCard
         title="默认尺寸"
-        extra="extra"
+        bordered
+        extra={
+          <ProFormGroup>
+            <ProFormSwitch
+              name="Enable"
+              noStyle
+              checkedChildren={'启用'}
+              unCheckedChildren={'禁用'}
+            />
+          </ProFormGroup>
+        }
         tooltip="这是提示"
         style={{ maxWidth: 300 }}
       >
