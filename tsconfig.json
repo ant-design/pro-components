@@ -40,7 +40,6 @@
     "**/demos",
     ".eslintrc.js",
     "tests",
-    "jest.config.ts",
     "**/fixtures",
     "./tests/no-duplicated.ts",
     "packages/descriptions/src/demos/.tsx"
