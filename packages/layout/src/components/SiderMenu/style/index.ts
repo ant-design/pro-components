@@ -7,10 +7,9 @@ export interface SiderMenuToken extends ProAliasToken {
 }
 
 export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
-  '0%': { display: 'none', opacity: 0 },
+  '0%': { display: 'none', opacity: 0, overflow: 'hidden' },
   '80%': {
-    display: 'none',
-    opacity: 0,
+    overflow: 'hidden',
   },
   '100%': {
     display: 'unset',
@@ -79,6 +78,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               marginInlineEnd: 0,
               marginInlineStart: 6,
               color: token.layout?.sider?.colorTextMenuTitle,
+              animationName: proLayoutTitleHide,
+              animationDuration: '.4s',
+              animationTimingFunction: 'ease',
               fontWeight: 600,
               fontSize: 16,
               lineHeight: '22px',
@@ -173,7 +175,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           paddingBlockEnd: 16,
           fontSize: token.fontSize,
           animationName: proLayoutTitleHide,
-          animationDuration: '.3s',
+          animationDuration: '.4s',
           animationTimingFunction: 'ease',
         },
       },
