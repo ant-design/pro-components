@@ -1,4 +1,5 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
+import { useToken } from '@ant-design/pro-provider';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
@@ -38,8 +39,8 @@ const InlineErrorFormItemPopover: React.FC<{
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls();
 
+  const token = useToken();
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);
-
   useEffect(() => {
     if (inputProps.validateStatus !== 'validating') {
       setErrorList(inputProps.errors);
@@ -59,20 +60,37 @@ const InlineErrorFormItemPopover: React.FC<{
   return (
     <Popover
       key="popover"
-      trigger={popoverProps?.trigger || 'focus'}
-      placement={popoverProps?.placement || 'topRight'}
+      trigger={popoverProps?.trigger || ['click']}
+      placement={popoverProps?.placement || 'topLeft'}
       {...popoverOpenProps}
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(
-        <div className={`${prefixCls}-form-item-with-help ${hashId}`.trim()}>
-          {loading ? <LoadingOutlined /> : null}
-          {errorList}
+        <div
+          className={`${prefixCls}-form-item ${hashId} ${token.hashId}`.trim()}
+          style={{
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          <div
+            className={`${prefixCls}-form-item-with-help ${hashId} ${token.hashId}`.trim()}
+          >
+            {loading ? <LoadingOutlined /> : null}
+            {errorList}
+          </div>
         </div>,
       )}
       {...popoverProps}
     >
-      <div>
+      <div
+        style={{
+          width: 'max-content',
+          maxWidth: '100%',
+          padding: 4,
+        }}
+        tabIndex={-1}
+      >
         {input}
         {extra}
       </div>

@@ -284,6 +284,14 @@ const ConfigProviderContainer: React.FC<{
     },
   );
 
+  const hashed = useMemo(() => {
+    if (props.hashed === false) {
+      return false;
+    }
+    if (proProvide.hashed === false) return false;
+    return true;
+  }, [proProvide.hashed, props.hashed]);
+
   const hashId = useMemo(() => {
     if (props.hashed === false) {
       return '';
@@ -302,11 +310,9 @@ const ConfigProviderContainer: React.FC<{
     const themeConfig = {
       ...restConfig.theme,
       hashId: hashId,
-      hashed:
-        props.hashed !== false &&
-        proProvide.hashed !== false &&
-        isNeedOpenHash(),
+      hashed: hashed && isNeedOpenHash(),
     };
+
     return (
       <AntdConfigProvider {...restConfig} theme={{ ...themeConfig }}>
         <ProConfigContext.Provider
@@ -315,7 +321,7 @@ const ConfigProviderContainer: React.FC<{
             valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
             token,
             theme: tokenContext.theme as unknown as Theme<any, any>,
-            hashed: props.hashed,
+            hashed,
             hashId,
           }}
         >
