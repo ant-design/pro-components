@@ -25,7 +25,13 @@ export default () => {
       company: string;
     }>
       title="新建表单"
-      isResizable
+      resize={{
+        onResize() {
+          console.log("resize!")
+        },
+        maxWidth: window.innerWidth * 0.8,
+        minWidth: 300
+      }}
       form={form}
       trigger={
         <Button type="primary">

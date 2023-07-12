@@ -848,7 +848,7 @@ describe('LightFilter', () => {
     });
     await waitFor(
       () => {
-        expect(onFinish).toHaveBeenNthCalledWith({ radio: 'yearly' });
+        expect(onFinish).toHaveBeenCalledWith({ radio: 'yearly' });
       },
       {
         timeout: 1000,
