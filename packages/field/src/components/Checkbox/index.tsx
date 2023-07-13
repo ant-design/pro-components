@@ -1,5 +1,5 @@
 ﻿import { useStyle } from '@ant-design/pro-utils';
-import { Checkbox, ConfigProvider, Space, Spin } from 'antd';
+import { Checkbox, ConfigProvider, Form, Space, Spin } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
@@ -26,11 +26,23 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-checkbox');
+  const status = Form.Item?.useStatus?.();
   const [loading, options, fetchData] = useFieldFetchData(rest);
+
   // css
   const { wrapSSR, hashId } = useStyle('Checkbox', (token) => {
     return {
       [`.${layoutClassName}`]: {
+        '&-error': {
+          span: {
+            color: token.colorError,
+          },
+        },
+        '&-warning': {
+          span: {
+            color: token.colorWarning,
+          },
+        },
         '&-vertical': {
           //ant design 5
           [`&${token.antCls}-checkbox-group`]: {
@@ -92,6 +104,10 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
           rest.fieldProps?.className,
           hashId,
           `${layoutClassName}-${layout}`,
+          {
+            [`${layoutClassName}-error`]: status?.status === 'error',
+            [`${layoutClassName}-warning`]: status?.status === 'warning',
+          },
         )}
         options={options}
       />,

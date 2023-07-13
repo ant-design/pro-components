@@ -5242,7 +5242,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -5501,7 +5504,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -5760,7 +5766,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -6019,7 +6028,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -6278,7 +6290,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -6537,7 +6552,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -6796,7 +6814,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -7055,7 +7076,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -7314,7 +7338,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -7573,7 +7600,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -7832,7 +7862,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -8091,7 +8124,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -8350,7 +8386,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -8609,7 +8648,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -8868,7 +8910,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -9127,7 +9172,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -9386,7 +9434,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -9645,7 +9696,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -9904,7 +9958,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >
@@ -10163,7 +10220,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <div
                                   class="ant-col ant-form-item-control"
                                 >
-                                  <div>
+                                  <div
+                                    style="max-width: 100%; padding: 4px;"
+                                    tabindex="-1"
+                                  >
                                     <div
                                       class="ant-form-item-control-input"
                                     >

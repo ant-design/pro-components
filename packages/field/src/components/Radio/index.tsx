@@ -1,6 +1,6 @@
 import { useStyle } from '@ant-design/pro-utils';
 import type { RadioGroupProps } from 'antd';
-import { ConfigProvider, Radio, Spin } from 'antd';
+import { ConfigProvider, Form, Radio, Spin } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
@@ -30,6 +30,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   const layoutClassName = getPrefixCls('pro-field-radio');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const radioRef = useRef();
+  const status = Form.Item?.useStatus?.();
 
   useImperativeHandle(
     ref,
@@ -43,6 +44,16 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   // css
   const { wrapSSR, hashId } = useStyle('FieldRadioRadio', (token) => {
     return {
+      [`.${layoutClassName}-error`]: {
+        span: {
+          color: token.colorError,
+        },
+      },
+      [`.${layoutClassName}-warning`]: {
+        span: {
+          color: token.colorWarning,
+        },
+      },
       [`.${layoutClassName}-vertical`]: {
         [`${token.antCls}-radio-wrapper`]: {
           display: 'flex',
@@ -85,6 +96,10 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         {...rest.fieldProps}
         className={classNames(
           rest.fieldProps?.className,
+          {
+            [`${layoutClassName}-error`]: status?.status === 'error',
+            [`${layoutClassName}-warning`]: status?.status === 'warning',
+          },
           hashId,
           `${layoutClassName}-${rest.fieldProps.layout || 'horizontal'}`,
         )}
