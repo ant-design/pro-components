@@ -41153,6 +41153,43 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
         >
           <label
             class=""
+            for="address"
+            title="详细的工作地址或家庭住址"
+          >
+            详细的工作地址或家庭住址
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <textarea
+                class="ant-input"
+                id="address"
+                placeholder="请输入"
+                rows="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
             for="mangerName"
             title="商务经理"
           >
