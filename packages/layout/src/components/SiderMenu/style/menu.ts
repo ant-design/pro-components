@@ -72,6 +72,13 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         flexDirection: 'row',
         alignItems: 'center',
         gap: token.marginXS,
+        [`${token.componentCls}-item-text`]: {
+          maxWidth: '100%',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          wordBreak: 'break-all',
+          whiteSpace: 'nowrap',
+        },
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
@@ -86,9 +93,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
               height: '16px',
             },
           },
-          [`${token.componentCls}-item-text`]: {
-            maxWidth: '100%',
-          },
+
           [`${token.componentCls}-item-text-has-icon`]: {
             display: 'none !important',
           },

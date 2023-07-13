@@ -2,7 +2,7 @@ import { createFromIconfontCN } from '@ant-design/icons';
 import type { ProTokenType } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import { isImg, isUrl, useMountMergeState } from '@ant-design/pro-utils';
-import type { MenuProps} from 'antd';
+import type { MenuProps } from 'antd';
 import { Menu, Skeleton, Tooltip } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
