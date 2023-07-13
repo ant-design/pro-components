@@ -58,7 +58,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           color: token.colorTextPlaceholder,
           borderRadius: '50%',
         },
-        ':hover': {
+        '&:hover': {
           color: token.colorIconHover,
         },
       },
