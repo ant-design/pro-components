@@ -21,8 +21,8 @@ import type { ItemProps } from './Item';
 import ProListItem from './Item';
 
 import { compareVersions } from '@ant-design/pro-utils';
+import type { AnyObject } from 'antd/es/_util/type';
 import type { PaginationConfig } from 'antd/lib/pagination';
-import type { AnyObject } from 'antd/lib/table/Table';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
