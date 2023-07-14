@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.4...@ant-design/pro-field@2.10.5) (2023-07-14)
+
+
+### Bug Fixes
+
+* **form:** Fix the display style of the switch ([8cdeda4](https://github.com/ant-design/pro-components/commit/8cdeda486d2aebd0f290a64c389f298e62c21af1))
+* **form:** InlineErrorFormItemPopover support radio and checkbox ([8c6ede6](https://github.com/ant-design/pro-components/commit/8c6ede609dce67722c1e23819c0feb93ef0d153d))
+
+
+
+
 
 ## [2.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.3...@ant-design/pro-field@2.10.4) (2023-07-04)
 
