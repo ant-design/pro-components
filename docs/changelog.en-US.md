@@ -1,4 +1,16 @@
-﻿## @ant-design/pro-components@2.6.4
+﻿## @ant-design/pro-components@2.6.5
+
+`2023-07-14`
+
+- fix(layout): Fix the issue of excessively long titles not being truncated.. [0e67775](https://github.com/ant-design/pro-components/commit/0e67775)
+- fix(layout): fix abnormal animation playback.. [854ce2b](https://github.com/ant-design/pro-components/commit/854ce2b)
+- fix(form): Fix the display style of the switch. [8cdeda4](https://github.com/ant-design/pro-components/commit/8cdeda4)
+- fix(form): InlineErrorFormItemPopover support radio and checkbox. [8c6ede6](https://github.com/ant-design/pro-components/commit/8c6ede6)
+- fix(table): export editor pro table props (#7330). [#7330](https://github.com/ant-design/pro-components/pull/#7330) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(card): change checkCard checked token (#7352). [#7352](https://github.com/ant-design/pro-components/pull/#7352) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(card): remove onChange stopPropagation. [5f4bb48](https://github.com/ant-design/pro-components/commit/5f4bb48)
+
+## @ant-design/pro-components@2.6.4
 
 `2023-07-04`
 

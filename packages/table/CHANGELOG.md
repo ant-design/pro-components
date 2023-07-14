@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.9.0...@ant-design/pro-table@3.9.1) (2023-07-14)
 
-
 ### Bug Fixes
 
-* **table:** export edito pro table props ([#7330](https://github.com/ant-design/pro-components/issues/7330)) ([011de57](https://github.com/ant-design/pro-components/commit/011de5789393a6c2dd68d4f970053139f2d5ea40))
-
-
-
-
+- **table:** export edito pro table props ([#7330](https://github.com/ant-design/pro-components/issues/7330)) ([011de57](https://github.com/ant-design/pro-components/commit/011de5789393a6c2dd68d4f970053139f2d5ea40))
 
 # [3.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.8.3...@ant-design/pro-table@3.9.0) (2023-07-04)
 

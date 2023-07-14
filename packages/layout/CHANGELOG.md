@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.0...@ant-design/pro-layout@7.16.1) (2023-07-14)
 
-
 ### Bug Fixes
 
-* **layout:** fix abnormal animation playback. ([854ce2b](https://github.com/ant-design/pro-components/commit/854ce2b5d012362910ed3683095055b71a9b2fe5))
-* **layout:** Fix the issue of excessively long titles not being truncated. ([0e67775](https://github.com/ant-design/pro-components/commit/0e67775dd8c9e31346b2a309f4b7ce7dd46bf065))
-
-
-
-
+- **layout:** fix abnormal animation playback. ([854ce2b](https://github.com/ant-design/pro-components/commit/854ce2b5d012362910ed3683095055b71a9b2fe5))
+- **layout:** Fix the issue of excessively long titles not being truncated. ([0e67775](https://github.com/ant-design/pro-components/commit/0e67775dd8c9e31346b2a309f4b7ce7dd46bf065))
 
 # [7.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.15.3...@ant-design/pro-layout@7.16.0) (2023-07-04)
 

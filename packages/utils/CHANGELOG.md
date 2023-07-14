@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.12.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.3...@ant-design/pro-utils@2.12.4) (2023-07-14)
 
-
 ### Bug Fixes
 
-* **form:** InlineErrorFormItemPopover support radio and checkbox ([8c6ede6](https://github.com/ant-design/pro-components/commit/8c6ede609dce67722c1e23819c0feb93ef0d153d))
-
-
-
-
+- **form:** InlineErrorFormItemPopover support radio and checkbox ([8c6ede6](https://github.com/ant-design/pro-components/commit/8c6ede609dce67722c1e23819c0feb93ef0d153d))
 
 ## [2.12.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.2...@ant-design/pro-utils@2.12.3) (2023-07-04)
 

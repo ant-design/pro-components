@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.5.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.4...@ant-design/pro-card@2.5.5) (2023-07-14)
 
-
 ### Bug Fixes
 
-* **card:** change checkcard checked token ([#7352](https://github.com/ant-design/pro-components/issues/7352)) ([8b2e00a](https://github.com/ant-design/pro-components/commit/8b2e00add79cd1547e52a4b1de6b8cd1796f52f9))
-* **card:** remove onChange stopPropagation ([5f4bb48](https://github.com/ant-design/pro-components/commit/5f4bb4849ffd70f3fd44d0a73183dc38df30c87a))
-
-
-
-
+- **card:** change checkcard checked token ([#7352](https://github.com/ant-design/pro-components/issues/7352)) ([8b2e00a](https://github.com/ant-design/pro-components/commit/8b2e00add79cd1547e52a4b1de6b8cd1796f52f9))
+- **card:** remove onChange stopPropagation ([5f4bb48](https://github.com/ant-design/pro-components/commit/5f4bb4849ffd70f3fd44d0a73183dc38df30c87a))
 
 ## [2.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.3...@ant-design/pro-card@2.5.4) (2023-07-04)
 
