@@ -17674,6 +17674,68 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       class="ant-form-item-control-input-content"
                     >
                       <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
+                      >
+                        <span
+                          style="display: inline-flex; align-items: center;"
+                        >
+                          <span
+                            class="ant-pro-core-field-label-text"
+                          >
+                            开关: 
+                          </span>
+                          <div
+                            style="padding-left: 8px;"
+                          >
+                            <button
+                              aria-checked="false"
+                              class="ant-switch ant-switch-small"
+                              id="open"
+                              role="switch"
+                              type="button"
+                            >
+                              <div
+                                class="ant-switch-handle"
+                              />
+                              <span
+                                class="ant-switch-inner"
+                              >
+                                <span
+                                  class="ant-switch-inner-checked"
+                                />
+                                <span
+                                  class="ant-switch-inner-unchecked"
+                                />
+                              </span>
+                            </button>
+                          </div>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-form-item"
+            >
+              <div
+                class="ant-row ant-form-item-row"
+              >
+                <div
+                  class="ant-col ant-form-item-control"
+                >
+                  <div
+                    class="ant-form-item-control-input"
+                  >
+                    <div
+                      class="ant-form-item-control-input-content"
+                    >
+                      <span
                         class="ant-pro-core-field-dropdown-label"
                       >
                         <span
