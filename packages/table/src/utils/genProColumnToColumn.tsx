@@ -144,7 +144,11 @@ export function genProColumnToColumn<T>(
           }
 
           let uniqueKey: any;
-          if (Reflect.has(rowData as any, keyName)) {
+          if (
+            typeof rowData === 'object' &&
+            rowData !== null &&
+            Reflect.has(rowData as any, keyName)
+          ) {
             uniqueKey = rowData[keyName];
             const parentInfo = subNameRecord.get(uniqueKey) || [];
             rowData[childrenColumnName]?.forEach((item: any) => {
