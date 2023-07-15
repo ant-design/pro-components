@@ -69,7 +69,7 @@ export type ModalFormProps<
     width?: ModalProps['width'];
   };
 
-function ModalForm<T = Record<string, any>>({
+function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -82,7 +82,7 @@ function ModalForm<T = Record<string, any>>({
   visible: propVisible,
   open: propsOpen,
   ...rest
-}: ModalFormProps<T>) {
+}: ModalFormProps<T, U>) {
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !modalProps?.footer,
@@ -260,7 +260,7 @@ function ModalForm<T = Record<string, any>>({
           ) : null
         }
       >
-        <BaseForm
+        <BaseForm<T, U>
           formComponentType="ModalForm"
           layout="vertical"
           {...rest}

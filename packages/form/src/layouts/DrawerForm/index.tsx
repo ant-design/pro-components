@@ -70,7 +70,7 @@ export type DrawerFormProps<
     width?: DrawerProps['width'];
   };
 
-function DrawerForm<T = Record<string, any>>({
+function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -83,7 +83,7 @@ function DrawerForm<T = Record<string, any>>({
   visible: propVisible,
   open: propsOpen,
   ...rest
-}: DrawerFormProps<T>) {
+}: DrawerFormProps<T, U>) {
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !drawerProps?.footer,
@@ -251,7 +251,7 @@ function DrawerForm<T = Record<string, any>>({
         }
       >
         <>
-          <BaseForm
+          <BaseForm<T, U>
             formComponentType="DrawerForm"
             layout="vertical"
             {...rest}
