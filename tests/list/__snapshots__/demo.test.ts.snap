@@ -1278,71 +1278,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    语雀的天空
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  语雀的天空
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1396,71 +1400,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    Ant Design
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  Ant Design
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1514,71 +1522,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    蚂蚁金服体验科技
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  蚂蚁金服体验科技
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1632,71 +1644,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    TechUI
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  TechUI
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1750,71 +1766,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    TechUI 2.0
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  TechUI 2.0
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1868,71 +1888,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    Bigfish
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  Bigfish
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1986,71 +2010,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    Umi
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  Umi
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -2104,71 +2132,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    Ant Design Pro
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  Ant Design Pro
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div

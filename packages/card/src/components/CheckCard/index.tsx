@@ -2,7 +2,9 @@ import { useMountMergeState } from '@ant-design/pro-utils';
 import { Avatar, ConfigProvider } from 'antd';
 
 import classNames from 'classnames';
+import type { MouseEventHandler } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
+import ProCardActions from '../Actions';
 import type { CheckCardGroupProps } from './Group';
 import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
 import { useStyle } from './style';
@@ -16,11 +18,11 @@ interface CheckCardProps {
   /** Change 回调 */
   onChange?: (checked: boolean) => void;
   /** Click 回调 */
-  onClick?: (e: Event) => void;
+  onClick?: (event: MouseEventHandler<HTMLDivElement> | undefined) => void;
   /** 鼠标进入时的回调 */
-  onMouseEnter?: (event: MouseEvent) => void;
+  onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   /** 鼠标出来时的回调 */
-  onMouseLeave?: (event: MouseEvent) => void;
+  onMouseLeave?: (event: MouseEventHandler<HTMLDivElement> | undefined) => void;
   /**
    * 默认是否勾选
    *
@@ -67,6 +69,12 @@ interface CheckCardProps {
    */
   title?: React.ReactNode;
   /**
+   * 二级标题展示
+   *
+   * @title 二级标题
+   */
+  subTitle?: React.ReactNode;
+  /**
    * 描述展示
    *
    * @title 描述
@@ -111,6 +119,16 @@ interface CheckCardProps {
    * @title 操作栏
    */
   extra?: React.ReactNode;
+
+  children?: React.ReactNode;
+  /**
+   * 内容区域的样式设计
+   */
+  bodyStyle?: React.CSSProperties;
+  /**
+   * 右下角的操作区
+   */
+  actions?: React.ReactNode[];
 }
 
 export interface CheckCardState {
@@ -134,7 +152,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     props?.onClick?.(e);
     const newChecked = !stateChecked;
     checkCardGroup?.toggleOption?.({ value: props.value });
-    setStateChecked?.(newChecked);
+    setStateChecked?.(newChecked, e);
   };
 
   // small => sm large => lg
@@ -246,7 +264,14 @@ const CheckCard: React.FC<CheckCardProps> & {
 
     const headerDom = (title ?? extra) != null && (
       <div className={`${prefixCls}-header ${hashId}`.trim()}>
-        <div className={`${prefixCls}-title ${hashId}`.trim()}>{title}</div>
+        <div className={`${prefixCls}-header-left ${hashId}`.trim()}>
+          <div className={`${prefixCls}-title ${hashId}`.trim()}>{title}</div>
+          {props.subTitle ? (
+            <div className={`${prefixCls}-subTitle ${hashId}`.trim()}>
+              {props.subTitle}
+            </div>
+          ) : null}
+        </div>
         {extra && (
           <div className={`${prefixCls}-extra ${hashId}`.trim()}>{extra}</div>
         )}
@@ -282,6 +307,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     extra,
     hashId,
     prefixCls,
+    props.subTitle,
     title,
   ]);
 
@@ -294,8 +320,20 @@ const CheckCard: React.FC<CheckCardProps> & {
           handleClick(e);
         }
       }}
+      onMouseEnter={props.onMouseEnter}
     >
       {metaDom}
+      {props.children ? (
+        <div
+          className={classNames(`${prefixCls}-body`)}
+          style={props.bodyStyle}
+        >
+          {props.children}
+        </div>
+      ) : null}
+      {props.actions ? (
+        <ProCardActions actions={props.actions} prefixCls={prefixCls} />
+      ) : null}
     </div>,
   );
 };

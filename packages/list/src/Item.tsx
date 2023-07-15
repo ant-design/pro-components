@@ -1,6 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
-import type { ProCardProps } from '@ant-design/pro-card';
-import ProCard from '@ant-design/pro-card';
+import type { CheckCardProps } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, List, Skeleton } from 'antd';
 
@@ -91,7 +91,7 @@ export type ItemProps<RecordType> = {
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
   recordKey: string | number | undefined;
-  cardProps?: ProCardProps;
+  cardProps?: CheckCardProps;
   record: RecordType;
   onRow?: GetComponentProps<RecordType>;
   onItem?: GetComponentProps<RecordType>;
@@ -270,6 +270,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     return null;
   }, [avatar, getPrefixCls, hashId, title]);
 
+  const itemProps = onItem?.(record, index);
   const defaultDom = !cardProps ? (
     <List.Item
       className={classNames(rowClassName, hashId, {
@@ -279,7 +280,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       actions={extraDom}
       extra={!!extra && <div className={extraClassName}>{extra}</div>}
       {...onRow?.(record, index)}
-      {...onItem?.(record, index)}
+      {...itemProps}
       onClick={(e) => {
         onRow?.(record, index)?.onClick?.(e);
         onItem?.(record, index)?.onClick?.(e);
@@ -328,10 +329,11 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       </Skeleton>
     </List.Item>
   ) : (
-    <ProCard
+    <CheckCard
       bordered
-      loading={loading}
-      hoverable
+      style={{
+        width: '100%',
+      }}
       {...cardProps}
       title={cardTitleDom}
       subTitle={subTitle}
@@ -341,7 +343,11 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         padding: 24,
         ...cardProps.bodyStyle,
       }}
-      {...onItem?.(record, index)}
+      {...(itemProps as CheckCardProps)}
+      onClick={(e: any) => {
+        cardProps?.onClick?.(e);
+        itemProps?.onClick?.(e);
+      }}
     >
       <Skeleton avatar title={false} loading={loading} active>
         <div className={`${className}-header ${hashId}`.trim()}>
@@ -349,7 +355,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           {content}
         </div>
       </Skeleton>
-    </ProCard>
+    </CheckCard>
   );
 
   if (!cardProps) {
