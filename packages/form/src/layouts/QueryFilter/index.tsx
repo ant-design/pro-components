@@ -98,6 +98,9 @@ export type BaseQueryFilterProps = Omit<
    * @type 'horizontal' | 'inline' | 'vertical';
    */
   layout?: FormProps['layout'];
+  /**
+   * @name 默认一行显示几个表单项
+   */
   defaultColsNumber?: number;
   /**
    * @name 文字标签的宽度
