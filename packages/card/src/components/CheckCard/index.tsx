@@ -129,6 +129,8 @@ interface CheckCardProps {
    * 右下角的操作区
    */
   actions?: React.ReactNode[];
+
+  ghost?: boolean;
 }
 
 export interface CheckCardState {
@@ -241,6 +243,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     [`${prefixCls}-multiple`]: multiple,
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-bordered`]: bordered,
+    [`${prefixCls}-ghost`]: props.ghost,
   });
 
   const metaDom = useMemo(() => {
