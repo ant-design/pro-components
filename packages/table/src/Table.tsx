@@ -627,10 +627,12 @@ const ProTable = <
       ...action.pageInfo,
       setPageInfo: ({ pageSize, current }: PageInfo) => {
         const { pageInfo } = action;
+
         // pageSize 发生改变，并且你不是在第一页，切回到第一页
         // 这样可以防止出现 跳转到一个空的数据页的问题
         if (pageSize === pageInfo.pageSize || pageInfo.current === 1) {
           action.setPageInfo({ pageSize, current });
+
           return;
         }
 
@@ -678,7 +680,6 @@ const ProTable = <
     setSelectedRowKeys([]);
   }, [propsRowSelection, setSelectedRowKeys]);
 
-  counter.setAction(actionRef.current);
   counter.propsRef.current = props;
 
   /** 可编辑行的相关配置 */
@@ -733,6 +734,9 @@ const ProTable = <
     },
     editableUtils,
   });
+
+  /** 同步 action */
+  counter.setAction(actionRef.current);
 
   if (propsActionRef) {
     // @ts-ignore
