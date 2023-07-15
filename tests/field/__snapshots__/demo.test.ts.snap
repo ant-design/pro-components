@@ -735,55 +735,51 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                   >
                     <div
-                      class="ant-space-item"
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      style="flex-wrap: wrap; margin-bottom: -2px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -2px;"
+                        class="ant-space-item"
+                        style="margin-right: 1px; padding-bottom: 2px;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 1px; padding-bottom: 2px;"
-                        >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
-                            <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
-                            >
-                              未解决
-                            </span>
-                          </span>
-                        </div>
                         <span
-                          class="ant-space-item-split"
-                          style="margin-right: 1px; padding-bottom: 2px;"
-                        >
-                          ,
-                        </span>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 2px;"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                         >
                           <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            class="ant-badge-status-dot ant-badge-status-error"
+                          />
+                          <span
+                            class="ant-badge-status-text"
                           >
-                            <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
-                            >
-                              已解决
-                            </span>
+                            未解决
                           </span>
-                        </div>
+                        </span>
+                      </div>
+                      <span
+                        class="ant-space-item-split"
+                        style="margin-right: 1px; padding-bottom: 2px;"
+                      >
+                        ,
+                      </span>
+                      <div
+                        class="ant-space-item"
+                        style="padding-bottom: 2px;"
+                      >
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-success"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            已解决
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -806,33 +802,29 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                   >
                     <div
-                      class="ant-space-item"
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      style="flex-wrap: wrap; margin-bottom: -2px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -2px;"
+                        class="ant-space-item"
+                        style="margin-right: 1px; padding-bottom: 2px;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 1px; padding-bottom: 2px;"
-                        >
-                          打开
-                        </div>
-                        <span
-                          class="ant-space-item-split"
-                          style="margin-right: 1px; padding-bottom: 2px;"
-                        >
-                          ,
-                        </span>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 2px;"
-                        >
-                          关闭
-                        </div>
+                        打开
+                      </div>
+                      <span
+                        class="ant-space-item-split"
+                        style="margin-right: 1px; padding-bottom: 2px;"
+                      >
+                        ,
+                      </span>
+                      <div
+                        class="ant-space-item"
+                        style="padding-bottom: 2px;"
+                      >
+                        关闭
                       </div>
                     </div>
                   </div>

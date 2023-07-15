@@ -47982,24 +47982,20 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                             >
-                              <div
-                                class="ant-space-item"
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                               >
                                 <span
-                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
                                 >
-                                  <span
-                                    class="ant-badge-status-dot ant-badge-status-error"
-                                  />
-                                  <span
-                                    class="ant-badge-status-text"
-                                  >
-                                    异常
-                                  </span>
+                                  异常
                                 </span>
-                              </div>
+                              </span>
                             </div>
                           </td>
                           <td
@@ -48124,24 +48120,20 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                             >
-                              <div
-                                class="ant-space-item"
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                               >
                                 <span
-                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
                                 >
-                                  <span
-                                    class="ant-badge-status-dot ant-badge-status-error"
-                                  />
-                                  <span
-                                    class="ant-badge-status-text"
-                                  >
-                                    异常
-                                  </span>
+                                  异常
                                 </span>
-                              </div>
+                              </span>
                             </div>
                           </td>
                           <td

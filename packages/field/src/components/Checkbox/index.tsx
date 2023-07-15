@@ -1,5 +1,5 @@
 ﻿import { useStyle } from '@ant-design/pro-utils';
-import { Checkbox, ConfigProvider, Form, Space, Spin } from 'antd';
+import { Checkbox, ConfigProvider, Form, Spin } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
@@ -12,6 +12,7 @@ export type GroupProps = {
 } & FieldSelectProps;
 
 // 兼容代码-----------
+import { useToken } from '@ant-design/pro-provider';
 import 'antd/lib/checkbox/style';
 //----------------------
 /**
@@ -62,6 +63,8 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
       },
     };
   });
+
+  const { token } = useToken?.();
   const checkBoxRef = useRef();
   useImperativeHandle(
     ref,
@@ -93,7 +96,18 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
         render(rest.text, { mode, ...rest.fieldProps }, <>{dom}</>) ?? null
       );
     }
-    return <Space>{dom}</Space>;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+          gap: token.marginSM,
+        }}
+      >
+        {dom}
+      </div>
+    );
   }
 
   if (mode === 'edit') {

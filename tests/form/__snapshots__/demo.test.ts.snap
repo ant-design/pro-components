@@ -5056,33 +5056,29 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                 >
                   <div
-                    class="ant-space-item"
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="flex-wrap: wrap; margin-bottom: -2px;"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
-                      style="flex-wrap: wrap; margin-bottom: -2px;"
+                      class="ant-space-item"
+                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
-                      <div
-                        class="ant-space-item"
-                        style="margin-right: 1px; padding-bottom: 2px;"
-                      >
-                        A
-                      </div>
-                      <span
-                        class="ant-space-item-split"
-                        style="margin-right: 1px; padding-bottom: 2px;"
-                      >
-                        ,
-                      </span>
-                      <div
-                        class="ant-space-item"
-                        style="padding-bottom: 2px;"
-                      >
-                        B
-                      </div>
+                      A
+                    </div>
+                    <span
+                      class="ant-space-item-split"
+                      style="margin-right: 1px; padding-bottom: 2px;"
+                    >
+                      ,
+                    </span>
+                    <div
+                      class="ant-space-item"
+                      style="padding-bottom: 2px;"
+                    >
+                      B
                     </div>
                   </div>
                 </div>
