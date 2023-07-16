@@ -64,8 +64,11 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-item': {
         display: 'flex',
         alignItems: 'center',
+        maxHeight: 24,
+        justifyContent: 'space-between',
         '&-title': {
           flex: 1,
+          maxWidth: 80,
         },
         '&-option': {
           display: 'none',
@@ -77,7 +80,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             },
           },
           '> span + span': {
-            marginInlineStart: 8,
+            marginInlineStart: 4,
           },
         },
       },
