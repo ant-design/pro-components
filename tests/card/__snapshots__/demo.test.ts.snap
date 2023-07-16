@@ -2767,7 +2767,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               aria-label="right"
               class="anticon anticon-right"
               role="img"
-              style="color: rgba(0, 0, 0, 0.65);"
+              style="color: rgba(0, 0, 0, 0.88);"
             >
               <svg
                 aria-hidden="true"

@@ -237,6 +237,7 @@ const CheckboxList: React.FC<{
   if (!show) {
     return null;
   }
+
   const listDom = (
     <Tree
       itemHeight={24}
@@ -446,18 +447,22 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
       arrow={false}
       title={
         <div className={`${className}-title ${hashId}`.trim()}>
-          <Checkbox
-            indeterminate={indeterminate}
-            checked={
-              unCheckedKeys.length === 0 &&
-              unCheckedKeys.length !== localColumns.length
-            }
-            onChange={(e) => {
-              checkedAll(e);
-            }}
-          >
-            {intl.getMessage('tableToolBar.columnDisplay', '列展示')}
-          </Checkbox>
+          {props.checkable === false ? (
+            <div />
+          ) : (
+            <Checkbox
+              indeterminate={indeterminate}
+              checked={
+                unCheckedKeys.length === 0 &&
+                unCheckedKeys.length !== localColumns.length
+              }
+              onChange={(e) => {
+                checkedAll(e);
+              }}
+            >
+              {intl.getMessage('tableToolBar.columnDisplay', '列展示')}
+            </Checkbox>
+          )}
           {checkedReset ? (
             <a
               onClick={clearClick}
