@@ -71,6 +71,7 @@ export default () => {
         locale="en-US"
         initialValue={22.22}
         min={0}
+        trigger="onBlur"
       />
       <ProFormMoney
         label="不限制金额大小"

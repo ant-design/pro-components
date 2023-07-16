@@ -110,7 +110,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
 
   const Wrapper: React.FC = useCallback(
     ({ children: dom }: { children?: React.ReactNode }) => (
-      <Components {...typeProps} {...(space as SpaceProps)} align="start">
+      <Components {...typeProps} {...(space as SpaceProps)} align="start" wrap>
         {dom}
       </Components>
     ),
