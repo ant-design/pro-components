@@ -5479,7 +5479,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -5741,7 +5741,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -6003,7 +6003,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -6265,7 +6265,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -6527,7 +6527,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -6789,7 +6789,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -7051,7 +7051,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -7313,7 +7313,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -7575,7 +7575,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -7837,7 +7837,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -8099,7 +8099,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -8361,7 +8361,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -8623,7 +8623,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -8885,7 +8885,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -9147,7 +9147,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -9409,7 +9409,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -9671,7 +9671,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -9933,7 +9933,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -10195,7 +10195,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -10457,7 +10457,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除

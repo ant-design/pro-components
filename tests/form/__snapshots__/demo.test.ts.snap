@@ -53077,7 +53077,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                     class="ant-table-cell"
                                   >
                                     <div
-                                      style="display: flex; align-items: center; gap: 12px;"
+                                      style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                                     >
                                       <a>
                                         删除
@@ -53301,7 +53301,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                     class="ant-table-cell"
                                   >
                                     <div
-                                      style="display: flex; align-items: center; gap: 12px;"
+                                      style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                                     >
                                       <a>
                                         删除
