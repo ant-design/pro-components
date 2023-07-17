@@ -2917,7 +2917,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <pre
-        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
+        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
       >
         <code>
           [
@@ -3357,7 +3357,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <pre
-        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
+        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
       >
         <code>
           [
@@ -3738,7 +3738,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <pre
-        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
+        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
       >
         <code>
           [
@@ -4249,7 +4249,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                   class="ant-pro-card-body"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
                   >
                     <code>
                       [
@@ -5479,7 +5479,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -5741,7 +5741,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -6003,7 +6003,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -6265,7 +6265,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -6527,7 +6527,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -6789,7 +6789,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -7051,7 +7051,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -7313,7 +7313,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -7575,7 +7575,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -7837,7 +7837,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -8099,7 +8099,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -8361,7 +8361,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -8623,7 +8623,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -8885,7 +8885,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -9147,7 +9147,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -9409,7 +9409,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -9671,7 +9671,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -9933,7 +9933,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -10195,7 +10195,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -10457,7 +10457,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                             class="ant-table-cell"
                           >
                             <div
-                              style="display: flex; align-items: center; gap: 12px;"
+                              style="display: flex; align-items: center; gap: 12px; justify-content: flex-start;"
                             >
                               <a>
                                 删除
@@ -10549,7 +10549,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <pre
-        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px; width: 100%;"
+        style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
       >
         <code>
           [
@@ -44104,7 +44104,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                   class="ant-table-cell"
                                 >
                                   <pre
-                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                                   >
                                     <code>
                                       const getData = async params =&gt; {
@@ -44139,7 +44139,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                   class="ant-table-cell"
                                 >
                                   <pre
-                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                                   >
                                     <code>
                                       const getData = async params =&gt; {
@@ -44174,7 +44174,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                   class="ant-table-cell"
                                 >
                                   <pre
-                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                                   >
                                     <code>
                                       const getData = async params =&gt; {
@@ -46315,7 +46315,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                             class="ant-table-cell"
                           >
                             <pre
-                              style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                              style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                             >
                               <code>
                                 const getData = async params =&gt; {
@@ -46439,7 +46439,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                             class="ant-table-cell"
                           >
                             <pre
-                              style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                              style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                             >
                               <code>
                                 const getData = async params =&gt; {
@@ -47982,24 +47982,20 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                             >
-                              <div
-                                class="ant-space-item"
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                               >
                                 <span
-                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
                                 >
-                                  <span
-                                    class="ant-badge-status-dot ant-badge-status-error"
-                                  />
-                                  <span
-                                    class="ant-badge-status-text"
-                                  >
-                                    异常
-                                  </span>
+                                  异常
                                 </span>
-                              </div>
+                              </span>
                             </div>
                           </td>
                           <td
@@ -48124,24 +48120,20 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                             >
-                              <div
-                                class="ant-space-item"
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                               >
                                 <span
-                                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
                                 >
-                                  <span
-                                    class="ant-badge-status-dot ant-badge-status-error"
-                                  />
-                                  <span
-                                    class="ant-badge-status-text"
-                                  >
-                                    异常
-                                  </span>
+                                  异常
                                 </span>
-                              </div>
+                              </span>
                             </div>
                           </td>
                           <td

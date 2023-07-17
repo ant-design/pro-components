@@ -8,10 +8,7 @@ export type ProRequestData<T, U = Record<string, any>> = (
   props: any,
 ) => Promise<T>;
 
-export function useFetchData<
-  T,
-  U extends Record<string, any> = Record<string, any>,
->(props: {
+export function useFetchData<T, U = Record<string, any>>(props: {
   proFieldKey?: React.Key;
   params?: U;
   request?: ProRequestData<T, U>;

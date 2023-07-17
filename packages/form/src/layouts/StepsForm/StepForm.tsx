@@ -1,10 +1,11 @@
 import type { FormInstance, FormProps } from 'antd';
+import omit from 'omit.js';
 import type { StepProps } from 'rc-steps/lib/Step';
 import { noteOnce } from 'rc-util/lib/warning';
 import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { StepsFormProvide } from './index';
+import { StepFormProvide, StepsFormProvide } from './index';
 
 export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   step?: number;
@@ -13,9 +14,12 @@ export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
 } & Omit<FormProps<T>, 'onFinish' | 'form'> &
   Omit<CommonFormProps<T, U>, 'submitter' | 'form'>;
 
-function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
+function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
+  const stepContext = useContext(StepFormProvide);
+
+  const props = { ...stepNativeProps, ...stepContext };
   const {
     onFinish,
     step,
@@ -77,7 +81,7 @@ function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
         restProps?.onInit?.(_, form);
       }}
       layout="vertical"
-      {...restProps}
+      {...omit(restProps, ['layoutType', 'columns'] as any[])}
     />
   );
 }

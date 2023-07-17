@@ -9,6 +9,7 @@ import {
   ProFormMoney,
   ProFormSelect,
   ProFormText,
+  ProFormTextArea,
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
 import { message, TreeSelect } from 'antd';
@@ -187,6 +188,11 @@ export default () => {
         disabled
         label="项目名称"
         initialValue="xxxx项目"
+      />
+      <ProFormTextArea
+        colProps={{ span: 24 }}
+        name="address"
+        label="详细的工作地址或家庭住址"
       />
       <ProFormText
         width="xs"

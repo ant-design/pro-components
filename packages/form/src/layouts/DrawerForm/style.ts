@@ -19,6 +19,12 @@ const genDrawerFormStyle: GenerateStyle<DrawerFormToken> = (token) => {
         bottom: 0,
         zIndex: 100,
         backgroundColor: 'transparent',
+        '&-min-disabled': {
+          cursor: 'w-resize',
+        },
+        '&-max-disabled': {
+          cursor: 'e-resize',
+        },
       },
     },
   };

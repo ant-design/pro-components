@@ -34,6 +34,7 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
         filedConfig={{
           valuePropName: 'checked',
           ignoreWidth: true,
+          customLightMode: true,
         }}
         {...rest}
       />

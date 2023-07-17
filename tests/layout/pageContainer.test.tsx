@@ -281,7 +281,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 60px)',
+      'width: calc(100% - 64px)',
     );
 
     rerender(
@@ -332,7 +332,7 @@ describe('PageContainer', () => {
     );
 
     expect(container.querySelector('.ant-pro-footer-bar')).toHaveStyle(
-      'width: calc(100% - 60px)',
+      'width: calc(100% - 64px)',
     );
 
     rerender(

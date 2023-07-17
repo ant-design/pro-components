@@ -154,6 +154,8 @@ export function columnRender<T>({
             display: 'flex',
             alignItems: 'center',
             gap: marginSM,
+            justifyContent:
+              columnProps.align === 'center' ? 'center' : 'flex-start',
           }}
         >
           {editableUtils.actionRender({

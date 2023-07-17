@@ -31,6 +31,7 @@ const MenuItemTooltip = (props: {
   collapsed?: boolean;
   children: React.ReactNode;
   title?: React.ReactNode;
+  disable?: boolean;
 }) => {
   const [collapsed, setCollapsed] = useState(props.collapsed);
   const [open, setOpen] = useState(false);
@@ -40,6 +41,10 @@ const MenuItemTooltip = (props: {
       setCollapsed(props.collapsed);
     }, 400);
   }, [props.collapsed]);
+
+  if (props.disable) {
+    return props.children as JSX.Element;
+  }
 
   return (
     <Tooltip
@@ -363,7 +368,11 @@ class MenuUtil {
         );
     const defaultIcon = collapsed && hasIcon ? getMenuTitleSymbol(name) : null;
     let defaultItem = (
-      <MenuItemTooltip collapsed={collapsed} title={name}>
+      <MenuItemTooltip
+        collapsed={collapsed}
+        title={name}
+        disable={item.disabledTooltip}
+      >
         <div
           key={itemPath}
           className={classNames(

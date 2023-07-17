@@ -60,6 +60,8 @@ export function genProColumnToColumn<T>(
 
   return columns
     ?.map((columnProps, columnsIndex) => {
+      if (columnProps === Table.EXPAND_COLUMN) return columnProps;
+      if (columnProps === Table.SELECTION_COLUMN) return columnProps;
       const {
         key,
         dataIndex,
@@ -144,7 +146,11 @@ export function genProColumnToColumn<T>(
           }
 
           let uniqueKey: any;
-          if (Reflect.has(rowData as any, keyName)) {
+          if (
+            typeof rowData === 'object' &&
+            rowData !== null &&
+            Reflect.has(rowData as any, keyName)
+          ) {
             uniqueKey = rowData[keyName];
             const parentInfo = subNameRecord.get(uniqueKey) || [];
             rowData[childrenColumnName]?.forEach((item: any) => {
@@ -170,7 +176,6 @@ export function genProColumnToColumn<T>(
             subName: subNameRecord.get(uniqueKey),
             editableUtils,
           };
-
           return columnRender<T>(renderProps);
         },
       };

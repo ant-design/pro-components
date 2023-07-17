@@ -206,7 +206,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -324,7 +324,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -442,7 +442,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -647,7 +647,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                 class="ant-list-items"
               >
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -677,15 +677,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               语雀的天空
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -758,7 +758,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -788,15 +788,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               Ant Design
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -869,7 +869,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -899,15 +899,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               蚂蚁金服体验科技
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -980,7 +980,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -1010,15 +1010,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               TechUI
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1278,71 +1278,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    语雀的天空
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  语雀的天空
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1396,71 +1400,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    Ant Design
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  Ant Design
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1514,71 +1522,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    蚂蚁金服体验科技
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  蚂蚁金服体验科技
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1632,71 +1644,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    TechUI
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  TechUI
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1750,71 +1766,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    TechUI 2.0
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  TechUI 2.0
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1868,71 +1888,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    Bigfish
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  Bigfish
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -1986,71 +2010,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    Umi
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  Umi
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -2104,71 +2132,75 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                     >
                       <div
-                        class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
-                        column="2"
+                        class="ant-pro-checkcard ant-pro-checkcard-bordered"
+                        style="width: 100%;"
                       >
                         <div
-                          class="ant-pro-card-header"
+                          class="ant-pro-checkcard-content"
                         >
                           <div
-                            class="ant-pro-card-title"
+                            class="ant-pro-checkcard-detail"
                           >
                             <div
-                              class="ant-pro-core-label-tip"
+                              class="ant-pro-checkcard-header"
                             >
                               <div
-                                class="ant-pro-core-label-tip-title"
+                                class="ant-pro-checkcard-header-left"
                               >
-                                <span
-                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                <div
+                                  class="ant-pro-checkcard-title"
                                 >
-                                  <img
-                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                  />
-                                </span>
-                                <span
-                                  class="ant-list-item-meta-title"
+                                  <span
+                                    class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  >
+                                    <img
+                                      src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                    />
+                                  </span>
+                                  <span
+                                    class="ant-list-item-meta-title"
+                                  >
+                                    Ant Design Pro
+                                  </span>
+                                </div>
+                                <div
+                                  class="ant-pro-checkcard-subTitle"
                                 >
-                                  Ant Design Pro
-                                </span>
+                                  <span
+                                    class="ant-tag ant-tag-has-color"
+                                    style="background-color: rgb(91, 216, 166);"
+                                  >
+                                    语雀专栏
+                                  </span>
+                                </div>
                               </div>
                               <div
-                                class="ant-pro-core-label-tip-subtitle"
+                                class="ant-pro-checkcard-extra"
                               >
-                                <span
-                                  class="ant-tag ant-tag-has-color"
-                                  style="background-color: rgb(91, 216, 166);"
-                                >
-                                  语雀专栏
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="ant-pro-card-extra"
-                          >
-                            <div>
-                              <div
-                                class="ant-pro-field-option"
-                                style="display: flex; gap: 16px; align-items: center;"
-                              >
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  邀请
-                                </a>
-                                <a
-                                  style="flex: 1;"
-                                >
-                                  删除
-                                </a>
+                                <div>
+                                  <div
+                                    class="ant-pro-field-option"
+                                    style="display: flex; gap: 16px; align-items: center;"
+                                  >
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      邀请
+                                    </a>
+                                    <a
+                                      style="flex: 1;"
+                                    >
+                                      删除
+                                    </a>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-body"
+                          class="ant-pro-checkcard-body"
                           style="padding: 24px;"
                         >
                           <div
@@ -2359,7 +2391,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                 class="ant-list-items"
               >
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2389,15 +2421,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               语雀的天空
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2455,7 +2487,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2485,15 +2517,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               Ant Design
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2551,7 +2583,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2581,15 +2613,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               蚂蚁金服体验科技
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2647,7 +2679,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2677,15 +2709,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               TechUI
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2868,7 +2900,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -2975,7 +3007,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -3082,7 +3114,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -3189,7 +3221,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -3707,7 +3739,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                             class="ant-list-item-meta-title"
                           >
                             <div
-                              class="ant-pro-list-row-header-title"
+                              class="ant-pro-list-row-header-container"
                             >
                               <div
                                 class="ant-pro-list-row-title"
@@ -3867,7 +3899,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                             class="ant-list-item-meta-title"
                           >
                             <div
-                              class="ant-pro-list-row-header-title"
+                              class="ant-pro-list-row-header-container"
                             >
                               <div
                                 class="ant-pro-list-row-title"
@@ -4027,7 +4059,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                             class="ant-list-item-meta-title"
                           >
                             <div
-                              class="ant-pro-list-row-header-title"
+                              class="ant-pro-list-row-header-container"
                             >
                               <div
                                 class="ant-pro-list-row-title"
@@ -4187,7 +4219,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                             class="ant-list-item-meta-title"
                           >
                             <div
-                              class="ant-pro-list-row-header-title"
+                              class="ant-pro-list-row-header-container"
                             >
                               <div
                                 class="ant-pro-list-row-title"
@@ -4410,7 +4442,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -4550,7 +4582,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -4690,7 +4722,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -4830,7 +4862,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -4970,7 +5002,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -5830,7 +5862,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -5959,7 +5991,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6088,7 +6120,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6217,7 +6249,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6567,7 +6599,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6669,7 +6701,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6771,7 +6803,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6873,7 +6905,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6973,7 +7005,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                 class="ant-list-items"
               >
                 <li
-                  class="ant-list-item ant-pro-list-row-type-top ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-top ant-pro-list-row-item-has-avatar ant-pro-list-row-type-top ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row-type-top ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-top ant-pro-list-row-header"
@@ -7046,15 +7078,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-type-top ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-type-top ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               语雀的天空（top）
                             </div>
                             <div
-                              class="ant-pro-list-row-type-top ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <span
                                 class="ant-tag ant-tag-has-color"
@@ -7116,7 +7148,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-type-inline ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-inline ant-pro-list-row-item-has-avatar ant-pro-list-row-type-inline ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row-type-inline ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-inline ant-pro-list-row-header"
@@ -7189,15 +7221,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-type-inline ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-type-inline ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               Ant Design（inline）
                             </div>
                             <div
-                              class="ant-pro-list-row-type-inline ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <span
                                 class="ant-tag ant-tag-has-color"
@@ -7259,7 +7291,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-type-new ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-new ant-pro-list-row-item-has-avatar ant-pro-list-row-type-new ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row-type-new ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-new ant-pro-list-row-header"
@@ -7332,15 +7364,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-type-new ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-type-new ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               蚂蚁金服体验科技（new）
                             </div>
                             <div
-                              class="ant-pro-list-row-type-new ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <span
                                 class="ant-tag ant-tag-has-color"
@@ -7475,7 +7507,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -7649,7 +7681,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.ts
                           class="qixian-list-item-meta-title"
                         >
                           <div
-                            class="qixian-pro-list-row-header-title"
+                            class="qixian-pro-list-row-header-container"
                           >
                             <div
                               class="qixian-pro-list-row-title"

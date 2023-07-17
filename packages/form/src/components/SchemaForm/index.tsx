@@ -65,6 +65,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
 
   const FormRenderComponents = (FormLayoutType[layoutType] ||
     ProForm) as React.FC<ProFormProps<T>>;
+
   const [form] = Form.useForm();
   const formInstance = Form.useFormInstance();
 

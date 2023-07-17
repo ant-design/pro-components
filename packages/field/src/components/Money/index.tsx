@@ -403,6 +403,20 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           'visible',
           'open',
         ])}
+        onBlur={
+          fieldProps.onBlur
+            ? (e) => {
+                let value = e.target.value;
+                if (moneySymbol && value) {
+                  value = value.replace(
+                    new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'),
+                    '',
+                  );
+                }
+                fieldProps.onBlur?.(value);
+              }
+            : undefined
+        }
       />
     );
 

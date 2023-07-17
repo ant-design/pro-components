@@ -1,4 +1,4 @@
-import type { ProCardProps } from '@ant-design/pro-card';
+import type { CheckCardProps } from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { ActionType } from '@ant-design/pro-table';
 import type {
@@ -21,8 +21,8 @@ import type { ItemProps } from './Item';
 import ProListItem from './Item';
 
 import { compareVersions } from '@ant-design/pro-utils';
+import type { AnyObject } from 'antd/es/_util/type';
 import type { PaginationConfig } from 'antd/lib/pagination';
-import type { AnyObject } from 'antd/lib/table/Table';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
@@ -56,7 +56,7 @@ export type ListViewProps<RecordType> = Omit<
     /** Render 除了 header 之后的代码 */
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
-    itemCardProps?: ProCardProps;
+    itemCardProps?: CheckCardProps;
     pagination?: PaginationConfig;
   };
 
@@ -255,9 +255,11 @@ function ListView<RecordType extends AnyObject>(
             : rawData;
           if (data !== '-') listItemProps[column.listKey] = data;
         });
-        let checkboxDom;
+        let checkboxDom: React.ReactNode;
         if (selectItemDom && selectItemDom.render) {
-          checkboxDom = selectItemDom.render(item, item, index) || undefined;
+          checkboxDom =
+            (selectItemDom.render(item, item, index) as React.ReactNode) ||
+            undefined;
         }
         const { isEditable, recordKey } =
           actionRef.current?.isEditable({ ...item, index }) || {};
@@ -273,8 +275,16 @@ function ListView<RecordType extends AnyObject>(
                     ...itemCardProps,
                     ...rest.grid,
                     checked: isChecked,
-                    onChecked: React.isValidElement(checkboxDom)
-                      ? (checkboxDom?.props as any)?.onChange
+                    onChange: React.isValidElement(checkboxDom)
+                      ? (changeChecked) => {
+                          return (
+                            React.isValidElement(checkboxDom) &&
+                            (checkboxDom?.props as any)?.onChange({
+                              nativeEvent: {},
+                              changeChecked,
+                            })
+                          );
+                        }
                       : undefined,
                   }
                 : undefined

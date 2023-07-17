@@ -128,7 +128,23 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
       return headerContentRender(props, defaultDom);
     }
     return defaultDom;
-  }, [props, prefixCls, hashId, headerContentRender]);
+  }, [
+    token?.layout?.header?.colorBgHeader,
+    token?.layout?.header?.colorBgMenuItemSelected,
+    token?.layout?.header?.colorBgMenuItemHover,
+    token?.layout?.header?.colorTextMenu,
+    token?.layout?.header?.colorTextMenuActive,
+    token?.layout?.header?.colorTextMenuSelected,
+    token?.colorBgTextHover,
+    token?.colorTextSecondary,
+    token?.colorText,
+    token?.colorTextBase,
+    dark,
+    props,
+    prefixCls,
+    hashId,
+    headerContentRender,
+  ]);
 
   return wrapSSR(
     <div

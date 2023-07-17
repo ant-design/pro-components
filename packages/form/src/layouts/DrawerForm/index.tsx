@@ -1,4 +1,8 @@
-﻿import { omitUndefined, openVisibleCompatible, useRefFunction } from '@ant-design/pro-utils';
+﻿import {
+  omitUndefined,
+  openVisibleCompatible,
+  useRefFunction,
+} from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
@@ -19,11 +23,13 @@ import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { useStyle } from './style';
 
-export type CustomizeResizeType = 
-  |{onResize?: () => void,
-    maxWidth?: DrawerProps['width'],
-    minWidth?: DrawerProps['width']}
-  | false
+export type CustomizeResizeType =
+  | {
+      onResize?: () => void;
+      maxWidth?: DrawerProps['width'];
+      minWidth?: DrawerProps['width'];
+    }
+  | false;
 
 export type DrawerFormProps<
   T = Record<string, any>,
@@ -84,7 +90,7 @@ export type DrawerFormProps<
     resize?: CustomizeResizeType | false;
   };
 
-function DrawerForm<T = Record<string, any>>({
+function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -98,7 +104,7 @@ function DrawerForm<T = Record<string, any>>({
   visible: propVisible,
   open: propsOpen,
   ...rest
-}: DrawerFormProps<T>) {
+}: DrawerFormProps<T, U>) {
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !drawerProps?.footer,
@@ -106,12 +112,12 @@ function DrawerForm<T = Record<string, any>>({
   );
 
   const resizeInfo: CustomizeResizeType = resize
-  ? omitUndefined({
-      onResize: resize.onResize,
-      maxWidth: resize.maxWidth,
-      minWidth: resize.minWidth
-    })
-  : {};
+    ? omitUndefined({
+        onResize: resize.onResize,
+        maxWidth: resize.maxWidth,
+        minWidth: resize.minWidth,
+      })
+    : {};
 
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-drawer');
@@ -122,7 +128,9 @@ function DrawerForm<T = Record<string, any>>({
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
   const [resizableDrawer, setResizableDrawer] = useState(false);
-  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(resizeInfo?.minWidth ?? width);
+  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(
+    resizeInfo?.minWidth ?? width,
+  );
 
   const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
     value: propsOpen || propVisible,
@@ -257,21 +265,34 @@ function DrawerForm<T = Record<string, any>>({
 
   const drawerOpenProps = openVisibleCompatible(open, onVisibleChange);
 
-  const cbHandleMouseMove = useCallback((e: MouseEvent) => {
-    const offsetRight: number | string = document.body.offsetWidth - (e.clientX - document.body.offsetLeft) as number | string;
+  const cbHandleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      const offsetRight: number | string = (document.body.offsetWidth -
+        (e.clientX - document.body.offsetLeft)) as number | string;
 
-    const minWidth = resizeInfo?.minWidth ?? width;
-    const maxWidth = resizeInfo?.maxWidth ?? window.innerWidth * 0.8;
+      const minWidth = resizeInfo?.minWidth ?? width;
+      const maxWidth = resizeInfo?.maxWidth ?? window.innerWidth * 0.8;
 
-    if (offsetRight > minWidth && offsetRight < maxWidth) {
+      if (offsetRight < minWidth) {
+        setDrawerWidth(minWidth);
+        return;
+      }
+      if (offsetRight > maxWidth) {
+        setDrawerWidth(maxWidth);
+        return;
+      }
+
       setDrawerWidth(offsetRight);
-    }
-  }, []);
+    },
+    [resizeInfo?.maxWidth, resizeInfo?.minWidth, width],
+  );
 
   const cbHandleMouseUp = useCallback(() => {
     document.removeEventListener('mousemove', cbHandleMouseMove);
     document.removeEventListener('mouseup', cbHandleMouseUp);
-  }, []);
+  }, [cbHandleMouseMove]);
+
+  console.log(drawerWidth, resizeInfo?.maxWidth);
 
   return wrapSSR(
     <>
@@ -304,22 +325,26 @@ function DrawerForm<T = Record<string, any>>({
       >
         <div
           className={
-            resize && resize?.onResize
-              ? classNames(getCls('sidebar-dragger'), hashId)
+            resize
+              ? classNames(getCls('sidebar-dragger'), hashId, {
+                  [getCls('sidebar-dragger-min-disabled')]:
+                    drawerWidth === resizeInfo?.minWidth,
+                  [getCls('sidebar-dragger-max-disabled')]:
+                    drawerWidth === resizeInfo?.maxWidth,
+                })
               : null
           }
           onMouseDown={(e) => {
             resizeInfo?.onResize?.();
-
             e.stopPropagation();
             e.preventDefault();
             document.addEventListener('mousemove', cbHandleMouseMove);
             document.addEventListener('mouseup', cbHandleMouseUp);
-            setResizableDrawer(true);  
+            setResizableDrawer(true);
           }}
         />
         <>
-          <BaseForm
+          <BaseForm<T, U>
             formComponentType="DrawerForm"
             layout="vertical"
             {...rest}

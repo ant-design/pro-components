@@ -338,7 +338,8 @@ export function SaveEditableAction<T>(
       });
 
       const fields =
-        context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
+        context?.getFieldFormatValue?.(namePath) ||
+        form.getFieldValue(namePath);
       // 处理 dataIndex 为数组的情况
       if (Array.isArray(recordKey) && recordKey.length > 1) {
         // 获取 namepath
@@ -481,8 +482,8 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
           .flat(1)
           .filter(Boolean) as string[];
         const fields =
-          context.getFieldFormatValue?.(namePath) ||
-          form.getFieldValue(namePath);
+          context?.getFieldFormatValue?.(namePath) ||
+          form?.getFieldValue(namePath);
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
         await cancelEditable(recordKey);

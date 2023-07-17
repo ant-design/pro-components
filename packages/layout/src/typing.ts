@@ -37,6 +37,8 @@ export type MenuDataItem = {
   key?: string;
   /** @name disable 菜单选项 */
   disabled?: boolean;
+  /** @name disable menu 的 tooltip 菜单选项 */
+  disabledTooltip?: boolean;
   /** @name 路径,可以设定为网页链接 */
   path?: string;
   /**

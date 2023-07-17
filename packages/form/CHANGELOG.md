@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.15.0...@ant-design/pro-form@2.15.1) (2023-07-14)
+
+### Bug Fixes
+
+- **form:** Fix the display style of the switch ([8cdeda4](https://github.com/ant-design/pro-components/commit/8cdeda486d2aebd0f290a64c389f298e62c21af1))
+
 # [2.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.14.3...@ant-design/pro-form@2.15.0) (2023-07-04)
 
 ### Features

@@ -185,6 +185,7 @@ export default () => {
           label="区域"
           initialValue={['zhejiang', 'hangzhou', 'xihu']}
         />
+        <ProFormSwitch name="open" label="开关" />
         <ProFormDigit name="count" label="数量" />
         <ProFormSlider name="range" label="范围" range />
         <ProFormSlider name="slider" label="范围" />

@@ -133,6 +133,10 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         paddingInline: token.paddingSM,
         paddingBlock: token.padding,
       },
+      '&-body': {
+        paddingInline: token.paddingSM,
+        paddingBlock: token.padding,
+      },
       '&-avatar-header': { display: 'flex', alignItems: 'center' },
       '&-avatar': { paddingInlineEnd: 8 },
       '&-detail': {
@@ -146,6 +150,12 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        lineHeight: token.lineHeight,
+        '&-left': {
+          display: 'flex',
+          alignItems: 'center',
+          gap: token.sizeSM,
+        },
       },
       '&-title': {
         overflow: 'hidden',
@@ -154,6 +164,9 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         fontSize: token.fontSize,
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
       },
       '&-description': {
         color: token.colorTextSecondary,
