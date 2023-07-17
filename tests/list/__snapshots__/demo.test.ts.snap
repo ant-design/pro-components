@@ -206,7 +206,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -324,7 +324,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -442,7 +442,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -647,7 +647,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                 class="ant-list-items"
               >
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -677,15 +677,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               语雀的天空
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -758,7 +758,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -788,15 +788,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               Ant Design
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -869,7 +869,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -899,15 +899,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               蚂蚁金服体验科技
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -980,7 +980,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -1010,15 +1010,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               TechUI
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2391,7 +2391,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                 class="ant-list-items"
               >
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2421,15 +2421,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               语雀的天空
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2487,7 +2487,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2517,15 +2517,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               Ant Design
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2583,7 +2583,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2613,15 +2613,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               蚂蚁金服体验科技
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2679,7 +2679,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2709,15 +2709,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               TechUI
                             </div>
                             <div
-                              class="ant-pro-list-row-show-action-hover ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <div
                                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2900,7 +2900,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -3007,7 +3007,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -3114,7 +3114,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -3221,7 +3221,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -3739,7 +3739,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                             class="ant-list-item-meta-title"
                           >
                             <div
-                              class="ant-pro-list-row-header-title"
+                              class="ant-pro-list-row-header-container"
                             >
                               <div
                                 class="ant-pro-list-row-title"
@@ -3899,7 +3899,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                             class="ant-list-item-meta-title"
                           >
                             <div
-                              class="ant-pro-list-row-header-title"
+                              class="ant-pro-list-row-header-container"
                             >
                               <div
                                 class="ant-pro-list-row-title"
@@ -4059,7 +4059,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                             class="ant-list-item-meta-title"
                           >
                             <div
-                              class="ant-pro-list-row-header-title"
+                              class="ant-pro-list-row-header-container"
                             >
                               <div
                                 class="ant-pro-list-row-title"
@@ -4219,7 +4219,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                             class="ant-list-item-meta-title"
                           >
                             <div
-                              class="ant-pro-list-row-header-title"
+                              class="ant-pro-list-row-header-container"
                             >
                               <div
                                 class="ant-pro-list-row-title"
@@ -4442,7 +4442,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -4582,7 +4582,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -4722,7 +4722,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -4862,7 +4862,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -5002,7 +5002,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -5862,7 +5862,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -5991,7 +5991,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6120,7 +6120,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6249,7 +6249,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6599,7 +6599,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6701,7 +6701,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6803,7 +6803,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -6905,7 +6905,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -7005,7 +7005,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                 class="ant-list-items"
               >
                 <li
-                  class="ant-list-item ant-pro-list-row-type-top ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-top ant-pro-list-row-item-has-avatar ant-pro-list-row-type-top ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row-type-top ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-top ant-pro-list-row-header"
@@ -7078,15 +7078,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-type-top ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-type-top ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               语雀的天空（top）
                             </div>
                             <div
-                              class="ant-pro-list-row-type-top ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <span
                                 class="ant-tag ant-tag-has-color"
@@ -7148,7 +7148,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-type-inline ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-inline ant-pro-list-row-item-has-avatar ant-pro-list-row-type-inline ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row-type-inline ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-inline ant-pro-list-row-header"
@@ -7221,15 +7221,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-type-inline ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-type-inline ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               Ant Design（inline）
                             </div>
                             <div
-                              class="ant-pro-list-row-type-inline ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <span
                                 class="ant-tag ant-tag-has-color"
@@ -7291,7 +7291,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                   </ul>
                 </li>
                 <li
-                  class="ant-list-item ant-pro-list-row-type-new ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-new ant-pro-list-row-item-has-avatar ant-pro-list-row-type-new ant-pro-list-row"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row-type-new ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-new ant-pro-list-row-header"
@@ -7364,15 +7364,15 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-type-new ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
-                              class="ant-pro-list-row-type-new ant-pro-list-row-title"
+                              class="ant-pro-list-row-title"
                             >
                               蚂蚁金服体验科技（new）
                             </div>
                             <div
-                              class="ant-pro-list-row-type-new ant-pro-list-row-subTitle"
+                              class="ant-pro-list-row-subTitle"
                             >
                               <span
                                 class="ant-tag ant-tag-has-color"
@@ -7507,7 +7507,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-list-item-meta-title"
                         >
                           <div
-                            class="ant-pro-list-row-header-title"
+                            class="ant-pro-list-row-header-container"
                           >
                             <div
                               class="ant-pro-list-row-title"
@@ -7681,7 +7681,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.ts
                           class="qixian-list-item-meta-title"
                         >
                           <div
-                            class="qixian-pro-list-row-header-title"
+                            class="qixian-pro-list-row-header-container"
                           >
                             <div
                               class="qixian-pro-list-row-title"

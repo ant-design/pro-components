@@ -2719,12 +2719,15 @@ describe('ProForm', () => {
       );
     });
 
-    // 应该有4个item 被筛选出来
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        'div.ant-select-item.ant-select-item-option',
-      ).length,
-    ).toBe(4);
+    await waitFor(() => {
+      // 应该有4个item 被筛选出来
+      expect(
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          'div.ant-select-item.ant-select-item-option',
+        ).length,
+      ).toBe(4);
+    });
+
     // input 也有输入的内容
     expect(
       wrapper.baseElement.querySelectorAll<HTMLInputElement>(

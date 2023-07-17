@@ -66,6 +66,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
               '&-avatar,&-description,&-title': {
                 paddingBlock: 6,
                 paddingInline: 0,
+                '&-editable': {
+                  paddingBlock: 0,
+                },
               },
             },
             '&-action': {
@@ -151,6 +154,9 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginInlineEnd: '16px',
           wordBreak: 'break-all',
           cursor: 'pointer',
+          '&-editable': {
+            paddingBlock: 8,
+          },
           '&:hover': {
             color: token.colorPrimary,
           },
@@ -163,7 +169,12 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginBlock: 0,
           marginInline: 32,
         },
-        '&-subTitle': { color: 'rgba(0, 0, 0, 0.45)' },
+        '&-subTitle': {
+          color: 'rgba(0, 0, 0, 0.45)',
+          '&-editable': {
+            paddingBlock: 8,
+          },
+        },
         '&-description': { marginBlockStart: '4px', wordBreak: 'break-all' },
         '&-avatar': { display: 'flex' },
         '&-header': {
@@ -175,7 +186,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
             padding: 0,
           },
         },
-        '&-header-title': {
+        '&-header-container': {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',

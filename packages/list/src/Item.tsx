@@ -207,22 +207,32 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     return [
       <div
         key="action"
-        className={`${className}-actions ${hashId}`.trim()}
+        className={`${defaultClassName}-actions ${hashId}`.trim()}
         onClick={(e) => e.stopPropagation()}
       >
         {actions}
       </div>,
     ];
-  }, [actions, cardActionProps, className, hashId]);
+  }, [actions, cardActionProps, defaultClassName, hashId]);
 
   const titleDom =
     title || subTitle ? (
-      <div className={`${className}-header-title ${hashId}`.trim()}>
+      <div className={`${defaultClassName}-header-container ${hashId}`.trim()}>
         {title && (
-          <div className={`${className}-title ${hashId}`.trim()}>{title}</div>
+          <div
+            className={classNames(`${defaultClassName}-title`, hashId, {
+              [`${defaultClassName}-title-editable`]: isEditable,
+            })}
+          >
+            {title}
+          </div>
         )}
         {subTitle && (
-          <div className={`${className}-subTitle ${hashId}`.trim()}>
+          <div
+            className={classNames(`${defaultClassName}-subTitle`, hashId, {
+              [`${defaultClassName}-subTitle-editable`]: isEditable,
+            })}
+          >
             {subTitle}
           </div>
         )}
@@ -248,8 +258,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     ) : null;
 
   const rowClassName = classNames(hashId, {
-    [`${className}-item-has-checkbox`]: checkbox,
-    [`${className}-item-has-avatar`]: avatar,
+    [`${defaultClassName}-item-has-checkbox`]: checkbox,
+    [`${defaultClassName}-item-has-avatar`]: avatar,
     [className]: className,
   });
   const cardTitleDom = useMemo(() => {

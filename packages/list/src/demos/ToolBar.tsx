@@ -1,6 +1,7 @@
+import type { ActionType } from '@ant-design/pro-components';
 import { ProList } from '@ant-design/pro-components';
 import { Badge, Button } from 'antd';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const dataSource = [
   {
@@ -78,13 +79,27 @@ const renderBadge = (count: number, active = false) => {
 
 export default () => {
   const [activeKey, setActiveKey] = useState<React.Key | undefined>('tab1');
+  const action = useRef<ActionType>();
   return (
     <ProList<any>
       rowKey="name"
+      actionRef={action}
       dataSource={dataSource}
+      editable={{}}
       metas={{
         title: {
           dataIndex: 'name',
+          valueType: 'select',
+          fieldProps: {
+            showSearch: true,
+            placement: 'bottomRight',
+            options: [
+              {
+                label: '实验名称1',
+                value: '实验名称1',
+              },
+            ],
+          },
         },
         description: {
           dataIndex: 'desc',
@@ -126,23 +141,16 @@ export default () => {
               target="_blank"
               rel="noopener noreferrer"
               key="link"
+              onClick={() => {
+                action.current?.startEditable(row.name);
+              }}
             >
               编辑
             </a>,
-            <a
-              href={row.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              key="warning"
-            >
+            <a target="_blank" rel="noopener noreferrer" key="warning">
               复制
             </a>,
-            <a
-              href={row.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              key="view"
-            >
+            <a target="_blank" rel="noopener noreferrer" key="view">
               删除
             </a>,
           ],
