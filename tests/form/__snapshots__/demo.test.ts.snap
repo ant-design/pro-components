@@ -11931,7 +11931,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                 </div>
               </div>
               <pre
-                style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
               >
                 <code>
                   {
@@ -49115,7 +49115,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                         </div>
                         <div
                           class="ant-pro-footer-bar"
-                          style="width: calc(100% - 60px);"
+                          style="width: calc(100% - 64px);"
                         >
                           <div
                             class="ant-pro-footer-bar-left"

@@ -398,7 +398,7 @@ const getpaddingInlineStart = (
   siderWidth: number,
 ): number | undefined => {
   if (hasLeftPadding) {
-    return collapsed ? 60 : siderWidth;
+    return collapsed ? 64 : siderWidth;
   }
   return 0;
 };
