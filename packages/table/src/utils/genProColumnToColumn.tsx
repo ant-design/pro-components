@@ -60,6 +60,8 @@ export function genProColumnToColumn<T>(
 
   return columns
     ?.map((columnProps, columnsIndex) => {
+      if (columnProps === Table.EXPAND_COLUMN) return columnProps;
+      if (columnProps === Table.SELECTION_COLUMN) return columnProps;
       const {
         key,
         dataIndex,
@@ -174,7 +176,6 @@ export function genProColumnToColumn<T>(
             subName: subNameRecord.get(uniqueKey),
             editableUtils,
           };
-
           return columnRender<T>(renderProps);
         },
       };
