@@ -151,6 +151,13 @@ const StepsLayoutStrategy: Record<
   },
 };
 
+/**
+ * 给  StepForm 传递信息
+ */
+export const StepFormProvide = React.createContext<StepFormProps<any> | null>(
+  null,
+);
+
 function StepsForm<T = Record<string, any>>(
   props: StepsFormProps<T> & {
     children: React.ReactNode;
@@ -440,14 +447,17 @@ function StepsForm<T = Record<string, any>>(
           })}
           key={name}
         >
-          {React.cloneElement(item, {
-            ...config,
-            ...formProps,
-            ...itemProps,
-            name,
-            step: index,
-            key: name,
-          })}
+          <StepFormProvide.Provider
+            value={{
+              ...config,
+              ...formProps,
+              ...itemProps,
+              name,
+              step: index,
+            }}
+          >
+            {item}
+          </StepFormProvide.Provider>
         </div>
       );
     });
