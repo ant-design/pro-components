@@ -137,6 +137,7 @@ const LightSelect: React.ForwardRefRenderFunction<
       }}
     >
       <Select
+        popupMatchSelectWidth={false}
         {...restProps}
         allowClear={allowClear}
         value={value}

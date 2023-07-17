@@ -1158,6 +1158,7 @@ describe('LightFilter', () => {
           label="性别"
           showSearch
           fieldProps={{
+            popupMatchSelectWidth: true,
             optionFilterProp: 'label',
           }}
           options={[
@@ -1204,6 +1205,7 @@ describe('LightFilter', () => {
           showSearch
           fieldProps={{
             optionFilterProp: 'value',
+            popupMatchSelectWidth: true,
           }}
           options={[
             { label: '男', value: 'aaa' },
