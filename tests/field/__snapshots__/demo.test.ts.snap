@@ -1895,11 +1895,11 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <span
-                    class="ant-input-group ant-input-group-compact"
+                  <div
+                    class="ant-space-compact"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-compact-item ant-input-number-compact-first-item"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -1974,7 +1974,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       </div>
                     </div>
                     <input
-                      class="ant-input ant-input-disabled"
+                      class="ant-input ant-input-disabled ant-input-compact-item"
                       disabled=""
                       placeholder="~"
                       style="width: 30px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
@@ -1982,7 +1982,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       value=""
                     />
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-compact-item ant-input-number-compact-last-item"
                       style="border-inline-start: 0;"
                     >
                       <div
@@ -2057,7 +2057,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         />
                       </div>
                     </div>
-                  </span>
+                  </div>
                 </span>
               </div>
             </td>
