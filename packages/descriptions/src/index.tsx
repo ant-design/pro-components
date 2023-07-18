@@ -562,6 +562,9 @@ const ProDescriptions = <
         <Descriptions
           className={className}
           {...rest}
+          contentStyle={{
+            minWidth: 0,
+          }}
           extra={
             rest.extra ? (
               <Space>
