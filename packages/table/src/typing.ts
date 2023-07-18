@@ -320,6 +320,8 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    */
   toolBarRender?: ToolBarProps<DataSource>['toolBarRender'] | false;
 
+  optionsRender?: ToolBarProps<DataSource>['optionsRender'];
+
   /**
    * @name 数据加载完成后触发
    */

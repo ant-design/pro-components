@@ -424,6 +424,7 @@ const ProTable = <
     actionRef: propsActionRef,
     columns: propsColumns = [],
     toolBarRender,
+    optionsRender,
     onLoad,
     onRequestError,
     style,
@@ -818,28 +819,31 @@ const ProTable = <
   const isLightFilter: boolean =
     search !== false && search?.filterType === 'light';
 
-  const onFormSearchSubmit = <Y extends ParamsType>(values: Y): any => {
-    // 判断search.onSearch返回值决定是否更新formSearch
-    if (options && options.search) {
-      const { name = 'keyword' } =
-        options.search === true ? {} : options.search;
+  const onFormSearchSubmit = useCallback(
+    <Y extends ParamsType>(values: Y): any => {
+      // 判断search.onSearch返回值决定是否更新formSearch
+      if (options && options.search) {
+        const { name = 'keyword' } =
+          options.search === true ? {} : options.search;
 
-      /** 如果传入的 onSearch 返回值为 false，则不要把options.search.name对应的值set到formSearch */
-      const success = (options.search as OptionSearchProps)?.onSearch?.(
-        counter.keyWords!,
-      );
+        /** 如果传入的 onSearch 返回值为 false，则不要把options.search.name对应的值set到formSearch */
+        const success = (options.search as OptionSearchProps)?.onSearch?.(
+          counter.keyWords!,
+        );
 
-      if (success !== false) {
-        setFormSearch({
-          ...values,
-          [name]: counter.keyWords,
-        });
-        return;
+        if (success !== false) {
+          setFormSearch({
+            ...values,
+            [name]: counter.keyWords,
+          });
+          return;
+        }
       }
-    }
 
-    setFormSearch(values);
-  };
+      setFormSearch(values);
+    },
+    [counter.keyWords, options, setFormSearch],
+  );
 
   const loading = useMemo(() => {
     if (typeof action.loading === 'object') {
@@ -923,6 +927,7 @@ const ProTable = <
         }}
         searchNode={isLightFilter ? searchNode : null}
         options={options}
+        optionsRender={optionsRender}
         actionRef={actionRef}
         toolBarRender={toolBarRender}
       />

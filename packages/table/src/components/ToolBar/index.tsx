@@ -56,6 +56,7 @@ export type ToolBarProps<T = unknown> = {
   ) => React.ReactNode[];
   action: React.MutableRefObject<ActionType | undefined>;
   options?: OptionConfig | false;
+  optionsRender?: ToolbarRenderProps<T>['optionsRender'];
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
   className?: string;
@@ -159,6 +160,7 @@ function ToolBar<T>({
   toolbar,
   onSearch,
   columns,
+  optionsRender,
   ...rest
 }: ToolBarProps<T>) {
   const counter = useContext(TableContext);
@@ -182,7 +184,7 @@ function ToolBar<T>({
       ...propsOptions,
     };
 
-    return renderDefaultOption<T>(
+    const settings = renderDefaultOption<T>(
       options,
       {
         ...defaultOptions,
@@ -191,7 +193,41 @@ function ToolBar<T>({
       action,
       columns,
     );
-  }, [action, columns, intl, propsOptions]);
+    if (optionsRender) {
+      return optionsRender(
+        {
+          headerTitle,
+          tooltip,
+          toolBarRender,
+          action,
+          options: propsOptions,
+          selectedRowKeys,
+          selectedRows,
+          toolbar,
+          onSearch,
+          columns,
+          optionsRender,
+          ...rest,
+        },
+        settings,
+      );
+    }
+    return settings;
+  }, [
+    action,
+    columns,
+    headerTitle,
+    intl,
+    onSearch,
+    optionsRender,
+    propsOptions,
+    rest,
+    selectedRowKeys,
+    selectedRows,
+    toolBarRender,
+    toolbar,
+    tooltip,
+  ]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
@@ -248,6 +284,10 @@ export type ToolbarRenderProps<T> = {
   headerTitle: React.ReactNode;
   toolbar: ProTableProps<T, any, any>['toolbar'];
   options: ProTableProps<T, any, any>['options'];
+  optionsRender?: (
+    props: ToolBarProps<T>,
+    defaultDom: React.ReactNode[],
+  ) => React.ReactNode[];
   toolBarRender?: ToolBarProps<T>['toolBarRender'];
   actionRef: React.MutableRefObject<ActionType | undefined>;
 };
@@ -341,6 +381,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
       headerTitle,
       actionRef,
       toolBarRender,
+      optionsRender,
     } = this.props;
 
     // 不展示 toolbar
@@ -362,6 +403,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
           filter: searchNode,
           ...toolbar,
         }}
+        optionsRender={optionsRender}
       />
     );
   };
