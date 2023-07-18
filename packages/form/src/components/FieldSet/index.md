@@ -245,7 +245,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
 | debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
-| fieldProps | antd 组件的 props | `` (form,config)=>SelectProps`\| `SelectProps `` | - |
+| fieldProps | antd 组件的 props | `SelectProps ` | - |
 
 > 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 
@@ -329,7 +329,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
 | debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
-| fieldProps | antd 组件的 props | `` (form,config)=>TreeSelectProps`\| `TreeSelectProps `` | - |
+| fieldProps | antd 组件的 props | `TreeSelectProps` | - |
 
 > 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 
@@ -401,7 +401,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | layout | 配置 checkbox 的样子，支持垂直`vertical` 和 `horizontal` | `horizontal` \| `vertical` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
-| fieldProps | antd 组件的 props | `(form,config)=>CheckboxProps \| CheckboxProps` | - |
+| fieldProps | antd 组件的 props | `CheckboxProps` | - |
 
 ```tsx | pure
 <ProFormCheckbox.Group
@@ -424,7 +424,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
 | radioType | 设置是按钮模式还是 radio 模式 | `default`\|`button` | `default` |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
-| fieldProps | antd 组件的 props | `(form,config)=>RadioProps \|RadioProps` | - |
+| fieldProps | antd 组件的 props | `RadioProps` | - |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -485,15 +485,15 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | options | 与 cascader 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
-| fieldProps | antd 组件的 props | `(form,config)=>CascaderProps \| CascaderProps` | - |
+| fieldProps | antd 组件的 props | `CascaderProps` | - |
 
 ### ProFormSwitch
 
 与 [switch](https://ant.design/components/switch-cn/) 相同，通过 filedProps 配置 switch 的数据。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| fieldProps | antd 组件的 props | `(form,config)=>SwitchProps \| SwitchProps` | - |
+| 参数       | 说明              | 类型          | 默认值 |
+| ---------- | ----------------- | ------------- | ------ |
+| fieldProps | antd 组件的 props | `SwitchProps` | -      |
 
 ```tsx | pure
 <ProFormSwitch name="switch" label="Switch" />
@@ -501,9 +501,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormRate
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| fieldProps | antd 组件的 props | `(form,config)=>RateProps \| RateProps` | - |
+| 参数       | 说明              | 类型        | 默认值 |
+| ---------- | ----------------- | ----------- | ------ |
+| fieldProps | antd 组件的 props | `RateProps` | -      |
 
 与 [rate](https://ant.design/components/rate-cn/) 相同，通过 filedProps 配置 rate 的数据。
 
@@ -515,9 +515,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [slider](https://ant.design/components/slider-cn/) 相同，通过 filedProps 配置 slider 的数据。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| fieldProps | antd 组件的 props | `(form,config)=>SliderProps \| SliderProps` | - |
+| 参数       | 说明              | 类型          | 默认值 |
+| ---------- | ----------------- | ------------- | ------ |
+| fieldProps | antd 组件的 props | `SliderProps` | -      |
 
 ```tsx | pure
 <ProFormSlider
@@ -644,7 +644,7 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
 | debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
-| fieldProps | antd 组件的 props | `` (form,config)=>SelectProps`\| `SelectProps `` | - |
+| fieldProps | antd 组件的 props | `Segmented` | - |
 
 > 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 
