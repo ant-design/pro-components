@@ -27,6 +27,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   test
                 </span>
@@ -46,6 +47,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     aria-valuenow="40"
@@ -90,6 +92,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     aria-valuenow="100"
@@ -155,6 +158,7 @@ exports[`descriptions 🏊 ProDescriptions support order 1`] = `
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     aria-valuenow="-1"

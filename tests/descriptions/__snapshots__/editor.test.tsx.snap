@@ -22,6 +22,7 @@ exports[`Descriptions 📝 columns support editable test 1`] = `
               >
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     style="margin: -5px 0px -5px 0px;"
@@ -145,6 +146,7 @@ exports[`Descriptions 📝 columns support editable test 1`] = `
               >
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   -
                 </span>
@@ -180,6 +182,7 @@ exports[`Descriptions 📝 renderFormItem run defaultRender 1`] = `
               >
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     style="margin: -5px 0px -5px 0px;"

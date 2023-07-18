@@ -69,6 +69,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
               >
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -121,6 +122,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -173,6 +175,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -303,6 +306,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   -
                 </span>
@@ -322,6 +326,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   -
                 </span>
@@ -421,7 +426,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
-                  style="max-width: 80%;"
+                  style="min-width: 0; max-width: 80%;"
                 >
                   <span
                     class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
@@ -485,6 +490,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     ¥100.00
@@ -506,6 +512,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     100.00%
@@ -531,6 +538,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span
                     class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -561,6 +569,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   已解决
                 </span>
@@ -584,6 +593,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     aria-valuenow="40"
@@ -628,6 +638,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2016-11-22 15:22:44
                 </span>
@@ -651,6 +662,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2016-11-22
                 </span>
@@ -670,6 +682,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div>
                     <div>
@@ -700,6 +713,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     15:22:44
@@ -721,6 +735,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <pre
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
@@ -754,6 +769,7 @@ Done in 9.70s.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <pre
                     style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
@@ -863,6 +879,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   这是一段文本columns
                 </span>
@@ -882,6 +899,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span
                     class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -912,6 +930,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   open
                 </span>
@@ -935,6 +954,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2020-08-09
                 </span>
@@ -954,6 +974,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   09.08.2020
                 </span>
@@ -973,6 +994,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   打开
                 </span>
@@ -996,6 +1018,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     ¥1,212,100.00
@@ -1017,6 +1040,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     1,212,100.00
@@ -1038,6 +1062,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     -12,345.33
@@ -1063,6 +1088,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     100.00%
@@ -1079,6 +1105,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               >
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   多余的dom
                 </span>
@@ -1153,6 +1180,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/custo
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1207,6 +1235,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/custo
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -1348,6 +1377,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                           </span>
                           <span
                             class="ant-descriptions-item-content"
+                            style="min-width: 0;"
                           >
                             这是一段文本columns
                           </span>
@@ -1367,6 +1397,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                           </span>
                           <span
                             class="ant-descriptions-item-content"
+                            style="min-width: 0;"
                           >
                             <span
                               class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -1397,6 +1428,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                           </span>
                           <span
                             class="ant-descriptions-item-content"
+                            style="min-width: 0;"
                           >
                             open
                           </span>
@@ -1420,6 +1452,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                           </span>
                           <span
                             class="ant-descriptions-item-content"
+                            style="min-width: 0;"
                           >
                             2020-08-09
                           </span>
@@ -1439,6 +1472,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                           </span>
                           <span
                             class="ant-descriptions-item-content"
+                            style="min-width: 0;"
                           >
                             <span>
                               ¥1,212,100.00
@@ -1460,6 +1494,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                           </span>
                           <span
                             class="ant-descriptions-item-content"
+                            style="min-width: 0;"
                           >
                             <span>
                               20.00%
@@ -2298,6 +2333,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2427,6 +2463,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span
                     class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -2457,6 +2494,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2513,6 +2551,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2565,6 +2604,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2617,6 +2657,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -2968,6 +3009,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -3022,6 +3064,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
@@ -3144,6 +3187,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2016.11.22
                 </span>
@@ -3163,6 +3207,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div>
                     <div>
@@ -3193,6 +3238,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     2016.11.22
@@ -3214,6 +3260,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2016.11.22 15:22:44
                 </span>
@@ -3237,6 +3284,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     a month ago
@@ -3334,6 +3382,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
               >
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   这是一段文本
                 </span>
@@ -3353,6 +3402,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2020-07-30
                 </span>
@@ -3372,6 +3422,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     ¥12,121.00
@@ -3456,6 +3507,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span
                     aria-label="这是一段文本columns"
@@ -3552,6 +3604,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span
                     class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -3582,6 +3635,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   open
                 </span>
@@ -3605,6 +3659,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2020-08-09
                 </span>
@@ -3624,6 +3679,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     ¥1,212,100.00
@@ -3645,6 +3701,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     100.00%

@@ -611,6 +611,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
                     </span>
                     <span
                       class="ant-descriptions-item-content"
+                      style="min-width: 0;"
                     >
                       <a>
                         TradeCode 1
@@ -632,6 +633,7 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
                     </span>
                     <span
                       class="ant-descriptions-item-content"
+                      style="min-width: 0;"
                     >
                       <span
                         class="ant-tag"
