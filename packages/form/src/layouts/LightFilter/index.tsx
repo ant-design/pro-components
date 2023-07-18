@@ -140,7 +140,8 @@ const LightFilterContainer: React.FC<{
         `${lightFilterClassName}-${size}`,
         {
           [`${lightFilterClassName}-effective`]: Object.keys(values).some(
-            (key) => values[key],
+            (key) =>
+              Array.isArray(values[key]) ? values[key].length > 0 : values[key],
           ),
         },
       )}
