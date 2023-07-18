@@ -614,30 +614,9 @@ exports[`EditorProTable 2 📝 renderFormItem run defaultRender 1`] = `
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-form-item"
-                                        style="margin-block-start: -5px; margin-block-end: -5px; margin-inline-start: 0; margin-inline-end: 0;"
+                                        class="ant-pro-field-index-column ant-pro-field-index-column-border"
                                       >
-                                        <div
-                                          class="ant-row ant-form-item-row"
-                                        >
-                                          <div
-                                            class="ant-col ant-form-item-control"
-                                          >
-                                            <div
-                                              class="ant-form-item-control-input"
-                                            >
-                                              <div
-                                                class="ant-form-item-control-input-content"
-                                              >
-                                                <div
-                                                  class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                                                >
-                                                  1
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
+                                        1
                                       </div>
                                     </div>
                                   </div>

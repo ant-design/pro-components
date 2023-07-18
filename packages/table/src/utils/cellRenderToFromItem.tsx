@@ -187,9 +187,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           type: 'table',
         },
         {
-          defaultRender: () => (
-            <InlineItem {...formItemProps}>{fieldDom}</InlineItem>
-          ),
+          defaultRender: () => <>{fieldDom}</>,
           type: 'form',
           recordKey,
           record: {
