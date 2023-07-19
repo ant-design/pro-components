@@ -141,8 +141,6 @@ export default () => {
     token: {
       colorPrimary: 'red',
       borderRadius: 4,
-      // TODO 可以验证下是否透明也行
-      colorBgElevated: 'white',
     },
     algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
   };
