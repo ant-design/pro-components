@@ -292,7 +292,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     document.removeEventListener('mouseup', cbHandleMouseUp);
   }, [cbHandleMouseMove]);
 
-  console.log(drawerWidth, resizeInfo?.maxWidth);
 
   return wrapSSR(
     <>
