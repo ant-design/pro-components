@@ -126,7 +126,12 @@ function useContainer(props: UseContainerProps = {}) {
         console.warn(error);
       }
     }
-  }, [props.columnsState, defaultColumnKeyMap, setColumnsMap]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    props.columnsState?.persistenceKey,
+    props.columnsState?.persistenceType,
+    defaultColumnKeyMap,
+  ]);
 
   noteOnce(
     !props.columnsStateMap,

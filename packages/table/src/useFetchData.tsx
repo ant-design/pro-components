@@ -198,7 +198,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
               pageSize,
             }
           : undefined;
-
       const {
         data = [],
         success,
@@ -238,7 +237,6 @@ const useFetchData = <DataSource extends RequestData<any>>(
     if (pollingSetTimeRef.current) {
       clearTimeout(pollingSetTimeRef.current);
     }
-    abortRef.current?.abort();
     if (!getData) {
       return;
     }
@@ -289,6 +287,15 @@ const useFetchData = <DataSource extends RequestData<any>>(
       throw error;
     }
   }, debounceTime || 30);
+
+  /**
+   * 取消请求
+   */
+  const abortFetch = () => {
+    abortRef.current?.abort();
+    fetchListDebounce.cancel();
+    requestFinally();
+  };
 
   // 如果轮询结束了，直接销毁定时器
   useEffect(() => {
@@ -341,7 +348,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
       tableDataList &&
       tableDataList.length <= pageSize
     ) {
-      abortRef.current?.abort();
+      abortFetch();
       fetchListDebounce.run(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -352,7 +359,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
     if (!prePageSize) {
       return;
     }
-    abortRef.current?.abort();
+    abortFetch();
     fetchListDebounce.run(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageInfo?.pageSize]);
@@ -363,7 +370,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
    * 最后，检查是否有正在进行的请求，如果有，则中止它。
    */
   useDeepCompareEffect(() => {
-    abortRef.current?.abort();
+    abortFetch();
     fetchListDebounce.run(false);
     if (!manual) {
       // 如果 manual 标志未设置，则将 manualRequestRef 设置为 false。
@@ -371,7 +378,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
       manualRequestRef.current = false;
     }
     return () => {
-      abortRef.current?.abort();
+      abortFetch();
     };
   }, [...effects, manual]);
 
@@ -402,8 +409,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
      * @returns {Promise<boolean>} - 数据重新加载完成后解决为 true 的 Promise。
      */
     reload: async () => {
-      abortRef.current?.abort();
-      fetchListDebounce.cancel();
+      abortFetch();
       return fetchListDebounce.run(false);
     },
     /**
