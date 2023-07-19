@@ -13,6 +13,8 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
   const menuToken = mode.includes('horizontal')
     ? token.layout?.header
     : token.layout?.sider;
+
+  console.log(token.antCls);
   return {
     [`${token.componentCls}`]: {
       background: 'transparent',
@@ -145,10 +147,16 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           },
         },
       },
+
       '&-group-divider': {
         color: token.colorTextSecondary,
         fontSize: 12,
         lineHeight: 20,
+      },
+    },
+    [`${token.antCls}-menu-submenu${token.antCls}-menu-submenu-popup`]: {
+      [`${token.componentCls}-item-title`]: {
+        alignItems: 'flex-start',
       },
     },
   };
