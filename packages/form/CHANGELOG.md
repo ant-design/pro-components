@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.16.0...@ant-design/pro-form@2.16.1) (2023-07-19)
+
+
+### Bug Fixes
+
+* **layout:** fix sider collpse no work error ([e17dee6](https://github.com/ant-design/pro-components/commit/e17dee6be22b21563d02775e460a331870ff557e)), closes [/github.com/ant-design/pro-components/issues/7398#issuecomment-1641911484](https://github.com//github.com/ant-design/pro-components/issues/7398/issues/issuecomment-1641911484)
+
+
+
+
 
 # [2.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.15.1...@ant-design/pro-form@2.16.0) (2023-07-19)
 
