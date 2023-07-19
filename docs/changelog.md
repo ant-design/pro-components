@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.6
+﻿## @ant-design/pro-components@2.6.7
+
+`2023-07-19`
+
+- fix(layout): fix sider collpse no work error. [e17dee6](https://github.com/ant-design/pro-components/commit/e17dee6)
+
+## @ant-design/pro-components@2.6.6
 
 `2023-07-19`
 
