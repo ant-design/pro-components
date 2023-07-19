@@ -3,6 +3,7 @@ import { Form } from 'antd';
 import React from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
+import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { Group, ProFormItem } from '../../components';
 
 export type ProFormProps<
@@ -42,5 +43,6 @@ ProForm.useWatch = Form.useWatch;
 ProForm.ErrorList = Form.ErrorList;
 ProForm.Provider = Form.Provider;
 ProForm.useFormInstance = Form.useFormInstance;
+ProForm.EditOrReadOnlyContext = EditOrReadOnlyContext;
 
 export { ProForm };

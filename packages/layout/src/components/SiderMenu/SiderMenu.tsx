@@ -383,43 +383,43 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const menuFooterDom = menuFooterRender && menuFooterRender?.(props);
 
   const menuDomItems = (
-    <SiderContext.Provider value={{}}>
-      <>
-        {headerDom && (
-          <div
-            className={classNames([
-              classNames(`${baseClassName}-logo`, hashId, {
-                [`${baseClassName}-logo-collapsed`]: collapsed,
-              }),
-            ])}
-            onClick={showSiderExtraDom ? onMenuHeaderClick : undefined}
-            id="logo"
-            style={logoStyle}
-          >
-            {headerDom}
-            {appsDom}
-          </div>
-        )}
-        {extraDom && (
-          <div
-            className={classNames([
-              `${baseClassName}-extra`,
-              !headerDom && `${baseClassName}-extra-no-logo`,
-              hashId,
-            ])}
-          >
-            {extraDom}
-          </div>
-        )}
+    <>
+      {headerDom && (
         <div
-          style={{
-            flex: 1,
-            overflowY: 'auto',
-            overflowX: 'hidden',
-          }}
+          className={classNames([
+            classNames(`${baseClassName}-logo`, hashId, {
+              [`${baseClassName}-logo-collapsed`]: collapsed,
+            }),
+          ])}
+          onClick={showSiderExtraDom ? onMenuHeaderClick : undefined}
+          id="logo"
+          style={logoStyle}
         >
-          {menuRenderDom}
+          {headerDom}
+          {appsDom}
         </div>
+      )}
+      {extraDom && (
+        <div
+          className={classNames([
+            `${baseClassName}-extra`,
+            !headerDom && `${baseClassName}-extra-no-logo`,
+            hashId,
+          ])}
+        >
+          {extraDom}
+        </div>
+      )}
+      <div
+        style={{
+          flex: 1,
+          overflowY: 'auto',
+          overflowX: 'hidden',
+        }}
+      >
+        {menuRenderDom}
+      </div>
+      <SiderContext.Provider value={{}}>
         {links ? (
           <div className={`${baseClassName}-links ${hashId}`.trim()}>
             <Menu
@@ -458,8 +458,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             {menuFooterDom}
           </div>
         )}
-      </>
-    </SiderContext.Provider>
+      </SiderContext.Provider>
+    </>
   );
 
   return stylishClassName.wrapSSR(
