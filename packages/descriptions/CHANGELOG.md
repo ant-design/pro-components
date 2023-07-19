@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.4.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.4.5...@ant-design/pro-descriptions@2.4.6) (2023-07-19)
+
+
+### Bug Fixes
+
+* **descriptions:** contentStyle add minwidth=0 ([9087253](https://github.com/ant-design/pro-components/commit/9087253b914d1d6280b9eb52011db63dcf009b89))
+
+
+
+
 
 ## [2.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.4.4...@ant-design/pro-descriptions@2.4.5) (2023-07-14)
 
