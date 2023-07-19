@@ -1,30 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [3.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.9.1...@ant-design/pro-table@3.10.0) (2023-07-19)
 
-
 ### Bug Fixes
 
-* **table:** dataSource support string list ([7b81b4c](https://github.com/ant-design/pro-components/commit/7b81b4c8ae247ccc4198ef597a9ae58d83ab697a))
-* **table:** fix renderFormItem render twice render time ([c3b8ffd](https://github.com/ant-design/pro-components/commit/c3b8ffd62f2100789e749907b5aef84c6966c528))
-* **table:** Fix the columnsSetting styling issue in controlling column state when the table header is too long ([5b746b3](https://github.com/ant-design/pro-components/commit/5b746b3cfef9a2da021d963d8c723e5a9b9b829a))
-* **table:** Fix the issue of actionref not being synchronized ([2160fb8](https://github.com/ant-design/pro-components/commit/2160fb846bcfe41809a37dfe6e1cc3fce1d211e7))
-* **table:** Fix the issue where align="center" is not working ([db6fc65](https://github.com/ant-design/pro-components/commit/db6fc655b9994826238bb6b63588467ff8c6a6f8))
-* **table:** params change awaly reload fetch ([b147a16](https://github.com/ant-design/pro-components/commit/b147a16cd5d15bf6aad383683d9ffecdf1861e1d))
-* **table:** Protable support EXPAND_COLUMN  and SELECTION_COLUMN ([3454347](https://github.com/ant-design/pro-components/commit/34543475aaf00f7a73b2bcd148021fc7eb13bba9))
-* **table:** when checkable=false, no render all select boxs ([5421e41](https://github.com/ant-design/pro-components/commit/5421e41671afc084d6ba6cdb992e5320e72c2f8d))
-
+- **table:** dataSource support string list ([7b81b4c](https://github.com/ant-design/pro-components/commit/7b81b4c8ae247ccc4198ef597a9ae58d83ab697a))
+- **table:** fix renderFormItem render twice render time ([c3b8ffd](https://github.com/ant-design/pro-components/commit/c3b8ffd62f2100789e749907b5aef84c6966c528))
+- **table:** Fix the columnsSetting styling issue in controlling column state when the table header is too long ([5b746b3](https://github.com/ant-design/pro-components/commit/5b746b3cfef9a2da021d963d8c723e5a9b9b829a))
+- **table:** Fix the issue of actionref not being synchronized ([2160fb8](https://github.com/ant-design/pro-components/commit/2160fb846bcfe41809a37dfe6e1cc3fce1d211e7))
+- **table:** Fix the issue where align="center" is not working ([db6fc65](https://github.com/ant-design/pro-components/commit/db6fc655b9994826238bb6b63588467ff8c6a6f8))
+- **table:** params change awaly reload fetch ([b147a16](https://github.com/ant-design/pro-components/commit/b147a16cd5d15bf6aad383683d9ffecdf1861e1d))
+- **table:** Protable support EXPAND_COLUMN and SELECTION_COLUMN ([3454347](https://github.com/ant-design/pro-components/commit/34543475aaf00f7a73b2bcd148021fc7eb13bba9))
+- **table:** when checkable=false, no render all select boxs ([5421e41](https://github.com/ant-design/pro-components/commit/5421e41671afc084d6ba6cdb992e5320e72c2f8d))
 
 ### Features
 
-* **table:** ProTable support optionsRender ([8b56b6a](https://github.com/ant-design/pro-components/commit/8b56b6ae20aa21d80ad8bb4c17239a5bf9192f0b))
-
-
-
-
+- **table:** ProTable support optionsRender ([8b56b6a](https://github.com/ant-design/pro-components/commit/8b56b6ae20aa21d80ad8bb4c17239a5bf9192f0b))
 
 ## [3.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.9.0...@ant-design/pro-table@3.9.1) (2023-07-14)
 

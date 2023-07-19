@@ -1,23 +1,17 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.5...@ant-design/pro-field@2.10.6) (2023-07-19)
 
-
 ### Bug Fixes
 
-* **form:** CheckBox readonly mode support warp ([646f4a7](https://github.com/ant-design/pro-components/commit/646f4a7065de93eb7d5cbcce2e3ea1e28657e552))
-* **form:** fix jsonCode bgColor no work in dart mode ([03927db](https://github.com/ant-design/pro-components/commit/03927dba5b166e882acefdbf21647507ae76b020))
-* **form:** Fix the issue of the ProFormMoney component causing duplicate currency symbols when using trigger=onBlur ([bc94215](https://github.com/ant-design/pro-components/commit/bc9421543f4fb49774b4844b60dda39d19e52307))
-* **form:** LightFilter default set popupMatchSelectWidth=false ([27667aa](https://github.com/ant-design/pro-components/commit/27667aa5a4b46b61b7b9fa132f59532e3d6ae2f4))
-* **form:** select use options ([59d5e72](https://github.com/ant-design/pro-components/commit/59d5e72b3cd57d4d91ce2a0e0b6abde1f68f37cf))
-* **form:** use 'Space.Compact' instead  'Input.Group' ([89e1fb4](https://github.com/ant-design/pro-components/commit/89e1fb4cd721ef7a6e01336c8e962b278a27bcbb))
-
-
-
-
+- **form:** CheckBox readonly mode support warp ([646f4a7](https://github.com/ant-design/pro-components/commit/646f4a7065de93eb7d5cbcce2e3ea1e28657e552))
+- **form:** fix jsonCode bgColor no work in dart mode ([03927db](https://github.com/ant-design/pro-components/commit/03927dba5b166e882acefdbf21647507ae76b020))
+- **form:** Fix the issue of the ProFormMoney component causing duplicate currency symbols when using trigger=onBlur ([bc94215](https://github.com/ant-design/pro-components/commit/bc9421543f4fb49774b4844b60dda39d19e52307))
+- **form:** LightFilter default set popupMatchSelectWidth=false ([27667aa](https://github.com/ant-design/pro-components/commit/27667aa5a4b46b61b7b9fa132f59532e3d6ae2f4))
+- **form:** select use options ([59d5e72](https://github.com/ant-design/pro-components/commit/59d5e72b3cd57d4d91ce2a0e0b6abde1f68f37cf))
+- **form:** use 'Space.Compact' instead 'Input.Group' ([89e1fb4](https://github.com/ant-design/pro-components/commit/89e1fb4cd721ef7a6e01336c8e962b278a27bcbb))
 
 ## [2.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.4...@ant-design/pro-field@2.10.5) (2023-07-14)
 

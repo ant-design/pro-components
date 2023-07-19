@@ -1,27 +1,20 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.15.1...@ant-design/pro-form@2.16.0) (2023-07-19)
 
-
 ### Bug Fixes
 
-* **form:** Fix the issue of the ProFormMoney component causing duplicate currency symbols when using trigger=onBlur ([bc94215](https://github.com/ant-design/pro-components/commit/bc9421543f4fb49774b4844b60dda39d19e52307))
-* **form:** ModalForm and DrawerForm support params type ([76470d8](https://github.com/ant-design/pro-components/commit/76470d81a88909d4b21ba3b06606434801e02007))
-* **form:** support OptionType types ([189f933](https://github.com/ant-design/pro-components/commit/189f9338be78af8dbdc54cb74432844a51b2c0c6))
-* **form:** 修复当LightFilter折叠模式icon样式问题 ([#7388](https://github.com/ant-design/pro-components/issues/7388)) ([bba664a](https://github.com/ant-design/pro-components/commit/bba664a955376d05284e5da81082cc002dd339bd))
-
+- **form:** Fix the issue of the ProFormMoney component causing duplicate currency symbols when using trigger=onBlur ([bc94215](https://github.com/ant-design/pro-components/commit/bc9421543f4fb49774b4844b60dda39d19e52307))
+- **form:** ModalForm and DrawerForm support params type ([76470d8](https://github.com/ant-design/pro-components/commit/76470d81a88909d4b21ba3b06606434801e02007))
+- **form:** support OptionType types ([189f933](https://github.com/ant-design/pro-components/commit/189f9338be78af8dbdc54cb74432844a51b2c0c6))
+- **form:** 修复当 LightFilter 折叠模式 icon 样式问题 ([#7388](https://github.com/ant-design/pro-components/issues/7388)) ([bba664a](https://github.com/ant-design/pro-components/commit/bba664a955376d05284e5da81082cc002dd339bd))
 
 ### Features
 
-* **form:** drawer  support resizable ([#7288](https://github.com/ant-design/pro-components/issues/7288)) ([3f5cbe6](https://github.com/ant-design/pro-components/commit/3f5cbe667670b870f930005639f3c1eb7065144d))
-* **form:** StepsForm support multifile StepForm ([ccc35f5](https://github.com/ant-design/pro-components/commit/ccc35f581c18e05391209c6bd66b08a023b2427b))
-
-
-
-
+- **form:** drawer support resizable ([#7288](https://github.com/ant-design/pro-components/issues/7288)) ([3f5cbe6](https://github.com/ant-design/pro-components/commit/3f5cbe667670b870f930005639f3c1eb7065144d))
+- **form:** StepsForm support multifile StepForm ([ccc35f5](https://github.com/ant-design/pro-components/commit/ccc35f581c18e05391209c6bd66b08a023b2427b))
 
 ## [2.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.15.0...@ant-design/pro-form@2.15.1) (2023-07-14)
 

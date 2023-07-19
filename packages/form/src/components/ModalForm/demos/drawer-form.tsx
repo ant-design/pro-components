@@ -27,10 +27,10 @@ export default () => {
       title="新建表单"
       resize={{
         onResize() {
-          console.log("resize!")
+          console.log('resize!');
         },
         maxWidth: window.innerWidth * 0.8,
-        minWidth: 300
+        minWidth: 300,
       }}
       form={form}
       trigger={

@@ -1,22 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.1...@ant-design/pro-layout@7.16.2) (2023-07-19)
 
-
 ### Bug Fixes
 
-* **layout:** disable SiderContext when Sider other dom ([4d53446](https://github.com/ant-design/pro-components/commit/4d53446a608fe91d57aaece6cc7bffe89e387b2a))
-* **layout:** fix FooterToolBar width error ([54d9afe](https://github.com/ant-design/pro-components/commit/54d9afef13b21f3a502048941f787dfcda0d910a))
-* **layout:** Layout siderMenu delete  getContainer = false ([ed0c88b](https://github.com/ant-design/pro-components/commit/ed0c88b01cc24a742578d00563ca48b27995e37a))
-* **layout:** menuItem support disableTooltip ([84b79c8](https://github.com/ant-design/pro-components/commit/84b79c85991ce8a34ef047f57849bcafe32e2cf1))
-* **table:** Fix the issue of actionref not being synchronized ([2160fb8](https://github.com/ant-design/pro-components/commit/2160fb846bcfe41809a37dfe6e1cc3fce1d211e7))
-
-
-
-
+- **layout:** disable SiderContext when Sider other dom ([4d53446](https://github.com/ant-design/pro-components/commit/4d53446a608fe91d57aaece6cc7bffe89e387b2a))
+- **layout:** fix FooterToolBar width error ([54d9afe](https://github.com/ant-design/pro-components/commit/54d9afef13b21f3a502048941f787dfcda0d910a))
+- **layout:** Layout siderMenu delete getContainer = false ([ed0c88b](https://github.com/ant-design/pro-components/commit/ed0c88b01cc24a742578d00563ca48b27995e37a))
+- **layout:** menuItem support disableTooltip ([84b79c8](https://github.com/ant-design/pro-components/commit/84b79c85991ce8a34ef047f57849bcafe32e2cf1))
+- **table:** Fix the issue of actionref not being synchronized ([2160fb8](https://github.com/ant-design/pro-components/commit/2160fb846bcfe41809a37dfe6e1cc3fce1d211e7))
 
 ## [7.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.0...@ant-design/pro-layout@7.16.1) (2023-07-14)
 

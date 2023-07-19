@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.12.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.4...@ant-design/pro-utils@2.12.5) (2023-07-19)
 
-
 ### Bug Fixes
 
-* **form:** ModalForm and DrawerForm support params type ([76470d8](https://github.com/ant-design/pro-components/commit/76470d81a88909d4b21ba3b06606434801e02007))
-* **form:** select use options ([59d5e72](https://github.com/ant-design/pro-components/commit/59d5e72b3cd57d4d91ce2a0e0b6abde1f68f37cf))
-
-
-
-
+- **form:** ModalForm and DrawerForm support params type ([76470d8](https://github.com/ant-design/pro-components/commit/76470d81a88909d4b21ba3b06606434801e02007))
+- **form:** select use options ([59d5e72](https://github.com/ant-design/pro-components/commit/59d5e72b3cd57d4d91ce2a0e0b6abde1f68f37cf))
 
 ## [2.12.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.3...@ant-design/pro-utils@2.12.4) (2023-07-14)
 

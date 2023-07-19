@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.5.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.5...@ant-design/pro-card@2.5.6) (2023-07-19)
 
-
 ### Bug Fixes
 
-* **list:** ProList card support on checked ([2a0257e](https://github.com/ant-design/pro-components/commit/2a0257e476555323bf6813c4a3648c6a08dbb63d))
-* **table:** when checkable=false, no render all select boxs ([5421e41](https://github.com/ant-design/pro-components/commit/5421e41671afc084d6ba6cdb992e5320e72c2f8d))
-
-
-
-
+- **list:** ProList card support on checked ([2a0257e](https://github.com/ant-design/pro-components/commit/2a0257e476555323bf6813c4a3648c6a08dbb63d))
+- **table:** when checkable=false, no render all select boxs ([5421e41](https://github.com/ant-design/pro-components/commit/5421e41671afc084d6ba6cdb992e5320e72c2f8d))
 
 ## [2.5.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.4...@ant-design/pro-card@2.5.5) (2023-07-14)
 
