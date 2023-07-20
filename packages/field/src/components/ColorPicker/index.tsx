@@ -1,4 +1,4 @@
-﻿import { ColorPicker } from 'antd';
+﻿import { ColorPicker, ColorPickerProps } from 'antd';
 import type { PresetsItem } from 'antd/es/color-picker/interface';
 import React, { useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
@@ -39,7 +39,7 @@ const DEFAULT_PRESETS: PresetsItem = {
   ],
 }
 const FieldColor: ProFieldFC<{
-  text: string;
+  text: ColorPickerProps['value'];
 }> = (
   { text, mode, render, renderFormItem, fieldProps },
   ref,
@@ -51,6 +51,7 @@ const FieldColor: ProFieldFC<{
         <ColorPicker
           ref={inputRef}
           presets={[DEFAULT_PRESETS]}
+          defaultValue={text}
           {...fieldProps}
           // 设置无法 open 
           open={false}

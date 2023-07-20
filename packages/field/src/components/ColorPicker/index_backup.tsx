@@ -134,7 +134,6 @@ const ColorPicker = React.forwardRef(
 const FieldColorPicker: ProFieldFC<{
   text: string;
 }> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
-  console.log("LENG ~ text:", text);
   if (type === 'read') {
     const dom = <ColorPicker value={text} mode="read" ref={ref} />;
     if (render) {
