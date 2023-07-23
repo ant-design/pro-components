@@ -257,6 +257,9 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   onAfterRemove?: (
     ...params: [...Parameters<FormListOperation['remove']>, number]
   ) => void;
+
+  /** 是否只读模式 */
+  readonly: boolean;
 };
 
 const ProFormListItem: React.FC<

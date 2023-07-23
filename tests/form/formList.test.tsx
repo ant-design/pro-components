@@ -57,6 +57,64 @@ describe('ProForm List', () => {
     });
   });
 
+  it('⛲ ProForm.List support readonly', async () => {
+    const html = render(
+      <ProForm readonly>
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+    await html.findByText('提 交');
+
+    expect(
+      !!html.baseElement.querySelector(
+        'ant-pro-form-list-creator-button-bottom',
+      ),
+    ).toBeFalsy();
+  });
+
+  it('⛲ ProForm.List support self readonly', async () => {
+    const html = render(
+      <ProForm>
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+          readonly
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await html.findByText('提 交');
+
+    expect(
+      !!html.baseElement.querySelector(
+        'ant-pro-form-list-creator-button-bottom',
+      ),
+    ).toBeFalsy();
+  });
+
   it('⛲ ProForm.List for deps ProFormDependency', async () => {
     const html = render(
       <StepsForm<{

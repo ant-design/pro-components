@@ -750,7 +750,7 @@ describe('utils', () => {
       },
     );
     const htmlKeys = Object.keys(html).sort();
-
+    console.log(html);
     expect(htmlKeys).toEqual(
       [
         'dateTimeRange1',
