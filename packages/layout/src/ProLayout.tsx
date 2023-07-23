@@ -392,7 +392,7 @@ export type BasicLayoutContext = { [K in 'location']: ProLayoutProps[K] } & {
   breadcrumb: Record<string, MenuDataItem>;
 };
 
-const getpaddingInlineStart = (
+const getPaddingInlineStart = (
   hasLeftPadding: boolean,
   collapsed: boolean | undefined,
   siderWidth: number,
@@ -683,7 +683,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 
   /** 计算 slider 的宽度 */
-  const leftSiderWidth = getpaddingInlineStart(
+  const leftSiderWidth = getPaddingInlineStart(
     !!hasLeftPadding,
     collapsed,
     siderWidth,
