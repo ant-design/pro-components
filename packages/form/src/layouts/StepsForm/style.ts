@@ -10,7 +10,7 @@ const genStepsFormStyle: GenerateStyle<StepsFormToken> = (token) => {
     [token.componentCls]: {
       '&-container': {
         width: 'max-content',
-        minWidth: '520px',
+        minWidth: '420px',
         maxWidth: '100%',
         margin: 'auto',
       },
