@@ -3,11 +3,8 @@ import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import { SketchPicker } from '@chenshuai2144/sketch-color';
 import type { PopoverProps } from 'antd';
 import { ConfigProvider, Popover } from 'antd';
-
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useImperativeHandle } from 'react';
-import type { ProFieldFC } from '../../index';
-
 export const DEFAULT_COLORS = [
   '#FF9D4E', // 0 - 橘黄色
   '#5BD8A6', // 1 - 绿色
@@ -20,8 +17,7 @@ export const DEFAULT_COLORS = [
   '#667796', // 8 - 黛蓝色
   '#F6BD16', // 9 - 黄色
 ];
-
-const ColorPicker = React.forwardRef(
+export  const ColorPicker = React.forwardRef(
   (
     {
       mode,
@@ -124,31 +120,31 @@ const ColorPicker = React.forwardRef(
   },
 );
 
-/**
- * 颜色组件
- *
- * @param FieldColorPicker {
- *     text: number;
- *     moneySymbol?: string; }
- */
-const FieldColorPicker: ProFieldFC<{
-  text: string;
-}> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
-  if (type === 'read') {
-    const dom = <ColorPicker value={text} mode="read" ref={ref} />;
-    if (render) {
-      return render(text, { mode: type, ...fieldProps }, dom);
-    }
-    return dom;
-  }
-  if (type === 'edit' || type === 'update') {
-    const dom = <ColorPicker ref={ref} {...fieldProps} />;
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
-    }
-    return dom;
-  }
-  return null;
-};
+// /**
+//  * 颜色组件
+//  *
+//  * @param FieldColorPicker {
+//  *     text: number;
+//  *     moneySymbol?: string; }
+//  */
+// const FieldColorPicker: ProFieldFC<{
+//   text: string;
+// }> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
+//   if (type === 'read') {
+//     const dom = <ColorPicker value={text} mode="read" ref={ref} />;
+//     if (render) {
+//       return render(text, { mode: type, ...fieldProps }, dom);
+//     }
+//     return dom;
+//   }
+//   if (type === 'edit' || type === 'update') {
+//     const dom = <ColorPicker ref={ref} {...fieldProps} />;
+//     if (renderFormItem) {
+//       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+//     }
+//     return dom;
+//   }
+//   return null;
+// };
 
-export default React.forwardRef(FieldColorPicker);
+// export default React.forwardRef(FieldColorPicker);

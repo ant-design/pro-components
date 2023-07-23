@@ -1,9 +1,10 @@
-﻿import { ColorPicker, ColorPickerProps } from 'antd';
-import type { PresetsItem } from 'antd/es/color-picker/interface';
-import React, { useImperativeHandle, useRef } from 'react';
+﻿import { compareVersions } from '@ant-design/pro-utils';
+import { ColorPicker as ColorPickerV5, version } from 'antd';
+import React from 'react';
 import type { ProFieldFC } from '../../index';
+import { ColorPicker as ColorPickerV4 } from './old';
 // https://ant.design/components/color-picker-cn 示例颜色
-const DEFAULT_PRESETS: PresetsItem = {
+const DEFAULT_PRESETS = {
   label: 'Recommended',
   colors: [
     // '#000000',
@@ -38,45 +39,48 @@ const DEFAULT_PRESETS: PresetsItem = {
     '#EB2F964D',
   ],
 }
-const FieldColor: ProFieldFC<{
-  text: ColorPickerProps['value'];
-}> = (
-  { text, mode, render, renderFormItem, fieldProps },
-  ref,
-) => {
-    const inputRef = useRef<HTMLInputElement>();
-    useImperativeHandle(ref, () => inputRef.current, []);
-    if (mode === 'read') {
-      const dom = (
-        <ColorPicker
-          ref={inputRef}
-          presets={[DEFAULT_PRESETS]}
-          defaultValue={text}
-          {...fieldProps}
-          // 设置无法 open 
-          open={false}
-        />
-      );
-      if (render) {
-        return render(text, { mode, ...fieldProps }, dom);
-      }
-      return dom;
+/**
+ * 获取颜色组件
+ * 兼容 5.5.0 以下的版本
+ * @return {*} 
+ */
+function getColorPicker() {
+  if (compareVersions(version, '5.5.0') > -1 && typeof ColorPickerV5 !== 'undefined') {
+    return ColorPickerV5;
+  }
+  return ColorPickerV4
+}
+const ColorPicker = getColorPicker();
+/**
+ * 颜色组件
+ *
+ * @param FieldColorPicker {
+ *     text: number;
+ *     moneySymbol?: string; }
+ */
+const FieldColorPicker: ProFieldFC<{
+  text: string;
+}> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
+  if (type === 'read') {
+    const dom = <ColorPicker
+      value={text}
+      mode="read"
+      ref={ref}
+      // 设置无法 open 
+      open={false} />;
+    if (render) {
+      return render(text, { mode: type, ...fieldProps }, dom);
     }
-    if (mode === 'edit' || mode === 'update') {
-      const dom = (
-        <ColorPicker
-          ref={inputRef}
-          presets={[DEFAULT_PRESETS]}
-          {...fieldProps}
-        />
-      );
-
-      if (renderFormItem) {
-        return renderFormItem(text, { mode, ...fieldProps }, dom);
-      }
-      return dom;
+    return dom;
+  }
+  if (type === 'edit' || type === 'update') {
+    const dom = <ColorPicker ref={ref} presets={[DEFAULT_PRESETS]} {...fieldProps} />;
+    if (renderFormItem) {
+      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }
-    return null;
-  };
+    return dom;
+  }
+  return null;
+};
 
-export default React.forwardRef(FieldColor);
+export default React.forwardRef(FieldColorPicker);
