@@ -1,5 +1,6 @@
 ﻿import { compareVersions } from '@ant-design/pro-utils';
-import { ColorPicker as ColorPickerV5, version } from 'antd';
+// import { ColorPicker as ColorPickerV5, version } from 'antd';
+import { version } from 'antd';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 import { ColorPicker as ColorPickerV4 } from './old';
@@ -45,8 +46,9 @@ const DEFAULT_PRESETS = {
  * @return {*} 
  */
 function getColorPicker() {
-  if (compareVersions(version, '5.5.0') > -1 && typeof ColorPickerV5 !== 'undefined') {
-    return ColorPickerV5;
+  if (compareVersions(version, '5.5.0') > -1) {
+    const { ColorPicker } = require('antd');
+    return ColorPicker;
   }
   return ColorPickerV4
 }
