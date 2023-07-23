@@ -253,6 +253,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         ...proFieldProps,
       });
     }, [
+      contextValue.proFieldProps,
       rest?.mode,
       rest.params,
       readonly,
