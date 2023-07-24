@@ -1,29 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.3...@ant-design/pro-layout@7.16.4) (2023-07-24)
 
-
 ### Bug Fixes
 
-* **layout:** fix submenu popup text is center error ([7191501](https://github.com/ant-design/pro-components/commit/71915016e6a243af9733981bcb1ff6ec06d01b5c))
-
-
-
-
+- **layout:** fix submenu popup text is center error ([7191501](https://github.com/ant-design/pro-components/commit/71915016e6a243af9733981bcb1ff6ec06d01b5c))
 
 ## [7.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.2...@ant-design/pro-layout@7.16.3) (2023-07-19)
 
-
 ### Bug Fixes
 
-* **layout:** fix sider collpse no work error ([e17dee6](https://github.com/ant-design/pro-components/commit/e17dee6be22b21563d02775e460a331870ff557e)), closes [/github.com/ant-design/pro-components/issues/7398#issuecomment-1641911484](https://github.com//github.com/ant-design/pro-components/issues/7398/issues/issuecomment-1641911484)
-
-
-
-
+- **layout:** fix sider collpse no work error ([e17dee6](https://github.com/ant-design/pro-components/commit/e17dee6be22b21563d02775e460a331870ff557e)), closes [/github.com/ant-design/pro-components/issues/7398#issuecomment-1641911484](https://github.com//github.com/ant-design/pro-components/issues/7398/issues/issuecomment-1641911484)
 
 ## [7.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.1...@ant-design/pro-layout@7.16.2) (2023-07-19)
 

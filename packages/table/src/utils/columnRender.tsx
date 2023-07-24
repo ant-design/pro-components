@@ -114,7 +114,8 @@ export function columnRender<T>({
 
   const renderTextStr = renderText(text, rowData, index, action as ActionType);
   const mode =
-    isEditable && !isNotEditableCell(text, rowData, index, columnProps?.editable)
+    isEditable &&
+    !isNotEditableCell(text, rowData, index, columnProps?.editable)
       ? 'edit'
       : 'read';
 
