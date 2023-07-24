@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.16.1...@ant-design/pro-form@2.16.2) (2023-07-24)
+
+
+### Bug Fixes
+
+* **form:** ProForm support readonly ([e466f4e](https://github.com/ant-design/pro-components/commit/e466f4ed72340b4c7f8fc1d5f23896a05609e989))
+* **form:** ProFormSet support lightProps ([0593fe1](https://github.com/ant-design/pro-components/commit/0593fe1100b9119e3ac2cf60e3994fb5f419e56f))
+* **form:** StepForm support moblie width ([6eee22f](https://github.com/ant-design/pro-components/commit/6eee22fd3d1fb5ced78c75805dda6325911cf1dc))
+
+
+
+
+
 ## [2.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.16.0...@ant-design/pro-form@2.16.1) (2023-07-19)
 
 

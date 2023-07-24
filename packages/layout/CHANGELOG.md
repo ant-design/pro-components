@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.3...@ant-design/pro-layout@7.16.4) (2023-07-24)
+
+
+### Bug Fixes
+
+* **layout:** fix submenu popup text is center error ([7191501](https://github.com/ant-design/pro-components/commit/71915016e6a243af9733981bcb1ff6ec06d01b5c))
+
+
+
+
+
 ## [7.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.2...@ant-design/pro-layout@7.16.3) (2023-07-19)
 
 
