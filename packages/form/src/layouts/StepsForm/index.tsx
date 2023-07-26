@@ -88,7 +88,10 @@ type StepsFormProps<T = Record<string, any>> = {
    *
    * @param layoutDom stepsDom 和 formDom 元素可以放置在任何地方。
    */
-  layoutRender?: (layoutDom: LayoutRenderDom) => React.ReactNode;
+  layoutRender?: (layoutDom: {
+    stepsDom: React.ReactElement;
+    formDom: React.ReactElement;
+  }) => React.ReactNode;
 } & Omit<FormProviderProps, 'children'>;
 
 export const StepsFormProvide = React.createContext<
