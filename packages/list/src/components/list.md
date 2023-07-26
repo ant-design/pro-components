@@ -77,7 +77,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 | split | 是否有分割线 | `boolean` | `false` |
 | rowSelection | 与 antd 相同的[配置](https://ant.design/components/table-cn/#rowSelection) | `object` \|`boolean` | false |
 | expandable | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable) | `object` \| `false` | - |
-| showActions | 何时展示 actions | `'hover'` \| `'always'` | `'always'` |
+| showActions | 何时展示 actions，CardList 模式下不生效 | `'hover'` \| `'always'` | `'always'` |
 | showExtra | 何时展示 extra | `'hover'` \| `'always'` | `'always'` |
 | onRow | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95)，用户传入`grid`属性时，列表将会以卡片模式进行渲染，此事件将不会触发，请使用`onItem` | `function(record, index)` | - |
 | onItem | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95)，在所有类型点击某个项目都会触发该事件。 | `function(record, index)` | - |

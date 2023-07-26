@@ -75,7 +75,7 @@ Compared with antd's [List](https://ant.design/components/list-cn/), ProList's A
 | split | whether to have a split line | `boolean` | `false` |
 | rowSelection | same [configuration](https://ant.design/components/table-cn/#rowSelection) as antd | `object` \|`boolean` | false |
 | expandable | same [configuration](https://ant.design/components/table-cn/#expandable) as antd | `object` \| `false` | - |
-| showActions | When to show actions | `'hover'` \| `'always'` | `'always'` |
+| showActions | When to show actions, no support CardList | `'hover'` \| `'always'` | `'always'` |
 | showExtra | When to show extra | `'hover'` \| `'always'` | `'always'` |
 | onRow | The same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd , when the user passes in the `grid` property , the list will be rendered in card mode, this event will not fire, please use `onItem` | `function(record, index)` | - |
 | onItem | The same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd , clicking on an item in all types will trigger this event. | `function(record, index)` | - |
