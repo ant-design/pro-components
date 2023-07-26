@@ -1,5 +1,4 @@
 ﻿import { compareVersions } from '@ant-design/pro-utils';
-// import { ColorPicker as ColorPickerV5, version } from 'antd';
 import { version } from 'antd';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
@@ -8,16 +7,6 @@ import { ColorPicker as ColorPickerV4 } from './old';
 const DEFAULT_PRESETS = {
   label: 'Recommended',
   colors: [
-    // '#000000',
-    // '#000000E0',
-    // '#000000A6',
-    // '#00000073',
-    // '#00000040',
-    // '#00000026',
-    // '#0000001A',
-    // '#00000012',
-    // '#0000000A',
-    // '#00000005',
     '#F5222D',
     '#FA8C16',
     '#FADB14',
