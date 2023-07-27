@@ -787,7 +787,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorItemBgSelected:
                       token?.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
-                    colorItemBgActive:
+                    itemActiveBg:
                       token?.layout?.sider?.colorBgMenuItemHover ||
                       token?.colorBgTextHover,
                     colorItemBgSelectedHorizontal:

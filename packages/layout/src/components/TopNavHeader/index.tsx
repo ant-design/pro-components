@@ -71,7 +71,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
                 colorItemBgSelected:
                   token?.layout?.header?.colorBgMenuItemSelected ||
                   token?.colorBgTextHover,
-                colorItemBgActive:
+                itemHoverBg:
                   token?.layout?.header?.colorBgMenuItemHover ||
                   token?.colorBgTextHover,
                 colorItemBgSelectedHorizontal:
