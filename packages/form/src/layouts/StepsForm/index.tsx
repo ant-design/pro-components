@@ -83,6 +83,15 @@ type StepsFormProps<T = Record<string, any>> = {
     | false;
 
   containerStyle?: React.CSSProperties;
+  /**
+   * 自定義整個佈局。
+   *
+   * @param layoutDom stepsDom 和 formDom 元素可以放置在任何地方。
+   */
+  layoutRender?: (layoutDom: {
+    stepsDom: React.ReactElement;
+    formDom: React.ReactElement;
+  }) => React.ReactNode;
 } & Omit<FormProviderProps, 'children'>;
 
 export const StepsFormProvide = React.createContext<
@@ -181,6 +190,7 @@ function StepsForm<T = Record<string, any>>(
     containerStyle,
     formRef,
     formMapRef: propsFormMapRef,
+    layoutRender: propsLayoutRender,
     ...rest
   } = props;
 
@@ -496,7 +506,15 @@ function StepsForm<T = Record<string, any>>(
     };
 
     if (stepsFormRender) {
-      return stepsFormRender(layoutRender(doms), submitterDom);
+      if (propsLayoutRender) {
+        return stepsFormRender(propsLayoutRender(doms), submitterDom);
+      } else {
+        return stepsFormRender(layoutRender(doms), submitterDom);
+      }
+    }
+
+    if (propsLayoutRender) {
+      return propsLayoutRender(doms);
     }
 
     return layoutRender(doms);
@@ -506,6 +524,7 @@ function StepsForm<T = Record<string, any>>(
     layoutRender,
     stepsFormRender,
     submitterDom,
+    propsLayoutRender,
   ]);
 
   return wrapSSR(
