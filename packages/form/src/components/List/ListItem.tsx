@@ -169,7 +169,7 @@ export type ProFromListCommonProps = {
     action: FormListOperation,
     /**
      * 默认的操作dom
-     * [删除，复制，新增]
+     * [复制，删除]
      */
     defaultActionDom: ReactNode[],
     /**
