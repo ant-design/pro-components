@@ -24,6 +24,7 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
+import heIL from './locale/he_IL';
 
 /**
  * 安全的从一个对象中读取相应的值
@@ -98,6 +99,7 @@ const hrHRIntl = createIntl('hr_', hrHR);
 const thTHIntl = createIntl('th_TH', thTH);
 const csCZIntl = createIntl('cs_cz', csCZ);
 const skSKIntl = createIntl('sk_SK', skSK);
+const heILIntl = createIntl('he_IL', heIL);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -126,6 +128,7 @@ const intlMap = {
   'th-TH': thTHIntl,
   'cs-CZ': csCZIntl,
   'sk-SK': skSKIntl,
+  'he-IL': heILIntl
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -170,6 +173,7 @@ export {
   thTHIntl,
   csCZIntl,
   skSKIntl,
+  heILIntl,
   intlMap,
   intlMapKeys,
 };
