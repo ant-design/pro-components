@@ -8114,7 +8114,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="smile"
@@ -8833,7 +8833,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-title-collapsed"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -8887,7 +8887,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-title-collapsed"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="tablet"
@@ -8934,7 +8934,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                     class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-title-collapsed ant-pro-base-menu-inline-item-link"
                   >
                     <span
-                      class="ant-pro-base-menu-inline-item-icon "
+                      class="ant-pro-base-menu-inline-item-icon"
                     >
                       <span
                         aria-label="chrome"
@@ -9206,7 +9206,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -9815,7 +9815,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
                           class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                         >
                           <span
-                            class="ant-pro-base-menu-horizontal-item-icon "
+                            class="ant-pro-base-menu-horizontal-item-icon"
                           >
                             <span
                               aria-label="chrome"
@@ -9990,7 +9990,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -10599,7 +10599,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
                           class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                         >
                           <span
-                            class="ant-pro-base-menu-horizontal-item-icon "
+                            class="ant-pro-base-menu-horizontal-item-icon"
                           >
                             <span
                               aria-label="chrome"
@@ -11231,7 +11231,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                             class="ant-pro-base-menu-horizontal-item-title"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="crown"
@@ -11285,7 +11285,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                             class="ant-pro-base-menu-horizontal-item-title"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="tablet"
@@ -11333,7 +11333,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
                             class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"
@@ -11671,7 +11671,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       class="my-prefix-base-menu-inline-item-title my-prefix-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="my-prefix-base-menu-inline-item-icon "
+                        class="my-prefix-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -12311,7 +12311,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                             class="my-prefix-base-menu-horizontal-item-title my-prefix-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="my-prefix-base-menu-horizontal-item-icon "
+                              class="my-prefix-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"
@@ -12758,7 +12758,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -13398,7 +13398,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
                             class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"
@@ -14577,7 +14577,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                       class="qixian-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="qixian-pro-base-menu-inline-item-icon "
+                        class="qixian-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -14632,7 +14632,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                       class="qixian-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="qixian-pro-base-menu-inline-item-icon "
+                        class="qixian-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="tablet"
@@ -14681,7 +14681,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                       class="qixian-pro-base-menu-inline-item-title qixian-pro-base-menu-inline-item-link"
                     >
                       <span
-                        class="qixian-pro-base-menu-inline-item-icon "
+                        class="qixian-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="chrome"
@@ -15867,7 +15867,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -16043,7 +16043,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="tablet"
@@ -16097,7 +16097,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                             class="ant-pro-base-menu-inline-item-title"
                           >
                             <span
-                              class="ant-pro-base-menu-inline-item-icon "
+                              class="ant-pro-base-menu-inline-item-icon"
                             >
                               <span
                                 aria-label="crown"
@@ -16344,7 +16344,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
                         class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -16747,7 +16747,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -16802,7 +16802,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="tablet"
@@ -16851,7 +16851,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="chrome"
@@ -17352,7 +17352,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
-                            class="ant-pro-base-menu-inline-item-icon "
+                            class="ant-pro-base-menu-inline-item-icon"
                           >
                             <span
                               aria-label="crown"
@@ -17412,7 +17412,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                           class="ant-pro-base-menu-inline-item-title"
                         >
                           <span
-                            class="ant-pro-base-menu-inline-item-icon "
+                            class="ant-pro-base-menu-inline-item-icon"
                           >
                             <span
                               aria-label="tablet"
@@ -17465,7 +17465,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                         class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -17798,7 +17798,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -18394,7 +18394,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -18986,7 +18986,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
                           class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                         >
                           <span
-                            class="ant-pro-base-menu-horizontal-item-icon "
+                            class="ant-pro-base-menu-horizontal-item-icon"
                           >
                             <span
                               aria-label="chrome"
@@ -19463,7 +19463,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -20103,7 +20103,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
                             class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"
@@ -20744,7 +20744,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -20920,7 +20920,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="tablet"
@@ -20974,7 +20974,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                             class="ant-pro-base-menu-inline-item-title"
                           >
                             <span
-                              class="ant-pro-base-menu-inline-item-icon "
+                              class="ant-pro-base-menu-inline-item-icon"
                             >
                               <span
                                 aria-label="crown"
@@ -21221,7 +21221,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
                         class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -22192,7 +22192,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="crown"
@@ -22247,7 +22247,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="tablet"
@@ -22296,7 +22296,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -24248,7 +24248,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-title-collapsed"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -24302,7 +24302,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-title-collapsed"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="tablet"
@@ -24349,7 +24349,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                     class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-title-collapsed ant-pro-base-menu-inline-item-link"
                   >
                     <span
-                      class="ant-pro-base-menu-inline-item-icon "
+                      class="ant-pro-base-menu-inline-item-icon"
                     >
                       <span
                         aria-label="chrome"
@@ -24591,7 +24591,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -25285,7 +25285,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
                             class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"
@@ -25842,7 +25842,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="crown"
@@ -25897,7 +25897,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="tablet"
@@ -25945,7 +25945,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="chrome"
@@ -27254,7 +27254,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="crown"
@@ -27309,7 +27309,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="tablet"
@@ -27357,7 +27357,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="chrome"
@@ -29192,7 +29192,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="crown"
@@ -29247,7 +29247,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="tablet"
@@ -29885,7 +29885,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -30525,7 +30525,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
                             class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"
@@ -30861,7 +30861,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -31501,7 +31501,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
                             class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"
@@ -32567,7 +32567,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="crown"
@@ -32622,7 +32622,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="tablet"
@@ -32872,7 +32872,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
                         class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-inline-item-icon "
+                          class="ant-pro-base-menu-inline-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -33212,7 +33212,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-group-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -33852,7 +33852,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
                             class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"
@@ -34467,7 +34467,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                         class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-horizontal-item-icon "
+                          class="ant-pro-base-menu-horizontal-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -34780,7 +34780,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                         class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-horizontal-item-icon "
+                          class="ant-pro-base-menu-horizontal-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -34962,7 +34962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           class="ant-pro-base-menu-horizontal-item-title"
                         >
                           <span
-                            class="ant-pro-base-menu-horizontal-item-icon "
+                            class="ant-pro-base-menu-horizontal-item-icon"
                           >
                             <span
                               aria-label="crown"
@@ -35016,7 +35016,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           class="ant-pro-base-menu-horizontal-item-title"
                         >
                           <span
-                            class="ant-pro-base-menu-horizontal-item-icon "
+                            class="ant-pro-base-menu-horizontal-item-icon"
                           >
                             <span
                               aria-label="tablet"
@@ -35063,7 +35063,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                         class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-horizontal-item-icon "
+                          class="ant-pro-base-menu-horizontal-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -35359,7 +35359,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                         class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                       >
                         <span
-                          class="ant-pro-base-menu-horizontal-item-icon "
+                          class="ant-pro-base-menu-horizontal-item-icon"
                         >
                           <span
                             aria-label="chrome"
@@ -35571,7 +35571,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -35626,7 +35626,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="tablet"
@@ -35674,7 +35674,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                   >
                     <span
-                      class="ant-pro-base-menu-inline-item-icon "
+                      class="ant-pro-base-menu-inline-item-icon"
                     >
                       <span
                         aria-label="chrome"
@@ -36038,7 +36038,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="crown"
@@ -36093,7 +36093,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="tablet"
@@ -36141,7 +36141,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-link"
                   >
                     <span
-                      class="ant-pro-base-menu-inline-item-icon "
+                      class="ant-pro-base-menu-inline-item-icon"
                     >
                       <span
                         aria-label="chrome"
@@ -36695,7 +36695,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                           class="ant-pro-base-menu-horizontal-item-title"
                         >
                           <span
-                            class="ant-pro-base-menu-horizontal-item-icon "
+                            class="ant-pro-base-menu-horizontal-item-icon"
                           >
                             <span
                               aria-label="crown"
@@ -36749,7 +36749,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                           class="ant-pro-base-menu-horizontal-item-title"
                         >
                           <span
-                            class="ant-pro-base-menu-horizontal-item-icon "
+                            class="ant-pro-base-menu-horizontal-item-icon"
                           >
                             <span
                               aria-label="tablet"
@@ -36797,7 +36797,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                           class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                         >
                           <span
-                            class="ant-pro-base-menu-horizontal-item-icon "
+                            class="ant-pro-base-menu-horizontal-item-icon"
                           >
                             <span
                               aria-label="chrome"
@@ -37929,7 +37929,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                             class="ant-pro-base-menu-horizontal-item-title"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="crown"
@@ -37983,7 +37983,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                             class="ant-pro-base-menu-horizontal-item-title"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="tablet"
@@ -38031,7 +38031,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
                             class="ant-pro-base-menu-horizontal-item-title ant-pro-base-menu-horizontal-item-link"
                           >
                             <span
-                              class="ant-pro-base-menu-horizontal-item-icon "
+                              class="ant-pro-base-menu-horizontal-item-icon"
                             >
                               <span
                                 aria-label="chrome"

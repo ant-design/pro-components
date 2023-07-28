@@ -47625,7 +47625,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                       class="ant-pro-base-menu-inline-item-title ant-pro-base-menu-inline-item-title-collapsed"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                       >
                         <span
                           aria-label="smile"
