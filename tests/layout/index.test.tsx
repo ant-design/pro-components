@@ -468,7 +468,18 @@ describe('BasicLayout', () => {
         }}
       >
         <div ref={ref}>
-          <ProLayout layout="mix" fixedHeader title="fixed-header-scroll" />
+          <ProLayout
+            layout="mix"
+            fixedHeader
+            title="fixed-header-scroll"
+            stylish={{
+              header: () => {
+                return {
+                  opacity: 0.9,
+                };
+              },
+            }}
+          />
         </div>
       </ConfigProvider>,
     );
