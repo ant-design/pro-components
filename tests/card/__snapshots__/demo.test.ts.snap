@@ -1185,11 +1185,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         >
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
+            style="margin-left: -6px; margin-right: -6px;"
           >
             <div
               class="ant-col ant-col-22"
-              style="padding-left: 4px; padding-right: 4px;"
+              style="padding-left: 6px; padding-right: 6px;"
             >
               <div
                 class="ant-pro-checkcard-loading-block"
@@ -1298,11 +1298,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         >
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
+            style="margin-left: -6px; margin-right: -6px;"
           >
             <div
               class="ant-col ant-col-22"
-              style="padding-left: 4px; padding-right: 4px;"
+              style="padding-left: 6px; padding-right: 6px;"
             >
               <div
                 class="ant-pro-checkcard-loading-block"
@@ -1411,11 +1411,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         >
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
+            style="margin-left: -6px; margin-right: -6px;"
           >
             <div
               class="ant-col ant-col-22"
-              style="padding-left: 4px; padding-right: 4px;"
+              style="padding-left: 6px; padding-right: 6px;"
             >
               <div
                 class="ant-pro-checkcard-loading-block"
@@ -1610,11 +1610,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         >
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
+            style="margin-left: -6px; margin-right: -6px;"
           >
             <div
               class="ant-col ant-col-22"
-              style="padding-left: 4px; padding-right: 4px;"
+              style="padding-left: 6px; padding-right: 6px;"
             >
               <div
                 class="ant-pro-checkcard-loading-block"
@@ -1723,11 +1723,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         >
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
+            style="margin-left: -6px; margin-right: -6px;"
           >
             <div
               class="ant-col ant-col-22"
-              style="padding-left: 4px; padding-right: 4px;"
+              style="padding-left: 6px; padding-right: 6px;"
             >
               <div
                 class="ant-pro-checkcard-loading-block"
@@ -1836,11 +1836,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
         >
           <div
             class="ant-row"
-            style="margin-left: -4px; margin-right: -4px;"
+            style="margin-left: -6px; margin-right: -6px;"
           >
             <div
               class="ant-col ant-col-22"
-              style="padding-left: 4px; padding-right: 4px;"
+              style="padding-left: 6px; padding-right: 6px;"
             >
               <div
                 class="ant-pro-checkcard-loading-block"
@@ -2260,11 +2260,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
     >
       <div
         class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
+        style="margin-left: -6px; margin-right: -6px;"
       >
         <div
           class="ant-col ant-col-22"
-          style="padding-left: 4px; padding-right: 4px;"
+          style="padding-left: 6px; padding-right: 6px;"
         >
           <div
             class="ant-pro-checkcard-loading-block"
