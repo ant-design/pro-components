@@ -5,7 +5,7 @@ import {
 } from '@ant-design/icons';
 import { ProLayout } from '@ant-design/pro-components';
 import { LoginForm, ProFormText } from '@ant-design/pro-form';
-import { act, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
 import React, { useState } from 'react';
@@ -446,18 +446,47 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 do not render footer', async () => {
-    const wrapper = render(<ProLayout footerRender={false} />);
-    await waitForWaitTime(100);
-    const footer = wrapper.baseElement.querySelector<HTMLDivElement>('footer');
-    expect(footer).toBeFalsy();
+    const wrapper = render(<ProLayout title="title" footerRender={false} />);
+
+    await wrapper.findByText('title');
+
+    await waitFor(() => {
+      const footer =
+        wrapper.baseElement.querySelector<HTMLDivElement>('footer');
+      expect(footer).toBeFalsy();
+    });
+
     wrapper.unmount();
   });
 
-  it('🥩 do not render footer', async () => {
-    const wrapper = render(<ProLayout footerRender={false} />);
-    await waitForWaitTime(100);
-    const footer = wrapper.baseElement.querySelector<HTMLDivElement>('footer');
-    expect(footer).toBeFalsy();
+  it('🥩 header support fixed-header-scroll', async () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const wrapper = render(
+      <ConfigProvider
+        getTargetContainer={() => {
+          return ref.current!;
+        }}
+      >
+        <div ref={ref}>
+          <ProLayout layout="mix" fixedHeader title="fixed-header-scroll" />
+        </div>
+      </ConfigProvider>,
+    );
+
+    await wrapper.findByText('fixed-header-scroll');
+
+    act(() => {
+      ref.current!.scrollTop = 400;
+      fireEvent.scroll(ref.current!, {});
+    });
+
+    await waitFor(() => {
+      expect(
+        !!wrapper.baseElement.querySelector(
+          '.ant-pro-layout-header-fixed-header-scroll',
+        ),
+      ).toBeTruthy();
+    });
     wrapper.unmount();
   });
 

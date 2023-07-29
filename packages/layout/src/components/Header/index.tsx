@@ -79,12 +79,13 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   }, [headerContentRender, headerRender, isMobile, layout, onCollapse, props]);
   useEffect(() => {
     const dom = context?.getTargetContainer?.() || document.body;
+
     const isFixedHeaderFn = () => {
       const scrollTop = dom.scrollTop;
 
       if (
         scrollTop > (token?.layout?.header?.heightLayoutHeader || 56) &&
-        !scrollTop
+        !!scrollTop
       ) {
         setIsFixedHeaderScroll(true);
         return true;
