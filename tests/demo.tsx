@@ -71,6 +71,18 @@ function demoTest(component: string, options: Options = {}) {
     );
   };
 
+  const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+  matchMediaSpy.mockImplementation(
+    (query) =>
+      ({
+        addListener: (cb: (e: { matches: boolean }) => void) => {
+          cb({ matches: query === '(max-width: 575px)' });
+        },
+        removeListener: jest.fn(),
+        matches: query === '(max-width: 575px)',
+      } as any),
+  );
+
   describe(`${component} demos`, () => {
     files.forEach((file) => {
       let testMethod = options.skip === true ? test.skip : test;

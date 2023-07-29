@@ -108,6 +108,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -161,6 +165,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -885,6 +893,30 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  时间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  2020-08-09
+                </span>
+              </div>
+            </td>
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -912,6 +944,32 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                     >
                       全部
                     </span>
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span>
+                    ¥1,212,100.00
                   </span>
                 </span>
               </div>
@@ -960,6 +1018,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -980,6 +1042,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1026,6 +1092,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1048,6 +1118,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1096,9 +1170,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
-              colspan="2"
+              colspan="1"
             >
               <div
                 class="ant-descriptions-item-container"
@@ -1221,9 +1299,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/custo
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
-              colspan="2"
+              colspan="1"
             >
               <div
                 class="ant-descriptions-item-container"
@@ -2449,6 +2531,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2480,6 +2566,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2590,6 +2680,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2643,6 +2737,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3050,9 +3148,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
-              colspan="2"
+              colspan="1"
             >
               <div
                 class="ant-descriptions-item-container"
@@ -3388,6 +3490,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3408,6 +3514,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3590,6 +3700,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3621,6 +3735,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3665,6 +3783,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3687,6 +3809,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"

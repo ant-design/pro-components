@@ -52,6 +52,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const screens = Grid.useBreakpoint();
+
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
@@ -104,7 +105,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     if (typeof colSpan === 'object') {
       for (let i = 0; i < responsiveArray.length; i += 1) {
         const breakpoint: Breakpoint = responsiveArray[i];
-        if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
+        if (screens?.[breakpoint] && colSpan?.[breakpoint] !== undefined) {
           span = colSpan[breakpoint];
           break;
         }

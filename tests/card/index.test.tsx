@@ -6,15 +6,21 @@ jest.mock('antd/lib/grid/hooks/useBreakpoint');
 describe('Card', () => {
   it('🥩 collapsible onCollapse', async () => {
     const fn = jest.fn();
+
     const wrapper = render(
-      <ProCard
-        title="可折叠"
-        headerBordered
-        collapsible
-        defaultCollapsed
-        onCollapse={fn}
-      >
-        内容
+      <ProCard title="父节点">
+        <ProCard
+          title="可折叠"
+          headerBordered
+          collapsible
+          defaultCollapsed
+          onCollapse={fn}
+          colSpan={{
+            xs: 24,
+          }}
+        >
+          内容
+        </ProCard>
       </ProCard>,
     );
 
@@ -110,6 +116,11 @@ describe('Card', () => {
         }
         defaultCollapsed={false}
         collapsible
+        extra={
+          <div>
+            <span>操作</span>
+          </div>
+        }
       >
         内容
       </ProCard>,
@@ -129,6 +140,12 @@ describe('Card', () => {
     const dom = await wrapper.findByText('收起');
 
     expect(!!dom).toBe(true);
+
+    act(() => {
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-card-extra')
+        ?.click();
+    });
 
     wrapper.unmount();
   });

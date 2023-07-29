@@ -619,9 +619,13 @@ exports[`docs/components demos 📸 renders ./docs/components/customization-valu
                     </span>
                   </div>
                 </td>
+              </tr>
+              <tr
+                class="ant-descriptions-row"
+              >
                 <td
                   class="ant-descriptions-item"
-                  colspan="2"
+                  colspan="1"
                 >
                   <div
                     class="ant-descriptions-item-container"
