@@ -21,6 +21,7 @@ describe('Card', () => {
         >
           内容
         </ProCard>
+        ,
       </ProCard>,
     );
 

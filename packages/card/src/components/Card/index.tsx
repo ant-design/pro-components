@@ -51,7 +51,17 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const screens = Grid.useBreakpoint();
+
+  const screens = Grid.useBreakpoint() || {
+    lg: true,
+    md: true,
+    sm: true,
+    xl: false,
+    xs: false,
+    xxl: false,
+  };
+
+  console.log('Card.tsx: Card: props: ', screens);
 
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
