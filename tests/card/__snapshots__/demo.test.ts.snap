@@ -7944,7 +7944,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
     >
       <div
         class="ant-pro-card-col"
-        style="padding-block-start: 4px; padding-block-end: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7958,7 +7957,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-block-start: 4px; padding-block-end: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7972,7 +7970,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-block-start: 4px; padding-block-end: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -7986,7 +7983,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/colspan.tsx correctly
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-0"
-        style="padding-block-start: 4px; padding-block-end: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"

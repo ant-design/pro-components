@@ -61,7 +61,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
   // 修改组合传给antd tabs的参数
   // @ts-ignore
-  const ModifyTabItemsContant = useLegacyItems(tabs?.items, children, tabs);
+  const ModifyTabItemsContent = useLegacyItems(tabs?.items, children, tabs);
 
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
@@ -269,7 +269,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             onChange={tabs.onChange}
             {...tabs}
             // @ts-ignore
-            items={ModifyTabItemsContant}
+            items={ModifyTabItemsContent}
           >
             {loading ? loadingDOM : children}
           </Tabs>
