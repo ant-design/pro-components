@@ -34,6 +34,7 @@ const ColorPicker = React.forwardRef(
       onChange?: (color: string) => void;
       colors?: string[];
       disabled?: boolean;
+      fieldProps?: any;
     },
     ref,
   ) => {
@@ -45,6 +46,8 @@ const ColorPicker = React.forwardRef(
       value: rest.value,
       onChange: rest.onChange,
     });
+
+    const disabled = rest.disabled || rest?.fieldProps?.disabled;
 
     const { wrapSSR, hashId } = useStyle('ProFiledColorPicker' + color, () => {
       return {
@@ -68,8 +71,8 @@ const ColorPicker = React.forwardRef(
       <div
         className={`${prefixCls} ${hashId}`.trim()}
         style={{
-          cursor: rest.disabled ? 'not-allowed' : 'pointer',
-          backgroundColor: rest.disabled
+          cursor: disabled ? 'not-allowed' : 'pointer',
+          backgroundColor: disabled
             ? token.colorBgContainerDisabled
             : token.colorBgContainer,
         }}
