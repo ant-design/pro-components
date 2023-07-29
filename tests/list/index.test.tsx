@@ -70,6 +70,9 @@ describe('List', () => {
           xxx: {
             dataIndex: ['desc', 'text'],
           },
+          subTitle: {
+            d: 'desc text',
+          },
         }}
       />,
     );
