@@ -344,6 +344,7 @@ describe('BasicLayout', () => {
         colorTextMenuSelected: null,
         colorBgHeader: null,
         colorHeaderTitle: null,
+        colorBgScrollHeader: null,
         colorTextMenuActive: null,
         colorTextMenu: null,
         colorBgMenuItemHover: null,
