@@ -308,8 +308,8 @@ const ConfigProviderContainer: React.FC<{
       return nativeHashId;
     }
   }, [nativeHashId, proProvide.hashed, props.hashed]);
+
   useEffect(() => {
-    console.log(locale?.locale || 'zh-cn');
     dayjs.locale(locale?.locale || 'zh-cn');
   }, [locale?.locale]);
 

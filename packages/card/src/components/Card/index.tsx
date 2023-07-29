@@ -12,8 +12,6 @@ import Loading from '../Loading';
 import { useLegacyItems } from '../TabPane';
 import useStyle from './style';
 
-const { useBreakpoint } = Grid;
-
 type ProCardChildType = React.ReactElement<CardProps, any>;
 
 const Card = React.forwardRef((props: CardProps, ref: any) => {
@@ -53,7 +51,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const screens = useBreakpoint();
+  const screens = Grid.useBreakpoint();
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,

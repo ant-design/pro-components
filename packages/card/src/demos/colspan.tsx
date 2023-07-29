@@ -7,10 +7,28 @@ export default () => {
         <ProCard layout="center" bordered>
           colSpan - 24
         </ProCard>
-        <ProCard colSpan={12} layout="center" bordered>
+        <ProCard
+          colSpan={{
+            xs: 24,
+            sm: 12,
+            md: 8,
+            lg: 6,
+          }}
+          layout="center"
+          bordered
+        >
           colSpan - 12
         </ProCard>
-        <ProCard colSpan={8} layout="center" bordered>
+        <ProCard
+          colSpan={{
+            xs: 24,
+            sm: 12,
+            md: 8,
+            lg: 6,
+          }}
+          layout="center"
+          bordered
+        >
           colSpan - 8
         </ProCard>
         <ProCard colSpan={0} layout="center" bordered>
