@@ -18,6 +18,7 @@ module.exports = {
   collectCoverageFrom: [
     'packages/**/src/**/*.{ts,tsx}',
     '!packages/**/src/**/*.d.ts',
+    '!packages/card/src/components/TabPane/index.tsx',
     '!packages/**/src/**/typing.ts',
     '!packages/**/src/demos/**',
     '!packages/**/src/**/demos/**',
