@@ -61,8 +61,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     xxl: false,
   };
 
-  console.log('Card.tsx: Card: props: ', screens);
-
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,

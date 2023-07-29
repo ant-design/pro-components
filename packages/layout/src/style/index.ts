@@ -235,12 +235,12 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         flexDirection: 'column',
         width: '100%',
         backgroundColor:
-          token?.layout?.pageContainer?.colorBgPageContainer || 'transparent',
+          token.layout?.pageContainer?.colorBgPageContainer || 'transparent',
         position: 'relative',
         paddingBlock:
-          token?.layout?.pageContainer?.paddingBlockPageContainerContent,
+          token.layout?.pageContainer?.paddingBlockPageContainerContent,
         paddingInline:
-          token?.layout?.pageContainer?.paddingInlinePageContainerContent,
+          token.layout?.pageContainer?.paddingInlinePageContainerContent,
         '&-has-page-container': {
           padding: 0,
         },
