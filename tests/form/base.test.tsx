@@ -2778,7 +2778,7 @@ describe('ProForm', () => {
     const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
-          onFinish(values?.color);
+          onFinish(values?.color?.toHexString?.());
         }}
       >
         <ProFormColorPicker name="color" label="颜色选择" />
@@ -2794,27 +2794,10 @@ describe('ProForm', () => {
     // 选中第一个
     act(() => {
       wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.flexbox-fix')[2]
-        .querySelectorAll<HTMLDivElement>('div span div')[2]
+        .querySelectorAll<HTMLElement>('.ant-color-picker-presets-color')[0]
         .click();
     });
-
-    expect(onFinish).toBeCalledWith('#5b8ff9');
-
-    act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          '#rc-editable-input-5',
-        )[0],
-        {
-          target: {
-            value: 2,
-          },
-        },
-      );
-    });
-
-    expect(onFinish).toBeCalledWith('rgba(91, 143, 249, 0.02)');
+    expect(onFinish).toBeCalledWith('#f5222d');
   });
 
   it('📦 validateFieldsReturnFormatValue', async () => {

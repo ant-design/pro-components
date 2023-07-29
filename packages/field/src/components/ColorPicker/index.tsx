@@ -1,8 +1,9 @@
 ﻿import { compareVersions } from '@ant-design/pro-utils';
-import { version } from 'antd';
-import React from 'react';
+import { ConfigProvider, version } from 'antd';
+import React, { useContext } from 'react';
 import type { ProFieldFC } from '../../index';
 import { ColorPicker as ColorPickerV4 } from './old';
+import classNames from 'classnames';
 // https://ant.design/components/color-picker-cn 示例颜色
 const DEFAULT_PRESETS = {
   label: 'Recommended',
@@ -29,13 +30,14 @@ const DEFAULT_PRESETS = {
     '#EB2F964D',
   ],
 }
+const Render_V5 = compareVersions(version, '5.5.0') > -1;
 /**
  * 获取颜色组件
  * 兼容 5.5.0 以下的版本
  * @return {*} 
  */
 function getColorPicker() {
-  if (compareVersions(version, '5.5.0') > -1) {
+  if (Render_V5) {
     const { ColorPicker } = require('antd');
     return ColorPicker;
   }
@@ -52,11 +54,17 @@ const ColorPicker = getColorPicker();
 const FieldColorPicker: ProFieldFC<{
   text: string;
 }> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-field-color-picker');
+  const className=classNames({
+    [prefixCls]:Render_V5
+  })
   if (type === 'read') {
     const dom = <ColorPicker
       value={text}
       mode="read"
       ref={ref}
+      className={className}
       // 设置无法 open 
       open={false} />;
     if (render) {
@@ -65,7 +73,7 @@ const FieldColorPicker: ProFieldFC<{
     return dom;
   }
   if (type === 'edit' || type === 'update') {
-    const dom = <ColorPicker ref={ref} presets={[DEFAULT_PRESETS]} {...fieldProps} />;
+    const dom = <ColorPicker ref={ref} presets={[DEFAULT_PRESETS]} {...fieldProps} className={className}/>;
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }
