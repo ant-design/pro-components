@@ -41,8 +41,7 @@
     "classnames": "^2.3.2",
     "dayjs": "^1.11.9",
     "rc-resize-observer": "^1.0.0",
-    "rc-util": "^4.19.0",
-    "use-media-antd-query": "^1.1.0"
+    "rc-util": "^4.19.0"
   },
   "devDependencies": {
     "typescript": "^5.0.4"

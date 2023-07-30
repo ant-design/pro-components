@@ -12,7 +12,7 @@ import {
 } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps } from 'antd';
-import { ConfigProvider, Layout } from 'antd';
+import { ConfigProvider, Grid, Layout } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -26,7 +26,6 @@ import React, {
   useState,
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
-import useAntdMediaQuery from 'use-media-antd-query';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -559,10 +558,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     ...currentMenuLayoutProps,
   };
 
-  const colSize = useAntdMediaQuery();
+  const colSize = Grid.useBreakpoint();
 
   const isMobile =
-    (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
+    (colSize.sm === true || colSize.xs === true) && !props.disableMobile;
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode

@@ -557,9 +557,6 @@ importers:
       use-json-comparison:
         specifier: ^1.0.5
         version: 1.0.5(react@18.2.0)
-      use-media-antd-query:
-        specifier: ^1.1.0
-        version: 1.1.0(react@18.2.0)
     devDependencies:
       '@types/lodash.merge':
         specifier: ^4.6.7
@@ -612,9 +609,6 @@ importers:
       use-json-comparison:
         specifier: ^1.0.3
         version: 1.0.5(react@18.2.0)
-      use-media-antd-query:
-        specifier: ^1.1.0
-        version: 1.1.0(react@18.2.0)
       warning:
         specifier: ^4.0.3
         version: 4.0.3
@@ -655,9 +649,6 @@ importers:
       rc-util:
         specifier: ^4.19.0
         version: 4.19.0(react-dom@18.2.0)(react@18.2.0)
-      use-media-antd-query:
-        specifier: ^1.1.0
-        version: 1.1.0(react@18.2.0)
     devDependencies:
       typescript:
         specifier: ~4.8.4
@@ -690,9 +681,6 @@ importers:
       '@babel/runtime':
         specifier: ^7.18.0
         version: 7.18.0
-      use-media-antd-query:
-        specifier: ^1.1.0
-        version: 1.1.0(react@18.2.0)
     devDependencies:
       typescript:
         specifier: ~4.8.4
@@ -23732,14 +23720,6 @@ packages:
     resolution: {integrity: sha512-P/AgEKXphcN0L/8G5wLfbEz88mZQ9ayHS1OVESZaS2nxkN/msDWTGE8E1e9HXOWCZ9yoAfDrbVKAmTYpsYupFA==}
     peerDependencies:
       react: 16.x
-    dependencies:
-      react: 18.2.0
-    dev: false
-
-  /use-media-antd-query@1.1.0(react@18.2.0):
-    resolution: {integrity: sha512-B6kKZwNV4R+l4Rl11sWO7HqOay9alzs1Vp1b4YJqjz33YxbltBCZtt/yxXxkXN9rc1S7OeEL/GbwC30Wmqhw6Q==}
-    peerDependencies:
-      react: '>=16.9.0'
     dependencies:
       react: 18.2.0
     dev: false

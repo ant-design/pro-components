@@ -1,6 +1,5 @@
-import { Card, Divider, Skeleton, Space } from 'antd';
+import { Card, Divider, Grid, Skeleton, Space } from 'antd';
 import React from 'react';
-import useMediaQuery from 'use-media-antd-query';
 
 /** 一条分割线 */
 export const Line = ({ padding }: { padding?: string | number }) => (
@@ -26,7 +25,11 @@ const StatisticSkeleton: React.FC<{
   size?: number;
   active?: boolean;
 }> = ({ size, active }) => {
-  const colSize = useMediaQuery();
+  const col = Grid.useBreakpoint();
+
+  const colSize =
+    Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
+
   const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 6 : size;
   const firstWidth = (index: number) => {
     if (index === 0) {

@@ -1,6 +1,5 @@
-import { Card, Skeleton } from 'antd';
+import { Card, Grid, Skeleton } from 'antd';
 import React from 'react';
-import useMediaQuery from 'use-media-antd-query';
 import { Line, PageHeaderSkeleton } from '../List';
 
 export type DescriptionsPageSkeletonProps = {
@@ -104,7 +103,11 @@ const DescriptionsItemSkeleton: React.FC<{
   size?: number;
   active?: boolean;
 }> = ({ size, active }) => {
-  const colSize = useMediaQuery();
+  const col = Grid.useBreakpoint();
+
+  const colSize =
+    Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
+
   const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 3 : size;
   return (
     <div
@@ -163,7 +166,11 @@ export const TableItemSkeleton = ({
   active: boolean;
   header?: boolean;
 }) => {
-  const colSize = useMediaQuery();
+  const col = Grid.useBreakpoint();
+
+  const colSize =
+    Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
+
   const arraySize = MediaQueryKeyEnum[colSize] || 3;
   return (
     <>
