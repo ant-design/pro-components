@@ -17,7 +17,9 @@ const AppGroupList: any = [
         url: 'https://ant.design',
       },
       {
-        icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
+        icon: () => (
+          <img src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg" />
+        ),
         title: 'Pro Components',
         url: 'https://procomponents.ant.design/',
       },
@@ -29,13 +31,12 @@ const AppGroupList: any = [
     url: 'https://procomponents.ant.design/',
     children: [
       {
-        icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
+        icon: 'W',
         title: 'AntV',
         url: 'https://antv.vision/',
         target: '_blank',
       },
       {
-        icon: 'https://gw.alipayobjects.com/zos/antfincdn/FLrTNDvlna/antv.png',
         title: 'AntV',
         url: 'https://antv.vision/',
         target: '_blank',

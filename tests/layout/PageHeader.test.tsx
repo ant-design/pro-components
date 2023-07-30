@@ -1,6 +1,6 @@
 ﻿import { PageHeader } from '@ant-design/pro-components';
 import { act, fireEvent, render } from '@testing-library/react';
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, ConfigProvider } from 'antd';
 import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
 import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 
@@ -97,7 +97,9 @@ describe('PageContainer', () => {
   it('pageHeader should contain back it back', () => {
     const callback = jest.fn(() => true);
     const { container } = render(
-      <PageHeader title="Page Title" onBack={callback} />,
+      <ConfigProvider direction="rtl">
+        <PageHeader title="Page Title" onBack={callback} />
+      </ConfigProvider>,
     );
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(1);
   });

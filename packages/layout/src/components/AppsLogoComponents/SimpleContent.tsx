@@ -3,7 +3,7 @@ import React from 'react';
 import type { AppItemProps, AppListProps } from './types';
 
 /**
- * simple模式渲染logo的方式
+ * simple 模式渲染logo的方式
  *
  * @param logo
  * @param title
