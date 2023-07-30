@@ -605,7 +605,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 >
                   <div
                     aria-valuenow="40"
-                    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >

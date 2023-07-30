@@ -1363,7 +1363,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1485,7 +1485,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1607,7 +1607,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1729,7 +1729,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1851,7 +1851,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1973,7 +1973,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -2095,7 +2095,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -2217,7 +2217,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -4478,7 +4478,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -4618,7 +4618,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -4758,7 +4758,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -4898,7 +4898,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -5038,7 +5038,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -5913,7 +5913,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -6042,7 +6042,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -6171,7 +6171,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -6300,7 +6300,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -7732,7 +7732,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.ts
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="qixian-progress qixian-progress-line qixian-progress-status-normal qixian-progress-show-info qixian-progress-default"
+                          class="qixian-progress qixian-progress-status-normal qixian-progress-line qixian-progress-show-info qixian-progress-default"
                           role="progressbar"
                         >
                           <div

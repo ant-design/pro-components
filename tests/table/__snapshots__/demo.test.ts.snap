@@ -15345,7 +15345,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -15526,7 +15526,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -15706,7 +15706,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -15886,7 +15886,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -16066,7 +16066,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -36793,7 +36793,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -36863,7 +36863,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -37816,7 +37816,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                               >
                                 <div
                                   aria-valuenow="86"
-                                  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                  class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                                   role="progressbar"
                                   style="min-width: 100px; max-width: 320px;"
                                 >
@@ -37865,7 +37865,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                               >
                                 <div
                                   aria-valuenow="86"
-                                  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                  class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                                   role="progressbar"
                                   style="min-width: 100px; max-width: 320px;"
                                 >
@@ -50540,7 +50540,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -50614,7 +50614,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
