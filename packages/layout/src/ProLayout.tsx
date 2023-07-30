@@ -571,9 +571,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const [collapsed, onCollapse] = useMergedState<boolean>(
     () => {
+      if (isMobile || colSize === 'md') return true;
       if (defaultCollapsed !== undefined) return defaultCollapsed;
       if (isNeedOpenHash() === false) return false;
-      if (isMobile || colSize === 'md') return true;
       return false;
     },
     {
