@@ -267,9 +267,9 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
 
   const cbHandleMouseMove = useCallback(
     (e: MouseEvent) => {
-      const offsetRight: number | string = (document.body.offsetWidth -
+      const offsetRight: number | string = ((document.body.offsetWidth ||
+        1000) -
         (e.clientX - document.body.offsetLeft)) as number | string;
-
       const minWidth = resizeInfo?.minWidth ?? width;
       const maxWidth = resizeInfo?.maxWidth ?? window.innerWidth * 0.8;
 
