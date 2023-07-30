@@ -1,5 +1,5 @@
 ﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-form';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import React from 'react';
 import { waitForWaitTime } from '../util';
@@ -603,6 +603,72 @@ describe('DrawerForm', () => {
     });
 
     expect(ref.current).toBeTruthy();
+  });
+
+  it('📦 drawerForm support onResize', async () => {
+    const ref = React.createRef<any>();
+
+    const html = render(
+      <DrawerForm
+        formRef={ref}
+        resize={{
+          minWidth: 200,
+          maxWidth: 400,
+        }}
+        open
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+
+    await html.findByText('新 建');
+
+    act(() => {
+      const handle = html.baseElement.querySelector(
+        '.ant-pro-form-drawer-sidebar-dragger',
+      );
+
+      fireEvent.mouseDown(handle!, {});
+    });
+
+    act(() => {
+      const handle = html.baseElement.querySelector(
+        '.ant-pro-form-drawer-sidebar-dragger',
+      );
+      fireEvent.mouseMove(handle!, {
+        clientX: 900,
+      });
+      fireEvent.mouseMove(handle!, {
+        clientX: 200,
+      });
+      fireEvent.mouseMove(handle!, {
+        clientX: 300,
+      });
+      fireEvent.mouseMove(handle!, {
+        clientX: 700,
+      });
+    });
+
+    act(() => {
+      const handle = html.baseElement.querySelector(
+        '.ant-pro-form-drawer-sidebar-dragger',
+      );
+
+      fireEvent.mouseUp(handle!, {});
+    });
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelector<HTMLDivElement>(
+          '.ant-drawer-content-wrapper',
+        )?.style.width,
+      ).toBe('300px');
+    });
   });
 
   const tests = [

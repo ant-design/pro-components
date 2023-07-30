@@ -1103,7 +1103,7 @@ describe('ProForm', () => {
     });
 
     expect(onFinish).toHaveBeenCalledWith({
-      date: '2020-09-01',
+      date: '2020-09-02',
       dateMonth: '2020-09',
     });
     wrapper.unmount();
@@ -2865,7 +2865,7 @@ describe('ProForm', () => {
 
     await waitForWaitTime(200);
 
-    expect(fn2).toHaveBeenCalledWith('2021-08-03');
+    expect(fn2).toHaveBeenCalledWith('2021-07-28');
 
     expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();

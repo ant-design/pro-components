@@ -79,17 +79,18 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
   }, [headerContentRender, headerRender, isMobile, layout, onCollapse, props]);
   useEffect(() => {
     const dom = context?.getTargetContainer?.() || document.body;
+
     const isFixedHeaderFn = () => {
       const scrollTop = dom.scrollTop;
 
       if (
-        scrollTop > (token?.layout?.header?.heightLayoutHeader || 56) &&
-        !scrollTop
+        scrollTop > (token.layout?.header?.heightLayoutHeader || 56) &&
+        !isFixedHeaderScroll
       ) {
         setIsFixedHeaderScroll(true);
         return true;
       }
-      if (scrollTop) {
+      if (isFixedHeaderScroll) {
         setIsFixedHeaderScroll(false);
       }
       return false;
@@ -103,7 +104,11 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
     return () => {
       dom.removeEventListener('scroll', isFixedHeaderFn);
     };
-  }, [token?.layout?.header?.heightLayoutHeader, needFixedHeader]);
+  }, [
+    token.layout?.header?.heightLayoutHeader,
+    needFixedHeader,
+    isFixedHeaderScroll,
+  ]);
 
   const isTop = layout === 'top';
   const baseClassName = `${prefixCls}-layout-header`;
@@ -143,9 +148,9 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
           {needFixedHeader && (
             <Header
               style={{
-                height: token?.layout?.header?.heightLayoutHeader || 56,
+                height: token.layout?.header?.heightLayoutHeader || 56,
                 lineHeight: `${
-                  token?.layout?.header?.heightLayoutHeader || 56
+                  token.layout?.header?.heightLayoutHeader || 56
                 }px`,
                 backgroundColor: 'transparent',
                 zIndex: 19,

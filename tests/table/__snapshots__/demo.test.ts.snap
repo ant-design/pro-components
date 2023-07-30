@@ -49315,7 +49315,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                             class="ant-table-cell"
                           >
                             <span>
-                              a few seconds ago
+                              几秒前
                             </span>
                           </td>
                           <td
@@ -49379,7 +49379,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                             class="ant-table-cell"
                           >
                             <span>
-                              a few seconds ago
+                              几秒前
                             </span>
                           </td>
                           <td

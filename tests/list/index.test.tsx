@@ -67,6 +67,12 @@ describe('List', () => {
           description: {
             dataIndex: ['desc', 'text'],
           },
+          xxx: {
+            dataIndex: ['desc', 'text'],
+          },
+          subTitle: {
+            d: 'desc text',
+          },
         }}
       />,
     );

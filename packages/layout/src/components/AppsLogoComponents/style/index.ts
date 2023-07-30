@@ -23,15 +23,15 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
         height: 28,
         width: 28,
         cursor: 'pointer',
-        color: token?.layout?.colorTextAppListIcon,
+        color: token.layout?.colorTextAppListIcon,
         borderRadius: token.borderRadius,
         '&:hover': {
-          color: token?.layout?.colorTextAppListIconHover,
-          backgroundColor: token?.layout?.colorBgAppListIconHover,
+          color: token.layout?.colorTextAppListIconHover,
+          backgroundColor: token.layout?.colorBgAppListIconHover,
         },
         '&-active': {
-          color: token?.layout?.colorTextAppListIconHover,
-          backgroundColor: token?.layout?.colorBgAppListIconHover,
+          color: token.layout?.colorTextAppListIconHover,
+          backgroundColor: token.layout?.colorBgAppListIconHover,
         },
       },
       '&-item-title': {

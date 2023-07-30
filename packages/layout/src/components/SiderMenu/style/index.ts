@@ -47,7 +47,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingBottom: 4,
           },
           [`${token.antCls}-menu-item:hover`]: {
-            color: token?.layout?.sider?.colorTextMenuItemHover,
+            color: token.layout?.sider?.colorTextMenuItemHover,
           },
         },
         '&-logo': {
@@ -187,10 +187,10 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
         height: '100%',
         '&-mix': {
           height: `calc(100% - ${
-            token?.layout?.header?.heightLayoutHeader || 56
+            token.layout?.header?.heightLayoutHeader || 56
           }px)`,
           insetBlockStart: `${
-            token?.layout?.header?.heightLayoutHeader || 56
+            token.layout?.header?.heightLayoutHeader || 56
           }px`,
         },
       },

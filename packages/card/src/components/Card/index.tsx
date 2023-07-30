@@ -12,8 +12,6 @@ import Loading from '../Loading';
 import { useLegacyItems } from '../TabPane';
 import useStyle from './style';
 
-const { useBreakpoint } = Grid;
-
 type ProCardChildType = React.ReactElement<CardProps, any>;
 
 const Card = React.forwardRef((props: CardProps, ref: any) => {
@@ -53,7 +51,16 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const screens = useBreakpoint();
+
+  const screens = Grid.useBreakpoint() || {
+    lg: true,
+    md: true,
+    sm: true,
+    xl: false,
+    xs: false,
+    xxl: false,
+  };
+
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
@@ -63,7 +70,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
   // 修改组合传给antd tabs的参数
   // @ts-ignore
-  const ModifyTabItemsContant = useLegacyItems(tabs?.items, children, tabs);
+  const ModifyTabItemsContent = useLegacyItems(tabs?.items, children, tabs);
 
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
@@ -106,7 +113,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     if (typeof colSpan === 'object') {
       for (let i = 0; i < responsiveArray.length; i += 1) {
         const breakpoint: Breakpoint = responsiveArray[i];
-        if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
+        if (screens?.[breakpoint] && colSpan?.[breakpoint] !== undefined) {
           span = colSpan[breakpoint];
           break;
         }
@@ -271,7 +278,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             onChange={tabs.onChange}
             {...tabs}
             // @ts-ignore
-            items={ModifyTabItemsContant}
+            items={ModifyTabItemsContent}
           >
             {loading ? loadingDOM : children}
           </Tabs>

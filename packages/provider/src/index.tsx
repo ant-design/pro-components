@@ -150,7 +150,7 @@ export type ParamsType = Record<string, any>;
 export type ConfigContextPropsType = {
   intl?: IntlType;
   valueTypeMap?: Record<string, ProRenderFieldPropsType>;
-  token?: ProAliasToken;
+  token: ProAliasToken;
   hashId?: string;
   hashed?: boolean;
   dark?: boolean;
@@ -308,8 +308,8 @@ const ConfigProviderContainer: React.FC<{
       return nativeHashId;
     }
   }, [nativeHashId, proProvide.hashed, props.hashed]);
+
   useEffect(() => {
-    console.log(locale?.locale || 'zh-cn');
     dayjs.locale(locale?.locale || 'zh-cn');
   }, [locale?.locale]);
 

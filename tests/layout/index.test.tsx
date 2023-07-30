@@ -5,7 +5,7 @@ import {
 } from '@ant-design/icons';
 import { ProLayout } from '@ant-design/pro-components';
 import { LoginForm, ProFormText } from '@ant-design/pro-form';
-import { act, render, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, ConfigProvider } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
 import React, { useState } from 'react';
@@ -21,7 +21,17 @@ describe('BasicLayout', () => {
   });
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
-    process.env.USE_MEDIA = 'md';
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      (query) =>
+        ({
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(min-width: 768px)' });
+          },
+          removeListener: jest.fn(),
+          matches: query === '(min-width: 768px)',
+        } as any),
+    );
   });
   it('🥩 base use', async () => {
     const html = render(<ProLayout />);
@@ -247,22 +257,22 @@ describe('BasicLayout', () => {
             children: [
               {
                 title: '工具',
-                icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
+                icon: 'w',
                 url: 'https://www.yuque.com/',
               },
               {
                 title: '前端应用框架',
-                icon: 'https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png',
+                icon: () => (
+                  <img src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png" />
+                ),
                 url: 'https://umijs.org/zh-CN/docs',
               },
               {
-                icon: 'https://gw.alipayobjects.com/zos/bmw-prod/8a74c1d3-16f3-4719-be63-15e467a68a24/km0cv8vn_w500_h500.png',
                 title: 'qiankun',
                 url: 'https://qiankun.umijs.org/',
               },
               {
-                icon: 'https://gw.alipayobjects.com/zos/rmsportal/LFooOLwmxGLsltmUjTAP.svg',
-                title: 'Kitchen ',
+                title: <div>Kitchen</div>,
                 url: 'https://kitchen.alipay.com/',
               },
               {
@@ -344,6 +354,7 @@ describe('BasicLayout', () => {
         colorTextMenuSelected: null,
         colorBgHeader: null,
         colorHeaderTitle: null,
+        colorBgScrollHeader: null,
         colorTextMenuActive: null,
         colorTextMenu: null,
         colorBgMenuItemHover: null,
@@ -353,7 +364,10 @@ describe('BasicLayout', () => {
         colorTextCollapsedButton: null,
         colorTextCollapsedButtonHover: null,
       },
-      pageContainer: null,
+      pageContainer: {
+        paddingBlockPageContainerContent: null,
+        paddingInlinePageContainerContent: null,
+      },
     };
     const wrapper = render(
       <ProLayout
@@ -364,6 +378,7 @@ describe('BasicLayout', () => {
             src: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
           },
         ]}
+        isChildrenLayout
         navTheme="realDark"
         colorPrimary="#1890ff"
         {...bigDefaultProps}
@@ -446,18 +461,72 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 do not render footer', async () => {
-    const wrapper = render(<ProLayout footerRender={false} />);
-    await waitForWaitTime(100);
-    const footer = wrapper.baseElement.querySelector<HTMLDivElement>('footer');
-    expect(footer).toBeFalsy();
+    const wrapper = render(<ProLayout title="title" footerRender={false} />);
+
+    await wrapper.findByText('title');
+
+    await waitFor(() => {
+      const footer =
+        wrapper.baseElement.querySelector<HTMLDivElement>('footer');
+      expect(footer).toBeFalsy();
+    });
+
     wrapper.unmount();
   });
 
-  it('🥩 do not render footer', async () => {
-    const wrapper = render(<ProLayout footerRender={false} />);
-    await waitForWaitTime(100);
-    const footer = wrapper.baseElement.querySelector<HTMLDivElement>('footer');
-    expect(footer).toBeFalsy();
+  it('🥩 header support fixed-header-scroll', async () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const wrapper = render(
+      <ConfigProvider
+        getTargetContainer={() => {
+          return ref.current!;
+        }}
+      >
+        <div ref={ref}>
+          <ProLayout
+            layout="mix"
+            fixedHeader
+            title="fixed-header-scroll"
+            stylish={{
+              header: () => {
+                return {
+                  opacity: 0.9,
+                };
+              },
+            }}
+          />
+        </div>
+      </ConfigProvider>,
+    );
+
+    await wrapper.findByText('fixed-header-scroll');
+
+    act(() => {
+      ref.current!.scrollTop = 400;
+      fireEvent.scroll(ref.current!, {});
+    });
+
+    await waitFor(() => {
+      expect(
+        !!wrapper.baseElement.querySelector(
+          '.ant-pro-layout-header-fixed-header-scroll',
+        ),
+      ).toBeTruthy();
+    });
+
+    act(() => {
+      ref.current!.scrollTop = 0;
+      fireEvent.scroll(ref.current!, {});
+    });
+
+    await waitFor(() => {
+      expect(
+        !!wrapper.baseElement.querySelector(
+          '.ant-pro-layout-header-fixed-header-scroll',
+        ),
+      ).toBeFalsy();
+    });
+
     wrapper.unmount();
   });
 
@@ -1929,7 +1998,7 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(1000);
 
-    expect(onCollapse).toBeCalledTimes(2);
+    expect(onCollapse).toBeCalledTimes(3);
     expect(
       html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
     ).toBe(2);
