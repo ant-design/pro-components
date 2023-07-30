@@ -357,7 +357,6 @@ describe('BasicLayout', () => {
       pageContainer: {
         paddingBlockPageContainerContent: null,
         paddingInlinePageContainerContent: null,
-        paddingBlockPageContainerContent: null,
       },
     };
     const wrapper = render(
@@ -503,6 +502,20 @@ describe('BasicLayout', () => {
         ),
       ).toBeTruthy();
     });
+
+    act(() => {
+      ref.current!.scrollTop = 0;
+      fireEvent.scroll(ref.current!, {});
+    });
+
+    await waitFor(() => {
+      expect(
+        !!wrapper.baseElement.querySelector(
+          '.ant-pro-layout-header-fixed-header-scroll',
+        ),
+      ).toBeFalsy();
+    });
+
     wrapper.unmount();
   });
 
