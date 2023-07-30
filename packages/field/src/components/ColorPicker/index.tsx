@@ -8,6 +8,8 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext, useImperativeHandle } from 'react';
 import type { ProFieldFC } from '../../index';
 
+import classNames from 'classnames';
+
 export const DEFAULT_COLORS = [
   '#FF9D4E', // 0 - 橘黄色
   '#5BD8A6', // 1 - 绿色
@@ -69,7 +71,9 @@ const ColorPicker = React.forwardRef(
 
     const readDom = wrapSSR(
       <div
-        className={`${prefixCls} ${hashId}`.trim()}
+        className={classNames(prefixCls, hashId, {
+          [`${prefixCls}-disabled`]: disabled,
+        })}
         style={{
           cursor: disabled ? 'not-allowed' : 'pointer',
           backgroundColor: disabled

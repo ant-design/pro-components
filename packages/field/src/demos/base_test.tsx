@@ -48,10 +48,13 @@ export default () => {
           <ProField
             text="blue"
             valueType="color"
-            disabled
+            fieldProps={{
+              disabled: true,
+            }}
             mode={state}
             plain={plain}
           />
+          <ProField text="blue" valueType="color" disabled mode="read" />
         </Descriptions.Item>
         <Descriptions.Item label="图片">
           <ProField
