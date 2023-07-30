@@ -60,6 +60,10 @@ describe('PageContainer', () => {
     const { container } = render(
       <PageHeader
         title="Page Title"
+        avatar={{
+          src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4',
+          alt: 'avatar',
+        }}
         breadcrumbRender={() => <div id="test">test</div>}
       />,
     );
