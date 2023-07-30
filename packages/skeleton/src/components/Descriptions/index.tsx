@@ -1,5 +1,5 @@
 import { Card, Grid, Skeleton } from 'antd';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Line, PageHeaderSkeleton } from '../List';
 
 export type DescriptionsPageSkeletonProps = {
@@ -103,7 +103,18 @@ const DescriptionsItemSkeleton: React.FC<{
   size?: number;
   active?: boolean;
 }> = ({ size, active }) => {
-  const col = Grid.useBreakpoint();
+  const defaultCol = useMemo(
+    () => ({
+      lg: true,
+      md: true,
+      sm: false,
+      xl: false,
+      xs: false,
+      xxl: false,
+    }),
+    [],
+  );
+  const col = Grid.useBreakpoint() || defaultCol;
 
   const colSize =
     Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
@@ -166,7 +177,18 @@ export const TableItemSkeleton = ({
   active: boolean;
   header?: boolean;
 }) => {
-  const col = Grid.useBreakpoint();
+  const defaultCol = useMemo(
+    () => ({
+      lg: true,
+      md: true,
+      sm: false,
+      xl: false,
+      xs: false,
+      xxl: false,
+    }),
+    [],
+  );
+  const col = Grid.useBreakpoint() || defaultCol;
 
   const colSize =
     Object.keys(col).filter((key) => col[key] === true)[0] || 'md';

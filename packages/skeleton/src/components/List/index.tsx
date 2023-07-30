@@ -1,5 +1,5 @@
 import { Card, Divider, Grid, Skeleton, Space } from 'antd';
-import React from 'react';
+import React, { useMemo } from 'react';
 
 /** 一条分割线 */
 export const Line = ({ padding }: { padding?: string | number }) => (
@@ -25,7 +25,18 @@ const StatisticSkeleton: React.FC<{
   size?: number;
   active?: boolean;
 }> = ({ size, active }) => {
-  const col = Grid.useBreakpoint();
+  const defaultCol = useMemo(
+    () => ({
+      lg: true,
+      md: true,
+      sm: false,
+      xl: false,
+      xs: false,
+      xxl: false,
+    }),
+    [],
+  );
+  const col = Grid.useBreakpoint() || defaultCol;
 
   const colSize =
     Object.keys(col).filter((key) => col[key] === true)[0] || 'md';

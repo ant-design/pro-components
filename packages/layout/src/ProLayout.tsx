@@ -558,10 +558,24 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     ...currentMenuLayoutProps,
   };
 
-  const colSize = Grid.useBreakpoint();
+  const defaultCol = useMemo(
+    () => ({
+      lg: true,
+      md: true,
+      sm: false,
+      xl: false,
+      xs: false,
+      xxl: false,
+    }),
+    [],
+  );
+  const col = Grid.useBreakpoint() || defaultCol;
 
-  const isMobile =
-    (colSize.sm === true || colSize.xs === true) && !props.disableMobile;
+  const isMobile = (col.sm === true || col.xs === true) && !props.disableMobile;
+
+  const colSize = useMemo(() => {
+    return Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
+  }, [col]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode

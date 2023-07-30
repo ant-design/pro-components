@@ -21,7 +21,17 @@ describe('BasicLayout', () => {
   });
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
-    process.env.USE_MEDIA = 'md';
+    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    matchMediaSpy.mockImplementation(
+      (query) =>
+        ({
+          addListener: (cb: (e: { matches: boolean }) => void) => {
+            cb({ matches: query === '(min-width: 768px)' });
+          },
+          removeListener: jest.fn(),
+          matches: query === '(min-width: 768px)',
+        } as any),
+    );
   });
   it('🥩 base use', async () => {
     const html = render(<ProLayout />);
@@ -1988,7 +1998,7 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(1000);
 
-    expect(onCollapse).toBeCalledTimes(2);
+    expect(onCollapse).toBeCalledTimes(3);
     expect(
       html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
     ).toBe(2);
