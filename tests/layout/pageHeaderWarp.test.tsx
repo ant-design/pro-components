@@ -1,5 +1,6 @@
 import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import { render } from '@testing-library/react';
+import { ActionsContent } from '../../packages/layout/src/components/GlobalHeader/ActionsContent';
 import defaultProps from './defaultProps';
 
 describe('BasicLayout', () => {
@@ -134,6 +135,15 @@ describe('BasicLayout', () => {
     const domHeader = container.querySelector('ant-page-header');
 
     expect(!!domHeader).toBeFalsy();
+    unmount();
+  });
+
+  it('ActionsContent support contentRender', async () => {
+    const { container, unmount } = render(
+      <ActionsContent rightContentRender={false} />,
+    );
+
+    expect(container).toMatchSnapshot();
     unmount();
   });
 });

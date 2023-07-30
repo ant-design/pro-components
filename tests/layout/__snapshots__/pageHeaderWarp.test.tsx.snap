@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`BasicLayout ActionsContent support contentRender 1`] = `
+<div>
+  <div
+    class="ant-pro-global-header-right-content"
+    style="min-width: auto; height: 100%;"
+  >
+    <div
+      style="height: 100%;"
+    />
+  </div>
+</div>
+`;
+
 exports[`BasicLayout base use 1`] = `
 <div>
   <div

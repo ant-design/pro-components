@@ -11,8 +11,8 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
   return {
     [`${token.proComponentsCls}-layout`]: {
       [`${token.antCls}-layout-header${token.componentCls}`]: {
-        height: token?.layout?.header?.heightLayoutHeader || 56,
-        lineHeight: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
+        height: token.layout?.header?.heightLayoutHeader || 56,
+        lineHeight: `${token.layout?.header?.heightLayoutHeader || 56}px`,
         // hitu 用了这个属性，不能删除哦 @南取
         zIndex: 19,
         width: '100%',
@@ -20,7 +20,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
         paddingInline: 0,
         borderBlockEnd: `1px solid ${token.colorSplit}`,
         backgroundColor:
-          token?.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
+          token.layout?.header?.colorBgHeader || 'rgba(255, 255, 255, 0.4)',
         WebkitBackdropFilter: 'blur(8px)',
         backdropFilter: 'blur(8px)',
         transition:
@@ -34,7 +34,7 @@ const genProLayoutHeaderStyle: GenerateStyle<ProLayoutHeaderToken> = (
         },
         '&-fixed-header-scroll': {
           backgroundColor:
-            token?.layout?.header?.colorBgScrollHeader ||
+            token.layout?.header?.colorBgScrollHeader ||
             'rgba(255, 255, 255, 0.8)',
         },
         '&-header-actions': {

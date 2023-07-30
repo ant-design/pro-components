@@ -150,7 +150,7 @@ export type ParamsType = Record<string, any>;
 export type ConfigContextPropsType = {
   intl?: IntlType;
   valueTypeMap?: Record<string, ProRenderFieldPropsType>;
-  token?: ProAliasToken;
+  token: ProAliasToken;
   hashId?: string;
   hashed?: boolean;
   dark?: boolean;

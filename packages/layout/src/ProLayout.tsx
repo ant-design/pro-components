@@ -774,38 +774,35 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 components: {
                   Menu: coverToNewToken({
                     colorItemBg:
-                      token?.layout?.sider?.colorMenuBackground ||
-                      'transparent',
+                      token.layout?.sider?.colorMenuBackground || 'transparent',
                     colorSubItemBg:
-                      token?.layout?.sider?.colorMenuBackground ||
-                      'transparent',
+                      token.layout?.sider?.colorMenuBackground || 'transparent',
                     radiusItem: 4,
                     controlHeightLG:
-                      token?.layout?.sider?.menuHeight ||
-                      token?.controlHeightLG,
+                      token.layout?.sider?.menuHeight || token?.controlHeightLG,
                     colorItemBgSelected:
-                      token?.layout?.sider?.colorBgMenuItemSelected ||
+                      token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
                     itemActiveBg:
-                      token?.layout?.sider?.colorBgMenuItemHover ||
+                      token.layout?.sider?.colorBgMenuItemHover ||
                       token?.colorBgTextHover,
                     colorItemBgSelectedHorizontal:
-                      token?.layout?.sider?.colorBgMenuItemSelected ||
+                      token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
                     colorActiveBarWidth: 0,
                     colorActiveBarHeight: 0,
                     colorActiveBarBorderSize: 0,
                     colorItemText:
-                      token?.layout?.sider?.colorTextMenu ||
+                      token.layout?.sider?.colorTextMenu ||
                       token?.colorTextSecondary,
                     colorItemTextHover:
-                      token?.layout?.sider?.colorTextMenuActive ||
+                      token.layout?.sider?.colorTextMenuActive ||
                       'rgba(0, 0, 0, 0.85)',
                     colorItemTextSelected:
-                      token?.layout?.sider?.colorTextMenuSelected ||
+                      token.layout?.sider?.colorTextMenuSelected ||
                       'rgba(0, 0, 0, 1)',
                     colorBgElevated:
-                      token?.layout?.sider?.colorBgMenuItemCollapsedElevated ||
+                      token.layout?.sider?.colorBgMenuItemCollapsedElevated ||
                       '#fff',
                   }),
                 },
@@ -835,7 +832,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   style={{
                     height: 64,
                     marginBlockStart:
-                      token?.layout?.pageContainer
+                      token.layout?.pageContainer
                         ?.paddingBlockPageContainerContent,
                   }}
                 />

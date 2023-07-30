@@ -71,7 +71,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
           padding: 0,
           display: 'flex',
           flexDirection: 'row',
-          backgroundColor: token?.layout?.sider?.colorMenuBackground,
+          backgroundColor: token.layout?.sider?.colorMenuBackground,
         }}
       >
         <SiderMenu

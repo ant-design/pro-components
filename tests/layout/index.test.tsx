@@ -354,7 +354,11 @@ describe('BasicLayout', () => {
         colorTextCollapsedButton: null,
         colorTextCollapsedButtonHover: null,
       },
-      pageContainer: null,
+      pageContainer: {
+        paddingBlockPageContainerContent: null,
+        paddingInlinePageContainerContent: null,
+        paddingBlockPageContainerContent: null,
+      },
     };
     const wrapper = render(
       <ProLayout
