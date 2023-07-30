@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.5...@ant-design/pro-utils@2.12.6) (2023-07-24)
+
+### Bug Fixes
+
+- **form:** fix transform no set false error ([f547ed0](https://github.com/ant-design/pro-components/commit/f547ed0c4c33b1d136985a515ac84f73b04da895))
+- **form:** ProForm support readonly ([e466f4e](https://github.com/ant-design/pro-components/commit/e466f4ed72340b4c7f8fc1d5f23896a05609e989))
+
 ## [2.12.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.4...@ant-design/pro-utils@2.12.5) (2023-07-19)
 
 ### Bug Fixes

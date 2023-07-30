@@ -1,4 +1,20 @@
-﻿## @ant-design/pro-components@2.6.6
+﻿## @ant-design/pro-components@2.6.8
+
+`2023-07-24`
+
+- fix(layout): fix submenu popup text is center error. [7191501](https://github.com/ant-design/pro-components/commit/7191501)
+- fix(form): StepForm support moblie width. [6eee22f](https://github.com/ant-design/pro-components/commit/6eee22f)
+- fix(form): ProFormSet support lightProps. [0593fe1](https://github.com/ant-design/pro-components/commit/0593fe1)
+- fix(form): ProForm support readonly. [e466f4e](https://github.com/ant-design/pro-components/commit/e466f4e)
+- fix(form): fix transform no set false error. [f547ed0](https://github.com/ant-design/pro-components/commit/f547ed0)
+
+## @ant-design/pro-components@2.6.7
+
+`2023-07-19`
+
+- fix(layout): fix sider collpse no work error. [e17dee6](https://github.com/ant-design/pro-components/commit/e17dee6)
+
+## @ant-design/pro-components@2.6.6
 
 `2023-07-19`
 

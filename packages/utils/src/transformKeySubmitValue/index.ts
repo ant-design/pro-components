@@ -151,7 +151,7 @@ export const transformKeySubmitValue = <T extends object = any>(
           };
         } else if (typeof tempKey === 'object' && Array.isArray(finalValues)) {
           result = { ...result, ...tempKey };
-        } else if (tempKey) {
+        } else if (tempKey !== null || tempKey !== undefined) {
           result = namePathSet(result, [tempKey], itemValue);
         }
       };

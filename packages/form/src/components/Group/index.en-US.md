@@ -218,7 +218,7 @@ return (
     action: FormListOperation,
     /**
      * Default operation dom
-     * [delete, copy, add]
+     * [copy, delete]
      */
     defaultActionDom: ReactNode[],
     /**

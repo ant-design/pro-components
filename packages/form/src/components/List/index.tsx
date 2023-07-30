@@ -115,6 +115,7 @@ export type ProFormListProps<T> = Omit<FormListProps, 'children' | 'rules'> &
     required?: boolean;
     wrapperCol?: ColProps;
     className?: string;
+    readonly?: boolean;
   } & Pick<ProFormGridConfig, 'colProps' | 'rowProps'>;
 
 function ProFormList<T>(props: ProFormListProps<T>) {
@@ -122,7 +123,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
-
   // Internationalization
   const intl = useIntl();
 
@@ -245,6 +245,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                 <RowWrapper>
                   <ProFormListContainer
                     name={name}
+                    readonly={!!rest.readonly}
                     originName={rest.name}
                     copyIconProps={copyIconProps}
                     deleteIconProps={deleteIconProps}

@@ -4,6 +4,7 @@ import { Input, Space } from 'antd';
 import type { GroupProps } from 'antd/lib/input';
 import toArray from 'rc-util/lib/Children/toArray';
 import React, { useCallback, useImperativeHandle, useMemo } from 'react';
+import type { LightWrapperProps } from '../../BaseForm';
 import { createField } from '../../BaseForm/createField';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormItemProps } from '../FormItem';
@@ -18,6 +19,7 @@ export type ProFormFieldSetProps<T = any> = {
   convertValue?: ProFormItemProps['convertValue'];
   transform?: ProFormItemProps['transform'];
   children?: React.ReactNode;
+  lightProps?: LightWrapperProps;
 };
 
 const FieldSetType = {
@@ -43,6 +45,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   type = 'space',
   transform,
   convertValue,
+  lightProps,
   ...rest
 }) => {
   /**

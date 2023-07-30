@@ -99,7 +99,14 @@ export const CardLoading: React.FC<{
   const loadingBlockClass = `${prefixCls}-loading-block`;
   return (
     <div className={`${prefixCls}-loading-content`}>
-      <Row gutter={8}>
+      <Row
+        gutter={{
+          xs: 8,
+          sm: 8,
+          md: 8,
+          lg: 12,
+        }}
+      >
         <Col span={22}>
           <div className={loadingBlockClass} />
         </Col>

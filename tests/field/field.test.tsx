@@ -180,7 +180,7 @@ describe('Field', () => {
         text="100"
         valueType="money"
         mode="edit"
-        fieldProps={{ onChange: fn }}
+        fieldProps={{ onChange: fn, onBlur: fn }}
       />,
     );
     act(() => {
@@ -190,6 +190,15 @@ describe('Field', () => {
     });
 
     expect(fn).toBeCalled();
+
+    act(() => {
+      fireEvent.blur(html.baseElement.querySelector('input')!, {
+        target: { value: 1000 },
+      });
+    });
+
+    expect(fn).toBeCalledTimes(2);
+
     html.unmount();
   });
 

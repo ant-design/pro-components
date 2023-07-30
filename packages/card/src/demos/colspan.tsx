@@ -3,14 +3,45 @@ import { ProCard } from '@ant-design/pro-components';
 export default () => {
   return (
     <>
-      <ProCard direction="column" ghost gutter={[0, 8]}>
+      <ProCard
+        direction="column"
+        ghost
+        gutter={{
+          xs: 8,
+          sm: 8,
+          md: 8,
+          lg: 8,
+          xl: 8,
+          xxl: 8,
+        }}
+      >
         <ProCard layout="center" bordered>
           colSpan - 24
         </ProCard>
-        <ProCard colSpan={12} layout="center" bordered>
+        <ProCard
+          colSpan={{
+            xs: 24,
+            sm: 12,
+            md: 12,
+            lg: 12,
+            xl: 12,
+            xxl: 24,
+          }}
+          layout="center"
+          bordered
+        >
           colSpan - 12
         </ProCard>
-        <ProCard colSpan={8} layout="center" bordered>
+        <ProCard
+          colSpan={{
+            xs: 24,
+            sm: 12,
+            md: 8,
+            lg: 6,
+          }}
+          layout="center"
+          bordered
+        >
           colSpan - 8
         </ProCard>
         <ProCard colSpan={0} layout="center" bordered>

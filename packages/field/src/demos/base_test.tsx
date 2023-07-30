@@ -44,6 +44,18 @@ export default () => {
         <Descriptions.Item label="颜色">
           <ProField text="blue" valueType="color" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="颜色禁用">
+          <ProField
+            text="blue"
+            valueType="color"
+            fieldProps={{
+              disabled: true,
+            }}
+            mode={state}
+            plain={plain}
+          />
+          <ProField text="blue" valueType="color" disabled mode="read" />
+        </Descriptions.Item>
         <Descriptions.Item label="图片">
           <ProField
             text="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"

@@ -436,7 +436,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
             <Affix
               offsetTop={
                 value.hasHeader && value.fixedHeader
-                  ? token?.layout?.header?.heightLayoutHeader
+                  ? token.layout?.header?.heightLayoutHeader
                   : 1
               }
               {...affixProps}

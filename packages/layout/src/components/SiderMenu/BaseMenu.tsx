@@ -246,7 +246,7 @@ class MenuUtil {
           {menuType === 'group' && collapsed ? null : shouldHasIcon &&
             iconDom ? (
             <span
-              className={`${baseClassName}-item-icon ${this.props?.hashId}`}
+              className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
             >
               {iconDom}
             </span>
@@ -430,7 +430,7 @@ class MenuUtil {
           )}
         >
           <span
-            className={`${baseClassName}-item-icon ${this.props?.hashId}`}
+            className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
             style={{
               display: defaultIcon === null && !icon ? 'none' : '',
             }}

@@ -551,6 +551,10 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
         [`> div:not(${token.proComponentsCls}-form-light-filter)`]: {
           '.pro-field': {
             maxWidth: '100%',
+            '@media screen and (max-width: 575px)': {
+              // 减少了 form 的 padding
+              maxWidth: 'calc(100vw - 48px)',
+            },
             // 适用于短数字，短文本或者选项
             '&-xs': {
               width: 104,

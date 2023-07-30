@@ -12,7 +12,7 @@ import {
 } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps } from 'antd';
-import { ConfigProvider, Layout } from 'antd';
+import { ConfigProvider, Grid, Layout } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -26,7 +26,6 @@ import React, {
   useState,
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
-import useAntdMediaQuery from 'use-media-antd-query';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -392,7 +391,7 @@ export type BasicLayoutContext = { [K in 'location']: ProLayoutProps[K] } & {
   breadcrumb: Record<string, MenuDataItem>;
 };
 
-const getpaddingInlineStart = (
+const getPaddingInlineStart = (
   hasLeftPadding: boolean,
   collapsed: boolean | undefined,
   siderWidth: number,
@@ -559,10 +558,24 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     ...currentMenuLayoutProps,
   };
 
-  const colSize = useAntdMediaQuery();
+  const defaultCol = useMemo(
+    () => ({
+      lg: true,
+      md: true,
+      sm: false,
+      xl: false,
+      xs: false,
+      xxl: false,
+    }),
+    [],
+  );
+  const col = Grid.useBreakpoint() || defaultCol;
 
-  const isMobile =
-    (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
+  const isMobile = (col.sm === true || col.xs === true) && !props.disableMobile;
+
+  const colSize = useMemo(() => {
+    return Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
+  }, [col]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
@@ -571,10 +584,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const [collapsed, onCollapse] = useMergedState<boolean>(
     () => {
+      if (isMobile || colSize === 'md') return true;
       if (defaultCollapsed !== undefined) return defaultCollapsed;
       if (isNeedOpenHash() === false) return false;
-      if (isMobile) return true;
-      if (colSize === 'md') return true;
       return false;
     },
     {
@@ -683,7 +695,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   );
 
   /** 计算 slider 的宽度 */
-  const leftSiderWidth = getpaddingInlineStart(
+  const leftSiderWidth = getPaddingInlineStart(
     !!hasLeftPadding,
     collapsed,
     siderWidth,
@@ -775,38 +787,35 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 components: {
                   Menu: coverToNewToken({
                     colorItemBg:
-                      token?.layout?.sider?.colorMenuBackground ||
-                      'transparent',
+                      token.layout?.sider?.colorMenuBackground || 'transparent',
                     colorSubItemBg:
-                      token?.layout?.sider?.colorMenuBackground ||
-                      'transparent',
+                      token.layout?.sider?.colorMenuBackground || 'transparent',
                     radiusItem: 4,
                     controlHeightLG:
-                      token?.layout?.sider?.menuHeight ||
-                      token?.controlHeightLG,
+                      token.layout?.sider?.menuHeight || token?.controlHeightLG,
                     colorItemBgSelected:
-                      token?.layout?.sider?.colorBgMenuItemSelected ||
+                      token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
-                    colorItemBgActive:
-                      token?.layout?.sider?.colorBgMenuItemHover ||
+                    itemActiveBg:
+                      token.layout?.sider?.colorBgMenuItemHover ||
                       token?.colorBgTextHover,
                     colorItemBgSelectedHorizontal:
-                      token?.layout?.sider?.colorBgMenuItemSelected ||
+                      token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
                     colorActiveBarWidth: 0,
                     colorActiveBarHeight: 0,
                     colorActiveBarBorderSize: 0,
                     colorItemText:
-                      token?.layout?.sider?.colorTextMenu ||
+                      token.layout?.sider?.colorTextMenu ||
                       token?.colorTextSecondary,
                     colorItemTextHover:
-                      token?.layout?.sider?.colorTextMenuActive ||
+                      token.layout?.sider?.colorTextMenuActive ||
                       'rgba(0, 0, 0, 0.85)',
                     colorItemTextSelected:
-                      token?.layout?.sider?.colorTextMenuSelected ||
+                      token.layout?.sider?.colorTextMenuSelected ||
                       'rgba(0, 0, 0, 1)',
                     colorBgElevated:
-                      token?.layout?.sider?.colorBgMenuItemCollapsedElevated ||
+                      token.layout?.sider?.colorBgMenuItemCollapsedElevated ||
                       '#fff',
                   }),
                 },
@@ -836,7 +845,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   style={{
                     height: 64,
                     marginBlockStart:
-                      token?.layout?.pageContainer
+                      token.layout?.pageContainer
                         ?.paddingBlockPageContainerContent,
                   }}
                 />

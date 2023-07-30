@@ -14,7 +14,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
     ? token.layout?.header
     : token.layout?.sider;
 
-  console.log(token.antCls);
   return {
     [`${token.componentCls}`]: {
       background: 'transparent',
@@ -59,16 +58,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         },
       },
 
-      [`${token.componentCls}-item-icon`]: {
-        height: '14px',
-        width: '14px',
-        opacity: '0.85',
-        lineHeight: '14px',
-        '> span.anticon': {
-          lineHeight: '14px!important',
-          height: '14px',
-        },
-      },
       '&-item-title': {
         display: 'flex',
         flexDirection: 'row',
@@ -154,10 +143,19 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
         lineHeight: 20,
       },
     },
-    [`${token.antCls}-menu-submenu${token.antCls}-menu-submenu-popup`]: {
-      [`${token.componentCls}-item-title`]: {
-        alignItems: 'flex-start',
-      },
+    ...(mode.includes('horizontal')
+      ? {}
+      : {
+          [`${token.antCls}-menu-submenu${token.antCls}-menu-submenu-popup`]: {
+            [`${token.componentCls}-item-title`]: {
+              alignItems: 'flex-start',
+            },
+          },
+        }),
+    [`${token.antCls}-menu-submenu-popup`]: {
+      backgroundColor: 'rgba(255, 255, 255, 0.42)',
+      '-webkit-backdrop-filter': 'blur(8px)',
+      backdropFilter: 'blur(8px)',
     },
   };
 };

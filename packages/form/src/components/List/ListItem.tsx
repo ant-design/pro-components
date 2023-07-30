@@ -169,7 +169,7 @@ export type ProFromListCommonProps = {
     action: FormListOperation,
     /**
      * 默认的操作dom
-     * [删除，复制，新增]
+     * [复制，删除]
      */
     defaultActionDom: ReactNode[],
     /**
@@ -257,6 +257,9 @@ export type ProFormListItemProps = ProFromListCommonProps & {
   onAfterRemove?: (
     ...params: [...Parameters<FormListOperation['remove']>, number]
   ) => void;
+
+  /** 是否只读模式 */
+  readonly: boolean;
 };
 
 const ProFormListItem: React.FC<

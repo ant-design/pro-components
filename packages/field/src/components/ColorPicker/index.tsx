@@ -1,4 +1,4 @@
-﻿import { compareVersions } from '@ant-design/pro-utils';
+import { compareVersions } from '@ant-design/pro-utils';
 import { ConfigProvider, version } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import type { ProFieldFC } from '../../index';

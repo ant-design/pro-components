@@ -64,47 +64,46 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
             Menu: {
               ...coverToNewToken({
                 colorItemBg:
-                  token?.layout?.header?.colorBgHeader || 'transparent',
+                  token.layout?.header?.colorBgHeader || 'transparent',
                 colorSubItemBg:
-                  token?.layout?.header?.colorBgHeader || 'transparent',
+                  token.layout?.header?.colorBgHeader || 'transparent',
                 radiusItem: 4,
                 colorItemBgSelected:
-                  token?.layout?.header?.colorBgMenuItemSelected ||
+                  token.layout?.header?.colorBgMenuItemSelected ||
                   token?.colorBgTextHover,
-                colorItemBgActive:
-                  token?.layout?.header?.colorBgMenuItemHover ||
+                itemHoverBg:
+                  token.layout?.header?.colorBgMenuItemHover ||
                   token?.colorBgTextHover,
                 colorItemBgSelectedHorizontal:
-                  token?.layout?.header?.colorBgMenuItemSelected ||
+                  token.layout?.header?.colorBgMenuItemSelected ||
                   token?.colorBgTextHover,
                 colorActiveBarWidth: 0,
                 colorActiveBarHeight: 0,
                 colorActiveBarBorderSize: 0,
                 colorItemText:
-                  token?.layout?.header?.colorTextMenu ||
+                  token.layout?.header?.colorTextMenu ||
                   token?.colorTextSecondary,
                 colorItemTextHoverHorizontal:
-                  token?.layout?.header?.colorTextMenuActive ||
-                  token?.colorText,
+                  token.layout?.header?.colorTextMenuActive || token?.colorText,
                 colorItemTextSelectedHorizontal:
-                  token?.layout?.header?.colorTextMenuSelected ||
+                  token.layout?.header?.colorTextMenuSelected ||
                   token?.colorTextBase,
                 horizontalItemBorderRadius: 4,
                 colorItemTextHover:
-                  token?.layout?.header?.colorTextMenuActive ||
+                  token.layout?.header?.colorTextMenuActive ||
                   'rgba(0, 0, 0, 0.85)',
                 horizontalItemHoverBg:
-                  token?.layout?.header?.colorBgMenuItemHover ||
+                  token.layout?.header?.colorBgMenuItemHover ||
                   'rgba(0, 0, 0, 0.04)',
                 colorItemTextSelected:
-                  token?.layout?.header?.colorTextMenuSelected ||
+                  token.layout?.header?.colorTextMenuSelected ||
                   'rgba(0, 0, 0, 1)',
               }),
             },
           },
           token: {
             colorBgElevated:
-              token?.layout?.header?.colorBgHeader || 'transparent',
+              token.layout?.header?.colorBgHeader || 'transparent',
           },
         }}
       >
@@ -129,12 +128,12 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     }
     return defaultDom;
   }, [
-    token?.layout?.header?.colorBgHeader,
-    token?.layout?.header?.colorBgMenuItemSelected,
-    token?.layout?.header?.colorBgMenuItemHover,
-    token?.layout?.header?.colorTextMenu,
-    token?.layout?.header?.colorTextMenuActive,
-    token?.layout?.header?.colorTextMenuSelected,
+    token.layout?.header?.colorBgHeader,
+    token.layout?.header?.colorBgMenuItemSelected,
+    token.layout?.header?.colorBgMenuItemHover,
+    token.layout?.header?.colorTextMenu,
+    token.layout?.header?.colorTextMenuActive,
+    token.layout?.header?.colorTextMenuSelected,
     token?.colorBgTextHover,
     token?.colorTextSecondary,
     token?.colorText,

@@ -661,7 +661,7 @@ describe('LightFilter', () => {
     await waitFor(
       () => {
         expect(onFinish).toHaveBeenCalledWith({
-          date: ['2016-11-01', '2016-11-11'],
+          date: ['2016-11-02', '2016-11-12'],
         });
       },
       {
@@ -684,8 +684,8 @@ describe('LightFilter', () => {
       ).toBeTruthy();
     });
 
-    await screen.findByDisplayValue('2016-11-01');
-    await screen.findByDisplayValue('2016-11-11');
+    await screen.findByDisplayValue('2016-11-02');
+    await screen.findByDisplayValue('2016-11-12');
 
     await act(async () => {
       fireEvent.mouseDown(

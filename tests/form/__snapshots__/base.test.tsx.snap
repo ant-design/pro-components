@@ -343,8 +343,8 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                     id="date"
                     placeholder="请选择"
                     size="12"
-                    title="2021-08-03"
-                    value="2021-08-03"
+                    title="2021-07-28"
+                    value="2021-07-28"
                   />
                   <span
                     class="ant-picker-suffix"
