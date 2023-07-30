@@ -247,22 +247,22 @@ describe('BasicLayout', () => {
             children: [
               {
                 title: '工具',
-                icon: 'https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg',
+                icon: 'w',
                 url: 'https://www.yuque.com/',
               },
               {
                 title: '前端应用框架',
-                icon: 'https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png',
+                icon: () => (
+                  <img src="https://img.alicdn.com/tfs/TB1zomHwxv1gK0jSZFFXXb0sXXa-200-200.png" />
+                ),
                 url: 'https://umijs.org/zh-CN/docs',
               },
               {
-                icon: 'https://gw.alipayobjects.com/zos/bmw-prod/8a74c1d3-16f3-4719-be63-15e467a68a24/km0cv8vn_w500_h500.png',
                 title: 'qiankun',
                 url: 'https://qiankun.umijs.org/',
               },
               {
-                icon: 'https://gw.alipayobjects.com/zos/rmsportal/LFooOLwmxGLsltmUjTAP.svg',
-                title: 'Kitchen ',
+                title: <div>Kitchen</div>,
                 url: 'https://kitchen.alipay.com/',
               },
               {
