@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.5...@ant-design/pro-layout@7.16.6) (2023-07-31)
 
-
 ### Bug Fixes
 
-* **layout:** fix col size error ([749a303](https://github.com/ant-design/pro-components/commit/749a30309f8bde9cf5050ae28e164118eefce408))
-
-
-
-
+- **layout:** fix col size error ([749a303](https://github.com/ant-design/pro-components/commit/749a30309f8bde9cf5050ae28e164118eefce408))
 
 ## [7.16.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.4...@ant-design/pro-layout@7.16.5) (2023-07-31)
 

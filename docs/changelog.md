@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.9
+﻿## @ant-design/pro-components@2.6.10
+
+`2023-07-31`
+
+- fix(layout): fix col size error. [749a303](https://github.com/ant-design/pro-components/commit/749a303)
+
+## @ant-design/pro-components@2.6.9
 
 `2023-07-31`
 
