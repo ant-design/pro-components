@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.11.1...@ant-design/pro-provider@2.12.0) (2023-07-31)
+
+
+### Features
+
+* **components:** hebrew support ([#7435](https://github.com/ant-design/pro-components/issues/7435)) ([f1d646d](https://github.com/ant-design/pro-components/commit/f1d646d8c25d9082c2c50a22ad5837b6d2e91745))
+
+
+
+
 
 ## [2.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.11.0...@ant-design/pro-provider@2.11.1) (2023-07-14)
 
