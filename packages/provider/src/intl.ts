@@ -7,6 +7,7 @@ import enUS from './locale/en_US';
 import esES from './locale/es_ES';
 import faIR from './locale/fa_IR';
 import frFR from './locale/fr_FR';
+import heIL from './locale/he_IL';
 import hrHR from './locale/hr_HR';
 import idID from './locale/id_ID';
 import itIT from './locale/it_IT';
@@ -24,7 +25,6 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
-import heIL from './locale/he_IL';
 
 /**
  * 安全的从一个对象中读取相应的值
@@ -128,7 +128,7 @@ const intlMap = {
   'th-TH': thTHIntl,
   'cs-CZ': csCZIntl,
   'sk-SK': skSKIntl,
-  'he-IL': heILIntl
+  'he-IL': heILIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);

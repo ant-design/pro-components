@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.16.2...@ant-design/pro-form@2.17.0) (2023-07-31)
 
-
 ### Features
 
-* **form:** StepForm added layoutRender props ([#7431](https://github.com/ant-design/pro-components/issues/7431)) ([3657b98](https://github.com/ant-design/pro-components/commit/3657b98ec779606979fd03e7fbec81f606c03a81))
-
-
-
-
+- **form:** StepForm added layoutRender props ([#7431](https://github.com/ant-design/pro-components/issues/7431)) ([3657b98](https://github.com/ant-design/pro-components/commit/3657b98ec779606979fd03e7fbec81f606c03a81))
 
 ## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.16.1...@ant-design/pro-form@2.16.2) (2023-07-24)
 

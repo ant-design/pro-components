@@ -1,4 +1,14 @@
-﻿## @ant-design/pro-components@2.6.8
+﻿## @ant-design/pro-components@2.6.9
+
+`2023-07-31`
+
+- feat(components): hebrew support (#7435). [#7435](https://github.com/ant-design/pro-components/pull/#7435) [@edenHechtArbox](https://github.com/edenHechtArbox)
+- fix(layout): fix pop menu style error. [36bfccf](https://github.com/ant-design/pro-components/commit/36bfccf)
+- fix(layout): fix colorBgMenuItemHover no work error. [3efdd46](https://github.com/ant-design/pro-components/commit/3efdd46)
+- fix(layout): fix footer links hover no work error. [a2bdb21](https://github.com/ant-design/pro-components/commit/a2bdb21)
+- feat(form): StepForm added layoutRender props (#7431). [#7431](https://github.com/ant-design/pro-components/pull/#7431) [@xXAvoraXx](https://github.com/xXAvoraXx)
+
+## @ant-design/pro-components@2.6.8
 
 `2023-07-24`
 
