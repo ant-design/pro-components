@@ -22,7 +22,7 @@
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --loglevel warn",
     "publishOnly": "node ./scripts/release.js --publishOnly",
     "release": "npm run test  -- -w=2  && node ./scripts/release.js",
-    "site": "node ./scripts/preDeploy && npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
+    "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "npm run version && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "npm run version && cross-env TZ=UTC jest ",
