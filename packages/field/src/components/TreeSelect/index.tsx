@@ -9,9 +9,9 @@ import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
 // 兼容代码-----------
+import { useIntl } from '@ant-design/pro-provider';
 import 'antd/lib/spin/style';
 import 'antd/lib/tree-select/style';
-import { useIntl } from '@ant-design/pro-provider';
 //----------------------
 
 export type GroupProps = {
@@ -185,7 +185,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     );
 
     if (renderFormItem) {
-      dom = renderFormItem(rest.text, { mode, ...(fieldProps as any) }, dom) || null;
+      dom =
+        renderFormItem(rest.text, { mode, ...(fieldProps as any), options, loading }, dom) || null;
     }
 
     if (light) {

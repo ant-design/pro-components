@@ -83,7 +83,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
       />,
     );
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return renderFormItem(rest.text, { mode, ...rest.fieldProps, options, loading }, dom) || null;
     }
     return dom;
   }

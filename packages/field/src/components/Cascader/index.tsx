@@ -101,7 +101,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     );
 
     if (renderFormItem) {
-      dom = renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      dom = renderFormItem(rest.text, { mode, ...rest.fieldProps, options, loading }, dom) || null;
     }
 
     if (light) {
