@@ -80,6 +80,7 @@ export default defineConfig({
   ],
   // ssr: {},
   themeConfig: {
+    lastUpdated: true,
     hero: {
       title: 'ProComponents',
       description: '🏆 让中后台开发更简单',
@@ -142,6 +143,10 @@ export default defineConfig({
         { title: '组件', link: '/components' },
         { title: 'Changelog', link: '/changelog' },
         { title: 'Playground', link: '/playground' },
+        {
+          title: '国内镜像',
+          link: 'https://pro-components.antdigital.dev',
+        },
       ],
       'en-US': [
         { title: 'Docs', link: '/en-US/docs' },
