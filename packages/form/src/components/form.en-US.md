@@ -70,7 +70,7 @@ Many times there is no exact match between the data required by the component an
 convertValue occurs before the component obtains data, usually the data directly sent from the backend to the frontend, and sometimes needs to be refined.
 
 ```tsx | pure
-   export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
+   export type SearchConvertKeyFn = (value: any, field: NamePath) => string | boolean | Record<string, any>;
   /**
    * @name Converts the value when getting it, generally used to format the data into the format received by the component
    * @param value field value

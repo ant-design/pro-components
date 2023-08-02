@@ -419,7 +419,7 @@ export type SearchTransformKeyFn = (
 export type SearchConvertKeyFn = (
   value: any,
   field: NamePath,
-) => string | Record<string, any>;
+) => string | boolean | Record<string, any>;
 
 export type ProTableEditableFnType<T> = (
   value: any,
