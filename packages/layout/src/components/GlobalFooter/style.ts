@@ -25,9 +25,9 @@ const genFooterToolBarStyle: GenerateStyle<GlobalFooterToken> = (token) => {
         },
         '*:not(:last-child)': {
           marginInlineEnd: 8,
-          '&:hover': {
-            color: token.colorText,
-          },
+        },
+        '&:hover': {
+          color: token.colorPrimary,
         },
       },
       '&-copyright': { fontSize: '14px', color: token.colorText },

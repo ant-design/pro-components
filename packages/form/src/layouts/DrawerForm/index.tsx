@@ -1,16 +1,41 @@
-﻿import { openVisibleCompatible, useRefFunction } from '@ant-design/pro-utils';
+﻿import {
+  omitUndefined,
+  openVisibleCompatible,
+  useRefFunction,
+} from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
+import classNames from 'classnames';
 import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
+import { useStyle } from './style';
 
-export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
-  CommonFormProps<T> & {
+export type CustomizeResizeType =
+  | {
+      onResize?: () => void;
+      maxWidth?: DrawerProps['width'];
+      minWidth?: DrawerProps['width'];
+    }
+  | false;
+
+export type DrawerFormProps<
+  T = Record<string, any>,
+  U = Record<string, any>,
+> = Omit<FormProps, 'onFinish' | 'title'> &
+  CommonFormProps<T, U> & {
     /**
      * 接收任意值，返回 真值 会关掉这个抽屉
      *
@@ -57,9 +82,15 @@ export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish
 
     /** @name 抽屉的宽度 */
     width?: DrawerProps['width'];
+
+    /**
+     *
+     * @name draggableDrawer
+     */
+    resize?: CustomizeResizeType | false;
   };
 
-function DrawerForm<T = Record<string, any>>({
+function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -67,21 +98,39 @@ function DrawerForm<T = Record<string, any>>({
   onFinish,
   submitTimeout,
   title,
-  width,
+  width = 800,
+  resize,
   onOpenChange,
   visible: propVisible,
   open: propsOpen,
   ...rest
-}: DrawerFormProps<T>) {
+}: DrawerFormProps<T, U>) {
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
+
+  const resizeInfo: CustomizeResizeType = resize
+    ? omitUndefined({
+        onResize: resize.onResize,
+        maxWidth: resize.maxWidth,
+        minWidth: resize.minWidth,
+      })
+    : {};
+
   const context = useContext(ConfigProvider.ConfigContext);
+  const baseClassName = context.getPrefixCls('pro-form-drawer');
+  const { wrapSSR, hashId } = useStyle(baseClassName);
+  const getCls = (className: string) =>
+    `${baseClassName}-${className} ${hashId}`;
 
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [resizableDrawer, setResizableDrawer] = useState(false);
+  const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(
+    resizeInfo?.minWidth ?? width,
+  );
 
   const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
     value: propsOpen || propVisible,
@@ -90,12 +139,15 @@ function DrawerForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback((element) => {
-    if (footerRef.current === null && element) {
-      forceUpdate([]);
-    }
-    footerRef.current = element;
-  }, []);
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback(
+    (element) => {
+      if (footerRef.current === null && element) {
+        forceUpdate([]);
+      }
+      footerRef.current = element;
+    },
+    [],
+  );
 
   const formRef = useRef<ProFormInstance>();
 
@@ -112,8 +164,21 @@ function DrawerForm<T = Record<string, any>>({
       onOpenChange?.(true);
       onVisibleChange?.(true);
     }
+
+    if (resizableDrawer) {
+      setDrawerWidth(resizeInfo?.minWidth);
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, open]);
+  }, [propVisible, open, resizableDrawer]);
+
+  useImperativeHandle(
+    rest.formRef,
+    () => {
+      return formRef.current;
+    },
+    [formRef.current],
+  );
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -125,10 +190,11 @@ function DrawerForm<T = Record<string, any>>({
       ...trigger.props,
       onClick: async (e: any) => {
         setOpen(!open);
+        setResizableDrawer(!Object.keys(resizeInfo));
         trigger.props?.onClick?.(e);
       },
     });
-  }, [setOpen, trigger, open]);
+  }, [setOpen, trigger, open, setResizableDrawer, resizableDrawer]);
 
   const submitterConfig = useMemo(() => {
     if (rest.submitter === false) {
@@ -199,11 +265,38 @@ function DrawerForm<T = Record<string, any>>({
 
   const drawerOpenProps = openVisibleCompatible(open, onVisibleChange);
 
-  return (
+  const cbHandleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      const offsetRight: number | string = ((document.body.offsetWidth ||
+        1000) -
+        (e.clientX - document.body.offsetLeft)) as number | string;
+      const minWidth = resizeInfo?.minWidth ?? width;
+      const maxWidth = resizeInfo?.maxWidth ?? window.innerWidth * 0.8;
+
+      if (offsetRight < minWidth) {
+        setDrawerWidth(minWidth);
+        return;
+      }
+      if (offsetRight > maxWidth) {
+        setDrawerWidth(maxWidth);
+        return;
+      }
+
+      setDrawerWidth(offsetRight);
+    },
+    [resizeInfo?.maxWidth, resizeInfo?.minWidth, width],
+  );
+
+  const cbHandleMouseUp = useCallback(() => {
+    document.removeEventListener('mousemove', cbHandleMouseMove);
+    document.removeEventListener('mouseup', cbHandleMouseUp);
+  }, [cbHandleMouseMove]);
+
+  return wrapSSR(
     <>
       <Drawer
         title={title}
-        width={width || 800}
+        width={drawerWidth}
         {...drawerProps}
         {...drawerOpenProps}
         afterOpenChange={(e) => {
@@ -228,12 +321,41 @@ function DrawerForm<T = Record<string, any>>({
           )
         }
       >
+        <div
+          className={
+            resize
+              ? classNames(getCls('sidebar-dragger'), hashId, {
+                  [getCls('sidebar-dragger-min-disabled')]:
+                    drawerWidth === resizeInfo?.minWidth,
+                  [getCls('sidebar-dragger-max-disabled')]:
+                    drawerWidth === resizeInfo?.maxWidth,
+                })
+              : null
+          }
+          onMouseDown={(e) => {
+            resizeInfo?.onResize?.();
+            e.stopPropagation();
+            e.preventDefault();
+            document.addEventListener('mousemove', cbHandleMouseMove);
+            document.addEventListener('mouseup', cbHandleMouseUp);
+            setResizableDrawer(true);
+          }}
+        />
         <>
-          <BaseForm
+          <BaseForm<T, U>
             formComponentType="DrawerForm"
             layout="vertical"
-            formRef={formRef}
             {...rest}
+            formRef={formRef}
+            onInit={(_, form) => {
+              if (rest.formRef) {
+                (
+                  rest.formRef as React.MutableRefObject<ProFormInstance<T>>
+                ).current = form;
+              }
+              rest?.onInit?.(_, form);
+              formRef.current = form;
+            }}
             submitter={submitterConfig}
             onFinish={async (values) => {
               const result = await onFinishHandle(values);
@@ -247,7 +369,7 @@ function DrawerForm<T = Record<string, any>>({
         </>
       </Drawer>
       {triggerDom}
-    </>
+    </>,
   );
 }
 

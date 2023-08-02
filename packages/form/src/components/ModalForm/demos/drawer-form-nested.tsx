@@ -91,8 +91,16 @@ export default () => {
               />
             </ProForm.Group>
             <ProForm.Group>
-              <ProFormText width="md" name="contract" label="合同名称" placeholder="请输入名称" />
-              <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
+              <ProFormText
+                width="md"
+                name="contract"
+                label="合同名称"
+                placeholder="请输入名称"
+              />
+              <ProFormDateRangePicker
+                name="contractTime"
+                label="合同生效时间"
+              />
             </ProForm.Group>
             <ProForm.Group>
               <ProFormSelect
@@ -119,7 +127,12 @@ export default () => {
               />
             </ProForm.Group>
             <ProFormText width="sm" name="id" label="主合同编号" />
-            <ProFormText name="project" disabled label="项目名称" initialValue="xxxx项目" />
+            <ProFormText
+              name="project"
+              disabled
+              label="项目名称"
+              initialValue="xxxx项目"
+            />
             <ProFormText
               width="xs"
               name="mangerName"
@@ -194,8 +207,16 @@ export default () => {
               />
             </ProForm.Group>
             <ProForm.Group>
-              <ProFormText width="md" name="contract" label="合同名称" placeholder="请输入名称" />
-              <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
+              <ProFormText
+                width="md"
+                name="contract"
+                label="合同名称"
+                placeholder="请输入名称"
+              />
+              <ProFormDateRangePicker
+                name="contractTime"
+                label="合同生效时间"
+              />
             </ProForm.Group>
             <ProForm.Group>
               <ProFormSelect
@@ -222,7 +243,12 @@ export default () => {
               />
             </ProForm.Group>
             <ProFormText width="sm" name="id" label="主合同编号" />
-            <ProFormText name="project" disabled label="项目名称" initialValue="xxxx项目" />
+            <ProFormText
+              name="project"
+              disabled
+              label="项目名称"
+              initialValue="xxxx项目"
+            />
             <ProFormText
               width="xs"
               name="mangerName"

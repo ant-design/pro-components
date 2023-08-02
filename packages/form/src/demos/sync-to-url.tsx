@@ -19,7 +19,9 @@ export default () => {
           return {
             ...values,
             createTimeRanger:
-              values.startTime || values.endTime ? [values.startTime, values.endTime] : undefined,
+              values.startTime || values.endTime
+                ? [values.startTime, values.endTime]
+                : undefined,
           };
         }
         // expirationTime 不同步到 url
@@ -56,7 +58,11 @@ export default () => {
         name="createTimeRanger"
         label="合同生效时间"
       />
-      <ProFormDatePicker width="md" name="expirationTime" label="合同失效时间" />
+      <ProFormDatePicker
+        width="md"
+        name="expirationTime"
+        label="合同失效时间"
+      />
     </ProForm>
   );
 };

@@ -1,5 +1,6 @@
 ---
 title: EditableProTable - 可编辑表格
+atomId: EditableProTable
 ---
 
 # EditableProTable - 可编辑表格
@@ -10,27 +11,27 @@ title: EditableProTable - 可编辑表格
 
 ### 可编辑表格
 
-<code src="./demos/basic.tsx" background="hsl(220,23%,97%)" title="可编辑表格"></code>
+<code src="./demos/basic.tsx"  background="var(--main-bg-color)" title="可编辑表格"></code>
 
 ### 与 FormItem 配合
 
-<code src="./demos/form-item.tsx" background="hsl(220,23%,97%)" title="与 FormItem 配合"></code>
+<code src="./demos/form-item.tsx"  background="var(--main-bg-color)" title="与 FormItem 配合"></code>
 
 ### 与编辑表格外的内容联动
 
-<code src="./demos/form-linkage.tsx" background="hsl(220,23%,97%)" title="与编辑表格外的内容联动"></code>
+<code src="./demos/form-linkage.tsx"  background="var(--main-bg-color)" title="与编辑表格外的内容联动"></code>
 
 ### 有子列的表格增加
 
-<code src="./demos/children.tsx" background="hsl(220,23%,97%)" title="有子列的表格增加"></code>
+<code src="./demos/children.tsx"  background="var(--main-bg-color)" title="有子列的表格增加"></code>
 
 ### 自定义可编辑表格
 
-<code src="./demos/custom.tsx" background="hsl(220,23%,97%)" title="自定义可编辑表格"></code>
+<code src="./demos/custom.tsx"  background="var(--main-bg-color)" title="自定义可编辑表格"></code>
 
 ### 实时保存的编辑表格
 
-<code src="./demos/real-time-editing.tsx" background="hsl(220,23%,97%)" title="实时保存的编辑表格"></code>
+<code src="./demos/real-time-editing.tsx"  background="var(--main-bg-color)" title="实时保存的编辑表格"></code>
 
 ## API
 
@@ -200,8 +201,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -280,6 +287,9 @@ render: (text, record, _, action) => [
 ```typescript
 const editable = {
   // defaultDom = {save,cancel,delete} 可以酌情添加和使用
-  actionRender: (row, config, defaultDom) => [defaultDom.save, defaultDom.cancel],
+  actionRender: (row, config, defaultDom) => [
+    defaultDom.save,
+    defaultDom.cancel,
+  ],
 };
 ```

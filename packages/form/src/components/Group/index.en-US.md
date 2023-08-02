@@ -1,5 +1,6 @@
 ---
 title: Structured data
+atomId: ProFormList
 order: 1
 
 nav:
@@ -217,7 +218,7 @@ return (
     action: FormListOperation,
     /**
      * Default operation dom
-     * [delete, copy, add]
+     * [copy, delete]
      */
     defaultActionDom: ReactNode[],
     /**

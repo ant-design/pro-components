@@ -1,4 +1,9 @@
-﻿import { ProForm, ProFormDependency, ProFormList, ProFormText } from '@ant-design/pro-components';
+﻿import {
+  ProForm,
+  ProFormDependency,
+  ProFormList,
+  ProFormText,
+} from '@ant-design/pro-components';
 import { Button } from 'antd';
 
 const Demo = () => {
@@ -21,7 +26,11 @@ const Demo = () => {
           console.log(f, index, action);
           return (
             <>
-              <ProFormText initialValue={index} name="rowKey" label={`第 ${index} 配置`} />
+              <ProFormText
+                initialValue={index}
+                name="rowKey"
+                label={`第 ${index} 配置`}
+              />
               <ProFormText name="name" key="name" label="姓名" />
               <ProFormDependency key="remark" name={['name']}>
                 {({ name }) => {

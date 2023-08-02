@@ -7,6 +7,7 @@ import enUS from './locale/en_US';
 import esES from './locale/es_ES';
 import faIR from './locale/fa_IR';
 import frFR from './locale/fr_FR';
+import heIL from './locale/he_IL';
 import hrHR from './locale/hr_HR';
 import idID from './locale/id_ID';
 import itIT from './locale/it_IT';
@@ -63,7 +64,10 @@ export type IntlType = {
  * @param locale
  * @param localeMap
  */
-export const createIntl = (locale: string, localeMap: Record<string, any>): IntlType => ({
+export const createIntl = (
+  locale: string,
+  localeMap: Record<string, any>,
+): IntlType => ({
   getMessage: (id: string, defaultMessage: string) =>
     get(localeMap, id, defaultMessage) || defaultMessage,
   locale,
@@ -95,6 +99,7 @@ const hrHRIntl = createIntl('hr_', hrHR);
 const thTHIntl = createIntl('th_TH', thTH);
 const csCZIntl = createIntl('cs_cz', csCZ);
 const skSKIntl = createIntl('sk_SK', skSK);
+const heILIntl = createIntl('he_IL', heIL);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -123,6 +128,7 @@ const intlMap = {
   'th-TH': thTHIntl,
   'cs-CZ': csCZIntl,
   'sk-SK': skSKIntl,
+  'he-IL': heILIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -167,6 +173,7 @@ export {
   thTHIntl,
   csCZIntl,
   skSKIntl,
+  heILIntl,
   intlMap,
   intlMapKeys,
 };

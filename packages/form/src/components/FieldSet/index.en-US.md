@@ -1,7 +1,7 @@
 ---
 title: ProFormFields
 order: 1
-
+atomId: ProFormText
 nav:
   title: Components
 ---
@@ -84,7 +84,12 @@ In some cases, we need to adapt the input box according to the page display, exc
 Same as [Input](https://ant.design/components/input/).
 
 ```tsx | pure
-<ProFormText name="text" label="Name" placeholder="Please enter a name" fieldProps={inputProps} />
+<ProFormText
+  name="text"
+  label="Name"
+  placeholder="Please enter a name"
+  fieldProps={inputProps}
+/>
 ```
 
 ### ProFormCaptcha
@@ -114,7 +119,9 @@ ProFormCaptcha is a component developed to support common CAPTCHA functionality 
   // throw new Error("Error getting captcha")
   onGetCaptcha={async (phone) => {
     await waitTime(1000);
-    message.success(`phone number ${phone} Verification code sent successfully! `);
+    message.success(
+      `phone number ${phone} Verification code sent successfully! `,
+    );
   }}
 />
 ```
@@ -277,11 +284,11 @@ Same as [slider](https://ant.design/components/slider/).
 
 Same as [upload](https://ant.design/components/upload/). Dragger style is preset, otherwise it is the same as Upload.
 
-| Parameters  | Description               | Type            | Default                          |
-| ----------- | ------------------------- | --------------- | -------------------------------- | -------------------------------------------- |
-| icon        | The chart of the Dragger. | `ReactNode`     | InboxOutlined                    |
-| title       | Title                     | Dragger's title | `ReactNode`                      | 'Click or drag files to this area to upload' |
-| description | Dragger's description     | `ReactNode`     | 'Support single or bulk uploads' |
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- | --- |
+| icon | The chart of the Dragger. | `ReactNode` | InboxOutlined |
+| title | Title | Dragger's title | `ReactNode` | 'Click or drag files to this area to upload' |
+| description | Dragger's description | `ReactNode` | 'Support single or bulk uploads' |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />

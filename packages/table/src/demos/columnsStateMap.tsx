@@ -69,7 +69,9 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => {
-  const [columnsStateMap, setColumnsStateMap] = useState<Record<string, ColumnsState>>({
+  const [columnsStateMap, setColumnsStateMap] = useState<
+    Record<string, ColumnsState>
+  >({
     name: {
       show: false,
       order: 2,
@@ -84,7 +86,10 @@ export default () => {
             if (!params?.keyWord) {
               return true;
             }
-            if (item.name.includes(params?.keyWord) || item.status.includes(params?.keyWord)) {
+            if (
+              item.name.includes(params?.keyWord) ||
+              item.status.includes(params?.keyWord)
+            ) {
               return true;
             }
             return false;

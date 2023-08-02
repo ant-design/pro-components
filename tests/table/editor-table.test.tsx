@@ -1,11 +1,21 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
-import type { ActionType, EditableFormInstance, ProColumns } from '@ant-design/pro-table';
+import type {
+  ActionType,
+  EditableFormInstance,
+  ProColumns,
+} from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { InputNumber } from 'antd';
-import React from 'react';
-import { waitTime } from '../util';
 import crypto from 'crypto';
+import React from 'react';
+import { waitForWaitTime } from '../util';
 
 type DataSourceType = {
   id: number | string;
@@ -158,7 +168,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
@@ -185,13 +195,13 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -213,14 +223,16 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     try {
       actionRef.current?.addEditRecord(undefined);
-    } catch (error: any) {
-      expect(error.message).toEqual('请设置 recordCreatorProps.record 并返回一个唯一的key');
+    } catch (error) {
+      expect((error as any).message).toEqual(
+        '请设置 recordCreatorProps.record 并返回一个唯一的key',
+      );
     }
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     spy.mockRestore();
     wrapper.unmount();
   });
@@ -228,6 +240,7 @@ describe('EditorProTable', () => {
   it('📝 EditableProTable saveEditable should save and quit editing', async () => {
     const actionRef = React.createRef<ActionType>();
     let changedDataSource: DataSourceType[] = [];
+    jest.useFakeTimers();
     const onChange = jest.fn((value) => {
       changedDataSource = value;
     });
@@ -237,6 +250,7 @@ describe('EditorProTable', () => {
           table: defaultData,
         }}
       >
+        <div>render</div>
         <EditableProTable<DataSourceType>
           rowKey="id"
           name="table"
@@ -246,22 +260,27 @@ describe('EditorProTable', () => {
         />
       </ProForm>,
     );
-    await waitTime(1000);
 
-    expect(
-      wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
-        .length,
-    ).toBe(defaultData.length);
+    await wrapper.findByText('render');
+
+    await waitFor(() => {
+      expect(
+        wrapper.container
+          .querySelector('.ant-table-tbody')
+          ?.querySelectorAll('tr.ant-table-row').length,
+      ).toBe(defaultData.length);
+    });
 
     const editAndChange = async (inputValue: string) => {
       act(() => {
         wrapper.container.querySelector<HTMLButtonElement>('#editor')?.click();
       });
-      await waitTime(100);
 
       act(() => {
         fireEvent.change(
-          wrapper.container.querySelectorAll(`.ant-form-item-control-input input`)[1],
+          wrapper.container.querySelectorAll(
+            `.ant-form-item-control-input input`,
+          )[1],
           {
             target: {
               value: inputValue,
@@ -269,42 +288,72 @@ describe('EditorProTable', () => {
           },
         );
       });
-      await waitTime(100);
-    };
+      await act(() => jest.runOnlyPendingTimers());
 
+      await wrapper.findAllByDisplayValue(inputValue);
+    };
     await editAndChange('');
     // should block saving when there is validation error
-    await actionRef.current?.saveEditable(624748504);
+    await act(() => {
+      return actionRef.current?.saveEditable(624748504);
+    });
     // should exist validation error
-    expect(
-      wrapper.container
-        .querySelectorAll('.ant-table-tbody')[0]
-        .querySelectorAll('.ant-form-item-has-error').length,
-    ).toBeGreaterThan(0);
-    expect(
-      wrapper.container.querySelectorAll('.ant-table-tbody')[0].querySelectorAll('input').length,
-    ).toBe(4);
-    expect(onChange).not.toBeCalled();
 
-    await editAndChange('test value');
+    await act(() => jest.runOnlyPendingTimers());
+
+    await waitFor(() => {
+      expect(
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody')[0]
+          .querySelectorAll('.ant-form-item-has-error').length,
+      ).toBeGreaterThan(0);
+    });
+    await waitFor(() => {
+      expect(
+        wrapper.container
+          .querySelectorAll('.ant-table-tbody')[0]
+          .querySelectorAll('input').length,
+      ).toBe(4);
+    });
+    await waitFor(() => {
+      expect(onChange).not.toBeCalled();
+    });
+    editAndChange('test value');
     // save with recordKey
-    await actionRef.current?.saveEditable(624748504);
-    await waitTime(1000);
 
-    expect(onChange).toBeCalled();
-    expect(changedDataSource).toHaveLength(defaultData.length);
-    expect(changedDataSource[0]?.title).toBe('test value');
+    await act(() => {
+      return actionRef.current?.saveEditable(624748504);
+    });
 
+    await act(() => jest.runOnlyPendingTimers());
+
+    await waitFor(() => {
+      expect(onChange).toBeCalled();
+    });
+    await waitFor(() => {
+      expect(changedDataSource).toHaveLength(defaultData.length);
+    });
+    await waitFor(() => {
+      expect(changedDataSource[0]?.title).toBe('test value');
+    });
     await editAndChange('test value2');
     // save with array index, if name is set
-    await actionRef.current?.saveEditable(0);
-    await waitTime(300);
+    await act(() => {
+      return actionRef.current?.saveEditable(0);
+    });
 
-    await waitTime(200);
-    expect(onChange).toBeCalled();
-    expect(changedDataSource).toHaveLength(defaultData.length);
-    expect(changedDataSource[0]?.title).toBe('test value2');
+    await act(() => jest.runOnlyPendingTimers());
 
+    await waitFor(() => {
+      expect(onChange).toBeCalled();
+    });
+    await waitFor(() => {
+      expect(changedDataSource).toHaveLength(defaultData.length);
+    });
+    await waitFor(() => {
+      expect(changedDataSource[0]?.title).toBe('test value2');
+    });
+    jest.useRealTimers();
     wrapper.unmount();
   });
 
@@ -353,13 +402,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(onchange).toBeCalledWith(2);
 
@@ -416,13 +465,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(onchange).toBeCalledWith(1);
 
@@ -477,13 +526,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(onchange).not.toBeCalled();
 
@@ -511,13 +560,13 @@ describe('EditorProTable', () => {
         }}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect(fn).not.toBeCalled();
     act(() => {
@@ -533,7 +582,7 @@ describe('EditorProTable', () => {
       );
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(
       wrapper.container
@@ -541,8 +590,9 @@ describe('EditorProTable', () => {
         .querySelectorAll('input'),
     ).toBeTruthy();
     expect(
-      wrapper.container.querySelector('.ant-table-tbody')?.querySelectorAll('tr.ant-table-row')
-        .length,
+      wrapper.container
+        .querySelector('.ant-table-tbody')
+        ?.querySelectorAll('tr.ant-table-row').length,
     ).toBe(6);
 
     act(() => {
@@ -552,11 +602,12 @@ describe('EditorProTable', () => {
         ?.click?.();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
-    expect(wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-1').length).toBe(
-      2,
-    );
+    expect(
+      wrapper.container.querySelectorAll('.ant-table-row.ant-table-row-level-1')
+        .length,
+    ).toBe(2);
 
     wrapper.unmount();
   });
@@ -570,8 +621,10 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(100);
-    expect(wrapper.container.querySelectorAll('button.ant-btn-dashed').length).toBe(0);
+    await waitForWaitTime(100);
+    expect(
+      wrapper.container.querySelectorAll('button.ant-btn-dashed').length,
+    ).toBe(0);
 
     act(() => {
       wrapper.rerender(
@@ -584,9 +637,11 @@ describe('EditorProTable', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
-    expect(wrapper.container.querySelectorAll('button.ant-btn-dashed').length).toBe(1);
+    expect(
+      wrapper.container.querySelectorAll('button.ant-btn-dashed').length,
+    ).toBe(1);
   });
 
   it('📝 EditableProTable support editableFormRef', async () => {
@@ -602,21 +657,27 @@ describe('EditorProTable', () => {
         }}
       />,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     const firstRowKey = defaultData[0]?.id || 0;
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
+      defaultData?.[0]?.title,
+    );
 
-    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(
+      defaultData?.[0]?.title,
+    );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
       editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
     });
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
+      'test-title',
+    );
 
     expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
 
@@ -636,7 +697,7 @@ describe('EditorProTable', () => {
         }}
       />,
     );
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     try {
       //@ts-expect-error
@@ -677,15 +738,21 @@ describe('EditorProTable', () => {
 
     const firstRowKey = defaultData?.[0]?.id || 0;
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(defaultData?.[0]?.title);
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
+      defaultData?.[0]?.title,
+    );
 
-    expect(editorRef.current?.getRowData?.(0)?.title).toBe(defaultData?.[0]?.title);
+    expect(editorRef.current?.getRowData?.(0)?.title).toBe(
+      defaultData?.[0]?.title,
+    );
 
     act(() => {
       editorRef.current?.setRowData?.(firstRowKey, { title: 'test-title' });
     });
 
-    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe('test-title');
+    expect(editorRef.current?.getRowData?.(firstRowKey)?.title).toBe(
+      'test-title',
+    );
 
     expect(editorRef.current?.getRowsData?.()?.length).toBe(3);
 
@@ -721,7 +788,7 @@ describe('EditorProTable', () => {
       (await wrapper.queryByText('添加一行数据'))?.click();
     });
 
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     expect(fn).toBeCalledWith('1234');
   });
@@ -753,7 +820,7 @@ describe('EditorProTable', () => {
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     const firstLineValue = wrapper.container
       .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
@@ -786,7 +853,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(wrapper.container.querySelector('div#test')?.textContent).toBe('xx');
   });
 
@@ -802,7 +869,7 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(wrapper.asFragment()).toMatchSnapshot();
   });
 
@@ -834,10 +901,11 @@ describe('EditorProTable', () => {
         onChange={onChange}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1]
-        .value,
+      wrapper.container.querySelectorAll<HTMLInputElement>(
+        '.ant-form-item-control-input input',
+      )[1].value,
     ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
 
     act(() => {
@@ -869,10 +937,11 @@ describe('EditorProTable', () => {
       );
     });
 
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
-      wrapper.container.querySelectorAll<HTMLInputElement>('.ant-form-item-control-input input')[1]
-        .value,
+      wrapper.container.querySelectorAll<HTMLInputElement>(
+        '.ant-form-item-control-input input',
+      )[1].value,
     ).toBe('🐛 [BUG]无法创建工程npm create umi');
   });
 
@@ -920,13 +989,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -981,13 +1050,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1047,13 +1116,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1096,13 +1165,13 @@ describe('EditorProTable', () => {
       </ProForm>,
     );
 
-    await waitTime(300);
+    await waitForWaitTime(300);
     expect(valuesChangeFn).toBeCalledTimes(0);
 
     await act(async () => {
       (await wrapper.queryAllByText('编辑')).at(0)?.click();
     });
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     act(() => {
       fireEvent.change(
         wrapper.container
@@ -1172,13 +1241,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1232,13 +1301,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1302,13 +1371,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1361,13 +1430,13 @@ describe('EditorProTable', () => {
         ]}
       />,
     );
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     await act(async () => {
       (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
     });
 
-    await waitTime(1000);
+    await waitForWaitTime(1000);
 
     expect(fn).toBeCalledWith(555);
 
@@ -1403,7 +1472,9 @@ describe('EditorProTable', () => {
         parent = child;
       }
       if (hasChildren) {
-        const child = Object.assign({}, nodeTpl, { id: `${parent.id}-placeholder` });
+        const child = Object.assign({}, nodeTpl, {
+          id: `${parent.id}-placeholder`,
+        });
         parent.children = [child];
       }
       const recordId = `${parent.id}-${depth}`;
@@ -1431,14 +1502,16 @@ describe('EditorProTable', () => {
           value={[node]}
         />,
       );
-      await waitTime(1000);
+      await waitForWaitTime(1000);
       await act(async () => {
         (await wrapper.queryAllByText('添加一行数据')).at(0)?.click();
       });
-      await waitTime(1000);
+      await waitForWaitTime(1000);
 
       expect(fn).toBeCalledWith(recordId);
-      const trDoms = wrapper.container.querySelectorAll('.ant-table-tbody tr.ant-table-row');
+      const trDoms = wrapper.container.querySelectorAll(
+        '.ant-table-tbody tr.ant-table-row',
+      );
       expect(trDoms.length).toBe((hasChildren ? depth + 1 : depth) + 1);
       const index = topOrBottom !== 'top' && hasChildren ? depth + 1 : depth;
       const { dataset } = trDoms[index] as HTMLElement;

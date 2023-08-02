@@ -64,7 +64,12 @@ export default () => {
           />
           <ProFormDatePicker name="date" label="日期" />
           <ProFormDateRangePicker name="dateTime" label="时间区间" />
-          <ProFormTextArea name="remark" label="备注" width="lg" placeholder="请输入备注" />
+          <ProFormTextArea
+            name="remark"
+            label="备注"
+            width="lg"
+            placeholder="请输入备注"
+          />
         </StepsForm.StepForm>
         <StepsForm.StepForm<{
           checkbox: string;
@@ -87,7 +92,11 @@ export default () => {
           />
           <ProForm.Group>
             <ProFormText name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
+            <ProFormDatePicker
+              name="datetime"
+              label="记录保存时间"
+              width="sm"
+            />
             <ProFormCheckbox.Group
               name="checkbox"
               label="迁移类型"

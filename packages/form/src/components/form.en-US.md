@@ -1,5 +1,6 @@
 ---
 title: ProForm
+atomId: ProForm
 order: 1
 
 nav:
@@ -56,8 +57,8 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
 <ProForm
   <ProForm.Item name="switch" label="Switch" valuePropName="checked">
     <Switch />
-  </ProForm.Item
-</ProForm
+  </ProForm.Item>
+</ProForm>
 ```
 
 ## Data conversion
@@ -69,7 +70,7 @@ Many times there is no exact match between the data required by the component an
 convertValue occurs before the component obtains data, usually the data directly sent from the backend to the frontend, and sometimes needs to be refined.
 
 ```tsx | pure
-   export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
+   export type SearchConvertKeyFn = (value: any, field: NamePath) => string | boolean | Record<string, any>;
   /**
    * @name Converts the value when getting it, generally used to format the data into the format received by the component
    * @param value field value
@@ -77,11 +78,16 @@ convertValue occurs before the component obtains data, usually the data directly
    * @returns the new value of the field
    *
    *
-   * @example a,b => [a,b] convertValue: (value,namePath)=> value.split(",")
-   * @example string => json convertValue: (value,namePath)=> JSON.parse(value)
-   * @example number => date convertValue: (value,namePath)=> Moment(value)
-   * @example YYYY-MM-DD => date convertValue: (value,namePath)=> Moment(value,"YYYY-MM-DD")
-   * @example string => object convertValue: (value,namePath)=> { return {value,label:value} }
+   * @example a,b => [a,b]
+   * convertValue: (value,namePath)=> value.split(",")
+   * @example string => json
+   * convertValue: (value,namePath)=> JSON.parse(value)
+   * @example number => date
+   * convertValue: (value,namePath)=> Moment(value)
+   * @example YYYY-MM-DD => date
+   * convertValue: (value,namePath)=> Moment(value,"YYYY-MM-DD")
+   * @example string => object
+   * convertValue: (value,namePath)=> { return {value,label:value} }
    */
   convertValue?: SearchConvertKeyFn;
 ```
@@ -195,7 +201,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | dateFormatter | AutoFormat data, mainly moment forms, supports string and number modes. you also can use formatter function to format date | `string\| number \| ((value: Moment, valueType: string) => string \| number) \|false` | string |
 | syncToUrl | sync parameters to url,url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `true` \| `(values,type)=>values` | - |
 | omitNil | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature | `boolean` | true |
-| formRef | Get the form used by the form | `React.MutableRefObject<ProFormInstance<T>>` | - |
+| formRef | Get the form used by the form | `MutableRefObject<Instance<T>>` | - |
 | params | Parameters for initiating network requests, used in conjunction with request | `Record` | - |
 | request | The parameters of the initiating network request, the return value will be overwritten to initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | Whether to use carriage return to submit | `boolean` | - |
@@ -232,7 +238,8 @@ ProFormInstance adds some capabilities compared to antd's form.
    * @param nameList (string|number)[]
    * @returns T
    *
-   * @example {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+   * @example
+   * {a:{b:value}}->getFieldFormatValueObject(['a', 'b'])->{a:{b:value}}
    */
   /** Get the single data after formatting */
   getFieldFormatValueObject?: (nameList?: NamePath) => T;
@@ -289,10 +296,18 @@ The second argument to > render is the default dom array, the first is the reset
     render: (props, doms) => {
       console.log(props);
       return [
-        <button type="button" key="rest" onClick={() => props.form?.resetFields()}>
+        <button
+          type="button"
+          key="rest"
+          onClick={() => props.form?.resetFields()}
+        >
           Reset
         </button>,
-        <button type="button" key="submit" onClick={() => props.form?.submit?.()}>
+        <button
+          type="button"
+          key="submit"
+          onClick={() => props.form?.submit?.()}
+        >
           Submit
         </button>,
       ];

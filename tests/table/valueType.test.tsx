@@ -1,9 +1,8 @@
 import { ProProvider } from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { fireEvent, render as reactRender, render } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
-import { waitTime } from '../util';
-import { act } from 'react-dom/test-utils';
+import { waitForWaitTime } from '../util';
 
 const cascaderOptions = [
   {
@@ -83,7 +82,7 @@ const defaultProps = {
 
 describe('BasicTable valueType', () => {
   it('🎏 table support user valueType', async () => {
-    const html = reactRender(
+    const html = render(
       <ProProvider.Provider
         value={
           {
@@ -91,7 +90,11 @@ describe('BasicTable valueType', () => {
               link: {
                 render: (text: any) => <a id="link">{text}</a>,
                 renderFormItem: (_: any, props: any) => (
-                  <Input placeholder="请输入链接" id="name" {...props?.fieldProps} />
+                  <Input
+                    placeholder="请输入链接"
+                    id="name"
+                    {...props?.fieldProps}
+                  />
                 ),
               },
             },
@@ -106,21 +109,21 @@ describe('BasicTable valueType', () => {
         />
       </ProProvider.Provider>,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect((await html.findAllByText('TradeCode 0')).length).toBe(1);
 
     expect(!!html.asFragment().querySelector('input#name')).toBeTruthy();
 
-    expect((html.asFragment().querySelector('input#name') as HTMLInputElement).value).toBe(
-      'TradeCode',
-    );
+    expect(
+      (html.asFragment().querySelector('input#name') as HTMLInputElement).value,
+    ).toBe('TradeCode');
 
     html.unmount();
   });
 
   it('🎏 table valueType render support fieldProps', async () => {
-    const html = reactRender(
+    const html = render(
       <ProProvider.Provider
         value={
           {
@@ -133,7 +136,11 @@ describe('BasicTable valueType', () => {
                   </a>
                 ),
                 renderFormItem: (_: any, props: any) => (
-                  <Input placeholder="请输入链接" id="name" {...props?.fieldProps} />
+                  <Input
+                    placeholder="请输入链接"
+                    id="name"
+                    {...props?.fieldProps}
+                  />
                 ),
               },
             },
@@ -148,21 +155,21 @@ describe('BasicTable valueType', () => {
         />
       </ProProvider.Provider>,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     expect((await html.findAllByText('TradeCode 0red')).length).toBe(1);
 
     expect(!!html.asFragment().querySelector('input#name')).toBeTruthy();
 
-    expect((html.asFragment().querySelector('input#name') as HTMLInputElement).value).toBe(
-      'TradeCode',
-    );
+    expect(
+      (html.asFragment().querySelector('input#name') as HTMLInputElement).value,
+    ).toBe('TradeCode');
 
     html.unmount();
   });
   it('🎏 table support filter when valueType is treeSelect', async () => {
     const html = render(<ProTable {...defaultProps} />);
-    await waitTime(1200);
+    await waitForWaitTime(1200);
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
@@ -171,11 +178,19 @@ describe('BasicTable valueType', () => {
         },
       });
     });
-    await waitTime(300);
-    expect(html.baseElement.querySelectorAll('span[title="Javascript"]').length).toBe(1);
-    expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(1);
-    expect(html.baseElement.querySelectorAll('span[title="Typescript"]').length).toBe(0);
-    expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(0);
+    await waitForWaitTime(300);
+    expect(
+      html.baseElement.querySelectorAll('span[title="Javascript"]').length,
+    ).toBe(1);
+    expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(
+      1,
+    );
+    expect(
+      html.baseElement.querySelectorAll('span[title="Typescript"]').length,
+    ).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(
+      0,
+    );
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input#treeSelect')!, {
@@ -184,11 +199,19 @@ describe('BasicTable valueType', () => {
         },
       });
     });
-    await waitTime(300);
-    expect(html.baseElement.querySelectorAll('span[title="Javascript"]').length).toBe(1);
-    expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(0);
-    expect(html.baseElement.querySelectorAll('span[title="Typescript"]').length).toBe(0);
-    expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(0);
+    await waitForWaitTime(300);
+    expect(
+      html.baseElement.querySelectorAll('span[title="Javascript"]').length,
+    ).toBe(1);
+    expect(html.baseElement.querySelectorAll('span[title="Java"]').length).toBe(
+      0,
+    );
+    expect(
+      html.baseElement.querySelectorAll('span[title="Typescript"]').length,
+    ).toBe(0);
+    expect(html.baseElement.querySelectorAll('span[title="Go"]').length).toBe(
+      0,
+    );
     expect(html.asFragment()).toMatchSnapshot();
 
     html.unmount();

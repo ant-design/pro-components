@@ -62,8 +62,16 @@ export default () => {
               rules={[{ required: true }]}
             />
             <ProForm.Group title="节点" size={8}>
-              <ProFormSelect width="sm" name="source" placeholder="选择来源节点" />
-              <ProFormSelect width="sm" name="target" placeholder="选择目标节点" />
+              <ProFormSelect
+                width="sm"
+                name="source"
+                placeholder="选择来源节点"
+              />
+              <ProFormSelect
+                width="sm"
+                name="target"
+                placeholder="选择目标节点"
+              />
             </ProForm.Group>
           </ProCard>
 
@@ -85,7 +93,12 @@ export default () => {
               placeholder="请输入名称"
               width="xs"
             />
-            <ProFormText name="s" label="S号表单" placeholder="请输入名称" width="sm" />
+            <ProFormText
+              name="s"
+              label="S号表单"
+              placeholder="请输入名称"
+              width="sm"
+            />
             <ProFormDateRangePicker name="m" label="M 号表单" />
             <ProFormSelect
               name="l"
@@ -118,7 +131,11 @@ export default () => {
             />
             <ProForm.Group>
               <ProFormText name="dbname" label="业务 DB 用户名" />
-              <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
+              <ProFormDatePicker
+                name="datetime"
+                label="记录保存时间"
+                width="sm"
+              />
             </ProForm.Group>
             <ProFormCheckbox.Group
               name="checkbox"

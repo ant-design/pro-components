@@ -5,10 +5,16 @@ import {
   ProFormTreeSelect,
   QueryFilter,
 } from '@ant-design/pro-form';
-import { act, cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { TreeSelect } from 'antd';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('✔️ ProFormLightFilter', () => {
   afterEach(() => {
@@ -79,9 +85,9 @@ describe('✔️ ProFormLightFilter', () => {
     await act(async () => {
       (await html.findByText('名称'))?.click();
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     const dom = html.baseElement.querySelector('form')!;
     // @ts-ignore

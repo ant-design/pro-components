@@ -67,11 +67,17 @@ const Demo = () => {
                   />
                 );
               }
-              return <ProFormText width="md" name="function" label="生效方式" />;
+              return (
+                <ProFormText width="md" name="function" label="生效方式" />
+              );
             }}
           </ProFormDependency>
 
-          <ProFormDependency key="globalUseMode" name={['globalUseMode']} ignoreFormListField>
+          <ProFormDependency
+            key="globalUseMode"
+            name={['globalUseMode']}
+            ignoreFormListField
+          >
             {({ globalUseMode }) => {
               if (globalUseMode === 'select') {
                 return (
@@ -88,7 +94,13 @@ const Demo = () => {
                   />
                 );
               }
-              return <ProFormText width="md" name="gfunction" label="外层联动生效方式" />;
+              return (
+                <ProFormText
+                  width="md"
+                  name="gfunction"
+                  label="外层联动生效方式"
+                />
+              );
             }}
           </ProFormDependency>
         </ProForm.Group>

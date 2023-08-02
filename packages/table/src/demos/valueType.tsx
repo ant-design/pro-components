@@ -31,11 +31,14 @@ for (let i = 0; i < 2; i += 1) {
     key: i,
     avatar:
       'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-    image: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    image:
+      'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     name: `TradeCode ${i}`,
     status: valueEnum[Math.floor(Math.random() * 10) % 4],
-    updatedAt: dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 1000),
-    createdAt: dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
+    updatedAt:
+      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 1000),
+    createdAt:
+      dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
     createdAtRange: [
       dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
       dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 2000),
@@ -81,7 +84,11 @@ const columns: ProColumns<TableListItem>[] = [
     render: (dom) => (
       <Space>
         <span>{dom}</span>
-        <a href="https://github.com/chenshuai2144" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/chenshuai2144"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           chenshuai2144
         </a>
       </Space>

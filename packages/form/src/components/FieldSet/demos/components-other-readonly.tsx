@@ -164,89 +164,100 @@ const Demo = () => (
       }}
       onFinish={async (value) => console.log(value)}
     >
-      <ProFormText
-        readonly
-        width="md"
-        name="name"
-        label="name"
-        fieldProps={{
-          prefix: 'prefix',
-          suffix: 'suffix',
-        }}
-      />
-      <ProFormSelect
-        name="select"
-        readonly
-        label="Select"
-        valueEnum={{
-          china: 'China',
-          usa: 'U.S.A',
-        }}
-        placeholder="Please select a country"
-        rules={[{ required: true, message: 'Please select your country!' }]}
-      />
-      <ProFormSelect
-        width="md"
-        readonly
-        request={async () => [
-          { label: '全部', value: 'all' },
-          { label: '未解决', value: 'open' },
-          { label: '已解决', value: 'closed' },
-          { label: '解决中', value: 'processing' },
-        ]}
-        name="useMode"
-        label="合同约定生效方式"
-      />
-      <ProFormSelect
-        name="select-multiple"
-        label="Select[multiple]"
-        readonly
-        valueEnum={{
-          red: 'Red',
-          green: 'Green',
-          blue: 'Blue',
-        }}
-        fieldProps={{
-          mode: 'multiple',
-        }}
-        placeholder="Please select favorite colors"
-        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
-      />
-      <ProFormSelect
-        name="select-multiple2"
-        label="Select[multiple]"
-        readonly
-        options={options}
-        fieldProps={{
-          mode: 'multiple',
-        }}
-        placeholder="Please select favorite colors"
-        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
-      />
-      <ProFormDigit readonly label="InputNumber" name="input-number" min={1} max={10} />
-      <ProFormSwitch
-        readonly
-        name="switch"
-        label="Switch"
-        unCheckedChildren="不同意"
-        checkedChildren="同意"
-      />
-      <ProFormSlider
-        readonly
-        name="slider"
-        label="Slider"
-        marks={{
-          0: 'A',
-          20: 'B',
-          40: 'C',
-          60: 'D',
-          80: 'E',
-          100: 'F',
-        }}
-      />
+      <ProForm.Group title="基础数据">
+        <ProFormText
+          width="md"
+          name="name"
+          label="name"
+          fieldProps={{
+            prefix: 'prefix',
+            suffix: 'suffix',
+          }}
+        />
+        <ProFormSelect
+          name="select"
+          label="Select"
+          valueEnum={{
+            china: 'China',
+            usa: 'U.S.A',
+          }}
+          placeholder="Please select a country"
+          rules={[{ required: true, message: 'Please select your country!' }]}
+        />
+        <ProFormSelect
+          width="md"
+          request={async () => [
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ]}
+          name="useMode"
+          label="合同约定生效方式"
+        />
+        <ProFormSelect
+          name="select-multiple"
+          label="Select[multiple]"
+          valueEnum={{
+            red: 'Red',
+            green: 'Green',
+            blue: 'Blue',
+          }}
+          fieldProps={{
+            mode: 'multiple',
+          }}
+          placeholder="Please select favorite colors"
+          rules={[
+            {
+              required: true,
+              message: 'Please select your favorite colors!',
+              type: 'array',
+            },
+          ]}
+        />
+        <ProFormSelect
+          name="select-multiple2"
+          label="Select[multiple]"
+          options={options}
+          fieldProps={{
+            mode: 'multiple',
+          }}
+          placeholder="Please select favorite colors"
+          rules={[
+            {
+              required: true,
+              message: 'Please select your favorite colors!',
+              type: 'array',
+            },
+          ]}
+        />
+        <ProFormDigit
+          label="InputNumber"
+          name="input-number"
+          min={1}
+          max={10}
+        />
+        <ProFormSwitch
+          name="switch"
+          label="Switch"
+          unCheckedChildren="不同意"
+          checkedChildren="同意"
+        />
+        <ProFormSlider
+          name="slider"
+          label="Slider"
+          marks={{
+            0: 'A',
+            20: 'B',
+            40: 'C',
+            60: 'D',
+            80: 'E',
+            100: 'F',
+          }}
+        />
+      </ProForm.Group>
       <ProFormRadio.Group
         name="radio"
-        readonly
         label="Radio.Group"
         options={[
           {
@@ -268,7 +279,6 @@ const Demo = () => (
         <ProFormText label="text2" />
       </ProForm.Group>
       <ProFormRadio.Group
-        readonly
         name="radio-button"
         label="Radio.Button"
         radioType="button"
@@ -289,15 +299,13 @@ const Demo = () => (
       />
       <ProFormCheckbox.Group
         name="checkbox-group"
-        readonly
         label="Checkbox.Group"
         options={['A', 'B', 'C', 'D', 'E', 'F']}
       />
-      <ProFormRate readonly name="rate" label="Rate" />
+      <ProFormRate name="rate" label="Rate" />
       <ProFormUploadButton
         name="upload"
         label="Upload"
-        readonly
         max={2}
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
@@ -307,13 +315,13 @@ const Demo = () => (
         label="组件列表"
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
-        <ProFormText width="md" readonly />
+        <ProFormText width="md" />
         -
-        <ProFormText width="md" readonly />
+        <ProFormText width="md" />
         -
-        <ProFormText width="md" readonly />
+        <ProFormText width="md" />
       </ProFormFieldSet>
-      <ProFormUploadDragger readonly max={4} label="Dragger" name="dragger" />
+      <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
 
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker name="date" label="日期" />
@@ -384,7 +392,11 @@ const Demo = () => (
               },
             },
           ]}
-          transform={(value: any) => ({ list: value, startTime: value[0], endTime: value[1] })}
+          transform={(value: any) => ({
+            list: value,
+            startTime: value[0],
+            endTime: value[1],
+          })}
         >
           <ProFormText width="md" />
           <ProFormText width="md" />
@@ -394,13 +406,17 @@ const Demo = () => (
         <ProFormFieldSet
           name="list"
           label="组件列表"
-          transform={(value: any) => ({ list: value, startTime: value[0], endTime: value[1] })}
+          transform={(value: any) => ({
+            list: value,
+            startTime: value[0],
+            endTime: value[1],
+          })}
         >
-          <ProFormText width="md" readonly />
+          <ProFormText width="md" />
           -
-          <ProFormText width="md" readonly />
+          <ProFormText width="md" />
           -
-          <ProFormText width="md" readonly />
+          <ProFormText width="md" />
         </ProFormFieldSet>
       </ProForm.Group>
     </ProForm>

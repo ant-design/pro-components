@@ -10,7 +10,10 @@ export default () => {
   return (
     <>
       <Space>
-        <Radio.Group onChange={(e) => setState(e.target.value as ProFieldFCMode)} value={state}>
+        <Radio.Group
+          onChange={(e) => setState(e.target.value as ProFieldFCMode)}
+          value={state}
+        >
           <Radio value="read">只读</Radio>
           <Radio value="edit">编辑</Radio>
         </Radio.Group>
@@ -31,7 +34,12 @@ export default () => {
           />
         </Descriptions.Item>
         <Descriptions.Item label="文本">
-          <ProField text="这是一段文本" valueType="text" mode={state} plain={plain} />
+          <ProField
+            text="这是一段文本"
+            valueType="text"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="图片">
           <ProField
@@ -48,13 +56,28 @@ export default () => {
           <ProField text="blue" valueType="color" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="数字">
-          <ProField text="19897979797979" valueType="digit" mode={state} plain={plain} />
+          <ProField
+            text="19897979797979"
+            valueType="digit"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="数字范围">
-          <ProField text={[123, 456]} valueType="digitRange" mode={state} plain={plain} />
+          <ProField
+            text={[123, 456]}
+            valueType="digitRange"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="秒格式化">
-          <ProField text={2000000} valueType="second" mode={state} plain={plain} />
+          <ProField
+            text={2000000}
+            valueType="second"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <ProField text="100" valueType="percent" mode={state} plain={plain} />
@@ -359,7 +382,12 @@ export default () => {
           />
         </Descriptions.Item>
         <Descriptions.Item label="密码">
-          <ProField text="password" plain={plain} valueType="password" mode={state} />
+          <ProField
+            text="password"
+            plain={plain}
+            valueType="password"
+            mode={state}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="代码块">
           <ProField

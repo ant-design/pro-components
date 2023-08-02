@@ -1,6 +1,6 @@
 ---
 title: EditableProTable
-
+atomId: EditableProTable
 nav:
   title: Components
 ---
@@ -13,19 +13,19 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ### Editable forms
 
-<code src="./demos/basic.tsx" background="hsl(220,23%,97%)" oldtitle="Editable Form"></code>
+<code src="./demos/basic.tsx"  background="var(--main-bg-color)" oldtitle="Editable Form"></code>
 
 ### Link with content outside the edit form
 
-<code src="./demos/form-linkage.tsx" background="hsl(220,23%,97%)" oldtitle="Link with content outside the edit form"></code>
+<code src="./demos/form-linkage.tsx"  background="var(--main-bg-color)" oldtitle="Link with content outside the edit form"></code>
 
 ### Custom Editable Tables
 
-<code src="./demos/custom.tsx" background="hsl(220,23%,97%)" oldtitle="Custom Editable Form"></code>
+<code src="./demos/custom.tsx"  background="var(--main-bg-color)" oldtitle="Custom Editable Form"></code>
 
 ### Live Saved Editable Forms
 
-<code src="./demos/real-time-editing.tsx" background="hsl(220,23%,97%)" oldtitle="Real-time saved editing form"></code>
+<code src="./demos/real-time-editing.tsx"  background="var(--main-bg-color)" oldtitle="Real-time saved editing form"></code>
 
 ## API
 
@@ -206,8 +206,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -285,6 +291,9 @@ render: (text, record, _, action) => [
 
 ```typescript
 const editable = {
-  actionRender: (row, config, defaultDom) => [defaultDom.save, defaultDom.cancel],
+  actionRender: (row, config, defaultDom) => [
+    defaultDom.save,
+    defaultDom.cancel,
+  ],
 };
 ```

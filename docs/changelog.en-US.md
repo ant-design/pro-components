@@ -1,4 +1,262 @@
-﻿## @ant-design/pro-components@2.4.2
+﻿## @ant-design/pro-components@2.6.10
+
+`2023-07-31`
+
+- fix(layout): fix col size error. [749a303](https://github.com/ant-design/pro-components/commit/749a303)
+
+## @ant-design/pro-components@2.6.9
+
+`2023-07-31`
+
+- feat(components): hebrew support (#7435). [#7435](https://github.com/ant-design/pro-components/pull/#7435) [@edenHechtArbox](https://github.com/edenHechtArbox)
+- fix(layout): fix pop menu style error. [36bfccf](https://github.com/ant-design/pro-components/commit/36bfccf)
+- fix(layout): fix colorBgMenuItemHover no work error. [3efdd46](https://github.com/ant-design/pro-components/commit/3efdd46)
+- fix(layout): fix footer links hover no work error. [a2bdb21](https://github.com/ant-design/pro-components/commit/a2bdb21)
+- feat(form): StepForm added layoutRender props (#7431). [#7431](https://github.com/ant-design/pro-components/pull/#7431) [@xXAvoraXx](https://github.com/xXAvoraXx)
+
+## @ant-design/pro-components@2.6.8
+
+`2023-07-24`
+
+- fix(layout): fix submenu popup text is center error. [7191501](https://github.com/ant-design/pro-components/commit/7191501)
+- fix(form): StepForm support moblie width. [6eee22f](https://github.com/ant-design/pro-components/commit/6eee22f)
+- fix(form): ProFormSet support lightProps. [0593fe1](https://github.com/ant-design/pro-components/commit/0593fe1)
+- fix(form): ProForm support readonly. [e466f4e](https://github.com/ant-design/pro-components/commit/e466f4e)
+- fix(form): fix transform no set false error. [f547ed0](https://github.com/ant-design/pro-components/commit/f547ed0)
+
+## @ant-design/pro-components@2.6.7
+
+`2023-07-19`
+
+- fix(layout): fix sider collpse no work error. [e17dee6](https://github.com/ant-design/pro-components/commit/e17dee6)
+
+## @ant-design/pro-components@2.6.6
+
+`2023-07-19`
+
+- fix(layout): disable SiderContext when Sider other dom. [4d53446](https://github.com/ant-design/pro-components/commit/4d53446)
+- fix(layout): fix FooterToolBar width error. [54d9afe](https://github.com/ant-design/pro-components/commit/54d9afe)
+- fix(layout): Layout siderMenu delete getContainer = false. [ed0c88b](https://github.com/ant-design/pro-components/commit/ed0c88b)
+- fix(layout): menuItem support disableTooltip. [84b79c8](https://github.com/ant-design/pro-components/commit/84b79c8)
+- fix(form): 修复当 LightFilter 折叠模式 icon 样式问题 (#7388). [#7388](https://github.com/ant-design/pro-components/pull/#7388) [@datoou](https://github.com/datoou)
+- feat(form): drawer support resizable (#7288). [#7288](https://github.com/ant-design/pro-components/pull/#7288) [@natashaamin](https://github.com/natashaamin)
+- fix(form): fix jsonCode bgColor no work in dart mode. [03927db](https://github.com/ant-design/pro-components/commit/03927db)
+- fix(form): use 'Space.Compact' instead 'Input.Group'. [89e1fb4](https://github.com/ant-design/pro-components/commit/89e1fb4)
+- fix(form): LightFilter default set popupMatchSelectWidth=false. [27667aa](https://github.com/ant-design/pro-components/commit/27667aa)
+- fix(form): select use options. [59d5e72](https://github.com/ant-design/pro-components/commit/59d5e72)
+- feat(form): StepsForm support multifile StepForm. [ccc35f5](https://github.com/ant-design/pro-components/commit/ccc35f5)
+- fix(form): Fix the issue of the ProFormMoney component causing duplicate currency symbols when using trigger=onBlur. [bc94215](https://github.com/ant-design/pro-components/commit/bc94215)
+- fix(form): ModalForm and DrawerForm support params type. [76470d8](https://github.com/ant-design/pro-components/commit/76470d8)
+- fix(form): support OptionType types. [189f933](https://github.com/ant-design/pro-components/commit/189f933)
+- fix(form): CheckBox readonly mode support warp. [646f4a7](https://github.com/ant-design/pro-components/commit/646f4a7)
+- fix(list): ProList card support on checked. [2a0257e](https://github.com/ant-design/pro-components/commit/2a0257e)
+- fix(table): params change awaly reload fetch. [b147a16](https://github.com/ant-design/pro-components/commit/b147a16)
+- feat(table): ProTable support optionsRender. [8b56b6a](https://github.com/ant-design/pro-components/commit/8b56b6a)
+- fix(table): fix renderFormItem render twice render time. [c3b8ffd](https://github.com/ant-design/pro-components/commit/c3b8ffd)
+- fix(table): Protable support EXPAND_COLUMN and SELECTION_COLUMN. [3454347](https://github.com/ant-design/pro-components/commit/3454347)
+- fix(table): when checkable=false, no render all select boxs. [5421e41](https://github.com/ant-design/pro-components/commit/5421e41)
+- fix(table): Fix the columnsSetting styling issue in controlling column state when the table header is too long. [5b746b3](https://github.com/ant-design/pro-components/commit/5b746b3)
+- fix(table): Fix the issue where align="center" is not working. [db6fc65](https://github.com/ant-design/pro-components/commit/db6fc65)
+- fix(table): Fix the issue of actionref not being synchronized. [2160fb8](https://github.com/ant-design/pro-components/commit/2160fb8)
+- fix(table): dataSource support string list. [7b81b4c](https://github.com/ant-design/pro-components/commit/7b81b4c)
+- fix(descriptions): contentStyle add minwidth=0. [9087253](https://github.com/ant-design/pro-components/commit/9087253)
+
+## @ant-design/pro-components@2.6.5
+
+`2023-07-14`
+
+- fix(layout): Fix the issue of excessively long titles not being truncated.. [0e67775](https://github.com/ant-design/pro-components/commit/0e67775)
+- fix(layout): fix abnormal animation playback.. [854ce2b](https://github.com/ant-design/pro-components/commit/854ce2b)
+- fix(form): Fix the display style of the switch. [8cdeda4](https://github.com/ant-design/pro-components/commit/8cdeda4)
+- fix(form): InlineErrorFormItemPopover support radio and checkbox. [8c6ede6](https://github.com/ant-design/pro-components/commit/8c6ede6)
+- fix(table): export editor pro table props (#7330). [#7330](https://github.com/ant-design/pro-components/pull/#7330) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(card): change checkCard checked token (#7352). [#7352](https://github.com/ant-design/pro-components/pull/#7352) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(card): remove onChange stopPropagation. [5f4bb48](https://github.com/ant-design/pro-components/commit/5f4bb48)
+
+## @ant-design/pro-components@2.6.4
+
+`2023-07-04`
+
+- fix(layout): support antd@5.6.4. [a6ee785](https://github.com/ant-design/pro-components/commit/a6ee785)
+- feat(layout): 添加 appListRender api (#7286). [#7286](https://github.com/ant-design/pro-components/pull/#7286) [@sansheng741](https://github.com/sansheng741)
+- feat(form): ProForm 支持第二个泛型参数 (#7318). [#7318](https://github.com/ant-design/pro-components/pull/#7318) [@q1uxu](https://github.com/q1uxu)
+- fix(form): 修复当 value 为搜索条件 option 显示不出来的问题 (#7283). [#7283](https://github.com/ant-design/pro-components/pull/#7283) [@ldwonday](https://github.com/ldwonday)
+- feat(table): add support of custom render serch form (#7307). [#7307](https://github.com/ant-design/pro-components/pull/#7307) [@mashirozx](https://github.com/mashirozx)
+
+## @ant-design/pro-components@2.6.3
+
+`2023-06-30`
+
+- fix(layout): submenu close tooltip. [a550039](https://github.com/ant-design/pro-components/commit/a550039)
+- fix(form): fix block when QueryFilter set grid. [393fbe8](https://github.com/ant-design/pro-components/commit/393fbe8)
+- fix(form): fix className is undefined error. [a27d453](https://github.com/ant-design/pro-components/commit/a27d453)
+- fix(form): fix DigitRange un support theme error. [70ad3bc](https://github.com/ant-design/pro-components/commit/70ad3bc)
+- fix(form): formRef.current change will update formitem list. [5e977db](https://github.com/ant-design/pro-components/commit/5e977db)
+- fix(table): fix filter and sort is null no trigger change error. [8c444d7](https://github.com/ant-design/pro-components/commit/8c444d7)
+- fix(card): close onClick and onchange Propagation. [c86532f](https://github.com/ant-design/pro-components/commit/c86532f)
+
+## @ant-design/pro-components@2.6.2
+
+`2023-06-19`
+
+- fix(form): fix inline form reset value for destoy. [dc9420a](https://github.com/ant-design/pro-components/commit/dc9420a)
+
+## @ant-design/pro-components@2.6.0
+
+`2023-06-19`
+
+- fix(form): alway use shouldUpdate for json. [7933961](https://github.com/ant-design/pro-components/commit/7933961)
+- fix(form): onInit use ProFormInstance. [ad537a5](https://github.com/ant-design/pro-components/commit/ad537a5)
+- fix(table): add Form.Item shouldUpdate function. [db3224b](https://github.com/ant-design/pro-components/commit/db3224b)
+- feat(field): LightFilter 中使用 ProFormSelect 的两个 bug 修复 (#7225) (#7233). [#7225](https://github.com/ant-design/pro-components/pull/#7225) [@Rabbit](https://github.com/Rabbit)
+
+## @ant-design/pro-components@2.5.11
+
+`2023-06-16`
+
+- fix(layout): fix ErrorBoundary types error. [5bb5be1](https://github.com/ant-design/pro-components/commit/5bb5be1)
+- fix(table): fix editableFormRef no work error. [0cd2e4d](https://github.com/ant-design/pro-components/commit/0cd2e4d)
+
+## @ant-design/pro-components@2.5.10
+
+`2023-06-15`
+
+- fix(form): fix table render less error. [dcd3888](https://github.com/ant-design/pro-components/commit/dcd3888)
+
+## @ant-design/pro-components@2.5.9
+
+`2023-06-14`
+
+- fix(form): fix shouldUpdate no work error. [ff8bbef](https://github.com/ant-design/pro-components/commit/ff8bbef)
+
+## @ant-design/pro-components@2.5.7
+
+`2023-06-12`
+
+- fix(components): fix useToken no supoort antd@4 的问题. [58b96e9](https://github.com/ant-design/pro-components/commit/58b96e9)
+
+## @ant-design/pro-components@2.5.6
+
+`2023-06-12`
+
+- fix(components): remove hashid empty. [b46bb80](https://github.com/ant-design/pro-components/commit/b46bb80)
+- fix(layout): support antd@5.6 token. [28291fe](https://github.com/ant-design/pro-components/commit/28291fe)
+- fix(form): 修复 ProTable 的 columns.proFieldProps 不生效 (#7205). [#7205](https://github.com/ant-design/pro-components/pull/#7205) [@fanck0605](https://github.com/fanck0605)
+- fix(form): ColorPicker use antd style-n. [8d3cd04](https://github.com/ant-design/pro-components/commit/8d3cd04)
+- fix(form): ProFormColorPicker support disable. [973ac28](https://github.com/ant-design/pro-components/commit/973ac28)
+- fix(form): fix set addonAfter valuePropName will no work error. [8072666](https://github.com/ant-design/pro-components/commit/8072666)
+- fix(form): 修复 fn[curK] 为函数时，参数 undefined 导致的报错 (#7163). [#7163](https://github.com/ant-design/pro-components/pull/#7163) [@Soulwail](https://github.com/Soulwail)
+- fix(table): 修复 Editable 的 record.id 使用 index，且 index 为 0 时，导致无法添加新行 (#7176). [#7176](https://github.com/ant-design/pro-components/pull/#7176) [@Soulwail](https://github.com/Soulwail)
+- fix(card): fix ProCard small header style error. [17ccf69](https://github.com/ant-design/pro-components/commit/17ccf69)
+
+## @ant-design/pro-components@2.5.5
+
+`2023-06-02`
+
+- fix(form): fix Cascader light mode no work error. [4ce56dc](https://github.com/ant-design/pro-components/commit/4ce56dc)
+
+## @ant-design/pro-components@2.5.3
+
+`2023-05-30`
+
+- chore: 修复 ts 定义缺失的问题。
+
+## @ant-design/pro-components@2.5.2
+
+`2023-05-30`
+
+- fix(form): fix \_transformArray is null will throw error. [ba1d9e9](https://github.com/ant-design/pro-components/commit/ba1d9e9)
+
+## @ant-design/pro-components@2.5.0
+
+`2023-05-29`
+
+- fix(layout): 修复 collapsedShowTitle 样式错误问题 (#7098). [#7098](https://github.com/ant-design/pro-components/pull/#7098) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): 解决 ProFormList 多重嵌套 ProFormList 下的表单组件未调用 transform 方法问题 (#7138). [#7138](https://github.com/ant-design/pro-components/pull/#7138) [@kaneruan](https://github.com/kaneruan)
+- fix(form): use oninit reset formRef. [1deedf2](https://github.com/ant-design/pro-components/commit/1deedf2)
+- fix(form): close icon style (#7091). [#7091](https://github.com/ant-design/pro-components/pull/#7091) [@kungege](https://github.com/kungege)
+- fix(list): Extend ProListMeta&lt;T&gt; type with `renderFormItem` (#7136). [#7136](https://github.com/ant-design/pro-components/pull/#7136) [@bartelemi](https://github.com/bartelemi)
+- fix(list): 修复 ProFormList 使用 className 无效问题(#7128). [#7128](https://github.com/ant-design/pro-components/pull/#7128) [@leshalv](https://github.com/leshalv)
+- fix(list): `onChange ` prop don't work (#7129). [#7129](https://github.com/ant-design/pro-components/pull/#7129) [@kungege](https://github.com/kungege)
+- fix(table): Edit to make defaultValue become higher priority to reset column setting (#7113). [#7113](https://github.com/ant-design/pro-components/pull/#7113) [@ianccy](https://github.com/ianccy)
+- feat(table): use @dnd-kit (#7131). [#7131](https://github.com/ant-design/pro-components/pull/#7131) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): component EditableProTable actionDeleteRef function Single row status Locked (#7124). [#7124](https://github.com/ant-design/pro-components/pull/#7124) [@varown](https://github.com/varown)
+
+## @ant-design/pro-components@2.4.15
+
+`2023-05-15`
+
+- fix(layout): support fix header scroll use new color (#7071). [#7071](https://github.com/ant-design/pro-components/pull/#7071) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(layout): set layout headermenu height to 40. [f50cfd2](https://github.com/ant-design/pro-components/commit/f50cfd2)
+- fix(form): 修复 form 自定义组件过多卡顿的问题 (#7018). [#7018](https://github.com/ant-design/pro-components/pull/#7018) [@ldwonday](https://github.com/ldwonday)
+- fix(form):ProFormList 支持更多类型 (#7051). [#7051](https://github.com/ant-design/pro-components/pull/#7051) [@leshalv](https://github.com/leshalv)
+- feat(form): rewirte light date form (#7052). [#7052](https://github.com/ant-design/pro-components/pull/#7052) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): 当设置了 digit 的 stringMode 为 true，但是组件没有返回 string (#7031). [#7031](https://github.com/ant-design/pro-components/pull/#7031) [@ldwonday](https://github.com/ldwonday)
+
+## @ant-design/pro-components@2.4.14
+
+`2023-05-08`
+
+- fix(layout): fix menu classname no work error. [c64e81c](https://github.com/ant-design/pro-components/commit/c64e81c)
+
+## @ant-design/pro-components@2.4.13
+
+`2023-05-08`
+
+- fix(layout): use best className slove token error. [8090248](https://github.com/ant-design/pro-components/commit/8090248)
+- fix(form): fix ModalForm ref less error. [06721c3](https://github.com/ant-design/pro-components/commit/06721c3)
+- fix(table): table should support dependencies (#7019). [#7019](https://github.com/ant-design/pro-components/pull/#7019) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-components@2.4.11
+
+`2023-05-04`
+
+- fix(layout): paddingBlockStart set value=8. [6eac5b6](https://github.com/ant-design/pro-components/commit/6eac5b6)
+- feat(layout): help add extraRender api (#6982). [#6982](https://github.com/ant-design/pro-components/pull/#6982) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(table): 修复 useLocaleFilter 方法未判断存在 children 的情况 (#6987). [#6987](https://github.com/ant-design/pro-components/pull/#6987) [@zhou0322-lab](https://github.com/zhou0322-lab)
+
+## @ant-design/pro-components@2.4.9
+
+`2023-04-26`
+
+- fix(layout): up layout mix css level. [18e8157](https://github.com/ant-design/pro-components/commit/18e8157)
+
+## @ant-design/pro-components@2.4.5
+
+`2023-04-25`
+
+- fix(components): Optimize theme type (#6895). [#6895](https://github.com/ant-design/pro-components/pull/#6895) [@thinkasany](https://github.com/thinkasany)
+- fix(components): 修复在浏览器环境下 hashed 必为 false 的 bug (#6900). [#6900](https://github.com/ant-design/pro-components/pull/#6900) [@clf17222592](https://github.com/clf17222592)
+- feat(layout): ProHelp support navigationSwitch. [2406457](https://github.com/ant-design/pro-components/commit/2406457)
+- feat(layout): ProHelp support more feature (#6970). [#6970](https://github.com/ant-design/pro-components/pull/#6970) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat(form): add some DateRangePicker components (#6850). [#6850](https://github.com/ant-design/pro-components/pull/#6850) [@lzm0x219](https://github.com/lzm0x219)
+- fix(form): fix parsed NaN value not display in readonly mode (#6932). [#6932](https://github.com/ant-design/pro-components/pull/#6932) [@xliez](https://github.com/xliez)
+- fix(form): 修复 SchemaFormRef 的问题 (#6943). [#6943](https://github.com/ant-design/pro-components/pull/#6943) [@ldwonday](https://github.com/ldwonday)
+- fix(form): chage step form first button judge (#6915). [#6915](https://github.com/ant-design/pro-components/pull/#6915) [@ONLY-yours](https://github.com/ONLY-yours)
+- 🐛 fix(form): Optimize render type assertion (#6886). [#6886](https://github.com/ant-design/pro-components/pull/#6886) [@thinkasany](https://github.com/thinkasany)
+- fix(form): 兼容 antd@4 ProFormTimePicker format 异常问题 (#6863). [#6863](https://github.com/ant-design/pro-components/pull/#6863) [@powerfulyang](https://github.com/powerfulyang)
+- fix(form): 修复 form 重复渲染的 bug (#6874). [#6874](https://github.com/ant-design/pro-components/pull/#6874) [@ldwonday](https://github.com/ldwonday)
+- fix(list): add pro-utils to package.json deps (#6894). [#6894](https://github.com/ant-design/pro-components/pull/#6894) [@Andreybest](https://github.com/Andreybest)
+- fix(table): 修复当 loading 为对象时,pro-table 无法接管 loading 状态,必须手动控制的问题 (#6962). [#6962](https://github.com/ant-design/pro-components/pull/#6962) [@clf17222592](https://github.com/clf17222592)
+- fix(table): new fetch function (#6923). [#6923](https://github.com/ant-design/pro-components/pull/#6923) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(card): 修复 title 为数字 0 时不展示的问题 (#6884). [#6884](https://github.com/ant-design/pro-components/pull/#6884) [@fliu2476](https://github.com/fliu2476)
+
+## @ant-design/pro-components@2.4.3
+
+`2023-03-27`
+
+- feat(components): Add translation for Slovak and Czech (#6802). [#6802](https://github.com/ant-design/pro-components/pull/#6802) [@craftedsro](https://github.com/craftedsro)
+- fix(layout):fix drawer bgColor error. [907bead](https://github.com/ant-design/pro-components/commit/907bead)
+- fix(layout): remove ProLayout defaultProps. [7d1891f](https://github.com/ant-design/pro-components/commit/7d1891f)
+- fix(layout): slove menu content inlineflex & child not 100% problem (#6819). [#6819](https://github.com/ant-design/pro-components/pull/#6819) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(layout): Provide a hack method to bypass the breadcrumb error check of antd and remove the error message.. [bcb32b9](https://github.com/ant-design/pro-components/commit/bcb32b9)
+- feat(form): introduce proFieldProps in BaseFormProps and pass it to all Fields with the lowest priority (#6847). [#6847](https://github.com/ant-design/pro-components/pull/#6847) [@shijistar](https://github.com/shijistar)
+- feat(table): ProTable 的 toolbar.tabs 和 toolbar.menu 配置下增加 defaultActiveKey 选项 (#6818). [#6818](https://github.com/ant-design/pro-components/pull/#6818) [@hans000](https://github.com/hans000)
+- fix(card): remove reset fontFamily. [b33dfef](https://github.com/ant-design/pro-components/commit/b33dfef)
+- fix(card): fix StatisticCard value style error. [5de24b7](https://github.com/ant-design/pro-components/commit/5de24b7)
+- fix(descriptions): fix Descriptions action no center error. [11c1166](https://github.com/ant-design/pro-components/commit/11c1166)
+
+## @ant-design/pro-components@2.4.2
 
 `2023-03-14`
 
@@ -36,6 +294,15 @@
 - fix(form): 修复 label 属性没有传值的问题 (#6728). [#6728](https://github.com/ant-design/pro-components/pull/#6728) [@hans000](https://github.com/hans000)
 - fix(form): lightSelect 默认转小写 #6692 (#6696). [#6696](https://github.com/ant-design/pro-components/pull/#6696) [@XueMeijing](https://github.com/XueMeijing)
 - fix(table): 修复 maxLength 选项配置为 0 时逻辑不符合预期的问题 (#6719). [#6719](https://github.com/ant-design/pro-components/pull/#6719) [@hans000](https://github.com/hans000)
+
+## @ant-design/pro-components@2.4.16
+
+`2023-05-18`
+
+- fix(layout): 修复因为 menu 不存在 icon 时候，收起的 tooltip 会多展示一个字的问题 (#7083). [#7083](https://github.com/ant-design/pro-components/pull/#7083) [@ONLY-yours](https://github.com/ONLY-yours)
+- feat(layout): ProSchemaValueEnumMap 类型 key 增加对 boolean 的支持 (#7081). [#7081](https://github.com/ant-design/pro-components/pull/#7081) [@hans000](https://github.com/hans000)
+- fix(form): LightFilter icon add color transition. [becd94e](https://github.com/ant-design/pro-components/commit/becd94e)
+- fix(form): fix LightFilter close icon style error. [38e5cd1](https://github.com/ant-design/pro-components/commit/38e5cd1)
 
 # @ant-design/pro-components@2.3.58
 

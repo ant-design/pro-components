@@ -6,12 +6,20 @@ const { yParser } = require('@umijs/utils');
   const args = yParser(process.argv);
   const version = '1.0.0-beta.1';
 
-  const pkgs = readdirSync(join(__dirname, '../packages')).filter((pkg) => pkg.charAt(0) !== '.');
+  const pkgs = readdirSync(join(__dirname, '../packages')).filter(
+    (pkg) => pkg.charAt(0) !== '.',
+  );
 
   pkgs.forEach((shortName) => {
     const name = `@ant-design/pro-${shortName}`;
 
-    const pkgJSONPath = join(__dirname, '..', 'packages', shortName, 'package.json');
+    const pkgJSONPath = join(
+      __dirname,
+      '..',
+      'packages',
+      shortName,
+      'package.json',
+    );
     const pkgJSONExists = existsSync(pkgJSONPath);
     let json;
     if (args.force || !pkgJSONExists) {
@@ -65,7 +73,13 @@ const { yParser } = require('@umijs/utils');
       writeFileSync(pkgJSONPath, `${JSON.stringify(json, null, 2)}\n`);
     }
 
-    const readmePath = join(__dirname, '..', 'packages', shortName, 'README.md');
+    const readmePath = join(
+      __dirname,
+      '..',
+      'packages',
+      shortName,
+      'README.md',
+    );
     if (args.force || !existsSync(readmePath)) {
       writeFileSync(
         readmePath,

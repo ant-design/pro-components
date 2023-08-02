@@ -1,41 +1,35 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
-import { Keyframes } from '@ant-design/cssinjs';
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
   proLayoutCollapsedWidth: number;
 }
 
 export const proLayoutTitleHide = new Keyframes('antBadgeLoadingCircle', {
-  '0%': { display: 'none', opacity: 0 },
+  '0%': { display: 'none', opacity: 0, overflow: 'hidden' },
   '80%': {
-    display: 'none',
-    opacity: 0,
+    overflow: 'hidden',
   },
   '100%': {
     display: 'unset',
     opacity: 1,
   },
-});
+}) as any;
 
 const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
   return {
     [`${token.proComponentsCls}-layout`]: {
+      [`${token.antCls}-layout-sider${token.componentCls}`]: {
+        background: token.layout?.sider?.colorMenuBackground || 'transparent',
+      },
       [token.componentCls]: {
         position: 'relative',
-        background: token.layout?.sider?.colorMenuBackground || 'transparent',
         boxSizing: 'border-box',
         '&-menu': {
           position: 'relative',
           zIndex: 10,
           minHeight: '100%',
-        },
-        '&-fixed': {
-          position: 'fixed',
-          insetBlockStart: 0,
-          insetInlineStart: 0,
-          zIndex: '100',
-          height: '100%',
         },
         [`${token.antCls}-layout-sider-children`]: {
           position: 'relative',
@@ -53,7 +47,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingBottom: 4,
           },
           [`${token.antCls}-menu-item:hover`]: {
-            color: token?.layout?.sider?.colorTextMenuItemHover,
+            color: token.layout?.sider?.colorTextMenuItemHover,
           },
         },
         '&-logo': {
@@ -84,6 +78,9 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
               marginInlineEnd: 0,
               marginInlineStart: 6,
               color: token.layout?.sider?.colorTextMenuTitle,
+              animationName: proLayoutTitleHide,
+              animationDuration: '.4s',
+              animationTimingFunction: 'ease',
               fontWeight: 600,
               fontSize: 16,
               lineHeight: '22px',
@@ -139,7 +136,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
             paddingBlock: 8,
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: token.marginXS,
             borderRadius: token.borderRadius,
             '& *': {
               cursor: 'pointer',
@@ -153,10 +150,7 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           insetInlineStart: `-${token.proLayoutCollapsedWidth - 12}px`,
           position: 'absolute',
         },
-        '&-mix': {
-          height: `calc(100% - ${token?.layout?.header?.heightLayoutHeader || 56}px)`,
-          insetBlockStart: `${token?.layout?.header?.heightLayoutHeader || 56}px`,
-        },
+
         '&-extra': {
           marginBlockEnd: 16,
           marginBlock: 0,
@@ -181,8 +175,23 @@ const genSiderMenuStyle: GenerateStyle<SiderMenuToken> = (token) => {
           paddingBlockEnd: 16,
           fontSize: token.fontSize,
           animationName: proLayoutTitleHide,
-          animationDuration: '.3s',
+          animationDuration: '.4s',
           animationTimingFunction: 'ease',
+        },
+      },
+      [`${token.componentCls}${token.componentCls}-fixed`]: {
+        position: 'fixed',
+        insetBlockStart: 0,
+        insetInlineStart: 0,
+        zIndex: '100',
+        height: '100%',
+        '&-mix': {
+          height: `calc(100% - ${
+            token.layout?.header?.heightLayoutHeader || 56
+          }px)`,
+          insetBlockStart: `${
+            token.layout?.header?.heightLayoutHeader || 56
+          }px`,
         },
       },
     },

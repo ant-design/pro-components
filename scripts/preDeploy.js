@@ -2,7 +2,9 @@ const { existsSync, readdirSync } = require('fs');
 const { join } = require('path');
 
 (async () => {
-  const pkgs = readdirSync(join(__dirname, '../packages')).filter((pkg) => pkg.charAt(0) !== '.');
+  const pkgs = readdirSync(join(__dirname, '../packages')).filter(
+    (pkg) => pkg.charAt(0) !== '.',
+  );
 
   pkgs.forEach((shortName) => {
     const distPath = join(__dirname, '..', 'packages', shortName, 'es');

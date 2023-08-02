@@ -25,8 +25,6 @@ export default () => {
           colorTextCollapsedButtonHover: 'rgba(0,0,0,0.65)',
           colorTextCollapsedButton: 'rgba(0,0,0,0.45)',
           colorMenuBackground: '#004FD9',
-          colorBgMenuItemCollapsedHover: 'rgba(0,0,0,0.06)',
-          colorBgMenuItemCollapsedSelected: 'rgba(0,0,0,0.15)',
           colorBgMenuItemCollapsedElevated: 'rgba(0,0,0,0.85)',
           colorMenuItemDivider: 'rgba(255,255,255,0.15)',
           colorBgMenuItemHover: 'rgba(0,0,0,0.06)',
@@ -38,6 +36,18 @@ export default () => {
           colorTextMenuTitle: 'rgba(255,255,255,0.95)',
           colorTextMenuActive: 'rgba(255,255,255,0.95)',
           colorTextSubMenuSelected: '#fff',
+        },
+        header: {
+          colorBgHeader: '#004FD9',
+          colorBgRightActionsItemHover: 'rgba(0,0,0,0.06)',
+          colorTextRightActionsItem: 'rgba(255,255,255,0.65)',
+          colorHeaderTitle: '#fff',
+          colorBgMenuItemHover: 'rgba(0,0,0,0.06)',
+          colorBgMenuItemSelected: 'rgba(0,0,0,0.15)',
+          colorTextMenuSelected: '#fff',
+          colorTextMenu: 'rgba(255,255,255,0.75)',
+          colorTextMenuSecondary: 'rgba(255,255,255,0.65)',
+          colorTextMenuActive: 'rgba(255,255,255,0.95)',
         },
       }}
       {...defaultProps}
@@ -118,6 +128,7 @@ export default () => {
           {dom}
         </a>
       )}
+      layout="top"
     >
       <PageContainer
         extra={[

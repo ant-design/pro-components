@@ -24,7 +24,11 @@ const FieldFromNow: ProFieldFC<{
 
   if (mode === 'read') {
     const dom = (
-      <Tooltip title={dayjs(text).format(fieldProps?.format || format || 'YYYY-MM-DD HH:mm:ss')}>
+      <Tooltip
+        title={dayjs(text).format(
+          fieldProps?.format || format || 'YYYY-MM-DD HH:mm:ss',
+        )}
+      >
         {dayjs(text).fromNow()}
       </Tooltip>
     );
@@ -34,7 +38,10 @@ const FieldFromNow: ProFieldFC<{
     return <>{dom}</>;
   }
   if (mode === 'edit' || mode === 'update') {
-    const placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择');
+    const placeholder = intl.getMessage(
+      'tableForm.selectPlaceholder',
+      '请选择',
+    );
     const momentValue = parseValueToDay(fieldProps.value) as dayjs.Dayjs;
     const dom = (
       <DatePicker

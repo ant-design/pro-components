@@ -18,6 +18,7 @@ module.exports = {
   collectCoverageFrom: [
     'packages/**/src/**/*.{ts,tsx}',
     '!packages/**/src/**/*.d.ts',
+    '!packages/card/src/components/TabPane/index.tsx',
     '!packages/**/src/**/typing.ts',
     '!packages/**/src/demos/**',
     '!packages/**/src/**/demos/**',
@@ -39,5 +40,6 @@ module.exports = {
   setupFilesAfterEnv: ['./tests/setupTests.ts'],
   globals: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
+    IS_REACT_ACT_ENVIRONMENT: true,
   },
 };

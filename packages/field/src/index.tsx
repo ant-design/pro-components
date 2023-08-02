@@ -14,7 +14,7 @@ import { omitUndefined, pickProProps } from '@ant-design/pro-utils';
 import { Avatar } from 'antd';
 // import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -49,13 +49,19 @@ import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldTreeSelect from './components/TreeSelect';
 import FieldHOC from './FieldHOC';
 
-import weekday from 'dayjs/plugin/weekday';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+import isoWeek from 'dayjs/plugin/isoWeek';
 import localeData from 'dayjs/plugin/localeData';
+import weekday from 'dayjs/plugin/weekday';
+import weekOfYear from 'dayjs/plugin/weekOfYear';
 
 import dayjs from 'dayjs';
 
-dayjs.extend(weekday);
 dayjs.extend(localeData);
+dayjs.extend(advancedFormat);
+dayjs.extend(isoWeek);
+dayjs.extend(weekOfYear);
+dayjs.extend(weekday);
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 
@@ -83,9 +89,11 @@ export type ProFieldLightProps = {
 };
 
 /** Value type by function */
-export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProFieldValueObjectType;
+export type ProFieldValueTypeFunction<T> = (
+  item: T,
+) => ProFieldValueType | ProFieldValueObjectType;
 
-type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
+type RenderProps = Omit<ProFieldFCRenderProps, 'text' | 'placeholder'> &
   ProRenderFieldPropsType & {
     /** 从服务器读取选项 */
     request?: ProFieldRequestData;
@@ -153,7 +161,9 @@ const defaultRenderTextByObject = (
   }
 
   if (valueType.type === 'image') {
-    return <FieldImage {...props} text={text as string} width={valueType.width} />;
+    return (
+      <FieldImage {...props} text={text as string} width={valueType.width} />
+    );
   }
 
   return text as React.ReactNode;
@@ -173,8 +183,17 @@ const defaultRenderText = (
 ): React.ReactNode => {
   const { mode = 'read', emptyText = '-' } = props;
 
-  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
-    if (typeof dataValue !== 'boolean' && typeof dataValue !== 'number' && !dataValue) {
+  if (
+    emptyText !== false &&
+    mode === 'read' &&
+    valueType !== 'option' &&
+    valueType !== 'switch'
+  ) {
+    if (
+      typeof dataValue !== 'boolean' &&
+      typeof dataValue !== 'number' &&
+      !dataValue
+    ) {
       const { fieldProps, render } = props;
       if (render) {
         return render(dataValue, { mode, ...fieldProps }, <>{emptyText}</>);
@@ -190,7 +209,8 @@ const defaultRenderText = (
     return defaultRenderTextByObject(dataValue, valueType, props);
   }
 
-  const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
+  const customValueTypeConfig =
+    valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
     // eslint-disable-next-line no-param-reassign
     delete props.ref;
@@ -248,7 +268,11 @@ const defaultRenderText = (
   if (valueType === 'date') {
     return (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker text={dataValue as string} format="YYYY-MM-DD" {...props} />
+        <FieldDatePicker
+          text={dataValue as string}
+          format="YYYY-MM-DD"
+          {...props}
+        />
       </FieldHOC>
     );
   }
@@ -257,7 +281,88 @@ const defaultRenderText = (
   if (valueType === 'dateWeek') {
     return (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker text={dataValue as string} format="YYYY-wo" picker="week" {...props} />
+        <FieldDatePicker
+          text={dataValue as string}
+          format="YYYY-wo"
+          picker="week"
+          {...props}
+        />
+      </FieldHOC>
+    );
+  }
+
+  /** 如果是周范围的值 */
+  if (valueType === 'dateWeekRange') {
+    const { fieldProps, ...otherProps } = props;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY-W"
+          showTime
+          fieldProps={{
+            picker: 'week',
+            ...fieldProps,
+          }}
+          {...otherProps}
+        />
+      </FieldHOC>
+    );
+  }
+
+  /** 如果是月范围的值 */
+  if (valueType === 'dateMonthRange') {
+    const { fieldProps, ...otherProps } = props;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY-MM"
+          showTime
+          fieldProps={{
+            picker: 'month',
+            ...fieldProps,
+          }}
+          {...otherProps}
+        />
+      </FieldHOC>
+    );
+  }
+
+  /** 如果是季范围的值 */
+  if (valueType === 'dateQuarterRange') {
+    const { fieldProps, ...otherProps } = props;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY-Q"
+          showTime
+          fieldProps={{
+            picker: 'quarter',
+            ...fieldProps,
+          }}
+          {...otherProps}
+        />
+      </FieldHOC>
+    );
+  }
+
+  /** 如果是年范围的值 */
+  if (valueType === 'dateYearRange') {
+    const { fieldProps, ...otherProps } = props;
+    return (
+      <FieldHOC isLight={props.light}>
+        <FieldRangePicker
+          text={dataValue as string[]}
+          format="YYYY"
+          showTime
+          fieldProps={{
+            picker: 'year',
+            ...fieldProps,
+          }}
+          {...otherProps}
+        />
       </FieldHOC>
     );
   }
@@ -266,7 +371,12 @@ const defaultRenderText = (
   if (valueType === 'dateMonth') {
     return (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker text={dataValue as string} format="YYYY-MM" picker="month" {...props} />
+        <FieldDatePicker
+          text={dataValue as string}
+          format="YYYY-MM"
+          picker="month"
+          {...props}
+        />
       </FieldHOC>
     );
   }
@@ -289,14 +399,25 @@ const defaultRenderText = (
   if (valueType === 'dateYear') {
     return (
       <FieldHOC isLight={props.light}>
-        <FieldDatePicker text={dataValue as string} format="YYYY" picker="year" {...props} />
+        <FieldDatePicker
+          text={dataValue as string}
+          format="YYYY"
+          picker="year"
+          {...props}
+        />
       </FieldHOC>
     );
   }
 
   /** 如果是日期范围的值 */
   if (valueType === 'dateRange') {
-    return <FieldRangePicker text={dataValue as string[]} format="YYYY-MM-DD" {...props} />;
+    return (
+      <FieldRangePicker
+        text={dataValue as string[]}
+        format="YYYY-MM-DD"
+        {...props}
+      />
+    );
   }
 
   /** 如果是日期加时间类型的值 */
@@ -332,7 +453,11 @@ const defaultRenderText = (
   if (valueType === 'time') {
     return (
       <FieldHOC isLight={props.light}>
-        <FieldTimePicker text={dataValue as string} format="HH:mm:ss" {...props} />
+        <FieldTimePicker
+          text={dataValue as string}
+          format="HH:mm:ss"
+          {...props}
+        />
       </FieldHOC>
     );
   }
@@ -341,7 +466,11 @@ const defaultRenderText = (
   if (valueType === 'timeRange') {
     return (
       <FieldHOC isLight={props.light}>
-        <FieldTimeRangePicker text={dataValue as string[]} format="HH:mm:ss" {...props} />
+        <FieldTimeRangePicker
+          text={dataValue as string[]}
+          format="HH:mm:ss"
+          {...props}
+        />
       </FieldHOC>
     );
   }
@@ -355,7 +484,9 @@ const defaultRenderText = (
   }
 
   if (valueType === 'indexBorder') {
-    return <FieldIndexColumn border>{(dataValue as number) + 1}</FieldIndexColumn>;
+    return (
+      <FieldIndexColumn border>{(dataValue as number) + 1}</FieldIndexColumn>
+    );
   }
 
   if (valueType === 'progress') {
@@ -366,7 +497,11 @@ const defaultRenderText = (
     return <FieldPercent text={dataValue as number} {...props} />;
   }
 
-  if (valueType === 'avatar' && typeof dataValue === 'string' && props.mode === 'read') {
+  if (
+    valueType === 'avatar' &&
+    typeof dataValue === 'string' &&
+    props.mode === 'read'
+  ) {
     return <Avatar src={dataValue as string} size={22} shape="circle" />;
   }
 
@@ -394,7 +529,10 @@ const defaultRenderText = (
     return <FieldSecond text={dataValue as number} {...props} />;
   }
 
-  if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
+  if (
+    valueType === 'select' ||
+    (valueType === 'text' && (props.valueEnum || props.request))
+  ) {
     return (
       <FieldHOC isLight={props.light}>
         <FieldSelect text={dataValue as string} {...props} />
@@ -411,7 +549,9 @@ const defaultRenderText = (
   }
 
   if (valueType === 'radioButton') {
-    return <FieldRadio radioType="button" text={dataValue as string} {...props} />;
+    return (
+      <FieldRadio radioType="button" text={dataValue as string} {...props} />
+    );
   }
 
   if (valueType === 'rate') {
@@ -455,8 +595,22 @@ const defaultRenderText = (
 };
 
 export { defaultRenderText };
-
 export type { ProFieldValueType, FieldMoneyProps };
+export {
+  FieldPercent,
+  FieldIndexColumn,
+  FieldProgress,
+  FieldMoney,
+  FieldDatePicker,
+  FieldRangePicker,
+  FieldCode,
+  FieldTimePicker,
+  FieldText,
+  FieldStatus,
+  FieldSelect,
+  proFieldParsingText,
+  proFieldParsingValueEnumToArray,
+};
 
 /** ProField 的类型 */
 export type ProFieldPropsType = {
@@ -464,33 +618,55 @@ export type ProFieldPropsType = {
   valueType?: ProFieldValueType | ProFieldValueObjectType;
 } & RenderProps;
 
-const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text, valueType = 'text', mode = 'read', onChange, renderFormItem, value, readonly, ...rest },
+const ProFieldComponent: React.ForwardRefRenderFunction<
+  any,
+  ProFieldPropsType
+> = (
+  {
+    text,
+    valueType = 'text',
+    mode = 'read',
+    onChange,
+    renderFormItem,
+    value,
+    readonly,
+    ...rest
+  },
   ref: any,
 ) => {
   const context = useContext(ProConfigContext);
 
-  const fieldProps = (value !== undefined || onChange || rest?.fieldProps) && {
-    value,
-    // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-    ...omitUndefined(rest?.fieldProps),
-    onChange: (...restParams: any[]) => {
-      rest?.fieldProps?.onChange?.(...restParams);
-      onChange?.(...restParams);
-    },
-  };
+  const fieldProps = useMemo(() => {
+    return (
+      (value !== undefined || onChange || rest?.fieldProps) && {
+        value,
+        // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
+        ...omitUndefined(rest?.fieldProps),
+        onChange: (...restParams: any[]) => {
+          rest?.fieldProps?.onChange?.(...restParams);
+          onChange?.(...restParams);
+        },
+      }
+    );
+  }, [value, onChange, rest?.fieldProps]);
 
   return (
     <React.Fragment>
       {defaultRenderText(
-        mode === 'edit' ? fieldProps?.value ?? text ?? '' : text ?? fieldProps?.value ?? '',
+        mode === 'edit'
+          ? fieldProps?.value ?? text ?? ''
+          : text ?? fieldProps?.value ?? '',
         valueType || 'text',
         omitUndefined({
           ref,
           ...rest,
           mode: readonly ? 'read' : mode,
           renderFormItem: renderFormItem
-            ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
+            ? (
+                curText: any,
+                props: ProFieldFCRenderProps,
+                dom: JSX.Element,
+              ) => {
                 const { placeholder: _placeholder, ...restProps } = props;
                 const newDom = renderFormItem(curText, restProps, dom);
                 // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
@@ -502,7 +678,9 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
                 return newDom;
               }
             : undefined,
-          placeholder: renderFormItem ? undefined : rest?.placeholder ?? fieldProps?.placeholder,
+          placeholder: renderFormItem
+            ? undefined
+            : rest?.placeholder ?? fieldProps?.placeholder,
           fieldProps: pickProProps(
             omitUndefined({
               ...fieldProps,
@@ -518,23 +696,8 @@ const ProFieldComponent: React.ForwardRefRenderFunction<any, ProFieldPropsType> 
   );
 };
 
-const ProField = React.forwardRef(ProFieldComponent) as typeof ProFieldComponent;
-
-export {
-  ProField,
-  FieldPercent,
-  FieldIndexColumn,
-  FieldProgress,
-  FieldMoney,
-  FieldDatePicker,
-  FieldRangePicker,
-  FieldCode,
-  FieldTimePicker,
-  FieldText,
-  FieldStatus,
-  FieldSelect,
-  proFieldParsingText,
-  proFieldParsingValueEnumToArray,
-};
+export const ProField = React.forwardRef(
+  ProFieldComponent,
+) as typeof ProFieldComponent;
 
 export default ProField;

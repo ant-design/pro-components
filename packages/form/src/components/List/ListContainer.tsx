@@ -4,8 +4,8 @@ import { nanoid, runFunction } from '@ant-design/pro-utils';
 import { Button } from 'antd';
 import omit from 'omit.js';
 import type { CSSProperties } from 'react';
-import { useContext } from 'react';
-import { useMemo, useRef, useState } from 'react';
+import { useContext, useMemo, useRef, useState } from 'react';
+import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import type { ProFormListItemProps } from './ListItem';
 import { ProFormListItem } from './ListItem';
 
@@ -101,11 +101,16 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     if (creatorButtonProps === false || uuidFields.length === max) return null;
     const {
       position = 'bottom',
-      creatorButtonText = intl.getMessage('editableTable.action.add', '添加一行数据'),
+      creatorButtonText = intl.getMessage(
+        'editableTable.action.add',
+        '添加一行数据',
+      ),
     } = creatorButtonProps || {};
     return (
       <Button
-        className={`${prefixCls}-creator-button-${position} ${hashId}`}
+        className={`${prefixCls}-creator-button-${position} ${
+          hashId || ''
+        }`.trim()}
         type="dashed"
         loading={loading}
         block
@@ -135,6 +140,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     wrapperAction,
     creatorRecord,
   ]);
+  const readOnlyContext = useContext(EditOrReadOnlyContext);
 
   const defaultStyle: CSSProperties = {
     width: 'max-content',
@@ -143,25 +149,37 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     ...containerStyle,
   };
 
+  const itemList = useMemo(() => {
+    return uuidFields.map((field, index) => {
+      return (
+        <ProFormListItem
+          {...props}
+          key={field.uuid}
+          field={field}
+          index={index}
+          action={wrapperAction}
+          count={uuidFields.length}
+        >
+          {children}
+        </ProFormListItem>
+      );
+    });
+  }, [children, props, uuidFields, wrapperAction]);
+
+  if (readOnlyContext.mode === 'read' || props.readonly === true) {
+    return <>{itemList}</>;
+  }
+
   return (
     <div style={defaultStyle} className={containerClassName}>
-      {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
-      {uuidFields.map((field, index) => {
-        return (
-          <ProFormListItem
-            {...props}
-            key={field.uuid}
-            field={field}
-            index={index}
-            action={wrapperAction}
-            count={uuidFields.length}
-          >
-            {children}
-          </ProFormListItem>
-        );
-      })}
+      {creatorButtonProps !== false &&
+        creatorButtonProps?.position === 'top' &&
+        creatorButton}
+      {itemList}
       {fieldExtraRender && fieldExtraRender(wrapperAction, meta)}
-      {creatorButtonProps !== false && creatorButtonProps?.position !== 'top' && creatorButton}
+      {creatorButtonProps !== false &&
+        creatorButtonProps?.position !== 'top' &&
+        creatorButton}
     </div>
   );
 };

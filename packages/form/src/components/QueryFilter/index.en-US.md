@@ -1,6 +1,6 @@
 ---
 title: Query/LightFilter
-
+atomId: QueryFilter,LightFilter
 nav:
   title: Components
 ---
@@ -23,7 +23,7 @@ QueryFilter and LightFilter solve the problem of using the form with other compo
 
 ### query-filter-search
 
-<code src="./demos/search-filter.tsx" background="#f7f8fa" ></code>
+<code src="./demos/search-filter.tsx" background="var(--main-bg-color)" ></code>
 
 ### Lightweight filtering
 

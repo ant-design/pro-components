@@ -1,6 +1,7 @@
 ---
 title: Schema Form - JSON 表单
 order: 1
+atomId: BetaSchemaForm
 ---
 
 # Schema Form - JSON 表单
@@ -64,32 +65,20 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 ## 代码示例
 
-### JSON 来生成表单
-
 <code src="./demos/schema.tsx" title="schema 表单"></code>
 
-### JSON 来生成分步表单
+<code src="./demos/ModalAndDrawerForm.tsx" title="浮层窗口"></code>
 
-<code src="./demos/steps-form.tsx" title="schema 表单"></code>
+<code src="./demos/steps-form.tsx" title="JSON 来生成分步表单"></code>
 
-### 嵌入到 ProForm 中
+<code src="./demos/embed.tsx" title="嵌入到 ProForm 中"></code>
 
-<code src="./demos/embed.tsx" title="schema 表单"></code>
-
-### 使用 ProFormDependency
-
-<code src="./demos/dependency.tsx" title="schema 表单"></code>
+<code src="./demos/dependency.tsx" title="使用 ProFormDependency"></code>
 
 ## 高性能代码示例
 
-### 结合 shouldUpdate=false 和 dependencies 触发更新
+<code src="./demos/dependencies.tsx" title="结合 shouldUpdate=false 和 dependencies 触发更新"></code>
 
-<code src="./demos/dependencies.tsx" title="schema dependencies"></code>
+<code src="./demos/dynamic-rerender.tsx" title="动态控制是否重渲染"></code>
 
-### 动态控制是否重渲染
-
-<code src="./demos/dynamic-rerender.tsx" title="dynamic rerender"></code>
-
-### form-list-required
-
-<code src="./demos/form-list-required.tsx" title="required" debug></code>
+<code src="./demos/form-list-required.tsx" title="required" debug  title="form-list-required"></code>

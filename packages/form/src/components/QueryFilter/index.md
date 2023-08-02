@@ -1,6 +1,7 @@
 ---
 title: Query/LightFilter - 筛选表单
 order: 1
+atomId: QueryFilter,LightFilter
 ---
 
 # QueryFilter / LightFilter 筛选表单
@@ -17,7 +18,7 @@ order: 1
 
 <code src="./demos/query-filter-vertical.tsx" title="查询筛选-垂直布局"></code>
 
-<code src="./demos/search-filter.tsx" background="#f7f8fa" title="查询筛选-搜索"></code>
+<code src="./demos/search-filter.tsx" background="var(--main-bg-color)" title="查询筛选-搜索"></code>
 
 ## 轻量筛选
 

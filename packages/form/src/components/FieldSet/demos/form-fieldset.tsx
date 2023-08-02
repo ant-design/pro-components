@@ -74,7 +74,11 @@ export default () => {
               },
             },
           ]}
-          transform={(value: any) => ({ list: value, startTime: value[0], endTime: value[1] })}
+          transform={(value: any) => ({
+            list: value,
+            startTime: value[0],
+            endTime: value[1],
+          })}
         >
           <ProFormText width="md" />
           <ProFormText width="md" />
@@ -84,7 +88,11 @@ export default () => {
         <ProFormFieldSet
           name="list"
           label="组件列表"
-          transform={(value: any) => ({ list: value, startTime: value[0], endTime: value[1] })}
+          transform={(value: any) => ({
+            list: value,
+            startTime: value[0],
+            endTime: value[1],
+          })}
         >
           <ProFormText width="md" readonly />
           -

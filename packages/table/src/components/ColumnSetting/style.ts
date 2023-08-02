@@ -22,7 +22,9 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           paddingInline: 0,
           paddingBlockEnd: 8,
         },
-        [`${token.antCls}-tree-node-content-wrapper:hover`]: { backgroundColor: 'transparent' },
+        [`${token.antCls}-tree-node-content-wrapper:hover`]: {
+          backgroundColor: 'transparent',
+        },
         [`${token.antCls}-tree-draggable-icon`]: { cursor: 'grab' },
         [`${token.antCls}-tree-treenode`]: {
           alignItems: 'center',
@@ -62,8 +64,11 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-item': {
         display: 'flex',
         alignItems: 'center',
+        maxHeight: 24,
+        justifyContent: 'space-between',
         '&-title': {
           flex: 1,
+          maxWidth: 80,
         },
         '&-option': {
           display: 'none',
@@ -75,7 +80,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             },
           },
           '> span + span': {
-            marginInlineStart: 8,
+            marginInlineStart: 4,
           },
         },
       },

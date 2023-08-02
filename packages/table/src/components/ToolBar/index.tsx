@@ -7,7 +7,11 @@ import { Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { TableContext } from '../../Store/Provide';
-import type { ActionType, OptionSearchProps, ProTableProps } from '../../typing';
+import type {
+  ActionType,
+  OptionSearchProps,
+  ProTableProps,
+} from '../../typing';
 import ColumnSetting from '../ColumnSetting';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
@@ -52,6 +56,7 @@ export type ToolBarProps<T = unknown> = {
   ) => React.ReactNode[];
   action: React.MutableRefObject<ActionType | undefined>;
   options?: OptionConfig | false;
+  optionsRender?: ToolbarRenderProps<T>['optionsRender'];
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
   className?: string;
@@ -107,7 +112,9 @@ function renderDefaultOption<T>(
       }
 
       let onClick: OptionsFunctionType =
-        value === true ? defaultOptions[key] : (event) => value?.(event, actions.current);
+        value === true
+          ? defaultOptions[key]
+          : (event) => value?.(event, actions.current);
 
       if (typeof onClick !== 'function') {
         onClick = () => {};
@@ -115,7 +122,11 @@ function renderDefaultOption<T>(
 
       if (key === 'setting') {
         return (
-          <ColumnSetting {...(options[key] as SettingOptionType)} columns={columns} key={key} />
+          <ColumnSetting
+            {...(options[key] as SettingOptionType)}
+            columns={columns}
+            key={key}
+          />
         );
       }
       if (key === 'fullScreen') {
@@ -149,6 +160,7 @@ function ToolBar<T>({
   toolbar,
   onSearch,
   columns,
+  optionsRender,
   ...rest
 }: ToolBarProps<T>) {
   const counter = useContext(TableContext);
@@ -172,7 +184,7 @@ function ToolBar<T>({
       ...propsOptions,
     };
 
-    return renderDefaultOption<T>(
+    const settings = renderDefaultOption<T>(
       options,
       {
         ...defaultOptions,
@@ -181,7 +193,41 @@ function ToolBar<T>({
       action,
       columns,
     );
-  }, [action, columns, intl, propsOptions]);
+    if (optionsRender) {
+      return optionsRender(
+        {
+          headerTitle,
+          tooltip,
+          toolBarRender,
+          action,
+          options: propsOptions,
+          selectedRowKeys,
+          selectedRows,
+          toolbar,
+          onSearch,
+          columns,
+          optionsRender,
+          ...rest,
+        },
+        settings,
+      );
+    }
+    return settings;
+  }, [
+    action,
+    columns,
+    headerTitle,
+    intl,
+    onSearch,
+    optionsRender,
+    propsOptions,
+    rest,
+    selectedRowKeys,
+    selectedRows,
+    toolBarRender,
+    toolbar,
+    tooltip,
+  ]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
@@ -196,7 +242,8 @@ function ToolBar<T>({
     /** 受控的value 和 onChange */
     const defaultSearchConfig = {
       value: counter.keyWords,
-      onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+        counter.setKeyWords(e.target.value),
     };
 
     if (propsOptions.search === true) return defaultSearchConfig;
@@ -237,6 +284,10 @@ export type ToolbarRenderProps<T> = {
   headerTitle: React.ReactNode;
   toolbar: ProTableProps<T, any, any>['toolbar'];
   options: ProTableProps<T, any, any>['options'];
+  optionsRender?: (
+    props: ToolBarProps<T>,
+    defaultDom: React.ReactNode[],
+  ) => React.ReactNode[];
   toolBarRender?: ToolBarProps<T>['toolBarRender'];
   actionRef: React.MutableRefObject<ActionType | undefined>;
 };
@@ -330,6 +381,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
       headerTitle,
       actionRef,
       toolBarRender,
+      optionsRender,
     } = this.props;
 
     // 不展示 toolbar
@@ -351,6 +403,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
           filter: searchNode,
           ...toolbar,
         }}
+        optionsRender={optionsRender}
       />
     );
   };

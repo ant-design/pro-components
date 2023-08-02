@@ -4,7 +4,10 @@ import { Checkbox } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import React from 'react';
 import { createField } from '../../BaseForm/createField';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
+import type {
+  ProFormFieldItemProps,
+  ProFormFieldRemoteProps,
+} from '../../typing';
 import ProFormField from '../Field';
 
 export type ProFormCheckboxGroupProps = ProFormFieldItemProps<
@@ -53,27 +56,33 @@ const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
   ),
 );
 
-export type ProFormCheckboxProps = ProFormFieldItemProps<CheckboxProps, HTMLInputElement>;
+export type ProFormCheckboxProps = ProFormFieldItemProps<
+  CheckboxProps,
+  HTMLInputElement
+>;
 
 /**
  * 多选框的
  *
  * @param
  */
-const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> = React.forwardRef<
-  any,
-  ProFormCheckboxProps
->(({ fieldProps, children }, ref) => {
-  return (
-    <Checkbox ref={ref} {...fieldProps}>
-      {children}
-    </Checkbox>
+const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> =
+  React.forwardRef<any, ProFormCheckboxProps>(
+    ({ fieldProps, children }, ref) => {
+      return (
+        <Checkbox ref={ref} {...fieldProps}>
+          {children}
+        </Checkbox>
+      );
+    },
   );
-});
 
-const ProFormCheckbox = createField<ProFormCheckboxProps>(ProFormCheckboxComponents, {
-  valuePropName: 'checked',
-});
+const ProFormCheckbox = createField<ProFormCheckboxProps>(
+  ProFormCheckboxComponents,
+  {
+    valuePropName: 'checked',
+  },
+);
 
 const WrappedProFormCheckbox: typeof ProFormCheckboxComponents & {
   Group: typeof CheckboxGroup;

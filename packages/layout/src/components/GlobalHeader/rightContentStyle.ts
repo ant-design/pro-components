@@ -17,7 +17,7 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
           justifyContent: 'center',
           paddingBlock: 0,
           paddingInline: 2,
-          color: token?.layout?.header?.colorTextRightActionsItem,
+          color: token.layout?.header?.colorTextRightActionsItem,
           fontSize: '16px',
           cursor: 'pointer',
           borderRadius: token.borderRadius,
@@ -27,7 +27,8 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
             paddingBlock: 6,
             borderRadius: token.borderRadius,
             '&:hover': {
-              backgroundColor: token?.layout?.header?.colorBgRightActionsItemHover,
+              backgroundColor:
+                token.layout?.header?.colorBgRightActionsItemHover,
             },
           },
         },
@@ -38,10 +39,10 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
           paddingInlineStart: token.padding,
           paddingInlineEnd: token.padding,
           cursor: 'pointer',
-          color: token.colorTextSecondary,
+          color: token.layout?.header?.colorTextRightActionsItem,
           '> div': {
             height: '44px',
-            color: token.colorTextSecondary,
+            color: token.layout?.header?.colorTextRightActionsItem,
             paddingInline: 8,
             paddingBlock: 8,
             cursor: 'pointer',
@@ -50,7 +51,8 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
             lineHeight: '44px',
             borderRadius: token.borderRadius,
             '&:hover': {
-              backgroundColor: token?.layout?.header?.colorBgRightActionsItemHover,
+              backgroundColor:
+                token.layout?.header?.colorBgRightActionsItemHover,
             },
           },
         },

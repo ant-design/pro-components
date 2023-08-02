@@ -1,3 +1,4 @@
+import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber, Progress } from 'antd';
 import toNumber from 'lodash.tonumber';
 import React, { useMemo } from 'react';
@@ -6,10 +7,11 @@ import type { ProFieldFC } from '../../index';
 // 兼容代码-----------
 import 'antd/lib/input-number/style';
 import 'antd/lib/progress/style';
-import { useIntl } from '@ant-design/pro-provider';
 //------------
 
-export function getProgressStatus(text: number): 'success' | 'exception' | 'normal' | 'active' {
+export function getProgressStatus(
+  text: number,
+): 'success' | 'exception' | 'normal' | 'active' {
   if (text === 100) {
     return 'success';
   }
@@ -30,10 +32,14 @@ export function getProgressStatus(text: number): 'success' | 'exception' | 'norm
  */
 const FieldProgress: ProFieldFC<{
   text: number | string;
-  placeholder?: any;
-}> = ({ text, mode, render, plain, renderFormItem, fieldProps, placeholder }, ref) => {
+  placeholder?: string;
+}> = (
+  { text, mode, render, plain, renderFormItem, fieldProps, placeholder },
+  ref,
+) => {
   const intl = useIntl();
-  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue =
+    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')
@@ -60,7 +66,9 @@ const FieldProgress: ProFieldFC<{
   }
 
   if (mode === 'edit' || mode === 'update') {
-    const dom = <InputNumber ref={ref} placeholder={placeholderValue} {...fieldProps} />;
+    const dom = (
+      <InputNumber ref={ref} placeholder={placeholderValue} {...fieldProps} />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }

@@ -1,9 +1,9 @@
 import { compareVersions } from '@ant-design/pro-utils';
+import type { BreadcrumbProps } from 'antd';
 import { version } from 'antd';
 import type {
   BreadcrumbItemType,
   ItemType,
-  NewBreadcrumbProps as AntdBreadcrumbProps,
 } from 'antd/lib/breadcrumb/Breadcrumb';
 import type H from 'history';
 import pathToRegexp from 'path-to-regexp';
@@ -29,34 +29,39 @@ export type BreadcrumbProLayoutProps = {
   breadcrumbMap?: Map<string, MenuDataItem>;
   formatMessage?: (message: MessageDescriptor) => string;
   breadcrumbRender?: WithFalse<
-    (routers: AntdBreadcrumbProps['items']) => AntdBreadcrumbProps['items']
+    (routers: BreadcrumbProps['items']) => BreadcrumbProps['items']
   >;
-  itemRender?: AntdBreadcrumbProps['itemRender'];
+  itemRender?: BreadcrumbProps['itemRender'];
 };
 
-// 渲染Breadcrumb 子节点
+// 渲染 Breadcrumb 子节点
 // Render the Breadcrumb child node
-const defaultItemRender: AntdBreadcrumbProps['itemRender'] = (route, _, routes) => {
-  const { breadcrumbName, title, path } = route as BreadcrumbItemType & { breadcrumbName: string };
-  const last = routes.indexOf(route) === routes.length - 1;
+const defaultItemRender: BreadcrumbProps['itemRender'] = (route, _, routes) => {
+  const { breadcrumbName, title, path } = route as BreadcrumbItemType & {
+    breadcrumbName: string;
+  };
+
+  const last =
+    routes.findIndex(
+      (i) =>
+        // @ts-ignore
+        i.linkPath === route.path,
+    ) ===
+    routes.length - 1;
+
   return last ? (
     <span>{title || breadcrumbName}</span>
   ) : (
-    <span
-      onClick={
-        path
-          ? () => {
-              location.href = path;
-            }
-          : undefined
-      }
-    >
+    <span onClick={path ? () => (location.href = path) : undefined}>
       {title || breadcrumbName}
     </span>
   );
 };
 
-const renderItemLocal = (item: MenuDataItem, props: BreadcrumbProLayoutProps): string => {
+const renderItemLocal = (
+  item: MenuDataItem,
+  props: BreadcrumbProLayoutProps,
+): string => {
   const { formatMessage, menu } = props;
   if (item.locale && formatMessage && menu?.locale !== false) {
     return formatMessage({ id: item.locale, defaultMessage: item.name });
@@ -99,11 +104,11 @@ const conversionFromLocation = (
   routerLocation: BreadcrumbProLayoutProps['location'],
   breadcrumbMap: Map<string, MenuDataItem>,
   props: BreadcrumbProLayoutProps,
-): AntdBreadcrumbProps['items'] => {
+): BreadcrumbProps['items'] => {
   // Convertor the url to an array
   const pathSnippets = urlToList(routerLocation?.pathname);
   // Loop data mosaic routing
-  const extraBreadcrumbItems: AntdBreadcrumbProps['items'] = pathSnippets
+  const extraBreadcrumbItems: BreadcrumbProps['items'] = pathSnippets
     .map((url) => {
       const currentBreadcrumb = getBreadcrumb(breadcrumbMap, url);
       const name = renderItemLocal(currentBreadcrumb, props);
@@ -123,14 +128,14 @@ const conversionFromLocation = (
 };
 
 export type BreadcrumbListReturn = Pick<
-  AntdBreadcrumbProps,
-  Extract<keyof AntdBreadcrumbProps, 'items' | 'itemRender'>
+  BreadcrumbProps,
+  Extract<keyof BreadcrumbProps, 'items' | 'itemRender'>
 >;
 
 /** 将参数转化为面包屑 Convert parameters into breadcrumbs */
 export const genBreadcrumbProps = (
   props: BreadcrumbProLayoutProps,
-): AntdBreadcrumbProps['items'] => {
+): BreadcrumbProps['items'] => {
   const { location, breadcrumbMap } = getBreadcrumbFromProps(props);
 
   // 根据 location 生成 面包屑
@@ -145,7 +150,7 @@ export const genBreadcrumbProps = (
 export const getBreadcrumbProps = (
   props: Omit<BreadcrumbProLayoutProps, 'breadcrumbRender'> & {
     breadcrumbRender?: WithFalse<
-      (routers: AntdBreadcrumbProps['items']) => AntdBreadcrumbProps['items']
+      (routers: BreadcrumbProps['items']) => BreadcrumbProps['items']
     >;
   }, // BreadcrumbProps类型的props
   layoutPros: ProLayoutProps, // ProLayoutProps类型的layoutPros
@@ -157,7 +162,7 @@ export const getBreadcrumbProps = (
   // 生成面包屑的路由数组，该数组中包含菜单项和面包屑项
   const routesArray = genBreadcrumbProps(props);
   // 如果props中有itemRender，则使用props中的itemRender，否则使用默认函数defaultItemRender
-  const itemRender: AntdBreadcrumbProps['itemRender'] = (item, ...rest) => {
+  const itemRender: BreadcrumbProps['itemRender'] = (item, ...rest) => {
     const renderFunction = propsItemRender || defaultItemRender;
     return renderFunction?.(
       {

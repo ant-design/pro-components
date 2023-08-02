@@ -1,7 +1,9 @@
 ﻿import type { GenerateStyle } from '@ant-design/pro-provider';
 import { resetComponent } from '@ant-design/pro-utils';
 import type { AppsLogoComponentsToken } from './index';
-const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
+const genAppsLogoComponentsDefaultListStyle: GenerateStyle<
+  AppsLogoComponentsToken
+> = (token) => {
   return {
     '&-content': {
       maxHeight: 'calc(100vh - 48px)',

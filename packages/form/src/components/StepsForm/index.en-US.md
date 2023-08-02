@@ -1,7 +1,7 @@
 ---
 title: StepsForm
 order: 1
-
+atomId: StepsForm
 nav:
   title: Components
 ---
@@ -18,11 +18,11 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 
 ## Step-by-Step Forms - Multi-Card
 
-<code src="./demos/multi-card-step-form.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="./demos/multi-card-step-form.tsx"  background="var(--main-bg-color)" ></code>
 
 ## Step-by-Step Forms - Works with Modal
 
-<code src="./demos/modal-step-form.tsx" background="hsl(220,23%,97%)" ></code>
+<code src="./demos/modal-step-form.tsx"  background="var(--main-bg-color)" ></code>
 
 ## StepForm in edit scene
 

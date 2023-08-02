@@ -9,11 +9,13 @@ export type TagProps = {
   onClick?: () => void;
 };
 
-const Tag: React.FC<TagProps> = React.forwardRef(({ color, check, ...rest }, ref) => (
-  <div {...rest} style={{ backgroundColor: color }} ref={ref as any}>
-    {check ? <CheckOutlined /> : ''}
-  </div>
-));
+const Tag: React.FC<TagProps> = React.forwardRef(
+  ({ color, check, ...rest }, ref) => (
+    <div {...rest} style={{ backgroundColor: color }} ref={ref as any}>
+      {check ? <CheckOutlined /> : ''}
+    </div>
+  ),
+);
 
 export type ThemeColorProps = {
   colorList?: {
@@ -28,20 +30,16 @@ export type ThemeColorProps = {
   hashId: string;
 };
 
-const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps> = ({
-  value,
-  colorList,
-  onChange,
-  prefixCls,
-  formatMessage,
-  hashId,
-}) => {
+const ThemeColor: React.ForwardRefRenderFunction<
+  HTMLDivElement,
+  ThemeColorProps
+> = ({ value, colorList, onChange, prefixCls, formatMessage, hashId }) => {
   if (!colorList || colorList?.length < 1) {
     return null;
   }
   const baseClassName = `${prefixCls}-theme-color`;
   return (
-    <div className={`${baseClassName} ${hashId}`}>
+    <div className={`${baseClassName} ${hashId}`.trim()}>
       {colorList?.map(({ key, color, title }) => {
         if (!key) return null;
         return (
@@ -55,7 +53,7 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
             }
           >
             <Tag
-              className={`${baseClassName}-block ${hashId}`}
+              className={`${baseClassName}-block ${hashId}`.trim()}
               color={color}
               check={value === color}
               onClick={() => onChange && onChange(color)}

@@ -12,8 +12,6 @@ import Loading from '../Loading';
 import { useLegacyItems } from '../TabPane';
 import useStyle from './style';
 
-const { useBreakpoint } = Grid;
-
 type ProCardChildType = React.ReactElement<CardProps, any>;
 
 const Card = React.forwardRef((props: CardProps, ref: any) => {
@@ -53,7 +51,16 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const screens = useBreakpoint();
+
+  const screens = Grid.useBreakpoint() || {
+    lg: true,
+    md: true,
+    sm: true,
+    xl: false,
+    xs: false,
+    xxl: false,
+  };
+
   const [collapsed, setCollapsed] = useMergedState<boolean>(defaultCollapsed, {
     value: controlCollapsed,
     onChange: onCollapse,
@@ -63,7 +70,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
   // 修改组合传给antd tabs的参数
   // @ts-ignore
-  const ModifyTabItemsContant = useLegacyItems(tabs?.items, children, tabs);
+  const ModifyTabItemsContent = useLegacyItems(tabs?.items, children, tabs);
 
   /**
    * 根据响应式获取 gutter, 参考 antd 实现
@@ -106,7 +113,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     if (typeof colSpan === 'object') {
       for (let i = 0; i < responsiveArray.length; i += 1) {
         const breakpoint: Breakpoint = responsiveArray[i];
-        if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
+        if (screens?.[breakpoint] && colSpan?.[breakpoint] !== undefined) {
           span = colSpan[breakpoint];
           break;
         }
@@ -114,10 +121,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     }
 
     // 当 colSpan 为 30% 或 300px 时
-    const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
-      width: span as string,
-      flexShrink: 0,
-    });
+    const colSpanStyle = getStyle(
+      typeof span === 'string' && /\d%|\dpx/i.test(span),
+      {
+        width: span as string,
+        flexShrink: 0,
+      },
+    );
 
     return { span, colSpanStyle };
   };
@@ -140,10 +150,12 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       const { span, colSpanStyle } = getColSpanStyle(colSpan);
 
       const columnClassName = classNames([`${prefixCls}-col`], hashId, {
-        [`${prefixCls}-split-vertical`]: split === 'vertical' && index !== childrenArray.length - 1,
+        [`${prefixCls}-split-vertical`]:
+          split === 'vertical' && index !== childrenArray.length - 1,
         [`${prefixCls}-split-horizontal`]:
           split === 'horizontal' && index !== childrenArray.length - 1,
-        [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
+        [`${prefixCls}-col-${span}`]:
+          typeof span === 'number' && span >= 0 && span <= 24,
       });
 
       const wrappedElement = wrapSSR(
@@ -164,7 +176,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           {React.cloneElement(element)}
         </div>,
       );
-      return React.cloneElement(wrappedElement, { key: `pro-card-col-${element?.key || index}` });
+      return React.cloneElement(wrappedElement, {
+        key: `pro-card-col-${element?.key || index}`,
+      });
     }
     return element;
   });
@@ -185,7 +199,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   const bodyCls = classNames(`${prefixCls}-body`, hashId, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-direction-column`]: split === 'horizontal' || direction === 'column',
+    [`${prefixCls}-body-direction-column`]:
+      split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
@@ -196,7 +211,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   ) : (
     <Loading
       prefix={prefixCls}
-      style={bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined}
+      style={
+        bodyStyle.padding === 0 || bodyStyle.padding === '0px'
+          ? { padding: 24 }
+          : undefined
+      }
     />
   );
   // 非受控情况下展示
@@ -208,7 +227,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ) : (
       <RightOutlined
         rotate={!collapsed ? 90 : undefined}
-        className={`${prefixCls}-collapsible-icon ${hashId}`}
+        className={`${prefixCls}-collapsible-icon ${hashId}`.trim()}
       />
     ));
 
@@ -220,6 +239,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       onClick={(e) => {
         onChecked?.(e);
         rest?.onClick?.(e);
+        e.stopPropagation();
       }}
       {...omit(rest, ['prefixCls', 'colSpan'])}
     >
@@ -234,20 +254,31 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             if (collapsibleButton) setCollapsed(!collapsed);
           }}
         >
-          <div className={`${prefixCls}-title ${hashId}`}>
+          <div className={`${prefixCls}-title ${hashId}`.trim()}>
             {collapsibleButton}
-            <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
+            <LabelIconTip
+              label={title}
+              tooltip={tooltip || tip}
+              subTitle={subTitle}
+            />
           </div>
-          {extra && <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>}
+          {extra && (
+            <div
+              className={`${prefixCls}-extra ${hashId}`.trim()}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {extra}
+            </div>
+          )}
         </div>
       )}
       {tabs ? (
-        <div className={`${prefixCls}-tabs ${hashId}`}>
+        <div className={`${prefixCls}-tabs ${hashId}`.trim()}>
           <Tabs
             onChange={tabs.onChange}
             {...tabs}
             // @ts-ignore
-            items={ModifyTabItemsContant}
+            items={ModifyTabItemsContent}
           >
             {loading ? loadingDOM : children}
           </Tabs>

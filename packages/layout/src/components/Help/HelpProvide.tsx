@@ -31,26 +31,48 @@ type ProHelpDataSourceContentType = {
     children: string;
   } & AnchorHTMLAttributes<HTMLAnchorElement>;
   /**
-   * inlineLink 链接类型的数据源子项内容。
+   * 行内链接类型的数据源子项内容。
    */
   inlineLink: {
     children: string;
   } & AnchorHTMLAttributes<HTMLAnchorElement>;
+
+  /**
+   * navigation 类型链接，或切换菜单
+   */
+  navigationSwitch: {
+    selectKey: string;
+    children: string;
+  };
+
   /**
    * text 文本类型的数据源子项内容。
    */
   text: string;
+
   /**
    * image 图片类型的数据源子项内容。
    */
   image: ImageProps;
+
+  /**
+   * markdown 类型的渲染，支持 基本的 markdown 语法
+   * 会包在一个叫 inner-html 为 markdown 的 div 中
+   */
+  html: {
+    className: string;
+    children: string;
+  };
 };
 
 /**
  * ProHelp 数据源子项内容类型的类型，可能的取值为 "h1"、"h2"、"link"、"inlineLink"、"text" 和 "image"。
  * @typedef {'h1' | 'h2' | 'link' | 'inlineLink' | 'text' | 'image'} ProHelpDataSourceChildrenType
  */
-type ProHelpDataSourceChildrenType = Extract<keyof ProHelpDataSourceContentType, any>;
+type ProHelpDataSourceChildrenType = Extract<
+  keyof ProHelpDataSourceContentType,
+  any
+>;
 
 /**
  * ProHelp 数据源子项内容属性类型。
@@ -111,13 +133,22 @@ export type ProHelpDataSource<ValueType = 'text'> = {
    * title 数据源项的标题。
    */
   title: string;
+
+  /**
+   * 在一页内加载所有的 children 内容
+   */
+  infiniteScrollFull?: boolean;
   /**
    * children 包含子项的数组，每个子项包含一个唯一标识，标题以及子子项数组。
    */
   children: {
     key: string;
     title: string;
-    children: ProHelpDataSourceChildren<ValueType>[];
+    /**
+     * 是否远程加载children
+     */
+    asyncLoad?: boolean;
+    children?: ProHelpDataSourceChildren<ValueType>[];
   }[];
 };
 
@@ -146,4 +177,11 @@ export const ProHelpProvide = React.createContext<{
     string,
     (item: ProHelpDataSourceChildren<any>, index: number) => React.ReactNode
   >;
+  /**
+   * 加载数据源的函数,如果把数据源设置为 async load就可以使用这个功能。
+   */
+  onLoadContext?: (
+    key: React.Key,
+    context: ProHelpDataSource<any>['children'][number],
+  ) => Promise<ProHelpDataSourceChildren<any>[]>;
 }>({ dataSource: [], valueTypeMap: new Map() });

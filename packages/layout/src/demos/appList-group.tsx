@@ -1,4 +1,4 @@
-import type { ProSettings, AppItemProps } from '@ant-design/pro-components';
+import type { AppItemProps, ProSettings } from '@ant-design/pro-components';
 import { ProConfigProvider, ProLayout } from '@ant-design/pro-components';
 import { Modal } from 'antd';
 import defaultProps from './_defaultProps';
@@ -88,7 +88,10 @@ export default () => {
     layout: 'mix',
     splitMenus: true,
   };
-  const itemClick = (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => {
+  const itemClick = (
+    item: AppItemProps,
+    popoverRef?: React.RefObject<HTMLSpanElement>,
+  ) => {
     // 点击后关闭 Popover
     popoverRef?.current?.click?.();
 

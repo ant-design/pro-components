@@ -32,10 +32,13 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     ...props,
   };
 
-  const [collapsed, setCollapsed] = useMountMergeState(() => defaultCollapsed || false, {
-    value: props.collapsed,
-    onChange: props.onCollapse,
-  });
+  const [collapsed, setCollapsed] = useMountMergeState(
+    () => defaultCollapsed || false,
+    {
+      value: props.collapsed,
+      onChange: props.onCollapse,
+    },
+  );
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const { ColWrapper, RowWrapper } = useGridHelpers(props);
@@ -72,7 +75,10 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     ({ children: dom }: { children: React.ReactNode }) => (
       <Space
         {...spaceProps}
-        className={classNames(`${className}-container ${hashId}`, spaceProps?.className)}
+        className={classNames(
+          `${className}-container ${hashId}`,
+          spaceProps?.className,
+        )}
         size={size}
         align={align}
         direction={direction}
@@ -90,19 +96,21 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const titleDom = titleRender ? titleRender(label, props) : label;
   const [childrenDoms, hiddenDoms] = useMemo(() => {
     const hiddenChildren: React.ReactNode[] = [];
-    const childrenList = React.Children.toArray(children).map((element, index) => {
-      if (React.isValidElement(element) && element?.props?.hidden) {
-        hiddenChildren.push(element);
-        return null;
-      }
-      if (index === 0 && React.isValidElement(element) && autoFocus) {
-        return React.cloneElement(element, {
-          ...(element.props as any),
-          autoFocus,
-        });
-      }
-      return element;
-    });
+    const childrenList = React.Children.toArray(children).map(
+      (element, index) => {
+        if (React.isValidElement(element) && element?.props?.hidden) {
+          hiddenChildren.push(element);
+          return null;
+        }
+        if (index === 0 && React.isValidElement(element) && autoFocus) {
+          return React.cloneElement(element, {
+            ...(element.props as any),
+            autoFocus,
+          });
+        }
+        return element;
+      },
+    );
 
     return [
       <RowWrapper key="children" Wrapper={Wrapper}>
@@ -132,7 +140,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         {hiddenDoms}
         {(title || tooltip || extra) && (
           <div
-            className={`${className}-title ${hashId}`}
+            className={`${className}-title ${hashId}`.trim()}
             style={titleStyle}
             onClick={() => {
               setCollapsed(!collapsed);

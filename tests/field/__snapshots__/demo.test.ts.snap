@@ -266,10 +266,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 >
                   <div
                     class="ant-pro-field-color-picker"
-                    style="padding: 5px; width: 48px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer;"
+                    style="cursor: pointer; background-color: rgb(255, 255, 255);"
                   >
                     <div
-                      style="background-color: blue; width: 36px; height: 14px; border-radius: 2px;"
+                      style="background-color: blue; width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
                     />
                   </div>
                 </span>
@@ -735,55 +735,51 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                   >
                     <div
-                      class="ant-space-item"
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      style="flex-wrap: wrap; margin-bottom: -2px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -2px;"
+                        class="ant-space-item"
+                        style="margin-right: 1px; padding-bottom: 2px;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 1px; padding-bottom: 2px;"
-                        >
-                          <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                          >
-                            <span
-                              class="ant-badge-status-dot ant-badge-status-error"
-                            />
-                            <span
-                              class="ant-badge-status-text"
-                            >
-                              未解决
-                            </span>
-                          </span>
-                        </div>
                         <span
-                          class="ant-space-item-split"
-                          style="margin-right: 1px; padding-bottom: 2px;"
-                        >
-                          ,
-                        </span>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 2px;"
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                         >
                           <span
-                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            class="ant-badge-status-dot ant-badge-status-error"
+                          />
+                          <span
+                            class="ant-badge-status-text"
                           >
-                            <span
-                              class="ant-badge-status-dot ant-badge-status-success"
-                            />
-                            <span
-                              class="ant-badge-status-text"
-                            >
-                              已解决
-                            </span>
+                            未解决
                           </span>
-                        </div>
+                        </span>
+                      </div>
+                      <span
+                        class="ant-space-item-split"
+                        style="margin-right: 1px; padding-bottom: 2px;"
+                      >
+                        ,
+                      </span>
+                      <div
+                        class="ant-space-item"
+                        style="padding-bottom: 2px;"
+                      >
+                        <span
+                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                        >
+                          <span
+                            class="ant-badge-status-dot ant-badge-status-success"
+                          />
+                          <span
+                            class="ant-badge-status-text"
+                          >
+                            已解决
+                          </span>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -806,33 +802,29 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px;"
                   >
                     <div
-                      class="ant-space-item"
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      style="flex-wrap: wrap; margin-bottom: -2px;"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
-                        style="flex-wrap: wrap; margin-bottom: -2px;"
+                        class="ant-space-item"
+                        style="margin-right: 1px; padding-bottom: 2px;"
                       >
-                        <div
-                          class="ant-space-item"
-                          style="margin-right: 1px; padding-bottom: 2px;"
-                        >
-                          打开
-                        </div>
-                        <span
-                          class="ant-space-item-split"
-                          style="margin-right: 1px; padding-bottom: 2px;"
-                        >
-                          ,
-                        </span>
-                        <div
-                          class="ant-space-item"
-                          style="padding-bottom: 2px;"
-                        >
-                          关闭
-                        </div>
+                        打开
+                      </div>
+                      <span
+                        class="ant-space-item-split"
+                        style="margin-right: 1px; padding-bottom: 2px;"
+                      >
+                        ,
+                      </span>
+                      <div
+                        class="ant-space-item"
+                        style="padding-bottom: 2px;"
+                      >
+                        关闭
                       </div>
                     </div>
                   </div>
@@ -999,6 +991,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuenow="40"
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
@@ -1364,7 +1357,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       
@@ -1397,7 +1390,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       {
@@ -1656,14 +1649,16 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div
-                    class="ant-pro-field-color-picker"
-                    style="padding: 5px; width: 48px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer;"
-                  >
+                  <span>
                     <div
-                      style="background-color: rgb(24, 144, 255); width: 36px; height: 14px; border-radius: 2px;"
-                    />
-                  </div>
+                      class="ant-pro-field-color-picker"
+                      style="cursor: pointer; background-color: rgb(255, 255, 255);"
+                    >
+                      <div
+                        style="background-color: rgb(24, 144, 255); width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
+                      />
+                    </div>
+                  </span>
                 </span>
               </div>
             </td>
@@ -1671,6 +1666,40 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
           <tr
             class="ant-descriptions-row"
           >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  颜色禁用
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    class="ant-pro-field-color-picker ant-pro-field-color-picker-disabled"
+                    style="cursor: not-allowed; background-color: rgba(0, 0, 0, 0.04);"
+                  >
+                    <div
+                      style="background-color: rgb(24, 144, 255); width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
+                    />
+                  </div>
+                  <div
+                    class="ant-pro-field-color-picker"
+                    style="cursor: pointer; background-color: rgb(255, 255, 255);"
+                  >
+                    <div
+                      style="background-color: blue; width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
+                    />
+                  </div>
+                </span>
+              </div>
+            </td>
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1695,6 +1724,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1788,10 +1821,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1885,6 +1914,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1900,11 +1933,11 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <span
-                    class="ant-input-group ant-input-group-compact"
+                  <div
+                    class="ant-space-compact"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-compact-item ant-input-number-compact-first-item"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -1979,7 +2012,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       </div>
                     </div>
                     <input
-                      class="ant-input ant-input-disabled"
+                      class="ant-input ant-input-disabled ant-input-compact-item"
                       disabled=""
                       placeholder="~"
                       style="width: 30px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
@@ -1987,7 +2020,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       value=""
                     />
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-compact-item ant-input-number-compact-last-item"
                       style="border-inline-start: 0;"
                     >
                       <div
@@ -2062,14 +2095,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         />
                       </div>
                     </div>
-                  </span>
+                  </div>
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2164,6 +2193,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2256,10 +2289,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2574,6 +2603,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2591,6 +2624,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 >
                   <div
                     class="ant-slider ant-slider-horizontal"
+                    style="min-width: 120px;"
                   >
                     <div
                       class="ant-slider-rail"
@@ -2616,10 +2650,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2649,6 +2679,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
@@ -2698,6 +2729,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2797,10 +2832,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2900,6 +2931,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2999,10 +3034,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3102,6 +3133,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3131,6 +3166,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
@@ -3180,10 +3216,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3261,98 +3293,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  进度条
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  <div
-                    class="ant-input-number"
-                  >
-                    <div
-                      class="ant-input-number-handler-wrap"
-                    >
-                      <span
-                        aria-disabled="false"
-                        aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
-                        role="button"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="up"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                      <span
-                        aria-disabled="false"
-                        aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
-                        role="button"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        placeholder="请输入"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                </span>
-              </div>
-            </td>
           </tr>
           <tr
             class="ant-descriptions-row"
@@ -3545,6 +3485,98 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
           <tr
             class="ant-descriptions-row"
           >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  进度条
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    class="ant-input-number"
+                  >
+                    <div
+                      class="ant-input-number-handler-wrap"
+                    >
+                      <span
+                        aria-disabled="false"
+                        aria-label="Increase Value"
+                        class="ant-input-number-handler ant-input-number-handler-up"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="up"
+                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="up"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <span
+                        aria-disabled="false"
+                        aria-label="Decrease Value"
+                        class="ant-input-number-handler ant-input-number-handler-down"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-input-number-input-wrap"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3564,6 +3596,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3615,10 +3651,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3676,6 +3708,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3785,10 +3821,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3846,6 +3878,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3862,7 +3898,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range"
+                    class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"
@@ -3911,6 +3947,105 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         placeholder="请选择"
                         readonly=""
                         size="12"
+                        value=""
+                      />
+                    </div>
+                    <div
+                      class="ant-picker-active-bar"
+                      style="left: 0px; width: 0px; position: absolute;"
+                    />
+                    <span
+                      class="ant-picker-suffix"
+                    >
+                      <span
+                        aria-label="calendar"
+                        class="anticon anticon-calendar"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="calendar"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  日期时间区间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    class="ant-picker ant-picker-range ant-picker-borderless"
+                  >
+                    <div
+                      class="ant-picker-input ant-picker-input-active"
+                    >
+                      <input
+                        autocomplete="off"
+                        placeholder="请选择"
+                        readonly=""
+                        size="21"
+                        value=""
+                      />
+                    </div>
+                    <div
+                      class="ant-picker-range-separator"
+                    >
+                      <span
+                        aria-label="to"
+                        class="ant-picker-separator"
+                      >
+                        <span
+                          aria-label="swap-right"
+                          class="anticon anticon-swap-right"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="swap-right"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="0 0 1024 1024"
+                            width="1em"
+                          >
+                            <path
+                              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-picker-input"
+                    >
+                      <input
+                        autocomplete="off"
+                        placeholder="请选择"
+                        readonly=""
+                        size="21"
                         value=""
                       />
                     </div>
@@ -3949,105 +4084,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
           <tr
             class="ant-descriptions-row"
           >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  日期时间区间
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  <div
-                    class="ant-picker ant-picker-range"
-                  >
-                    <div
-                      class="ant-picker-input ant-picker-input-active"
-                    >
-                      <input
-                        autocomplete="off"
-                        placeholder="请选择"
-                        readonly=""
-                        size="21"
-                        value=""
-                      />
-                    </div>
-                    <div
-                      class="ant-picker-range-separator"
-                    >
-                      <span
-                        aria-label="to"
-                        class="ant-picker-separator"
-                      >
-                        <span
-                          aria-label="swap-right"
-                          class="anticon anticon-swap-right"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="swap-right"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="0 0 1024 1024"
-                            width="1em"
-                          >
-                            <path
-                              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                    <div
-                      class="ant-picker-input"
-                    >
-                      <input
-                        autocomplete="off"
-                        placeholder="请选择"
-                        readonly=""
-                        size="21"
-                        value=""
-                      />
-                    </div>
-                    <div
-                      class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
-                    />
-                    <span
-                      class="ant-picker-suffix"
-                    >
-                      <span
-                        aria-label="calendar"
-                        class="anticon anticon-calendar"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="calendar"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-                  </div>
-                </span>
-              </div>
-            </td>
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -4108,10 +4144,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -4214,6 +4246,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -4236,7 +4272,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-input"
                       placeholder="请输入"
                       type="password"
-                      value=""
                     />
                     <span
                       class="ant-input-suffix"
@@ -4269,10 +4304,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -4295,9 +4326,13 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
-              colspan="1"
+              colspan="2"
             >
               <div
                 class="ant-descriptions-item-container"
@@ -4452,6 +4487,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value-autoCl
                           aria-activedescendant="name_list_0"
                           aria-autocomplete="list"
                           aria-controls="name_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="name_list"
                           autocomplete="off"
@@ -4557,6 +4593,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
                         aria-activedescendant="select_list_0"
                         aria-autocomplete="list"
                         aria-controls="select_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-owns="select_list"
                         autocomplete="off"
@@ -4606,35 +4643,24 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
     <form
@@ -4661,9 +4687,13 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                   style="min-width: 100px;"
                 >
+                  <span
+                    aria-live="polite"
+                    style="width: 0px; height: 0px; position: absolute; overflow: hidden; opacity: 0;"
+                  />
                   <div
                     class="ant-select-selector"
                   >
@@ -4674,6 +4704,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
                         aria-activedescendant="select_list_0"
                         aria-autocomplete="list"
                         aria-controls="select_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-owns="select_list"
                         autocomplete="off"
@@ -4723,35 +4754,24 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
         </div>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>
@@ -4801,35 +4821,11 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                 <div
                   class="ant-spin-nested-loading"
                 >
-                  <div>
-                    <div
-                      aria-busy="true"
-                      aria-live="polite"
-                      class="ant-spin ant-spin-spinning"
-                    >
-                      <span
-                        class="ant-spin-dot ant-spin-dot-spin"
-                      >
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                      </span>
-                    </div>
-                  </div>
                   <div
-                    class="ant-spin-container ant-spin-blur"
+                    class="ant-spin-container"
                   >
                     <div
-                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
+                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
                       style="min-width: 60px; width: 330px;"
                     >
                       <div
@@ -4844,12 +4840,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                           >
                             <span
                               class="ant-select-selection-item"
-                              title="0-0"
+                              title="Node1"
                             >
                               <span
                                 class="ant-select-selection-item-content"
                               >
-                                0-0
+                                Node1
                               </span>
                               <span
                                 aria-hidden="true"
@@ -5160,35 +5156,24 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
         </span>
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap: wrap; margin-bottom: -8px;"
+        style="display: flex; gap: 8px; align-items: center;"
       >
-        <div
-          class="ant-space-item"
-          style="margin-right: 8px; padding-bottom: 8px;"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
-        <div
-          class="ant-space-item"
-          style="padding-bottom: 8px;"
+          <span>
+            提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
         >
-          <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
       </div>
     </form>
   </div>

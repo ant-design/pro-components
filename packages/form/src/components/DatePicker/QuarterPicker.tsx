@@ -10,23 +10,26 @@ const valueType = 'dateQuarter' as const;
  *
  * @param
  */
-const ProFormDatePickerQuarter: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
-  ({ fieldProps, ...rest }, ref: any) => {
-    const context = useContext(FieldContext);
+const ProFormDatePickerQuarter: React.FC<
+  ProFormFieldItemProps<DatePickerProps>
+> = React.forwardRef(({ fieldProps, ...rest }, ref: any) => {
+  const context = useContext(FieldContext);
 
-    return (
-      <ProField
-        ref={ref}
-        valueType={valueType}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
-        filedConfig={{
-          valueType,
-          customLightMode: true,
-        }}
-        {...rest}
-      />
-    );
-  },
-);
+  return (
+    <ProField
+      ref={ref}
+      valueType={valueType}
+      fieldProps={{
+        getPopupContainer: context.getPopupContainer,
+        ...fieldProps,
+      }}
+      filedConfig={{
+        valueType,
+        customLightMode: true,
+      }}
+      {...rest}
+    />
+  );
+});
 
 export default ProFormDatePickerQuarter;

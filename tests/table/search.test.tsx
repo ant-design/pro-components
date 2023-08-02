@@ -1,9 +1,10 @@
-import ProTable from '@ant-design/pro-table';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import type { ProFormInstance } from '@ant-design/pro-components';
+import { ProTable } from '@ant-design/pro-components';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
+import dayjs from 'dayjs';
 import React, { createRef } from 'react';
-import { act } from 'react-dom/test-utils';
 import { waitTime } from '../util';
 
 describe('BasicTable Search', () => {
@@ -194,7 +195,7 @@ describe('BasicTable Search', () => {
         search={false}
         request={async () => {
           fn();
-          await waitTime(500000);
+          await waitTime(5000000);
           return {
             data: [{ key: 1, name: '1', money: 1 }],
           };
@@ -209,7 +210,9 @@ describe('BasicTable Search', () => {
       expect(fn).toBeCalledTimes(1);
     });
 
-    expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
+    await waitFor(() => {
+      expect(!!html.baseElement.querySelector('.ant-spin')).toBeTruthy();
+    });
   });
 
   it('🎏 manualRequest no render loading dom', async () => {
@@ -346,7 +349,9 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(!!html.baseElement.querySelector('.ant-col.ant-col-12')).toBeTruthy();
+      expect(
+        !!html.baseElement.querySelector('.ant-col.ant-col-12'),
+      ).toBeTruthy();
     });
   });
 
@@ -374,7 +379,10 @@ describe('BasicTable Search', () => {
             dataIndex: 'dateRange',
             initialValue: ['2020-09-11', '2020-09-22'],
             search: {
-              transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+              transform: (value: any) => ({
+                startTime: value[0],
+                endTime: value[1],
+              }),
             },
           },
         ]}
@@ -445,9 +453,12 @@ describe('BasicTable Search', () => {
     expect(html.baseElement.querySelector('input#renderFormItem')).toBeTruthy();
 
     act(() => {
-      fireEvent.change(html.baseElement.querySelector('input#renderFormItem')!, {
-        target: { value: '12' },
-      });
+      fireEvent.change(
+        html.baseElement.querySelector('input#renderFormItem')!,
+        {
+          target: { value: '12' },
+        },
+      );
     });
     await waitFor(() => {
       expect(onChangeFn).toBeCalledWith('12');
@@ -486,7 +497,9 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('Name');
 
-    expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(2);
+    expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(
+      2,
+    );
     expect(html.baseElement.querySelectorAll('.money-class').length).toBe(0);
 
     act(() => {
@@ -517,9 +530,13 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(html.baseElement.querySelectorAll('div.money-class').length).toBe(1);
+      expect(html.baseElement.querySelectorAll('div.money-class').length).toBe(
+        1,
+      );
 
-      expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(3);
+      expect(
+        html.baseElement.querySelectorAll('div.ant-form-item').length,
+      ).toBe(3);
     });
 
     act(() => {
@@ -545,7 +562,9 @@ describe('BasicTable Search', () => {
       );
     });
     await waitFor(() => {
-      expect(html.baseElement.querySelectorAll('div.ant-form-item').length).toBe(3);
+      expect(
+        html.baseElement.querySelectorAll('div.ant-form-item').length,
+      ).toBe(3);
     });
   });
 
@@ -699,5 +718,58 @@ describe('BasicTable Search', () => {
     await waitFor(() => {
       expect(fn2).toBeCalledWith('2020-09-11 00:00:00');
     });
+  });
+
+  it('🎏 ProTable support formRef', async () => {
+    const onSubmitFn = jest.fn();
+    const formRef = React.createRef<ProFormInstance | undefined>();
+    const html = render(
+      <ProTable
+        formRef={formRef as any}
+        columns={[
+          {
+            title: '创建时间',
+            key: 'since',
+            dataIndex: 'createdAt',
+            valueType: 'date',
+            initialValue: dayjs('2020-09-11 00:00:00'),
+          },
+        ]}
+        request={() => {
+          return Promise.resolve({
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          });
+        }}
+        dateFormatter="string"
+        onSubmit={(params) => {
+          onSubmitFn(params.since);
+        }}
+        rowKey="key"
+        pagination={{
+          showSizeChanger: true,
+        }}
+        options={false}
+        headerTitle="表单赋值"
+      />,
+    );
+
+    await html.findAllByText('创建时间');
+
+    act(() => {
+      formRef.current?.submit();
+    });
+
+    await waitFor(() => {
+      expect(onSubmitFn).toBeCalledWith('2020-09-11');
+    });
+
+    expect(formRef.current?.getFieldFormatValue?.().since).toBe('2020-09-11');
   });
 });

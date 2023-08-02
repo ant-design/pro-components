@@ -1,6 +1,6 @@
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
-import { FieldContext, ProForm, ProFormDependency, ProFormField } from '@ant-design/pro-form';
+import { FieldContext, ProForm, ProFormField } from '@ant-design/pro-form';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
@@ -11,9 +11,17 @@ import {
   InlineErrorFormItem,
   runFunction,
 } from '@ant-design/pro-utils';
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import type { ContainerType } from '../Store/Provide';
+import { Form } from 'antd';
+import get from 'rc-util/lib/utils/get';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import type { ProColumnType } from '../index';
+import type { ContainerType } from '../Store/Provide';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -124,7 +132,8 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
       <InlineErrorFormItem
         popoverProps={{
           getPopupContainer:
-            formContext.getPopupContainer || (() => counter.rootDomRef.current || document.body),
+            formContext.getPopupContainer ||
+            (() => counter.rootDomRef.current || document.body),
         }}
         key={key}
         errorType="popover"
@@ -149,8 +158,9 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     };
 
     formItemProps.initialValue =
-      (prefixName ? null : text) ?? formItemProps?.initialValue ?? columnProps?.initialValue;
-
+      (prefixName ? null : text) ??
+      formItemProps?.initialValue ??
+      columnProps?.initialValue;
     let fieldDom: React.ReactNode = (
       <ProFormField
         cacheForSwr
@@ -158,7 +168,10 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
         name={formItemName}
         proFormFieldKey={key}
         ignoreFormItem
-        fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, ...needProps)}
+        fieldProps={getFieldPropsOrFormItemProps(
+          columnProps?.fieldProps,
+          ...needProps,
+        )}
         {...proFieldProps}
       />
     );
@@ -174,7 +187,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           type: 'table',
         },
         {
-          defaultRender: () => <InlineItem {...formItemProps}>{fieldDom}</InlineItem>,
+          defaultRender: () => <>{fieldDom}</>,
           type: 'form',
           recordKey,
           record: {
@@ -218,7 +231,25 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     typeof columnProps?.fieldProps === 'function' ||
     typeof columnProps?.formItemProps === 'function'
   ) {
-    return <ProFormDependency name={[rowName]}>{() => generateFormItem()}</ProFormDependency>;
+    return (
+      <Form.Item
+        noStyle
+        shouldUpdate={(pre, next) => {
+          if (pre === next) return false;
+          const shouldName = [rowName].flat(1);
+          try {
+            return (
+              JSON.stringify(get(pre, shouldName)) !==
+              JSON.stringify(get(next, shouldName))
+            );
+          } catch (error) {
+            return true;
+          }
+        }}
+      >
+        {() => generateFormItem()}
+      </Form.Item>
+    );
   }
   return generateFormItem();
 };
@@ -229,8 +260,10 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
  * @param text
  * @param valueType
  */
-function cellRenderToFromItem<T>(config: CellRenderFromItemProps<T>): React.ReactNode {
-  const { text, valueType, rowData, columnProps } = config;
+function cellRenderToFromItem<T>(
+  config: CellRenderFromItemProps<T>,
+): React.ReactNode {
+  const { text, valueType, rowData, columnProps, index } = config;
 
   // 如果 valueType === text ，没必要多走一次 render
   if (
@@ -240,7 +273,9 @@ function cellRenderToFromItem<T>(config: CellRenderFromItemProps<T>): React.Reac
     config.mode === 'read'
   ) {
     // 如果是''、null、undefined 显示columnEmptyText
-    return SHOW_EMPTY_TEXT_LIST.includes(text as any) ? config.columnEmptyText : text;
+    return SHOW_EMPTY_TEXT_LIST.includes(text as any)
+      ? config.columnEmptyText
+      : text;
   }
 
   if (typeof valueType === 'function' && rowData) {
@@ -253,15 +288,31 @@ function cellRenderToFromItem<T>(config: CellRenderFromItemProps<T>): React.Reac
 
   const columnKey = columnProps?.key || columnProps?.dataIndex?.toString();
 
+  const dependencies = columnProps?.dependencies
+    ? ([
+        config.prefixName,
+        config.prefixName ? index?.toString() : config.recordKey?.toString(),
+        columnProps?.dependencies,
+      ]
+        .filter(Boolean)
+        .flat(1) as string[])
+    : [];
   /**
    * 生成公用的 proField dom 配置
    */
   const proFieldProps: ProFormFieldProps = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
+    dependencies: columnProps?.dependencies ? [dependencies] : undefined,
+    originDependencies: columnProps?.dependencies
+      ? [columnProps?.dependencies]
+      : undefined,
     params: runFunction(columnProps?.params, rowData, columnProps),
     readonly: columnProps?.readonly,
-    text: valueType === 'index' || valueType === 'indexBorder' ? config.index : text,
+    text:
+      valueType === 'index' || valueType === 'indexBorder'
+        ? config.index
+        : text,
     mode: config.mode,
     renderFormItem: undefined,
     valueType: valueType as ProFieldValueType,
@@ -279,12 +330,22 @@ function cellRenderToFromItem<T>(config: CellRenderFromItemProps<T>): React.Reac
       <ProFormField
         mode="read"
         ignoreFormItem
-        fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, null, columnProps)}
+        fieldProps={getFieldPropsOrFormItemProps(
+          columnProps?.fieldProps,
+          null,
+          columnProps,
+        )}
         {...proFieldProps}
       />
     );
   }
-  return <CellRenderFromItem<T> key={config.recordKey} {...config} proFieldProps={proFieldProps} />;
+  return (
+    <CellRenderFromItem<T>
+      key={config.recordKey}
+      {...config}
+      proFieldProps={proFieldProps}
+    />
+  );
 }
 
 export default cellRenderToFromItem;

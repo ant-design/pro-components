@@ -1,5 +1,6 @@
 ---
 title: ProFormList - 数据结构化
+atomId: ProFormList
 order: 1
 ---
 
@@ -203,7 +204,7 @@ return (
     action: FormListOperation,
     /**
      * 默认的操作dom
-     * [删除，复制，新增]
+     * [复制，删除]
      */
     defaultActionDom: ReactNode[],
     /**

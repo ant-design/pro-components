@@ -1,5 +1,8 @@
 import { DownOutlined } from '@ant-design/icons';
-import type { ProColumnType, ProFormInstance } from '@ant-design/pro-components';
+import type {
+  ProColumnType,
+  ProFormInstance,
+} from '@ant-design/pro-components';
 import {
   ProCard,
   ProForm,
@@ -200,7 +203,9 @@ const DynamicSettings = () => {
           search={config.search?.show ? config.search : {}}
           expandable={
             config.expandable && {
-              expandedRowRender: (record: DataType) => <p>{record.description}</p>,
+              expandedRowRender: (record: DataType) => (
+                <p>{record.description}</p>
+              ),
             }
           }
           options={config.options?.show ? config.options : false}

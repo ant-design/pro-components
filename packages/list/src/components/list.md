@@ -1,6 +1,7 @@
 ---
 title: ProList - 高级列表
 order: 12
+atomId: ProList
 ---
 
 # ProList - 高级列表
@@ -13,51 +14,51 @@ order: 12
 
 ### 基本使用
 
-<code src="../demos/base.tsx" background="hsl(220,23%,97%)" oldtitle="基本使用" ></code>
+<code src="../demos/base.tsx"  background="var(--main-bg-color)" oldtitle="基本使用" ></code>
 
 ### 编辑列表
 
-<code src="../demos/editable.tsx" background="hsl(220,23%,97%)" oldtitle="编辑列表" ></code>
+<code src="../demos/editable.tsx"  background="var(--main-bg-color)" oldtitle="编辑列表" ></code>
 
 ### 带工具栏的列表
 
-<code src="../demos/ToolBar.tsx" background="hsl(220,23%,97%)" oldtitle="带工具栏的列表" ></code>
+<code src="../demos/ToolBar.tsx"  background="var(--main-bg-color)" oldtitle="带工具栏的列表" ></code>
 
 ### 支持展开的列表
 
-<code src="../demos/expand.tsx" background="hsl(220,23%,97%)" oldtitle="支持展开的列表" ></code>
+<code src="../demos/expand.tsx"  background="var(--main-bg-color)" oldtitle="支持展开的列表" ></code>
 
 ### 支持选中的列表
 
-<code src="../demos/selectedRow.tsx" background="hsl(220,23%,97%)" oldtitle="支持选中的列表" ></code>
+<code src="../demos/selectedRow.tsx"  background="var(--main-bg-color)" oldtitle="支持选中的列表" ></code>
 
 ### 查询列表
 
-<code src="../demos/search.tsx" background="hsl(220,23%,97%)" oldtitle="查询列表" ></code>
+<code src="../demos/search.tsx"  background="var(--main-bg-color)" oldtitle="查询列表" ></code>
 
 ### 带筛选和异步请求的列表
 
-<code src="../demos/filter.tsx" background="hsl(220,23%,97%)" oldtitle="带筛选和异步请求的列表" ></code>
+<code src="../demos/filter.tsx"  background="var(--main-bg-color)" oldtitle="带筛选和异步请求的列表" ></code>
 
 ### 大小和分割线
 
-<code src="../demos/size.tsx" background="hsl(220,23%,97%)" oldtitle="大小和分割线" ></code>
+<code src="../demos/size.tsx"  background="var(--main-bg-color)" oldtitle="大小和分割线" ></code>
 
 ### 竖排样式
 
-<code src="../demos/layout.tsx" background="hsl(220,23%,97%)" oldtitle="竖排样式" ></code>
+<code src="../demos/layout.tsx"  background="var(--main-bg-color)" oldtitle="竖排样式" ></code>
 
 ### 一些预设的模式
 
-<code src="../demos/special.tsx" background="hsl(220,23%,97%)" oldtitle="一些预设的模式" ></code>
+<code src="../demos/special.tsx"  background="var(--main-bg-color)" oldtitle="一些预设的模式" ></code>
 
 ### 翻页
 
-<code src="../demos/pagination.tsx" background="hsl(220,23%,97%)" oldtitle="翻页" ></code>
+<code src="../demos/pagination.tsx"  background="var(--main-bg-color)" oldtitle="翻页" ></code>
 
 ### 卡片列表
 
-<code src="../demos/card-list.tsx" background="hsl(220,23%,97%)" oldtitle="卡片列表" ></code>
+<code src="../demos/card-list.tsx"  background="var(--main-bg-color)" oldtitle="卡片列表" ></code>
 
 ## API
 
@@ -76,7 +77,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 | split | 是否有分割线 | `boolean` | `false` |
 | rowSelection | 与 antd 相同的[配置](https://ant.design/components/table-cn/#rowSelection) | `object` \|`boolean` | false |
 | expandable | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable) | `object` \| `false` | - |
-| showActions | 何时展示 actions | `'hover'` \| `'always'` | `'always'` |
+| showActions | 何时展示 actions，CardList 模式下不生效 | `'hover'` \| `'always'` | `'always'` |
 | showExtra | 何时展示 extra | `'hover'` \| `'always'` | `'always'` |
 | onRow | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95)，用户传入`grid`属性时，列表将会以卡片模式进行渲染，此事件将不会触发，请使用`onItem` | `function(record, index)` | - |
 | onItem | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95)，在所有类型点击某个项目都会触发该事件。 | `function(record, index)` | - |

@@ -214,7 +214,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range"
+                    class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"
@@ -546,6 +546,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
@@ -628,6 +629,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
@@ -907,7 +909,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range"
+                    class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"
@@ -1006,7 +1008,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range"
+                    class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"
@@ -1264,7 +1266,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 edit and plain 1`] = `
+exports[`Field 🐴 edit and plain=true 1`] = `
 <DocumentFragment>
   <div
     class="ant-descriptions"
@@ -1731,6 +1733,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
@@ -1813,6 +1816,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
@@ -3002,6 +3006,7 @@ exports[`Field 🐴 percent=0 1`] = `
 exports[`Field 🐴 progress support no number 1`] = `
 <DocumentFragment>
   <div
+    aria-valuenow="NaN"
     class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
     role="progressbar"
     style="min-width: 100px; max-width: 320px;"
@@ -3032,6 +3037,7 @@ exports[`Field 🐴 progress support no number 1`] = `
 exports[`Field 🐴 progress support string number 1`] = `
 <DocumentFragment>
   <div
+    aria-valuenow="12"
     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
     role="progressbar"
     style="min-width: 100px; max-width: 320px;"
@@ -3313,6 +3319,7 @@ exports[`Field 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuenow="40"
                     class="ant-progress ant-progress-steps ant-progress-status-active ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
@@ -3572,7 +3579,7 @@ exports[`Field 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       
@@ -3601,7 +3608,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       {
@@ -3893,6 +3900,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuenow="40"
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
@@ -4121,7 +4129,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       
@@ -4150,7 +4158,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       {

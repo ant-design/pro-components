@@ -6,18 +6,18 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -204,7 +204,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -217,18 +217,18 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-top-menu ant-pro-layout-header-header"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-top-menu ant-pro-layout-header-header"
         >
           <div
             class="ant-pro-top-nav-header ant-pro-top-nav-header-light"
@@ -240,7 +240,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
                 class="ant-pro-top-nav-header-main-left "
               >
                 <div
-                  class="ant-pro-top-nav-header-logo "
+                  class="ant-pro-top-nav-header-logo"
                   id="logo"
                 >
                   <a>
@@ -377,7 +377,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu "
+                class="ant-pro-top-nav-header-menu"
                 style="flex: 1;"
               >
                 <div
@@ -413,18 +413,18 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
+        style="width: 215px; overflow: hidden; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s; flex: 0 0 215px;"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
-        style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
+        style="max-width: 215px; min-width: 215px; width: 215px; flex: 0 0 215px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -475,7 +475,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <header
@@ -643,18 +643,18 @@ exports[`BasicLayout 🥩 base use 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -841,7 +841,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -859,18 +859,18 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -1057,7 +1057,7 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -1077,18 +1077,18 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
-      class="ant-pro-layout-bg-list "
+      class="ant-pro-layout-bg-list"
     />
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -1275,7 +1275,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         </div>
       </aside>
       <div
-        class="ant-pro-layout-container "
+        class="ant-pro-layout-container"
         style="position: relative;"
       >
         <main
@@ -1295,18 +1295,18 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
-        class="ant-pro-layout-bg-list "
+        class="ant-pro-layout-bg-list"
       />
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%; flex-direction: row;"
       >
         <div
-          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+          style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-          style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+          style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -1451,14 +1451,14 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu  ant-pro-base-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
                 style="background-color: transparent; width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-submenu"
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu"
                   role="none"
                 >
                   <div
@@ -1473,10 +1473,10 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                       class="ant-menu-title-content"
                     >
                       <div
-                        class="ant-pro-base-menu-item-title"
+                        class="ant-pro-base-menu-inline-item-title"
                       >
                         <span
-                          class="ant-pro-base-menu-item-text"
+                          class="ant-pro-base-menu-inline-item-text"
                         >
                           管理页
                         </span>
@@ -1488,7 +1488,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   </div>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-menu-item"
+                  class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
                   role="menuitem"
                   style="padding-left: 16px;"
                   tabindex="-1"
@@ -1497,10 +1497,18 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                     class="ant-menu-title-content"
                   >
                     <div
-                      class="ant-pro-base-menu-item-title"
+                      class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-item-text"
+                        class="ant-pro-base-menu-inline-item-icon "
+                        style="display: none;"
+                      >
+                        <span
+                          class="anticon"
+                        />
+                      </span>
+                      <span
+                        class="ant-pro-base-menu-inline-item-text"
                       >
                         列表页
                       </span>
@@ -1531,7 +1539,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           </div>
         </aside>
         <div
-          class="ant-pro-layout-container "
+          class="ant-pro-layout-container"
           style="position: relative;"
         >
           <main

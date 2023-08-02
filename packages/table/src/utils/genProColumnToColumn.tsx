@@ -1,12 +1,23 @@
 ﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
-import type { ProSchemaComponentTypes, UseEditableUtilType } from '@ant-design/pro-utils';
-import { omitBoolean, omitUndefinedAndEmptyArr, runFunction } from '@ant-design/pro-utils';
+import type {
+  ProSchemaComponentTypes,
+  UseEditableUtilType,
+} from '@ant-design/pro-utils';
+import {
+  omitBoolean,
+  omitUndefinedAndEmptyArr,
+  runFunction,
+} from '@ant-design/pro-utils';
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
 import type { ContainerType } from '../Store/Provide';
 import type { ProColumnGroupType, ProColumns } from '../typing';
-import { columnRender, defaultOnFilter, renderColumnsTitle } from './columnRender';
+import {
+  columnRender,
+  defaultOnFilter,
+  renderColumnsTitle,
+} from './columnRender';
 import { genColumnKey } from './index';
 
 type ColumnToColumnReturnType<T> = (TableColumnType<T> & {
@@ -31,7 +42,7 @@ type ColumnToColumnParams<T> = {
  * @param columnEmptyText
  */
 export function genProColumnToColumn<T>(
-  params: ColumnToColumnParams<T>,
+  params: ColumnToColumnParams<T> & { marginSM: number },
   parents?: ProColumnGroupType<T, any>,
 ): ColumnToColumnReturnType<T> {
   const {
@@ -40,6 +51,7 @@ export function genProColumnToColumn<T>(
     columnEmptyText,
     type,
     editableUtils,
+    marginSM,
     rowKey = 'id',
     childrenColumnName = 'children',
   } = params;
@@ -48,6 +60,8 @@ export function genProColumnToColumn<T>(
 
   return columns
     ?.map((columnProps, columnsIndex) => {
+      if (columnProps === Table.EXPAND_COLUMN) return columnProps;
+      if (columnProps === Table.SELECTION_COLUMN) return columnProps;
       const {
         key,
         dataIndex,
@@ -74,7 +88,8 @@ export function genProColumnToColumn<T>(
        * 是不是展开行和多选按钮
        */
       const isExtraColumns =
-        columnProps === Table.EXPAND_COLUMN || columnProps === Table.SELECTION_COLUMN;
+        columnProps === Table.EXPAND_COLUMN ||
+        columnProps === Table.SELECTION_COLUMN;
 
       if (isExtraColumns) {
         return {
@@ -87,11 +102,14 @@ export function genProColumnToColumn<T>(
           extraColumn: columnProps,
         };
       }
-      const config = counter.columnsMap[columnKey] || { fixed: columnProps.fixed };
+      const config = counter.columnsMap[columnKey] || {
+        fixed: columnProps.fixed,
+      };
 
       const genOnFilter = () => {
         if (onFilter === true) {
-          return (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]);
+          return (value: string, row: T) =>
+            defaultOnFilter(value, row, dataIndex as string[]);
         }
         return omitBoolean(onFilter);
       };
@@ -128,13 +146,20 @@ export function genProColumnToColumn<T>(
           }
 
           let uniqueKey: any;
-          if (Reflect.has(rowData as any, keyName)) {
+          if (
+            typeof rowData === 'object' &&
+            rowData !== null &&
+            Reflect.has(rowData as any, keyName)
+          ) {
             uniqueKey = rowData[keyName];
             const parentInfo = subNameRecord.get(uniqueKey) || [];
             rowData[childrenColumnName]?.forEach((item: any) => {
               const itemUniqueKey = item[keyName];
               if (!subNameRecord.has(itemUniqueKey)) {
-                subNameRecord.set(itemUniqueKey, parentInfo.concat([index, childrenColumnName]));
+                subNameRecord.set(
+                  itemUniqueKey,
+                  parentInfo.concat([index, childrenColumnName]),
+                );
               }
             });
           }
@@ -147,10 +172,10 @@ export function genProColumnToColumn<T>(
             columnEmptyText,
             counter,
             type,
+            marginSM,
             subName: subNameRecord.get(uniqueKey),
             editableUtils,
           };
-
           return columnRender<T>(renderProps);
         },
       };

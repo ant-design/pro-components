@@ -39,10 +39,13 @@ export type {
   ProFormUploadButtonProps,
   ProFormUploadDraggerProps,
 } from './components';
-export { FieldContext } from './FieldContext';
 export { FormListContext } from './components/List';
-export type { LightFilterFooterRender, ProFormFieldItemProps as ProFormItemProps } from './typing';
+export { FieldContext } from './FieldContext';
 export * from './layouts';
+export type {
+  LightFilterFooterRender,
+  ProFormFieldItemProps as ProFormItemProps,
+} from './typing';
+export { ProForm };
 
 export default ProForm;
-export { ProForm };

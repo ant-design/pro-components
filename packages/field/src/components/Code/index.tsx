@@ -3,6 +3,7 @@ import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
+import { proTheme } from '@ant-design/pro-provider';
 import 'antd/lib/input/style';
 //----------------------
 
@@ -28,8 +29,12 @@ const languageFormat = (text: string, language: string) => {
 const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
-}> = ({ text, mode, render, language = 'text', renderFormItem, plain, fieldProps }, ref) => {
+}> = (
+  { text, mode, render, language = 'text', renderFormItem, plain, fieldProps },
+  ref,
+) => {
   const code = languageFormat(text, language);
+  const { token } = proTheme.useToken();
   if (mode === 'read') {
     const dom = (
       <pre
@@ -40,7 +45,9 @@ const FieldCode: ProFieldFC<{
           overflow: 'auto',
           fontSize: '85%',
           lineHeight: 1.45,
-          backgroundColor: '#f6f8fa',
+          color: token.colorTextSecondary,
+          fontFamily: token.fontFamilyCode,
+          backgroundColor: 'rgba(150, 150, 150, 0.1)',
           borderRadius: 3,
           width: 'min-content',
           ...fieldProps.style,
@@ -60,7 +67,7 @@ const FieldCode: ProFieldFC<{
       dom = <Input {...fieldProps} ref={ref} />;
     }
     if (renderFormItem) {
-      return renderFormItem(code, { mode, ...fieldProps, ref }, dom);
+      return renderFormItem(code, { mode, ...fieldProps, ref }, dom) ?? null;
     }
     return dom;
   }

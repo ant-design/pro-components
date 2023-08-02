@@ -55,7 +55,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
           if (!doms && !avatarDom) return null;
           if (!Array.isArray(doms)) doms = [doms];
           return wrapSSR(
-            <div className={`${prefixCls}-header-actions ${hashId}`}>
+            <div className={`${prefixCls}-header-actions ${hashId}`.trim()}>
               {doms.filter(Boolean).map((dom, index) => {
                 let hideHover = false;
                 // 如果配置了 hideHover 就不展示 hover 效果了
@@ -66,16 +66,23 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                   <div
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
-                    className={classNames(`${prefixCls}-header-actions-item ${hashId}`, {
-                      [`${prefixCls}-header-actions-hover`]: !hideHover,
-                    })}
+                    className={classNames(
+                      `${prefixCls}-header-actions-item ${hashId}`,
+                      {
+                        [`${prefixCls}-header-actions-hover`]: !hideHover,
+                      },
+                    )}
                   >
                     {dom}
                   </div>
                 );
               })}
               {avatarDom && (
-                <span className={`${prefixCls}-header-actions-avatar ${hashId}`}>{avatarDom}</span>
+                <span
+                  className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}
+                >
+                  {avatarDom}
+                </span>
               )}
             </div>,
           );
@@ -89,7 +96,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
   const contentRender = rightActionsRender || rightContentRender;
   return (
     <div
-      className={`${prefixCls}-right-content ${hashId}`}
+      className={`${prefixCls}-right-content ${hashId}`.trim()}
       style={{
         minWidth: rightSize,
         height: '100%',

@@ -18,12 +18,14 @@ export type ProFormDependencyProps<T = Record<string, any>> = Omit<
   'name' | 'noStyle' | 'children' | 'label'
 > & {
   name: NamePath[];
+  originDependencies?: NamePath[];
   ignoreFormListField?: boolean;
   children: RenderChildren<T>;
 };
 
 const ProFormDependency = <T,>({
-  name: names,
+  name: nameList,
+  originDependencies = nameList,
   children,
   ignoreFormListField,
   ...rest
@@ -34,7 +36,7 @@ const ProFormDependency = <T,>({
 
   // flatten each name into an (string | number)[]
   const flattenNames = useMemo(() => {
-    return names.map((itemName: NamePath) => {
+    return nameList.map((itemName: NamePath) => {
       const name = [itemName];
 
       // ignoreFormListField为 true 或 formListField.name === undefined 时
@@ -49,7 +51,12 @@ const ProFormDependency = <T,>({
 
       return name.flat(1);
     });
-  }, [formListField.listName, formListField.name, ignoreFormListField, names]);
+  }, [
+    formListField.listName,
+    formListField.name,
+    ignoreFormListField,
+    nameList?.toString(),
+  ]);
 
   return (
     <Form.Item
@@ -63,32 +70,37 @@ const ProFormDependency = <T,>({
         }
 
         return flattenNames.some((name) => {
-          return !isDeepEqualReact(get(prevValues, name), get(nextValues, name));
+          return !isDeepEqualReact(
+            get(prevValues, name),
+            get(nextValues, name),
+          );
         });
       }}
     >
       {(form) => {
         let values: Record<string, any> = {};
-        for (let i = 0; i < names.length; i++) {
-          const pathToGet = flattenNames[i],
-            pathToSet = names[i];
-
-          const finalName = [pathToSet].flat(1);
-          let value = context.getFieldFormatValueObject?.(pathToGet);
+        for (let i = 0; i < nameList.length; i++) {
+          const itemName = flattenNames[i],
+            itemOriginName = originDependencies[i];
+          const finalName = [itemOriginName].flat(1);
+          let value = context.getFieldFormatValueObject?.(itemName);
           if (value && Object.keys(value).length) {
             // transform 会生成多余的value，这里需要注入一下
             values = merge({}, values, value);
-            if (get(value, pathToGet)) {
-              values = set(values, finalName, get(value, pathToGet), false);
+            if (get(value, itemName)) {
+              values = set(values, finalName, get(value, itemName), false);
             }
           } else {
-            value = form.getFieldValue?.(pathToGet);
+            value = form.getFieldValue?.(itemName);
             if (typeof value !== 'undefined') {
               values = set(values, finalName, value, false);
             }
           }
         }
-        return children?.(values, { ...form, ...context } as ProFormInstance<any>);
+        return children?.(values, {
+          ...form,
+          ...context,
+        } as ProFormInstance<any>);
       }}
     </Form.Item>
   );

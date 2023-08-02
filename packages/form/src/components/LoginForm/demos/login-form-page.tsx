@@ -28,7 +28,13 @@ const iconStyles: CSSProperties = {
 export default () => {
   const [loginType, setLoginType] = useState<LoginType>('phone');
   return (
-    <div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 }}>
+    <div
+      style={{
+        backgroundColor: 'white',
+        height: 'calc(100vh - 48px)',
+        margin: -24,
+      }}
+    >
       <LoginFormPage
         backgroundImageUrl="https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png"
         logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
@@ -67,7 +73,9 @@ export default () => {
             }}
           >
             <Divider plain>
-              <span style={{ color: '#CCC', fontWeight: 'normal', fontSize: 14 }}>
+              <span
+                style={{ color: '#CCC', fontWeight: 'normal', fontSize: 14 }}
+              >
                 其他登录方式
               </span>
             </Divider>

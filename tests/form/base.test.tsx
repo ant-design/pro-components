@@ -2,6 +2,7 @@ import { FontSizeOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   ProFormCaptcha,
+  ProFormCheckbox,
   ProFormColorPicker,
   ProFormDatePicker,
   ProFormDateTimePicker,
@@ -11,6 +12,7 @@ import ProForm, {
   ProFormField,
   ProFormSelect,
   ProFormText,
+  ProFormTimePicker,
   ProFormTreeSelect,
 } from '@ant-design/pro-form';
 import { act, fireEvent, render, waitFor } from '@testing-library/react';
@@ -18,7 +20,7 @@ import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -36,8 +38,39 @@ describe('ProForm', () => {
         </ProForm>
       </ConfigProvider>,
     );
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-sm').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-sm').length,
+    ).toBe(1);
     wrapper.unmount();
+  });
+
+  it('📦 addonAfter should work for ProFormCheck', async () => {
+    const fn = jest.fn();
+    const wrapper = render(
+      <ProForm
+        onFinish={async (e) => {
+          fn(e.checked);
+        }}
+      >
+        <ProFormCheckbox addonAfter="选择" name="checked">
+          确定同意
+        </ProFormCheckbox>
+      </ProForm>,
+    );
+
+    wrapper.findAllByText('确定同意');
+
+    await act(async () => {
+      (await wrapper.findByText('确定同意')).click?.();
+    });
+
+    await act(async () => {
+      (await wrapper.findByText('提 交')).click?.();
+    });
+
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith(true);
+    });
   });
 
   it('📦 ProForm support sync form url', async () => {
@@ -66,7 +99,9 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLHtmlElement>('button.ant-btn')[1].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLHtmlElement>('button.ant-btn')[1]
+        .click();
     });
 
     expect(fn).toHaveBeenCalledWith('realDark');
@@ -98,7 +133,9 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('button.ant-btn')[1].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('button.ant-btn')[1]
+        .click();
     });
 
     expect(fn).toHaveBeenCalledWith('realDark');
@@ -132,7 +169,9 @@ describe('ProForm', () => {
 
     // rest
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('button.ant-btn')[1].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('button.ant-btn')[1]
+        .click();
     });
 
     await act(async () => {
@@ -354,11 +393,21 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('test');
 
-    expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe('12-34');
-    expect(formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-')).toBe('12-34');
-    expect(formRef.current?.getFieldFormatValueObject?.()?.test.join('-')).toBe('12-34');
-    expect(formRef.current?.getFieldsFormatValue?.()?.test.join('-')).toBe('12-34');
-    expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValue?.('test')?.join('-')).toBe(
+      '12-34',
+    );
+    expect(
+      formRef.current?.getFieldFormatValueObject?.('test')?.test.join('-'),
+    ).toBe('12-34');
+    expect(formRef.current?.getFieldFormatValueObject?.()?.test.join('-')).toBe(
+      '12-34',
+    );
+    expect(formRef.current?.getFieldsFormatValue?.()?.test.join('-')).toBe(
+      '12-34',
+    );
+    expect(formRef.current?.getFieldFormatValue?.(['test'])?.join('-')).toBe(
+      '12-34',
+    );
     expect(formRef.current?.getFieldValue?.('test')).toBe('12,34');
     wrapper.unmount();
   });
@@ -483,7 +532,9 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('button.test_button')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('button.test_button')[0]
+        .click();
     });
 
     expect(fn).toBeCalled();
@@ -511,7 +562,9 @@ describe('ProForm', () => {
       expect(wrapper.asFragment()).toMatchSnapshot();
     });
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('button.test_button')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('button.test_button')[0]
+        .click();
     });
     expect(fn).toBeCalled();
     wrapper.unmount();
@@ -610,7 +663,7 @@ describe('ProForm', () => {
       <ProForm onFinish={(values) => onFinish(values.name)}>
         <ProFormCaptcha
           onGetCaptcha={async () => {
-            await waitTime(10);
+            await waitForWaitTime(10);
           }}
           countDown={2}
           label="name"
@@ -621,11 +674,14 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0], {
-        target: {
-          value: 'test',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0],
+        {
+          target: {
+            value: 'test',
+          },
         },
-      });
+      );
     });
 
     await act(async () => {
@@ -703,9 +759,10 @@ describe('ProForm', () => {
       fireEvent.click(wrapper.baseElement.querySelector('#test')!);
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('button#test')[0].textContent).toBe(
-      '获 取',
-    );
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('button#test')[0]
+        .textContent,
+    ).toBe('获 取');
     wrapper.unmount();
   });
 
@@ -746,11 +803,14 @@ describe('ProForm', () => {
     expect(fn).not.toBeCalled();
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input')[1], {
-        target: {
-          value: 'tech',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('input')[1],
+        {
+          target: {
+            value: 'tech',
+          },
         },
-      });
+      );
     });
 
     await act(async () => {
@@ -813,24 +873,33 @@ describe('ProForm', () => {
 
     await wrapper.findByText('提 交');
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0], {
-        target: {
-          value: 'test',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('input#name')[0],
+        {
+          target: {
+            value: 'test',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#name2_text')[0], {
-        target: {
-          value: 'test2',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          'input#name2_text',
+        )[0],
+        {
+          target: {
+            value: 'test2',
+          },
         },
-      });
+      );
     });
 
-    expect(wrapper.baseElement.querySelector<HTMLElement>('span#label_text')?.textContent).toBe(
-      '与《test》 与 《test2》合同约定生效方式',
-    );
+    expect(
+      wrapper.baseElement.querySelector<HTMLElement>('span#label_text')
+        ?.textContent,
+    ).toBe('与《test》 与 《test2》合同约定生效方式');
     wrapper.unmount();
   });
 
@@ -846,13 +915,17 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('提 交');
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0]
+        .click();
     });
 
     expect(fn).toBeCalledWith(true);
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0]
+        .click();
     });
 
     expect(fn).toBeCalledWith(false);
@@ -863,7 +936,12 @@ describe('ProForm', () => {
     const fn = jest.fn();
     const wrapper = render(
       <ProForm>
-        <ProForm.Group title="qixian" collapsible defaultCollapsed={true} onCollapse={(c) => fn(c)}>
+        <ProForm.Group
+          title="qixian"
+          collapsible
+          defaultCollapsed={true}
+          onCollapse={(c) => fn(c)}
+        >
           <ProFormText name="phone" />
           <ProFormText name="phone2" />
         </ProForm.Group>
@@ -871,13 +949,17 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('提 交');
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0]
+        .click();
     });
 
     expect(fn).toBeCalledWith(false);
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-form-group-title')[0]
+        .click();
     });
 
     expect(fn).toBeCalledWith(true);
@@ -943,11 +1025,14 @@ describe('ProForm', () => {
     );
     await wrapper.findByText('提 交');
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
-        target: {
-          value: 'test',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0],
+        {
+          target: {
+            value: 'test',
+          },
         },
-      });
+      );
     });
     expect(fn).toBeCalled();
     wrapper.unmount();
@@ -972,11 +1057,14 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0], {
-        target: {
-          value: 'test',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0],
+        {
+          target: {
+            value: 'test',
+          },
         },
-      });
+      );
     });
     expect(fn).toBeCalled();
     wrapper.unmount();
@@ -992,7 +1080,11 @@ describe('ProForm', () => {
           dateMonth: '2020-09',
         }}
       >
-        <ProFormDatePicker name="date" label="日期" fieldProps={{ open: true }} />
+        <ProFormDatePicker
+          name="date"
+          label="日期"
+          fieldProps={{ open: true }}
+        />
         <ProFormDatePicker.Month name="dateMonth" label="月" />
         <ProFormDatePicker.Year name="dateYear" label="年" />
       </ProForm>,
@@ -1001,7 +1093,9 @@ describe('ProForm', () => {
     await wrapper.findByText('提 交');
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-picker-cell')[2]
+        .click();
     });
 
     await act(async () => {
@@ -1009,7 +1103,7 @@ describe('ProForm', () => {
     });
 
     expect(onFinish).toHaveBeenCalledWith({
-      date: '2020-09-01',
+      date: '2020-09-02',
       dateMonth: '2020-09',
     });
     wrapper.unmount();
@@ -1038,17 +1132,25 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
     expect(
       wrapper.baseElement.querySelectorAll<HTMLElement>(
@@ -1090,17 +1192,25 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
     expect(
       wrapper.baseElement.querySelectorAll<HTMLElement>(
@@ -1148,17 +1258,25 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
     expect(
       wrapper.baseElement.querySelectorAll<HTMLElement>(
@@ -1167,7 +1285,9 @@ describe('ProForm', () => {
     ).toBe('全');
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     expect(onValuesChange).toBeCalledWith('全部');
@@ -1207,17 +1327,25 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
     expect(
       wrapper.baseElement.querySelectorAll<HTMLElement>(
@@ -1225,17 +1353,30 @@ describe('ProForm', () => {
       )[0].textContent,
     ).toBe('全');
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(1);
 
     act(() => {
-      fireEvent.focus(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-selector')[0]);
+      fireEvent.focus(
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          '.ant-select-selector',
+        )[0],
+      );
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(4);
     wrapper.unmount();
   });
 
@@ -1273,17 +1414,25 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
     expect(
       wrapper.baseElement.querySelectorAll<HTMLElement>(
@@ -1291,31 +1440,46 @@ describe('ProForm', () => {
       )[0].textContent,
     ).toBe('全');
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(1);
 
     act(() => {
       wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item-option-content div span')[0]
+        .querySelectorAll<HTMLElement>(
+          '.ant-select-item-option-content div span',
+        )[0]
         .click();
     });
 
     act(() => {
-      fireEvent.mouseEnter(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0]);
+      fireEvent.mouseEnter(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0],
+      );
     });
 
     act(() => {
       fireEvent.mouseDown(
         wrapper.baseElement.querySelectorAll('.ant-select-selector')[
-          wrapper.baseElement.querySelectorAll<HTMLElement>('span.ant-select-clear').length - 1
+          wrapper.baseElement.querySelectorAll<HTMLElement>(
+            'span.ant-select-clear',
+          ).length - 1
         ],
       );
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(4);
     wrapper.unmount();
   });
 
@@ -1352,17 +1516,25 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
     expect(
       wrapper.baseElement.querySelectorAll<HTMLElement>(
@@ -1370,17 +1542,30 @@ describe('ProForm', () => {
       )[0].textContent,
     ).toBe('全');
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(1);
 
     act(() => {
-      fireEvent.focus(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-selector')[0]);
+      fireEvent.focus(
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          '.ant-select-selector',
+        )[0],
+      );
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(4);
     wrapper.unmount();
   });
 
@@ -1417,20 +1602,31 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     expect(onSearch).toBeCalledWith('全');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(1);
     expect(
       wrapper.baseElement.querySelectorAll<HTMLElement>(
         '.ant-select-item-option-content div span',
@@ -1438,19 +1634,30 @@ describe('ProForm', () => {
     ).toBe('全');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(4);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(4);
     wrapper.unmount();
   });
 
@@ -1480,11 +1687,16 @@ describe('ProForm', () => {
     await wrapper.findByText('查询选择器');
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     expect(onRequest.mock.calls.length).toBe(1);
@@ -1519,15 +1731,23 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '全',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     await waitFor(() => {
@@ -1574,21 +1794,31 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 选中第二个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[1]
+        .click();
     });
 
     await act(async () => {
@@ -1646,7 +1876,9 @@ describe('ProForm', () => {
     );
 
     await act(async () => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelector('.ant-select-selector')!,
+      );
     });
 
     await act(async () => {
@@ -1656,11 +1888,13 @@ describe('ProForm', () => {
           value: '门',
         },
       });
-      await waitTime(200);
+      await waitForWaitTime(200);
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelector('.ant-select-selector')!,
+      );
     });
 
     // 应该有两个 item 被筛选出来
@@ -1672,14 +1906,18 @@ describe('ProForm', () => {
 
     act(() => {
       wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item.ant-select-item-option')[0]
+        .querySelectorAll<HTMLElement>(
+          '.ant-select-item.ant-select-item-option',
+        )[0]
         .click();
     });
 
     expect(onValuesChange).toBeCalledWith('门店小程序');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelector('.ant-select-selector')!,
+      );
     });
 
     await act(async () => {
@@ -1689,10 +1927,12 @@ describe('ProForm', () => {
           value: '期贤',
         },
       });
-      await waitTime(200);
+      await waitForWaitTime(200);
     });
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelector('.ant-select-selector')!);
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelector('.ant-select-selector')!,
+      );
     });
 
     // 应该没有筛选
@@ -1747,7 +1987,10 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     await act(async () => {
@@ -1757,11 +2000,14 @@ describe('ProForm', () => {
           value: '(测试)',
         },
       });
-      await waitTime(200);
+      await waitForWaitTime(200);
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 应该有两个 item 被筛选出来
@@ -1773,7 +2019,9 @@ describe('ProForm', () => {
 
     act(() => {
       wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-select-item.ant-select-item-option')[0]
+        .querySelectorAll<HTMLElement>(
+          '.ant-select-item.ant-select-item-option',
+        )[0]
         .click();
     });
 
@@ -1814,7 +2062,10 @@ describe('ProForm', () => {
 
     // 点击搜索框
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 默认展示所有的7个选项
@@ -1825,8 +2076,9 @@ describe('ProForm', () => {
     ).toBe(4);
     // 默认输入框没有内容
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content div span')
-        .length,
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      ).length,
     ).toBe(0);
     // input 元素的内容也为空
     expect(
@@ -1837,11 +2089,16 @@ describe('ProForm', () => {
 
     // 输入搜索内容
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '解',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '解',
+          },
         },
-      });
+      );
     });
 
     // 应该有4个item 被筛选出来
@@ -1859,13 +2116,16 @@ describe('ProForm', () => {
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     // 选中的内容出现在 input 中
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[0]
-        .textContent,
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      )[0].textContent,
     ).toBe('未解决');
     expect(
       wrapper.baseElement.querySelectorAll<HTMLInputElement>(
@@ -1881,13 +2141,16 @@ describe('ProForm', () => {
 
     // 继续选中第二个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[1]
+        .click();
     });
 
     // 选中的内容出现在 input 中
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[1]
-        .textContent,
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      )[1].textContent,
     ).toBe('已解决');
     expect(
       wrapper.baseElement.querySelectorAll<HTMLInputElement>(
@@ -1896,7 +2159,10 @@ describe('ProForm', () => {
     ).toBe('解');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     await act(async () => {
@@ -1943,21 +2209,31 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 选中第二个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[1]
+        .click();
     });
 
     await act(async () => {
@@ -1988,18 +2264,29 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: 'A',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: 'A',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(3);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(3);
   });
 
   it('📦 Select filterOption support mixed case', async () => {
@@ -2021,32 +2308,54 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: 'b',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: 'b',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(1);
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: 'B',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: 'B',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
-    expect(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item').length).toBe(1);
+    expect(
+      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')
+        .length,
+    ).toBe(1);
   });
 
   it('📦 Select support labelInValue single', async () => {
@@ -2083,21 +2392,31 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 选中第二个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[1]
+        .click();
     });
 
     await act(async () => {
@@ -2114,11 +2433,15 @@ describe('ProForm', () => {
       </>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0]);
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[1]);
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+      );
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[1],
+      );
     });
 
     const textList = wrapper.baseElement.querySelectorAll<HTMLElement>(
@@ -2186,7 +2509,10 @@ describe('ProForm', () => {
 
     // 点击搜索框
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 默认展示所有的7个选项
@@ -2197,8 +2523,9 @@ describe('ProForm', () => {
     ).toBe(7);
     // 默认输入框没有内容
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content div span')
-        .length,
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      ).length,
     ).toBe(0);
     // input 元素的内容也为空
     expect(
@@ -2209,11 +2536,16 @@ describe('ProForm', () => {
 
     // 输入搜索内容
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '2',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '2',
+          },
         },
-      });
+      );
     });
 
     // 应该有4个item 被筛选出来
@@ -2231,13 +2563,16 @@ describe('ProForm', () => {
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     // 选中的内容出现在 input 中
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[0]
-        .textContent,
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      )[0].textContent,
     ).toBe('网点2');
     expect(
       wrapper.baseElement.querySelectorAll<HTMLInputElement>(
@@ -2253,13 +2588,16 @@ describe('ProForm', () => {
 
     // 继续选中第二个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[1].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[1]
+        .click();
     });
 
     // 选中的内容出现在 input 中
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[1]
-        .textContent,
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      )[1].textContent,
     ).toBe('网点21');
     expect(
       wrapper.baseElement.querySelectorAll<HTMLInputElement>(
@@ -2268,7 +2606,10 @@ describe('ProForm', () => {
     ).toBe('2');
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     await act(async () => {
@@ -2339,7 +2680,10 @@ describe('ProForm', () => {
 
     // 点击搜索框
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 默认展示所有的7个选项
@@ -2350,8 +2694,9 @@ describe('ProForm', () => {
     ).toBe(7);
     // 默认输入框没有内容
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content div span')
-        .length,
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content div span',
+      ).length,
     ).toBe(0);
     // input 元素的内容也为空
     expect(
@@ -2362,19 +2707,27 @@ describe('ProForm', () => {
 
     // 输入搜索内容
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: '2',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '2',
+          },
         },
-      });
+      );
     });
 
-    // 应该有4个item 被筛选出来
-    expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>(
-        'div.ant-select-item.ant-select-item-option',
-      ).length,
-    ).toBe(4);
+    await waitFor(() => {
+      // 应该有4个item 被筛选出来
+      expect(
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          'div.ant-select-item.ant-select-item-option',
+        ).length,
+      ).toBe(4);
+    });
+
     // input 也有输入的内容
     expect(
       wrapper.baseElement.querySelectorAll<HTMLInputElement>(
@@ -2384,13 +2737,16 @@ describe('ProForm', () => {
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     // 选中的内容出现在 input 中
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item-option-content')[0]
-        .textContent,
+      wrapper.baseElement.querySelectorAll<HTMLElement>(
+        '.ant-select-item-option-content',
+      )[0].textContent,
     ).toBe('网点2');
     // 选中后， 会自动清空搜索内容
     expect(
@@ -2430,7 +2786,9 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0]
+        .click();
     });
 
     // 选中第一个
@@ -2445,7 +2803,9 @@ describe('ProForm', () => {
 
     act(() => {
       fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('#rc-editable-input-5')[0],
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          '#rc-editable-input-5',
+        )[0],
         {
           target: {
             value: 2,
@@ -2494,16 +2854,18 @@ describe('ProForm', () => {
 
     const wrapper = render(<App />);
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn1).toHaveBeenCalledWith('2021-08-09');
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-picker-cell')[2].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-picker-cell')[2]
+        .click();
     });
 
-    await waitTime(200);
+    await waitForWaitTime(200);
 
-    expect(fn2).toHaveBeenCalledWith('2021-08-03');
+    expect(fn2).toHaveBeenCalledWith('2021-07-28');
 
     expect(wrapper.asFragment()).toMatchSnapshot();
     wrapper.unmount();
@@ -2523,19 +2885,25 @@ describe('ProForm', () => {
 
     // 测试基本功能
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-input-number-input')!, {
-        target: {
-          value: '1',
+      fireEvent.change(
+        wrapper.baseElement.querySelector('.ant-input-number-input')!,
+        {
+          target: {
+            value: '1',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1], {
-        target: {
-          value: '2',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1],
+        {
+          target: {
+            value: '2',
+          },
         },
-      });
+      );
     });
 
     await act(async () => {
@@ -2545,24 +2913,32 @@ describe('ProForm', () => {
 
     // 测试清空两个值
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[0], {
-        target: {
-          value: '',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll('.ant-input-number-input')[0],
+        {
+          target: {
+            value: '',
+          },
         },
-      });
+      );
     });
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1], {
-        target: {
-          value: '',
+      fireEvent.change(
+        wrapper.baseElement.querySelectorAll('.ant-input-number-input')[1],
+        {
+          target: {
+            value: '',
+          },
         },
-      });
+      );
     });
 
     act(() => {
       fireEvent.blur(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-input-number-input')[1],
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          '.ant-input-number-input',
+        )[1],
       );
     });
 
@@ -2593,6 +2969,8 @@ describe('ProForm', () => {
             initialValue={dayjs('2021-08-09 12:12:12')}
             fieldProps={{ open: true }}
           />
+
+          <ProFormTimePicker name="time2" label="时间" />
         </ProForm>
       );
     };
@@ -2629,7 +3007,9 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(1);
+    expect(
+      html.baseElement.querySelectorAll('.ant-form-item-required').length,
+    ).toBe(1);
 
     html.rerender(
       <ProForm>
@@ -2647,7 +3027,9 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
+    expect(
+      html.baseElement.querySelectorAll('.ant-form-item-required').length,
+    ).toBe(0);
     html.unmount();
   });
 
@@ -2684,24 +3066,35 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
 
     // 选中第一个
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select-item')[0].click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-select-item')[0]
+        .click();
     });
 
     // 鼠标移入选中区域
     act(() => {
-      fireEvent.mouseEnter(wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0]);
+      fireEvent.mouseEnter(
+        wrapper.baseElement.querySelectorAll<HTMLElement>('.ant-select')[0],
+      );
     });
 
     // 点击删除按钮进行删除操作
     act(() => {
       fireEvent.mouseDown(
-        wrapper.baseElement.querySelectorAll<HTMLElement>('span.ant-select-clear')[
-          wrapper.baseElement.querySelectorAll<HTMLElement>('span.ant-select-clear').length - 1
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          'span.ant-select-clear',
+        )[
+          wrapper.baseElement.querySelectorAll<HTMLElement>(
+            'span.ant-select-clear',
+          ).length - 1
         ],
       );
     });
@@ -2728,9 +3121,10 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitTime(300);
+    await waitForWaitTime(300);
     act(() => {
-      const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+      const dom =
+        html.baseElement.querySelector<HTMLInputElement>('input#count')!;
       fireEvent.change(dom, {
         target: {
           value: '22.22',
@@ -2739,8 +3133,10 @@ describe('ProForm', () => {
       fireEvent.blur(dom);
       fireEvent.click(dom);
     });
-    await waitTime(300);
-    expect(html.baseElement.querySelector<HTMLInputElement>('input#count')?.value).toBe('22');
+    await waitForWaitTime(300);
+    expect(
+      html.baseElement.querySelector<HTMLInputElement>('input#count')?.value,
+    ).toBe('22');
 
     await act(async () => {
       await (await html.findByText('提 交')).click();
@@ -2769,13 +3165,14 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitTime(300);
+    await waitForWaitTime(300);
 
-    const dom = html.baseElement.querySelector<HTMLInputElement>('input#count')!;
+    const dom =
+      html.baseElement.querySelector<HTMLInputElement>('input#count')!;
     await userEvent.type(dom, '22.22.22');
     await userEvent.click(await html.findByText('提 交'));
 
-    await waitTime(300);
+    await waitForWaitTime(300);
 
     expect(dom.value).toBe('22');
     expect(fn).toBeCalledWith(22);
@@ -2833,11 +3230,16 @@ describe('ProForm', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: 'p',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: 'p',
+          },
         },
-      });
+      );
     });
 
     expect(onRequest.mock.calls.length).toBe(1);
@@ -2893,20 +3295,28 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitTime(100);
+    await waitForWaitTime(100);
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector('.ant-select-selection-search-input')!, {
-        target: {
-          value: 'l',
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: 'l',
+          },
         },
-      });
+      );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     act(() => {
-      fireEvent.mouseDown(wrapper.baseElement.querySelectorAll('.ant-select-selector')[0], {});
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });

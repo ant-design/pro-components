@@ -4,13 +4,24 @@ import { ConfigProvider, Modal } from 'antd';
 import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 
-export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
-  CommonFormProps<T> & {
+export type ModalFormProps<
+  T = Record<string, any>,
+  U = Record<string, any>,
+> = Omit<FormProps<T>, 'onFinish' | 'title'> &
+  CommonFormProps<T, U> & {
     /**
      * 接收任意值，返回 真值 会关掉这个抽屉
      *
@@ -58,7 +69,7 @@ export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFini
     width?: ModalProps['width'];
   };
 
-function ModalForm<T = Record<string, any>>({
+function ModalForm<T = Record<string, any>, U = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -71,7 +82,7 @@ function ModalForm<T = Record<string, any>>({
   visible: propVisible,
   open: propsOpen,
   ...rest
-}: ModalFormProps<T>) {
+}: ModalFormProps<T, U>) {
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !modalProps?.footer,
@@ -90,12 +101,15 @@ function ModalForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback((element) => {
-    if (footerRef.current === null && element) {
-      forceUpdate([]);
-    }
-    footerRef.current = element;
-  }, []);
+  const footerDomRef: React.RefCallback<HTMLDivElement> = useCallback(
+    (element) => {
+      if (footerRef.current === null && element) {
+        forceUpdate([]);
+      }
+      footerRef.current = element;
+    },
+    [],
+  );
 
   const formRef = useRef<ProFormInstance>();
 
@@ -106,6 +120,14 @@ function ModalForm<T = Record<string, any>>({
       form.resetFields();
     }
   }, [modalProps?.destroyOnClose, rest.form, rest.formRef]);
+
+  useImperativeHandle(
+    rest.formRef,
+    () => {
+      return formRef.current;
+    },
+    [formRef.current],
+  );
 
   useEffect(() => {
     if (open && (propsOpen || propVisible)) {
@@ -138,8 +160,12 @@ function ModalForm<T = Record<string, any>>({
     return merge(
       {
         searchConfig: {
-          submitText: modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
-          resetText: modalProps?.cancelText ?? context.locale?.Modal?.cancelText ?? '取消',
+          submitText:
+            modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
+          resetText:
+            modalProps?.cancelText ??
+            context.locale?.Modal?.cancelText ??
+            '取消',
         },
         resetButtonProps: {
           preventDefault: true,
@@ -234,11 +260,20 @@ function ModalForm<T = Record<string, any>>({
           ) : null
         }
       >
-        <BaseForm
+        <BaseForm<T, U>
           formComponentType="ModalForm"
           layout="vertical"
-          formRef={formRef}
           {...rest}
+          onInit={(_, form) => {
+            if (rest.formRef) {
+              (
+                rest.formRef as React.MutableRefObject<ProFormInstance<T>>
+              ).current = form;
+            }
+            rest?.onInit?.(_, form);
+            formRef.current = form;
+          }}
+          formRef={formRef}
           submitter={submitterConfig}
           onFinish={async (values) => {
             const result = await onFinishHandle(values);

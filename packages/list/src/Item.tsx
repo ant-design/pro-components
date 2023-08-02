@@ -1,6 +1,6 @@
 import { RightOutlined } from '@ant-design/icons';
-import type { ProCardProps } from '@ant-design/pro-card';
-import ProCard from '@ant-design/pro-card';
+import type { CheckCardProps } from '@ant-design/pro-card';
+import { CheckCard } from '@ant-design/pro-card';
 import { ProProvider } from '@ant-design/pro-provider';
 import { ConfigProvider, List, Skeleton } from 'antd';
 
@@ -91,15 +91,23 @@ export type ItemProps<RecordType> = {
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
   recordKey: string | number | undefined;
-  cardProps?: ProCardProps;
+  cardProps?: CheckCardProps;
   record: RecordType;
   onRow?: GetComponentProps<RecordType>;
   onItem?: GetComponentProps<RecordType>;
   itemHeaderRender?:
-    | ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode)
+    | ((
+        item: RecordType,
+        index: number,
+        defaultDom: JSX.Element | null,
+      ) => React.ReactNode)
     | false;
   itemTitleRender?:
-    | ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode)
+    | ((
+        item: RecordType,
+        index: number,
+        defaultDom: JSX.Element | null,
+      ) => React.ReactNode)
     | false;
 };
 
@@ -174,7 +182,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     [`${propsClassName}-extra`]: showExtra === 'hover',
   });
 
-  const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
+  const needExpanded =
+    expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom =
     expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
 
@@ -198,23 +207,40 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     return [
       <div
         key="action"
-        className={`${className}-actions ${hashId}`}
+        className={`${defaultClassName}-actions ${hashId}`.trim()}
         onClick={(e) => e.stopPropagation()}
       >
         {actions}
       </div>,
     ];
-  }, [actions, cardActionProps, className, hashId]);
+  }, [actions, cardActionProps, defaultClassName, hashId]);
 
   const titleDom =
     title || subTitle ? (
-      <div className={`${className}-header-title ${hashId}`}>
-        {title && <div className={`${className}-title ${hashId}`}>{title}</div>}
-        {subTitle && <div className={`${className}-subTitle ${hashId}`}>{subTitle}</div>}
+      <div className={`${defaultClassName}-header-container ${hashId}`.trim()}>
+        {title && (
+          <div
+            className={classNames(`${defaultClassName}-title`, hashId, {
+              [`${defaultClassName}-title-editable`]: isEditable,
+            })}
+          >
+            {title}
+          </div>
+        )}
+        {subTitle && (
+          <div
+            className={classNames(`${defaultClassName}-subTitle`, hashId, {
+              [`${defaultClassName}-subTitle-editable`]: isEditable,
+            })}
+          >
+            {subTitle}
+          </div>
+        )}
       </div>
     ) : null;
 
-  const metaTitle = (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
+  const metaTitle =
+    (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
   const metaDom =
     metaTitle || avatar || subTitle || description ? (
       <List.Item.Meta
@@ -222,14 +248,18 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         title={metaTitle}
         description={
           description &&
-          needExpanded && <div className={`${className}-description ${hashId}`}>{description}</div>
+          needExpanded && (
+            <div className={`${className}-description ${hashId}`.trim()}>
+              {description}
+            </div>
+          )
         }
       />
     ) : null;
 
   const rowClassName = classNames(hashId, {
-    [`${className}-item-has-checkbox`]: checkbox,
-    [`${className}-item-has-avatar`]: avatar,
+    [`${defaultClassName}-item-has-checkbox`]: checkbox,
+    [`${defaultClassName}-item-has-avatar`]: avatar,
     [className]: className,
   });
   const cardTitleDom = useMemo(() => {
@@ -237,13 +267,20 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       return (
         <>
           {avatar}
-          <span className={`${getPrefixCls('list-item-meta-title')} ${hashId}`}>{title}</span>
+          <span
+            className={`${getPrefixCls(
+              'list-item-meta-title',
+            )} ${hashId}`.trim()}
+          >
+            {title}
+          </span>
         </>
       );
     }
     return null;
   }, [avatar, getPrefixCls, hashId, title]);
 
+  const itemProps = onItem?.(record, index);
   const defaultDom = !cardProps ? (
     <List.Item
       className={classNames(rowClassName, hashId, {
@@ -253,7 +290,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       actions={extraDom}
       extra={!!extra && <div className={extraClassName}>{extra}</div>}
       {...onRow?.(record, index)}
-      {...onItem?.(record, index)}
+      {...itemProps}
       onClick={(e) => {
         onRow?.(record, index)?.onClick?.(e);
         onItem?.(record, index)?.onClick?.(e);
@@ -263,9 +300,13 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       }}
     >
       <Skeleton avatar title={false} loading={loading} active>
-        <div className={`${className}-header ${hashId}`}>
-          <div className={`${className}-header-option ${hashId}`}>
-            {!!checkbox && <div className={`${className}-checkbox ${hashId}`}>{checkbox}</div>}
+        <div className={`${className}-header ${hashId}`.trim()}>
+          <div className={`${className}-header-option ${hashId}`.trim()}>
+            {!!checkbox && (
+              <div className={`${className}-checkbox ${hashId}`.trim()}>
+                {checkbox}
+              </div>
+            )}
             {Object.values(expandableConfig || {}).length > 0 &&
               rowSupportExpand &&
               renderExpandIcon({
@@ -277,14 +318,18 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
                 record,
               } as RenderExpandIconProps<RecordType>)}
           </div>
-          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ?? metaDom}
+          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ??
+            metaDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
-          <div className={`${className}-content ${hashId}`}>
+          <div className={`${className}-content ${hashId}`.trim()}>
             {content}
             {expandedRowRender && rowSupportExpand && (
               <div
-                className={expandedRowClassName && expandedRowClassName(record, index, indentSize)}
+                className={
+                  expandedRowClassName &&
+                  expandedRowClassName(record, index, indentSize)
+                }
               >
                 {expandedRowDom}
               </div>
@@ -294,10 +339,11 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       </Skeleton>
     </List.Item>
   ) : (
-    <ProCard
+    <CheckCard
       bordered
-      loading={loading}
-      hoverable
+      style={{
+        width: '100%',
+      }}
       {...cardProps}
       title={cardTitleDom}
       subTitle={subTitle}
@@ -307,15 +353,19 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         padding: 24,
         ...cardProps.bodyStyle,
       }}
-      {...onItem?.(record, index)}
+      {...(itemProps as CheckCardProps)}
+      onClick={(e: any) => {
+        cardProps?.onClick?.(e);
+        itemProps?.onClick?.(e);
+      }}
     >
       <Skeleton avatar title={false} loading={loading} active>
-        <div className={`${className}-header ${hashId}`}>
+        <div className={`${className}-header ${hashId}`.trim()}>
           {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
           {content}
         </div>
       </Skeleton>
-    </ProCard>
+    </CheckCard>
   );
 
   if (!cardProps) {

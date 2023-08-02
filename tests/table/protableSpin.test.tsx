@@ -1,11 +1,10 @@
 // import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
-import { act } from 'react-dom/test-utils';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 export type TableListItem = {
   key: number;
@@ -82,7 +81,7 @@ const ProTableSpinDemo = () => {
           提交
         </Button>,
       ]}
-      postData={(data) => {
+      postData={(data: any) => {
         setTimeout(() => {
           setLoading({
             ...loading,
@@ -117,7 +116,7 @@ describe('ProTable test', () => {
         }}
       />,
     );
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     expect(fn).toBeCalledTimes(1);
     act(() => {
       html.rerender(
@@ -139,7 +138,7 @@ describe('ProTable test', () => {
 
   it('boolean loading and polling props', async () => {
     const html = render(<ProTable loading={true} polling={2000} />);
-    await waitTime(1200);
+    await waitForWaitTime(1200);
     act(() => {
       html.rerender(
         <ProTable

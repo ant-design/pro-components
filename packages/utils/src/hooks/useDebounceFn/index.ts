@@ -28,11 +28,8 @@ export function useDebounceFn<T extends any[], U = any>(
       cancel();
       return new Promise<U>((resolve) => {
         timer.current = setTimeout(async () => {
-          if (typeof process !== 'undefined' && process.env.NODE_ENV === 'TEST') {
-            resolve(await callback(...args));
-            return;
-          }
           resolve(await callback(...args));
+          return;
         }, wait);
       });
     },

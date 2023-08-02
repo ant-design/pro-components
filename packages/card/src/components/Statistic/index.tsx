@@ -1,6 +1,11 @@
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { BadgeProps, StatisticProps as AntdStatisticProps } from 'antd';
-import { Badge, ConfigProvider, Statistic as AntdStatistic, Tooltip } from 'antd';
+import {
+  Badge,
+  ConfigProvider,
+  Statistic as AntdStatistic,
+  Tooltip,
+} from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
@@ -66,7 +71,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const tipDom = tip && (
     <Tooltip title={tip}>
-      <QuestionCircleOutlined className={`${prefixCls}-tip ${hashId}`} />
+      <QuestionCircleOutlined className={`${prefixCls}-tip ${hashId}`.trim()} />
     </Tooltip>
   );
 
@@ -111,7 +116,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
             {...others}
           />
           {description && (
-            <div className={`${prefixCls}-description ${hashId}`}>
+            <div className={`${prefixCls}-description ${hashId}`.trim()}>
               {description as React.ReactNode}
             </div>
           )}

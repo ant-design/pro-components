@@ -18,15 +18,22 @@ const FieldSegmented: ProFieldFC<
     text: string;
     emptyText?: React.ReactNode;
   } & FieldSelectProps
-> = ({ mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest }, ref) => {
+> = (
+  { mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest },
+  ref,
+) => {
   const inputRef = useRef<HTMLInputElement>();
 
   const [loading, options, fetchData] = useFieldFetchData(rest);
 
-  useImperativeHandle(ref, () => ({
-    ...(inputRef.current || {}),
-    fetchData: (keyWord: string) => fetchData(keyWord),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(inputRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   if (loading) {
     return <Spin size="small" />;
@@ -35,14 +42,23 @@ const FieldSegmented: ProFieldFC<
   if (mode === 'read') {
     const optionsValueEnum = options?.length
       ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value ?? '']: cur.label };
+          return { ...pre, [(cur.value as any) ?? '']: cur.label };
         }, {})
       : undefined;
 
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          ObjToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
-      return render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText;
+      return (
+        render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText
+      );
     }
     return dom;
   }

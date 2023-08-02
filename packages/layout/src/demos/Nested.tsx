@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { ProLayout, PageContainer } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import complexMenu from './complexMenu';
 
 export default () => (

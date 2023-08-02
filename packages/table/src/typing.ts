@@ -1,6 +1,10 @@
 ﻿import type { ProCardProps } from '@ant-design/pro-card';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
+import type {
+  LightWrapperProps,
+  ProFormProps,
+  QueryFilterProps,
+} from '@ant-design/pro-form';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -14,7 +18,12 @@ import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { SearchProps } from 'antd/lib/input';
-import type { ColumnFilterItem, ColumnType, CompareFn, SortOrder } from 'antd/lib/table/interface';
+import type {
+  ColumnFilterItem,
+  ColumnType,
+  CompareFn,
+  SortOrder,
+} from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
 import type { CSSProperties } from 'react';
@@ -170,7 +179,7 @@ export type Bordered =
       table?: boolean;
     };
 
-export type ColumnsStateType = {
+export type ColumnStateType = {
   /**
    * 持久化的类型，支持 localStorage 和 sessionStorage
    *
@@ -188,11 +197,11 @@ export type ColumnsStateType = {
 };
 
 /** ProTable 的类型定义 继承自 antd 的 Table */
-export type ProTableProps<T, U, ValueType = 'text'> = {
+export type ProTableProps<DataSource, U, ValueType = 'text'> = {
   /**
    * @name 列配置能力，支持一个数组
    */
-  columns?: ProColumns<T, ValueType>[];
+  columns?: ProColumns<DataSource, ValueType>[];
   /**
    * @name ListToolBar 的属性
    */
@@ -224,7 +233,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
 
   /** @name 列状态的配置，可以用来操作列功能 */
-  columnsState?: ColumnsStateType;
+  columnsState?: ColumnStateType;
 
   onSizeChange?: (size: DensitySize) => void;
 
@@ -237,7 +246,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    * @name 渲染 table
    */
   tableRender?: (
-    props: ProTableProps<T, U, ValueType>,
+    props: ProTableProps<DataSource, U, ValueType>,
     defaultDom: JSX.Element,
     /** 各个区域的 dom */
     domList: {
@@ -250,7 +259,10 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * @name 渲染 table 视图，用于定制 ProList，不推荐直接使用
    */
-  tableViewRender?: (props: TableProps<T>, defaultDom: JSX.Element) => JSX.Element | undefined;
+  tableViewRender?: (
+    props: TableProps<DataSource>,
+    defaultDom: JSX.Element,
+  ) => JSX.Element | undefined;
 
   /**
    * @name table 和搜索表单之间的 dom 渲染
@@ -259,7 +271,18 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    *
    * tableExtraRender={()=> <Statistic title="统计" value={10} />}
    */
-  tableExtraRender?: (props: ProTableProps<T, U, ValueType>, dataSource: T[]) => React.ReactNode;
+  tableExtraRender?: (
+    props: ProTableProps<DataSource, U, ValueType>,
+    dataSource: DataSource[],
+  ) => React.ReactNode;
+
+  /**
+   * @name 渲染搜索表单
+   */
+  searchFormRender?: (
+    props: ProTableProps<DataSource, U, ValueType>,
+    defaultDom: JSX.Element,
+  ) => React.ReactNode;
 
   /** @name 一个获得 dataSource 的方法 */
   request?: (
@@ -270,12 +293,12 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
     },
     sort: Record<string, SortOrder>,
     filter: Record<string, (string | number)[] | null>,
-  ) => Promise<Partial<RequestData<T>>>;
+  ) => Promise<Partial<RequestData<DataSource>>>;
 
   /** @name 对数据进行一些处理 */
-  postData?: (data: any[]) => any[];
+  postData?: any;
   /** @name 默认的数据 */
-  defaultData?: T[];
+  defaultData?: DataSource[];
 
   /**
    * @name 初始化的参数，可以操作 table
@@ -291,16 +314,18 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * @name 操作自带的 form
    */
-  formRef?: TableFormItem<T>['formRef'];
+  formRef?: TableFormItem<DataSource>['formRef'];
   /**
    * @name 渲染操作栏
    */
-  toolBarRender?: ToolBarProps<T>['toolBarRender'] | false;
+  toolBarRender?: ToolBarProps<DataSource>['toolBarRender'] | false;
+
+  optionsRender?: ToolBarProps<DataSource>['optionsRender'];
 
   /**
    * @name 数据加载完成后触发
    */
-  onLoad?: (dataSource: T[]) => void;
+  onLoad?: (dataSource: DataSource[]) => void;
 
   /**
    * @name loading 被修改时触发，一般是网络请求导致的
@@ -317,7 +342,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    *
    * @param dataSource 返回当前的表单数据，你可以用它判断要不要打开轮询
    */
-  polling?: number | ((dataSource: T[]) => number);
+  polling?: number | ((dataSource: DataSource[]) => number);
 
   /** @name 给封装的 table 的 className */
   tableClassName?: string;
@@ -363,17 +388,17 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    *
    * @name 自定义 table 的 alert
    */
-  tableAlertRender?: AlertRenderType<T>;
+  tableAlertRender?: AlertRenderType<DataSource>;
   /**
    * 设置或者返回false 即可关闭
    *
    * @name 自定义 table 的 alert 的操作
    */
-  tableAlertOptionRender?: AlertRenderType<T>;
+  tableAlertOptionRender?: AlertRenderType<DataSource>;
 
   /** @name 选择项配置 */
   rowSelection?:
-    | (TableProps<T>['rowSelection'] & {
+    | (TableProps<DataSource>['rowSelection'] & {
         alwaysShowAlert?: boolean;
       })
     | false;
@@ -403,12 +428,12 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    * @example 保存的时候请求后端
    * editable={{ onSave:async (rows)=>{ await save(rows) } }}
    */
-  editable?: RowEditableConfig<T>;
+  editable?: RowEditableConfig<DataSource>;
 
   /**
    * @name 可编辑表格修改数据的改变
    */
-  onDataSourceChange?: (dataSource: T[]) => void;
+  onDataSourceChange?: (dataSource: DataSource[]) => void;
   /** @name 查询表单和 Table 的卡片 border 配置 */
   cardBordered?: Bordered;
   /** @name 去抖时间 */
@@ -429,8 +454,8 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * 错误边界自定义
    */
-  ErrorBoundary?: any;
-} & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
+  ErrorBoundary?: React.ComponentClass<any, any> | false;
+} & Omit<TableProps<DataSource>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
@@ -490,7 +515,7 @@ export type UseFetchProps = {
    * 请求时附带的数据
    * @type {any}
    */
-  postData: any;
+  postData: (dataSource: any[]) => any[];
 
   /**
    * 分页信息
@@ -555,5 +580,7 @@ export type UseFetchProps = {
 
 export type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
   /** 如果 onSearch 返回一个false，直接拦截请求 */
-  onSearch?: (keyword: string) => Promise<boolean | undefined> | boolean | undefined;
+  onSearch?: (
+    keyword: string,
+  ) => Promise<boolean | undefined> | boolean | undefined;
 };

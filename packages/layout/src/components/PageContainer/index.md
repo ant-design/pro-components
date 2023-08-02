@@ -1,5 +1,6 @@
 ---
 title: PageContainer - 页容器
+atomId: PageContainer
 ---
 
 # PageContainer - 页容器
@@ -83,10 +84,10 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 
 ### FooterToolbar
 
-| 参数     | 说明                            | 类型                       | 默认值 |
-| -------- | ------------------------------- | -------------------------- | ------ |
-| extra    | 额外内容区，位于 content 的右侧 | `ReactNode`                | -      |
-| children | 内容区域                        | `ReactNode`\|`ReactNode[]` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| extra | 额外内容区，位于 content 的右侧 | `ReactNode` | - |
+| children | 内容区域 | `ReactNode`\|`ReactNode[]` | - |
 
 FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控制浮动，使其不会挡住菜单。如果你没有使用 ProLayout 需要通过 style 来自定义宽度和浮动。
 

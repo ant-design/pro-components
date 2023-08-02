@@ -12,24 +12,28 @@ const valueType = 'dateRange' as const;
  *
  * @param
  */
-const ProFormDateRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> = React.forwardRef(
-  ({ fieldProps, proFieldProps, ...rest }, ref) => {
-    const context = useContext(FieldContext);
-    return (
-      <ProField
-        ref={ref}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
-        valueType={valueType}
-        proFieldProps={proFieldProps}
-        filedConfig={{
-          valueType,
-          lightFilterLabelFormatter: (value) =>
-            dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM-DD'),
-        }}
-        {...rest}
-      />
-    );
-  },
-);
+const ProFormDateRangePicker: React.FC<
+  ProFormFieldItemProps<RangePickerProps>
+> = React.forwardRef(({ fieldProps, proFieldProps, ...rest }, ref) => {
+  const context = useContext(FieldContext);
+  return (
+    <ProField
+      ref={ref}
+      fieldProps={{
+        getPopupContainer: context.getPopupContainer,
+        ...fieldProps,
+      }}
+      valueType={valueType}
+      proFieldProps={proFieldProps}
+      filedConfig={{
+        valueType,
+        customLightMode: true,
+        lightFilterLabelFormatter: (value) =>
+          dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM-DD'),
+      }}
+      {...rest}
+    />
+  );
+});
 
 export default ProFormDateRangePicker;

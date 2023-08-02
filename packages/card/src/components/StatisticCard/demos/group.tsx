@@ -14,7 +14,10 @@ export default () => {
         setResponsive(offset.width < 596);
       }}
     >
-      <StatisticCard.Group title="核心指标" direction={responsive ? 'column' : 'row'}>
+      <StatisticCard.Group
+        title="核心指标"
+        direction={responsive ? 'column' : 'row'}
+      >
         <StatisticCard
           statistic={{
             title: '今日UV',

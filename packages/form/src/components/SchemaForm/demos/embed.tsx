@@ -1,5 +1,10 @@
 ﻿import type { ProFormColumnsType } from '@ant-design/pro-components';
-import { BetaSchemaForm, ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
+import {
+  BetaSchemaForm,
+  ProForm,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-components';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -63,7 +68,13 @@ export default () => {
           mode: 'multiple',
         }}
         placeholder="Please select favorite colors"
-        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
+        rules={[
+          {
+            required: true,
+            message: 'Please select your favorite colors!',
+            type: 'array',
+          },
+        ]}
       />
       <h1>表单1 </h1>
       <BetaSchemaForm<DataItem> layoutType="Embed" columns={columns} />

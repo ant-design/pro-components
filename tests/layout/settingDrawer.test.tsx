@@ -1,6 +1,5 @@
 import { SettingDrawer } from '@ant-design/pro-components';
-import { act, fireEvent, render } from '@testing-library/react';
-import { waitTime } from '../util';
+import { act, fireEvent, render, waitFor } from '@testing-library/react';
 import { defaultSettings } from './defaultSettings';
 
 describe('settingDrawer.test', () => {
@@ -20,21 +19,27 @@ describe('settingDrawer.test', () => {
       },
     });
   });
-  beforeEach(() => {
-    // @ts-expect-error
-    window.MutationObserver = null;
-  });
 
   it('🌺 base user', () => {
     const html = render(
-      <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        getContainer={false}
+        collapse
+      />,
     );
     expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('🌺 settings = undefined', () => {
     const html = render(
-      <SettingDrawer disableUrlParams settings={undefined as any} getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={undefined as any}
+        getContainer={false}
+        collapse
+      />,
     );
     expect(html.asFragment()).toMatchSnapshot();
   });
@@ -93,15 +98,25 @@ describe('settingDrawer.test', () => {
       />,
     );
 
-    fireEvent.click(container.querySelectorAll('div.ant-pro-setting-drawer-theme-color-block')[0]);
+    fireEvent.click(
+      container.querySelectorAll(
+        'div.ant-pro-setting-drawer-theme-color-block',
+      )[0],
+    );
     expect(onSettingChange).toBeCalledWith('#1677FF');
 
-    fireEvent.click(container.querySelectorAll('div.ant-pro-setting-drawer-theme-color-block')[1]);
+    fireEvent.click(
+      container.querySelectorAll(
+        'div.ant-pro-setting-drawer-theme-color-block',
+      )[1],
+    );
 
     expect(onSettingChange).toBeCalledWith('#F5222D');
-    expect(container.querySelectorAll('div.ant-pro-setting-drawer-theme-color-block')).toHaveLength(
-      9,
-    );
+    expect(
+      container.querySelectorAll(
+        'div.ant-pro-setting-drawer-theme-color-block',
+      ),
+    ).toHaveLength(9);
     unmount();
   });
 
@@ -225,13 +240,17 @@ describe('settingDrawer.test', () => {
     );
 
     fireEvent.click(
-      container.querySelectorAll('div.ant-pro-setting-drawer-block-checkbox-layout-item')[2],
+      container.querySelectorAll(
+        'div.ant-pro-setting-drawer-block-checkbox-layout-item',
+      )[2],
     );
 
     expect(onSettingChange).toBeCalledWith('mix');
 
     fireEvent.click(
-      container.querySelectorAll('div.ant-pro-setting-drawer-block-checkbox-layout-item')[1],
+      container.querySelectorAll(
+        'div.ant-pro-setting-drawer-block-checkbox-layout-item',
+      )[1],
     );
 
     expect(onSettingChange).toBeCalledWith('top');
@@ -341,13 +360,17 @@ describe('settingDrawer.test', () => {
     );
 
     fireEvent.click(
-      container.querySelectorAll('div.ant-pro-setting-drawer-block-checkbox-theme-item')[0],
+      container.querySelectorAll(
+        'div.ant-pro-setting-drawer-block-checkbox-theme-item',
+      )[0],
     );
 
     expect(onSettingChange).toBeCalledWith('light');
 
     fireEvent.click(
-      container.querySelectorAll('div.ant-pro-setting-drawer-block-checkbox-theme-item')[1],
+      container.querySelectorAll(
+        'div.ant-pro-setting-drawer-block-checkbox-theme-item',
+      )[1],
     );
 
     expect(onSettingChange).toBeCalledWith('realDark');
@@ -360,7 +383,11 @@ describe('settingDrawer.test', () => {
       <SettingDrawer
         disableUrlParams
         colorList={[]}
-        settings={{ ...defaultSettings, navTheme: 'realDark', menuRender: false }}
+        settings={{
+          ...defaultSettings,
+          navTheme: 'realDark',
+          menuRender: false,
+        }}
         collapse
         getContainer={false}
         onSettingChange={(setting) => {
@@ -423,32 +450,34 @@ describe('settingDrawer.test', () => {
         }
       });
     const html = render(
-      <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        getContainer={false}
+        collapse
+      />,
     );
-    const { rerender } = html;
-    await waitTime(200);
-    act(() => {
-      expect(
-        (
-          html.baseElement.querySelectorAll(
-            '.ant-pro-setting-drawer-body-title',
-          )[0] as HTMLHeadingElement
-        ).textContent,
-      ).toEqual('整体风格设置');
-    });
+    await html.findAllByText('整体风格设置');
+
     act(() => {
       window.localStorage.setItem('umi_locale', 'en-US');
     });
-    await waitTime(1200);
+
     act(() => {
       fn?.();
-      rerender(
-        <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
+      html.rerender(
+        <SettingDrawer
+          disableUrlParams
+          settings={defaultSettings}
+          getContainer={false}
+          collapse
+        />,
       );
     });
+
     addEventListenerSpy.mockRestore();
-    await waitTime(1200);
-    act(() => {
+
+    await waitFor(() => {
       expect(
         (
           html.baseElement.querySelectorAll(
@@ -457,8 +486,9 @@ describe('settingDrawer.test', () => {
         ).textContent,
       ).toEqual('Page style setting');
     });
-    await waitTime(200);
+
     html.unmount();
+
     window.localStorage.setItem('umi_locale', 'zh-CN');
   });
 });

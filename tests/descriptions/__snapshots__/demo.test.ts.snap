@@ -6,236 +6,227 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
     test
   </div>
   <div
-    style="width: 100%;"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
-      class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      class="ant-descriptions-header"
     >
       <div
-        class="ant-card-body"
+        class="ant-descriptions-title"
+      >
+        高级定义列表 request
+      </div>
+      <div
+        class="ant-descriptions-extra"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-        >
-          <span
-            class="ant-skeleton-button ant-skeleton-button-sm"
-            style="width: 100px; margin-block-end: 16px;"
-          />
-        </div>
-        <div
-          style="width: 100%; justify-content: space-between; display: flex;"
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+            class="ant-space-item"
           >
             <div
-              class="ant-skeleton ant-skeleton-active"
+              class="ant-pro-field-option"
+              style="display: flex; gap: 16px; align-items: center;"
             >
-              <div
-                class="ant-skeleton-content"
+              <button
+                class="ant-btn ant-btn-primary"
+                style="flex: 1;"
+                type="button"
               >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
+                <span>
+                  刷 新
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default"
+                style="flex: 1;"
+                type="button"
               >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="margin-block-start: 32px;"
-        >
-          <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-          >
-            <span
-              class="ant-skeleton-button ant-skeleton-button-sm"
-              style="width: 100px; margin-block-end: 16px;"
-            />
-          </div>
-          <div
-            style="width: 100%; justify-content: space-between; display: flex;"
-          >
-            <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 0;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              style="flex: 1; align-items: center; justify-content: center;"
-            >
-              <div
-                style="max-width: 300px; margin: auto;"
-              >
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 0;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 8px;"
-                    />
-                  </div>
-                </div>
-              </div>
+                <span>
+                  重 置
+                </span>
+              </button>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      这是一段文本
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  日期
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      2020-07-30
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <span>
+                        ¥12,121.00
+                      </span>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </DocumentFragment>
@@ -255,236 +246,103 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
     </span>
   </button>
   <div
-    style="width: 100%;"
+    class="ant-descriptions ant-pro-descriptions"
+    tooltip="包含了从服务器请求，columns等功能"
   >
     <div
-      class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      class="ant-descriptions-header"
     >
       <div
-        class="ant-card-body"
+        class="ant-descriptions-title"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+          class="ant-pro-core-label-tip"
         >
+          <div
+            class="ant-pro-core-label-tip-title"
+          >
+            高级定义列表
+          </div>
           <span
-            class="ant-skeleton-button ant-skeleton-button-sm"
-            style="width: 100px; margin-block-end: 16px;"
-          />
-        </div>
-        <div
-          style="width: 100%; justify-content: space-between; display: flex;"
-        >
-          <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="margin-block-start: 32px;"
-        >
-          <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+            class="ant-pro-core-label-tip-icon"
           >
             <span
-              class="ant-skeleton-button ant-skeleton-button-sm"
-              style="width: 100px; margin-block-end: 16px;"
-            />
-          </div>
-          <div
-            style="width: 100%; justify-content: space-between; display: flex;"
-          >
-            <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
+              aria-label="info-circle"
+              class="anticon anticon-info-circle"
+              role="img"
             >
-              <div
-                class="ant-skeleton ant-skeleton-active"
+              <svg
+                aria-hidden="true"
+                data-icon="info-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 0;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              style="flex: 1; align-items: center; justify-content: center;"
-            >
-              <div
-                style="max-width: 300px; margin: auto;"
-              >
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 0;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 8px;"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </span>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  文本 2
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  -
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  -
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </DocumentFragment>
@@ -514,7 +372,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
             高级定义列表
           </div>
           <span
-            class="ant-pro-core-label-tip-icon "
+            class="ant-pro-core-label-tip-icon"
           >
             <span
               aria-label="info-circle"
@@ -576,14 +434,14 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
-                  style="max-width: 80%;"
+                  style="min-width: 0; max-width: 80%;"
                 >
                   <span
                     class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
                     style="width: 100%; margin: 0px; padding: 0px;"
                     title=""
                   >
-                    这是一段很长很长超级超级长的无意义说明文本并且重复了很多没有意义的词语，就是为了让它变得很长很长超级超级长
+                    这是一段很长很长超级超级长的无意义说明文本并且重复了很多没有意义的词语，就是为了让它变得很长很长超级超级长这是一段很长很长超级超级长的无意义说明文本并且重复了很多没有意义的词语，就是为了让它变得很长很长超级超级长
                   </span>
                 </span>
               </div>
@@ -611,7 +469,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                       金额
                     </div>
                     <span
-                      class="ant-pro-core-label-tip-icon "
+                      class="ant-pro-core-label-tip-icon"
                     >
                       <span
                         aria-label="info-circle"
@@ -640,6 +498,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     ¥100.00
@@ -661,6 +520,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     100.00%
@@ -686,6 +546,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span
                     class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -716,6 +577,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   已解决
                 </span>
@@ -739,8 +601,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div
+                    aria-valuenow="40"
                     class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
@@ -782,6 +646,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2016-11-22 15:22:44
                 </span>
@@ -805,6 +670,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2016-11-22
                 </span>
@@ -824,6 +690,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div>
                     <div>
@@ -854,6 +721,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     15:22:44
@@ -875,9 +743,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       
@@ -908,9 +777,10 @@ Done in 9.70s.
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <pre
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       {
@@ -954,236 +824,374 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
     test
   </div>
   <div
-    style="width: 100%;"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
-      class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      class="ant-descriptions-header"
     >
       <div
-        class="ant-card-body"
+        class="ant-descriptions-title"
+      >
+        高级定义列表request columns
+      </div>
+      <div
+        class="ant-descriptions-extra"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+          class="ant-pro-field-option"
+          style="display: flex; gap: 16px; align-items: center;"
         >
-          <span
-            class="ant-skeleton-button ant-skeleton-button-sm"
-            style="width: 100px; margin-block-end: 16px;"
-          />
-        </div>
-        <div
-          style="width: 100%; justify-content: space-between; display: flex;"
-        >
-          <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
+            链路
+          </a>
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
+            报警
+          </a>
+          <a
+            rel="noopener noreferrer"
+            style="flex: 1;"
+            target="_blank"
           >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="margin-block-start: 32px;"
-        >
-          <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-          >
-            <span
-              class="ant-skeleton-button ant-skeleton-button-sm"
-              style="width: 100px; margin-block-end: 16px;"
-            />
-          </div>
-          <div
-            style="width: 100%; justify-content: space-between; display: flex;"
-          >
-            <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 0;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              style="flex: 1; align-items: center; justify-content: center;"
-            >
-              <div
-                style="max-width: 300px; margin: auto;"
-              >
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 0;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 8px;"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            查看
+          </a>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  文本
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  这是一段文本columns
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  时间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  2020-08-09
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  状态
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span
+                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                  >
+                    <span
+                      class="ant-badge-status-dot ant-badge-status-default"
+                    />
+                    <span
+                      class="ant-badge-status-text"
+                    >
+                      全部
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span>
+                    ¥1,212,100.00
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  状态2
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  open
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  时间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  2020-08-09
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  时间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  09.08.2020
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  开关
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  打开
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span>
+                    ¥1,212,100.00
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money无符号
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span>
+                    1,212,100.00
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money负数无符号
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span>
+                    -12,345.33
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  百分比
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span>
+                    100.00%
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  多余的dom
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </DocumentFragment>
@@ -1195,236 +1203,171 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/custo
     test
   </div>
   <div
-    style="width: 100%;"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
-      class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      class="ant-descriptions-header"
     >
       <div
-        class="ant-card-body"
+        class="ant-descriptions-title"
+      >
+        自定义 valueType
+      </div>
+      <div
+        class="ant-descriptions-extra"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-        >
-          <span
-            class="ant-skeleton-button ant-skeleton-button-sm"
-            style="width: 100px; margin-block-end: 16px;"
-          />
-        </div>
-        <div
-          style="width: 100%; justify-content: space-between; display: flex;"
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+            class="ant-space-item"
           >
             <div
-              class="ant-skeleton ant-skeleton-active"
+              class="ant-pro-field-option"
+              style="display: flex; gap: 16px; align-items: center;"
             >
-              <div
-                class="ant-skeleton-content"
+              <a
+                style="flex: 1;"
               >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="margin-block-start: 32px;"
-        >
-          <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-          >
-            <span
-              class="ant-skeleton-button ant-skeleton-button-sm"
-              style="width: 100px; margin-block-end: 16px;"
-            />
-          </div>
-          <div
-            style="width: 100%; justify-content: space-between; display: flex;"
-          >
-            <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 0;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              style="flex: 1; align-items: center; justify-content: center;"
-            >
-              <div
-                style="max-width: 300px; margin: auto;"
-              >
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 0;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 8px;"
-                    />
-                  </div>
-                </div>
-              </div>
+                刷新
+              </a>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  链接
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <a>
+                        TradeCode 1
+                      </a>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  标签
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <span
+                        class="ant-tag"
+                      >
+                        close
+                      </span>
+                      <span
+                        class="ant-tag"
+                      >
+                        close
+                      </span>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </DocumentFragment>
@@ -1437,7 +1380,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
   </div>
   <div
     class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
-    style="height: 500px;"
+    style="min-height: 500px;"
   >
     <div
       class="ant-pro-card-body"
@@ -1453,236 +1396,197 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
             class="ant-pro-card-body"
           >
             <div
-              style="width: 100%;"
+              class="ant-descriptions ant-pro-descriptions"
             >
               <div
-                class="ant-card"
-                style="border-start-end-radius: 0; border-top-left-radius: 0;"
+                class="ant-descriptions-header"
               >
                 <div
-                  class="ant-card-body"
+                  class="ant-descriptions-title"
+                >
+                  高级定义列表
+                </div>
+                <div
+                  class="ant-descriptions-extra"
                 >
                   <div
-                    class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                    class="ant-pro-field-option"
+                    style="display: flex; gap: 16px; align-items: center;"
                   >
-                    <span
-                      class="ant-skeleton-button ant-skeleton-button-sm"
-                      style="width: 100px; margin-block-end: 16px;"
-                    />
-                  </div>
-                  <div
-                    style="width: 100%; justify-content: space-between; display: flex;"
-                  >
-                    <div
-                      style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+                    <a
+                      rel="noopener noreferrer"
+                      style="flex: 1;"
+                      target="_blank"
                     >
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 0;"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 8px;"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 8px;"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
+                      链路
+                    </a>
+                    <a
+                      rel="noopener noreferrer"
+                      style="flex: 1;"
+                      target="_blank"
                     >
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 0;"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 8px;"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 8px;"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
+                      报警
+                    </a>
+                    <a
+                      rel="noopener noreferrer"
+                      style="flex: 1;"
+                      target="_blank"
                     >
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 0;"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 8px;"
-                          />
-                        </div>
-                      </div>
-                      <div
-                        class="ant-skeleton ant-skeleton-active"
-                      >
-                        <div
-                          class="ant-skeleton-content"
-                        >
-                          <h3
-                            class="ant-skeleton-title"
-                            style="margin-block-start: 8px;"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    style="margin-block-start: 32px;"
-                  >
-                    <div
-                      class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-                    >
-                      <span
-                        class="ant-skeleton-button ant-skeleton-button-sm"
-                        style="width: 100px; margin-block-end: 16px;"
-                      />
-                    </div>
-                    <div
-                      style="width: 100%; justify-content: space-between; display: flex;"
-                    >
-                      <div
-                        style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
-                      >
-                        <div
-                          class="ant-skeleton ant-skeleton-active"
-                        >
-                          <div
-                            class="ant-skeleton-content"
-                          >
-                            <h3
-                              class="ant-skeleton-title"
-                              style="margin-block-start: 0;"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="ant-skeleton ant-skeleton-active"
-                        >
-                          <div
-                            class="ant-skeleton-content"
-                          >
-                            <h3
-                              class="ant-skeleton-title"
-                              style="margin-block-start: 8px;"
-                            />
-                          </div>
-                        </div>
-                        <div
-                          class="ant-skeleton ant-skeleton-active"
-                        >
-                          <div
-                            class="ant-skeleton-content"
-                          >
-                            <h3
-                              class="ant-skeleton-title"
-                              style="margin-block-start: 8px;"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        style="flex: 1; align-items: center; justify-content: center;"
-                      >
-                        <div
-                          style="max-width: 300px; margin: auto;"
-                        >
-                          <div
-                            class="ant-skeleton ant-skeleton-active"
-                          >
-                            <div
-                              class="ant-skeleton-content"
-                            >
-                              <h3
-                                class="ant-skeleton-title"
-                                style="margin-block-start: 0;"
-                              />
-                            </div>
-                          </div>
-                          <div
-                            class="ant-skeleton ant-skeleton-active"
-                          >
-                            <div
-                              class="ant-skeleton-content"
-                            >
-                              <h3
-                                class="ant-skeleton-title"
-                                style="margin-block-start: 8px;"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      查看
+                    </a>
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-descriptions-view"
+              >
+                <table>
+                  <tbody>
+                    <tr
+                      class="ant-descriptions-row"
+                    >
+                      <td
+                        class="ant-descriptions-item"
+                        colspan="1"
+                      >
+                        <div
+                          class="ant-descriptions-item-container"
+                        >
+                          <span
+                            class="ant-descriptions-item-label"
+                          >
+                            文本
+                          </span>
+                          <span
+                            class="ant-descriptions-item-content"
+                            style="min-width: 0;"
+                          >
+                            这是一段文本columns
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="ant-descriptions-item"
+                        colspan="1"
+                      >
+                        <div
+                          class="ant-descriptions-item-container"
+                        >
+                          <span
+                            class="ant-descriptions-item-label"
+                          >
+                            状态
+                          </span>
+                          <span
+                            class="ant-descriptions-item-content"
+                            style="min-width: 0;"
+                          >
+                            <span
+                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                            >
+                              <span
+                                class="ant-badge-status-dot ant-badge-status-default"
+                              />
+                              <span
+                                class="ant-badge-status-text"
+                              >
+                                全部
+                              </span>
+                            </span>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="ant-descriptions-item"
+                        colspan="1"
+                      >
+                        <div
+                          class="ant-descriptions-item-container"
+                        >
+                          <span
+                            class="ant-descriptions-item-label"
+                          >
+                            状态2
+                          </span>
+                          <span
+                            class="ant-descriptions-item-content"
+                            style="min-width: 0;"
+                          >
+                            open
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-descriptions-row"
+                    >
+                      <td
+                        class="ant-descriptions-item"
+                        colspan="1"
+                      >
+                        <div
+                          class="ant-descriptions-item-container"
+                        >
+                          <span
+                            class="ant-descriptions-item-label"
+                          >
+                            时间
+                          </span>
+                          <span
+                            class="ant-descriptions-item-content"
+                            style="min-width: 0;"
+                          >
+                            2020-08-09
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="ant-descriptions-item"
+                        colspan="1"
+                      >
+                        <div
+                          class="ant-descriptions-item-container"
+                        >
+                          <span
+                            class="ant-descriptions-item-label"
+                          >
+                            money
+                          </span>
+                          <span
+                            class="ant-descriptions-item-content"
+                            style="min-width: 0;"
+                          >
+                            <span>
+                              ¥1,212,100.00
+                            </span>
+                          </span>
+                        </div>
+                      </td>
+                      <td
+                        class="ant-descriptions-item"
+                        colspan="1"
+                      >
+                        <div
+                          class="ant-descriptions-item-container"
+                        >
+                          <span
+                            class="ant-descriptions-item-label"
+                          >
+                            百分比
+                          </span>
+                          <span
+                            class="ant-descriptions-item-content"
+                            style="min-width: 0;"
+                          >
+                            <span>
+                              20.00%
+                            </span>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -1704,13 +1608,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
             class="ant-pro-card-header"
           >
             <div
-              class="ant-pro-card-title "
+              class="ant-pro-card-title"
             >
               配置菜单
             </div>
           </div>
           <div
-            class="ant-pro-card-tabs "
+            class="ant-pro-card-tabs"
           >
             <div
               class="ant-tabs ant-tabs-top"
@@ -1758,6 +1662,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                     </div>
                     <div
                       class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                      style="left: 0px; width: 0px;"
                     />
                   </div>
                 </div>
@@ -1940,6 +1845,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                                   aria-activedescendant="layout_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="layout_list"
+                                                  aria-expanded="false"
                                                   aria-haspopup="listbox"
                                                   aria-owns="layout_list"
                                                   autocomplete="off"
@@ -2143,6 +2049,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                                   aria-activedescendant="size_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="size_list"
+                                                  aria-expanded="false"
                                                   aria-haspopup="listbox"
                                                   aria-owns="size_list"
                                                   autocomplete="off"
@@ -2437,236 +2344,872 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
     test
   </div>
   <div
-    style="width: 100%;"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
-      class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      class="ant-descriptions-header"
     >
       <div
-        class="ant-card-body"
+        class="ant-descriptions-title"
+      >
+        可编辑的定义列表
+      </div>
+      <div
+        class="ant-descriptions-extra"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-        >
-          <span
-            class="ant-skeleton-button ant-skeleton-button-sm"
-            style="width: 100px; margin-block-end: 16px;"
-          />
-        </div>
-        <div
-          style="width: 100%; justify-content: space-between; display: flex;"
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+            class="ant-space-item"
           >
             <div
-              class="ant-skeleton ant-skeleton-active"
+              class="ant-pro-field-option"
+              style="display: flex; gap: 16px; align-items: center;"
             >
-              <div
-                class="ant-skeleton-content"
+              <a
+                rel="noopener noreferrer"
+                style="flex: 1;"
+                target="_blank"
               >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
+                链路
+              </a>
+              <a
+                rel="noopener noreferrer"
+                style="flex: 1;"
+                target="_blank"
               >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
+                报警
+              </a>
+              <a
+                rel="noopener noreferrer"
+                style="flex: 1;"
+                target="_blank"
               >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="margin-block-start: 32px;"
-        >
-          <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-          >
-            <span
-              class="ant-skeleton-button ant-skeleton-button-sm"
-              style="width: 100px; margin-block-end: 16px;"
-            />
-          </div>
-          <div
-            style="width: 100%; justify-content: space-between; display: flex;"
-          >
-            <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 0;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              style="flex: 1; align-items: center; justify-content: center;"
-            >
-              <div
-                style="max-width: 300px; margin: auto;"
-              >
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 0;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 8px;"
-                    />
-                  </div>
-                </div>
-              </div>
+                查看
+              </a>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  文本
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <span
+                        aria-label="这是一段文本columns"
+                        class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                        style="width: 100%; margin: 0px; padding: 0px;"
+                        title=""
+                      >
+                        这是一段文本columns
+                        <div
+                          aria-label="复制"
+                          class="ant-typography-copy"
+                          role="button"
+                          style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                          tabindex="0"
+                        >
+                          <span
+                            aria-label="copy"
+                            class="anticon anticon-copy"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="copy"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+                        >
+                          lg
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                        >
+                          <span
+                            aria-hidden="true"
+                          >
+                            ...
+                          </span>
+                          <div
+                            aria-label="复制"
+                            class="ant-typography-copy"
+                            role="button"
+                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                            tabindex="0"
+                          >
+                            <span
+                              aria-label="copy"
+                              class="anticon anticon-copy"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="copy"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  状态
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span
+                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                  >
+                    <span
+                      class="ant-badge-status-dot ant-badge-status-default"
+                    />
+                    <span
+                      class="ant-badge-status-text"
+                    >
+                      全部
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  状态2
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      open
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  分值
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      -
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  时间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      2020-08-09
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  Rate
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <ul
+                        class="ant-rate ant-rate-disabled"
+                        role="radiogroup"
+                        tabindex="-1"
+                      >
+                        <li
+                          class="ant-rate-star ant-rate-star-full"
+                        >
+                          <div
+                            aria-checked="true"
+                            aria-posinset="1"
+                            aria-setsize="5"
+                            role="radio"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="ant-rate-star-first"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-rate-star-second"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <li
+                          class="ant-rate-star ant-rate-star-full"
+                        >
+                          <div
+                            aria-checked="true"
+                            aria-posinset="2"
+                            aria-setsize="5"
+                            role="radio"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="ant-rate-star-first"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-rate-star-second"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <li
+                          class="ant-rate-star ant-rate-star-full"
+                        >
+                          <div
+                            aria-checked="true"
+                            aria-posinset="3"
+                            aria-setsize="5"
+                            role="radio"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="ant-rate-star-first"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-rate-star-second"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <li
+                          class="ant-rate-star ant-rate-star-full"
+                        >
+                          <div
+                            aria-checked="true"
+                            aria-posinset="4"
+                            aria-setsize="5"
+                            role="radio"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="ant-rate-star-first"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-rate-star-second"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <li
+                          class="ant-rate-star ant-rate-star-full"
+                        >
+                          <div
+                            aria-checked="true"
+                            aria-posinset="5"
+                            aria-setsize="5"
+                            role="radio"
+                            tabindex="-1"
+                          >
+                            <div
+                              class="ant-rate-star-first"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                            <div
+                              class="ant-rate-star-second"
+                            >
+                              <span
+                                aria-label="star"
+                                class="anticon anticon-star"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="star"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <div>
+                        1212100
+                      </div>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  百分比
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center"
+                  >
+                    <div
+                      class="ant-space-item"
+                      style="margin-right: 8px;"
+                    >
+                      <span>
+                        100.00%
+                      </span>
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      <span
+                        aria-label="edit"
+                        class="anticon anticon-edit"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="edit"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </DocumentFragment>
@@ -2696,7 +3239,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
             高级定义列表
           </div>
           <span
-            class="ant-pro-core-label-tip-icon "
+            class="ant-pro-core-label-tip-icon"
           >
             <span
               aria-label="info-circle"
@@ -2746,6 +3289,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2016.11.22
                 </span>
@@ -2765,6 +3309,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <div>
                     <div>
@@ -2795,6 +3340,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     2016.11.22
@@ -2816,6 +3362,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2016.11.22 15:22:44
                 </span>
@@ -2839,9 +3386,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
-                    a month ago
+                    1 个月前
                   </span>
                 </span>
               </div>
@@ -2860,236 +3408,141 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
     test
   </div>
   <div
-    style="width: 100%;"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
-      class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      class="ant-descriptions-header"
     >
       <div
-        class="ant-card-body"
+        class="ant-descriptions-title"
+      >
+        高级定义列表 request
+      </div>
+      <div
+        class="ant-descriptions-extra"
       >
         <div
-          class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-        >
-          <span
-            class="ant-skeleton-button ant-skeleton-button-sm"
-            style="width: 100px; margin-block-end: 16px;"
-          />
-        </div>
-        <div
-          style="width: 100%; justify-content: space-between; display: flex;"
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+            class="ant-space-item"
+            style="margin-right: 8px;"
           >
             <div
-              class="ant-skeleton ant-skeleton-active"
+              class="ant-pro-field-option"
+              style="display: flex; gap: 16px; align-items: center;"
             >
-              <div
-                class="ant-skeleton-content"
+              <button
+                class="ant-btn ant-btn-primary"
+                style="flex: 1;"
+                type="button"
               >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
+                <span>
+                  刷 新
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default"
+                style="flex: 1;"
+                type="button"
               >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
+                <span>
+                  重 置
+                </span>
+              </button>
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
+            class="ant-space-item"
           >
-            <div
-              class="ant-skeleton ant-skeleton-active"
+            <button
+              class="ant-btn ant-btn-link"
+              type="button"
             >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          style="margin-block-start: 32px;"
-        >
-          <div
-            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-          >
-            <span
-              class="ant-skeleton-button ant-skeleton-button-sm"
-              style="width: 100px; margin-block-end: 16px;"
-            />
-          </div>
-          <div
-            style="width: 100%; justify-content: space-between; display: flex;"
-          >
-            <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
-            >
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 0;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-skeleton ant-skeleton-active"
-              >
-                <div
-                  class="ant-skeleton-content"
-                >
-                  <h3
-                    class="ant-skeleton-title"
-                    style="margin-block-start: 8px;"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              style="flex: 1; align-items: center; justify-content: center;"
-            >
-              <div
-                style="max-width: 300px; margin: auto;"
-              >
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 0;"
-                    />
-                  </div>
-                </div>
-                <div
-                  class="ant-skeleton ant-skeleton-active"
-                >
-                  <div
-                    class="ant-skeleton-content"
-                  >
-                    <h3
-                      class="ant-skeleton-title"
-                      style="margin-block-start: 8px;"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+              <span>
+                修改
+              </span>
+            </button>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  这是一段文本
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  日期
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  2020-07-30
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  money
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <span>
+                    ¥12,121.00
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </DocumentFragment>
@@ -3164,6 +3617,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span
                     aria-label="这是一段文本columns"
@@ -3246,6 +3700,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3260,6 +3718,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span
                     class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -3276,6 +3735,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3290,6 +3753,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   open
                 </span>
@@ -3313,11 +3777,16 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   2020-08-09
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3332,6 +3801,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     ¥1,212,100.00
@@ -3339,6 +3809,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3353,6 +3827,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 </span>
                 <span
                   class="ant-descriptions-item-content"
+                  style="min-width: 0;"
                 >
                   <span>
                     100.00%

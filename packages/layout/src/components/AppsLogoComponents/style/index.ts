@@ -7,7 +7,9 @@ export interface AppsLogoComponentsToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
+const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (
+  token,
+) => {
   return {
     [token.componentCls]: {
       '&-icon': {
@@ -21,14 +23,15 @@ const genAppsLogoComponentsStyle: GenerateStyle<AppsLogoComponentsToken> = (toke
         height: 28,
         width: 28,
         cursor: 'pointer',
-        color: token?.layout?.colorTextAppListIcon,
+        color: token.layout?.colorTextAppListIcon,
+        borderRadius: token.borderRadius,
         '&:hover': {
-          color: token?.layout?.colorTextAppListIconHover,
-          backgroundColor: token?.layout?.colorBgAppListIconHover,
+          color: token.layout?.colorTextAppListIconHover,
+          backgroundColor: token.layout?.colorBgAppListIconHover,
         },
         '&-active': {
-          color: token?.layout?.colorTextAppListIconHover,
-          backgroundColor: token?.layout?.colorBgAppListIconHover,
+          color: token.layout?.colorTextAppListIconHover,
+          backgroundColor: token.layout?.colorBgAppListIconHover,
         },
       },
       '&-item-title': {

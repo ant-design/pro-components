@@ -3,10 +3,13 @@ import { Form } from 'antd';
 import React from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
+import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { Group, ProFormItem } from '../../components';
 
-export type ProFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
-  CommonFormProps<T>;
+export type ProFormProps<
+  T = Record<string, any>,
+  U = Record<string, any>,
+> = Omit<FormProps<T>, 'onFinish'> & CommonFormProps<T, U>;
 
 function ProForm<T = Record<string, any>>(
   props: ProFormProps<T> & {
@@ -40,5 +43,6 @@ ProForm.useWatch = Form.useWatch;
 ProForm.ErrorList = Form.ErrorList;
 ProForm.Provider = Form.Provider;
 ProForm.useFormInstance = Form.useFormInstance;
+ProForm.EditOrReadOnlyContext = EditOrReadOnlyContext;
 
 export { ProForm };

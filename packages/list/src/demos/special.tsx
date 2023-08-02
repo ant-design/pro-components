@@ -5,49 +5,55 @@ import type { ReactText } from 'react';
 import { useState } from 'react';
 
 const types = ['top', 'inline', 'new'];
-const data = ['语雀的天空（top）', 'Ant Design（inline）', '蚂蚁金服体验科技（new）', 'TechUI'].map(
-  (item, index) => ({
-    title: item,
-    subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
-    actions: [
-      <a key="invite">邀请</a>,
-      <a key="operate">操作</a>,
-      <a key="rest">
-        <EllipsisOutlined />
-      </a>,
-    ],
-    description: (
-      <div>
-        <div>top 会有小角标</div>
-        <div>inline 标题字体是 normal</div>
-        <div>new 会有一个入场动画</div>
-      </div>
-    ),
-    type: types[index],
-    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
-    content: (
+const data = [
+  '语雀的天空（top）',
+  'Ant Design（inline）',
+  '蚂蚁金服体验科技（new）',
+  'TechUI',
+].map((item, index) => ({
+  title: item,
+  subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
+  actions: [
+    <a key="invite">邀请</a>,
+    <a key="operate">操作</a>,
+    <a key="rest">
+      <EllipsisOutlined />
+    </a>,
+  ],
+  description: (
+    <div>
+      <div>top 会有小角标</div>
+      <div>inline 标题字体是 normal</div>
+      <div>new 会有一个入场动画</div>
+    </div>
+  ),
+  type: types[index],
+  avatar:
+    'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
+  content: (
+    <div
+      style={{
+        flex: 1,
+        display: 'flex',
+        justifyContent: 'flex-end',
+      }}
+    >
       <div
         style={{
-          flex: 1,
-          display: 'flex',
-          justifyContent: 'flex-end',
+          width: 200,
         }}
       >
-        <div
-          style={{
-            width: 200,
-          }}
-        >
-          <div>发布中</div>
-          <Progress percent={80} />
-        </div>
+        <div>发布中</div>
+        <Progress percent={80} />
       </div>
-    ),
-  }),
-);
+    </div>
+  ),
+}));
 
 export default () => {
-  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>([]);
+  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>(
+    [],
+  );
   const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
   const rowSelection = {
     selectedRowKeys,
@@ -95,7 +101,10 @@ export default () => {
         headerTitle="预设的列状态"
         rowSelection={rowSelection}
         dataSource={dataSource}
-        expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
+        expandable={{
+          expandedRowKeys,
+          onExpandedRowsChange: setExpandedRowKeys,
+        }}
       />
     </>
   );

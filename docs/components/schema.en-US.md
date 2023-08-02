@@ -93,7 +93,12 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    *
    * @name 自定义 render
    */
-  renderText?: (text: any, record: T, index: number, action: ProCoreActionType) => any;
+  renderText?: (
+    text: any,
+    record: T,
+    index: number,
+    action: ProCoreActionType,
+  ) => any;
 
   fieldProps?: any;
   /** @name 映射值的类型 */
@@ -254,6 +259,10 @@ interface IValueEnum {
       };
 }
 ```
+
+使用 Map 来让 valueEnum 更灵活，某些场景会用到 number 类型或者 boolean 类型，例如：
+
+<code src="./valueEnum-map.tsx" title="使用Map的valueEnum"></code>
 
 ## 远程数据
 
@@ -427,7 +436,11 @@ const columns = [
 ```
 
 ```tsx | pure
-import { ProForm, ProFormSelect, ProFormText } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-components';
 
 const request = async (params) => {
   console.log(params);

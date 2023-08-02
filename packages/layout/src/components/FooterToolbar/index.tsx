@@ -37,7 +37,9 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     renderContent,
     ...restProps
   } = props;
-  const { getPrefixCls, getTargetContainer } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, getTargetContainer } = useContext(
+    ConfigProvider.ConfigContext,
+  );
   const prefixCls = props.prefixCls || getPrefixCls('pro');
 
   const baseClassName = `${prefixCls}-footer-bar`;
@@ -58,10 +60,10 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   }, [value.collapsed, value.hasSiderMenu, value.isMobile, value.siderWidth]);
 
   const containerDom = useMemo(() => {
+    if (typeof window === undefined || typeof document === undefined)
+      return null;
     // 只读取一次就行了，不然总是的渲染
-    return (
-      getTargetContainer?.() || document.querySelector(`.${getPrefixCls('pro')}`) || document.body
-    );
+    return getTargetContainer?.() || document.body;
   }, []);
 
   const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
@@ -69,8 +71,10 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   });
   const dom = (
     <>
-      <div className={`${baseClassName}-left ${hashId}`}>{extra}</div>
-      <div className={`${baseClassName}-right ${hashId}`}>{children}</div>
+      <div className={`${baseClassName}-left ${hashId}`.trim()}>{extra}</div>
+      <div className={`${baseClassName}-right ${hashId}`.trim()}>
+        {children}
+      </div>
     </>
   );
 
@@ -107,9 +111,13 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     </div>
   );
   const ssrDom =
-    !isBrowser() || !portalDom ? renderDom : createPortal(renderDom, containerDom, baseClassName);
+    !isBrowser() || !portalDom || !containerDom
+      ? renderDom
+      : createPortal(renderDom, containerDom, baseClassName);
 
-  return stylish.wrapSSR(wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>));
+  return stylish.wrapSSR(
+    wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>),
+  );
 };
 
 export { FooterToolbar };

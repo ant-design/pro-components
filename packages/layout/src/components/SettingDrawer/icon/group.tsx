@@ -17,25 +17,61 @@ export function GroupIcon() {
           y="-27.1%"
           filterUnits="objectBoundingBox"
         >
-          <feMorphology in="SourceAlpha" radius="0.25" result="shadowSpreadOuter1" />
-          <feOffset dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
-          <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1" />
+          <feMorphology
+            in="SourceAlpha"
+            radius="0.25"
+            result="shadowSpreadOuter1"
+          />
+          <feOffset
+            dy="1"
+            in="shadowSpreadOuter1"
+            result="shadowOffsetOuter1"
+          />
+          <feGaussianBlur
+            in="shadowOffsetOuter1"
+            result="shadowBlurOuter1"
+            stdDeviation="1"
+          />
           <feColorMatrix
             in="shadowBlurOuter1"
             result="shadowMatrixOuter1"
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
           />
-          <feMorphology in="SourceAlpha" radius="1" result="shadowSpreadOuter2" />
-          <feOffset dy="2" in="shadowSpreadOuter2" result="shadowOffsetOuter2" />
-          <feGaussianBlur in="shadowOffsetOuter2" result="shadowBlurOuter2" stdDeviation="4" />
+          <feMorphology
+            in="SourceAlpha"
+            radius="1"
+            result="shadowSpreadOuter2"
+          />
+          <feOffset
+            dy="2"
+            in="shadowSpreadOuter2"
+            result="shadowOffsetOuter2"
+          />
+          <feGaussianBlur
+            in="shadowOffsetOuter2"
+            result="shadowBlurOuter2"
+            stdDeviation="4"
+          />
           <feColorMatrix
             in="shadowBlurOuter2"
             result="shadowMatrixOuter2"
             values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
           />
-          <feMorphology in="SourceAlpha" radius="2" result="shadowSpreadOuter3" />
-          <feOffset dy="4" in="shadowSpreadOuter3" result="shadowOffsetOuter3" />
-          <feGaussianBlur in="shadowOffsetOuter3" result="shadowBlurOuter3" stdDeviation="8" />
+          <feMorphology
+            in="SourceAlpha"
+            radius="2"
+            result="shadowSpreadOuter3"
+          />
+          <feOffset
+            dy="4"
+            in="shadowSpreadOuter3"
+            result="shadowOffsetOuter3"
+          />
+          <feGaussianBlur
+            in="shadowOffsetOuter3"
+            result="shadowBlurOuter3"
+            stdDeviation="8"
+          />
           <feColorMatrix
             in="shadowBlurOuter3"
             result="shadowMatrixOuter3"
@@ -61,7 +97,11 @@ export function GroupIcon() {
         <rect width="9" height="3" x="4" y="21" fill="#E6EAF0" rx="1.5" />
         <rect width="9" height="3" x="4" y="53" fill="#D7DDE6" rx="1.5" />
         <rect width="14" height="3" x="4" y="47" fill="#D7DDE6" rx="1.5" />
-        <path stroke="#E6EAF0" strokeLinecap="square" d="M25.5 15.5L25.5 72.5" />
+        <path
+          stroke="#E6EAF0"
+          strokeLinecap="square"
+          d="M25.5 15.5L25.5 72.5"
+        />
       </g>
     </svg>
   );

@@ -1,5 +1,5 @@
-﻿import 'jest-canvas-mock';
-import '@testing-library/jest-dom';
+﻿import '@testing-library/jest-dom';
+import 'jest-canvas-mock';
 import { enableFetchMocks } from 'jest-fetch-mock';
 import MockDate from 'mockdate';
 import React from 'react';
@@ -60,7 +60,6 @@ Object.defineProperty(window, 'open', {
 });
 
 const crypto = require('crypto');
-
 Object.defineProperty(global.self, 'crypto', {
   value: {
     getRandomValues: (arr: any[]) => crypto.randomBytes(arr.length),

@@ -1,7 +1,7 @@
 import ProTable from '@ant-design/pro-table';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import { ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
-import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { RequestOptionsType } from 'packages/utils/src/typing';
 import { request } from './demo';
 
@@ -288,11 +288,14 @@ describe('Table ColumnSetting', () => {
 
     expect(container).toMatchSnapshot();
 
-    fireEvent.change(container.querySelector('.ant-select-selection-search-input')!, {
-      target: {
-        value: '1',
+    fireEvent.change(
+      container.querySelector('.ant-select-selection-search-input')!,
+      {
+        target: {
+          value: '1',
+        },
       },
-    });
+    );
     expect(container.querySelectorAll('.ant-select-item')).toHaveLength(0);
 
     setTimeout(() => {

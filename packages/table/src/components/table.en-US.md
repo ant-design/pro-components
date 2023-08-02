@@ -2,7 +2,7 @@
 title: ProTable
 order: 0
 legacy: /table
-
+atomId: ProTable
 nav:
   title: Components
 ---
@@ -96,9 +96,10 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | manualRequest | Do you need to manually trigger the first request? When configured as `true`, the search form cannot be hidden | `boolean` | false |
 | editable | Related configuration of editable table | [TableRowEditable](/components/editable-table#editable-Editable row configuration) | - |
 | cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
+| ghost | Ghost mode, that is, whether to cancel the padding of the table content area. | `boolean` | false |
 | debounceTime | Debounce time | `number` | 10 |
 | revalidateOnFocus | Automatically re-request when the window is focused | `boolean` | `false` |
-| columnsState | Column Status Control, you can operate the display hide | `ColumnsStateType` | - |
+| columnsState | Column Status Control, you can operate the display hide | `ColumnStateType` | - |
 
 #### RecordCreator
 
@@ -112,7 +113,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| defaultValue | The default value of the column status, only for the first time | `Record <string, ColumnsState>;` |
+| defaultValue | The default value of the column status, only for the first time. Used for resetting value | `Record <string, ColumnsState>;` |
 | value | Column status, support controlled mode | `Record <string, ColumnsState>;` |
 | onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |
 | PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |
@@ -294,17 +295,17 @@ SearchProps is a property of antd's [Input.Search](https://ant.design/components
 
 #### ListToolBarMenu
 
-| parameters | description                  | type                                  | default    |
-| ---------- | ---------------------------- | ------------------------------------- | ---------- |
-| type       | type                         | `inline` \| `dropdown` \| `tab`       | `dropdown` |
-| activeKey  | current value                | `string`                              | -          |
-| items      | menu items                   | `{ key: string; label: ReactNode }[]` | -          |
-| onChange   | Callback for switching menus | `(activeKey)=>void`                   | -          |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| type | type | `inline` \| `dropdown` \| `tab` | `dropdown` |
+| activeKey | current value | `string` | - |
+| items | menu items | `{ key: string; label: ReactNode }[]` | - |
+| onChange | Callback for switching menus | `(activeKey)=>void` | - |
 
 #### ListToolBarTabs
 
-| parameters | description                      | type                                | default |
-| ---------- | -------------------------------- | ----------------------------------- | ------- |
-| activeKey  | currently selected item          | `string`                            | -       |
-| items      | menu items                       | `{ key: string; tab: ReactNode }[]` | -       |
-| onChange   | Callback for toggling menu items | `(activeKey)=>void`                 | -       |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| activeKey | currently selected item | `string` | - |
+| items | menu items | `{ key: string; tab: ReactNode }[]` | - |
+| onChange | Callback for toggling menu items | `(activeKey)=>void` | - |

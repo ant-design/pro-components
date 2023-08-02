@@ -1,14 +1,23 @@
 ﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
+import type { MenuMode } from '../BaseMenu';
 
 export interface ProLayoutBaseMenuToken extends ProAliasToken {
   componentCls: string;
 }
 
-const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token) => {
+const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
+  token,
+  mode,
+) => {
+  const menuToken = mode.includes('horizontal')
+    ? token.layout?.header
+    : token.layout?.sider;
+
   return {
     [`${token.componentCls}`]: {
       background: 'transparent',
+      color: menuToken?.colorTextMenu,
       border: 'none',
       [`${token.componentCls}-menu-item`]: {
         transition: 'none !important',
@@ -37,10 +46,11 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
           marginBlock: '4px !important',
         },
         [`${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title, 
-        ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]: {
-          backgroundColor: token.layout?.sider?.colorBgMenuItemSelected,
-          borderRadius: token.borderRadiusLG,
-        },
+        ${token.antCls}-menu-submenu-selected > ${token.antCls}-menu-submenu-title`]:
+          {
+            backgroundColor: menuToken?.colorBgMenuItemSelected,
+            borderRadius: token.borderRadiusLG,
+          },
         [`${token.componentCls}-group`]: {
           [`${token.antCls}-menu-item-group-title`]: {
             paddingInline: 0,
@@ -48,21 +58,18 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
         },
       },
 
-      [`${token.componentCls}-item-icon`]: {
-        height: '14px',
-        width: '14px',
-        opacity: '0.85',
-        lineHeight: '14px',
-        '> span.anticon': {
-          lineHeight: '14px!important',
-          height: '14px',
-        },
-      },
-      '& &-item-title': {
+      '&-item-title': {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 8,
+        gap: token.marginXS,
+        [`${token.componentCls}-item-text`]: {
+          maxWidth: '100%',
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          wordBreak: 'break-all',
+          whiteSpace: 'nowrap',
+        },
         '&-collapsed': {
           flexDirection: 'column',
           justifyContent: 'center',
@@ -77,21 +84,19 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
               height: '16px',
             },
           },
-          [`${token.componentCls}-item-text`]: {
-            maxWidth: '100%',
-          },
+
           [`${token.componentCls}-item-text-has-icon`]: {
             display: 'none !important',
           },
         },
         [`&${token.componentCls}-group-item-title`]: {
-          gap: 4,
+          gap: token.marginXS,
           height: 18,
           overflow: 'hidden',
         },
         [`&${token.componentCls}-item-collapsed-show-title`]: {
           lineHeight: '16px',
-          height: '48px',
+          gap: 0,
           [`&${token.componentCls}-item-title-collapsed`]: {
             display: 'flex',
             [`${token.componentCls}-item-icon`]: {
@@ -131,21 +136,36 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (token)
           },
         },
       },
+
       '&-group-divider': {
         color: token.colorTextSecondary,
         fontSize: 12,
         lineHeight: 20,
       },
     },
+    ...(mode.includes('horizontal')
+      ? {}
+      : {
+          [`${token.antCls}-menu-submenu${token.antCls}-menu-submenu-popup`]: {
+            [`${token.componentCls}-item-title`]: {
+              alignItems: 'flex-start',
+            },
+          },
+        }),
+    [`${token.antCls}-menu-submenu-popup`]: {
+      backgroundColor: 'rgba(255, 255, 255, 0.42)',
+      '-webkit-backdrop-filter': 'blur(8px)',
+      backdropFilter: 'blur(8px)',
+    },
   };
 };
 
-export function useStyle(prefixCls: string) {
-  return useAntdStyle('ProLayoutBaseMenu', (token) => {
+export function useStyle(prefixCls: string, mode: MenuMode | undefined) {
+  return useAntdStyle('ProLayoutBaseMenu' + mode, (token) => {
     const proLayoutMenuToken: ProLayoutBaseMenuToken = {
       ...token,
       componentCls: `.${prefixCls}`,
     };
-    return [genProLayoutBaseMenuStyle(proLayoutMenuToken)];
+    return [genProLayoutBaseMenuStyle(proLayoutMenuToken, mode || 'inline')];
   });
 }

@@ -2,6 +2,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
+import type { SubmitterProps } from '../../components';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
 import { useStyle } from './style';
@@ -49,8 +50,16 @@ export type LoginFormProps<T> = {
 } & Omit<ProFormProps<T>, 'title'>;
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
-  const { logo, message, contentStyle, title, subTitle, actions, children, ...proFormProps } =
-    props;
+  const {
+    logo,
+    message,
+    contentStyle,
+    title,
+    subTitle,
+    actions,
+    children,
+    ...proFormProps
+  } = props;
 
   const intl = useIntl();
 
@@ -71,8 +80,15 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           },
           render: (_, dom) => {
             const loginButton = dom.pop();
-            if (typeof (proFormProps?.submitter as any)?.render === 'function') {
-              return (proFormProps?.submitter as any)?.render?.(_, dom);
+            if (
+              typeof (proFormProps?.submitter as SubmitterProps)?.render ===
+              'function'
+            ) {
+              return (
+                proFormProps?.submitter as {
+                  render: Exclude<SubmitterProps['render'], false>;
+                }
+              )?.render?.(_, dom);
             }
             return loginButton;
           },
@@ -81,7 +97,8 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
   const { wrapSSR, hashId } = useStyle(baseClassName);
-  const getCls = (className: string) => `${baseClassName}-${className} ${hashId}`;
+  const getCls = (className: string) =>
+    `${baseClassName}-${className} ${hashId}`;
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
@@ -94,7 +111,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
 
   return wrapSSR(
     <div className={classNames(getCls('container'), hashId)}>
-      <div className={`${getCls('top')} ${hashId}`}>
+      <div className={`${getCls('top')} ${hashId}`.trim()}>
         {title || logoDom ? (
           <div className={`${getCls('header')}`}>
             {logoDom ? <span className={getCls('logo')}>{logoDom}</span> : null}

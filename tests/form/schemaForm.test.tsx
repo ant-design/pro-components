@@ -1,10 +1,19 @@
-﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
+﻿import type {
+  ProFormColumnsType,
+  ProFormLayoutType,
+} from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import { act, fireEvent, render, waitFor, screen } from '@testing-library/react';
+import { ProProvider } from '@ant-design/pro-provider';
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
-import React, { createRef } from 'react';
-import { waitTime } from '../util';
+import React, { createRef, useContext, useEffect } from 'react';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -114,7 +123,7 @@ describe('SchemaForm', () => {
     await waitFor(() => {
       expect(requestFn).toBeCalledWith('qixian');
       expect(formItemPropsFn).toBeCalledTimes(2);
-      expect(fieldPropsFn).toBeCalledTimes(2);
+      expect(fieldPropsFn).toBeCalledTimes(4);
     });
   });
 
@@ -155,7 +164,7 @@ describe('SchemaForm', () => {
     await waitFor(() => {
       expect(fieldPropsFn).toBeCalledTimes(1);
       expect(formItemPropsFn).toBeCalledTimes(1);
-      expect(renderFormItemFn).toBeCalledTimes(2);
+      expect(renderFormItemFn).toBeCalledTimes(4);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -165,7 +174,7 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(4);
+      expect(renderFormItemFn).toBeCalledTimes(6);
       expect(fieldPropsFn).toBeCalledTimes(2);
       expect(formItemPropsFn).toBeCalledTimes(2);
       expect(onValuesChangeFn).toBeCalled();
@@ -180,8 +189,14 @@ describe('SchemaForm', () => {
     const { container } = render(
       <BetaSchemaForm
         shouldUpdate={(value: any, oldValue?: any) => {
-          shouldUpdateFn(value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle);
-          if (value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle) {
+          shouldUpdateFn(
+            value.subtitle === 'rerender' &&
+              value.subtitle !== oldValue?.subtitle,
+          );
+          if (
+            value.subtitle === 'rerender' &&
+            value.subtitle !== oldValue?.subtitle
+          ) {
             return true;
           } else {
             return false;
@@ -219,9 +234,9 @@ describe('SchemaForm', () => {
 
     await waitFor(() => {
       expect(shouldUpdateFn).toBeCalledTimes(0);
-      expect(fieldPropsFn).toBeCalledTimes(1);
-      expect(formItemPropsFn).toBeCalledTimes(1);
-      expect(renderFormItemFn).toBeCalledTimes(2);
+      expect(fieldPropsFn).toBeCalledTimes(3);
+      expect(formItemPropsFn).toBeCalledTimes(3);
+      expect(renderFormItemFn).toBeCalledTimes(4);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -231,9 +246,9 @@ describe('SchemaForm', () => {
     });
     // Although shouldUpdate returns false, but using dependencies will still update
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(3);
-      expect(formItemPropsFn).toBeCalledTimes(2);
-      expect(fieldPropsFn).toBeCalledTimes(2);
+      expect(renderFormItemFn).toBeCalledTimes(5);
+      expect(formItemPropsFn).toBeCalledTimes(4);
+      expect(fieldPropsFn).toBeCalledTimes(4);
       expect(shouldUpdateFn).toBeCalledTimes(1);
     });
 
@@ -244,9 +259,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(5);
-      expect(formItemPropsFn).toBeCalledTimes(3);
-      expect(fieldPropsFn).toBeCalledTimes(3);
+      expect(renderFormItemFn).toBeCalledTimes(7);
+      expect(formItemPropsFn).toBeCalledTimes(5);
+      expect(fieldPropsFn).toBeCalledTimes(5);
       expect(shouldUpdateFn).toBeCalledTimes(2);
       expect(shouldUpdateFn).toBeCalledWith(true);
     });
@@ -288,7 +303,7 @@ describe('SchemaForm', () => {
     await waitFor(() => {
       expect(fieldPropsFn).toBeCalledTimes(1);
       expect(formItemPropsFn).toBeCalledTimes(1);
-      expect(renderFormItemFn).toBeCalledTimes(2);
+      expect(renderFormItemFn).toBeCalledTimes(4);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -298,7 +313,7 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(3);
+      expect(renderFormItemFn).toBeCalledTimes(5);
       expect(formItemPropsFn).toBeCalledTimes(1);
       expect(fieldPropsFn).toBeCalledTimes(1);
     });
@@ -343,9 +358,15 @@ describe('SchemaForm', () => {
     );
 
     expect(container.querySelectorAll('span.ant-steps-icon')).toHaveLength(3);
-    expect(container.querySelectorAll('div.ant-steps-item-title')[0]).toHaveTextContent('表单1');
-    expect(container.querySelectorAll('div.ant-steps-item-title')[1]).toHaveTextContent('表单2');
-    expect(container.querySelectorAll('div.ant-steps-item-title')[2]).toHaveTextContent('表单3');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[0],
+    ).toHaveTextContent('表单1');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[1],
+    ).toHaveTextContent('表单2');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[2],
+    ).toHaveTextContent('表单3');
     unmount();
   });
 
@@ -559,6 +580,8 @@ describe('SchemaForm', () => {
       state: string;
     };
 
+    jest.useFakeTimers();
+
     const curColumns: ProFormColumnsType<DataItem>[] = [
       {
         title: '测试',
@@ -587,30 +610,120 @@ describe('SchemaForm', () => {
         columns={curColumns}
       />,
     );
-    await waitTime(300);
+
+    await wrapper.findAllByText('测试');
 
     await act(async () => {
       fireEvent.click(await wrapper.findByText('提 交'));
     });
-    await waitTime(300);
-    expect(onFinish).toBeCalledTimes(0);
-    expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+
+    await waitFor(() => {
+      expect(onFinish).toBeCalledTimes(0);
+    });
+    await waitFor(async () => {
+      expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+    });
     await act(async () => {
       fireEvent.click(await wrapper.findByText('添加一行数据'));
     });
-    await waitTime(300);
+
+    await act(() => {
+      return jest.runOnlyPendingTimers();
+    });
+
     await act(async () => {
       fireEvent.click(await wrapper.findByText('提 交'));
     });
-    await waitTime(300);
-    expect(
-      (await wrapper.baseElement.querySelector('.ant-form-item-explain-error'))?.innerHTML,
-    ).toBe('请填写1');
-    await act(async () => {
-      fireEvent.click(await wrapper.baseElement.querySelector('.action-remove')!);
+
+    await act(() => {
+      return jest.runOnlyPendingTimers();
     });
-    await waitTime(300);
-    expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+
+    await waitFor(async () => {
+      expect(
+        (
+          await wrapper.baseElement.querySelector(
+            '.ant-form-item-explain-error',
+          )
+        )?.innerHTML,
+      ).toBe('请填写1');
+    });
+
+    await act(async () => {
+      fireEvent.click(
+        await wrapper.baseElement.querySelector('.action-remove')!,
+      );
+    });
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    await waitFor(async () => {
+      expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
+    });
+
+    jest.useRealTimers();
+  });
+
+  ['ModalForm', 'DrawerForm'].forEach((layoutType) => {
+    it(`😊 ${layoutType} support destroyOnClose rerender`, async () => {
+      const formColumns = [
+        {
+          dataIndex: 'name',
+          title: '签约客户名称',
+          tooltip: '最长为 24 位',
+          fieldProps: {
+            placeholder: '请输入名称',
+          },
+          width: 'md',
+        },
+      ];
+      const wrapper = render(
+        <BetaSchemaForm
+          trigger={<button>打开</button>}
+          layoutType={layoutType as 'DrawerForm'}
+          columns={formColumns}
+          {...(layoutType === 'ModalForm'
+            ? {
+                modalProps: { destroyOnClose: true },
+              }
+            : {
+                drawerProps: { destroyOnClose: true },
+              })}
+        />,
+      );
+
+      // 刚开始的不存在
+      await waitFor(() => {
+        expect(wrapper.queryByText('签约客户名称')).toBeNull();
+      });
+
+      await wrapper.findAllByText('打开');
+
+      await act(async () => {
+        fireEvent.click(await wrapper.findByText('打开'));
+      });
+
+      // 打开就存在了
+      await wrapper.findAllByText('签约客户名称');
+
+      await act(async () => {
+        fireEvent.click(await wrapper.findByText('取 消'));
+      });
+
+      // 关闭不存在了
+      await waitFor(() => {
+        expect(wrapper.queryByText('签约客户名称')).toBeNull();
+      });
+
+      await act(async () => {
+        fireEvent.click(await wrapper.findByText('打开'));
+      });
+
+      // 打开就又存在了
+      await wrapper.findAllByText('签约客户名称');
+    });
   });
 
   [
@@ -623,6 +736,7 @@ describe('SchemaForm', () => {
     'QueryFilter',
   ].forEach((layoutType) => {
     it(`😊 When SchemaForm's layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
+      jest.useFakeTimers();
       const formColumns = [
         [
           {
@@ -664,7 +778,8 @@ describe('SchemaForm', () => {
           ]}
         />,
       );
-      await waitTime(1000);
+
+      await wrapper.findByText('签约客户名称');
 
       expect(formRef.current).toBeTruthy();
 
@@ -672,26 +787,121 @@ describe('SchemaForm', () => {
         name: 'Ant Design',
       };
 
-      await waitTime(1000);
-
       act(() => {
         formRef.current!.setFieldsValue(value);
       });
-
-      expect(formRef.current!.getFieldsValue(true)).toMatchObject(value);
-
+      waitFor(() => {
+        expect(formRef.current!.getFieldsValue(true)).toMatchObject(value);
+      });
       if (layoutType === 'StepsForm') {
         const button = await wrapper.findByText('下一步');
-        button?.click();
-        await waitTime(1000);
+
+        act(() => {
+          button?.click();
+        });
+
+        act(() => {
+          jest.runOnlyPendingTimers();
+        });
+
         const stepsValue = {
           next: 'Step 2',
         };
+
         act(() => {
           formRef.current!.setFieldsValue(stepsValue);
         });
-        expect(formRef.current!.getFieldsValue()).toMatchObject(stepsValue);
+
+        waitFor(() => {
+          expect(formRef.current!.getFieldsValue(true)).toMatchObject(
+            stepsValue,
+          );
+        });
+        jest.useRealTimers();
       }
     });
+  });
+
+  it('test custom component should not rerender when other field change', () => {
+    const fibonacci = jest.fn();
+
+    const ExpensiveCustomComp = React.memo<{
+      value: any;
+      onChange: (value: any) => void;
+    }>((props) => {
+      fibonacci();
+
+      useEffect(() => {
+        console.log('CustomComp props.change changed');
+      }, [props.onChange]);
+
+      useEffect(() => {
+        console.log('CustomComp props.value changed');
+      }, [props.value]);
+
+      return <div>我是自定义组件</div>;
+    });
+
+    const formColumns: ProFormColumnsType<any, 'test'>[] = [
+      {
+        title: '测试输入框',
+        dataIndex: 'name',
+        valueType: 'text',
+        fieldProps: {
+          maxLength: 100,
+          showCount: true,
+        },
+      },
+      /**
+       * 构造20个耗时组件测试一下 不要在`columns`中使用
+       *     1、renderFormItem
+       *     2、fieldProps（typeof fieldProps === 'function'时）
+       *     3、formItemProps（typeof formItemProps === 'function'时） 以上三种用法会导致每个onValuesChange都去重复构建DomList。 目前只能先这样workaround了
+       */
+      ...Array(1)
+        .fill('custom')
+        .map<ProFormColumnsType<any, 'test'>>((k, i) => {
+          return {
+            title: `自定义组件${i}`,
+            dataIndex: `${k}_${i}`,
+            valueType: 'test',
+          } as ProFormColumnsType<any, 'test'>;
+        }),
+    ];
+
+    const App = () => {
+      const values = useContext(ProProvider);
+      return (
+        <ProProvider.Provider
+          value={{
+            ...values,
+            valueTypeMap: {
+              test: {
+                renderFormItem: (text, props) => {
+                  return <ExpensiveCustomComp {...props?.fieldProps} />;
+                },
+              },
+            },
+          }}
+        >
+          <BetaSchemaForm<any, 'test'>
+            columns={formColumns}
+            title="自定义 valueType"
+          />
+        </ProProvider.Provider>
+      );
+    };
+
+    const wrapper = render(<App />);
+
+    expect(fibonacci).toBeCalledTimes(1);
+
+    fireEvent.change(wrapper.baseElement.querySelector('input#name')!, {
+      target: {
+        value: 'test2',
+      },
+    });
+
+    expect(fibonacci).toBeCalledTimes(1);
   });
 });

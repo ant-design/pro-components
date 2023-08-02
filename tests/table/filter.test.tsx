@@ -45,7 +45,9 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
+    await userEvent.click(
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
     fireEvent.click(screen.getAllByText('关闭')[1], {
       target: {
         checked: true,
@@ -98,7 +100,9 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
+    await userEvent.click(
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
     fireEvent.click(screen.getByText('关闭'), {
       target: {
         checked: true,
@@ -163,9 +167,13 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
     await userEvent.click(
-      container.querySelectorAll('.ant-table-filter-dropdown .ant-dropdown-menu-item')[0],
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
+    await userEvent.click(
+      container.querySelectorAll(
+        '.ant-table-filter-dropdown .ant-dropdown-menu-item',
+      )[0],
     );
     await userEvent.click(
       container.querySelector(
@@ -174,9 +182,13 @@ describe('BasicTable Search', () => {
     );
 
     expect(fn).toHaveBeenCalled();
-    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
     await userEvent.click(
-      container.querySelectorAll('.ant-table-filter-dropdown .ant-dropdown-menu-item')[0],
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
+    await userEvent.click(
+      container.querySelectorAll(
+        '.ant-table-filter-dropdown .ant-dropdown-menu-item',
+      )[0],
     );
     await userEvent.click(
       container.querySelector(
@@ -233,10 +245,18 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-up')[1]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[1]);
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-up')[1],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[1],
+    );
 
     expect(fn).toBeCalledTimes(4);
   });
@@ -280,10 +300,18 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-up')[1]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[1]);
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-up')[1],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[1],
+    );
 
     expect(fn).toHaveBeenCalledTimes(4);
   });

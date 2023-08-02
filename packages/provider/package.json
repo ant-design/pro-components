@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-provider",
-  "version": "2.7.0",
+  "version": "2.12.1",
   "description": "@ant-design/pro-provider",
   "keywords": [
     "antd",
@@ -33,16 +33,19 @@
     "> 1%"
   ],
   "dependencies": {
-    "@ant-design/cssinjs": "^1.5.6",
+    "@ant-design/cssinjs": "^1.11.1",
     "@babel/runtime": "^7.18.0",
     "@ctrl/tinycolor": "^3.4.0",
     "rc-util": "^5.0.1",
     "swr": "^2.0.0"
   },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
   "peerDependencies": {
-    "antd": ">=4.23.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "antd": ">=4.23.0 || >=5.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "publishConfig": {
     "access": "public"

@@ -29,8 +29,7 @@ export type BaseLayoutDesignToken = {
     colorTextCollapsedButtonHover: string;
     colorTextCollapsedButton: string;
     colorMenuBackground: string;
-    colorBgMenuItemCollapsedHover: string;
-    colorBgMenuItemCollapsedSelected: string;
+    menuHeight: number;
     colorBgMenuItemCollapsedElevated: string;
     colorMenuItemDivider: string;
     colorBgMenuItemHover: string;
@@ -53,6 +52,7 @@ export type BaseLayoutDesignToken = {
    */
   header: {
     colorBgHeader: string;
+    colorBgScrollHeader: string;
     colorHeaderTitle: string;
     colorBgMenuItemHover: string;
     colorBgMenuItemSelected: string;
@@ -121,6 +121,7 @@ export const getLayoutDesignToken: (
     ...finalDesignTokens,
     header: {
       colorBgHeader: setAlpha(antdToken.colorBgElevated, 0.6),
+      colorBgScrollHeader: setAlpha(antdToken.colorBgElevated, 0.8),
       colorHeaderTitle: antdToken.colorText,
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: 'transparent',
@@ -141,8 +142,6 @@ export const getLayoutDesignToken: (
       colorTextCollapsedButtonHover: antdToken.colorTextSecondary,
       colorTextCollapsedButton: setAlpha(antdToken.colorTextBase, 0.25),
       colorMenuBackground: 'transparent',
-      colorBgMenuItemCollapsedHover: 'rgba(90, 75, 75, 0.03)',
-      colorBgMenuItemCollapsedSelected: setAlpha(antdToken.colorTextBase, 0.04),
       colorMenuItemDivider: setAlpha(antdToken.colorTextBase, 0.06),
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: setAlpha(antdToken.colorTextBase, 0.04),

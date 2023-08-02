@@ -1,10 +1,12 @@
-﻿import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
-import { fireEvent, render } from '@testing-library/react';
+﻿import ProForm, {
+  ProFormUploadButton,
+  ProFormUploadDragger,
+} from '@ant-design/pro-form';
+import { act, fireEvent, render } from '@testing-library/react';
 import { Form } from 'antd';
 import type { UploadFile } from 'antd/lib/upload/interface';
-import { act } from 'react-dom/test-utils';
 import mock from 'xhr-mock';
-import { waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 const mockFile = new File(['foo'], 'foo.png', {
   type: 'image/png',
@@ -56,13 +58,16 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
-        target: {
-          files: [mockFile],
+      fireEvent.change(
+        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
+        {
+          target: {
+            files: [mockFile],
+          },
         },
-      });
+      );
     });
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     expect(fn).toBeCalled();
   });
 
@@ -89,13 +94,16 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
-        target: {
-          files: [mockFile],
+      fireEvent.change(
+        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
+        {
+          target: {
+            files: [mockFile],
+          },
         },
-      });
+      );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     act(() => {
       expect(
@@ -119,7 +127,8 @@ describe('ProFormUpload', () => {
       </Form>,
     );
     expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')?.innerHTML,
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')
+        ?.innerHTML,
     ).toMatchSnapshot();
     act(() => {
       wrapper.rerender(
@@ -138,7 +147,7 @@ describe('ProFormUpload', () => {
         </Form>,
       );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.ant-upload')
@@ -161,7 +170,7 @@ describe('ProFormUpload', () => {
         </Form>,
       );
     });
-    await waitTime(100);
+    await waitForWaitTime(100);
     expect(
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.ant-upload')
@@ -188,13 +197,16 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
-        target: {
-          files: [mockFile],
+      fireEvent.change(
+        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
+        {
+          target: {
+            files: [mockFile],
+          },
         },
-      });
+      );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn).toBeCalled();
     expect(onChangeFn).toBeCalled();
   });
@@ -212,10 +224,12 @@ describe('ProFormUpload', () => {
       </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
       getComputedStyle(
-        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload.ant-upload-drag')!,
+        wrapper.baseElement.querySelector<HTMLDivElement>(
+          '.ant-upload.ant-upload-drag',
+        )!,
       )?.display,
     ).toBe('none');
   });
@@ -235,10 +249,11 @@ describe('ProFormUpload', () => {
       </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload-drag .ant-upload-extra')
-        ?.textContent,
+      wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-upload-drag .ant-upload-extra',
+      )?.textContent,
     ).toBe(extra);
   });
 
@@ -255,9 +270,11 @@ describe('ProFormUpload', () => {
       </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.anticon.anticon-upload'),
+      wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.anticon.anticon-upload',
+      ),
     ).toBeFalsy();
   });
 });

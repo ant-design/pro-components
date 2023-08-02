@@ -15,7 +15,9 @@ const FieldRate: ProFieldFC<{
   text: string;
 }> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
   if (mode === 'read') {
-    const dom = <Rate allowHalf disabled ref={ref} {...fieldProps} value={text} />;
+    const dom = (
+      <Rate allowHalf disabled ref={ref} {...fieldProps} value={text} />
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
     }

@@ -28,8 +28,12 @@ const dataSource = [
 
 export default () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
-  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>([]);
-  const [size, setSize] = useState<'small' | 'default' | 'large' | undefined>('default');
+  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>(
+    [],
+  );
+  const [size, setSize] = useState<'small' | 'default' | 'large' | undefined>(
+    'default',
+  );
   const [split, setSplit] = useState<0 | 1>(1);
   const rowSelection = {
     selectedRowKeys,

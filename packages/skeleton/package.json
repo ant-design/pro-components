@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-skeleton",
-  "version": "2.1.0",
+  "version": "2.1.7",
   "description": "@ant-design/pro-skeleton",
   "keywords": [
     "antd",
@@ -34,13 +34,15 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.18.0",
-    "use-media-antd-query": "^1.1.0"
+    "@babel/runtime": "^7.18.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "antd": ">=4.23.0 || >=5.0.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "publishConfig": {
     "access": "public"

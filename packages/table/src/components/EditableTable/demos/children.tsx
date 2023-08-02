@@ -77,7 +77,9 @@ const loopDataSourceFilter = (
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(() => defaultData);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
+    () => defaultData,
+  );
 
   const removeRow = useRefFunction((record: DataSourceType) => {
     setDataSource(loopDataSourceFilter(dataSource, record.id));
@@ -88,7 +90,8 @@ export default () => {
       dataIndex: 'title',
       formItemProps: (form, { rowIndex }) => {
         return {
-          rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+          rules:
+            rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
       width: '30%',

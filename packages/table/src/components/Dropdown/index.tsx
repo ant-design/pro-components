@@ -44,7 +44,10 @@ const DropdownButton: React.FC<DropdownProps> = ({
   });
 
   return (
-    <Dropdown {...dropdownProps} className={classnames(tempClassName, className)}>
+    <Dropdown
+      {...dropdownProps}
+      className={classnames(tempClassName, className)}
+    >
       <Button style={style}>
         {children} <DownOutlined />
       </Button>
@@ -69,7 +72,10 @@ const TableDropdown: React.FC<DropdownProps> & {
     })),
   });
   return (
-    <Dropdown {...dropdownProps} className={classnames(className, propsClassName)}>
+    <Dropdown
+      {...dropdownProps}
+      className={classnames(className, propsClassName)}
+    >
       <a style={style}>{children || <EllipsisOutlined />}</a>
     </Dropdown>
   );

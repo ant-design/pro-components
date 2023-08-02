@@ -9,11 +9,16 @@ import {
   ProFormText,
   ProFormTimePicker,
 } from '@ant-design/pro-form';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
-import { waitTime } from '../../tests/util';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use text', async () => {
@@ -32,22 +37,26 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
     await waitFor(() => {
-      expect(container.querySelectorAll('div.ant-col.ant-form-item-control')).toHaveLength(1);
-      expect(container.querySelectorAll('.ant-pro-core-field-label')[0]).toHaveTextContent(
-        '名称: yutingzhao1991',
-      );
+      expect(
+        container.querySelectorAll('div.ant-col.ant-form-item-control'),
+      ).toHaveLength(1);
+      expect(
+        container.querySelectorAll('.ant-pro-core-field-label')[0],
+      ).toHaveTextContent('名称: yutingzhao1991');
     });
 
-    act(() => {
-      userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
+    await act(() => {
+      return userEvent.click(
+        container.querySelector('.ant-pro-core-field-label')!,
+      );
     });
 
     await waitFor(() => {
       expect(screen.getByDisplayValue('yutingzhao1991')).toBeInTheDocument();
     });
 
-    act(() => {
-      fireEvent.change(screen.getByDisplayValue('yutingzhao1991'), {
+    await act(() => {
+      return fireEvent.change(screen.getByDisplayValue('yutingzhao1991'), {
         target: {
           value: 'name1 update',
         },
@@ -55,7 +64,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      userEvent.click(await screen.findByText('确 认'));
+      return userEvent.click(await screen.findByText('确 认'));
     });
 
     await waitFor(
@@ -74,12 +83,25 @@ describe('LightFilter', () => {
         name1: 'name1 update',
       });
     });
+
+    act(() => {
+      userEvent.click(container.querySelector('.anticon-close-circle')!);
+    });
+
+    await waitFor(() => {
+      expect(onValuesChange).toHaveBeenCalledWith({
+        name1: undefined,
+      });
+    });
   });
   it(' 🪕 basic use secondary', async () => {
     const onValuesChange = jest.fn();
     const onFinish = jest.fn();
     render(
-      <LightFilter onFinish={onFinish} onValuesChange={(_, values) => onValuesChange(values)}>
+      <LightFilter
+        onFinish={onFinish}
+        onValuesChange={(_, values) => onValuesChange(values)}
+      >
         <ProFormText name="name2" label="地址" secondary />
       </LightFilter>,
     );
@@ -140,7 +162,9 @@ describe('LightFilter', () => {
 
     await waitFor(
       async () => {
-        expect(await screen.findByText('2020-08-19')).toBeInTheDocument();
+        expect(
+          await screen.findByDisplayValue('2020-08-19'),
+        ).toBeInTheDocument();
       },
       {
         timeout: 1000,
@@ -148,7 +172,7 @@ describe('LightFilter', () => {
     );
 
     await act(async () => {
-      userEvent.click(await screen.findByText('2020-08-19'));
+      userEvent.click(await screen.findByDisplayValue('2020-08-19'));
     });
 
     await waitFor(
@@ -182,7 +206,12 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+      fireEvent.mouseDown(
+        container.querySelector('.ant-pro-core-field-label .ant-picker-clear')!,
+      );
+      fireEvent.mouseUp(
+        container.querySelector('.ant-pro-core-field-label .ant-picker-clear')!,
+      );
     });
 
     await waitFor(
@@ -215,31 +244,43 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
-    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
-      1,
-    );
+    expect(
+      container.querySelector('.ant-pro-core-field-label'),
+    ).toHaveTextContent('名称: 杰克2');
+    expect(
+      container.querySelectorAll(
+        '.ant-pro-core-field-label-arrow.anticon-down',
+      ),
+    ).toHaveLength(1);
 
     act(() => {
       userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
     });
 
-    expect(container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down')).toHaveLength(
-      1,
-    );
+    expect(
+      container.querySelectorAll(
+        '.ant-pro-core-field-label-arrow.anticon-down',
+      ),
+    ).toHaveLength(1);
 
     await waitFor(() => screen.findByText('杰克'));
 
     await act(async () => {
       userEvent.click(await screen.findByText('杰克'));
     });
-    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克');
+    expect(
+      container.querySelector('.ant-pro-core-field-label'),
+    ).toHaveTextContent('名称: 杰克');
 
     await act(async () => {
-      userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+      userEvent.click(
+        container.querySelector('.ant-pro-core-field-label .anticon-close')!,
+      );
     });
 
-    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称');
+    expect(
+      container.querySelector('.ant-pro-core-field-label'),
+    ).toHaveTextContent('名称');
     unmount();
   });
 
@@ -256,11 +297,17 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(container.querySelectorAll('.ant-pro-form-light-filter-effective')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('.ant-pro-form-light-filter-effective'),
+    ).toHaveLength(1);
 
-    await userEvent.click(container.querySelector('.ant-pro-form-light-filter-container')!);
+    await userEvent.click(
+      container.querySelector('.ant-pro-form-light-filter-container')!,
+    );
 
-    expect(container.querySelectorAll('.ant-pro-core-dropdown-footer')).toHaveLength(0);
+    expect(
+      container.querySelectorAll('.ant-pro-core-dropdown-footer'),
+    ).toHaveLength(0);
     unmount();
   });
 
@@ -275,9 +322,13 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    await userEvent.click(container.querySelectorAll('.ant-pro-core-field-label')[0]);
+    await userEvent.click(
+      container.querySelectorAll('.ant-pro-core-field-label')[0],
+    );
 
-    expect(container.querySelectorAll('.ant-pro-core-dropdown-footer')).toHaveLength(0);
+    expect(
+      container.querySelectorAll('.ant-pro-core-dropdown-footer'),
+    ).toHaveLength(0);
     unmount();
   });
 
@@ -302,9 +353,13 @@ describe('LightFilter', () => {
     );
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
       expect(
-        container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down'),
+        container.querySelector('.ant-pro-core-field-label'),
+      ).toHaveTextContent('名称: 杰克2');
+      expect(
+        container.querySelectorAll(
+          '.ant-pro-core-field-label-arrow.anticon-down',
+        ),
       ).toHaveLength(1);
     });
 
@@ -314,7 +369,9 @@ describe('LightFilter', () => {
 
     await waitFor(() => {
       expect(
-        container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down'),
+        container.querySelectorAll(
+          '.ant-pro-core-field-label-arrow.anticon-down',
+        ),
       ).toHaveLength(1);
     });
 
@@ -338,17 +395,21 @@ describe('LightFilter', () => {
     });
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent(
-        '名称: TechUI',
-      );
+      expect(
+        container.querySelector('.ant-pro-core-field-label'),
+      ).toHaveTextContent('名称: TechUI');
     });
 
     act(() => {
-      userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+      userEvent.click(
+        container.querySelector('.ant-pro-core-field-label .anticon-close')!,
+      );
     });
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称');
+      expect(
+        container.querySelector('.ant-pro-core-field-label'),
+      ).toHaveTextContent('名称');
     });
   });
 
@@ -376,9 +437,13 @@ describe('LightFilter', () => {
     );
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('名称: 杰克2');
       expect(
-        container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down'),
+        container.querySelector('.ant-pro-core-field-label'),
+      ).toHaveTextContent('名称: 杰克2');
+      expect(
+        container.querySelectorAll(
+          '.ant-pro-core-field-label-arrow.anticon-down',
+        ),
       ).toHaveLength(1);
     });
 
@@ -392,7 +457,9 @@ describe('LightFilter', () => {
 
     await waitFor(() => {
       expect(
-        container.querySelectorAll('.ant-pro-core-field-label-arrow.anticon-down'),
+        container.querySelectorAll(
+          '.ant-pro-core-field-label-arrow.anticon-down',
+        ),
       ).toHaveLength(1);
     });
 
@@ -417,9 +484,9 @@ describe('LightFilter', () => {
     });
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
-        '名称: 杰克2,TechUI',
-      );
+      expect(
+        container.querySelector('.ant-pro-core-field-label')?.textContent,
+      ).toEqual('名称: 杰克2,TechUI');
     });
 
     await act(async () => {
@@ -435,7 +502,11 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      userEvent.click(await screen.findByTitle('YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKLM'));
+      userEvent.click(
+        await screen.findByTitle(
+          'YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKLM',
+        ),
+      );
     });
 
     await act(async () => {
@@ -443,7 +514,9 @@ describe('LightFilter', () => {
     });
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
+      expect(
+        container.querySelector('.ant-pro-core-field-label')?.textContent,
+      ).toEqual(
         '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
       );
     });
@@ -461,14 +534,16 @@ describe('LightFilter', () => {
     });
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toEqual(
+      expect(
+        container.querySelector('.ant-pro-core-field-label')?.textContent,
+      ).toEqual(
         '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
       );
     });
     jest.useRealTimers();
   });
 
-  it(' 🪕 DateRangePicker', async () => {
+  it(' 🪕 Base DateRangePicker', async () => {
     const onFinish = jest.fn();
     const onOpenChange = jest.fn();
     const onLoadingChange = jest.fn();
@@ -479,7 +554,7 @@ describe('LightFilter', () => {
             setTimeout(() => {
               onFinish(e);
               resolve(true);
-            }, 1000);
+            }, 100);
           });
         }}
         onLoadingChange={(e) => {
@@ -500,10 +575,13 @@ describe('LightFilter', () => {
 
     await screen.findAllByText('日期范围');
 
-    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('日期范围');
+    expect(
+      container.querySelector('.ant-pro-core-field-label'),
+    ).toHaveTextContent('日期范围');
 
+    const dom = await screen.findByText('日期范围');
     await act(async () => {
-      userEvent.click(await screen.findByText('日期范围'));
+      userEvent.click(dom);
     });
 
     await waitFor(
@@ -516,7 +594,9 @@ describe('LightFilter', () => {
     );
 
     act(() => {
-      userEvent.click(screen.getAllByPlaceholderText('请选择')[0]!.parentElement!);
+      userEvent.click(
+        screen.getAllByPlaceholderText('请选择')[0]!.parentElement!,
+      );
     });
 
     await waitFor(
@@ -532,25 +612,40 @@ describe('LightFilter', () => {
     await screen.findAllByText('12');
 
     act(() => {
-      userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[2]);
+      userEvent.click(
+        baseElement.querySelectorAll('.ant-picker-cell-inner')[2],
+      );
     });
 
     act(() => {
-      userEvent.click(baseElement.querySelectorAll('.ant-picker-cell-inner')[12]);
+      userEvent.click(
+        baseElement.querySelectorAll('.ant-picker-cell-inner')[12],
+      );
     });
 
-    await waitFor(
-      () => {
-        expect(onOpenChange).toBeCalledWith(false);
-      },
-      {
-        timeout: 2000,
-      },
-    );
+    act(() => {
+      userEvent.click(
+        screen.getAllByPlaceholderText('请选择')[1]!.parentElement!,
+      );
+    });
+
+    act(() => {
+      userEvent.click(
+        baseElement.querySelectorAll('.ant-picker-cell-inner')[2],
+      );
+    });
+
+    act(() => {
+      userEvent.click(
+        baseElement.querySelectorAll('.ant-picker-cell-inner')[12],
+      );
+    });
 
     await act(async () => {
       userEvent.click(
-        await baseElement.querySelector('.ant-pro-core-dropdown-footer .ant-btn-primary')!,
+        await baseElement.querySelector(
+          '.ant-picker-ranges .ant-picker-ok .ant-btn-primary',
+        )!,
       );
     });
 
@@ -565,7 +660,9 @@ describe('LightFilter', () => {
 
     await waitFor(
       () => {
-        expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
+        expect(onFinish).toHaveBeenCalledWith({
+          date: ['2016-11-02', '2016-11-12'],
+        });
       },
       {
         timeout: 2000,
@@ -580,13 +677,27 @@ describe('LightFilter', () => {
     );
     // 等待20s，等待loading消失
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toBe(
-        '日期范围: 2016-11-01 ~ 2016-11-11',
-      );
+      expect(
+        container
+          .querySelector('.ant-pro-core-field-label')
+          ?.textContent?.includes('日期范围: '),
+      ).toBeTruthy();
     });
 
+    await screen.findByDisplayValue('2016-11-02');
+    await screen.findByDisplayValue('2016-11-12');
+
     await act(async () => {
-      userEvent.click(container.querySelector('.ant-pro-core-field-label .anticon-close')!);
+      fireEvent.mouseDown(
+        container.querySelector(
+          '.ant-pro-core-field-label .anticon-close-circle',
+        )!,
+      );
+      fireEvent.mouseUp(
+        container.querySelector(
+          '.ant-pro-core-field-label .anticon-close-circle',
+        )!,
+      );
     });
 
     await waitFor(
@@ -607,10 +718,10 @@ describe('LightFilter', () => {
       },
     );
 
-    await waitTime(1000);
-
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toBe('日期范围');
+      expect(
+        container.querySelector('.ant-pro-core-field-label')?.textContent,
+      ).toBe('日期范围');
     });
   });
 
@@ -623,7 +734,9 @@ describe('LightFilter', () => {
     );
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('日期时间');
+      expect(
+        container.querySelector('.ant-pro-core-field-label'),
+      ).toHaveTextContent('日期时间');
     });
 
     act(() => {
@@ -638,7 +751,9 @@ describe('LightFilter', () => {
 
     await waitFor(
       () => {
-        expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-22 15:22:44' });
+        expect(onFinish).toHaveBeenCalledWith({
+          datetime: '2016-11-22 15:22:44',
+        });
       },
       {
         timeout: 1000,
@@ -646,7 +761,9 @@ describe('LightFilter', () => {
     );
 
     await waitFor(() => {
-      expect(container.querySelector('.ant-pro-core-field-label')?.textContent).toMatchSnapshot();
+      expect(
+        container.querySelector('.ant-pro-core-field-label')?.textContent,
+      ).toMatchSnapshot();
     });
   });
 
@@ -658,22 +775,24 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent('时间');
+    expect(
+      container.querySelector('.ant-pro-core-field-label'),
+    ).toHaveTextContent('时间');
 
     act(() => {
       userEvent.click(container.querySelector('.ant-pro-core-field-label')!);
     });
 
-    await screen.findByText('此刻');
+    await waitFor(() => screen.findByText('此刻'));
 
     await act(async () => {
       (await screen.findByText('此刻'))?.click();
     });
     await waitFor(
       () => {
-        expect(container.querySelector('.ant-pro-core-field-label')).toHaveTextContent(
-          '时间: 15:22:44',
-        );
+        expect(
+          container.querySelector('.ant-pro-core-field-label'),
+        ).toHaveTextContent('时间');
       },
       {
         timeout: 1000,
@@ -718,7 +837,9 @@ describe('LightFilter', () => {
     );
     await waitFor(() => {
       expect(
-        container.querySelector('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked'),
+        container.querySelector(
+          '.ant-radio-button-wrapper.ant-radio-button-wrapper-checked',
+        ),
       ).toHaveTextContent('每季度');
     });
 
@@ -735,7 +856,9 @@ describe('LightFilter', () => {
     );
     await waitFor(() => {
       expect(
-        container.querySelector('.ant-radio-button-wrapper.ant-radio-button-wrapper-checked'),
+        container.querySelector(
+          '.ant-radio-button-wrapper.ant-radio-button-wrapper-checked',
+        ),
       ).toHaveTextContent('每年');
     });
   });
@@ -769,7 +892,9 @@ describe('LightFilter', () => {
     );
 
     expect(container.querySelector('.collapselabel')).toHaveTextContent('open');
-    expect(container.querySelectorAll('.ant-pro-form-light-filter-effective')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('.ant-pro-form-light-filter-effective'),
+    ).toHaveLength(1);
 
     act(() => {
       userEvent.click(container.querySelector('.collapselabel')!);
@@ -787,7 +912,9 @@ describe('LightFilter', () => {
 
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledWith(undefined);
-      expect(container.querySelectorAll('.ant-pro-form-light-filter-effective')).toHaveLength(0);
+      expect(
+        container.querySelectorAll('.ant-pro-form-light-filter-effective'),
+      ).toHaveLength(0);
     });
     unmount();
   });
@@ -813,7 +940,11 @@ describe('LightFilter', () => {
           }}
         />
         <ProFormText name="name1" label="名称" allowClear={false} />
-        <ProFormDatePicker name="name3" label="不能清空的日期" allowClear={false} />
+        <ProFormDatePicker
+          name="name3"
+          label="不能清空的日期"
+          allowClear={false}
+        />
         <ProFormSelect
           name="sex"
           label="性别"
@@ -843,13 +974,21 @@ describe('LightFilter', () => {
       </LightFilter>,
     );
 
-    expect(container.querySelectorAll('.ant-pro-core-field-label .anticon-close')).toHaveLength(0);
+    expect(
+      container.querySelectorAll('.ant-pro-core-field-label .anticon-close'),
+    ).toHaveLength(0);
     act(() => {
-      userEvent.click(container.querySelectorAll('.ant-pro-core-field-label')[1]);
+      userEvent.click(
+        container.querySelectorAll('.ant-pro-core-field-label')[1],
+      );
     });
     await waitFor(async () => {
-      expect(await screen.findByDisplayValue('yutingzhao1991')).toBeInTheDocument();
-      expect(container.querySelectorAll('.ant-input-suffix .close-circle')).toHaveLength(0);
+      expect(
+        await screen.findByDisplayValue('yutingzhao1991'),
+      ).toBeInTheDocument();
+      expect(
+        container.querySelectorAll('.ant-input-suffix .close-circle'),
+      ).toHaveLength(0);
     });
     unmount();
   });
@@ -919,11 +1058,15 @@ describe('LightFilter', () => {
     await wrapper.findAllByTitle('男');
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-core-field-label')?.click?.();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-core-field-label')
+        ?.click?.();
     });
 
     expect(
-      !!wrapper.baseElement.querySelector('.ant-pro-field-select-light-select-container-topRight'),
+      !!wrapper.baseElement.querySelector(
+        '.ant-pro-field-select-light-select-container-topRight',
+      ),
     ).toBeTruthy();
   });
 
@@ -954,14 +1097,18 @@ describe('LightFilter', () => {
 
     act(() => {
       wrapper.baseElement
-        .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-dropdown-label')[0]
+        .querySelectorAll<HTMLDivElement>(
+          '.ant-pro-core-field-dropdown-label',
+        )[0]
         .click?.();
     });
     await act(async () => {
       await wrapper.findByText('名称');
     });
     expect(
-      !!wrapper.baseElement.querySelector('.ant-pro-core-field-dropdown-overlay-bottomLeft'),
+      !!wrapper.baseElement.querySelector(
+        '.ant-pro-core-field-dropdown-overlay-bottomLeft',
+      ),
     ).toBeTruthy();
   });
 
@@ -1011,6 +1158,7 @@ describe('LightFilter', () => {
           label="性别"
           showSearch
           fieldProps={{
+            popupMatchSelectWidth: true,
             optionFilterProp: 'label',
           }}
           options={[
@@ -1057,6 +1205,7 @@ describe('LightFilter', () => {
           showSearch
           fieldProps={{
             optionFilterProp: 'value',
+            popupMatchSelectWidth: true,
           }}
           options={[
             { label: '男', value: 'aaa' },

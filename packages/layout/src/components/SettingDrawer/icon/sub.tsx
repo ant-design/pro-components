@@ -17,25 +17,61 @@ export function SubIcon() {
           y="-27.1%"
           filterUnits="objectBoundingBox"
         >
-          <feMorphology in="SourceAlpha" radius="0.25" result="shadowSpreadOuter1" />
-          <feOffset dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1" />
-          <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1" />
+          <feMorphology
+            in="SourceAlpha"
+            radius="0.25"
+            result="shadowSpreadOuter1"
+          />
+          <feOffset
+            dy="1"
+            in="shadowSpreadOuter1"
+            result="shadowOffsetOuter1"
+          />
+          <feGaussianBlur
+            in="shadowOffsetOuter1"
+            result="shadowBlurOuter1"
+            stdDeviation="1"
+          />
           <feColorMatrix
             in="shadowBlurOuter1"
             result="shadowMatrixOuter1"
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0"
           />
-          <feMorphology in="SourceAlpha" radius="1" result="shadowSpreadOuter2" />
-          <feOffset dy="2" in="shadowSpreadOuter2" result="shadowOffsetOuter2" />
-          <feGaussianBlur in="shadowOffsetOuter2" result="shadowBlurOuter2" stdDeviation="4" />
+          <feMorphology
+            in="SourceAlpha"
+            radius="1"
+            result="shadowSpreadOuter2"
+          />
+          <feOffset
+            dy="2"
+            in="shadowSpreadOuter2"
+            result="shadowOffsetOuter2"
+          />
+          <feGaussianBlur
+            in="shadowOffsetOuter2"
+            result="shadowBlurOuter2"
+            stdDeviation="4"
+          />
           <feColorMatrix
             in="shadowBlurOuter2"
             result="shadowMatrixOuter2"
             values="0 0 0 0 0.098466735 0 0 0 0 0.0599695403 0 0 0 0 0.0599695403 0 0 0 0.07 0"
           />
-          <feMorphology in="SourceAlpha" radius="2" result="shadowSpreadOuter3" />
-          <feOffset dy="4" in="shadowSpreadOuter3" result="shadowOffsetOuter3" />
-          <feGaussianBlur in="shadowOffsetOuter3" result="shadowBlurOuter3" stdDeviation="8" />
+          <feMorphology
+            in="SourceAlpha"
+            radius="2"
+            result="shadowSpreadOuter3"
+          />
+          <feOffset
+            dy="4"
+            in="shadowSpreadOuter3"
+            result="shadowOffsetOuter3"
+          />
+          <feGaussianBlur
+            in="shadowOffsetOuter3"
+            result="shadowBlurOuter3"
+            stdDeviation="8"
+          />
           <feColorMatrix
             in="shadowBlurOuter3"
             result="shadowMatrixOuter3"
@@ -54,14 +90,73 @@ export function SubIcon() {
           <use fill="#F0F2F5" xlinkHref="#path-1" />
         </g>
         <path fill="#FFF" d="M26 0h55c5.523 0 10 4.477 10 10v8H26V0z" />
-        <path fill="#001529" d="M10 0h19v72H10C4.477 72 0 67.523 0 62V10C0 4.477 4.477 0 10 0z" />
-        <rect width="14" height="3" x="5" y="18" fill="#D7DDE6" opacity="0.2" rx="1.5" />
-        <rect width="14" height="3" x="5" y="42" fill="#D7DDE6" opacity="0.2" rx="1.5" />
-        <rect width="9" height="3" x="9" y="24" fill="#D7DDE6" opacity="0.2" rx="1.5" />
-        <rect width="9" height="3" x="9" y="48" fill="#D7DDE6" opacity="0.2" rx="1.5" />
-        <rect width="9" height="3" x="9" y="36" fill="#D7DDE6" opacity="0.2" rx="1.5" />
-        <rect width="14" height="3" x="9" y="30" fill="#D7DDE6" opacity="0.2" rx="1.5" />
-        <rect width="14" height="3" x="9" y="54" fill="#D7DDE6" opacity="0.2" rx="1.5" />
+        <path
+          fill="#001529"
+          d="M10 0h19v72H10C4.477 72 0 67.523 0 62V10C0 4.477 4.477 0 10 0z"
+        />
+        <rect
+          width="14"
+          height="3"
+          x="5"
+          y="18"
+          fill="#D7DDE6"
+          opacity="0.2"
+          rx="1.5"
+        />
+        <rect
+          width="14"
+          height="3"
+          x="5"
+          y="42"
+          fill="#D7DDE6"
+          opacity="0.2"
+          rx="1.5"
+        />
+        <rect
+          width="9"
+          height="3"
+          x="9"
+          y="24"
+          fill="#D7DDE6"
+          opacity="0.2"
+          rx="1.5"
+        />
+        <rect
+          width="9"
+          height="3"
+          x="9"
+          y="48"
+          fill="#D7DDE6"
+          opacity="0.2"
+          rx="1.5"
+        />
+        <rect
+          width="9"
+          height="3"
+          x="9"
+          y="36"
+          fill="#D7DDE6"
+          opacity="0.2"
+          rx="1.5"
+        />
+        <rect
+          width="14"
+          height="3"
+          x="9"
+          y="30"
+          fill="#D7DDE6"
+          opacity="0.2"
+          rx="1.5"
+        />
+        <rect
+          width="14"
+          height="3"
+          x="9"
+          y="54"
+          fill="#D7DDE6"
+          opacity="0.2"
+          rx="1.5"
+        />
       </g>
     </svg>
   );

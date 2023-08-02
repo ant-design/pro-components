@@ -1,7 +1,10 @@
 ﻿import type { TreeSelectProps } from 'antd';
 import type { RefSelectProps } from 'antd/lib/select';
 import React from 'react';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
+import type {
+  ProFormFieldItemProps,
+  ProFormFieldRemoteProps,
+} from '../../typing';
 import ProFormField from '../Field';
 
 export type ProFormTreeSelectProps<T = any> = ProFormFieldItemProps<
@@ -22,10 +25,10 @@ export type ProFormTreeSelectProps<T = any> = ProFormFieldItemProps<
  *
  * @param
  */
-const ProFormTreeSelect: React.ForwardRefRenderFunction<any, ProFormTreeSelectProps<any>> = (
-  { fieldProps, request, params, proFieldProps, ...rest },
-  ref,
-) => {
+const ProFormTreeSelect: React.ForwardRefRenderFunction<
+  any,
+  ProFormTreeSelectProps<any>
+> = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
     <ProFormField
       valueType="treeSelect"
@@ -40,6 +43,7 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<any, ProFormTreeSelectPr
   );
 };
 
-const WarpProFormTreeSelect: React.FC<ProFormTreeSelectProps> = React.forwardRef(ProFormTreeSelect);
+const WarpProFormTreeSelect: React.FC<ProFormTreeSelectProps> =
+  React.forwardRef(ProFormTreeSelect);
 
 export default WarpProFormTreeSelect;

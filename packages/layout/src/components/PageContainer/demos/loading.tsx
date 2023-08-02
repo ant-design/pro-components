@@ -4,10 +4,16 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 export default () => {
   const customLoadingDom = useMemo(
-    () => <div style={{ color: 'red', padding: '30px', textAlign: 'center' }}>自定义加载...</div>,
+    () => (
+      <div style={{ color: 'red', padding: '30px', textAlign: 'center' }}>
+        自定义加载...
+      </div>
+    ),
     [],
   );
-  const [customLoading, setCustomLoading] = useState<React.ReactNode | boolean>(customLoadingDom);
+  const [customLoading, setCustomLoading] = useState<React.ReactNode | boolean>(
+    customLoadingDom,
+  );
 
   useEffect(() => {
     if (process.env.NODE_ENV?.toLocaleLowerCase() === 'test') {

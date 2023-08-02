@@ -49,7 +49,10 @@ title: (_, type) => {
 2. 如果是 umi 项目，可以在 app.ts 中配置：
 
 ```typescript
-import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs';
+import {
+  StyleProvider,
+  legacyLogicalPropertiesTransformer,
+} from '@ant-design/cssinjs';
 
 export function rootContainer(container: React.ReactElement) {
   return React.createElement(

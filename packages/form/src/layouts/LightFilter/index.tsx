@@ -21,7 +21,7 @@ import { BaseForm } from '../../BaseForm';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
 
-export type LightFilterProps<T> = {
+export type LightFilterProps<T, U = Record<string, any>> = {
   collapse?: boolean;
   /**
    * @name 收起的label dom
@@ -52,7 +52,7 @@ export type LightFilterProps<T> = {
    */
   placement?: TooltipPlacement;
 } & Omit<FormProps<T>, 'onFinish'> &
-  CommonFormProps<T>;
+  CommonFormProps<T, U>;
 
 /**
  * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域
@@ -118,30 +118,46 @@ const LightFilterContainer: React.FC<{
       return collapseLabel;
     }
     if (collapse) {
-      return <FilterOutlined className={`${lightFilterClassName}-collapse-icon ${hashId}`} />;
+      return (
+        <FilterOutlined
+          className={`${lightFilterClassName}-collapse-icon ${hashId}`.trim()}
+        />
+      );
     }
     return (
       <FieldLabel
         size={size}
         label={intl.getMessage('form.lightFilter.more', '更多筛选')}
-        expanded={open}
       />
     );
   };
 
   return wrapSSR(
     <div
-      className={classNames(lightFilterClassName, hashId, `${lightFilterClassName}-${size}`, {
-        [`${lightFilterClassName}-effective`]: Object.keys(values).some((key) => values[key]),
-      })}
+      className={classNames(
+        lightFilterClassName,
+        hashId,
+        `${lightFilterClassName}-${size}`,
+        {
+          [`${lightFilterClassName}-effective`]: Object.keys(values).some(
+            (key) =>
+              Array.isArray(values[key]) ? values[key].length > 0 : values[key],
+          ),
+        },
+      )}
     >
-      <div className={`${lightFilterClassName}-container ${hashId}`}>
+      <div className={`${lightFilterClassName}-container ${hashId}`.trim()}>
         {outsideItems.map((child: any, index) => {
           const { key } = child;
           const { fieldProps } = child.props;
-          const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
+          const newPlacement = fieldProps?.placement
+            ? fieldProps?.placement
+            : placement;
           return (
-            <div className={`${lightFilterClassName}-item ${hashId}`} key={key || index}>
+            <div
+              className={`${lightFilterClassName}-item ${hashId}`.trim()}
+              key={key || index}
+            >
               {React.cloneElement(child, {
                 fieldProps: {
                   ...child.props.fieldProps,
@@ -149,6 +165,7 @@ const LightFilterContainer: React.FC<{
                 },
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
+                  ...child.props.proFieldProps,
                   light: true,
                   label: child.props.label,
                   bordered,
@@ -159,7 +176,10 @@ const LightFilterContainer: React.FC<{
           );
         })}
         {collapseItems.length ? (
-          <div className={`${lightFilterClassName}-item ${hashId}`} key="more">
+          <div
+            className={`${lightFilterClassName}-item ${hashId}`.trim()}
+            key="more"
+          >
             <FilterDropdown
               padding={24}
               open={open}
@@ -200,11 +220,17 @@ const LightFilterContainer: React.FC<{
                   },
                 };
                 if (moreValues.hasOwnProperty(name)) {
-                  newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
+                  newFieldProps[child.props.valuePropName || 'value'] =
+                    moreValues[name];
                 }
-                const newPlacement = fieldProps?.placement ? fieldProps?.placement : placement;
+                const newPlacement = fieldProps?.placement
+                  ? fieldProps?.placement
+                  : placement;
                 return (
-                  <div className={`${lightFilterClassName}-line ${hashId}`} key={key}>
+                  <div
+                    className={`${lightFilterClassName}-line ${hashId}`.trim()}
+                    key={key}
+                  >
                     {React.cloneElement(child, {
                       fieldProps: {
                         ...newFieldProps,
@@ -244,7 +270,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   });
   const formRef = useRef<ProFormInstance>();
 
-  useImperativeHandle(userFormRef, () => formRef.current);
+  useImperativeHandle(userFormRef, () => formRef.current, [formRef.current]);
 
   return (
     <BaseForm
@@ -255,9 +281,10 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
         return (
           <LightFilterContainer
             prefixCls={prefixCls}
-            items={items.flatMap((item: any) => {
+            items={items?.flatMap((item: any) => {
               /** 如果是 ProFormGroup，直接拼接dom */
-              if (item?.type.displayName === 'ProForm-Group') return item.props.children;
+              if (item?.type.displayName === 'ProForm-Group')
+                return item.props.children;
               return item;
             })}
             size={size}

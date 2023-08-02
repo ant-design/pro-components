@@ -3,7 +3,9 @@ import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
 
-export type ProFormDigitProps = ProFormFieldItemProps<InputNumberProps<number>> & {
+export type ProFormDigitProps = ProFormFieldItemProps<
+  InputNumberProps<number>
+> & {
   min?: InputNumberProps['min'];
   max?: InputNumberProps['max'];
 };

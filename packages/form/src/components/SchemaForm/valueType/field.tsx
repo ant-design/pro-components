@@ -1,5 +1,7 @@
 import { omitUndefined } from '@ant-design/pro-utils';
 import omit from 'omit.js';
+import React from 'react';
+import ProFormDependency from '../../Dependency';
 import type { ProFormFieldProps } from '../../Field';
 import ProFormField from '../../Field';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
@@ -10,7 +12,14 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
 ) => {
   /** 公用的 类型 props */
   const formFieldProps = {
-    ...omit(item, ['dataIndex', 'width', 'render', 'renderFormItem', 'renderText', 'title']),
+    ...omit(item, [
+      'dataIndex',
+      'width',
+      'render',
+      'renderFormItem',
+      'renderText',
+      'title',
+    ]),
     name: item.name || item.key || item.dataIndex,
     width: item.width as 'md',
     render: item?.render
@@ -51,16 +60,32 @@ export const field: ProSchemaRenderValueTypeFunction<any, any> = (
       }
     : undefined;
 
-  if (item?.renderFormItem) {
-    const dom = renderFormItem?.(null, {});
-    if (!dom || item.ignoreFormItem) return dom;
+  const getField = () => {
+    if (item?.renderFormItem) {
+      const dom = renderFormItem?.(null, {});
+
+      if (!dom || item.ignoreFormItem) return dom;
+    }
+
+    return (
+      <ProFormField
+        {...formFieldProps}
+        key={[item.key, item.index || 0].join('-')}
+        renderFormItem={renderFormItem}
+      />
+    );
+  };
+
+  if (item.dependencies) {
+    return (
+      <ProFormDependency
+        name={item.dependencies || []}
+        key={item.key as React.Key}
+      >
+        {getField}
+      </ProFormDependency>
+    );
   }
 
-  return (
-    <ProFormField
-      {...formFieldProps}
-      key={[item.key, item.index || 0].join('-')}
-      renderFormItem={renderFormItem}
-    />
-  );
+  return getField();
 };

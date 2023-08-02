@@ -12,7 +12,7 @@ export const turn = new Keyframes('turn', {
   '50%': { transform: 'rotate(180deg)' },
   '75%': { transform: 'rotate(270deg)' },
   '100%': { transform: 'rotate(360deg)' },
-});
+}) as any;
 
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
@@ -51,13 +51,14 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           marginBlock: 0,
           marginInline: 0,
         },
-      [`${token.antCls}-table${token.antCls}-table-middle ${token.componentCls}`]: {
-        marginBlock: 0,
-        marginInline: -8,
-        [`${token.proComponentsCls}-card`]: {
-          backgroundColor: 'initial',
+      [`${token.antCls}-table${token.antCls}-table-middle ${token.componentCls}`]:
+        {
+          marginBlock: 0,
+          marginInline: -8,
+          [`${token.proComponentsCls}-card`]: {
+            backgroundColor: 'initial',
+          },
         },
-      },
 
       '& &-search': {
         marginBlockEnd: '16px',
@@ -88,7 +89,10 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
           [token.componentCls]: {
             height: 'auto !important',
             paddingBlockEnd: '24px',
-            [`${token.antCls}-form-item-label`]: { minWidth: '80px', textAlign: 'start' },
+            [`${token.antCls}-form-item-label`]: {
+              minWidth: '80px',
+              textAlign: 'start',
+            },
           },
         },
       },
@@ -99,7 +103,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         height: '64px',
         paddingInline: 24,
         paddingBlock: 0,
-        '&-option': { display: 'flex', alignItems: 'center', justifyContent: 'flex-end' },
+        '&-option': {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+        },
         '&-title': {
           flex: '1',
           color: token.colorTextLabel,
@@ -111,7 +119,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
     },
 
-    [`@media (max-width: ${token.screenXS})`]: {
+    [`@media (max-width: ${token.screenXS})px`]: {
       [token.componentCls]: {
         [`${token.antCls}-table`]: {
           width: '100%',
@@ -142,7 +150,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&-title': {
           marginBlockEnd: 16,
         },
-        '&-option': { display: 'flex', justifyContent: 'space-between', width: '100%' },
+        '&-option': {
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '100%',
+        },
         '&-default-option': {
           display: 'flex',
           flex: '1',

@@ -8,7 +8,7 @@ export interface ProToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
-      [token.componentCls]: {
+      '&&': {
         padding: 24,
       },
       [`${token.antCls}-form-item`]: {
@@ -23,7 +23,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
           [`${token.proComponentsCls}-form-group`]: {
             display: 'flex',
             alignItems: 'center',
-            gap: 8,
+            gap: token.marginXS,
           },
           '&:last-child': {
             marginBlockEnd: 12,

@@ -1,9 +1,13 @@
 ﻿import {
   ProForm,
+  ProFormDateMonthRangePicker,
   ProFormDatePicker,
+  ProFormDateQuarterRangePicker,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
   ProFormDateTimeRangePicker,
+  ProFormDateWeekRangePicker,
+  ProFormDateYearRangePicker,
   ProFormTimePicker,
 } from '@ant-design/pro-components';
 import { Switch } from 'antd';
@@ -56,9 +60,16 @@ export default () => {
           <ProFormTimePicker name="time" label="时间" />
           <ProFormTimePicker.RangePicker name="timeRange" label="时间区间" />
           <ProFormDatePicker.Week name="dateWeek" label="周" />
+          <ProFormDateWeekRangePicker name="dateWeekRange" label="周区间" />
           <ProFormDatePicker.Month name="dateMonth" label="月" />
+          <ProFormDateMonthRangePicker name="dateMonthRange" label="月区间" />
           <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
+          <ProFormDateQuarterRangePicker
+            name="dateQuarterRange"
+            label="季度区间"
+          />
           <ProFormDatePicker.Year name="dateYear" label="年" />
+          <ProFormDateYearRangePicker name="dateYearRange" label="年区间" />
           <ProFormDateTimePicker
             name="dateTime"
             label="日期时间"
@@ -67,7 +78,10 @@ export default () => {
             }}
           />
           <ProFormDateRangePicker name="dateRange" label="日期区间" />
-          <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
+          <ProFormDateTimeRangePicker
+            name="dateTimeRange"
+            label="日期时间区间"
+          />
         </ProForm.Group>
       </ProForm>
     </div>

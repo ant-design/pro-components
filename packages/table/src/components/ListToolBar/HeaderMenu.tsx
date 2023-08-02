@@ -50,7 +50,13 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
 
   if (type === 'inline') {
     return (
-      <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-inline-menu`, hashId)}>
+      <div
+        className={classNames(
+          `${prefixCls}-menu`,
+          `${prefixCls}-inline-menu`,
+          hashId,
+        )}
+      >
         {items.map((item, index) => (
           <div
             key={item.key || index}
@@ -59,7 +65,9 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
             }}
             className={classNames(
               `${prefixCls}-inline-menu-item`,
-              activeItem.key === item.key ? `${prefixCls}-inline-menu-item-active` : undefined,
+              activeItem.key === item.key
+                ? `${prefixCls}-inline-menu-item-active`
+                : undefined,
               hashId,
             )}
           >
@@ -82,7 +90,9 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
         onTabClick={(key) => setActiveKey(key)}
       >
         {items?.map((item, index) => {
-          return <Tabs.TabPane {...item} key={item.key || index} tab={item.label} />;
+          return (
+            <Tabs.TabPane {...item} key={item.key || index} tab={item.label} />
+          );
         })}
       </Tabs>
     );
@@ -100,7 +110,9 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   });
 
   return (
-    <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}>
+    <div
+      className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}
+    >
       <Dropdown trigger={['click']} {...dropdownProps}>
         <Space className={`${prefixCls}-dropdownmenu-label`}>
           {activeItem.label}

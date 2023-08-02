@@ -1,5 +1,6 @@
 ---
 title: LoginForm/Page - 登录表单
+atomId: LoginForm,PageForm
 order: 2
 ---
 
@@ -9,11 +10,11 @@ LoginForm 和 LoginFormPage 是 ProForm 的变体，两者是为了适应常见�
 
 ## 登录表单
 
-<code src="./demos/login-form" background="hsl(220,23%,97%)" title="登录表单"></code>
+<code src="./demos/login-form"  background="var(--main-bg-color)" title="登录表单"></code>
 
 ## 页面级别的登录表单
 
-<code src="./demos/login-form-page.tsx" background="hsl(220,23%,97%)" iframe="887" title="页面级别的表单"></code>
+<code src="./demos/login-form-page.tsx"  background="var(--main-bg-color)" iframe="887" title="页面级别的表单"></code>
 
 ## API
 
@@ -21,13 +22,13 @@ LoginForm 和 LoginFormPage 是 ProForm 的变体，两者是为了适应常见�
 
 LoginForm 代表了比较常见的居中布局样式。
 
-| 参数     | 说明                                                | 类型               | 默认值 |
-| -------- | --------------------------------------------------- | ------------------ | ------ |
-| logo     | logo 的配置，支持 ReactNode 和 string               | `ReactNode \| url` | -      |
-| title    | 标题，可以配置为空                                  | `ReactNode`        | -      |
-| subTitle | 二级标题，可以配置为空                              | `ReactNode`        | -      |
-| actions  | 自定义额外的登录功能                                | `ReactNode`        |
-| message  | form 顶部的一个提示配置，可以配置一些错误的提示信息 | `ReactNode`        | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| logo | logo 的配置，支持 ReactNode 和 string | `ReactNode \| url` | - |
+| title | 标题，可以配置为空 | `ReactNode` | - |
+| subTitle | 二级标题，可以配置为空 | `ReactNode` | - |
+| actions | 自定义额外的登录功能 | `ReactNode` |
+| message | form 顶部的一个提示配置，可以配置一些错误的提示信息 | `ReactNode` | - |
 
 ### LoginFormPage
 

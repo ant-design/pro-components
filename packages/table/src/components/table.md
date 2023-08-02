@@ -2,6 +2,7 @@
 title: ProTable - 高级表格
 order: 0
 legacy: /table
+atomId: ProTable
 ---
 
 # ProTable - 高级表格
@@ -97,9 +98,10 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
+| ghost | 幽灵模式，即是否取消表格区域的 padding | `boolean` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
 | revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `true` |
-| columnsState | 受控的列状态，可以操作显示隐藏 | `columnsStateType` | - |
+| columnsState | 受控的列状态，可以操作显示隐藏 | `ColumnStateType` | - |
 | ErrorBoundary | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode` | 内置 ErrorBoundary |
 
 #### RecordCreator
@@ -110,11 +112,11 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | position | 行增加在哪里，开始或者末尾 | `top` \| `bottom` | `bottom` |
 | (...buttonProps) | antd 的 [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | — |
 
-#### ColumnsStateType
+#### ColumnStateType
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| defaultValue | 列状态的默认值，只有初次生效 | `Record<string, ColumnsState>;` | - |
+| defaultValue | 列状态的默认值，只有初次生效，並用于重置使用 | `Record<string, ColumnsState>;` | - |
 | value | 列状态的值，支持受控模式 | `Record<string, ColumnsState>;` | - |
 | onChange | 列状态的值发生改变之后触发 | `(value:Record<string, ColumnsState>)=>void` | - |
 | persistenceKey | 持久化列的 key，用于判断是否是同一个 table | `string \| number` | - |
@@ -307,12 +309,12 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 
 #### ListToolBarMenu
 
-| 参数      | 说明           | 类型                                  | 默认值   |
-| --------- | -------------- | ------------------------------------- | -------- |
-| type      | 类型           | `inline` \| `dropdown` \| `tab`       | `inline` |
-| activeKey | 当前值         | `string`                              | -        |
-| items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -        |
-| onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -        |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| type | 类型 | `inline` \| `dropdown` \| `tab` | `inline` |
+| activeKey | 当前值 | `string` | - |
+| items | 菜单项 | `{ key: string; label: ReactNode }[]` | - |
+| onChange | 切换菜单的回调 | `(activeKey)=>void` | - |
 
 #### ListToolBarTabs
 

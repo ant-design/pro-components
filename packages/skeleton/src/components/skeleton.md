@@ -1,5 +1,6 @@
 ---
 title: ProSkeleton - 骨架屏
+atomId: ProSkeleton
 ---
 
 # ProSkeleton - 骨架屏

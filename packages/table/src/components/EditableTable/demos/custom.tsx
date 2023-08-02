@@ -1,6 +1,10 @@
 import { PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { EditableProTable, ProCard, ProFormField } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+} from '@ant-design/pro-components';
 import type { InputRef } from 'antd';
 import { Button, Form, Input, Space, Tag } from 'antd';
 import React, { useRef, useState } from 'react';
@@ -40,8 +44,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -142,7 +152,8 @@ const columns: ProColumns<DataSourceType>[] = [
     renderFormItem: (_, { isEditable }) => {
       return isEditable ? <TagList /> : <Input />;
     },
-    render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
+    render: (_, row) =>
+      row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
   {
     title: '操作',

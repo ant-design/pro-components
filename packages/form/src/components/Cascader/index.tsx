@@ -1,7 +1,10 @@
 ﻿import type { CascaderProps } from 'antd';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
+import type {
+  ProFormFieldItemProps,
+  ProFormFieldRemoteProps,
+} from '../../typing';
 import ProField from '../Field';
 /**
  * 级联选择框
@@ -16,7 +19,10 @@ const ProFormCascader: React.ForwardRefRenderFunction<
   return (
     <ProField
       valueType="cascader"
-      fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+      fieldProps={{
+        getPopupContainer: context.getPopupContainer,
+        ...fieldProps,
+      }}
       ref={ref}
       request={request}
       params={params}

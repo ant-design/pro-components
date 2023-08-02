@@ -28,7 +28,11 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       pointerEvents: 'auto',
     },
     [token.componentCls]: {
-      '&-content': { position: 'relative', minHeight: '100%', color: token.colorText },
+      '&-content': {
+        position: 'relative',
+        minHeight: '100%',
+        color: token.colorText,
+      },
       '&-body-title': {
         marginBlock: token.marginXS,
         fontSize: '14px',
@@ -38,7 +42,7 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
       '&-block-checkbox': {
         display: 'flex',
         minHeight: 42,
-        gap: 12,
+        gap: token.marginSM,
         '& &-item': {
           position: 'relative',
           width: '44px',

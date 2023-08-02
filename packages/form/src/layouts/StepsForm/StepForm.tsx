@@ -1,27 +1,41 @@
 import type { FormInstance, FormProps } from 'antd';
+import omit from 'omit.js';
 import type { StepProps } from 'rc-steps/lib/Step';
 import { noteOnce } from 'rc-util/lib/warning';
 import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { StepsFormProvide } from './index';
+import { StepFormProvide, StepsFormProvide } from './index';
 
-export type StepFormProps<T = Record<string, any>> = {
+export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   step?: number;
   stepProps?: StepProps;
   index?: number;
 } & Omit<FormProps<T>, 'onFinish' | 'form'> &
-  Omit<CommonFormProps<T>, 'submitter' | 'form'>;
+  Omit<CommonFormProps<T, U>, 'submitter' | 'form'>;
 
-function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
+function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
-  const { onFinish, step, formRef: propFormRef, title, stepProps, ...restProps } = props;
+  const stepContext = useContext(StepFormProvide);
 
-  // eslint-disable-next-line @typescript-eslint/dot-notation
-  noteOnce(!restProps['submitter'], 'StepForm 不包含提交按钮，请在 StepsForm 上');
+  const props = { ...stepNativeProps, ...stepContext };
+  const {
+    onFinish,
+    step,
+    formRef: propFormRef,
+    title,
+    stepProps,
+    ...restProps
+  } = props;
+
+  //@ts-expect-error
+  noteOnce(!restProps.submitter, 'StepForm 不包含提交按钮，请在 StepsForm 上');
+
   /** 重置 formRef */
-  useImperativeHandle(propFormRef, () => formRef.current);
+  useImperativeHandle(propFormRef, () => formRef.current, [
+    propFormRef?.current,
+  ]);
 
   /** Dom 不存在的时候解除挂载 */
   useEffect(() => {
@@ -59,8 +73,15 @@ function StepForm<T = Record<string, any>>(props: StepFormProps<T>) {
 
         if (!context?.lastStep) context?.next();
       }}
+      onInit={(_, form) => {
+        formRef.current = form;
+        if (context && context?.formArrayRef) {
+          context.formArrayRef.current[step || 0] = formRef;
+        }
+        restProps?.onInit?.(_, form);
+      }}
       layout="vertical"
-      {...restProps}
+      {...omit(restProps, ['layoutType', 'columns'] as any[])}
     />
   );
 }

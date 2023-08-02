@@ -20,8 +20,16 @@ function logStep(name) {
 }
 
 function packageExists({ name, version }) {
-  const { stdout } = execa.sync('npm', ['info', `${name}@${version}`]);
-  return stdout.length > 0;
+  try {
+    const { stdout, stderr } = execa.sync('npm', [
+      'info',
+      `${name}@${version}`,
+    ]);
+    if (stderr) return false;
+    return stdout.length > 0;
+  } catch (error) {
+    return false;
+  }
 }
 
 async function release() {
@@ -32,14 +40,18 @@ async function release() {
       printErrorAndExit(`Your git status is not clean. Aborting.`);
     }
   } else {
-    logStep('git status check is skipped, since --skip-git-status-check is supplied');
+    logStep(
+      'git status check is skipped, since --skip-git-status-check is supplied',
+    );
   }
 
   // Check npm registry
   logStep('check npm registry');
   const userRegistry = execa.sync('npm', ['config', 'get', 'registry']).stdout;
   if (userRegistry.includes('https://registry.yarnpkg.com/')) {
-    printErrorAndExit(`Release failed, please use ${chalk.blue('npm run release')}.`);
+    printErrorAndExit(
+      `Release failed, please use ${chalk.blue('npm run release')}.`,
+    );
   }
   if (!userRegistry.includes('https://registry.npmjs.org/')) {
     const registry = chalk.blue('https://registry.npmjs.org/');
@@ -81,12 +93,16 @@ async function release() {
 
     const conventionalGraduate = args.conventionalGraduate
       ? ['--conventional-graduate'].concat(
-          Array.isArray(args.conventionalGraduate) ? args.conventionalGraduate.join(',') : [],
+          Array.isArray(args.conventionalGraduate)
+            ? args.conventionalGraduate.join(',')
+            : [],
         )
       : [];
     const conventionalPrerelease = args.conventionalPrerelease
       ? ['--conventional-prerelease'].concat(
-          Array.isArray(args.conventionalPrerelease) ? args.conventionalPrerelease.join(',') : [],
+          Array.isArray(args.conventionalPrerelease)
+            ? args.conventionalPrerelease.join(',')
+            : [],
         )
       : [];
 
@@ -99,6 +115,7 @@ async function release() {
         'version',
         ...major,
         ...minor,
+        '--exact',
         '--message',
         '🎨 chore(release): Publish',
         '--conventional-commits',
@@ -124,10 +141,10 @@ async function release() {
       message: '请输入 otp 的值，留空表示不使用 otp',
     },
   ]);
-
   process.env.NPM_CONFIG_OTP = otp;
 
-  const publishList = pkgs.map((pkg, index) => {
+  for await (const pkg of pkgs) {
+    console.log('发布中' + pkg);
     const pkgPath = join(cwd, 'packages', pkg.replace('pro-', ''));
     const { name, version } = require(join(pkgPath, 'package.json'));
     const isNext = isNextVersion(version);
@@ -135,29 +152,29 @@ async function release() {
     if (args.publishOnly) {
       isPackageExist = packageExists({ name, version });
       if (isPackageExist) {
-        console.log(`package ${name}@${version} is already exists on npm, skip.`);
+        console.log(
+          `package ${name}@${version} is already exists on npm, skip.`,
+        );
       }
     }
+
     if (!args.publishOnly || !isPackageExist) {
-      console.log(
-        `[${index + 1}/${pkgs.length}] Publish package ${name} ${isNext ? 'with next tag' : ''}`,
-      );
+      console.log(` Publish package ${name} ${isNext ? 'with next tag' : ''}`);
       // 默认设置为 tag 检查通过之后在设置为 latest
-      let cliArgs = isNext ? ['publish', '--tag', 'next'] : ['publish', '--tag', 'beta'];
+      let cliArgs = isNext
+        ? ['publish', '--tag', 'next']
+        : ['publish', '--tag', 'beta'];
 
       if (args.tag) {
         cliArgs = ['publish', '--tag', args.tag];
       }
-      return execa('npm', cliArgs, {
+      await execa('npm', cliArgs, {
         cwd: pkgPath,
       });
     }
-  });
-  console.log('发布中' + pkgs.join('/'));
-  await Promise.all(publishList);
+  }
   console.log('发布成功！');
   await exec('npm', ['run', 'prettier']);
-
   logStep('done');
 }
 

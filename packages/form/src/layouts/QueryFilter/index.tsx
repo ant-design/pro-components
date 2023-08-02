@@ -87,7 +87,10 @@ export type SpanConfig =
       xxl: number;
     };
 
-export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapsed' | 'isForm'> & {
+export type BaseQueryFilterProps = Omit<
+  ActionsProps,
+  'submitter' | 'setCollapsed' | 'isForm'
+> & {
   className?: string;
   defaultCollapsed?: boolean;
   /**
@@ -95,6 +98,9 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
    * @type 'horizontal' | 'inline' | 'vertical';
    */
   layout?: FormProps['layout'];
+  /**
+   * @name 默认一行显示几个表单项
+   */
   defaultColsNumber?: number;
   /**
    * @name 文字标签的宽度
@@ -184,8 +190,11 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
   };
 };
 
-const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.ReactNode[] => {
-  return items.flatMap((item: any) => {
+const flatMapItems = (
+  items: React.ReactNode[],
+  ignoreRules?: boolean,
+): React.ReactNode[] => {
+  return items?.flatMap((item: any) => {
     if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
     }
@@ -202,8 +211,11 @@ const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.Re
   });
 };
 
-export type QueryFilterProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
-  CommonFormProps<T> &
+export type QueryFilterProps<
+  T = Record<string, any>,
+  U = Record<string, any>,
+> = Omit<FormProps<T>, 'onFinish'> &
+  CommonFormProps<T, U> &
   BaseQueryFilterProps & {
     onReset?: (values: T) => void;
   };
@@ -239,8 +251,10 @@ const QueryFilterContent: React.FC<{
 }> = (props) => {
   const intl = useIntl();
   const { hashId } = useContext(ProProvider);
-  const resetText = props.resetText || intl.getMessage('tableForm.reset', '重置');
-  const searchText = props.searchText || intl.getMessage('tableForm.search', '搜索');
+  const resetText =
+    props.resetText || intl.getMessage('tableForm.reset', '重置');
+  const searchText =
+    props.searchText || intl.getMessage('tableForm.search', '搜索');
 
   const [collapsed, setCollapsed] = useMergedState<boolean>(
     () => props.defaultCollapsed && !!props.submitter,
@@ -299,9 +313,14 @@ const QueryFilterContent: React.FC<{
 
   // 处理过，包含是否需要隐藏的 数组
   const processedList = flatMapItems(items, props.ignoreRules).map(
-    (item, index): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
+    (
+      item,
+      index,
+    ): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
-      const colSize = React.isValidElement<any>(item) ? item?.props?.colSize ?? 1 : 1;
+      const colSize = React.isValidElement<any>(item)
+        ? item?.props?.colSize ?? 1
+        : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
       // 计算总的 totalSpan 长度
       totalSpan += colSpan;
@@ -310,7 +329,8 @@ const QueryFilterContent: React.FC<{
 
       if (index === 0) {
         firstRowFull =
-          colSpan === 24 && !(item as ReactElement<{ hidden: boolean }>)?.props?.hidden;
+          colSpan === 24 &&
+          !(item as ReactElement<{ hidden: boolean }>)?.props?.hidden;
       }
 
       const hidden: boolean =
@@ -358,13 +378,16 @@ const QueryFilterContent: React.FC<{
 
   const doms = processedList.map((itemProps, index: number) => {
     const { itemDom, colSpan } = itemProps;
-    const hidden: boolean = (itemDom as ReactElement<{ hidden: boolean }>)?.props?.hidden;
+    const hidden: boolean = (itemDom as ReactElement<{ hidden: boolean }>)
+      ?.props?.hidden;
 
     if (hidden) return itemDom;
 
     // 每一列的key, 一般是存在的
     const itemKey =
-      (React.isValidElement(itemDom) && (itemDom.key || `${itemDom.props?.name}`)) || index;
+      (React.isValidElement(itemDom) &&
+        (itemDom.key || `${itemDom.props?.name}`)) ||
+      index;
 
     if (24 - (currentSpan % 24) < colSpan) {
       // 如果当前行空余位置放不下，那么折行
@@ -379,7 +402,7 @@ const QueryFilterContent: React.FC<{
         <Col
           key={itemKey}
           span={colSpan}
-          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`}
+          className={`${props.baseClassName}-row-split-line ${props.baseClassName}-row-split ${hashId}`.trim()}
         >
           {itemDom}
         </Col>
@@ -387,13 +410,18 @@ const QueryFilterContent: React.FC<{
     }
 
     return (
-      <Col key={itemKey} className={`${props.baseClassName}-row-split ${hashId}`} span={colSpan}>
+      <Col
+        key={itemKey}
+        className={`${props.baseClassName}-row-split ${hashId}`.trim()}
+        span={colSpan}
+      >
         {itemDom}
       </Col>
     );
   });
 
-  const hiddenNum = showHiddenNum && processedList.filter((item) => item.hidden).length;
+  const hiddenNum =
+    showHiddenNum && processedList.filter((item) => item.hidden).length;
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
@@ -404,7 +432,8 @@ const QueryFilterContent: React.FC<{
   }, [totalSize, showLength, totalSpan]);
 
   const offset = useMemo(() => {
-    const offsetSpan = (currentSpan % 24) + (props.submitterColSpanProps?.span ?? spanSize.span);
+    const offsetSpan =
+      (currentSpan % 24) + (props.submitterColSpanProps?.span ?? spanSize.span);
     if (offsetSpan > 24) {
       return 24 - (props.submitterColSpanProps?.span ?? spanSize.span);
     }
@@ -436,7 +465,12 @@ const QueryFilterContent: React.FC<{
             textAlign: 'end',
           }}
         >
-          <Form.Item label=" " colon={false} className={`${baseClassName}-actions ${hashId}`}>
+          <Form.Item
+            label=" "
+            colon={false}
+            shouldUpdate={false}
+            className={`${baseClassName}-actions ${hashId}`.trim()}
+          >
             <Actions
               hiddenNum={hiddenNum}
               key="pro-form-query-filter-actions"
@@ -483,10 +517,16 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const [width, setWidth] = useMountMergeState(
-    () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
+    () =>
+      (typeof style?.width === 'number'
+        ? style?.width
+        : defaultWidth) as number,
   );
 
-  const spanSize = useMemo(() => getSpanConfig(layout, width + 16, span), [layout, width, span]);
+  const spanSize = useMemo(
+    () => getSpanConfig(layout, width + 16, span),
+    [layout, width, span],
+  );
 
   const showLength = useMemo(() => {
     // 查询重置按钮也会占一个spanSize格子，需要减掉计算

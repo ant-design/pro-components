@@ -3,7 +3,7 @@ export default {
   form: {
     lightFilter: {
       more: '더보기',
-      clear: '취소',
+      clear: '초기화',
       confirm: '확인',
       itemUnit: '건수',
     },
@@ -41,7 +41,7 @@ export default {
     columnSetting: '설정',
     fullScreen: '전체 화면',
     exitFullScreen: '전체 화면 취소',
-    reload: '다시 읽기',
+    reload: '새로 고침',
     density: '여백',
     densityDefault: '기본',
     densityLarger: '많은 여백',

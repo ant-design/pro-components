@@ -1,6 +1,6 @@
 ---
 title: Modal/DrawerForm
-
+atomId: ModalForm,DrawerForm
 nav:
   title: Components
 ---
@@ -13,27 +13,27 @@ ModalForm and DrawerForm both provide triggers to reduce state usage, if you nee
 
 ## Modal Forms
 
-<code src="./demos/modal-form.tsx" background="hsl(220,23%,97%)" oldtitle="Modal Forms"></code>
+<code src="./demos/modal-form.tsx"  background="var(--main-bg-color)" oldtitle="Modal Forms"></code>
 
 ## Drawer Forms
 
-<code src="./demos/drawer-form.tsx" background="hsl(220,23%,97%)" oldtitle="Drawer Forms"></code>
+<code src="./demos/drawer-form.tsx"  background="var(--main-bg-color)" oldtitle="Drawer Forms"></code>
 
 ## Nested Drawer Forms
 
-<code src="./demos/drawer-form-nested.tsx" debug background="hsl(220,23%,97%)" oldtitle="Drawer Forms"></code>
+<code src="./demos/drawer-form-nested.tsx" debug  background="var(--main-bg-color)" oldtitle="Drawer Forms"></code>
 
 ## Custom Modal Forms' Button
 
-<code src="./demos/modal-form-submitter.tsx" background="hsl(220,23%,97%)" oldtitle="Custom Modal Forms' Button"></code>
+<code src="./demos/modal-form-submitter.tsx"  background="var(--main-bg-color)" oldtitle="Custom Modal Forms' Button"></code>
 
 ## Use open and onOpenChange
 
-<code src="./demos/visible-on-visible-change.tsx" background="hsl(220,23%,97%)" oldtitle="Use open and onOpenChange"></code>
+<code src="./demos/visible-on-visible-change.tsx"  background="var(--main-bg-color)" oldtitle="Use open and onOpenChange"></code>
 
 ## Reset Form
 
-<code src="./demos/modal-form-reset.tsx" background="hsl(220,23%,97%)" oldtitle="Reset Form"></code>
+<code src="./demos/modal-form-reset.tsx"  background="var(--main-bg-color)" oldtitle="Reset Form"></code>
 
 ## API
 
@@ -61,6 +61,7 @@ DrawerForm combines Drawer and ProForm to reduce tedious state management.
 | --- | --- | --- | --- |
 | trigger | The dom used to trigger the opening of the Modal, typically the button | `ReactNode` | - |
 | open | whether to open | `boolean` | - |
+| resize | whether to resize | `{onResize,maxWidth,minWidth}` | - |
 | onOpenChange | trigger when open changes | `(open:boolean)=>void` | - |
 | drawerProps | Drawer's props, used in the same way as [antd](https://ant.design/components/drawer/). Note: 'open' is not supported, please use the global open | [props](https://ant.design/components/drawer/#API) | - |
 | title | The title of the drawer | `ReactNode` | - |
