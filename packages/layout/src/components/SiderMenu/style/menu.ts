@@ -76,9 +76,9 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           minWidth: 40,
           height: 40,
           [`${token.componentCls}-item-icon`]: {
-            height: '16px',
+            height: '40px',
             width: '16px',
-            lineHeight: '16px !important',
+            lineHeight: '40px !important',
             '.anticon': {
               lineHeight: '16px',
               height: '16px',
