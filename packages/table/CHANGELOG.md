@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.10.4...@ant-design/pro-table@3.10.5) (2023-08-04)
+
+
+### Bug Fixes
+
+* **table:** restrict movement to only the vertical axis. ([5a8f9fb](https://github.com/ant-design/pro-components/commit/5a8f9fb9127cc58972b279fc3577b240b5b8b445))
+
+
+
+
 
 ## [3.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.10.3...@ant-design/pro-table@3.10.4) (2023-07-31)
 

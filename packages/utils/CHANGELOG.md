@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.12.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.8...@ant-design/pro-utils@2.12.9) (2023-08-04)
+
+
+### Bug Fixes
+
+* **form:** update ReturnType<SearchConvertKeyFn> ([#7462](https://github.com/ant-design/pro-components/issues/7462)) ([e19dd9e](https://github.com/ant-design/pro-components/commit/e19dd9e68a14bae8dbb6baa756a643df8cab4a9b))
+
+
+
+
 
 ## [2.12.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.7...@ant-design/pro-utils@2.12.8) (2023-07-31)
 

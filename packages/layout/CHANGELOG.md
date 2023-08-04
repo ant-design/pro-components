@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.16.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.6...@ant-design/pro-layout@7.16.7) (2023-08-04)
+
+
+### Bug Fixes
+
+* **layout:** fix menu item no aligen error ([450a823](https://github.com/ant-design/pro-components/commit/450a823f12b1eac1d866347ef55d6b5d866a011f))
+
+
+
+
 
 ## [7.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.5...@ant-design/pro-layout@7.16.6) (2023-07-31)
 
