@@ -1,4 +1,13 @@
-﻿## @ant-design/pro-components@2.6.10
+﻿## @ant-design/pro-components@2.6.11
+
+`2023-08-04`
+
+- fix(layout): fix menu item no align error. [450a823](https://github.com/ant-design/pro-components/commit/450a823)
+- fix(form): form field support mobile width best. [56ccc63](https://github.com/ant-design/pro-components/commit/56ccc63)
+- fix(form): update ReturnType<SearchConvertKeyFn> (#7462). [#7462](https://github.com/ant-design/pro-components/pull/#7462) [@q1uxu](https://github.com/q1uxu)
+- fix(table): restrict movement to only the vertical axis.. [5a8f9fb](https://github.com/ant-design/pro-components/commit/5a8f9fb)
+
+## @ant-design/pro-components@2.6.10
 
 `2023-07-31`
 
