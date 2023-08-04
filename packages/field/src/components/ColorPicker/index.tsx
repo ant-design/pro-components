@@ -1,4 +1,4 @@
-import { compareVersions } from '@ant-design/pro-utils';
+﻿import { compareVersions } from '@ant-design/pro-utils';
 import { ConfigProvider, version } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
@@ -39,17 +39,17 @@ function IsIt_Render_V5() {
 }
 /**
  * 获取颜色组件
- * 兼容 5.5.0 以下的版本
+ * @param {boolean} [old=false] 是否使用旧版本
  * @return {*} 
  */
-function getColorPicker() {
-  if (IsIt_Render_V5()) {
+function getColorPicker(old: boolean = false) {
+  if ((typeof old === 'undefined' || old === false) && IsIt_Render_V5()) {
     const { ColorPicker } = require('antd');
     return ColorPicker;
   }
   return ColorPickerV4
 }
-const ColorPicker = getColorPicker();
+// const ColorPicker = getColorPicker();
 /**
  * 颜色组件
  * Antd > 5.5.0 的版本 使用 antd 的 ColorPicker
@@ -59,11 +59,17 @@ const ColorPicker = getColorPicker();
  */
 const FieldColorPicker: ProFieldFC<{
   text: string;
-}> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
+  /** 是否使用旧版本 */
+  old?: boolean;
+}> = ({ text, mode: type, render, renderFormItem, fieldProps, old }, ref: any) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const ColorPicker = React.useMemo(() => getColorPicker(old), [old]);
   const prefixCls = getPrefixCls('pro-field-color-picker');
   // 5.5.0 以上版本追加 className
-  const className = useMemo(() => classNames({ [prefixCls]: IsIt_Render_V5() }),[prefixCls]);
+  const className = useMemo(() => {
+    if (old) return '';
+    return classNames({ [prefixCls]: IsIt_Render_V5() })
+  }, [prefixCls, old]);
   if (type === 'read') {
     const dom = <ColorPicker
       value={text}

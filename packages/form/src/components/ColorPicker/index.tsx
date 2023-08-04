@@ -13,6 +13,7 @@ export type ProFormColorPickerProps =
   ProFormFieldItemProps<ColorPickerProps> & {
     popoverProps?: PopoverProps;
     colors?: string[];
+    old?: boolean;
   };
 /**
  * 数组选择组件
