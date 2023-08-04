@@ -11,16 +11,13 @@ const filterByMenuData = (
 ): MenuDataItem[] =>
   data
     .map((item) => {
-      if (
-        (item.name && item.name.includes(keyWord)) ||
-        filterByMenuData(item.children || [], keyWord).length > 0
-      ) {
-        return {
-          ...item,
-          children: filterByMenuData(item.children || [], keyWord),
-        };
+      if (item.name?.includes(keyWord)) {
+        return { ...item };
       }
-
+      const children = filterByMenuData(item.children || [], keyWord);
+      if (children.length > 0) {
+        return { ...item, children };
+      }
       return undefined;
     })
     .filter((item) => item) as MenuDataItem[];
@@ -82,10 +79,7 @@ export default () => {
           )
         }
         menuDataRender={() => loopMenuItem(complexMenu)}
-        postMenuData={(menus) => {
-          console.log(menus);
-          return filterByMenuData(menus || [], keyWord);
-        }}
+        postMenuData={(menus) => filterByMenuData(menus || [], keyWord)}
       >
         <PageContainer content="欢迎使用">
           <div>Hello World</div>
