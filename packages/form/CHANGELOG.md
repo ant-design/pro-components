@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.17.1...@ant-design/pro-form@2.17.2) (2023-08-04)
+
+### Bug Fixes
+
+- **form:** form field support moblie width best ([56ccc63](https://github.com/ant-design/pro-components/commit/56ccc63ef0ef1ddcd457782555d91134bcbec6e6))
+- **form:** update ReturnType<SearchConvertKeyFn> ([#7462](https://github.com/ant-design/pro-components/issues/7462)) ([e19dd9e](https://github.com/ant-design/pro-components/commit/e19dd9e68a14bae8dbb6baa756a643df8cab4a9b))
+
+## [2.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.17.0...@ant-design/pro-form@2.17.1) (2023-07-31)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.16.2...@ant-design/pro-form@2.17.0) (2023-07-31)
+
+### Features
+
+- **form:** StepForm added layoutRender props ([#7431](https://github.com/ant-design/pro-components/issues/7431)) ([3657b98](https://github.com/ant-design/pro-components/commit/3657b98ec779606979fd03e7fbec81f606c03a81))
+
 ## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.16.1...@ant-design/pro-form@2.16.2) (2023-07-24)
 
 ### Bug Fixes

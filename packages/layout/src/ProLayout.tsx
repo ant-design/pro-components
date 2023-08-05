@@ -562,16 +562,16 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     () => ({
       lg: true,
       md: true,
-      sm: false,
+      sm: true,
       xl: false,
-      xs: false,
+      xs: true,
       xxl: false,
     }),
     [],
   );
   const col = Grid.useBreakpoint() || defaultCol;
 
-  const isMobile = (col.sm === true || col.xs === true) && !props.disableMobile;
+  const isMobile = (col.sm || col.xs) && !col.md && !props.disableMobile;
 
   const colSize = useMemo(() => {
     return Object.keys(col).filter((key) => col[key] === true)[0] || 'md';

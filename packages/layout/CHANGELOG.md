@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.16.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.6...@ant-design/pro-layout@7.16.7) (2023-08-04)
+
+### Bug Fixes
+
+- **layout:** fix menu item no aligen error ([450a823](https://github.com/ant-design/pro-components/commit/450a823f12b1eac1d866347ef55d6b5d866a011f))
+
+## [7.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.5...@ant-design/pro-layout@7.16.6) (2023-07-31)
+
+### Bug Fixes
+
+- **layout:** fix col size error ([749a303](https://github.com/ant-design/pro-components/commit/749a30309f8bde9cf5050ae28e164118eefce408))
+
+## [7.16.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.4...@ant-design/pro-layout@7.16.5) (2023-07-31)
+
+### Bug Fixes
+
+- **layout:** fix colorBgMenuItemHover no work error ([3efdd46](https://github.com/ant-design/pro-components/commit/3efdd465447b3cae82ecd43b3be435dfa3a9b55f))
+- **layout:** fix footer links hover no work error ([a2bdb21](https://github.com/ant-design/pro-components/commit/a2bdb21937da6faf31855e0a9ef271ec1ab73c8f))
+- **layout:** fix pop menu style error ([36bfccf](https://github.com/ant-design/pro-components/commit/36bfccf15c687f228c6244276065696d9c535bf7))
+
 ## [7.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.3...@ant-design/pro-layout@7.16.4) (2023-07-24)
 
 ### Bug Fixes

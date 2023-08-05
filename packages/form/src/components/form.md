@@ -83,7 +83,7 @@ convertValue 发生在组件获得数据之前，一般是后端直接给前端�
 
 ```tsx | pure
    export type SearchConvertKeyFn =
-    (value: any, field: NamePath)=>string | Record<string, any>;
+    (value: any, field: NamePath)=>string | boolean | Record<string, any>;
   /**
    * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
    * @param value 字段的值

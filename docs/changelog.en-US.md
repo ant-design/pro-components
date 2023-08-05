@@ -1,4 +1,29 @@
-﻿## @ant-design/pro-components@2.6.8
+﻿## @ant-design/pro-components@2.6.11
+
+`2023-08-04`
+
+- fix(layout): fix menu item no align error. [450a823](https://github.com/ant-design/pro-components/commit/450a823)
+- fix(form): form field support mobile width best. [56ccc63](https://github.com/ant-design/pro-components/commit/56ccc63)
+- fix(form): update ReturnType<SearchConvertKeyFn> (#7462). [#7462](https://github.com/ant-design/pro-components/pull/#7462) [@q1uxu](https://github.com/q1uxu)
+- fix(table): restrict movement to only the vertical axis.. [5a8f9fb](https://github.com/ant-design/pro-components/commit/5a8f9fb)
+
+## @ant-design/pro-components@2.6.10
+
+`2023-07-31`
+
+- fix(layout): fix col size error. [749a303](https://github.com/ant-design/pro-components/commit/749a303)
+
+## @ant-design/pro-components@2.6.9
+
+`2023-07-31`
+
+- feat(components): hebrew support (#7435). [#7435](https://github.com/ant-design/pro-components/pull/#7435) [@edenHechtArbox](https://github.com/edenHechtArbox)
+- fix(layout): fix pop menu style error. [36bfccf](https://github.com/ant-design/pro-components/commit/36bfccf)
+- fix(layout): fix colorBgMenuItemHover no work error. [3efdd46](https://github.com/ant-design/pro-components/commit/3efdd46)
+- fix(layout): fix footer links hover no work error. [a2bdb21](https://github.com/ant-design/pro-components/commit/a2bdb21)
+- feat(form): StepForm added layoutRender props (#7431). [#7431](https://github.com/ant-design/pro-components/pull/#7431) [@xXAvoraXx](https://github.com/xXAvoraXx)
+
+## @ant-design/pro-components@2.6.8
 
 `2023-07-24`
 
