@@ -3154,16 +3154,19 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <span>
+                        <div
+                          class="ant-color-picker-trigger ant-pro-field-color-picker"
+                          style="width: 100%;"
+                        >
                           <div
-                            class="ant-pro-field-color-picker"
-                            style="cursor: pointer; background-color: rgb(255, 255, 255);"
+                            class="ant-color-picker-color-block"
                           >
                             <div
-                              style="background-color: rgb(24, 144, 255); width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
+                              class="ant-color-picker-color-block-inner"
+                              style="background: rgb(22, 119, 255);"
                             />
                           </div>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>

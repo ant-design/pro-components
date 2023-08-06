@@ -265,12 +265,16 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-pro-field-color-picker"
-                    style="cursor: pointer; background-color: rgb(255, 255, 255);"
+                    class="ant-color-picker-trigger ant-pro-field-color-picker"
                   >
                     <div
-                      style="background-color: blue; width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
-                    />
+                      class="ant-color-picker-color-block"
+                    >
+                      <div
+                        class="ant-color-picker-color-block-inner"
+                        style="background: rgb(0, 0, 255);"
+                      />
+                    </div>
                   </div>
                 </span>
               </div>
@@ -1650,16 +1654,18 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <span>
+                  <div
+                    class="ant-color-picker-trigger ant-pro-field-color-picker"
+                  >
                     <div
-                      class="ant-pro-field-color-picker"
-                      style="cursor: pointer; background-color: rgb(255, 255, 255);"
+                      class="ant-color-picker-color-block"
                     >
                       <div
-                        style="background-color: rgb(24, 144, 255); width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
+                        class="ant-color-picker-color-block-inner"
+                        style="background: rgb(22, 119, 255);"
                       />
                     </div>
-                  </span>
+                  </div>
                 </span>
               </div>
             </td>
@@ -1683,20 +1689,28 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-pro-field-color-picker ant-pro-field-color-picker-disabled"
-                    style="cursor: not-allowed; background-color: rgba(0, 0, 0, 0.04);"
+                    class="ant-color-picker-trigger ant-pro-field-color-picker ant-color-picker-trigger-disabled"
                   >
                     <div
-                      style="background-color: rgb(24, 144, 255); width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
-                    />
+                      class="ant-color-picker-color-block"
+                    >
+                      <div
+                        class="ant-color-picker-color-block-inner"
+                        style="background: rgb(22, 119, 255);"
+                      />
+                    </div>
                   </div>
                   <div
-                    class="ant-pro-field-color-picker"
-                    style="cursor: pointer; background-color: rgb(255, 255, 255);"
+                    class="ant-color-picker-trigger ant-pro-field-color-picker"
                   >
                     <div
-                      style="background-color: blue; width: 24px; box-sizing: border-box; height: 24px; border-radius: 6px;"
-                    />
+                      class="ant-color-picker-color-block"
+                    >
+                      <div
+                        class="ant-color-picker-color-block-inner"
+                        style="background: rgb(0, 0, 255);"
+                      />
+                    </div>
                   </div>
                 </span>
               </div>
