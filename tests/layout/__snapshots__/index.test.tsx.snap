@@ -8,7 +8,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -211,7 +211,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
@@ -219,7 +219,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -407,7 +407,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -415,7 +415,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -632,7 +632,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -645,7 +645,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -848,7 +848,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -861,7 +861,7 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -1066,7 +1066,7 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
           4.0.0
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -1079,7 +1079,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -1283,7 +1283,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           style="padding: 56px;"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -1297,7 +1297,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -1546,7 +1546,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
           />
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </body>

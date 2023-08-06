@@ -8,7 +8,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -188,7 +188,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
           welcome
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -201,7 +201,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -379,7 +379,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -392,7 +392,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -445,7 +445,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
           welcome
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -458,7 +458,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -511,7 +511,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
           welcome
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -524,7 +524,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -576,7 +576,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
           welcome
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -589,7 +589,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -771,7 +771,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -784,7 +784,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -966,7 +966,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;

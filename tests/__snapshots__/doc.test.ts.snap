@@ -729,7 +729,6 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="status1_list_0"
                               aria-autocomplete="list"
                               aria-controls="status1_list"
                               aria-expanded="false"
@@ -829,7 +828,6 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="status2_list_0"
                               aria-autocomplete="list"
                               aria-controls="status2_list"
                               aria-expanded="false"
@@ -925,7 +923,6 @@ exports[`docs/components demos 📸 renders ./docs/components/valueEnum-map.tsx 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="status3_list_0"
                             aria-autocomplete="list"
                             aria-controls="status3_list"
                             aria-expanded="false"
@@ -1326,7 +1323,7 @@ exports[`docs/components demos 📸 renders ./docs/components/valueType.tsx corr
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
               style="width: 200px;"
             >
               <div
@@ -1336,7 +1333,6 @@ exports[`docs/components demos 📸 renders ./docs/components/valueType.tsx corr
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
@@ -1357,6 +1353,12 @@ exports[`docs/components demos 📸 renders ./docs/components/valueType.tsx corr
                   文本框
                 </span>
               </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              />
               <span
                 aria-hidden="true"
                 class="ant-select-clear"

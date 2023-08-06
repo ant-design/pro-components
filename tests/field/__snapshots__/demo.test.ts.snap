@@ -19,7 +19,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
           class="ant-radio-wrapper ant-radio-wrapper-checked"
         >
           <span
-            class="ant-radio ant-radio-checked"
+            class="ant-radio ant-wave-target ant-radio-checked"
           >
             <input
               checked=""
@@ -39,7 +39,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
           class="ant-radio-wrapper"
         >
           <span
-            class="ant-radio"
+            class="ant-radio ant-wave-target"
           >
             <input
               class="ant-radio-input"
@@ -992,7 +992,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 >
                   <div
                     aria-valuenow="40"
-                    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >
@@ -1447,7 +1447,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
           class="ant-radio-wrapper"
         >
           <span
-            class="ant-radio"
+            class="ant-radio ant-wave-target"
           >
             <input
               class="ant-radio-input"
@@ -1466,7 +1466,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
           class="ant-radio-wrapper ant-radio-wrapper-checked"
         >
           <span
-            class="ant-radio ant-radio-checked"
+            class="ant-radio ant-wave-target ant-radio-checked"
           >
             <input
               checked=""
@@ -2677,7 +2677,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -2756,7 +2755,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox ant-checkbox-disabled"
+                        class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -2776,7 +2775,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-checkbox-wrapper ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -2795,7 +2794,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-checkbox-wrapper ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -2814,7 +2813,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-checkbox-wrapper ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -2855,7 +2854,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox ant-checkbox-disabled"
+                        class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -2875,7 +2874,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-checkbox-wrapper ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -2894,7 +2893,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-checkbox-wrapper ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -2913,7 +2912,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-checkbox-wrapper ant-checkbox-group-item"
                     >
                       <span
-                        class="ant-checkbox"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -2958,7 +2957,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-radio-wrapper ant-radio-wrapper-disabled"
                     >
                       <span
-                        class="ant-radio ant-radio-disabled"
+                        class="ant-radio ant-wave-target ant-radio-disabled"
                       >
                         <input
                           class="ant-radio-input"
@@ -2978,7 +2977,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-radio-wrapper"
                     >
                       <span
-                        class="ant-radio"
+                        class="ant-radio ant-wave-target"
                       >
                         <input
                           class="ant-radio-input"
@@ -2997,7 +2996,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-radio-wrapper"
                     >
                       <span
-                        class="ant-radio"
+                        class="ant-radio ant-wave-target"
                       >
                         <input
                           class="ant-radio-input"
@@ -3016,7 +3015,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                       class="ant-radio-wrapper"
                     >
                       <span
-                        class="ant-radio"
+                        class="ant-radio ant-wave-target"
                       >
                         <input
                           class="ant-radio-input"
@@ -3164,7 +3163,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -4383,7 +4381,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                 style="width: 330px;"
               >
                 <div
@@ -4393,7 +4391,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="name_list_0"
                       aria-autocomplete="list"
                       aria-controls="name_list"
                       aria-expanded="false"
@@ -4413,6 +4410,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
                     请输入搜索关键字
                   </span>
                 </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-arrow"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
               </div>
             </div>
           </div>
@@ -4485,7 +4488,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value-autoCl
                         style="width: 0px;"
                       >
                         <input
-                          aria-activedescendant="name_list_0"
                           aria-autocomplete="list"
                           aria-controls="name_list"
                           aria-expanded="false"
@@ -4591,7 +4593,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="select_list_0"
                         aria-autocomplete="list"
                         aria-controls="select_list"
                         aria-expanded="false"
@@ -4702,7 +4703,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="select_list_0"
                         aria-autocomplete="list"
                         aria-controls="select_list"
                         aria-expanded="false"
@@ -4826,7 +4826,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                     class="ant-spin-container"
                   >
                     <div
-                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
+                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
                       style="min-width: 60px; width: 330px;"
                     >
                       <div
@@ -4911,6 +4911,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                       </div>
                       <span
                         aria-hidden="true"
+                        class="ant-select-arrow"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
+                      <span
+                        aria-hidden="true"
                         class="ant-select-clear"
                         style="user-select: none;"
                         unselectable="on"
@@ -4977,7 +4983,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                     class="ant-spin-container"
                   >
                     <div
-                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                      class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                       style="min-width: 60px; width: 330px;"
                     >
                       <div
@@ -5104,6 +5110,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-
                           </div>
                         </div>
                       </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-arrow"
+                        style="user-select: none;"
+                        unselectable="on"
+                      />
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"

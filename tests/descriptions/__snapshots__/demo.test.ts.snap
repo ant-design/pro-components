@@ -605,7 +605,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 >
                   <div
                     aria-valuenow="40"
-                    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >
@@ -907,26 +907,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                 <span
                   class="ant-descriptions-item-label"
                 >
-                  时间
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                  style="min-width: 0;"
-                >
-                  2020-08-09
-                </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
                   状态
                 </span>
                 <span
@@ -952,28 +932,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
           <tr
             class="ant-descriptions-row"
           >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  money
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                  style="min-width: 0;"
-                >
-                  <span>
-                    ¥1,212,100.00
-                  </span>
-                </span>
-              </div>
-            </td>
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1843,7 +1801,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                                 class="ant-select-selection-search"
                                               >
                                                 <input
-                                                  aria-activedescendant="layout_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="layout_list"
                                                   aria-expanded="false"
@@ -2048,7 +2005,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                                 class="ant-select-selection-search"
                                               >
                                                 <input
-                                                  aria-activedescendant="size_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="size_list"
                                                   aria-expanded="false"

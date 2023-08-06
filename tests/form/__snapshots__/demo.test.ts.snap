@@ -54,7 +54,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="globalUseMode_list_0"
                       aria-autocomplete="list"
                       aria-controls="globalUseMode_list"
                       aria-expanded="false"
@@ -198,7 +197,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="default_users_0_useMode_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="default_users_0_useMode_list"
                                                 aria-expanded="false"
@@ -2126,7 +2124,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="validate_other_select_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="validate_other_select_list"
                                 aria-expanded="false"
@@ -2251,7 +2248,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="validate_other_select2_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="validate_other_select2_list"
                                 aria-expanded="false"
@@ -2373,7 +2369,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="validate_other_useMode_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="validate_other_useMode_list"
                                 aria-expanded="false"
@@ -2590,7 +2585,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                                   style="width: 0px;"
                                 >
                                   <input
-                                    aria-activedescendant="validate_other_select-multiple_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="validate_other_select-multiple_list"
                                     aria-expanded="false"
@@ -2714,7 +2708,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                           >
                             <span
-                              class="ant-radio ant-radio-checked"
+                              class="ant-radio ant-wave-target ant-radio-checked"
                             >
                               <input
                                 checked=""
@@ -2734,7 +2728,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                           >
                             <span
-                              class="ant-radio"
+                              class="ant-radio ant-wave-target"
                             >
                               <input
                                 class="ant-radio-input"
@@ -2753,7 +2747,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                           >
                             <span
-                              class="ant-radio"
+                              class="ant-radio ant-wave-target"
                             >
                               <input
                                 class="ant-radio-input"
@@ -2813,7 +2807,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                           >
                             <span
-                              class="ant-radio"
+                              class="ant-radio ant-wave-target"
                             >
                               <input
                                 class="ant-radio-input"
@@ -2832,7 +2826,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                           >
                             <span
-                              class="ant-radio ant-radio-checked"
+                              class="ant-radio ant-wave-target ant-radio-checked"
                             >
                               <input
                                 checked=""
@@ -2852,7 +2846,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                           >
                             <span
-                              class="ant-radio"
+                              class="ant-radio ant-wave-target"
                             >
                               <input
                                 class="ant-radio-input"
@@ -3011,7 +3005,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                           >
                             <span
-                              class="ant-checkbox ant-checkbox-checked"
+                              class="ant-checkbox ant-wave-target ant-checkbox-checked"
                             >
                               <input
                                 checked=""
@@ -3031,7 +3025,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                           >
                             <span
-                              class="ant-checkbox ant-checkbox-checked"
+                              class="ant-checkbox ant-wave-target ant-checkbox-checked"
                             >
                               <input
                                 checked=""
@@ -3051,7 +3045,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                           >
                             <span
-                              class="ant-checkbox ant-checkbox-checked"
+                              class="ant-checkbox ant-wave-target ant-checkbox-checked"
                             >
                               <input
                                 checked=""
@@ -3071,7 +3065,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                           >
                             <span
-                              class="ant-checkbox"
+                              class="ant-checkbox ant-wave-target"
                             >
                               <input
                                 class="ant-checkbox-input"
@@ -3090,7 +3084,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                           >
                             <span
-                              class="ant-checkbox"
+                              class="ant-checkbox ant-wave-target"
                             >
                               <input
                                 class="ant-checkbox-input"
@@ -3109,7 +3103,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                             class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                           >
                             <span
-                              class="ant-checkbox"
+                              class="ant-checkbox ant-wave-target"
                             >
                               <input
                                 class="ant-checkbox-input"
@@ -7237,6 +7231,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                           </span>
                           <span
                             class="ant-picker-clear"
+                            role="button"
                           >
                             <span
                               aria-label="close-circle"
@@ -8356,6 +8351,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                           </span>
                           <span
                             class="ant-picker-clear"
+                            role="button"
                           >
                             <span
                               aria-label="close-circle"
@@ -8497,6 +8493,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                           </span>
                           <span
                             class="ant-picker-clear"
+                            role="button"
                           >
                             <span
                               aria-label="close-circle"
@@ -8839,7 +8836,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
@@ -9389,7 +9385,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                           style="min-width: 140px;"
                         >
                           <span
@@ -9411,7 +9407,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                                   style="width: 0px;"
                                 >
                                   <input
-                                    aria-activedescendant="userQuery_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="userQuery_list"
                                     aria-expanded="false"
@@ -9440,6 +9435,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                               请选择
                             </span>
                           </div>
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-arrow"
+                            style="user-select: none;"
+                            unselectable="on"
+                          />
                         </div>
                       </div>
                     </div>
@@ -9478,7 +9479,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                           style="min-width: 140px;"
                         >
                           <div
@@ -9496,7 +9497,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                                   style="width: 0px;"
                                 >
                                   <input
-                                    aria-activedescendant="userQuery2_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="userQuery2_list"
                                     aria-expanded="false"
@@ -9527,6 +9527,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                               请选择
                             </span>
                           </div>
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-arrow"
+                            style="user-select: none;"
+                            unselectable="on"
+                          />
                         </div>
                       </div>
                     </div>
@@ -9564,7 +9570,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                           style="min-width: 140px;"
                         >
                           <div
@@ -9582,7 +9588,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                                   style="width: 0px;"
                                 >
                                   <input
-                                    aria-activedescendant="userQuery3_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="userQuery3_list"
                                     aria-expanded="false"
@@ -9613,6 +9618,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
                               请选择
                             </span>
                           </div>
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-arrow"
+                            style="user-select: none;"
+                            unselectable="on"
+                          />
                         </div>
                       </div>
                     </div>
@@ -11181,7 +11192,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="creatorButtonProps_icon_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="creatorButtonProps_icon_list"
                                                 aria-expanded="false"
@@ -11329,7 +11339,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="creatorButtonProps_position_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="creatorButtonProps_position_list"
                                                 aria-expanded="false"
@@ -11453,7 +11462,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="creatorButtonProps_type_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="creatorButtonProps_type_list"
                                                 aria-expanded="false"
@@ -11712,7 +11720,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="copyIconProps_Icon_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="copyIconProps_Icon_list"
                                                 aria-expanded="false"
@@ -11988,7 +11995,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="deleteIconProps_Icon_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="deleteIconProps_Icon_list"
                                                 aria-expanded="false"
@@ -12462,7 +12468,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="default_users_0_addr_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="default_users_0_addr_list"
                                                 aria-expanded="false"
@@ -13087,7 +13092,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -13106,7 +13111,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                 class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio ant-radio-checked"
+                  class="ant-radio ant-wave-target ant-radio-checked"
                 >
                   <input
                     checked=""
@@ -13631,7 +13636,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="users_0_sex_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="users_0_sex_list"
                                                 aria-expanded="false"
@@ -13864,7 +13868,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                                                   class="ant-select-selection-search"
                                                 >
                                                   <input
-                                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                                     aria-autocomplete="list"
                                                     aria-controls="rc_select_TEST_OR_SSR_list"
                                                     aria-expanded="false"
@@ -13930,7 +13933,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
                                                   class="ant-select-selection-search"
                                                 >
                                                   <input
-                                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                                     aria-autocomplete="list"
                                                     aria-controls="rc_select_TEST_OR_SSR_list"
                                                     aria-expanded="false"
@@ -16099,7 +16101,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
               class="ant-checkbox-wrapper"
             >
               <span
-                class="ant-checkbox"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
@@ -16571,7 +16573,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/LoginForm/demos/
                 class="ant-checkbox-wrapper"
               >
                 <span
-                  class="ant-checkbox"
+                  class="ant-checkbox ant-wave-target"
                 >
                   <input
                     class="ant-checkbox-input"
@@ -17184,7 +17186,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="sex_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="sex_list"
                                   aria-expanded="false"
@@ -17444,7 +17445,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                     style="width: 0px;"
                                   >
                                     <input
-                                      aria-activedescendant="area_list_0"
                                       aria-autocomplete="list"
                                       aria-controls="area_list"
                                       aria-expanded="false"
@@ -18383,6 +18383,31 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                     </svg>
                                   </span>
                                 </span>
+                                <span
+                                  class="ant-picker-clear"
+                                  role="button"
+                                >
+                                  <span
+                                    aria-label="close-circle"
+                                    class="anticon anticon-close-circle"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="close-circle"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
                               </div>
                             </div>
                           </span>
@@ -18606,6 +18631,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               </span>
                               <span
                                 class="ant-picker-clear"
+                                role="button"
                               >
                                 <span
                                   aria-label="close-circle"
@@ -18805,6 +18831,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               </span>
                               <span
                                 class="ant-picker-clear"
+                                role="button"
                               >
                                 <span
                                   aria-label="close-circle"
@@ -18985,7 +19012,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="sex_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="sex_list"
                                 aria-expanded="false"
@@ -19941,7 +19967,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="sex_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="sex_list"
                                   aria-expanded="false"
@@ -20060,7 +20085,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                     style="width: 0px;"
                                   >
                                     <input
-                                      aria-activedescendant="area_list_0"
                                       aria-autocomplete="list"
                                       aria-controls="area_list"
                                       aria-expanded="false"
@@ -20850,7 +20874,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="sex_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="sex_list"
                                   aria-expanded="false"
@@ -20984,7 +21007,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                                     style="width: 0px;"
                                   >
                                     <input
-                                      aria-activedescendant="area_list_0"
                                       aria-autocomplete="list"
                                       aria-controls="area_list"
                                       aria-expanded="false"
@@ -26984,7 +27006,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                   >
                     <span
-                      class="ant-radio"
+                      class="ant-radio ant-wave-target"
                     >
                       <input
                         class="ant-radio-input"
@@ -27003,7 +27025,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                   >
                     <span
-                      class="ant-radio"
+                      class="ant-radio ant-wave-target"
                     >
                       <input
                         class="ant-radio-input"
@@ -27022,7 +27044,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                   >
                     <span
-                      class="ant-radio"
+                      class="ant-radio ant-wave-target"
                     >
                       <input
                         class="ant-radio-input"
@@ -27041,7 +27063,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                   >
                     <span
-                      class="ant-radio"
+                      class="ant-radio ant-wave-target"
                     >
                       <input
                         class="ant-radio-input"
@@ -27097,7 +27119,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -27116,7 +27138,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -27135,7 +27157,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -27803,7 +27825,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
@@ -28310,7 +28331,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="state_list_0"
                       aria-autocomplete="list"
                       aria-controls="state_list"
                       aria-expanded="false"
@@ -28653,7 +28673,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="type_list_0"
                       aria-autocomplete="list"
                       aria-controls="type_list"
                       aria-expanded="false"
@@ -28777,7 +28796,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="type_list_0"
                       aria-autocomplete="list"
                       aria-controls="type_list"
                       aria-expanded="false"
@@ -29135,7 +29153,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="state_list_0"
                       aria-autocomplete="list"
                       aria-controls="state_list"
                       aria-expanded="false"
@@ -29539,7 +29556,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         style="width: 0px;"
                       >
                         <input
-                          aria-activedescendant="select-multiple_list_0"
                           aria-autocomplete="list"
                           aria-controls="select-multiple_list"
                           aria-expanded="false"
@@ -29714,7 +29730,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="state_list_0"
                       aria-autocomplete="list"
                       aria-controls="state_list"
                       aria-expanded="false"
@@ -29897,7 +29912,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="groupState_list_0"
                               aria-autocomplete="list"
                               aria-controls="groupState_list"
                               aria-expanded="false"
@@ -30276,7 +30290,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="state_list_0"
                       aria-autocomplete="list"
                       aria-controls="state_list"
                       aria-expanded="false"
@@ -30631,7 +30644,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
@@ -30848,7 +30860,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="state_list_0"
                           aria-autocomplete="list"
                           aria-controls="state_list"
                           aria-expanded="false"
@@ -31151,6 +31162,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     </span>
                     <span
                       class="ant-picker-clear"
+                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -31293,6 +31305,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     </span>
                     <span
                       class="ant-picker-clear"
+                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -31380,7 +31393,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="groupState_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="groupState_list"
                                   aria-expanded="false"
@@ -31619,7 +31631,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                                       class="ant-select-selection-search"
                                                     >
                                                       <input
-                                                        aria-activedescendant="list_0_state_list_0"
                                                         aria-autocomplete="list"
                                                         aria-controls="list_0_state_list"
                                                         aria-expanded="false"
@@ -32057,7 +32068,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                       class="ant-select-selection-search"
                                     >
                                       <input
-                                        aria-activedescendant="groupState_list_0"
                                         aria-autocomplete="list"
                                         aria-controls="groupState_list"
                                         aria-expanded="false"
@@ -32609,7 +32619,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="0_state_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="0_state_list"
                                 aria-expanded="false"
@@ -32875,7 +32884,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                       class="ant-select-selection-search"
                                     >
                                       <input
-                                        aria-activedescendant="1_groupState_list_0"
                                         aria-autocomplete="list"
                                         aria-controls="1_groupState_list"
                                         aria-expanded="false"
@@ -33113,7 +33121,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                                         class="ant-select-selection-search"
                                                       >
                                                         <input
-                                                          aria-activedescendant="2_list_0_state_list_0"
                                                           aria-autocomplete="list"
                                                           aria-controls="2_list_0_state_list"
                                                           aria-expanded="false"
@@ -33453,7 +33460,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="2_groupState_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="2_groupState_list"
                                               aria-expanded="false"
@@ -33784,7 +33790,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
               style="width: 200px;"
             >
               <div
@@ -33794,7 +33800,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
@@ -33815,6 +33820,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                   文本框
                 </span>
               </div>
+              <span
+                aria-hidden="true"
+                class="ant-select-arrow"
+                style="user-select: none;"
+                unselectable="on"
+              />
               <span
                 aria-hidden="true"
                 class="ant-select-clear"
@@ -33916,7 +33927,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="text_list_0"
                               aria-autocomplete="list"
                               aria-controls="text_list"
                               aria-expanded="false"
@@ -34280,7 +34290,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="step1_jobInfo_type_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="step1_jobInfo_type_list"
                                 aria-expanded="false"
@@ -34485,6 +34494,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           </span>
                           <span
                             class="ant-picker-clear"
+                            role="button"
                           >
                             <span
                               aria-label="close-circle"
@@ -35117,7 +35127,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -35136,7 +35146,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -35155,7 +35165,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -35174,7 +35184,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -35393,7 +35403,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                         class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -35412,7 +35422,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                         class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -35431,7 +35441,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                         class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -35504,7 +35514,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -35523,7 +35533,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -35542,7 +35552,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -35600,7 +35610,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="time_remark_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="time_remark_list"
                                     aria-expanded="false"
@@ -35720,7 +35729,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="time_remark2_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="time_remark2_list"
                                     aria-expanded="false"
@@ -36185,7 +36193,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="base_source_list_0"
                                             aria-autocomplete="list"
                                             aria-controls="base_source_list"
                                             aria-expanded="false"
@@ -36270,7 +36277,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="base_target_list_0"
                                             aria-autocomplete="list"
                                             aria-controls="base_target_list"
                                             aria-expanded="false"
@@ -36812,7 +36818,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                       style="width: 0px;"
                                     >
                                       <input
-                                        aria-activedescendant="base_l_list_0"
                                         aria-autocomplete="list"
                                         aria-controls="base_l_list"
                                         aria-expanded="false"
@@ -36951,7 +36956,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -36970,7 +36975,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -36989,7 +36994,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -37008,7 +37013,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -37226,7 +37231,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -37245,7 +37250,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -37264,7 +37269,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -37342,7 +37347,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -37361,7 +37366,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -37380,7 +37385,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -37438,7 +37443,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="time_remark_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="time_remark_list"
                                     aria-expanded="false"
@@ -37558,7 +37562,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="time_remark2_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="time_remark2_list"
                                     aria-expanded="false"
@@ -38188,7 +38191,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38207,7 +38210,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38226,7 +38229,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38245,7 +38248,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38264,7 +38267,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38283,7 +38286,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38302,7 +38305,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38521,7 +38524,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                           class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                         >
                                           <span
-                                            class="ant-checkbox"
+                                            class="ant-checkbox ant-wave-target"
                                           >
                                             <input
                                               class="ant-checkbox-input"
@@ -38540,7 +38543,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                           class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                         >
                                           <span
-                                            class="ant-checkbox"
+                                            class="ant-checkbox ant-wave-target"
                                           >
                                             <input
                                               class="ant-checkbox-input"
@@ -38559,7 +38562,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                           class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                         >
                                           <span
-                                            class="ant-checkbox"
+                                            class="ant-checkbox ant-wave-target"
                                           >
                                             <input
                                               class="ant-checkbox-input"
@@ -38632,7 +38635,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38651,7 +38654,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38670,7 +38673,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38689,7 +38692,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38907,7 +38910,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38926,7 +38929,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -38945,7 +38948,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                 >
                                   <span
-                                    class="ant-checkbox"
+                                    class="ant-checkbox ant-wave-target"
                                   >
                                     <input
                                       class="ant-checkbox-input"
@@ -39516,7 +39519,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -39535,7 +39538,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -39554,7 +39557,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -39573,7 +39576,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -39792,7 +39795,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                         class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -39811,7 +39814,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                         class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -39830,7 +39833,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                         class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -39903,7 +39906,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -39922,7 +39925,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -39941,7 +39944,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -39999,7 +40002,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="time_remark_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="time_remark_list"
                                     aria-expanded="false"
@@ -40119,7 +40121,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="time_remark2_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="time_remark2_list"
                                     aria-expanded="false"
@@ -40850,7 +40851,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                         style="min-width: 100px;"
                       >
                         <div
@@ -40868,7 +40869,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                                 style="width: 0px;"
                               >
                                 <input
-                                  aria-activedescendant="unusedMode_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="unusedMode_list"
                                   aria-expanded="false"
@@ -40899,6 +40899,12 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                             请选择
                           </span>
                         </div>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-arrow"
+                          style="user-select: none;"
+                          unselectable="on"
+                        />
                       </div>
                     </div>
                   </div>
@@ -42285,7 +42291,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                         style="min-width: 100px;"
                       >
                         <div
@@ -42303,7 +42309,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                                 style="width: 0px;"
                               >
                                 <input
-                                  aria-activedescendant="unusedMode_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="unusedMode_list"
                                   aria-expanded="false"
@@ -42334,6 +42339,12 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base-test.tsx correct
                             请选择
                           </span>
                         </div>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-arrow"
+                          style="user-select: none;"
+                          unselectable="on"
+                        />
                       </div>
                     </div>
                   </div>
@@ -43338,7 +43349,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -43374,7 +43385,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
               >
                 <span
-                  class="ant-checkbox"
+                  class="ant-checkbox ant-wave-target"
                 >
                   <input
                     class="ant-checkbox-input"
@@ -43966,7 +43977,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -44002,7 +44013,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/config-provider.tsx c
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
               >
                 <span
-                  class="ant-checkbox"
+                  class="ant-checkbox ant-wave-target"
                 >
                   <input
                     class="ant-checkbox-input"
@@ -44580,7 +44591,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="useMode_list_0"
                       aria-autocomplete="list"
                       aria-controls="useMode_list"
                       aria-expanded="false"
@@ -44700,7 +44710,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="useMode_list_0"
                       aria-autocomplete="list"
                       aria-controls="useMode_list"
                       aria-expanded="false"
@@ -46007,7 +46016,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="level_list_0"
                           aria-autocomplete="list"
                           aria-controls="level_list"
                           aria-expanded="false"
@@ -46605,7 +46613,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
               >
                 <span
-                  class="ant-checkbox ant-checkbox-checked"
+                  class="ant-checkbox ant-wave-target ant-checkbox-checked"
                 >
                   <input
                     checked=""
@@ -46645,7 +46653,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
                 class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio ant-radio-checked"
+                  class="ant-radio ant-wave-target ant-radio-checked"
                 >
                   <input
                     checked=""
@@ -46752,7 +46760,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx corr
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="useMode_list_0"
                       aria-autocomplete="list"
                       aria-controls="useMode_list"
                       aria-expanded="false"
@@ -47483,7 +47490,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-change.tsx cor
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="unusedMode_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="unusedMode_list"
                                 aria-expanded="false"
@@ -47796,7 +47802,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -48484,7 +48490,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                                 class="ant-select-selection-search"
                                               >
                                                 <input
-                                                  aria-activedescendant="chapter_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="chapter_list"
                                                   aria-expanded="false"
@@ -48580,7 +48585,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                                 class="ant-select-selection-search"
                                               >
                                                 <input
-                                                  aria-activedescendant="unusedMode_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="unusedMode_list"
                                                   aria-expanded="false"
@@ -48906,7 +48910,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                                 class="ant-select-selection-search"
                                               >
                                                 <input
-                                                  aria-activedescendant="useMode_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="useMode_list"
                                                   aria-expanded="false"
@@ -49031,7 +49034,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                                 class="ant-select-selection-search"
                                               >
                                                 <input
-                                                  aria-activedescendant="taxRate_list_0"
                                                   aria-autocomplete="list"
                                                   aria-controls="taxRate_list"
                                                   aria-expanded="false"
@@ -49152,7 +49154,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                               class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                                             >
                                               <span
-                                                class="ant-radio ant-radio-checked"
+                                                class="ant-radio ant-wave-target ant-radio-checked"
                                               >
                                                 <input
                                                   checked=""
@@ -49172,7 +49174,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                               class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                             >
                                               <span
-                                                class="ant-radio"
+                                                class="ant-radio ant-wave-target"
                                               >
                                                 <input
                                                   class="ant-radio-input"
@@ -49191,7 +49193,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
                                               class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                             >
                                               <span
-                                                class="ant-radio"
+                                                class="ant-radio ant-wave-target"
                                               >
                                                 <input
                                                   class="ant-radio-input"
@@ -49489,7 +49491,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-footer.tsx cor
           style="height: 64px; margin-block-start: 24px;"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -50001,7 +50003,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -50020,7 +50022,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -50039,7 +50041,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -50058,7 +50060,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -50276,7 +50278,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -50345,7 +50347,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -50364,7 +50366,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -50383,7 +50385,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -50441,7 +50443,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="time_remark_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="time_remark_list"
                                     aria-expanded="false"
@@ -50561,7 +50562,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="time_remark2_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="time_remark2_list"
                                     aria-expanded="false"
@@ -53305,7 +53305,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                                     class="ant-select-selection-search"
                                                   >
                                                     <input
-                                                      aria-activedescendant="624748504_state_list_0"
                                                       aria-autocomplete="list"
                                                       aria-controls="624748504_state_list"
                                                       aria-expanded="false"
@@ -53531,7 +53530,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                                     class="ant-select-selection-search"
                                                   >
                                                     <input
-                                                      aria-activedescendant="624691229_state_list_0"
                                                       aria-autocomplete="list"
                                                       aria-controls="624691229_state_list"
                                                       aria-expanded="false"
@@ -53752,7 +53750,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="useMode_list_0"
                       aria-autocomplete="list"
                       aria-controls="useMode_list"
                       aria-expanded="false"

@@ -3614,7 +3614,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -3837,7 +3837,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -3857,7 +3857,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -4138,7 +4138,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -4158,7 +4158,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -4381,7 +4381,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -4401,7 +4401,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -4624,7 +4624,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -4644,7 +4644,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -4867,7 +4867,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -4887,7 +4887,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -5132,7 +5132,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -5152,7 +5152,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -5169,7 +5169,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               <div
                 class="ant-pro-layout-bg-list"
               />
-              <section
+              <div
                 class="ant-layout"
                 style="min-height: 100%; flex-direction: row; height: 400px;"
               >
@@ -5343,11 +5343,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     </div>
                   </main>
                 </div>
-              </section>
+              </div>
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -5367,7 +5367,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -5550,7 +5550,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
               <div
                 class="ant-pro-layout-bg-list"
               />
-              <section
+              <div
                 class="ant-layout"
                 style="min-height: 100%; flex-direction: row;"
               >
@@ -5677,11 +5677,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     </div>
                   </main>
                 </div>
-              </section>
+              </div>
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -5698,7 +5698,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 500px; flex-direction: row;"
     >
@@ -5959,7 +5959,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
           </div>
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -6175,7 +6175,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
@@ -6523,7 +6523,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
           </div>
         </footer>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -6543,7 +6543,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -6761,7 +6761,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group.tsx
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
           />
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -6782,7 +6782,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -7000,7 +7000,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/appList-group-sim
             class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
           />
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -7264,7 +7264,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -7558,7 +7558,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/background-contex
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -7592,7 +7592,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -7999,7 +7999,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             style="height: 64px; margin-block-start: 24px;"
           />
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -8033,7 +8033,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -8407,7 +8407,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/classicMode.tsx c
             style="height: 64px; margin-block-start: 24px;"
           />
         </div>
-      </section>
+      </div>
     </div>
     <div
       class="ant-pro-setting-drawer-handle"
@@ -8449,7 +8449,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -8779,7 +8779,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/collapsedShowTitl
           style="height: 64px; margin-block-start: 24px;"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -8795,7 +8795,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
     <div
       class="qixian-pro-layout-bg-list"
     />
-    <section
+    <div
       class="qixian-layout"
       style="min-height: 100%; flex-direction: row; max-height: 100vh;"
     >
@@ -9803,7 +9803,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
           style="height: 64px; margin-block-start: 24px;"
         />
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-pro-setting-drawer-handle"
@@ -9861,7 +9861,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -10133,7 +10133,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customSider.tsx c
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
     <div
       class="ant-pro-setting-drawer-handle"
@@ -10175,7 +10175,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -10445,7 +10445,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                                   class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                                 >
                                   <span
-                                    class="ant-radio ant-radio-checked"
+                                    class="ant-radio ant-wave-target ant-radio-checked"
                                   >
                                     <input
                                       checked=""
@@ -10465,7 +10465,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                                   class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                 >
                                   <span
-                                    class="ant-radio"
+                                    class="ant-radio ant-wave-target"
                                   >
                                     <input
                                       class="ant-radio-input"
@@ -10493,7 +10493,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
           </div>
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -10512,7 +10512,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -10632,7 +10632,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -10649,7 +10649,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -11019,7 +11019,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dark.tsx correctl
           style="height: 64px; margin-block-start: 24px;"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -11035,7 +11035,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -11409,7 +11409,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/debug-demo.tsx co
           style="height: 64px; margin-block-start: 24px;"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -11442,7 +11442,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -11820,7 +11820,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designMenuCss.tsx
             style="height: 64px; margin-block-start: 24px;"
           />
         </div>
-      </section>
+      </div>
     </div>
     <div
       class="ant-pro-setting-drawer-handle"
@@ -11879,7 +11879,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -12171,7 +12171,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/designSiderMenu.t
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
     <div
       class="ant-pro-setting-drawer-handle"
@@ -12653,7 +12653,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -13670,7 +13670,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
             style="height: 64px; margin-block-start: 24px;"
           />
         </div>
-      </section>
+      </div>
     </div>
     <div
       class="ant-pro-setting-drawer-handle"
@@ -13712,7 +13712,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
@@ -14010,7 +14010,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
           </div>
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -14030,7 +14030,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -14243,7 +14243,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -14260,7 +14260,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
@@ -14550,7 +14550,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           </div>
         </footer>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -14583,7 +14583,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -14963,7 +14963,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer-global-too
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -14983,7 +14983,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -15409,7 +15409,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -16165,7 +16165,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
@@ -16403,7 +16403,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
           </div>
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -16419,7 +16419,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -16768,7 +16768,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           </div>
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -16784,7 +16784,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -17288,7 +17288,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           </div>
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -17308,7 +17308,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -17980,7 +17980,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -18014,7 +18014,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -18310,7 +18310,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/mixMode.tsx corre
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -18344,7 +18344,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -18642,7 +18642,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/pageSimplify.tsx 
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -18693,7 +18693,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -18952,7 +18952,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -18986,7 +18986,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -19278,7 +19278,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siderMode.tsx cor
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
     <div
       class="ant-pro-setting-drawer-handle"
@@ -19337,7 +19337,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -19633,7 +19633,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/siteMenu.tsx corr
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -19651,7 +19651,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -19835,7 +19835,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           children
         </main>
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -19843,7 +19843,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; height: 100vh; flex-direction: row;"
     >
@@ -19855,7 +19855,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           class="ant-layout-content ant-pro-layout-content"
         />
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -19863,7 +19863,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; height: 100vh; flex-direction: row;"
     >
@@ -19914,7 +19914,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
@@ -19922,7 +19922,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
@@ -19999,7 +19999,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
         />
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -20007,7 +20007,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; height: 100vh; flex-direction: row;"
     >
@@ -20090,7 +20090,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           xxxx
         </main>
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -20098,7 +20098,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
@@ -20188,7 +20188,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           xxxx
         </main>
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
@@ -20196,7 +20196,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
@@ -20282,7 +20282,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           </div>
         </main>
       </div>
-    </section>
+    </div>
   </div>
   <div
     class="ant-pro-setting-drawer-handle"
@@ -20324,7 +20324,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -20694,7 +20694,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
           style="height: 64px; margin-block-start: 24px;"
         />
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -20713,7 +20713,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
       <div
         class="ant-pro-layout-bg-list"
       />
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -21014,7 +21014,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -21048,7 +21048,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
           style="position: absolute; src: https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png; bottom: 0px; left: 0px; width: 331px;"
         />
       </div>
-      <section
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -21340,7 +21340,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/topMode.tsx corre
             </div>
           </main>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </DocumentFragment>

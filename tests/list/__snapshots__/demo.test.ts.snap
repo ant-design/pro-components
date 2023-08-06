@@ -1140,7 +1140,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                 >
                   <span
-                    class="ant-radio"
+                    class="ant-radio ant-wave-target"
                   >
                     <input
                       class="ant-radio-input"
@@ -1159,7 +1159,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                 >
                   <span
-                    class="ant-radio ant-radio-checked"
+                    class="ant-radio ant-wave-target ant-radio-checked"
                   >
                     <input
                       checked=""
@@ -1363,7 +1363,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1485,7 +1485,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1607,7 +1607,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1729,7 +1729,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1851,7 +1851,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -1973,7 +1973,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -2095,7 +2095,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -2217,7 +2217,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                                 </div>
                                 <div
                                   aria-valuenow="80"
-                                  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                                  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                                   role="progressbar"
                                 >
                                   <div
@@ -3421,7 +3421,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="status_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="status_list"
                                                 aria-expanded="false"
@@ -4478,7 +4477,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -4618,7 +4617,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -4758,7 +4757,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -4898,7 +4897,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -5038,7 +5037,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -5225,7 +5224,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
@@ -5432,7 +5430,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="status_list_0"
                               aria-autocomplete="list"
                               aria-controls="status_list"
                               aria-expanded="false"
@@ -5828,7 +5825,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -5914,7 +5911,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -5957,7 +5954,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -6043,7 +6040,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -6086,7 +6083,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -6172,7 +6169,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -6215,7 +6212,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -6301,7 +6298,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                          class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
                           role="progressbar"
                         >
                           <div
@@ -6354,7 +6351,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
@@ -6416,7 +6412,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
@@ -6542,7 +6537,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -6644,7 +6639,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -6746,7 +6741,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -6848,7 +6843,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -7021,7 +7016,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -7164,7 +7159,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -7307,7 +7302,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -7450,7 +7445,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                           class="ant-checkbox-wrapper"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -7647,7 +7642,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.ts
                           class="qixian-checkbox-wrapper"
                         >
                           <span
-                            class="qixian-checkbox"
+                            class="qixian-checkbox ant-wave-target"
                           >
                             <input
                               class="qixian-checkbox-input"
@@ -7733,7 +7728,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.ts
                         </div>
                         <div
                           aria-valuenow="80"
-                          class="qixian-progress qixian-progress-line qixian-progress-status-normal qixian-progress-show-info qixian-progress-default"
+                          class="qixian-progress qixian-progress-status-normal qixian-progress-line qixian-progress-show-info qixian-progress-default"
                           role="progressbar"
                         >
                           <div

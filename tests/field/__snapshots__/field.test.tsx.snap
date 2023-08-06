@@ -544,7 +544,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -627,7 +626,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -1732,7 +1730,6 @@ exports[`Field 🐴 edit and plain=true 1`] = `
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -1815,7 +1812,6 @@ exports[`Field 🐴 edit and plain=true 1`] = `
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -3009,7 +3005,7 @@ exports[`Field 🐴 progress support no number 1`] = `
 <DocumentFragment>
   <div
     aria-valuenow="NaN"
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
     role="progressbar"
     style="min-width: 100px; max-width: 320px;"
   >
@@ -3040,7 +3036,7 @@ exports[`Field 🐴 progress support string number 1`] = `
 <DocumentFragment>
   <div
     aria-valuenow="12"
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
     role="progressbar"
     style="min-width: 100px; max-width: 320px;"
   >
@@ -3322,7 +3318,7 @@ exports[`Field 🐴 read and plain 1`] = `
                 >
                   <div
                     aria-valuenow="40"
-                    class="ant-progress ant-progress-steps ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    class="ant-progress ant-progress-status-active ant-progress-steps ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >
@@ -3903,7 +3899,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
                 >
                   <div
                     aria-valuenow="40"
-                    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >

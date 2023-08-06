@@ -211,7 +211,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -437,7 +437,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
           style="height: 64px; margin-block-start: 24px;"
         />
       </div>
-    </section>
+    </div>
   </div>
 </div>
 `;
@@ -552,7 +552,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -784,7 +784,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
           style="height: 64px; margin-block-start: 24px;"
         />
       </div>
-    </section>
+    </div>
   </div>
 </div>
 `;
@@ -797,7 +797,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
     <div
       class="ant-pro-layout-bg-list"
     />
-    <section
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -1042,7 +1042,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
           </div>
         </main>
       </div>
-    </section>
+    </div>
   </div>
 </DocumentFragment>
 `;

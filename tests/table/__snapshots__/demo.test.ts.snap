@@ -2458,7 +2458,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                             >
                               <span
-                                class="ant-radio"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -2477,7 +2477,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                             >
                               <span
-                                class="ant-radio ant-radio-checked"
+                                class="ant-radio ant-wave-target ant-radio-checked"
                               >
                                 <input
                                   checked=""
@@ -2497,7 +2497,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                             >
                               <span
-                                class="ant-radio"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -3859,7 +3859,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                     >
                                       <span
-                                        class="ant-radio"
+                                        class="ant-radio ant-wave-target"
                                       >
                                         <input
                                           class="ant-radio-input"
@@ -3878,7 +3878,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
                                     >
                                       <span
-                                        class="ant-radio ant-radio-checked"
+                                        class="ant-radio ant-wave-target ant-radio-checked"
                                       >
                                         <input
                                           checked=""
@@ -3898,7 +3898,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                                     >
                                       <span
-                                        class="ant-radio"
+                                        class="ant-radio ant-wave-target"
                                       >
                                         <input
                                           class="ant-radio-input"
@@ -5337,7 +5337,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164000_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164000_state_list"
                                               aria-expanded="false"
@@ -5602,7 +5601,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164001_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164001_state_list"
                                               aria-expanded="false"
@@ -5867,7 +5865,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164002_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164002_state_list"
                                               aria-expanded="false"
@@ -6132,7 +6129,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164003_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164003_state_list"
                                               aria-expanded="false"
@@ -6397,7 +6393,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164004_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164004_state_list"
                                               aria-expanded="false"
@@ -6662,7 +6657,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164005_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164005_state_list"
                                               aria-expanded="false"
@@ -6927,7 +6921,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164006_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164006_state_list"
                                               aria-expanded="false"
@@ -7192,7 +7185,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164007_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164007_state_list"
                                               aria-expanded="false"
@@ -7457,7 +7449,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164008_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164008_state_list"
                                               aria-expanded="false"
@@ -7722,7 +7713,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164009_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164009_state_list"
                                               aria-expanded="false"
@@ -7987,7 +7977,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164010_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164010_state_list"
                                               aria-expanded="false"
@@ -8252,7 +8241,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164011_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164011_state_list"
                                               aria-expanded="false"
@@ -8517,7 +8505,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164012_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164012_state_list"
                                               aria-expanded="false"
@@ -8782,7 +8769,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164013_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164013_state_list"
                                               aria-expanded="false"
@@ -9047,7 +9033,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164014_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164014_state_list"
                                               aria-expanded="false"
@@ -9312,7 +9297,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164015_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164015_state_list"
                                               aria-expanded="false"
@@ -9577,7 +9561,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164016_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164016_state_list"
                                               aria-expanded="false"
@@ -9842,7 +9825,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164017_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164017_state_list"
                                               aria-expanded="false"
@@ -10107,7 +10089,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164018_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164018_state_list"
                                               aria-expanded="false"
@@ -10372,7 +10353,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                             class="ant-select-selection-search"
                                           >
                                             <input
-                                              aria-activedescendant="1479828164019_state_list_0"
                                               aria-autocomplete="list"
                                               aria-controls="1479828164019_state_list"
                                               aria-expanded="false"
@@ -15064,7 +15044,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                 class="ant-checkbox-wrapper"
                               >
                                 <span
-                                  class="ant-checkbox ant-checkbox-indeterminate"
+                                  class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
                                 >
                                   <input
                                     aria-checked="mixed"
@@ -15376,7 +15356,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               class="ant-checkbox-wrapper"
                             >
                               <span
-                                class="ant-checkbox"
+                                class="ant-checkbox ant-wave-target"
                               >
                                 <input
                                   class="ant-checkbox-input"
@@ -15413,7 +15393,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -15556,7 +15536,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
                             >
                               <span
-                                class="ant-checkbox ant-checkbox-checked"
+                                class="ant-checkbox ant-wave-target ant-checkbox-checked"
                               >
                                 <input
                                   checked=""
@@ -15594,7 +15574,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -15737,7 +15717,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               class="ant-checkbox-wrapper"
                             >
                               <span
-                                class="ant-checkbox"
+                                class="ant-checkbox ant-wave-target"
                               >
                                 <input
                                   class="ant-checkbox-input"
@@ -15774,7 +15754,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -15917,7 +15897,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               class="ant-checkbox-wrapper"
                             >
                               <span
-                                class="ant-checkbox"
+                                class="ant-checkbox ant-wave-target"
                               >
                                 <input
                                   class="ant-checkbox-input"
@@ -15954,7 +15934,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -16097,7 +16077,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               class="ant-checkbox-wrapper"
                             >
                               <span
-                                class="ant-checkbox"
+                                class="ant-checkbox ant-wave-target"
                               >
                                 <input
                                   class="ant-checkbox-input"
@@ -16134,7 +16114,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -17865,7 +17845,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             class="qixian-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="state_list_0"
                               aria-autocomplete="list"
                               aria-controls="state_list"
                               aria-expanded="false"
@@ -18686,7 +18665,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="state_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="state_list"
                                   aria-expanded="false"
@@ -18814,7 +18792,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="direction_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="direction_list"
                                   aria-expanded="false"
@@ -20133,7 +20110,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -20335,7 +20311,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="creator_list_0"
                               aria-autocomplete="list"
                               aria-controls="creator_list"
                               aria-expanded="false"
@@ -20432,7 +20407,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="status_list_0"
                               aria-autocomplete="list"
                               aria-controls="status_list"
                               aria-expanded="false"
@@ -22411,7 +22385,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -22923,7 +22896,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -23435,7 +23407,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -25287,7 +25258,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     class="ant-select-selection-search"
                                   >
                                     <input
-                                      aria-activedescendant="address_list_0"
                                       aria-autocomplete="list"
                                       aria-controls="address_list"
                                       aria-expanded="false"
@@ -25658,7 +25628,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                           class="ant-checkbox-wrapper"
                                         >
                                           <span
-                                            class="ant-checkbox"
+                                            class="ant-checkbox ant-wave-target"
                                           >
                                             <input
                                               aria-label="Select all"
@@ -25802,7 +25772,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-checkbox-wrapper"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -25876,7 +25846,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-checkbox-wrapper"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -25950,7 +25920,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-checkbox-wrapper"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -26024,7 +25994,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-checkbox-wrapper"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -26098,7 +26068,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                         class="ant-checkbox-wrapper"
                                       >
                                         <span
-                                          class="ant-checkbox"
+                                          class="ant-checkbox ant-wave-target"
                                         >
                                           <input
                                             class="ant-checkbox-input"
@@ -26361,7 +26331,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="rc_select_TEST_OR_SSR_list"
                                     aria-expanded="false"
@@ -29321,7 +29290,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -29703,7 +29671,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
@@ -29927,7 +29894,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                                 class="ant-checkbox-wrapper"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-wave-target"
                                 >
                                   <input
                                     aria-label="Select all"
@@ -29975,7 +29942,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                               class="ant-checkbox-wrapper"
                             >
                               <span
-                                class="ant-checkbox"
+                                class="ant-checkbox ant-wave-target"
                               >
                                 <input
                                   class="ant-checkbox-input"
@@ -30333,7 +30300,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                               class="ant-select-selection-search"
                                             >
                                               <input
-                                                aria-activedescendant="creator_list_0"
                                                 aria-autocomplete="list"
                                                 aria-controls="creator_list"
                                                 aria-expanded="false"
@@ -30728,7 +30694,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                               aria-autocomplete="list"
                               aria-controls="rc_select_TEST_OR_SSR_list"
                               aria-expanded="false"
@@ -30826,7 +30791,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="state_list_0"
                               aria-autocomplete="list"
                               aria-controls="state_list"
                               aria-expanded="false"
@@ -32493,7 +32457,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="status_list_0"
                               aria-autocomplete="list"
                               aria-controls="status_list"
                               aria-expanded="false"
@@ -34791,7 +34754,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="state_list_0"
                               aria-autocomplete="list"
                               aria-controls="state_list"
                               aria-expanded="false"
@@ -35528,7 +35490,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="state_list_0"
                               aria-autocomplete="list"
                               aria-controls="state_list"
                               aria-expanded="false"
@@ -36175,7 +36136,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="status_list_0"
                               aria-autocomplete="list"
                               aria-controls="status_list"
                               aria-expanded="false"
@@ -36891,7 +36851,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -36961,7 +36921,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -37099,7 +37059,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -37914,7 +37873,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                               >
                                 <div
                                   aria-valuenow="86"
-                                  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                  class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                                   role="progressbar"
                                   style="min-width: 100px; max-width: 320px;"
                                 >
@@ -37963,7 +37922,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                               >
                                 <div
                                   aria-valuenow="86"
-                                  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                                  class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                                   role="progressbar"
                                   style="min-width: 100px; max-width: 320px;"
                                 >
@@ -38091,7 +38050,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                               aria-autocomplete="list"
                               aria-controls="rc_select_TEST_OR_SSR_list"
                               aria-expanded="false"
@@ -38217,7 +38175,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="state_list_0"
                               aria-autocomplete="list"
                               aria-controls="state_list"
                               aria-expanded="false"
@@ -39945,7 +39902,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="state_list_0"
                               aria-autocomplete="list"
                               aria-controls="state_list"
                               aria-expanded="false"
@@ -40748,7 +40704,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                         class="canvas-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="state_list_0"
                           aria-autocomplete="list"
                           aria-controls="state_list"
                           aria-expanded="false"
@@ -41614,7 +41569,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             class="canvas-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="state_list_0"
                               aria-autocomplete="list"
                               aria-controls="state_list"
                               aria-expanded="false"
@@ -45144,7 +45098,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="state_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="state_list"
                                 aria-expanded="false"
@@ -46846,7 +46799,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -46970,7 +46922,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             class="ant-select-selection-search"
                           >
                             <input
-                              aria-activedescendant="status_list_0"
                               aria-autocomplete="list"
                               aria-controls="status_list"
                               aria-expanded="false"
@@ -47092,7 +47043,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                         >
                           <span
-                            class="ant-radio"
+                            class="ant-radio ant-wave-target"
                           >
                             <input
                               class="ant-radio-input"
@@ -47111,7 +47062,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                         >
                           <span
-                            class="ant-radio"
+                            class="ant-radio ant-wave-target"
                           >
                             <input
                               class="ant-radio-input"
@@ -47130,7 +47081,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                         >
                           <span
-                            class="ant-radio"
+                            class="ant-radio ant-wave-target"
                           >
                             <input
                               class="ant-radio-input"
@@ -47149,7 +47100,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
                         >
                           <span
-                            class="ant-radio"
+                            class="ant-radio ant-wave-target"
                           >
                             <input
                               class="ant-radio-input"
@@ -47327,7 +47278,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                         >
                           <span
-                            class="ant-checkbox ant-checkbox-checked"
+                            class="ant-checkbox ant-wave-target ant-checkbox-checked"
                           >
                             <input
                               checked=""
@@ -47347,7 +47298,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -47366,7 +47317,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -47385,7 +47336,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                         >
                           <span
-                            class="ant-checkbox"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -49711,7 +49662,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
@@ -50655,7 +50605,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -50729,7 +50679,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                           >
                             <div
                               aria-valuenow="86"
-                              class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                              class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
                               role="progressbar"
                               style="min-width: 100px; max-width: 320px;"
                             >
@@ -50989,7 +50939,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"

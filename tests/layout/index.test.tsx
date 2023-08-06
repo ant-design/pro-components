@@ -94,7 +94,7 @@ describe('BasicLayout', () => {
     expect(
       getComputedStyle(
         wrapper.baseElement.querySelector<HTMLDivElement>(
-          'section.ant-layout div.ant-pro-layout-container',
+          'div.ant-layout div.ant-pro-layout-container',
         )!,
       )?.padding,
     ).toBe('');
