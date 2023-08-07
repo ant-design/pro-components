@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-components",
-  "version": "2.6.10",
+  "version": "2.6.11",
   "description": "@ant-design/pro-components",
   "keywords": [
     "antd",
@@ -35,16 +35,16 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-card": "2.5.9",
-    "@ant-design/pro-descriptions": "2.4.10",
-    "@ant-design/pro-field": "2.10.9",
-    "@ant-design/pro-form": "2.17.1",
-    "@ant-design/pro-layout": "7.16.6",
-    "@ant-design/pro-list": "2.5.10",
+    "@ant-design/pro-card": "2.5.10",
+    "@ant-design/pro-descriptions": "2.4.11",
+    "@ant-design/pro-field": "2.10.10",
+    "@ant-design/pro-form": "2.17.2",
+    "@ant-design/pro-layout": "7.16.7",
+    "@ant-design/pro-list": "2.5.11",
     "@ant-design/pro-provider": "2.12.1",
     "@ant-design/pro-skeleton": "2.1.7",
-    "@ant-design/pro-table": "3.10.4",
-    "@ant-design/pro-utils": "2.12.8",
+    "@ant-design/pro-table": "3.10.5",
+    "@ant-design/pro-utils": "2.12.9",
     "@babel/runtime": "^7.16.3"
   },
   "peerDependencies": {

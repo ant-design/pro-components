@@ -860,9 +860,8 @@ describe('ProForm', () => {
                 width="md"
                 name="useMode"
                 label={
-                  <span id="label_text">{`与《${values?.name || ''}》 与 《${
-                    values?.name2?.text || ''
-                  }》合同约定生效方式`}</span>
+                  <span id="label_text">{`与《${values?.name || ''}》 与 《${values?.name2?.text || ''
+                    }》合同约定生效方式`}</span>
                 }
               />
             );
@@ -1462,9 +1461,9 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.mouseDown(
         wrapper.baseElement.querySelectorAll('.ant-select-selector')[
-          wrapper.baseElement.querySelectorAll<HTMLElement>(
-            'span.ant-select-clear',
-          ).length - 1
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          'span.ant-select-clear',
+        ).length - 1
         ],
       );
     });
@@ -2773,7 +2772,33 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith(1);
   });
 
-  it('📦 ColorPicker support rgba', async () => {
+  it('📦 ColorPicker support rgba new', async () => {
+    const onFinish = jest.fn();
+    const wrapper = render(
+      <ProForm
+        onValuesChange={async (values) => {
+          onFinish(values?.color?.toHexString?.());
+        }}
+      >
+        <ProFormColorPicker name="color" label="颜色选择" />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0]
+        .click();
+    });
+
+    // 选中第一个
+    act(() => {
+      wrapper.baseElement
+        .querySelectorAll<HTMLElement>('.ant-color-picker-presets-color')[0]
+        .click();
+    });
+    expect(onFinish).toBeCalledWith('#f5222d');
+  });
+  it('📦 ColorPicker support rgba old', async () => {
     const onFinish = jest.fn();
     const wrapper = render(
       <ProForm
@@ -2781,7 +2806,7 @@ describe('ProForm', () => {
           onFinish(values?.color);
         }}
       >
-        <ProFormColorPicker name="color" label="颜色选择" />
+        <ProFormColorPicker name="color" old label="颜色选择" />
       </ProForm>,
     );
 
@@ -2816,7 +2841,6 @@ describe('ProForm', () => {
 
     expect(onFinish).toBeCalledWith('rgba(91, 143, 249, 0.02)');
   });
-
   it('📦 validateFieldsReturnFormatValue', async () => {
     const fn1 = jest.fn();
     const fn2 = jest.fn();
@@ -3092,9 +3116,9 @@ describe('ProForm', () => {
         wrapper.baseElement.querySelectorAll<HTMLElement>(
           'span.ant-select-clear',
         )[
-          wrapper.baseElement.querySelectorAll<HTMLElement>(
-            'span.ant-select-clear',
-          ).length - 1
+        wrapper.baseElement.querySelectorAll<HTMLElement>(
+          'span.ant-select-clear',
+        ).length - 1
         ],
       );
     });

@@ -80,7 +80,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
             width: '16px',
             lineHeight: '16px !important',
             '.anticon': {
-              lineHeight: '16px',
+              lineHeight: '16px !important',
               height: '16px',
             },
           },
@@ -104,7 +104,7 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
               width: '16px',
               lineHeight: '16px !important',
               '.anticon': {
-                lineHeight: '16px',
+                lineHeight: '16px!important',
                 height: '16px',
               },
             },
