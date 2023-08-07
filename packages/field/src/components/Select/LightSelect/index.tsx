@@ -162,7 +162,7 @@ const LightSelect: React.ForwardRefRenderFunction<
                 <div style={{ margin: '4px 8px' }}>
                   <Input
                     value={keyword}
-                    allowClear={allowClear}
+                    allowClear={!!allowClear}
                     onChange={(e) => {
                       setKeyword(e.target.value);
                       onSearch?.(e.target.value);
@@ -220,7 +220,7 @@ const LightSelect: React.ForwardRefRenderFunction<
         placeholder={placeholder}
         disabled={disabled}
         bordered={bordered}
-        allowClear={allowClear}
+        allowClear={!!allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {
           onChange?.(undefined, undefined as any);

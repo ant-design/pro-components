@@ -107,7 +107,13 @@ const FieldRadio: ProFieldFC<GroupProps> = (
       />,
     );
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...rest.fieldProps, options, loading }, dom) ?? null;
+      return (
+        renderFormItem(
+          rest.text,
+          { mode, ...rest.fieldProps, options, loading },
+          dom,
+        ) ?? null
+      );
     }
     return dom;
   }

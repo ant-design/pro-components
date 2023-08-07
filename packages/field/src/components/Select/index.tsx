@@ -637,7 +637,13 @@ const FieldSelect: ProFieldFC<
     };
     const dom = renderDom();
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...fieldProps, options, loading }, dom) ?? null;
+      return (
+        renderFormItem(
+          rest.text,
+          { mode, ...fieldProps, options, loading },
+          dom,
+        ) ?? null
+      );
     }
     return dom;
   }

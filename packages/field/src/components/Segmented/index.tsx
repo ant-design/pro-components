@@ -72,7 +72,11 @@ const FieldSegmented: ProFieldFC<
     );
 
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...fieldProps, options, loading }, dom);
+      return renderFormItem(
+        rest.text,
+        { mode, ...fieldProps, options, loading },
+        dom,
+      );
     }
     return dom;
   }
