@@ -663,10 +663,10 @@ describe('utils', () => {
         dateRange2: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
       },
       {
-        dataTime: () => 'new-dataTime',
-        time: () => 'new-time',
+        dataTime: (value) => ({'new-dataTime': value}),
+        time: (value) => ({'new-time': value}),
         name: () => 'new-name',
-        money: () => 'new-money',
+        money: (value) => ({'new-money': value}),
         // @ts-ignore
         dateRange2: [
           (itemValue, _, tempValues) => tempValues,
@@ -680,7 +680,7 @@ describe('utils', () => {
         'new-dataTime',
         'new-time',
         'dateRange2',
-        'new-name',
+        'name',
         'new-money',
         'dateTimeRange',
         'dateRange',
@@ -690,7 +690,7 @@ describe('utils', () => {
       [
         'dataTime',
         'time',
-        'name',
+        'new-name',
         'dateRange2',
         'money',
         'dateTimeRange',
@@ -699,7 +699,7 @@ describe('utils', () => {
     );
     expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect((html as any)['new-time']).toBe('2019-11-16 12:50:26');
-    expect((html as any)['new-name']).toBe('qixian');
+    expect((html as any).name).toBe('new-name');
     expect((html as any)['new-money']).toBe(20);
     expect(html.dateTimeRange.join(',')).toBe(
       '2019-11-16 12:50:26,2019-11-16 12:55:26',
