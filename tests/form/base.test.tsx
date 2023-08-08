@@ -860,8 +860,9 @@ describe('ProForm', () => {
                 width="md"
                 name="useMode"
                 label={
-                  <span id="label_text">{`与《${values?.name || ''}》 与 《${values?.name2?.text || ''
-                    }》合同约定生效方式`}</span>
+                  <span id="label_text">{`与《${values?.name || ''}》 与 《${
+                    values?.name2?.text || ''
+                  }》合同约定生效方式`}</span>
                 }
               />
             );
@@ -1461,9 +1462,9 @@ describe('ProForm', () => {
     act(() => {
       fireEvent.mouseDown(
         wrapper.baseElement.querySelectorAll('.ant-select-selector')[
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          'span.ant-select-clear',
-        ).length - 1
+          wrapper.baseElement.querySelectorAll<HTMLElement>(
+            'span.ant-select-clear',
+          ).length - 1
         ],
       );
     });
@@ -3116,9 +3117,9 @@ describe('ProForm', () => {
         wrapper.baseElement.querySelectorAll<HTMLElement>(
           'span.ant-select-clear',
         )[
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          'span.ant-select-clear',
-        ).length - 1
+          wrapper.baseElement.querySelectorAll<HTMLElement>(
+            'span.ant-select-clear',
+          ).length - 1
         ],
       );
     });
