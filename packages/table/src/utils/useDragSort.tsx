@@ -17,7 +17,7 @@ import {
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import type { TableComponents } from 'rc-table/lib/interface';
-import React, { createContext, useContext, useMemo } from 'react';
+import React, { createContext, useCallback, useContext, useMemo } from 'react';
 
 const SortableItemContextValue = createContext<{
   handle: React.ReactNode;
@@ -124,7 +124,7 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
 
   const sensors = useSensors(useSensor(PointerSensor), useSensor(MouseSensor));
 
-  function handleDragEnd(event: DragEndEvent) {
+  const handleDragEnd = useCallback((event: DragEndEvent) => {
     const { active, over } = event;
     if (over?.id?.toString() && active.id !== over?.id) {
       const newData = arrayMove<T>(
@@ -134,7 +134,7 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
       );
       onDragSortEnd?.(newData || []);
     }
-  }
+  }, [dataSource, onDragSortEnd])
 
   const DraggableContainer = useRefFunction((p: any) => (
     <SortableContext
