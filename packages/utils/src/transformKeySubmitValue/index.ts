@@ -4,6 +4,7 @@ import namePathSet from 'rc-util/lib/utils/set';
 import React from 'react';
 import { isNil } from '../isNil';
 import { merge } from '../merge';
+import deepMerge from 'lodash.merge';
 import type { SearchTransformKeyFn } from '../typing';
 
 export type DataFormatMapType = Record<
@@ -162,10 +163,7 @@ export const transformKeySubmitValue = <T extends object = any>(
           return;
         }
         if (typeof tempKey === 'object' && !Array.isArray(finalValues)) {
-          finalValues = {
-            ...finalValues,
-            ...tempKey,
-          };
+          finalValues = deepMerge(finalValues, tempKey);
         } else if (typeof tempKey === 'object' && Array.isArray(finalValues)) {
           result = { ...result, ...tempKey };
         } else if (tempKey !== null || tempKey !== undefined) {
