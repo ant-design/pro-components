@@ -145,7 +145,7 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
    * @param value 字段的值
    * @param namePath 字段的name
    * @param allValues 所有的字段
-   * @returns 字段新的值，如果返回对象，会和所有值 merge 一次
+   * @returns 字段新的值，如果返回对象，会和所有值深度 merge 一次
    *
    * @example {name:[a,b] => {name:a,b }
    * transform: (value,namePath,allValues)=> value.join(",")
