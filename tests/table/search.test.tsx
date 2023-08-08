@@ -371,7 +371,7 @@ describe('BasicTable Search', () => {
             dataIndex: 'state',
             initialValue: 'state',
             search: {
-              transform: () => 'status',
+              transform: (value) => ({'status': value}),
             },
           },
           {
