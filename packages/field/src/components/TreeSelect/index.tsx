@@ -211,8 +211,11 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
 
     if (renderFormItem) {
       dom =
-        renderFormItem(rest.text, { mode, ...(fieldProps as any) }, dom) ??
-        null;
+        renderFormItem(
+          rest.text,
+          { mode, ...(fieldProps as any), options, loading },
+          dom,
+        ) ?? null;
     }
 
     if (light) {

@@ -17,7 +17,7 @@ export const DEFAULT_COLORS = [
   '#667796', // 8 - 黛蓝色
   '#F6BD16', // 9 - 黄色
 ];
-export  const ColorPicker = React.forwardRef(
+export const ColorPicker = React.forwardRef(
   (
     {
       mode,
