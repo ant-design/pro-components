@@ -165,6 +165,7 @@ exports[`BasicTable valueType 🎏 table support filter when valueType is treeSe
                                       aria-controls="treeSelect_list"
                                       aria-expanded="true"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="treeSelect_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"

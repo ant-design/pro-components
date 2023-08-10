@@ -76,6 +76,7 @@ exports[`Table ColumnSetting 🎏 columns proFieldProps support custom 1`] = `
                               aria-controls="name_list"
                               aria-expanded="false"
                               aria-haspopup="listbox"
+                              aria-label="Search"
                               aria-owns="name_list"
                               autocomplete="off"
                               class="ant-select-selection-search-input"
