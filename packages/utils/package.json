@@ -37,6 +37,7 @@
     "@ant-design/icons": "^5.0.0",
     "@ant-design/pro-provider": "2.12.1",
     "@babel/runtime": "^7.18.0",
+    "lodash.merge": "^4.6.2",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.9",
     "rc-util": "^5.0.6",
