@@ -1656,6 +1656,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 >
                   <div
                     class="ant-color-picker-trigger ant-pro-field-color-picker"
+                    style="display: table-cell;"
                   >
                     <div
                       class="ant-color-picker-color-block"
@@ -1690,6 +1691,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 >
                   <div
                     class="ant-color-picker-trigger ant-pro-field-color-picker ant-color-picker-trigger-disabled"
+                    style="display: table-cell;"
                   >
                     <div
                       class="ant-color-picker-color-block"

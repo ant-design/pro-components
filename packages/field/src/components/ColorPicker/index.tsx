@@ -1,6 +1,7 @@
 ﻿import { compareVersions } from '@ant-design/pro-utils';
 import { ConfigProvider, version } from 'antd';
 import classNames from 'classnames';
+import type { ColorPickerProps } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 import { ColorPicker as ColorPickerV4 } from './old';
@@ -61,49 +62,52 @@ const FieldColorPicker: ProFieldFC<{
   text: string;
   /** 是否使用旧版本 */
   old?: boolean;
-}> = (
+} & Partial<ColorPickerProps>> = (
   { text, mode: type, render, renderFormItem, fieldProps, old },
   ref: any,
 ) => {
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const ColorPicker = React.useMemo(() => getColorPicker(old), [old]);
-  const prefixCls = getPrefixCls('pro-field-color-picker');
-  // 5.5.0 以上版本追加 className
-  const className = useMemo(() => {
-    if (old) return '';
-    return classNames({ [prefixCls]: IsIt_Render_V5() });
-  }, [prefixCls, old]);
-  if (type === 'read') {
-    const dom = (
-      <ColorPicker
-        value={text}
-        mode="read"
-        ref={ref}
-        className={className}
-        // 设置无法 open
-        open={false}
-      />
-    );
-    if (render) {
-      return render(text, { mode: type, ...fieldProps }, dom);
+    const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+    const ColorPicker = React.useMemo(() => getColorPicker(old), [old]);
+    const prefixCls = getPrefixCls('pro-field-color-picker');
+    // 5.5.0 以上版本追加 className
+    const className = useMemo(() => {
+      if (old) return '';
+      return classNames({ [prefixCls]: IsIt_Render_V5() });
+    }, [prefixCls, old]);
+    if (type === 'read') {
+      const dom = (
+        <ColorPicker
+          value={text}
+          mode="read"
+          ref={ref}
+          className={className}
+          // 设置无法 open
+          open={false}
+        />
+      );
+      if (render) {
+        return render(text, { mode: type, ...fieldProps }, dom);
+      }
+      return dom;
     }
-    return dom;
-  }
-  if (type === 'edit' || type === 'update') {
-    const dom = (
-      <ColorPicker
-        ref={ref}
-        presets={[DEFAULT_PRESETS]}
-        {...fieldProps}
-        className={className}
-      />
-    );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (type === 'edit' || type === 'update') {
+      // 解决 默认的 width 100% 问题
+      const style = { display: 'table-cell', ...fieldProps.style }
+      const dom = (
+        <ColorPicker
+          ref={ref}
+          presets={[DEFAULT_PRESETS]}
+          {...fieldProps}
+          style={style}
+          className={className}
+        />
+      );
+      if (renderFormItem) {
+        return renderFormItem(text, { mode: type, ...fieldProps, style }, dom);
+      }
+      return dom;
     }
-    return dom;
-  }
-  return null;
-};
+    return null;
+  };
 
 export default React.forwardRef(FieldColorPicker);
