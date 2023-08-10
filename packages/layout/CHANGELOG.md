@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.16.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.7...@ant-design/pro-layout@7.16.8) (2023-08-10)
 
-
 ### Bug Fixes
 
-* ProLayout 搜索菜单匹配到父级时带出子菜单 ([#7481](https://github.com/ant-design/pro-components/issues/7481)) ([395afd2](https://github.com/ant-design/pro-components/commit/395afd2779d1b936b36073081b817112277192a3))
-
-
-
-
+- ProLayout 搜索菜单匹配到父级时带出子菜单 ([#7481](https://github.com/ant-design/pro-components/issues/7481)) ([395afd2](https://github.com/ant-design/pro-components/commit/395afd2779d1b936b36073081b817112277192a3))
 
 ## [7.16.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.6...@ant-design/pro-layout@7.16.7) (2023-08-04)
 

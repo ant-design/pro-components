@@ -124,17 +124,20 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
 
   const sensors = useSensors(useSensor(PointerSensor), useSensor(MouseSensor));
 
-  const handleDragEnd = useCallback((event: DragEndEvent) => {
-    const { active, over } = event;
-    if (over?.id?.toString() && active.id !== over?.id) {
-      const newData = arrayMove<T>(
-        dataSource || [],
-        parseInt(active.id as string),
-        parseInt(over.id as string),
-      );
-      onDragSortEnd?.(newData || []);
-    }
-  }, [dataSource, onDragSortEnd])
+  const handleDragEnd = useCallback(
+    (event: DragEndEvent) => {
+      const { active, over } = event;
+      if (over?.id?.toString() && active.id !== over?.id) {
+        const newData = arrayMove<T>(
+          dataSource || [],
+          parseInt(active.id as string),
+          parseInt(over.id as string),
+        );
+        onDragSortEnd?.(newData || []);
+      }
+    },
+    [dataSource, onDragSortEnd],
+  );
 
   const DraggableContainer = useRefFunction((p: any) => (
     <SortableContext
@@ -177,18 +180,21 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
     };
   }
 
-  const memoDndContext = useMemo(() => (contextProps: any) => {
-    return (
-      <DndContext
-        modifiers={[restrictToVerticalAxis]}
-        sensors={sensors}
-        collisionDetection={closestCenter}
-        onDragEnd={handleDragEnd}
-      >
-        {contextProps.children}
-      </DndContext>
-    );
-  }, [handleDragEnd, sensors])
+  const memoDndContext = useMemo(
+    () => (contextProps: any) => {
+      return (
+        <DndContext
+          modifiers={[restrictToVerticalAxis]}
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          onDragEnd={handleDragEnd}
+        >
+          {contextProps.children}
+        </DndContext>
+      );
+    },
+    [handleDragEnd, sensors],
+  );
 
   return {
     DndContext: memoDndContext,

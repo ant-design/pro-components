@@ -663,10 +663,10 @@ describe('utils', () => {
         dateRange2: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
       },
       {
-        dataTime: (value) => ({'new-dataTime': value}),
-        time: (value) => ({'new-time': value}),
+        dataTime: (value) => ({ 'new-dataTime': value }),
+        time: (value) => ({ 'new-time': value }),
         name: () => 'new-name',
-        money: (value) => ({'new-money': value}),
+        money: (value) => ({ 'new-money': value }),
         // @ts-ignore
         dateRange2: [
           (itemValue, _, tempValues) => tempValues,
