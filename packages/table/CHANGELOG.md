@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.10.5...@ant-design/pro-table@3.10.6) (2023-08-10)
+
+
+### Bug Fixes
+
+* **table:** DragSortTable 每次 render 执行时 Table DOM 会销毁重建新的 DOM ([#7490](https://github.com/ant-design/pro-components/issues/7490)) ([481d7a2](https://github.com/ant-design/pro-components/commit/481d7a2aa1494af787c7cc81a6f074a1bd5068df))
+
+
+
+
 
 ## [3.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.10.4...@ant-design/pro-table@3.10.5) (2023-08-04)
 

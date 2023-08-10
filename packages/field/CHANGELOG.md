@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.10...@ant-design/pro-field@2.11.0) (2023-08-10)
+
+
+### Bug Fixes
+
+* **form:** 修复 compact warning ([#7496](https://github.com/ant-design/pro-components/issues/7496)) ([b60d33d](https://github.com/ant-design/pro-components/commit/b60d33d285b4ed0081fb813ace5fc1f0211acf20))
+* **form:** 表单项配置 request 并且自定义 renderFormItem 时，没有透传 options 和 loading ([#7457](https://github.com/ant-design/pro-components/issues/7457)) ([1baf580](https://github.com/ant-design/pro-components/commit/1baf58029c38e5ebde5533da6d7f5aea57f19e6c)), closes [#7456](https://github.com/ant-design/pro-components/issues/7456)
+
+
+### Features
+
+* **field:** 调整 field color 为 antd 新的 ColorPicker ([#7403](https://github.com/ant-design/pro-components/issues/7403)) ([387ab8f](https://github.com/ant-design/pro-components/commit/387ab8f7fd5d6eb99ebd1458e76712cfce63483a))
+
+
+
+
 
 ## [2.10.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.9...@ant-design/pro-field@2.10.10) (2023-08-04)
 

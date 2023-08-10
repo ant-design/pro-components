@@ -1,6 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.9...@ant-design/pro-utils@2.13.0) (2023-08-10)
+
+
+### Bug Fixes
+
+* **form:** 修复transform方法与预期不符 ([#7486](https://github.com/ant-design/pro-components/issues/7486)) ([240810d](https://github.com/ant-design/pro-components/commit/240810d31a2aa0bbe8da2ad4880715bb815cd01c))
+
+
+### Features
+
+* **form:** transform 支持深合并 ([#7494](https://github.com/ant-design/pro-components/issues/7494)) ([f9372ce](https://github.com/ant-design/pro-components/commit/f9372ce89f6b2f2c53edd7bcda95a89edc211dd3))
+
+
+
+
 
 ## [2.12.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.8...@ant-design/pro-utils@2.12.9) (2023-08-04)
 

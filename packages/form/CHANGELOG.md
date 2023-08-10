@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.17.2...@ant-design/pro-form@2.18.0) (2023-08-10)
+
+
+### Features
+
+* **field:** 调整 field color 为 antd 新的 ColorPicker ([#7403](https://github.com/ant-design/pro-components/issues/7403)) ([387ab8f](https://github.com/ant-design/pro-components/commit/387ab8f7fd5d6eb99ebd1458e76712cfce63483a))
+* **form:** transform 支持深合并 ([#7494](https://github.com/ant-design/pro-components/issues/7494)) ([f9372ce](https://github.com/ant-design/pro-components/commit/f9372ce89f6b2f2c53edd7bcda95a89edc211dd3))
+
+
+
+
 
 ## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.17.1...@ant-design/pro-form@2.17.2) (2023-08-04)
 
