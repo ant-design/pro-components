@@ -92,7 +92,7 @@ const FieldColorPicker: ProFieldFC<{
     }
     if (type === 'edit' || type === 'update') {
       // 解决 默认的 width 100% 问题
-      const style = { display: 'table-cell', ...fieldProps.style }
+      const style = { display: 'table-cell', ...fieldProps.style };
       const dom = (
         <ColorPicker
           ref={ref}
