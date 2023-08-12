@@ -85,6 +85,26 @@ const options = [
     label: `颜色选择器`,
     initialValue: '#1890ff',
   },
+  {
+    value: 'segmented',
+    label: '分段控制器',
+    initialValue: 'open',
+  },
+  {
+    value: 'formList',
+    label: '表单列表',
+    initalValue: [{ state: 'all', title: '标题' }],
+  },
+  {
+    value: 'formSet',
+    label: '表单集合',
+    initalValue: [{ state: 'all', title: '标题' }],
+  },
+  {
+    value: 'divider',
+    label: '分割线',
+    initalValue: '',
+  }
 ];
 
 type DataItem = {
@@ -132,6 +152,7 @@ export default () => {
                   'checkbox',
                   'radio',
                   'radioButton',
+                  'segmented',
                 ].includes(valueType)
                   ? valueEnum
                   : undefined,
@@ -176,6 +197,12 @@ export default () => {
                           },
                         ],
                       }
+                    : valueType === 'divider'
+                    ? {
+                        style: {
+                          width: '200px',
+                        },
+                      }
                     : undefined,
                 formItemProps: {
                   rules: [
@@ -186,6 +213,74 @@ export default () => {
                   ],
                 },
                 width: 'm',
+                columns: ['formSet', 'formList'].includes(valueType)
+                  ? [
+                      {
+                        valueType: 'group',
+                        columns: [
+                          {
+                            title: '状态',
+                            dataIndex: 'state',
+                            valueType: 'select',
+                            colProps: {
+                              xs: 24,
+                              sm: 12,
+                            },
+                            width: 'xs',
+                            valueEnum,
+                          },
+                          {
+                            title: '标题',
+                            dataIndex: 'title',
+                            width: 'md',
+                            formItemProps: {
+                              rules: [
+                                {
+                                  required: true,
+                                  message: '此项为必填项',
+                                },
+                              ],
+                            },
+                            colProps: {
+                              xs: 24,
+                              sm: 12,
+                            },
+                          },
+                          {
+                            valueType: 'dependency',
+                            name: ['state'],
+                            columns: ({ state }) => {
+                              if (state === 'all') {
+                                return [
+                                  {
+                                    dataIndex: 'money',
+                                    title: '优惠金额',
+                                    width: 'm',
+                                    valueType: 'money',
+                                  },
+                                ];
+                              }
+                              if (state === 'open') {
+                                return [
+                                  {
+                                    dataIndex: 'discount',
+                                    title: '折扣',
+                                    valueType: 'digit',
+                                    width: 'm',
+                                    fieldProps: {
+                                      precision: 2,
+                                    },
+                                  },
+                                ];
+                              }
+                        
+                              return [];
+                            },
+                          },
+                        ],
+                      },
+                    ]
+                  : undefined,
               },
               {
                 valueType,
