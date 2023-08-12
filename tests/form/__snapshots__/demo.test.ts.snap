@@ -3162,7 +3162,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                       >
                         <div
                           class="ant-color-picker-trigger ant-pro-field-color-picker"
-                          style="width: 100%;"
+                          style="display: table-cell; width: 100%;"
                         >
                           <div
                             class="ant-color-picker-color-block"
