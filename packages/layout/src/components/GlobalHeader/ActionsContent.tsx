@@ -28,7 +28,9 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
     if (!avatarProps) return null;
     const { title, render, ...rest } = avatarProps;
     const domList = [
-      <Avatar {...rest} size={28} key="avatar" />,
+      rest?.src || rest?.srcSet || rest.icon || rest.children ? (
+        <Avatar {...rest} size={28} key="avatar" />
+      ) : null,
       title ? (
         <span
           key="name"

@@ -155,7 +155,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     if (Array.isArray(value) && value.length > 0) {
       // 多选情况且用户有选择
       return value.map((item, index) => {
-        const optionItem = option?.[index];
+        const optionItem = option?.[index] as DefaultOptionType;
         const dataItem = optionItem?.['data-item'] || {};
         return {
           ...dataItem,
@@ -182,8 +182,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
 
       if (optionType === 'optGroup' || item.options) {
         return {
-          ...resetItem,
           label: label,
+          ...resetItem,
+          data_title: label,
           title: label,
           key: value ?? label?.toString(),
           children: genOptions(itemOptions),
@@ -191,8 +192,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       }
 
       return {
-        ...resetItem,
         title: label,
+        ...resetItem,
+        data_title: label,
         value: value ?? index,
         key: value ?? label?.toString(),
         'data-item': item,
@@ -231,11 +233,11 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
               ) {
                 return restProps.filterOption(inputValue, {
                   ...option,
-                  label: option?.title,
+                  label: option?.data_title,
                 });
               }
               return !!(
-                option?.title
+                option?.data_title
                   ?.toString()
                   .toLowerCase()
                   .includes(inputValue.toLowerCase()) ||
