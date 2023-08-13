@@ -173,7 +173,9 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
                   <ul
                     class="ant-skeleton-paragraph"
                   >
-                    <li />
+                    <li
+                      style=""
+                    />
                     <li />
                     <li />
                     <li />
@@ -444,7 +446,9 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
                   <ul
                     class="ant-skeleton-paragraph"
                   >
-                    <li />
+                    <li
+                      style=""
+                    />
                     <li />
                     <li />
                     <li />
@@ -1562,7 +1566,9 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     <ul
       class="ant-skeleton-paragraph"
     >
-      <li />
+      <li
+        style=""
+      />
       <li />
       <li />
       <li />

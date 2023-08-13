@@ -279,7 +279,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     const { title, render, ...rest } = avatarProps;
     const dom = (
       <div className={`${baseClassName}-actions-avatar`}>
-        <Avatar size={28} {...rest} />
+        {rest?.src || rest?.srcSet ? <Avatar size={28} {...rest} /> : null}
         {avatarProps.title && !collapsed && <span>{title}</span>}
       </div>
     );

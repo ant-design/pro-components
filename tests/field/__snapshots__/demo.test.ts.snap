@@ -4340,7 +4340,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                   <textarea
                     class="ant-input"
                     rows="5"
-                  />
+                  >
+                    yarn run v1.22.0            
+$ eslint --format=pretty ./packages
+Done in 9.70s.
+          
+                  </textarea>
                 </span>
               </div>
             </td>
@@ -4366,7 +4371,30 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                   <textarea
                     class="ant-input"
                     rows="5"
-                  />
+                  >
+                    {
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demo",
+    ".eslintrc.js"
+  ]
+}
+                  </textarea>
                 </span>
               </div>
             </td>

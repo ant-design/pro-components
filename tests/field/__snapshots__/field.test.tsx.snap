@@ -1233,7 +1233,12 @@ exports[`Field 🐴 edit and no plain 1`] = `
                   <textarea
                     class="ant-input"
                     rows="5"
-                  />
+                  >
+                    yarn run v1.22.0
+$ eslint --format=pretty ./packages
+Done in 9.70s.
+          
+                  </textarea>
                 </span>
               </div>
             </td>
@@ -1255,7 +1260,30 @@ exports[`Field 🐴 edit and no plain 1`] = `
                   <textarea
                     class="ant-input"
                     rows="5"
-                  />
+                  >
+                    {
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demo",
+    ".eslintrc.js"
+  ]
+}
+                  </textarea>
                 </span>
               </div>
             </td>
@@ -2421,7 +2449,11 @@ exports[`Field 🐴 edit and plain=true 1`] = `
                   <input
                     class="ant-input"
                     type="text"
-                    value=""
+                    value="
+yarn run v1.22.0
+$ eslint --format=pretty ./packages
+Done in 9.70s.
+          "
                   />
                 </span>
               </div>
@@ -2444,7 +2476,28 @@ exports[`Field 🐴 edit and plain=true 1`] = `
                   <input
                     class="ant-input"
                     type="text"
-                    value=""
+                    value="{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demo",
+    ".eslintrc.js"
+  ]
+}"
                   />
                 </span>
               </div>
