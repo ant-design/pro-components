@@ -10,6 +10,7 @@ import type {
   UseEditableMapUtilType,
 } from '@ant-design/pro-utils';
 import {
+  compareVersions,
   ErrorBoundary,
   genCopyable,
   getFieldPropsOrFormItemProps,
@@ -18,7 +19,7 @@ import {
   useEditableMap,
 } from '@ant-design/pro-utils';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
-import { ConfigProvider, Descriptions, Space } from 'antd';
+import { ConfigProvider, Descriptions, Space, version } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
@@ -30,6 +31,7 @@ import useFetchData from './useFetchData';
 // 兼容代码-----------
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
 import { proTheme } from '@ant-design/pro-provider';
+import { DescriptionsItemType } from 'antd/es/descriptions';
 import 'antd/lib/descriptions/style';
 //----------------------
 
@@ -302,11 +304,16 @@ const schemaToDescriptionsItem = (
   editableUtils?: UseEditableMapUtilType,
 ) => {
   const options: JSX.Element[] = [];
+  const isBigger58 = compareVersions(version, '5.8.0') >= 0;
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
   const children = items
     ?.map?.((item, index) => {
       if (React.isValidElement(item)) {
-        return item;
+        return isBigger58
+          ? {
+              children: item,
+            }
+          : item;
       }
       const {
         valueEnum,
@@ -356,45 +363,86 @@ const schemaToDescriptionsItem = (
       const contentDom: React.ReactNode =
         fieldMode === 'edit' ? text : genCopyable(text, item, text);
 
-      const field = (
-        <Descriptions.Item
-          {...restItem}
-          key={restItem.key || restItem.label?.toString() || index}
-          label={
-            (title || restItem.label || restItem.tooltip || restItem.tip) && (
-              <LabelIconTip
-                label={title || restItem.label}
-                tooltip={restItem.tooltip || restItem.tip}
-                ellipsis={item.ellipsis}
-              />
-            )
-          }
-        >
-          <Component>
-            <FieldRender
-              {...item}
-              dataIndex={item.dataIndex || index}
-              mode={fieldMode}
-              text={contentDom}
-              valueType={valueType}
-              entity={entity}
-              index={index}
-              action={action}
-              editableUtils={editableUtils}
-            />
-            {showEditIcon && valueType !== 'option' && (
-              <EditOutlined
-                onClick={() => {
-                  editableUtils?.startEditable(dataIndex || index);
-                }}
-              />
-            )}
-          </Component>
-        </Descriptions.Item>
-      );
+      const field: DescriptionsItemType | JSX.Element =
+        isBigger58 && valueType !== 'option'
+          ? ({
+              ...restItem,
+              key: restItem.key || restItem.label?.toString() || index,
+              label: (title ||
+                restItem.label ||
+                restItem.tooltip ||
+                restItem.tip) && (
+                <LabelIconTip
+                  label={title || restItem.label}
+                  tooltip={restItem.tooltip || restItem.tip}
+                  ellipsis={item.ellipsis}
+                />
+              ),
+              children: (
+                <Component>
+                  <FieldRender
+                    {...item}
+                    dataIndex={item.dataIndex || index}
+                    mode={fieldMode}
+                    text={contentDom}
+                    valueType={valueType}
+                    entity={entity}
+                    index={index}
+                    action={action}
+                    editableUtils={editableUtils}
+                  />
+                  {showEditIcon && (
+                    <EditOutlined
+                      onClick={() => {
+                        editableUtils?.startEditable(dataIndex || index);
+                      }}
+                    />
+                  )}
+                </Component>
+              ),
+            } as DescriptionsItemType)
+          : ((
+              <Descriptions.Item
+                {...restItem}
+                key={restItem.key || restItem.label?.toString() || index}
+                label={
+                  (title ||
+                    restItem.label ||
+                    restItem.tooltip ||
+                    restItem.tip) && (
+                    <LabelIconTip
+                      label={title || restItem.label}
+                      tooltip={restItem.tooltip || restItem.tip}
+                      ellipsis={item.ellipsis}
+                    />
+                  )
+                }
+              >
+                <Component>
+                  <FieldRender
+                    {...item}
+                    dataIndex={item.dataIndex || index}
+                    mode={fieldMode}
+                    text={contentDom}
+                    valueType={valueType}
+                    entity={entity}
+                    index={index}
+                    action={action}
+                    editableUtils={editableUtils}
+                  />
+                  {showEditIcon && valueType !== 'option' && (
+                    <EditOutlined
+                      onClick={() => {
+                        editableUtils?.startEditable(dataIndex || index);
+                      }}
+                    />
+                  )}
+                </Component>
+              </Descriptions.Item>
+            ) as JSX.Element);
       // 如果类型是 option 自动放到右上角
       if (valueType === 'option') {
-        options.push(field);
+        options.push(field as JSX.Element);
         return null;
       }
       return field;
@@ -549,6 +597,7 @@ const ProDescriptions = <
   }
 
   const className = context.getPrefixCls('pro-descriptions');
+  const isBigger58 = compareVersions(version, '5.8.0') >= 0;
   return (
     <ErrorBoundary>
       <FormComponent
@@ -576,8 +625,9 @@ const ProDescriptions = <
             )
           }
           title={title}
+          items={isBigger58 ? (children as DescriptionsItemType[]) : undefined}
         >
-          {children}
+          {isBigger58 ? null : (children as JSX.Element[])}
         </Descriptions>
       </FormComponent>
     </ErrorBoundary>
