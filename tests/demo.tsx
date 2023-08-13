@@ -61,7 +61,9 @@ function demoTest(component: string, options: Options = {}) {
 
   const App = (props: { children: any; onInit: () => void }) => {
     useEffect(() => {
-      props.onInit?.();
+      setTimeout(() => {
+        props.onInit?.();
+      }, 1000);
     }, []);
     return (
       <>
@@ -109,23 +111,17 @@ function demoTest(component: string, options: Options = {}) {
           jest.runAllTimers();
         });
 
-        await waitFor(
-          () => {
-            return wrapper.findAllByText('test');
-          },
-          { timeout: 3000 },
-        );
+        await waitFor(() => {
+          return wrapper.findAllByText('test');
+        });
 
         act(() => {
           jest.runAllTimers();
         });
 
-        await waitFor(
-          () => {
-            return wrapper.findAllByText('test');
-          },
-          { timeout: 3000 },
-        );
+        await waitFor(() => {
+          return wrapper.findAllByText('test');
+        });
 
         await waitFor(() => {
           expect(fn).toBeCalled();
