@@ -79,7 +79,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | onRequestError | Triggered when data loading fails | `(error) => void` | - |
 | tableClassName | className of the encapsulated table | `string` | - |
 | tableStyle | style of the encapsulated table | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table toolbar, not displayed when set to false | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload :true, setting: true}` |
+| options | table toolbar, not displayed when set to false | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#menu-bar-options-configuration) `}}` | `{ fullScreen: false, reload :true, setting: true}` |
 | search | Whether to display the search form, when the object is passed in, it is the configuration of the search form | `false` \| [SearchConfig](#search-search-form) | - |
 | dateFormatter | Convert moment format data to a specific type, false will not be converted | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \|`false` | `"string"` |
 | defaultSize | Default size | SizeType | - |
@@ -94,7 +94,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | toolbar | Transparent transmission of `ListToolBar` configuration items | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | The main function of the custom table | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
 | manualRequest | Do you need to manually trigger the first request? When configured as `true`, the search form cannot be hidden | `boolean` | false |
-| editable | Related configuration of editable table | [TableRowEditable](/components/editable-table#editable-Editable row configuration) | - |
+| editable | Related configuration of editable table | [TableRowEditable](/en-US/components/editable-table#editable-edit-line-configuration) | - |
 | cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
 | ghost | Ghost mode, that is, whether to cancel the padding of the table content area. | `boolean` | false |
 | debounceTime | Debounce time | `number` | 10 |
@@ -162,6 +162,18 @@ export type OptionConfig = {
   reload?: OptionsType;
   setting?: boolean;
   search?: (SearchProps & { name?: string }) | boolean;
+  reloadIcon?: React.ReactNode;
+  densityIcon?: React.ReactNode;
+};
+
+export type SettingOptionType = {
+  draggable?: boolean;
+  checkable?: boolean;
+  checkedReset?: boolean;
+  listsHeight?: number;
+  extra?: React.ReactNode;
+  children?: React.ReactNode;
+  settingIcon?: React.ReactNode;
 };
 ```
 
