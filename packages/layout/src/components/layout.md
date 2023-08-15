@@ -122,22 +122,6 @@ const colorList = [
 | --- | --- | --- | --- |
 | [(...)](https://ant.design/components/spin-cn/#API) | 支持所有的 antd `Spin` 组件参数 | - | - |
 
-### RouteContext
-
-RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collapsed，你可以消费这些数据来自定义一些行为。
-
-```tsx | pure
-import { RouteContext, RouteContextType } from '@ant-design/pro-components';
-
-const Page = () => (
-  <RouteContext.Consumer>
-    {(value: RouteContextType) => {
-      return value.title;
-    }}
-  </RouteContext.Consumer>
-);
-```
-
 ### getMenuData
 
 根据 router 信息来生成 menuData 和 breadcrumb。
@@ -301,7 +285,9 @@ GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis
 
 ### RouteContext
 
-RouteContext 提供一个可以根据 layout 的数据来进行一些操作, PageContainer 和 FooterToolbar 都是依赖 RouteContext 的数据来实现功能。
+RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collapsed，你可以消费这些数据来自定义一些行为。
+
+另外RouteContext 也可以根据 layout 的数据来进行一些操作, PageContainer 和 FooterToolbar 都是依赖 RouteContext 的数据来实现功能。
 
 ```tsx | pure
 import { RouteContext, RouteContextType } from '@ant-design/pro-components';
