@@ -138,14 +138,6 @@ const Page = () => (
 );
 ```
 
-### GridContent
-
-GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=top&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=top) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
-
-| 参数         | 说明     | 类型               | 默认值 |
-| ------------ | -------- | ------------------ | ------ |
-| contentWidth | 内容模式 | `Fluid` \| `Fixed` | -      |
-
 ### getMenuData
 
 根据 router 信息来生成 menuData 和 breadcrumb。
@@ -299,6 +291,13 @@ GridContent 是个简单的语法糖，封装了 ProLayout 的 `contentWidth` �
 ```tsx | pure
 <GridContent>{children}</GridContent>
 ```
+
+GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis?layout=top&contentWidth=Fixed)和 [流式](https://preview.pro.ant.design/dashboard/analysis?layout=top) 的逻辑。你可以在 [preview](https://preview.pro.ant.design/dashboard/analysis) 中查看预览效果。
+
+| 参数         | 说明     | 类型               | 默认值 |
+| ------------ | -------- | ------------------ | ------ |
+| contentWidth | 内容模式 | `Fluid` \| `Fixed` | -      |
+
 
 ### RouteContext
 
