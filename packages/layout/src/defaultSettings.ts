@@ -12,7 +12,7 @@ export type PureSettings = {
   /**
    * @name theme for nav menu
    *
-   * @type  "light" | "dark" | "realDark"
+   * @type  'realDark' | 'light' | undefined
    */
   navTheme?: 'realDark' | 'light' | undefined;
 
