@@ -17,16 +17,11 @@ import type { ColumnsState } from '../../Store/Provide';
 import { TableContext } from '../../Store/Provide';
 import type { ProColumns } from '../../typing';
 import { genColumnKey } from '../../utils/index';
+import type { SettingOptionType } from '../ToolBar';
 import { useStyle } from './style';
 
-type ColumnSettingProps<T = any> = {
+type ColumnSettingProps<T = any> = SettingOptionType & {
   columns: TableColumnType<T>[];
-  draggable?: boolean;
-  checkable?: boolean;
-  extra?: React.ReactNode;
-  checkedReset?: boolean;
-  children?: React.ReactNode;
-  listsHeight?: number;
 };
 
 const ToolTipIcon: React.FC<{
@@ -495,7 +490,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         <Tooltip
           title={intl.getMessage('tableToolBar.columnSetting', '列设置')}
         >
-          <SettingOutlined />
+          {props.settingIcon ?? <SettingOutlined />}
         </Tooltip>
       )}
     </Popover>,

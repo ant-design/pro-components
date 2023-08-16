@@ -1,4 +1,4 @@
-import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
+import { ReloadOutlined } from '@ant-design/icons';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, omitUndefined } from '@ant-design/pro-utils';
@@ -25,6 +25,7 @@ export type SettingOptionType = {
   listsHeight?: number;
   extra?: React.ReactNode;
   children?: React.ReactNode;
+  settingIcon?: React.ReactNode;
 };
 export type OptionConfig = {
   density?: boolean;
@@ -32,6 +33,8 @@ export type OptionConfig = {
   reload?: OptionsType;
   setting?: boolean | SettingOptionType;
   search?: (OptionSearchProps & { name?: string }) | boolean;
+  reloadIcon?: React.ReactNode;
+  densityIcon?: React.ReactNode;
 };
 
 export type OptionsFunctionType = (
@@ -64,23 +67,22 @@ export type ToolBarProps<T = unknown> = {
   columns: TableColumnType<T>[];
 };
 
-function getButtonText({
-  intl,
-}: OptionConfig & {
-  intl: IntlType;
-}) {
+function getButtonText(
+  {
+    intl,
+  }: OptionConfig & {
+    intl: IntlType;
+  },
+  options: OptionConfig,
+) {
   return {
     reload: {
       text: intl.getMessage('tableToolBar.reload', '刷新'),
-      icon: <ReloadOutlined />,
+      icon: options.reloadIcon ?? <ReloadOutlined />,
     },
     density: {
       text: intl.getMessage('tableToolBar.density', '表格密度'),
-      icon: <DensityIcon />,
-    },
-    setting: {
-      text: intl.getMessage('tableToolBar.columnSetting', '列设置'),
-      icon: <SettingOutlined />,
+      icon: options.densityIcon ?? <DensityIcon />,
     },
     fullScreen: {
       text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
@@ -136,7 +138,7 @@ function renderDefaultOption<T>(
           </span>
         );
       }
-      const optionItem = getButtonText(defaultOptions)[key];
+      const optionItem = getButtonText(defaultOptions, options)[key];
       if (optionItem) {
         return (
           <span key={key} onClick={onClick}>
