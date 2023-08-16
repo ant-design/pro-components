@@ -102,7 +102,13 @@ export function useStyle(
     const proCardToken: PageContainerToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      ...componentsToken,
+      layout: {
+        ...token?.layout,
+        pageContainer: {
+          ...token?.layout?.pageContainer,
+          ...componentsToken,
+        },
+      },
     };
     return [genPageContainerStyle(proCardToken)];
   });

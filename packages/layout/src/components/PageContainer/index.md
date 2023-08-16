@@ -60,6 +60,10 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 <code src="./demos/loading.tsx" title="页面加载中" iframe="650px" desc="通过 `loading` 属性配置页面加载。"></code>
 
+### 修改 Token
+
+<code src="./demos/token.tsx" title="token" iframe="650px" desc="通过 `token` 调整间距。"></code>
+
 ## API
 
 PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://4x.ant.design/components/page-header-cn/) 的所有属性。
