@@ -1,15 +1,14 @@
-﻿import type {
+﻿import {
   EditableFormInstance,
-  ProColumns,
-  ProFormInstance,
-} from '@ant-design/pro-components';
-import {
   EditableProTable,
   ProCard,
+  ProColumns,
   ProForm,
   ProFormDependency,
   ProFormField,
-  ProFormRadio,
+  ProFormInstance,
+  ProFormSegmented,
+  ProFormSwitch,
 } from '@ant-design/pro-components';
 import { Button } from 'antd';
 import React, { useRef, useState } from 'react';
@@ -50,6 +49,7 @@ export default () => {
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>(
     'bottom',
   );
+  const [controlled, setControlled] = useState<boolean>(false);
   const formRef = useRef<ProFormInstance<any>>();
   const editorFormRef = useRef<EditableFormInstance<DataSourceType>>();
   const columns: ProColumns<DataSourceType>[] = [
@@ -138,6 +138,7 @@ export default () => {
         headerTitle="可编辑表格"
         maxLength={5}
         name="table"
+        controlled={controlled}
         recordCreatorProps={
           position !== 'hidden'
             ? {
@@ -147,16 +148,34 @@ export default () => {
             : false
         }
         toolBarRender={() => [
-          <ProFormRadio.Group
+          <ProFormSwitch
+            key="render"
+            fieldProps={{
+              style: {
+                marginBlockEnd: 0,
+              },
+              checked: controlled,
+              onChange: (value) => {
+                setControlled(value);
+              },
+            }}
+            checkedChildren="数据更新通知 Form"
+            unCheckedChildren="保存后通知 Form"
+            noStyle
+          />,
+          <ProFormSegmented
             key="render"
             fieldProps={{
               style: {
                 marginBlockEnd: 0,
               },
               value: position,
-              onChange: (e) => setPosition(e.target.value),
+              onChange: (value) => {
+                setPosition(value as 'top');
+              },
             }}
-            options={[
+            noStyle
+            request={async () => [
               {
                 label: '添加到顶部',
                 value: 'top',
@@ -172,7 +191,6 @@ export default () => {
             ]}
           />,
           <Button
-            type="text"
             key="rows"
             onClick={() => {
               const rows = editorFormRef.current?.getRowsData?.();

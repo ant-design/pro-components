@@ -199,7 +199,7 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
    * @example 设置select 多选
    * <ProFormText fieldProps={{placeholder:"请输入！"}} />
    */
-  fieldProps?: FieldProps<K> & T;
+  fieldProps?: Partial<FieldProps<K> & T>;
   /**
    * @name 输入的描述，没有值的时候展示
    */

@@ -3836,91 +3836,85 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                       <div
                         style="display: flex; align-items: center; gap: 8px;"
                       >
-                        <div
-                          class="ant-form-item"
+                        <button
+                          aria-checked="false"
+                          class="ant-switch"
+                          role="switch"
+                          style="margin-block-end: 0;"
+                          type="button"
                         >
                           <div
-                            class="ant-row ant-form-item-row"
+                            class="ant-switch-handle"
+                          />
+                          <span
+                            class="ant-switch-inner"
                           >
-                            <div
-                              class="ant-col ant-form-item-control"
+                            <span
+                              class="ant-switch-inner-checked"
                             >
+                              数据更新通知 Form
+                            </span>
+                            <span
+                              class="ant-switch-inner-unchecked"
+                            >
+                              保存后通知 Form
+                            </span>
+                          </span>
+                        </button>
+                        <div
+                          class="ant-segmented"
+                          style="margin-block-end: 0;"
+                        >
+                          <div
+                            class="ant-segmented-group"
+                          >
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
                               <div
-                                class="ant-form-item-control-input"
+                                class="ant-segmented-item-label"
+                                title="添加到顶部"
                               >
-                                <div
-                                  class="ant-form-item-control-input-content"
-                                >
-                                  <div
-                                    class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
-                                    style="margin-block-end: 0;"
-                                  >
-                                    <label
-                                      class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
-                                    >
-                                      <span
-                                        class="ant-radio ant-wave-target"
-                                      >
-                                        <input
-                                          class="ant-radio-input"
-                                          type="radio"
-                                          value="top"
-                                        />
-                                        <span
-                                          class="ant-radio-inner"
-                                        />
-                                      </span>
-                                      <span>
-                                        添加到顶部
-                                      </span>
-                                    </label>
-                                    <label
-                                      class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item"
-                                    >
-                                      <span
-                                        class="ant-radio ant-wave-target ant-radio-checked"
-                                      >
-                                        <input
-                                          checked=""
-                                          class="ant-radio-input"
-                                          type="radio"
-                                          value="bottom"
-                                        />
-                                        <span
-                                          class="ant-radio-inner"
-                                        />
-                                      </span>
-                                      <span>
-                                        添加到底部
-                                      </span>
-                                    </label>
-                                    <label
-                                      class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
-                                    >
-                                      <span
-                                        class="ant-radio ant-wave-target"
-                                      >
-                                        <input
-                                          class="ant-radio-input"
-                                          type="radio"
-                                          value="hidden"
-                                        />
-                                        <span
-                                          class="ant-radio-inner"
-                                        />
-                                      </span>
-                                      <span>
-                                        隐藏
-                                      </span>
-                                    </label>
-                                  </div>
-                                </div>
+                                添加到顶部
                               </div>
-                            </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item ant-segmented-item-selected"
+                            >
+                              <input
+                                checked=""
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="添加到底部"
+                              >
+                                添加到底部
+                              </div>
+                            </label>
+                            <label
+                              class="ant-segmented-item"
+                            >
+                              <input
+                                class="ant-segmented-item-input"
+                                type="radio"
+                              />
+                              <div
+                                class="ant-segmented-item-label"
+                                title="隐藏"
+                              >
+                                隐藏
+                              </div>
+                            </label>
                           </div>
                         </div>
                         <button
-                          class="ant-btn ant-btn-text"
+                          class="ant-btn ant-btn-default"
                           type="button"
                         >
                           <span>
