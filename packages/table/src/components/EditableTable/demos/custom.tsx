@@ -85,7 +85,7 @@ type DataSourceType = {
     label: string;
   }[];
   state?: string;
-  created_at?: string;
+  created_at?: number;
   children?: DataSourceType[];
 };
 
@@ -95,14 +95,14 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     labels: [{ key: 'woman', label: '川妹子' }],
     state: 'open',
-    created_at: '1590486176000',
+    created_at: 1590486176000,
   },
   {
     id: 624691229,
     title: '活动名称二',
     labels: [{ key: 'man', label: '西北汉子' }],
     state: 'closed',
-    created_at: '1590481162000',
+    created_at: 1590481162000,
   },
 ];
 

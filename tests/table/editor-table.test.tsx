@@ -26,7 +26,7 @@ type DataSourceType = {
   }[];
   state?: string;
   time?: {
-    created_at?: string;
+    created_at?: number;
   };
   children?: DataSourceType[];
 };
@@ -37,7 +37,7 @@ const defaultData: DataSourceType[] = [
     title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
-      created_at: '1590486176000',
+      created_at: 1590486176000,
     },
     state: 'processing',
   },
@@ -46,7 +46,7 @@ const defaultData: DataSourceType[] = [
     title: '🐛 [BUG]无法创建工程npm create umi',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
-      created_at: '1590481162000',
+      created_at: 1590481162000,
     },
     state: 'closed',
   },
@@ -893,7 +893,7 @@ describe('EditorProTable', () => {
             title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
@@ -927,7 +927,7 @@ describe('EditorProTable', () => {
               title: '🐛 [BUG]无法创建工程npm create umi',
               labels: [{ name: 'bug', color: 'error' }],
               time: {
-                created_at: '1590486176000',
+                created_at: 1590486176000,
               },
               state: 'processing',
             },

@@ -20,7 +20,7 @@ type DataSourceType = {
   title?: string;
   decs?: string;
   state?: string;
-  created_at?: string;
+  created_at?: number;
   update_at?: string;
   children?: DataSourceType[];
 };
@@ -31,16 +31,16 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     decs: '这个活动真好玩',
     state: 'open',
-    created_at: '1590486176000',
-    update_at: '1590486176000',
+    created_at: 1590486176000,
+    update_at: 1590486176000,
     children: [
       {
         id: 6246912293,
         title: '活动名称二',
         decs: '这个活动真好玩',
         state: 'closed',
-        created_at: '1590481162000',
-        update_at: '1590481162000',
+        created_at: 1590481162000,
+        update_at: 1590481162000,
       },
     ],
   },
@@ -49,8 +49,8 @@ const defaultData: DataSourceType[] = [
     title: '活动名称二',
     decs: '这个活动真好玩',
     state: 'closed',
-    created_at: '1590481162000',
-    update_at: '1590481162000',
+    created_at: 1590481162000,
+    update_at: 1590481162000,
   },
 ];
 

@@ -21,7 +21,7 @@ type DataSourceType = {
   }[];
   state?: string;
   time?: {
-    created_at?: string;
+    created_at?: number;
   };
   children?: DataSourceType[];
 };
@@ -32,7 +32,7 @@ const defaultData: DataSourceType[] = [
     title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
-      created_at: '1590486176000',
+      created_at: 1590486176000,
     },
     state: 'processing',
   },
@@ -41,7 +41,7 @@ const defaultData: DataSourceType[] = [
     title: '🐛 [BUG]无法创建工程npm create umi',
     labels: [{ name: 'bug', color: 'error' }],
     time: {
-      created_at: '1590481162000',
+      created_at: 1590481162000,
     },
     state: 'closed',
   },
@@ -245,7 +245,7 @@ describe('EditorProTable 2', () => {
             title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
@@ -284,7 +284,7 @@ describe('EditorProTable 2', () => {
         id: '624748504',
         title: '🐛 [BUG]yarn install命令',
         labels: [{ name: 'bug', color: 'error' }],
-        time: { created_at: '1590486176000' },
+        time: { created_at: 1590486176000 },
         state: 'processing',
         index: undefined,
       });
@@ -333,7 +333,7 @@ describe('EditorProTable 2', () => {
             title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
@@ -375,7 +375,7 @@ describe('EditorProTable 2', () => {
         id: '624748504',
         title: '🐛 [BUG]yarn install命令',
         labels: [{ name: 'bug', color: 'error' }],
-        time: { created_at: '1590486176000' },
+        time: { created_at: 1590486176000 },
         state: 'processing',
         index: undefined,
       });
@@ -424,7 +424,7 @@ describe('EditorProTable 2', () => {
             title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
@@ -458,7 +458,7 @@ describe('EditorProTable 2', () => {
         id: '624748504',
         title: 'yarn install命令',
         labels: [{ name: 'bug', color: 'error' }],
-        time: { created_at: '1590486176000' },
+        time: { created_at: 1590486176000 },
         state: 'processing',
         index: undefined,
       });
@@ -476,7 +476,7 @@ describe('EditorProTable 2', () => {
               title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
               labels: [{ name: 'bug', color: 'error' }],
               time: {
-                created_at: '1590486176000',
+                created_at: 1590486176000,
               },
               state: 'processing',
             },
@@ -522,7 +522,7 @@ describe('EditorProTable 2', () => {
             id: '624748504',
             title: '🐛 [BUG]yarn install命令',
             labels: [{ name: 'bug', color: 'error' }],
-            time: { created_at: '1590486176000' },
+            time: { created_at: 1590486176000 },
             state: 'processing',
             index: undefined,
           },
@@ -544,7 +544,7 @@ describe('EditorProTable 2', () => {
               title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
               labels: [{ name: 'bug', color: 'error' }],
               time: {
-                created_at: '1590486176000',
+                created_at: 1590486176000,
               },
               state: 'processing',
             },
@@ -804,7 +804,7 @@ describe('EditorProTable 2', () => {
             title: 'install命令',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
@@ -882,7 +882,7 @@ describe('EditorProTable 2', () => {
             title: 'install命令',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
@@ -932,7 +932,7 @@ describe('EditorProTable 2', () => {
             title: 'install',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
@@ -1349,7 +1349,7 @@ describe('EditorProTable 2', () => {
             title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
@@ -1758,7 +1758,7 @@ describe('EditorProTable 2', () => {
             title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
             labels: [{ name: 'bug', color: 'error' }],
             time: {
-              created_at: '1590486176000',
+              created_at: 1590486176000,
             },
             state: 'processing',
           },
