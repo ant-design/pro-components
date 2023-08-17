@@ -273,7 +273,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           <td
                             class="ant-table-cell"
                           >
-                            1594-02-02
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -414,7 +414,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           <td
                             class="ant-table-cell"
                           >
-                            1593-12-13
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -896,7 +896,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           <td
                             class="ant-table-cell"
                           >
-                            1594-02-02
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -1037,7 +1037,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           <td
                             class="ant-table-cell"
                           >
-                            1593-12-13
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
