@@ -1,6 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.11.0...@ant-design/pro-field@2.12.0) (2023-08-17)
+
+
+### Bug Fixes
+
+* **layout:** fix ProFormSelect unsupport title error ([d41b1a7](https://github.com/ant-design/pro-components/commit/d41b1a74233bc6900c0360866c2738bcf62cbcff))
+
+
+### Features
+
+* **form:** 修复 field color style width:100% 导致的样式不美观问题 & ts 定义 ([#7510](https://github.com/ant-design/pro-components/issues/7510)) ([733d255](https://github.com/ant-design/pro-components/commit/733d255253c52f5e7eeb66d17c9c3a94388257c0))
+
+
+
+
 
 # [2.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.10.10...@ant-design/pro-field@2.11.0) (2023-08-10)
 

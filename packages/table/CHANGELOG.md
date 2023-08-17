@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.10.6...@ant-design/pro-table@3.11.0) (2023-08-17)
+
+
+### Features
+
+* **table:** custom `toolbar` icon ([#7521](https://github.com/ant-design/pro-components/issues/7521)) ([f3669e0](https://github.com/ant-design/pro-components/commit/f3669e063fda949b130ae432c3c2556ca196349c))
+
+
+
+
 
 ## [3.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.10.5...@ant-design/pro-table@3.10.6) (2023-08-10)
 
