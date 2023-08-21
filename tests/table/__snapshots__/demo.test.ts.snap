@@ -31379,26 +31379,28 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                 style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(24, 144, 255); background-color: rgb(230, 247, 255);"
                                 title="99"
                               >
-                                <span
-                                  class="ant-scroll-number-only"
-                                  style="transition: none;"
-                                >
+                                <bdi>
                                   <span
-                                    class="ant-scroll-number-only-unit current"
+                                    class="ant-scroll-number-only"
+                                    style="transition: none;"
                                   >
-                                    9
+                                    <span
+                                      class="ant-scroll-number-only-unit current"
+                                    >
+                                      9
+                                    </span>
                                   </span>
-                                </span>
-                                <span
-                                  class="ant-scroll-number-only"
-                                  style="transition: none;"
-                                >
                                   <span
-                                    class="ant-scroll-number-only-unit current"
+                                    class="ant-scroll-number-only"
+                                    style="transition: none;"
                                   >
-                                    9
+                                    <span
+                                      class="ant-scroll-number-only-unit current"
+                                    >
+                                      9
+                                    </span>
                                   </span>
-                                </span>
+                                </bdi>
                               </sup>
                             </span>
                           </span>
@@ -31427,26 +31429,28 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                 style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
                                 title="30"
                               >
-                                <span
-                                  class="ant-scroll-number-only"
-                                  style="transition: none;"
-                                >
+                                <bdi>
                                   <span
-                                    class="ant-scroll-number-only-unit current"
+                                    class="ant-scroll-number-only"
+                                    style="transition: none;"
                                   >
-                                    3
+                                    <span
+                                      class="ant-scroll-number-only-unit current"
+                                    >
+                                      3
+                                    </span>
                                   </span>
-                                </span>
-                                <span
-                                  class="ant-scroll-number-only"
-                                  style="transition: none;"
-                                >
                                   <span
-                                    class="ant-scroll-number-only-unit current"
+                                    class="ant-scroll-number-only"
+                                    style="transition: none;"
                                   >
-                                    0
+                                    <span
+                                      class="ant-scroll-number-only-unit current"
+                                    >
+                                      0
+                                    </span>
                                   </span>
-                                </span>
+                                </bdi>
                               </sup>
                             </span>
                           </span>
@@ -31475,26 +31479,28 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                                 style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
                                 title="30"
                               >
-                                <span
-                                  class="ant-scroll-number-only"
-                                  style="transition: none;"
-                                >
+                                <bdi>
                                   <span
-                                    class="ant-scroll-number-only-unit current"
+                                    class="ant-scroll-number-only"
+                                    style="transition: none;"
                                   >
-                                    3
+                                    <span
+                                      class="ant-scroll-number-only-unit current"
+                                    >
+                                      3
+                                    </span>
                                   </span>
-                                </span>
-                                <span
-                                  class="ant-scroll-number-only"
-                                  style="transition: none;"
-                                >
                                   <span
-                                    class="ant-scroll-number-only-unit current"
+                                    class="ant-scroll-number-only"
+                                    style="transition: none;"
                                   >
-                                    0
+                                    <span
+                                      class="ant-scroll-number-only-unit current"
+                                    >
+                                      0
+                                    </span>
                                   </span>
-                                </span>
+                                </bdi>
                               </sup>
                             </span>
                           </span>

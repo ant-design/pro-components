@@ -41,26 +41,28 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                         style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(24, 144, 255); background-color: rgb(230, 247, 255);"
                         title="99"
                       >
-                        <span
-                          class="ant-scroll-number-only"
-                          style="transition: none;"
-                        >
+                        <bdi>
                           <span
-                            class="ant-scroll-number-only-unit current"
+                            class="ant-scroll-number-only"
+                            style="transition: none;"
                           >
-                            9
+                            <span
+                              class="ant-scroll-number-only-unit current"
+                            >
+                              9
+                            </span>
                           </span>
-                        </span>
-                        <span
-                          class="ant-scroll-number-only"
-                          style="transition: none;"
-                        >
                           <span
-                            class="ant-scroll-number-only-unit current"
+                            class="ant-scroll-number-only"
+                            style="transition: none;"
                           >
-                            9
+                            <span
+                              class="ant-scroll-number-only-unit current"
+                            >
+                              9
+                            </span>
                           </span>
-                        </span>
+                        </bdi>
                       </sup>
                     </span>
                   </span>
@@ -79,26 +81,28 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
                         style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
                         title="32"
                       >
-                        <span
-                          class="ant-scroll-number-only"
-                          style="transition: none;"
-                        >
+                        <bdi>
                           <span
-                            class="ant-scroll-number-only-unit current"
+                            class="ant-scroll-number-only"
+                            style="transition: none;"
                           >
-                            3
+                            <span
+                              class="ant-scroll-number-only-unit current"
+                            >
+                              3
+                            </span>
                           </span>
-                        </span>
-                        <span
-                          class="ant-scroll-number-only"
-                          style="transition: none;"
-                        >
                           <span
-                            class="ant-scroll-number-only-unit current"
+                            class="ant-scroll-number-only"
+                            style="transition: none;"
                           >
-                            2
+                            <span
+                              class="ant-scroll-number-only-unit current"
+                            >
+                              2
+                            </span>
                           </span>
-                        </span>
+                        </bdi>
                       </sup>
                     </span>
                   </span>
