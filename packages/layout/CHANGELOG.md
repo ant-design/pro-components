@@ -1,22 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.16.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.8...@ant-design/pro-layout@7.16.9) (2023-08-17)
 
-
 ### Bug Fixes
 
-* **docs:** 修复文档中关于 GridContent 和 RouteContext 重复描述的问题 ([#7536](https://github.com/ant-design/pro-components/issues/7536)) ([7d56c09](https://github.com/ant-design/pro-components/commit/7d56c0941db9696ffce24717aa17272724ee9ad5))
-* **layout:** collapsed use vertical mode ([e82170f](https://github.com/ant-design/pro-components/commit/e82170f4cb2a025aacd4803875aebacbb273604d))
-* **layout:** fix ProFormSelect unsupport title error ([d41b1a7](https://github.com/ant-design/pro-components/commit/d41b1a74233bc6900c0360866c2738bcf62cbcff))
-* **layout:** if src=null, un render avatar ([c721e07](https://github.com/ant-design/pro-components/commit/c721e0776565110378027b403864310a4a57b9d3))
-* **layout:** pageContainer token not work ([#7524](https://github.com/ant-design/pro-components/issues/7524)) ([6fbf24b](https://github.com/ant-design/pro-components/commit/6fbf24b6dbd2f462ba3665c636f5967d46b89bcb))
-
-
-
-
+- **docs:** 修复文档中关于 GridContent 和 RouteContext 重复描述的问题 ([#7536](https://github.com/ant-design/pro-components/issues/7536)) ([7d56c09](https://github.com/ant-design/pro-components/commit/7d56c0941db9696ffce24717aa17272724ee9ad5))
+- **layout:** collapsed use vertical mode ([e82170f](https://github.com/ant-design/pro-components/commit/e82170f4cb2a025aacd4803875aebacbb273604d))
+- **layout:** fix ProFormSelect unsupport title error ([d41b1a7](https://github.com/ant-design/pro-components/commit/d41b1a74233bc6900c0360866c2738bcf62cbcff))
+- **layout:** if src=null, un render avatar ([c721e07](https://github.com/ant-design/pro-components/commit/c721e0776565110378027b403864310a4a57b9d3))
+- **layout:** pageContainer token not work ([#7524](https://github.com/ant-design/pro-components/issues/7524)) ([6fbf24b](https://github.com/ant-design/pro-components/commit/6fbf24b6dbd2f462ba3665c636f5967d46b89bcb))
 
 ## [7.16.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.7...@ant-design/pro-layout@7.16.8) (2023-08-10)
 

@@ -1,4 +1,16 @@
-﻿## @ant-design/pro-components@2.6.12
+﻿## @ant-design/pro-components@2.6.13
+
+`2023-08-17`
+
+- fix(layout): pageContainer token not work (#7524). [#7524](https://github.com/ant-design/pro-components/pull/#7524) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(layout): fix ProFormSelect unsupport title error. [d41b1a7](https://github.com/ant-design/pro-components/commit/d41b1a7)
+- fix(layout): if src=null, un render avatar. [c721e07](https://github.com/ant-design/pro-components/commit/c721e07)
+- fix(layout): collapsed use vertical mode. [e82170f](https://github.com/ant-design/pro-components/commit/e82170f)
+- feat(form): 修复 field color style width:100% 导致的样式不美观问题 & ts 定义 (#7510). [#7510](https://github.com/ant-design/pro-components/pull/#7510) [@LengYXin](https://github.com/LengYXin)
+- feat(table): custom `toolbar` icon (#7521). [#7521](https://github.com/ant-design/pro-components/pull/#7521) [@kungege](https://github.com/kungege)
+- fix(Descriptions): fix use key props error. [c8987bb](https://github.com/ant-design/pro-components/commit/c8987bb)
+
+## @ant-design/pro-components@2.6.12
 
 `2023-08-10`
 

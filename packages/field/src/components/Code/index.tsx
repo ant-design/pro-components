@@ -62,7 +62,7 @@ const FieldCode: ProFieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    fieldProps.value = code
+    fieldProps.value = code;
     let dom = <Input.TextArea rows={5} {...fieldProps} ref={ref} />;
     if (plain) {
       dom = <Input {...fieldProps} ref={ref} />;

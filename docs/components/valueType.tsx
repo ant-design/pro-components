@@ -104,7 +104,7 @@ const options = [
     value: 'divider',
     label: '分割线',
     initalValue: '',
-  }
+  },
 ];
 
 type DataItem = {
@@ -273,7 +273,7 @@ export default () => {
                                   },
                                 ];
                               }
-                        
+
                               return [];
                             },
                           },

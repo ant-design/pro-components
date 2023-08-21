@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.13.0...@ant-design/pro-utils@2.14.0) (2023-08-17)
 
-
 ### Features
 
-* **form:** 修复 field color style width:100% 导致的样式不美观问题 & ts 定义 ([#7510](https://github.com/ant-design/pro-components/issues/7510)) ([733d255](https://github.com/ant-design/pro-components/commit/733d255253c52f5e7eeb66d17c9c3a94388257c0))
-
-
-
-
+- **form:** 修复 field color style width:100% 导致的样式不美观问题 & ts 定义 ([#7510](https://github.com/ant-design/pro-components/issues/7510)) ([733d255](https://github.com/ant-design/pro-components/commit/733d255253c52f5e7eeb66d17c9c3a94388257c0))
 
 # [2.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.12.9...@ant-design/pro-utils@2.13.0) (2023-08-10)
 

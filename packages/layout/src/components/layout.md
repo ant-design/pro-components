@@ -282,12 +282,11 @@ GridContent 封装了 [等宽](https://preview.pro.ant.design/dashboard/analysis
 | ------------ | -------- | ------------------ | ------ |
 | contentWidth | 内容模式 | `Fluid` \| `Fixed` | -      |
 
-
 ### RouteContext
 
 RouteContext 可以提供 Layout 的内置的数据。例如 isMobile 和 collapsed，你可以消费这些数据来自定义一些行为。
 
-另外RouteContext 也可以根据 layout 的数据来进行一些操作, PageContainer 和 FooterToolbar 都是依赖 RouteContext 的数据来实现功能。
+另外 RouteContext 也可以根据 layout 的数据来进行一些操作, PageContainer 和 FooterToolbar 都是依赖 RouteContext 的数据来实现功能。
 
 ```tsx | pure
 import { RouteContext, RouteContextType } from '@ant-design/pro-components';

@@ -1,4 +1,4 @@
-import type { InputProps, ColorPickerProps } from 'antd';
+import type { ColorPickerProps, InputProps } from 'antd';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -118,15 +118,16 @@ export type ProFieldValueTypeWithFieldProps = {
   /** 树形选择 */
   treeSelect: TreeSelectProps;
   /** 颜色选择器 */
-  color: SketchPickerProps & ColorPickerProps & {
-    value?: string;
-    popoverProps?: PopoverProps;
-    mode?: 'read' | 'edit';
-    onChange?: (color: string) => void;
-    colors?: string[];
-    /** 是否使用旧版本 */
-    old?: boolean;
-  };
+  color: SketchPickerProps &
+    ColorPickerProps & {
+      value?: string;
+      popoverProps?: PopoverProps;
+      mode?: 'read' | 'edit';
+      onChange?: (color: string) => void;
+      colors?: string[];
+      /** 是否使用旧版本 */
+      old?: boolean;
+    };
   /** 分段器 */
   segmented: SegmentedProps;
   /** 分组 */
@@ -195,15 +196,15 @@ type FieldPropsTypeBase<
   FieldPropsType = Record<string, any>,
 > =
   | ((
-    form: FormInstance<any>,
-    config: ProSchema<Entity, ExtraProps> & {
-      type: ComponentsType;
-      isEditable?: boolean;
-      rowKey?: string;
-      rowIndex: number;
-      entity: Entity;
-    },
-  ) => FieldPropsType | Record<string, any>)
+      form: FormInstance<any>,
+      config: ProSchema<Entity, ExtraProps> & {
+        type: ComponentsType;
+        isEditable?: boolean;
+        rowKey?: string;
+        rowIndex: number;
+        entity: Entity;
+      },
+    ) => FieldPropsType | Record<string, any>)
   | FieldPropsType
   | Record<string, any>;
 
@@ -229,18 +230,18 @@ export type ProFieldValueObject<Type> = Type extends
   | 'percent'
   | 'image'
   ? {
-    type: Type;
-    status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
-    locale?: string;
-    /** Percent */
-    showSymbol?: ((value: any) => boolean) | boolean;
-    showColor?: boolean;
-    precision?: number;
-    moneySymbol?: boolean;
-    request?: ProFieldRequestData;
-    /** Image */
-    width?: number;
-  }
+      type: Type;
+      status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
+      locale?: string;
+      /** Percent */
+      showSymbol?: ((value: any) => boolean) | boolean;
+      showColor?: boolean;
+      precision?: number;
+      moneySymbol?: boolean;
+      request?: ProFieldRequestData;
+      /** Image */
+      width?: number;
+    }
   : never;
 
 /**
@@ -261,25 +262,25 @@ type ValueTypeWithFieldPropsBase<
   ValueType = 'text',
 > = {
   valueType?:
-  | ValueType
-  | ProFieldValueType
-  | ProFieldValueObject<ValueType | ProFieldValueType>
-  | ((
-    entity: Entity,
-    type: ComponentsType,
-  ) =>
     | ValueType
     | ProFieldValueType
-    | ProFieldValueObject<ValueType | ProFieldValueType>);
+    | ProFieldValueObject<ValueType | ProFieldValueType>
+    | ((
+        entity: Entity,
+        type: ComponentsType,
+      ) =>
+        | ValueType
+        | ProFieldValueType
+        | ProFieldValueObject<ValueType | ProFieldValueType>);
   fieldProps?: FieldPropsTypeBase<
     Entity,
     ComponentsType,
     ExtraProps,
     ValueType extends any
-    ? ProFieldValueTypeWithFieldProps['text']
-    : ValueType extends ProFieldValueType
-    ? ProFieldValueTypeWithFieldProps[ValueType]
-    : ProFieldValueTypeWithFieldProps['text']
+      ? ProFieldValueTypeWithFieldProps['text']
+      : ValueType extends ProFieldValueType
+      ? ProFieldValueTypeWithFieldProps[ValueType]
+      : ProFieldValueTypeWithFieldProps['text']
   >;
 };
 
@@ -486,18 +487,18 @@ export type ProSchema<
    * @name 标题
    */
   title?:
-  | ((
-    schema: ProSchema<
-      Entity,
-      ExtraProps,
-      ComponentsType,
-      ValueType,
-      ExtraFormItemProps
-    >,
-    type: ComponentsType,
-    dom: React.ReactNode,
-  ) => React.ReactNode)
-  | React.ReactNode;
+    | ((
+        schema: ProSchema<
+          Entity,
+          ExtraProps,
+          ComponentsType,
+          ValueType,
+          ExtraFormItemProps
+        >,
+        type: ComponentsType,
+        dom: React.ReactNode,
+      ) => React.ReactNode)
+    | React.ReactNode;
 
   /** @name 展示一个 icon，hover 是展示一些提示信息 */
   tooltip?: LabelTooltipType | string;
@@ -511,31 +512,31 @@ export type ProSchema<
    * @name 映射值的类型
    */
   valueEnum?:
-  | ((row: Entity) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
-  | ProSchemaValueEnumObj
-  | ProSchemaValueEnumMap;
+    | ((row: Entity) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
+    | ProSchemaValueEnumObj
+    | ProSchemaValueEnumMap;
 
   /**
    * @name 自定义的 formItemProps
    */
   formItemProps?:
-  | (FormItemProps & ExtraFormItemProps)
-  | ((
-    form: FormInstance<any>,
-    config: ProSchema<
-      Entity,
-      ExtraProps,
-      ComponentsType,
-      ValueType,
-      ExtraFormItemProps
-    > & {
-      type: ComponentsType;
-      isEditable?: boolean;
-      rowKey?: string;
-      rowIndex: number;
-      entity: Entity;
-    },
-  ) => FormItemProps & ExtraFormItemProps);
+    | (FormItemProps & ExtraFormItemProps)
+    | ((
+        form: FormInstance<any>,
+        config: ProSchema<
+          Entity,
+          ExtraProps,
+          ComponentsType,
+          ValueType,
+          ExtraFormItemProps
+        > & {
+          type: ComponentsType;
+          isEditable?: boolean;
+          rowKey?: string;
+          rowIndex: number;
+          entity: Entity;
+        },
+      ) => FormItemProps & ExtraFormItemProps);
 
   /**
    * 修改的数据是会被 valueType 消费
@@ -571,9 +572,9 @@ export type ProSchema<
   ) =>
     | React.ReactNode
     | {
-      children: React.ReactNode;
-      props: any;
-    };
+        children: React.ReactNode;
+        props: any;
+      };
 
   /**
    * 返回一个 ReactNode，会自动包裹 value 和 onChange
@@ -629,11 +630,11 @@ export type ProSchema<
   debounceTime?: number;
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?:
-  | ((
-    record: Entity,
-    column: ProSchema<Entity, ExtraProps>,
-  ) => Record<string, any>)
-  | Record<string, any>;
+    | ((
+        record: Entity,
+        column: ProSchema<Entity, ExtraProps>,
+      ) => Record<string, any>)
+    | Record<string, any>;
   /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */
   dependencies?: NamePath[];
 

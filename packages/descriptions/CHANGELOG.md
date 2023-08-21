@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.4.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.4.12...@ant-design/pro-descriptions@2.4.13) (2023-08-17)
 
-
 ### Bug Fixes
 
-* **Descriptions:** fix use key props error ([c8987bb](https://github.com/ant-design/pro-components/commit/c8987bb2c1fbeb266ef3eb9fa68268cdc61f8348))
-
-
-
-
+- **Descriptions:** fix use key props error ([c8987bb](https://github.com/ant-design/pro-components/commit/c8987bb2c1fbeb266ef3eb9fa68268cdc61f8348))
 
 ## [2.4.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.4.11...@ant-design/pro-descriptions@2.4.12) (2023-08-10)
 
