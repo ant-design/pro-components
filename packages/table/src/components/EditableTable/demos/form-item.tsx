@@ -1,12 +1,14 @@
-﻿import {
+﻿import type {
   EditableFormInstance,
+  ProColumns,
+  ProFormInstance,
+} from '@ant-design/pro-components';
+import {
   EditableProTable,
   ProCard,
-  ProColumns,
   ProForm,
   ProFormDependency,
   ProFormField,
-  ProFormInstance,
   ProFormSegmented,
   ProFormSwitch,
 } from '@ant-design/pro-components';
@@ -19,7 +21,7 @@ type DataSourceType = {
   decs?: string;
   state?: string;
   created_at?: number;
-  update_at?: string;
+  update_at?: number;
   children?: DataSourceType[];
 };
 

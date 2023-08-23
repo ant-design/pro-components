@@ -20,7 +20,7 @@ jobs:
         env:
           TEST_UI: 'preview'
         run: |
-          pnpm i
+          pnpm install --no-frozen-lockfile
           pnpm run build
           pnpm run dumi
 

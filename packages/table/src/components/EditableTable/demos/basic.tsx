@@ -22,7 +22,7 @@ type DataSourceType = {
   decs?: string;
   state?: string;
   created_at?: number;
-  update_at?: string;
+  update_at?: number;
   children?: DataSourceType[];
 };
 

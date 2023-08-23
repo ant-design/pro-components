@@ -56,7 +56,7 @@ const defaultData: DataSourceType[] = [
     labels: [{ name: 'question', color: 'success' }],
     state: 'open',
     time: {
-      created_at: '1590479665000',
+      created_at: 1590479665000,
     },
     children: [
       {
@@ -65,7 +65,7 @@ const defaultData: DataSourceType[] = [
         labels: [{ name: 'question', color: 'success' }],
         state: 'closed',
         time: {
-          created_at: '1590479665000',
+          created_at: 1590479665000,
         },
         children: [
           {
@@ -74,7 +74,7 @@ const defaultData: DataSourceType[] = [
             labels: [{ name: 'question', color: 'success' }],
             state: 'closed',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
           },
         ],
@@ -385,7 +385,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -394,7 +394,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
               },
             ],
@@ -448,7 +448,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -457,7 +457,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
               },
             ],
@@ -509,7 +509,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -518,7 +518,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
               },
             ],
@@ -972,7 +972,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -981,7 +981,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
               },
             ],
@@ -1033,7 +1033,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -1042,7 +1042,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
               },
             ],
@@ -1099,7 +1099,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -1108,7 +1108,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
               },
             ],
@@ -1213,7 +1213,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -1222,7 +1222,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
                 children: [
                   {
@@ -1231,7 +1231,7 @@ describe('EditorProTable', () => {
                     labels: [{ name: 'question', color: 'success' }],
                     state: 'closed',
                     time: {
-                      created_at: '1590479665000',
+                      created_at: 1590479665000,
                     },
                   },
                 ],
@@ -1284,7 +1284,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -1293,7 +1293,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
               },
             ],
@@ -1343,7 +1343,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -1352,7 +1352,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
                 children: [
                   {
@@ -1361,7 +1361,7 @@ describe('EditorProTable', () => {
                     labels: [{ name: 'question', color: 'success' }],
                     state: 'closed',
                     time: {
-                      created_at: '1590479665000',
+                      created_at: 1590479665000,
                     },
                   },
                 ],
@@ -1413,7 +1413,7 @@ describe('EditorProTable', () => {
             labels: [{ name: 'question', color: 'success' }],
             state: 'open',
             time: {
-              created_at: '1590479665000',
+              created_at: 1590479665000,
             },
             children: [
               {
@@ -1422,7 +1422,7 @@ describe('EditorProTable', () => {
                 labels: [{ name: 'question', color: 'success' }],
                 state: 'closed',
                 time: {
-                  created_at: '1590479665000',
+                  created_at: 1590479665000,
                 },
               },
             ],
@@ -1455,7 +1455,7 @@ describe('EditorProTable', () => {
       labels: [{ name: 'question', color: 'success' }],
       state: 'open',
       time: {
-        created_at: '1590479665000',
+        created_at: 1590479665000,
       },
     };
     const fn = jest.fn();
