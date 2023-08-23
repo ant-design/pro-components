@@ -1,6 +1,10 @@
 import ProField from '@ant-design/pro-field';
-import type { ProSchema } from '@ant-design/pro-utils';
-import { isDeepEqualReact, runFunction } from '@ant-design/pro-utils';
+import {
+  isDeepEqualReact,
+  ProSchema,
+  runFunction,
+  useRefFunction,
+} from '@ant-design/pro-utils';
 import React, { memo, useContext, useMemo } from 'react';
 import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
@@ -71,18 +75,20 @@ const BaseProFormField: React.FC<
       : params;
   }, [dependenciesValues, params, restProps.request]);
 
+  const memoUnChange = useRefFunction((...restParams: any) => {
+    if (fieldProps?.onChange) {
+      (fieldProps?.onChange as any)?.(...restParams);
+      return;
+    }
+  });
+
   const memoFieldProps = useMemo(
     () => ({
       autoFocus,
       ...fieldProps,
-      onChange: (...restParams: any) => {
-        if (fieldProps?.onChange) {
-          (fieldProps?.onChange as any)?.(...restParams);
-          return;
-        }
-      },
+      onChange: memoUnChange,
     }),
-    [autoFocus, fieldProps, fieldProps?.onChange],
+    [autoFocus, fieldProps, memoUnChange],
   );
 
   const childrenRender = useMemo(() => {

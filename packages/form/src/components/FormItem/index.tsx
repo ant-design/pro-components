@@ -1,13 +1,15 @@
-﻿import type {
+﻿import {
+  isDropdownValueType,
+  omitUndefined,
   ProFieldValueType,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
+  useRefFunction,
 } from '@ant-design/pro-utils';
-import { isDropdownValueType, omitUndefined } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import React, { useCallback, useContext, useEffect, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import type { LightWrapperProps } from '../../BaseForm';
 import { LightWrapper } from '../../BaseForm';
 import FieldContext from '../../FieldContext';
@@ -38,32 +40,27 @@ const WithValueFomFiledProps: React.FC<
     ...restProps
   } = formFieldProps;
 
-  const onChangeMemo = useCallback(
-    function (...restParams: any[]): void {
-      onChange?.(...restParams);
-      // @ts-ignore
-      if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
-      if (!React.isValidElement(filedChildren)) return undefined;
-      filedChildren?.props?.onChange?.(...restParams);
-      (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(
-        ...restParams,
-      );
-    },
-    [filedChildren, onChange],
-  );
-  const onBlurMemo = useCallback(
-    function (...restParams: any[]): void {
-      // @ts-ignore
-      if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
-      if (!React.isValidElement(filedChildren)) return;
-      onBlur?.(...restParams);
-      filedChildren?.props?.onBlur?.(...restParams);
-      (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(
-        ...restParams,
-      );
-    },
-    [filedChildren, onBlur],
-  );
+  const onChangeMemo = useRefFunction(function (...restParams: any[]): void {
+    onChange?.(...restParams);
+    // @ts-ignore
+    if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
+    if (!React.isValidElement(filedChildren)) return undefined;
+    filedChildren?.props?.onChange?.(...restParams);
+    (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(
+      ...restParams,
+    );
+  });
+
+  const onBlurMemo = useRefFunction(function (...restParams: any[]): void {
+    // @ts-ignore
+    if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
+    if (!React.isValidElement(filedChildren)) return;
+    onBlur?.(...restParams);
+    filedChildren?.props?.onBlur?.(...restParams);
+    (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(
+      ...restParams,
+    );
+  });
 
   const fieldProps = useMemo(() => {
     // @ts-ignore

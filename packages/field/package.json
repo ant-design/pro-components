@@ -39,7 +39,8 @@
     "lodash.tonumber": "^4.0.3",
     "omit.js": "^2.0.2",
     "rc-util": "^5.4.0",
-    "swr": "^2.0.0"
+    "swr": "^2.0.0",
+    "use-json-comparison": "^1.0.5"
   },
   "devDependencies": {
     "@types/lodash.tonumber": "^4.0.6",

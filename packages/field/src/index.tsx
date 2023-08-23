@@ -10,11 +10,15 @@ import type {
   ProFieldValueObjectType,
   ProFieldValueType,
 } from '@ant-design/pro-utils';
-import { omitUndefined, pickProProps } from '@ant-design/pro-utils';
+import {
+  omitUndefined,
+  pickProProps,
+  useRefFunction,
+} from '@ant-design/pro-utils';
 import { Avatar } from 'antd';
-// import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
 import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext, useMemo } from 'react';
+import { stringify } from 'use-json-comparison';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -630,70 +634,80 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
     renderFormItem,
     value,
     readonly,
+    fieldProps: restFieldProps,
     ...rest
   },
   ref: any,
 ) => {
   const context = useContext(ProConfigContext);
 
-  const fieldProps = useMemo(() => {
+  const onChangeCallBack = useRefFunction((...restParams: any[]) => {
+    restFieldProps?.onChange?.(...restParams);
+    onChange?.(...restParams);
+  });
+
+  const fieldProps: any = useMemo(() => {
     return (
-      (value !== undefined || onChange || rest?.fieldProps) && {
+      (value !== undefined || onChangeCallBack || restFieldProps) && {
         value,
         // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-        ...omitUndefined(rest?.fieldProps),
-        onChange: (...restParams: any[]) => {
-          rest?.fieldProps?.onChange?.(...restParams);
-          onChange?.(...restParams);
-        },
+        ...omitUndefined(restFieldProps),
+        onChange: onChangeCallBack,
       }
     );
-  }, [value, onChange, rest?.fieldProps]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, stringify(restFieldProps), onChangeCallBack]);
 
-  return (
-    <React.Fragment>
-      {defaultRenderText(
-        mode === 'edit'
-          ? fieldProps?.value ?? text ?? ''
-          : text ?? fieldProps?.value ?? '',
-        valueType || 'text',
-        omitUndefined({
-          ref,
-          ...rest,
-          mode: readonly ? 'read' : mode,
-          renderFormItem: renderFormItem
-            ? (
-                curText: any,
-                props: ProFieldFCRenderProps,
-                dom: JSX.Element,
-              ) => {
-                const { placeholder: _placeholder, ...restProps } = props;
-                const newDom = renderFormItem(curText, restProps, dom);
-                // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
-                if (React.isValidElement(newDom))
-                  return React.cloneElement(newDom, {
-                    ...fieldProps,
-                    ...((newDom.props as any) || {}),
-                  });
-                return newDom;
-              }
-            : undefined,
-          placeholder: renderFormItem
-            ? undefined
-            : rest?.placeholder ?? fieldProps?.placeholder,
-          fieldProps: pickProProps(
-            omitUndefined({
-              ...fieldProps,
-              placeholder: renderFormItem
-                ? undefined
-                : rest?.placeholder ?? fieldProps?.placeholder,
-            }),
-          ),
-        }),
-        context.valueTypeMap || {},
-      )}
-    </React.Fragment>
-  );
+  const renderedDom = useMemo(() => {
+    return defaultRenderText(
+      mode === 'edit'
+        ? fieldProps?.value ?? text ?? ''
+        : text ?? fieldProps?.value ?? '',
+      valueType || 'text',
+      omitUndefined({
+        ref,
+        ...rest,
+        mode: readonly ? 'read' : mode,
+        renderFormItem: renderFormItem
+          ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
+              const { placeholder: _placeholder, ...restProps } = props;
+              const newDom = renderFormItem(curText, restProps, dom);
+              // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
+              if (React.isValidElement(newDom))
+                return React.cloneElement(newDom, {
+                  ...fieldProps,
+                  ...((newDom.props as any) || {}),
+                });
+              return newDom;
+            }
+          : undefined,
+        placeholder: renderFormItem
+          ? undefined
+          : rest?.placeholder ?? fieldProps?.placeholder,
+        fieldProps: pickProProps(
+          omitUndefined({
+            ...fieldProps,
+            placeholder: renderFormItem
+              ? undefined
+              : rest?.placeholder ?? fieldProps?.placeholder,
+          }),
+        ),
+      }),
+      context.valueTypeMap || {},
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    context.valueTypeMap,
+    fieldProps,
+    mode,
+    readonly,
+    ref,
+    renderFormItem,
+    stringify(rest),
+    text,
+    valueType,
+  ]);
+  return <React.Fragment>{renderedDom}</React.Fragment>;
 };
 
 export const ProField = React.forwardRef(

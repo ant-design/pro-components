@@ -1,7 +1,12 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
 import { useToken } from '@ant-design/pro-provider';
-import type { FormItemProps, PopoverProps } from 'antd';
-import { ConfigProvider, Form, Popover } from 'antd';
+import {
+  ConfigProvider,
+  Form,
+  FormItemProps,
+  Popover,
+  PopoverProps,
+} from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect, useState } from 'react';
@@ -83,17 +88,10 @@ const InlineErrorFormItemPopover: React.FC<{
       )}
       {...popoverProps}
     >
-      <div
-        style={{
-          width: 'max-content',
-          maxWidth: '100%',
-          padding: 4,
-        }}
-        tabIndex={-1}
-      >
+      <>
         {input}
         {extra}
-      </div>
+      </>
     </Popover>
   );
 };

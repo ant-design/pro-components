@@ -108,10 +108,10 @@ importers:
         specifier: ^14.18.54
         version: 14.18.54
       '@types/react':
-        specifier: ^18.2.20
+        specifier: ^18.0.38
         version: 18.2.20
       '@types/react-dom':
-        specifier: ^18.2.7
+        specifier: ^18.0.11
         version: 18.2.7
       '@types/react-helmet':
         specifier: ^6.1.6
@@ -502,6 +502,9 @@ importers:
       swr:
         specifier: ^2.0.0
         version: 2.0.0(react@18.2.0)
+      use-json-comparison:
+        specifier: ^1.0.5
+        version: 1.0.5(react@18.2.0)
     devDependencies:
       '@types/lodash.tonumber':
         specifier: ^4.0.6
