@@ -459,6 +459,8 @@ const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
+ProDescriptionsItem.displayName = 'ProDescriptionsItem';
+
 const DefaultProDescriptionsDom = (dom: { children: any }) => dom.children;
 
 const ProDescriptions = <
@@ -549,7 +551,9 @@ const ProDescriptions = <
           !dataIndex &&
           !itemRequest &&
           !ellipsis &&
-          !copyable
+          !copyable &&
+          // @ts-ignore
+          item.type.displayName !== 'ProDescriptionsItem'
         ) {
           return item;
         }

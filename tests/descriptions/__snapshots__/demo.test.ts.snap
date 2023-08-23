@@ -1192,6 +1192,34 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               </div>
             </td>
           </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  超链接
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                  style="min-width: 0;"
+                >
+                  <a
+                    href="alipay.com"
+                  >
+                    超链接
+                  </a>
+                </span>
+              </div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

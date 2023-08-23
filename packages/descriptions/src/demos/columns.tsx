@@ -119,6 +119,9 @@ export default () => {
         100
       </ProDescriptions.Item>
       <div>多余的dom</div>
+      <ProDescriptions.Item label="超链接">
+        <a href="alipay.com">超链接</a>
+      </ProDescriptions.Item>
     </ProDescriptions>
   );
 };
