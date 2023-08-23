@@ -71,7 +71,7 @@ describe('List', () => {
             dataIndex: ['desc', 'text'],
           },
           subTitle: {
-            d: 'desc text',
+            title: 'desc text',
           },
         }}
       />,
