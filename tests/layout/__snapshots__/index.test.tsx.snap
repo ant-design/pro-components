@@ -13,11 +13,11 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
+        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
+        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -173,9 +173,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
                   <ul
                     class="ant-skeleton-paragraph"
                   >
-                    <li
-                      style=""
-                    />
+                    <li />
                     <li />
                     <li />
                     <li />
@@ -230,7 +228,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-top-menu ant-pro-layout-header-header"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header-action ant-pro-layout-header-top-menu ant-pro-layout-header-header"
         >
           <div
             class="ant-pro-top-nav-header ant-pro-top-nav-header-light"
@@ -422,11 +420,11 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 215px; overflow: hidden; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s; flex: 0 0 215px;"
+        style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
-        style="max-width: 215px; min-width: 215px; width: 215px; flex: 0 0 215px;"
+        style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -446,9 +444,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
                   <ul
                     class="ant-skeleton-paragraph"
                   >
-                    <li
-                      style=""
-                    />
+                    <li />
                     <li />
                     <li />
                     <li />
@@ -654,11 +650,11 @@ exports[`BasicLayout 🥩 base use 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
+        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
+        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -870,11 +866,11 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
+        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
+        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -1088,11 +1084,11 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
+        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
+        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -1306,11 +1302,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
         style="min-height: 100%; flex-direction: row;"
       >
         <div
-          style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
+          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-          style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
+          style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -1566,9 +1562,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     <ul
       class="ant-skeleton-paragraph"
     >
-      <li
-        style=""
-      />
+      <li />
       <li />
       <li />
       <li />

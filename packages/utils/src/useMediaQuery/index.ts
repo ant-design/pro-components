@@ -72,7 +72,7 @@ const useBreakpoint = () => {
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'TEST') {
-      setColSpan((process.env.USE_MEDIA as 'xs') || 'xs');
+      setColSpan((process.env.USE_MEDIA as 'md') || 'md');
       return;
     }
     if (isXxl) {

@@ -802,11 +802,11 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s; flex: 0 0 256px;"
+        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="max-width: 256px; min-width: 256px; width: 256px; flex: 0 0 256px;"
+        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"

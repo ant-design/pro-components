@@ -1998,7 +1998,7 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(1000);
 
-    expect(onCollapse).toBeCalledTimes(3);
+    expect(onCollapse).toBeCalledTimes(2);
     expect(
       html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
     ).toBe(2);

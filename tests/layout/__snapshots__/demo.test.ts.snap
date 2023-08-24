@@ -10530,7 +10530,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
       class="ant-pro-layout-bg-list"
     />
     <div
-      class="ant-layout ant-layout-has-sider"
+      class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
       <div
@@ -10542,7 +10542,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
           style="height: 56px; line-height: 56px; background-color: transparent; z-index: 19;"
         />
         <header
-          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-fixed-header-action ant-pro-layout-header-header"
+          class="ant-layout-header ant-pro-layout-header ant-pro-layout-header-fixed-header ant-pro-layout-header-mix ant-pro-layout-header-header"
         >
           <div
             class="ant-pro-global-header"
@@ -10709,13 +10709,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                 style="cursor: pointer; font-size: 16px;"
               >
                 <span
-                  aria-label="menu-fold"
-                  class="anticon anticon-menu-fold"
+                  aria-label="menu-unfold"
+                  class="anticon anticon-menu-unfold"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="menu-fold"
+                    data-icon="menu-unfold"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -10723,7 +10723,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                     width="1em"
                   >
                     <path
-                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z"
                     />
                   </svg>
                 </span>
@@ -20199,7 +20199,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     />
     <div
       class="ant-layout"
-      style="min-height: 100%; height: 100vh; flex-direction: row;"
+      style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
       <div
         class="ant-pro-layout-container"
@@ -20219,7 +20219,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     />
     <div
       class="ant-layout"
-      style="min-height: 100%; height: 100vh; flex-direction: row;"
+      style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
       <div
         class="ant-pro-layout-container"
@@ -20363,7 +20363,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     />
     <div
       class="ant-layout"
-      style="min-height: 100%; height: 100vh; flex-direction: row;"
+      style="min-height: 100%; flex-direction: row; height: 100vh;"
     >
       <div
         class="ant-pro-layout-container"
