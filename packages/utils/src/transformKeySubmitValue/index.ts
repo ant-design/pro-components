@@ -151,7 +151,7 @@ export const transformKeySubmitValue = <T extends object = any>(
             tempValues,
           );
           const typeOfResult = typeof transformedResult;
-          if (typeOfResult !== 'object' && typeOfResult !== 'undefined') {
+          if (typeOfResult !== 'object' && typeOfResult !== 'undefined' || Array.isArray(transformedResult)) {
             tempKey = entityKey;
             isTransformedResultPrimitive = true;
           } else {
