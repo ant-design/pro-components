@@ -120,6 +120,11 @@ export type ProDescriptionsProps<
   dataSource?: RecordType;
   /** 受控数据源改变 */
   onDataSourceChange?: (value: RecordType) => void;
+
+  /**
+   *为空时候的默认值
+   */
+  emptyText?: React.ReactNode;
 };
 
 /**
@@ -155,6 +160,7 @@ export const FieldRender: React.FC<
     action: ProCoreActionType<any>;
     index: number;
     editableUtils?: UseEditableMapUtilType;
+    emptyText?: React.ReactNode;
   }
 > = (props) => {
   const {
@@ -182,6 +188,7 @@ export const FieldRender: React.FC<
     valueEnum,
     mode: mode || 'read',
     proFieldProps: {
+      emptyText: props.emptyText,
       render: render
         ? () =>
             render?.(text, entity, index, action, {
@@ -302,6 +309,7 @@ const schemaToDescriptionsItem = (
   entity: any,
   action: ProCoreActionType<any>,
   editableUtils?: UseEditableMapUtilType,
+  emptyText?: React.ReactNode,
 ) => {
   const options: JSX.Element[] = [];
   const isBigger58 = compareVersions(version, '5.8.0') >= 0;
@@ -388,6 +396,7 @@ const schemaToDescriptionsItem = (
                     valueType={valueType}
                     entity={entity}
                     index={index}
+                    emptyText={emptyText}
                     action={action}
                     editableUtils={editableUtils}
                   />
@@ -587,6 +596,7 @@ const ProDescriptions = <
     action.dataSource || {},
     actionRef?.current || action,
     editable ? editableUtils : undefined,
+    props.emptyText,
   );
 
   /** 如果不是可编辑模式，没必要注入 ProForm */

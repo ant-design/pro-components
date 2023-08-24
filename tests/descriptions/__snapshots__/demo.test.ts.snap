@@ -825,6 +825,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
   </div>
   <div
     class="ant-descriptions ant-pro-descriptions"
+    emptytext="空"
   >
     <div
       class="ant-descriptions-header"
@@ -889,7 +890,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
                   class="ant-descriptions-item-content"
                   style="min-width: 0;"
                 >
-                  这是一段文本columns
+                  空
                 </span>
               </div>
             </td>

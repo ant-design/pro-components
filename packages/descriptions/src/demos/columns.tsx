@@ -8,7 +8,6 @@ export default () => {
         return Promise.resolve({
           success: true,
           data: {
-            id: '这是一段文本columns',
             date: '20200809',
             money: '1212100',
             money2: -12345.33,
@@ -18,6 +17,7 @@ export default () => {
           },
         });
       }}
+      emptyText={'空'}
       columns={[
         {
           title: '文本',
