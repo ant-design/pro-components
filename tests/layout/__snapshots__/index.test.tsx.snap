@@ -1500,7 +1500,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                       class="ant-pro-base-menu-inline-item-title"
                     >
                       <span
-                        class="ant-pro-base-menu-inline-item-icon "
+                        class="ant-pro-base-menu-inline-item-icon"
                         style="display: none;"
                       >
                         <span

@@ -37,6 +37,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           width: '100%',
         },
       },
+      [`${token.componentCls}-item-icon`]: {
+        display: 'flex',
+        alignItems: 'center',
+      },
       [`&&-collapsed`]: {
         [`${token.antCls}-menu-item, 
         ${token.antCls}-menu-item-group > ${token.antCls}-menu-item-group-list > ${token.antCls}-menu-item, 

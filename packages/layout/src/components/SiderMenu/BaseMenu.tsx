@@ -354,7 +354,7 @@ class MenuUtil {
     } = this.props;
 
     // if local is true formatMessage all name。
-    const name = this.getIntlName(item);
+    const menuItemTitle = this.getIntlName(item);
     const { baseClassName, menu, collapsed } = this.props;
     const isGroup = menu?.type === 'group';
     /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
@@ -366,47 +366,45 @@ class MenuUtil {
           iconPrefixes,
           `${baseClassName}-icon ${this.props?.hashId}`,
         );
-    const defaultIcon = collapsed && hasIcon ? getMenuTitleSymbol(name) : null;
+
+    // 如果没有 icon 在收起的时候用首字母代替
+    const defaultIcon =
+      collapsed && hasIcon ? getMenuTitleSymbol(menuItemTitle) : null;
+
     let defaultItem = (
-      <MenuItemTooltip
-        collapsed={collapsed}
-        title={name}
-        disable={item.disabledTooltip}
+      <div
+        key={itemPath}
+        className={classNames(
+          `${baseClassName}-item-title`,
+          this.props?.hashId,
+          {
+            [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-item-collapsed-show-title`]:
+              menu?.collapsedShowTitle && collapsed,
+          },
+        )}
       >
-        <div
-          key={itemPath}
+        <span
+          className={`${baseClassName}-item-icon ${this.props?.hashId}`.trim()}
+          style={{
+            display: defaultIcon === null && !icon ? 'none' : '',
+          }}
+        >
+          {icon || <span className="anticon">{defaultIcon}</span>}
+        </span>
+        <span
           className={classNames(
-            `${baseClassName}-item-title`,
+            `${baseClassName}-item-text`,
             this.props?.hashId,
             {
-              [`${baseClassName}-item-title-collapsed`]: collapsed,
-              [`${baseClassName}-item-collapsed-show-title`]:
-                menu?.collapsedShowTitle && collapsed,
+              [`${baseClassName}-item-text-has-icon`]:
+                hasIcon && (icon || defaultIcon),
             },
           )}
         >
-          <span
-            className={`${baseClassName}-item-icon ${this.props?.hashId}`}
-            style={{
-              display: defaultIcon === null && !icon ? 'none' : '',
-            }}
-          >
-            {icon || <span className="anticon">{defaultIcon}</span>}
-          </span>
-          <span
-            className={classNames(
-              `${baseClassName}-item-text`,
-              this.props?.hashId,
-              {
-                [`${baseClassName}-item-text-has-icon`]:
-                  hasIcon && (icon || defaultIcon),
-              },
-            )}
-          >
-            {name}
-          </span>
-        </div>
-      </MenuItemTooltip>
+          {menuItemTitle}
+        </span>
+      </div>
     );
     const isHttpUrl = isUrl(itemPath);
 
@@ -447,7 +445,7 @@ class MenuUtil {
               },
             )}
           >
-            {name}
+            {menuItemTitle}
           </span>
         </span>
       );
@@ -462,9 +460,25 @@ class MenuUtil {
         onClick: () => onCollapse && onCollapse(true),
         children: undefined,
       };
-      return menuItemRender(renderItemProps, defaultItem, this.props);
+      return (
+        <MenuItemTooltip
+          collapsed={collapsed}
+          title={menuItemTitle}
+          disable={item.disabledTooltip}
+        >
+          {menuItemRender(renderItemProps, defaultItem, this.props)}
+        </MenuItemTooltip>
+      );
     }
-    return defaultItem;
+    return (
+      <MenuItemTooltip
+        collapsed={collapsed}
+        title={menuItemTitle}
+        disable={item.disabledTooltip}
+      >
+        {defaultItem}
+      </MenuItemTooltip>
+    );
   };
 
   conversionPath = (path: string) => {
