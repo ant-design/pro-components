@@ -271,6 +271,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   // ProFromList 的 filed，里面有name和key
   /** 从 context 中拿到的值 */
   const name = useMemo(() => {
+    if (props.name === undefined) return props.name;
     if (formListField.name !== undefined) {
       return [formListField.name, props.name].flat(1) as string[];
     }

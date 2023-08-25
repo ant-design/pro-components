@@ -1,7 +1,7 @@
 export default {
   moneySymbol: '￥',
-  deleteThisLine: '删除此行',
-  copyThisLine: '复制此行',
+  deleteThisLine: '删除此项',
+  copyThisLine: '复制此项',
   form: {
     lightFilter: {
       more: '更多筛选',

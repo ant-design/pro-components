@@ -35,12 +35,12 @@ const initialValue = {
   copyIconProps: {
     show: true,
     Icon: 'CopyOutlined',
-    tooltipText: '复制此行',
+    tooltipText: '复制此项',
   },
   deleteIconProps: {
     show: true,
     Icon: 'DeleteOutlined',
-    tooltipText: '删除此行',
+    tooltipText: '删除此项',
   },
   creatorButtonProps: {
     show: true,
