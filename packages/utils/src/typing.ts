@@ -276,9 +276,7 @@ type ValueTypeWithFieldPropsBase<
     Entity,
     ComponentsType,
     ExtraProps,
-    ValueType extends any
-      ? ProFieldValueTypeWithFieldProps['text']
-      : ValueType extends ProFieldValueType
+    ValueType extends ProFieldValueType
       ? ProFieldValueTypeWithFieldProps[ValueType]
       : ProFieldValueTypeWithFieldProps['text']
   >;
