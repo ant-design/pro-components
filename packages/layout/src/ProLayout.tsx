@@ -785,9 +785,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorItemBgSelected:
                       token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
-                    itemHoverColor:
-                      token.layout?.sider?.colorTextMenuItemHover ||
-                      token?.colorBgTextHover,
                     colorItemBgHover:
                       token.layout?.sider?.colorBgMenuItemHover ||
                       token?.colorBgTextHover,
@@ -804,8 +801,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                       token.layout?.sider?.colorTextMenu ||
                       token?.colorTextSecondary,
                     colorItemTextHover:
-                      token.layout?.sider?.colorTextMenuActive ||
-                      'rgba(0, 0, 0, 0.85)',
+                      token.layout?.sider?.colorTextMenuItemHover ||
+                      'rgba(0, 0, 0, 0.85)', // 悬浮态
                     colorItemTextSelected:
                       token.layout?.sider?.colorTextMenuSelected ||
                       'rgba(0, 0, 0, 1)',
