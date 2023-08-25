@@ -31,7 +31,7 @@ import useFetchData from './useFetchData';
 // 兼容代码-----------
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
 import { proTheme } from '@ant-design/pro-provider';
-import { DescriptionsItemType } from 'antd/es/descriptions';
+import type { DescriptionsItemType } from 'antd/es/descriptions';
 import 'antd/lib/descriptions/style';
 //----------------------
 

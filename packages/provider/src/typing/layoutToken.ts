@@ -32,7 +32,8 @@ export type BaseLayoutDesignToken = {
     menuHeight: number;
     colorBgMenuItemCollapsedElevated: string;
     colorMenuItemDivider: string;
-    colorBgMenuItemHover: string;
+    colorBgMenuItemHover: string; // 鼠标悬浮态
+    colorBgMenuItemActive: string; // 激活态
     colorBgMenuItemSelected: string;
     colorTextMenuSelected: string;
     colorTextMenuItemHover: string;

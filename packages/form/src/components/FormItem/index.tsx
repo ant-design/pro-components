@@ -1,9 +1,11 @@
-﻿import {
-  isDropdownValueType,
-  omitUndefined,
+﻿import type {
   ProFieldValueType,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
+} from '@ant-design/pro-utils';
+import {
+  isDropdownValueType,
+  omitUndefined,
   useRefFunction,
 } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';

@@ -1,7 +1,7 @@
 import ProField from '@ant-design/pro-field';
+import type { ProSchema } from '@ant-design/pro-utils';
 import {
   isDeepEqualReact,
-  ProSchema,
   runFunction,
   useRefFunction,
 } from '@ant-design/pro-utils';
