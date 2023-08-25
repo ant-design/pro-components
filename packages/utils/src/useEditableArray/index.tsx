@@ -1023,7 +1023,7 @@ export function useEditableArray<RecordType>(
       setEditableRowKeys,
       deletePopconfirmMessage:
         props.deletePopconfirmMessage ||
-        `${intl.getMessage('deleteThisLine', '删除此行')}?`,
+        `${intl.getMessage('deleteThisLine', '删除此项')}?`,
     };
 
     const renderResult = defaultActionRender<RecordType>(row, config);

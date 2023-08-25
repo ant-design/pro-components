@@ -175,7 +175,7 @@ const columns: ProColumns<DataSourceType>[] = [
           id: (Math.random() * 1000000).toFixed(0),
         }}
       >
-        <a>复制此行到末尾</a>
+        <a>复制此项到末尾</a>
       </EditableProTable.RecordCreator>,
     ],
   },

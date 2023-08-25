@@ -139,12 +139,12 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     fieldExtraRender,
     copyIconProps = {
       Icon: CopyOutlined,
-      tooltipText: intl.getMessage('copyThisLine', '复制此行'),
+      tooltipText: intl.getMessage('copyThisLine', '复制此项'),
     },
     children,
     deleteIconProps = {
       Icon: DeleteOutlined,
-      tooltipText: intl.getMessage('deleteThisLine', '删除此行'),
+      tooltipText: intl.getMessage('deleteThisLine', '删除此项'),
     },
     actionRef,
     style,
@@ -207,7 +207,6 @@ function ProFormList<T>(props: ProFormListProps<T>) {
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   if (!proFormContext.formRef) return null;
-
   return wrapSSR(
     <ColWrapper>
       <div className={classNames(baseClassName, hashId)} style={style}>

@@ -3646,7 +3646,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 编辑
                               </a>
                               <a>
-                                复制此行到末尾
+                                复制此项到末尾
                               </a>
                             </div>
                           </td>
@@ -3695,7 +3695,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 编辑
                               </a>
                               <a>
-                                复制此行到末尾
+                                复制此项到末尾
                               </a>
                             </div>
                           </td>

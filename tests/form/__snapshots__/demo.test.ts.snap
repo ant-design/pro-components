@@ -10273,7 +10273,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                                   type="button"
                                 >
                                   <span>
-                                    设置此行
+                                    设置此项
                                   </span>
                                 </button>
                                 <button
@@ -10281,7 +10281,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                                   type="button"
                                 >
                                   <span>
-                                    清空此行
+                                    清空此项
                                   </span>
                                 </button>
                               </div>
@@ -11657,7 +11657,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                             id="copyIconProps_tooltipText"
                                             placeholder="请输入"
                                             type="text"
-                                            value="复制此行"
+                                            value="复制此项"
                                           />
                                           <span
                                             class="ant-input-suffix"
@@ -11933,7 +11933,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                             id="deleteIconProps_tooltipText"
                                             placeholder="请输入"
                                             type="text"
-                                            value="删除此行"
+                                            value="删除此项"
                                           />
                                           <span
                                             class="ant-input-suffix"
@@ -12128,12 +12128,12 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
   "copyIconProps": {
     "show": true,
     "Icon": "CopyOutlined",
-    "tooltipText": "复制此行"
+    "tooltipText": "复制此项"
   },
   "deleteIconProps": {
     "show": true,
     "Icon": "DeleteOutlined",
-    "tooltipText": "删除此行"
+    "tooltipText": "删除此项"
   },
   "creatorButtonProps": {
     "show": true,
@@ -12823,7 +12823,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/hori
                             >
                               <label
                                 class=""
-                                for="attributes_0_"
                                 title="规格值"
                               >
                                 规格值
@@ -50957,7 +50956,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/modalform-test.tsx co
                                 >
                                   <label
                                     class=""
-                                    for="attributes_0_"
                                     title="规格值"
                                   >
                                     规格值

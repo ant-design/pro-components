@@ -66,7 +66,7 @@ const Demo = () => {
                     });
                   }}
                 >
-                  设置此行
+                  设置此项
                 </Button>
 
                 <Button
@@ -79,7 +79,7 @@ const Demo = () => {
                     });
                   }}
                 >
-                  清空此行
+                  清空此项
                 </Button>
               </div>
             </>

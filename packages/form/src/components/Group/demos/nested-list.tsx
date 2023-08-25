@@ -47,7 +47,7 @@ const Demo = () => {
             },
           ]}
           copyIconProps={{
-            tooltipText: '复制此行到末尾',
+            tooltipText: '复制此项到末尾',
           }}
           deleteIconProps={{
             tooltipText: '不需要这行了',

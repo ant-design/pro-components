@@ -186,7 +186,7 @@ export function useEditableMap<RecordType>(
         deleteText,
         deletePopconfirmMessage: `${intl.getMessage(
           'deleteThisLine',
-          '删除此行',
+          '删除此项',
         )}?`,
         editorType: 'Map',
         ...config,

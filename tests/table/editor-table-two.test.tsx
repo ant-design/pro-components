@@ -569,7 +569,7 @@ describe('EditorProTable 2', () => {
                     });
                   }}
                 >
-                  动态设置此行
+                  动态设置此项
                 </a>,
               ];
             },
@@ -611,11 +611,11 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      return wrapper.findAllByText('动态设置此行');
+      return wrapper.findAllByText('动态设置此项');
     });
 
     act(() => {
-      fireEvent.click(wrapper.getByText('动态设置此行'));
+      fireEvent.click(wrapper.getByText('动态设置此项'));
     });
     await waitFor(() => {
       return wrapper.findByDisplayValue('动态设置的title' + i);

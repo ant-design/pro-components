@@ -50,7 +50,7 @@ const Demo = () => {
               label: '333',
             },
           ]}
-          copyIconProps={{ Icon: SmileOutlined, tooltipText: '复制此行到末尾' }}
+          copyIconProps={{ Icon: SmileOutlined, tooltipText: '复制此项到末尾' }}
           deleteIconProps={{
             Icon: CloseCircleOutlined,
             tooltipText: '不需要这行了',
