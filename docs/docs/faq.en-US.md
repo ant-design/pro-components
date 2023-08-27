@@ -30,7 +30,7 @@ title: (_, type) => {
 };
 ```
 
-### I'm unable to install `ProComponents` and its dependencies. By the way, I'm in mainland China.
+### I'm unable to install `ProComponents` and its dependencies. By the way, I'm in Mainland of China.
 
 Well, you can try [cnpm](http://npm.taobao.org/) and [yarn](https://www.npmjs.com/package/yarn).
 
