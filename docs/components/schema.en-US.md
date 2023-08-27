@@ -272,7 +272,7 @@ Using a Map to make valueEnum more flexible can be useful in certain scenarios w
 
 ## Remote Data
 
-Supported components: `Select`, `TreeSelect`, `Cascader`, `Checkbox`, `Radio`, `RadioButton`
+Supported components: `Select`, `TreeSelect`, `Cascader`, `Checkbox`, `Radio`, `RadioButton`.
 
 The following parameters are supported to handle remote data: `request`,`params`,`fieldProps.options`,`valueEnum`. Each of these attributes has a different usage.
 
