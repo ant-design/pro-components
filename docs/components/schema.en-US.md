@@ -1,7 +1,7 @@
-﻿---
+﻿<!-----
 title: Universal Configuration Overview order
 order: 1
----
+----->
 
 # Universal Configuration
 
@@ -118,7 +118,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
 
 ## valueType Lists
 
-<code src="./valueType.tsx" title="schema form"></code>
+<!--<code src="./valueType.tsx" title="schema form"></code>-->
 
 valueType is the soul of ProComponents. ProComponents maps it to different form items based on valueType. Here are the commonly supported form items:
 
@@ -208,7 +208,7 @@ If the provided valueType does not meet our requirements, we can use a custom va
 
 ### Custom valueType
 
-<code src="./customization-value-type.tsx" title="schema form"></code>
+<!--<code src="./customization-value-type.tsx" title="schema form"></code>-->
 
 ### valueEnum
 
@@ -268,7 +268,7 @@ interface IValueEnum {
 
 Using a Map to make valueEnum more flexible can be useful in certain scenarios where number or boolean types are needed. For example:
 
-<code src="./valueEnum-map.tsx" title="valueEnum using Map"></code>
+<!--<code src="./valueEnum-map.tsx" title="valueEnum using Map"></code>-->
 
 ## Remote Data
 
@@ -342,7 +342,7 @@ const options = [
   },
 ];
 
-// Alternatively, the label may not be required.
+// Alternatively, the label may not be required
 const options = ['chapter', 'chapter2'];
 
 // Definition in Column
@@ -401,14 +401,14 @@ export default () => (
 );
 ```
 
-### `request` 和 `params`
+### `request` and `params`
 
 > You can use debounceTime to adjust the debounce time for requests, with a default value of 10ms.
 
 Most of the time, we fetch data from the network. However, creating a custom hook to handle data requests can be cumbersome, as it requires defining various states. To simplify this process, we provide `request` and `params` to fetch data.
 
-- `request` is a promise that should return data in the same format as the options.
-- Typically, `request` is lazy-loaded, and modifying `params` will trigger a new `request`.
+- `request`:`request` is a promise that should return data in the same format as the options.
+- `params`: Typically, `request` is lazy-loaded, and modifying `params` will trigger a new `request`.
 
 ```tsx | pure
 const request = async () => [
