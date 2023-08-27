@@ -124,17 +124,17 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 
 | valueType       | 说明                         |
 | --------------- | ---------------------------- |
-| `password`      | 密码输入框                   |
-| `money`         | 金额输入框                   |
+| `password`      | 密码输入框                    |
+| `money`         | 金额输入框                    |
 | `textarea`      | 文本域                       |
 | `date`          | 日期                         |
-| `dateTime`      | 日期时间                     |
+| `dateTime`      | 日期时间                      |
 | `dateWeek`      | 周                           |
 | `dateMonth`     | 月                           |
 | `dateQuarter`   | 季度输入                     |
 | `dateYear`      | 年份输入                     |
 | `dateRange`     | 日期区间                     |
-| `dateTimeRange` | 日期时间区间                 |
+| `dateTimeRange` | 日期时间区间                  |
 | `time`          | 时间                         |
 | `timeRange`     | 时间区间                     |
 | `text`          | 文本框                       |
@@ -151,9 +151,9 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `avatar`        | 头像                         |
 | `code`          | 代码框                       |
 | `switch`        | 开关                         |
-| `fromNow`       | 相对于当前时间               |
+| `fromNow`       | 相对于当前时间                |
 | `image`         | 图片                         |
-| `jsonCode`      | 代码框，但是带了 json 格式化 |
+| `jsonCode`      | 代码框，但是带了 json 格式化  |
 | `color`         | 颜色选择器                   |
 | `cascader`      | 级联选择器                   |
 | `segmented`     | 分段器                       |
