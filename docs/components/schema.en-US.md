@@ -57,7 +57,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
       ) => React.ReactNode)
     | React.ReactNode;
 
-  /** @nameDisplay an icon, hover shows some tooltip information */
+  /** @name Display an icon, hover shows some tooltip information */
   tooltip?: string | LabelTooltipType;
 
   /** @deprecated You can use tooltip, this change is to align with antd */
