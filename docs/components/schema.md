@@ -45,7 +45,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   valueType?: ((entity: T, type: ProSchemaComponentTypes) => U) | U;
 
   /**
-   * 支持 ReactNode 和 方法
+   * 支持 ReactNode
    *
    * @name 标题
    */
