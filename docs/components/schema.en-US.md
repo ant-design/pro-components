@@ -107,7 +107,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /** @name Request enumeration from the server */
   request?: ProFieldRequestData<ProSchema>;
 
-  /** @name Parameters for server requests, changes trigger reload */
+  /** @name Parameters for server requests, changes will trigger reload */
   params?: {
     [key: string]: any;
   };
