@@ -19,7 +19,7 @@ nav:
 
 ### 如何隐藏 ProTable 生成的搜索的 label？
 
-columns 的 title 支持 function 的，你可以这样写
+columns 的 title 支持 function 的，你可以这样写：
 
 ```typescript
 title: (_, type) => {
@@ -34,9 +34,9 @@ title: (_, type) => {
 
 那啥，试试 [cnpm](http://npm.taobao.org/)和[yarn](https://www.npmjs.com/package/yarn)。
 
-### `Form` 当中 `initialValues`
+### `Form` 当中的 `initialValues`
 
-`ProComponents` 底层也是封装的 [antd](https://ant.design/index-cn) ，所以用法也是和 [antd](https://ant.design/index-cn) 相同。注意 `initialValues` 不能被 `setState` 动态更新，你需要用 `setFieldsValue` 来更新。 `initialValues` 只在 `form` 初始化时生效且只生效一次，如果你需要异步加载推荐使用 `request`，或者 `initialValues ? <Form/> : null`
+`ProComponents` 底层也是封装的 [antd](https://ant.design/index-cn) ，所以用法也和 [antd](https://ant.design/index-cn) 相同。注意 `initialValues` 不能被 `setState` 动态更新，所以你需要用 `setFieldsValue` 来更新。 `initialValues` 只在 `form` 初始化时生效且只生效一次，如果你需要异步加载，推荐使用 `request`，或者 `initialValues ? <Form/> : null`
 
 ### Chrome88 以下浏览器兼容问题
 

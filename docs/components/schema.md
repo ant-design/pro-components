@@ -1,11 +1,11 @@
-﻿---
+﻿<!-----
 title: 通用配置总览
 order: 1
----
+----->
 
 # 通用配置
 
-在 ProComponents 我们在组件使用了与 table 的相同的定义，同时扩展了部分字段。让其可以满足更多需求。
+在 `ProComponents` 项目中，对于组件我们使用了与 table 相同的定义，同时扩展了部分字段。让其可以满足更多需求。
 
 | 字段名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   valueType?: ((entity: T, type: ProSchemaComponentTypes) => U) | U;
 
   /**
-   * 支持 ReactNode 和 方法
+   * 支持 ReactNode
    *
    * @name 标题
    */
@@ -118,7 +118,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
 
 ## valueType 列表
 
-<code src="./valueType.tsx" title="schema 表单"></code>
+<!--<code src="./valueType.tsx" title="schema 表单"></code>-->
 
 valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映射成不同的表单项。以下是支持的常见表单项：
 
@@ -163,7 +163,7 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `divider`       | 分割线                       |
 | `dependency`    | 依赖项                       |
 
-这里 demo 可以来了解一下各个 valueType 的展示效果。
+这里的 demo 可以来了解一下各个 valueType 的展示效果。
 
 ### 传入 function
 
@@ -208,7 +208,7 @@ return { type: 'percent', showSymbol: true | false, precision: 2 };
 
 ### 自定义 valueType
 
-<code src="./customization-value-type.tsx" title="schema 表单"></code>
+<!--<code src="./customization-value-type.tsx" title="schema 表单"></code>-->
 
 ### valueEnum
 
@@ -268,7 +268,7 @@ interface IValueEnum {
 
 使用 Map 来让 valueEnum 更灵活，某些场景会用到 number 类型或者 boolean 类型，例如：
 
-<code src="./valueEnum-map.tsx" title="使用Map的valueEnum"></code>
+<!--<code src="./valueEnum-map.tsx" title="使用Map的valueEnum"></code>-->
 
 ## 远程数据
 
@@ -407,8 +407,8 @@ export default () => (
 
 大部分时候我们是从网络中获取数据，但是获取写一个 hooks 来请求数据还是比较繁琐的，同时还要定义一系列状态，所以我们提供了 `request` 和 `params` 来获取数据。
 
-- `request` 是一个 promise,需要返回一个 options 相同的数据
-- `params` 一般而言 `request` 是惰性的，params 修改会触发 `request` 的重新请求。
+- `request` ：是一个 promise,需要返回一个 options 相同的数据
+- `params` ：一般而言 `request` 是惰性的，params 修改会触发 `request` 的重新请求。
 
 ```tsx | pure
 const request = async () => [

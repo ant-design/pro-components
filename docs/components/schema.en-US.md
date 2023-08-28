@@ -1,53 +1,53 @@
-﻿---
-title: 通用配置总览
+﻿<!-----
+title: Universal Configuration Overview order
 order: 1
----
+----->
 
-# 通用配置
+# Universal Configuration
 
-在 ProComponents 我们在组件使用了与 table 的相同的定义，同时扩展了部分字段。让其可以满足更多需求。
+In the `ProComponents`, we have used the same definition as tables for components, while also extending some fields to meet additional requirements, allowing them to fulfill more needs.
 
-| 字段名称 | 类型 | 说明 |
+| Field Name | Type | Description |
 | --- | --- | --- |
-| `key` | `React.key` | 确定这个列的唯一值,一般用于 dataIndex 重复的情况 |
-| `dataIndex` | `React.key` \| `React.key[]` | 与实体映射的 key，数组会被转化 `[a,b] => Entity.a.b` |
-| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你也可以自定义 valueType |
-| `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | 标题的内容，在 form 中是 label |
-| `tooltip` | `string` | 会在 title 旁边展示一个 icon，鼠标浮动之后展示 |
-| `valueEnum` | `(Entity)=> ValueEnum` \| `ValueEnum` | 支持 object 和 Map，Map 是支持其他基础类型作为 key |
-| `fieldProps` | `(form,config)=>fieldProps`\| `fieldProps` | 传给渲染的组件的 props，自定义的时候也会传递 |
-| `formItemProps` | `(form,config)=>formItemProps` \| `formItemProps` | 传递给 Form.Item 的配置 |
-| `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | 修改的数据是会被 valueType 定义的渲染组件消费 |
-| `render` | `(dom,entity,index, action, schema) => React.ReactNode` | 自定义只读模式的 dom,`render` 方法只管理的只读模式，编辑模式需要使用 `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式,返回一个 ReactNode，会自动包裹 value 和 onChange |
-| `request` | `(params,props) => Promise<{label,value}[]>` | 从远程请求网络数据，一般用于选择类组件 |
-| `params` | `Record<string, any>` | 额外传递给 `request` 的参数，组件不做处理,但是变化会引起`request` 重新请求数据 |
-| `hideInForm` | `boolean` | 在 Form 中隐藏 |
-| `hideInTable` | `boolean` | 在 Table 中隐藏 |
-| `hideInSearch` | `boolean` | 在 Table 的查询表单中隐藏 |
-| `hideInDescriptions` | `boolean` | 在 descriptions 中隐藏 |
-| `rowProps` | [RowProps](https://ant.design/components/grid/#Row) | 在开启 `grid` 模式时传递给 Row，仅在`ProFormGroup`, `ProFormList`, `ProFormFieldSet` 中有效 |
-| `colProps` | [ColProps](https://ant.design/components/grid/#Col) | 在开启 `grid` 模式时传递给 Col |
+| `key` | `React.key` | Determines the unique value of this column, commonly used for cases where dataIndex is duplicated |
+| `dataIndex` | `React.key` \| `React.key[]` | 	Key mapped to an entity, and arrays will be transformed into `[a,b] => Entity.a.b` |
+| `valueType` | `ProFieldValueType` | The rendering method of the data. We provide some built-in options, and you can also customize the valueType |
+| `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | 	Content of the title, which serves as the label in a form |
+| `tooltip` | `string` | 	Shows an icon next to the title, and displays the tooltip when the mouse hovers over it |
+| `valueEnum` | `(Entity)=> ValueEnum` \| `ValueEnum` | Supports objects and maps, where maps can use other basic types as keys |
+| `fieldProps` | `(form,config)=>fieldProps`\| `fieldProps` | Props passed to the rendering component. They are also passed when customizing |
+| `formItemProps` | `(form,config)=>formItemProps` \| `formItemProps` | Configuration passed to Form.Item |
+| `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | The modified data is consumed by the rendering component defined by valueType |
+| `render` | `(dom,entity,index, action, schema) => React.ReactNode` | Custom DOM for read-only mode. The `render` method only manages read-only mode, while the editing mode should use `renderFormItem` |
+| `renderFormItem` | `(schema,config,form) => React.ReactNode` | Custom editing mode that returns a ReactNode, automatically wrapping value and onChange |
+| `request` | `(params,props) => Promise<{label,value}[]>` | Requests network data remotely, usually used for selection-type components |
+| `params` | `Record<string, any>` | Additional parameters passed to `request`. The component does not process them, but changes will trigger a new data request in `request` |
+| `hideInForm` | `boolean` | 	Hidden in the form |
+| `hideInTable` | `boolean` | Hidden in the table |
+| `hideInSearch` | `boolean` | 	Hidden in the search form of the table |
+| `hideInDescriptions` | `boolean` | 	Hidden in the descriptions |
+| `rowProps` | [RowProps](https://ant.design/components/grid/#Row) | Passed to the Row when the `grid` mode is enabled, only effective in `ProFormGroup`, `ProFormList`, `ProFormFieldSet` |
+| `colProps` | [ColProps](https://ant.design/components/grid/#Col) | 	Passed to the Col when the `grid` mode is enabled |
 
-## TypeScript 定义
+## Definition to TypeScript
 
 ```tsx | pure
 export type ProSchema<T = unknown, U = string, Extra = unknown> = {
-  /** @name 确定这个列的唯一值 */
+  /** @name Specify the unique value for this column */
   key?: string | number;
   /**
-   * 支持一个数组，[a,b] 会转化为 obj.a.b
+   * Supports an array, [a,b] will be transformed to obj.a.b
    *
-   * @name 与实体映射的key
+   * @name Key mapped to the entity
    */
   dataIndex?: string | number | (string | number)[];
-  /** 选择如何渲染相应的模式 */
+  /** Choose how to render the corresponding mode */
   valueType?: ((entity: T, type: ProSchemaComponentTypes) => U) | U;
 
   /**
-   * 支持 ReactNode 和 方法
+   * Support ReactNode
    *
-   * @name 标题
+   * @name Title
    */
   title?:
     | ((
@@ -57,10 +57,10 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
       ) => React.ReactNode)
     | React.ReactNode;
 
-  /** @name 展示一个 icon，hover 是展示一些提示信息 */
+  /** @name Display an icon, hover shows some tooltip information */
   tooltip?: string | LabelTooltipType;
 
-  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
+  /** @deprecated You can use tooltip, this change is to align with antd */
   tip?: string;
 
   render?: (
@@ -72,9 +72,9 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   ) => React.ReactNode;
 
   /**
-   * 返回一个node，会自动包裹 value 和 onChange
+   * Return a node, automatically wraps value and onChange
    *
-   * @name 自定义编辑模式
+   * @name Custom edit mode
    */
   renderFormItem?: (
     item: ProSchema<T, U, Extra>,
@@ -89,9 +89,9 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   ) => React.ReactNode;
 
   /**
-   * 必须要返回 string
+   * Must return a string
    *
-   * @name 自定义 render
+   * @name Custom define render
    */
   renderText?: (
     text: any,
@@ -101,73 +101,73 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   ) => any;
 
   fieldProps?: any;
-  /** @name 映射值的类型 */
+  /** @name Type mapping for values */
   valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
 
-  /** @name 从服务器请求枚举 */
+  /** @name Request enumeration from the server */
   request?: ProFieldRequestData<ProSchema>;
 
-  /** @name 从服务器请求的参数，改变了会触发 reload */
+  /** @name Parameters for server requests, changes will trigger reload */
   params?: {
     [key: string]: any;
   };
-  /** @name 隐藏在 descriptions */
+  /** @name Hidden in descriptions */
   hideInDescriptions?: boolean;
 } & Extra;
 ```
 
-## valueType 列表
+## valueType Lists
 
-<code src="./valueType.tsx" title="schema 表单"></code>
+<!--<code src="./valueType.tsx" title="schema form"></code>-->
 
-valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映射成不同的表单项。以下是支持的常见表单项：
+valueType is the soul of ProComponents. ProComponents maps it to different form items based on valueType. Here are the commonly supported form items:
 
-| valueType       | 说明                         |
+| valueType       | Description                  |
 | --------------- | ---------------------------- |
-| `password`      | 密码输入框                   |
-| `money`         | 金额输入框                   |
-| `textarea`      | 文本域                       |
-| `date`          | 日期                         |
-| `dateTime`      | 日期时间                     |
-| `dateWeek`      | 周                           |
-| `dateMonth`     | 月                           |
-| `dateQuarter`   | 季度输入                     |
-| `dateYear`      | 年份输入                     |
-| `dateRange`     | 日期区间                     |
-| `dateTimeRange` | 日期时间区间                 |
-| `time`          | 时间                         |
-| `timeRange`     | 时间区间                     |
-| `text`          | 文本框                       |
-| `select`        | 下拉框                       |
-| `treeSelect`    | 树形下拉框                   |
-| `checkbox`      | 多选框                       |
-| `rate`          | 星级组件                     |
-| `radio`         | 单选框                       |
-| `radioButton`   | 按钮单选框                   |
-| `progress`      | 进度条                       |
-| `percent`       | 百分比组件                   |
-| `digit`         | 数字输入框                   |
-| `second`        | 秒格式化                     |
-| `avatar`        | 头像                         |
-| `code`          | 代码框                       |
-| `switch`        | 开关                         |
-| `fromNow`       | 相对于当前时间               |
-| `image`         | 图片                         |
-| `jsonCode`      | 代码框，但是带了 json 格式化 |
-| `color`         | 颜色选择器                   |
-| `cascader`      | 级联选择器                   |
-| `segmented`     | 分段器                       |
-| `group`         | 分组                         |
-| `formList`      | 表单列表                     |
-| `formSet`       | 表单集合                     |
-| `divider`       | 分割线                       |
-| `dependency`    | 依赖项                       |
+| `password`      | Password input box           |
+| `money`         | Money input box              |
+| `textarea`      | Text area                    |
+| `date`          | Date                         |
+| `dateTime`      | Date and time                |
+| `dateWeek`      | Week                         |
+| `dateMonth`     | Month                        |
+| `dateQuarter`   | Quarter input                |
+| `dateYear`      | Year input                   |
+| `dateRange`     | Date range                   |
+| `dateTimeRange` | Date and time range          |
+| `time`          | Time                         |
+| `timeRange`     | Time range                   |
+| `text`          | Text box                     |
+| `select`        | Dropdown box                 |
+| `treeSelect`    | Tree dropdown box            |
+| `checkbox`      | Checkbox                     |
+| `rate`          | Star rating component        |
+| `radio`         | Radio button                 |
+| `radioButton`   | Button radio button          |
+| `progress`      | Progress bar                 |
+| `percent`       | Percentage component         |
+| `digit`         | Number input box             |
+| `second`        | Seconds formatting           |
+| `avatar`        | Avatar                       |
+| `code`          | Code box                     |
+| `switch`        | Switch                       |
+| `fromNow`       | Relative to current time     |
+| `image`         | Image                        |
+| `jsonCode`      | Code box with JSON formatting|
+| `color`         | Color picker                 |
+| `cascader`      | Cascading select box         |
+| `segmented`     | Segmented control            |
+| `group`         | Group                        |
+| `formList`      | Form list                    |
+| `formSet`       | Form set                     |
+| `divider`       | Divider                      |
+| `dependency`    | Dependency                   |
 
-这里 demo 可以来了解一下各个 valueType 的展示效果。
+Here, you can explore the display effects of each valueType through the available demos.
 
-### 传入 function
+### Passing function as a value
 
-只有一个值并不能表现很多类型，`progress` 就是一个很好的例子。所以我们支持传入一个 function。你可以这样使用：
+A single value may not represent multiple types effectively, and `progress` is a good example of this. Therefore, we support passing a function. You can use it like this:
 
 ```tsx | pure
 const columns = {
@@ -181,7 +181,7 @@ const columns = {
 };
 ```
 
-### 支持的返回值
+### Supported return values
 
 #### progress
 
@@ -204,15 +204,15 @@ return { type: 'money', locale: 'en-Us' };
 return { type: 'percent', showSymbol: true | false, precision: 2 };
 ```
 
-如果我们带的 valueType 不能满足需求，我们可以用自定义 valueType 来自定义业务组件。
+If the provided valueType does not meet our requirements, we can use a custom valueType to define a custom business component.
 
-### 自定义 valueType
+### Custom valueType
 
-<code src="./customization-value-type.tsx" title="schema 表单"></code>
+<!--<code src="./customization-value-type.tsx" title="schema form"></code>-->
 
 ### valueEnum
 
-valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 form 中生成一个下拉框。看起来是这样的：
+A valueEnum needs to be passed as an argument, and ProTable will automatically retrieve the corresponding enum based on the value and generate a dropdown selection box in the form. It looks like this:
 
 ```ts | pure
 const valueEnum = {
@@ -226,7 +226,7 @@ const valueEnum = {
   },
 };
 
-// 也可以设置为一个function
+// It can also be set as a function.
 const valueEnum = (row) =>
   row.isMe
     ? {
@@ -251,9 +251,9 @@ const valueEnum = (row) =>
       };
 ```
 
-> 这里值得注意的是在 form 中并没有 row，所以 row 的值为 null，你可以根据这个来判断要在 form 中显示什么选项。
+> It's worth noting that there is no row in the form, so the value of row is null. You can use this to determine what options to display in the form.
 
-当前列值的枚举
+Enumerations for the current column values.
 
 ```typescript | pure
 interface IValueEnum {
@@ -266,19 +266,19 @@ interface IValueEnum {
 }
 ```
 
-使用 Map 来让 valueEnum 更灵活，某些场景会用到 number 类型或者 boolean 类型，例如：
+Using a Map to make valueEnum more flexible can be useful in certain scenarios where number or boolean types are needed. For example:
 
-<code src="./valueEnum-map.tsx" title="使用Map的valueEnum"></code>
+<!--<code src="./valueEnum-map.tsx" title="valueEnum using Map"></code>-->
 
-## 远程数据
+## Remote Data
 
-支持组件 `Select`, `TreeSelect`, `Cascader`, `Checkbox`, `Radio`, `RadioButton`
+Supported components: `Select`, `TreeSelect`, `Cascader`, `Checkbox`, `Radio`, `RadioButton`.
 
-支持参数 `request`,`params`,`fieldProps.options`, `valueEnum` 来支持远程数据，这几个属性分别有不同的用法。
+The following parameters are supported to handle remote data: `request`,`params`,`fieldProps.options`,`valueEnum`. Each of these attributes has a different usage.
 
 ### `valueEnum`
 
-valueEnum 是最基础的用法， 它支持传入一个 [`Object`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object) 或者是 [`Map`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map)，相比于 options 支持更加丰富的定义，比如在表格中常见的各种 [badge](https://ant.design/components/badge-cn/#Badge)。
+valueEnum is the most basic usage. It supports passing an [`Object`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object) or a [`Map`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map) as an argument. It offers more extensive definitions compared to options, such as the commonly seen various [badges](https://ant.design/components/badge-cn/#Badge) in tables.
 
 ```tsx | pure
 const valueEnum = {
@@ -323,7 +323,7 @@ export default () => (
 
 ### `fieldProps.options`
 
-options 是 antd 定义的标准，但是只有部分组件支持， ProComponents 扩展了组件，使得 `select`, `checkbox`, `radio`, `radioButton` 都支持了 `options`, 他们的用法是相同的。
+options is a standard defined by antd, but it is only supported by some components. ProComponents extends these components, enabling `select`, `checkbox`, `radio` and `radioButton` to all support `options`, and their usage is the same.
 
 ```tsx | pure
 const options = [
@@ -342,10 +342,10 @@ const options = [
   },
 ];
 
-// 或者不需要 label
+// Alternatively, the label may not be required
 const options = ['chapter', 'chapter2'];
 
-// 列中定义
+// Definition in Column
 const columns = [
   {
     title: '创建者',
@@ -401,14 +401,14 @@ export default () => (
 );
 ```
 
-### `request` 和 `params`
+### `request` and `params`
 
-> 可以使用 debounceTime 调整请求防抖时间，默认为 10ms
+> You can use debounceTime to adjust the debounce time for requests, with a default value of 10ms.
 
-大部分时候我们是从网络中获取数据，但是获取写一个 hooks 来请求数据还是比较繁琐的，同时还要定义一系列状态，所以我们提供了 `request` 和 `params` 来获取数据。
+Most of the time, we fetch data from the network. However, creating a custom hook to handle data requests can be cumbersome, as it requires defining various states. To simplify this process, we provide `request` and `params` to fetch data.
 
-- `request` 是一个 promise,需要返回一个 options 相同的数据
-- `params` 一般而言 `request` 是惰性的，params 修改会触发 `request` 的重新请求。
+- `request`:`request` is a promise that should return data in the same format as the options.
+- `params`: Typically, `request` is lazy-loaded, and modifying `params` will trigger a new `request`.
 
 ```tsx | pure
 const request = async () => [
@@ -428,7 +428,7 @@ const request = async () => [
   placeholder="Please select a country"
 />;
 
-// 列中定义
+// Definition in Column
 const columns = [
   {
     title: '创建者',
@@ -473,4 +473,4 @@ export default () => (
 );
 ```
 
-在实际的使用中 `request` 增加了一个 5s 缓存，可能会导致数据更新不及时，如果需要频繁更新，建议使用 `state`+`fieldProps.options`。
+In practical usage, `request` has a 5-second cache, which may result in delayed data updates. If you require frequent updates, it is recommended to use `state` along with `fieldProps.options` instead.
