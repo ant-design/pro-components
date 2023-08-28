@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.0...@ant-design/pro-field@2.12.1) (2023-08-28)
 
-
 ### Bug Fixes
 
-* **form:** textarea 只读状态样式不统一([#7578](https://github.com/ant-design/pro-components/issues/7578) [#6618](https://github.com/ant-design/pro-components/issues/6618)) ([#7579](https://github.com/ant-design/pro-components/issues/7579)) ([d727158](https://github.com/ant-design/pro-components/commit/d727158918b703f74990f823e91656785ea8a08b))
-
-
-
-
+- **form:** textarea 只读状态样式不统一([#7578](https://github.com/ant-design/pro-components/issues/7578) [#6618](https://github.com/ant-design/pro-components/issues/6618)) ([#7579](https://github.com/ant-design/pro-components/issues/7579)) ([d727158](https://github.com/ant-design/pro-components/commit/d727158918b703f74990f823e91656785ea8a08b))
 
 # [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.11.0...@ant-design/pro-field@2.12.0) (2023-08-17)
 

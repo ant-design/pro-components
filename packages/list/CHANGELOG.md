@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.5.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.13...@ant-design/pro-list@2.5.14) (2023-08-28)
 
-
 ### Bug Fixes
 
-* **form:** fix FormItem name is null，but has data error ([#7583](https://github.com/ant-design/pro-components/issues/7583)) ([f8514e3](https://github.com/ant-design/pro-components/commit/f8514e33e57dd448398a34a2ecd76baf6e0a36d9))
-
-
-
-
+- **form:** fix FormItem name is null，but has data error ([#7583](https://github.com/ant-design/pro-components/issues/7583)) ([f8514e3](https://github.com/ant-design/pro-components/commit/f8514e33e57dd448398a34a2ecd76baf6e0a36d9))
 
 ## [2.5.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.12...@ant-design/pro-list@2.5.13) (2023-08-17)
 

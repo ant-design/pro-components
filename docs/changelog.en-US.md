@@ -1,4 +1,18 @@
-﻿## @ant-design/pro-components@2.6.13
+﻿## @ant-design/pro-components@2.6.14
+
+`2023-08-28`
+
+- fix(layout): fix menuItem icon no align error. [62f1bb5](https://github.com/ant-design/pro-components/commit/62f1bb5)
+- fix(layout): 修复 sider token 样式问题 (#7574). [#7574](https://github.com/ant-design/pro-components/pull/#7574) [@daifuyang](https://github.com/daifuyang)
+- fix(layout): use useBreakpoint utils. [af522ee](https://github.com/ant-design/pro-components/commit/af522ee)
+- fix(layout): use useBreakpoint utils. [3a174d1](https://github.com/ant-design/pro-components/commit/3a174d1)
+- fix(form): textarea 只读状态样式不统一(#7578 #6618) (#7579). [#7579](https://github.com/ant-design/pro-components/pull/#7579) [@HoPGoldy](https://github.com/HoPGoldy)
+- fix(form): fix FormItem name is null，but has data error (#7583). [#7583](https://github.com/ant-design/pro-components/pull/#7583) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): ValueTypeWithFieldPropsBase 泛型参数失效 (#7582). [#7582](https://github.com/ant-design/pro-components/pull/#7582) [@ldc-37](https://github.com/ldc-37)
+- feat(descriptions): support emptyText. [d5ccc34](https://github.com/ant-design/pro-components/commit/d5ccc34)
+- fix(descriptions): fix valueType is null. label no work error. [8779112](https://github.com/ant-design/pro-components/commit/8779112)
+
+## @ant-design/pro-components@2.6.13
 
 `2023-08-17`
 

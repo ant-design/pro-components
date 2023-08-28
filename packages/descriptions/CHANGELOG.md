@@ -1,25 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.4.13...@ant-design/pro-descriptions@2.5.0) (2023-08-28)
 
-
 ### Bug Fixes
 
-* **descriptions:** fix valueType is null. label no work error ([8779112](https://github.com/ant-design/pro-components/commit/87791120a028709a89d5557202bad1469eee38de))
-* **form:** fix FormItem name is null，but has data error ([#7583](https://github.com/ant-design/pro-components/issues/7583)) ([f8514e3](https://github.com/ant-design/pro-components/commit/f8514e33e57dd448398a34a2ecd76baf6e0a36d9))
-* **layout:** 修复sider token样式问题 ([#7574](https://github.com/ant-design/pro-components/issues/7574)) ([c911dff](https://github.com/ant-design/pro-components/commit/c911dff10749e2278e28505ff08d531ee6e95d56))
-
+- **descriptions:** fix valueType is null. label no work error ([8779112](https://github.com/ant-design/pro-components/commit/87791120a028709a89d5557202bad1469eee38de))
+- **form:** fix FormItem name is null，but has data error ([#7583](https://github.com/ant-design/pro-components/issues/7583)) ([f8514e3](https://github.com/ant-design/pro-components/commit/f8514e33e57dd448398a34a2ecd76baf6e0a36d9))
+- **layout:** 修复 sider token 样式问题 ([#7574](https://github.com/ant-design/pro-components/issues/7574)) ([c911dff](https://github.com/ant-design/pro-components/commit/c911dff10749e2278e28505ff08d531ee6e95d56))
 
 ### Features
 
-* **descriptions:** support emptyText ([d5ccc34](https://github.com/ant-design/pro-components/commit/d5ccc3427038f06f2cc8d7c7ab763907edd30f41))
-
-
-
-
+- **descriptions:** support emptyText ([d5ccc34](https://github.com/ant-design/pro-components/commit/d5ccc3427038f06f2cc8d7c7ab763907edd30f41))
 
 ## [2.4.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.4.12...@ant-design/pro-descriptions@2.4.13) (2023-08-17)
 

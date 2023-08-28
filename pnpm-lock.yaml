@@ -375,10 +375,10 @@ importers:
         specifier: ^5.0.0
         version: 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
-        specifier: 2.12.1
+        specifier: 2.12.2
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.0
+        specifier: 2.14.1
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -403,34 +403,34 @@ importers:
   packages/components:
     dependencies:
       '@ant-design/pro-card':
-        specifier: 2.5.12
+        specifier: 2.5.13
         version: link:../card
       '@ant-design/pro-descriptions':
-        specifier: 2.4.13
+        specifier: 2.5.0
         version: link:../descriptions
       '@ant-design/pro-field':
-        specifier: 2.12.0
+        specifier: 2.12.1
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.18.1
+        specifier: 2.18.2
         version: link:../form
       '@ant-design/pro-layout':
-        specifier: 7.16.9
+        specifier: 7.16.10
         version: link:../layout
       '@ant-design/pro-list':
-        specifier: 2.5.13
+        specifier: 2.5.14
         version: link:../list
       '@ant-design/pro-provider':
-        specifier: 2.12.1
+        specifier: 2.12.2
         version: link:../provider
       '@ant-design/pro-skeleton':
         specifier: 2.1.7
         version: link:../skeleton
       '@ant-design/pro-table':
-        specifier: 3.11.0
+        specifier: 3.11.1
         version: link:../table
       '@ant-design/pro-utils':
-        specifier: 2.14.0
+        specifier: 2.14.1
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.16.3
@@ -439,16 +439,16 @@ importers:
   packages/descriptions:
     dependencies:
       '@ant-design/pro-field':
-        specifier: 2.12.0
+        specifier: 2.12.1
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.18.1
+        specifier: 2.18.2
         version: link:../form
       '@ant-design/pro-skeleton':
         specifier: 2.1.7
         version: link:../skeleton
       '@ant-design/pro-utils':
-        specifier: 2.14.0
+        specifier: 2.14.1
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -473,10 +473,10 @@ importers:
         specifier: ^5.0.0
         version: 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
-        specifier: 2.12.1
+        specifier: 2.12.2
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.0
+        specifier: 2.14.1
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -525,13 +525,13 @@ importers:
         specifier: ^5.0.0
         version: 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-field':
-        specifier: 2.12.0
+        specifier: 2.12.1
         version: link:../field
       '@ant-design/pro-provider':
-        specifier: 2.12.1
+        specifier: 2.12.2
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.0
+        specifier: 2.14.1
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -574,10 +574,10 @@ importers:
         specifier: ^5.0.0
         version: 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
-        specifier: 2.12.1
+        specifier: 2.12.2
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.0
+        specifier: 2.14.1
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -626,16 +626,16 @@ importers:
         specifier: ^5.0.0
         version: 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
-        specifier: 2.5.12
+        specifier: 2.5.13
         version: link:../card
       '@ant-design/pro-field':
-        specifier: 2.12.0
+        specifier: 2.12.1
         version: link:../field
       '@ant-design/pro-table':
-        specifier: 3.11.0
+        specifier: 3.11.1
         version: link:../table
       '@ant-design/pro-utils':
-        specifier: 2.14.0
+        specifier: 2.14.1
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -695,19 +695,19 @@ importers:
         specifier: ^5.0.0
         version: 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
-        specifier: 2.5.12
+        specifier: 2.5.13
         version: link:../card
       '@ant-design/pro-field':
-        specifier: 2.12.0
+        specifier: 2.12.1
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.18.1
+        specifier: 2.18.2
         version: link:../form
       '@ant-design/pro-provider':
-        specifier: 2.12.1
+        specifier: 2.12.2
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.0
+        specifier: 2.14.1
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -753,7 +753,7 @@ importers:
         specifier: ^5.0.0
         version: 5.2.5(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
-        specifier: 2.12.1
+        specifier: 2.12.2
         version: link:../provider
       '@babel/runtime':
         specifier: ^7.18.0
