@@ -56,6 +56,7 @@ describe('Table valueEnum', () => {
           {
             title: '状态',
             dataIndex: 'status',
+            valueType: 'select',
             valueEnum: {},
             fieldProps: {
               open: true,
@@ -91,6 +92,7 @@ describe('Table valueEnum', () => {
           columns={[
             {
               title: '状态',
+              valueType: 'select',
               dataIndex: 'status',
               valueEnum: {
                 0: { text: '关闭', status: 'Default' },
@@ -140,6 +142,7 @@ describe('Table valueEnum', () => {
           {
             title: '状态',
             dataIndex: 'status',
+            valueType: 'select',
             valueEnum: {},
             fieldProps: {
               open: true,

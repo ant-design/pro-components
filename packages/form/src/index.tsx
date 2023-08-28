@@ -8,6 +8,7 @@ import 'antd/lib/row/style';
 import 'antd/lib/steps/style';
 import 'antd/lib/tabs/style';
 import 'antd/lib/upload/style';
+import type { ProFormGroupProps } from './typing';
 //----------------------
 export { ProFormContext } from '@ant-design/pro-utils';
 export type {
@@ -46,6 +47,7 @@ export type {
   LightFilterFooterRender,
   ProFormFieldItemProps as ProFormItemProps,
 } from './typing';
+export type { ProFormGroupProps as GroupProps };
 export { ProForm };
 
 export default ProForm;

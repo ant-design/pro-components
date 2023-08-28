@@ -1,4 +1,4 @@
-import type { ColorPickerProps, InputProps } from 'antd';
+import type { ColorPickerProps, InputProps, SpaceProps } from 'antd';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -15,6 +15,7 @@ import type {
   CascaderProps,
   CheckboxProps,
   DatePickerProps,
+  DividerProps,
   ImageProps,
   InputNumberProps,
   PopoverProps,
@@ -32,6 +33,90 @@ import type { RangePickerProps } from 'antd/lib/date-picker';
 import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
 import type { SliderRangeProps } from 'antd/lib/slider';
 
+export type ProFormBaseGroupProps = {
+  /**
+   * @name 分组的标题
+   */
+  title?: React.ReactNode;
+  /**
+   * @name 分组的标题
+   * @deprecated 尽量用 title
+   */
+  label?: React.ReactNode;
+  /**
+   * @name 标题旁边的？号提示展示的信息
+   *
+   * @example 自定义提示信息
+   * <ProForm.Group title="标题"  tooltip="自定义提示信息">
+   *  @example 自定义Icon
+   * <ProForm.Group title="标题"  tooltip={{icon:<Info/>,title:自定义提示信息}}>
+   */
+  tooltip?: LabelTooltipType | string;
+  /**
+   * @name 额外的内容配置,在标题的另外一边
+   *
+   * @example 额外的内容配置
+   * <ProForm.Group title="标题" extra={<ProFormSwitch name="open"/>} />
+   */
+  extra?: React.ReactNode;
+  /**
+   * @name 组件之前的间隔
+   */
+  size?: SpaceProps['size'];
+  /**
+   * @name 自定义样式
+   */
+  style?: React.CSSProperties;
+  /**
+   * @name 自定义 title 样式
+   * @example 增加背景颜色
+   * <ProForm.Group titleStyle={{ backgroundColor: '#f0f0f0' }} />
+   */
+  titleStyle?: React.CSSProperties;
+  /**
+   * @name 自定义title
+   * @example 自定义标题
+   * <ProForm.Group title={(_,props)=><span>自定义标题</span>}>
+   */
+  titleRender?: (
+    title: React.ReactNode,
+    props: ProFormBaseGroupProps,
+  ) => React.ReactNode;
+  /** 子项的对齐方式 */
+  align?: SpaceProps['align'];
+  spaceProps?: SpaceProps;
+  /**
+   * @name 子项的排列方式
+   */
+  direction?: SpaceProps['direction'];
+  /**
+   * @name 布局方式，键值对模式和两行模式
+   * @default inline
+   */
+  labelLayout?: 'inline' | 'twoLine';
+  /**
+   * @name 是否折叠
+   */
+  collapsed?: boolean;
+  /**
+   * @name 是否可折叠
+   */
+  collapsible?: boolean;
+  /**
+   * @name 默认的折叠状态
+   *  */
+  defaultCollapsed?: boolean;
+  /**
+   * @name 折叠修改的事件
+   *  */
+  onCollapse?: (collapsed: boolean) => void;
+  /**
+   * @name 自定选中一个input，只能有一个生效
+   */
+  autoFocus?: boolean;
+
+  children?: React.ReactNode;
+};
 /**
  * ProFieldValueTypeWithFieldProps
  * 字段值类型与 ProFieldProps 的映射关系
@@ -131,15 +216,15 @@ export type ProFieldValueTypeWithFieldProps = {
   /** 分段器 */
   segmented: SegmentedProps;
   /** 分组 */
-  group: any;
+  group: ProFormBaseGroupProps;
   /** 表单列表 */
-  formList: any;
+  formList: Record<string, any>;
   /** 表单集合 */
-  formSet: any;
+  formSet: Record<string, any>;
   /** 分割线 */
-  divider: any;
+  divider: DividerProps;
   /** 显示/隐藏 */
-  dependency: any;
+  dependency: FormItemProps;
 };
 
 /**
@@ -193,7 +278,7 @@ type FieldPropsTypeBase<
   Entity = Record<string, any>,
   ComponentsType = 'text',
   ExtraProps = Record<string, any>,
-  FieldPropsType = Record<string, any>,
+  FieldPropsType = ProFieldValueTypeWithFieldProps['text'],
 > =
   | ((
       form: FormInstance<any>,

@@ -89,6 +89,7 @@ export type ExtraProColumnType<T> = Omit<
 export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   T,
   ExtraProColumnType<T> & {
+    children?: ProColumns<T>[];
     index?: number;
     /**
      * 每个表单占据的格子大小
@@ -162,13 +163,10 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   }
 >;
 
-export type ProColumnGroupType<RecordType, ValueType> = {
-  children: ProColumns<RecordType>[];
-} & ProColumnType<RecordType, ValueType>;
-
-export type ProColumns<T = any, ValueType = 'text'> =
-  | ProColumnGroupType<T, ValueType>
-  | ProColumnType<T, ValueType>;
+export type ProColumns<T = any, ValueType = 'text'> = ProColumnType<
+  T,
+  ValueType
+>;
 
 export type BorderedType = 'search' | 'table';
 

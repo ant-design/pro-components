@@ -44,7 +44,11 @@ import { Submitter } from '../components';
 import { FormListContext } from '../components/List';
 import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
-import type { FieldProps, GroupProps, ProFormGridConfig } from '../typing';
+import type {
+  FieldProps,
+  ProFormGridConfig,
+  ProFormGroupProps,
+} from '../typing';
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
 
 export type CommonFormProps<
@@ -194,7 +198,7 @@ export type BaseFormProps<T = Record<string, any>, U = Record<string, any>> = {
   /** 表单初始化完成，form已经存在，可以进行赋值的操作了 */
   onInit?: (values: T, form: ProFormInstance<any>) => void;
   formItemProps?: FormItemProps;
-  groupProps?: GroupProps;
+  groupProps?: ProFormGroupProps;
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
   /** Form 组件的类型，内部使用 */
