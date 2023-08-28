@@ -1,6 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.6.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.6.13...@ant-design/pro-components@2.6.14) (2023-08-28)
+
+**Note:** Version bump only for package @ant-design/pro-components
+
+
+
+
 
 ## [2.6.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.6.12...@ant-design/pro-components@2.6.13) (2023-08-17)
 

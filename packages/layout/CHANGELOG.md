@@ -1,6 +1,21 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.16.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.9...@ant-design/pro-layout@7.16.10) (2023-08-28)
+
+
+### Bug Fixes
+
+* **layout:** fix menuItem icon no align error ([62f1bb5](https://github.com/ant-design/pro-components/commit/62f1bb51920fe36692fc577bc29df6c9a84b237f))
+* **layout:** use useBreakpoint utils ([af522ee](https://github.com/ant-design/pro-components/commit/af522ee3912b494a2592036b2435455b44a7d900))
+* **layout:** use useBreakpoint utils ([3a174d1](https://github.com/ant-design/pro-components/commit/3a174d166a422e5db8c21ce67031422007289b2f))
+* **layout:** 修复sider token样式问题 ([#7574](https://github.com/ant-design/pro-components/issues/7574)) ([c911dff](https://github.com/ant-design/pro-components/commit/c911dff10749e2278e28505ff08d531ee6e95d56))
+
+
+
+
 
 ## [7.16.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.8...@ant-design/pro-layout@7.16.9) (2023-08-17)
 
