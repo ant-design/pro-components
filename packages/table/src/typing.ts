@@ -163,6 +163,10 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   }
 >;
 
+export type ProColumnGroupType<RecordType, ValueType> = {
+  children: ProColumns<RecordType>[];
+} & ProColumnType<RecordType, ValueType>;
+
 export type ProColumns<T = any, ValueType = 'text'> = ProColumnType<
   T,
   ValueType
