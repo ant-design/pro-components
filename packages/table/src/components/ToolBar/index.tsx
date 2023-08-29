@@ -21,7 +21,7 @@ import FullScreenIcon from './FullscreenIcon';
 export type SettingOptionType = {
   draggable?: boolean;
   checkable?: boolean;
-  fixable?: boolean;
+  showListItemOption?: boolean;
   checkedReset?: boolean;
   listsHeight?: number;
   extra?: React.ReactNode;
