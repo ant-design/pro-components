@@ -41,6 +41,7 @@
     "dayjs": "^1.11.9",
     "lodash.merge": "^4.6.2",
     "rc-util": "^5.0.6",
+    "safe-stable-stringify": "^2.4.3",
     "swr": "^2.0.0"
   },
   "devDependencies": {

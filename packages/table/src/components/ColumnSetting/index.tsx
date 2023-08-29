@@ -298,7 +298,14 @@ const GroupCheckboxList: React.FC<{
   checkable: boolean;
   showListItemOption: boolean;
   listsHeight?: number;
-}> = ({ localColumns, className, draggable, checkable, showListItemOption, listsHeight }) => {
+}> = ({
+  localColumns,
+  className,
+  draggable,
+  checkable,
+  showListItemOption,
+  listsHeight,
+}) => {
   const { hashId } = useContext(ProProvider);
   const rightList: (ProColumns<any> & { index?: number })[] = [];
   const leftList: (ProColumns<any> & { index?: number })[] = [];

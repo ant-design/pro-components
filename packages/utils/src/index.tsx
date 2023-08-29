@@ -55,6 +55,7 @@ import { parseValueToDay } from './parseValueToMoment';
 import { pickProFormItemProps } from './pickProFormItemProps';
 import { pickProProps } from './pickProProps';
 import { runFunction } from './runFunction';
+import stringify from './stringify';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
 import type {
   RowEditableConfig,
@@ -125,6 +126,7 @@ export {
   editableRowByKey,
   recordKeyToString,
   compareVersions,
+  stringify,
   // hooks
   useEditableArray,
   useEditableMap,

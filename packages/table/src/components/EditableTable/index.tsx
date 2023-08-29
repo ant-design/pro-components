@@ -6,6 +6,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import {
   isDeepEqualReact,
   runFunction,
+  stringify,
   useRefFunction,
 } from '@ant-design/pro-utils';
 import type { ButtonProps, FormItemProps } from 'antd';
@@ -22,7 +23,6 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { stringify } from 'use-json-comparison';
 import ProTable from '../../Table';
 import type { ActionType, ProTableProps } from '../../typing';
 
