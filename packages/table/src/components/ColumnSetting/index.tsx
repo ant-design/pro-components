@@ -60,8 +60,9 @@ const CheckboxListItem: React.FC<{
   className?: string;
   title?: React.ReactNode;
   fixed?: boolean | 'left' | 'right';
+  showListItemOption?: boolean;
   isLeaf?: boolean;
-}> = ({ columnKey, isLeaf, title, className, fixed }) => {
+}> = ({ columnKey, isLeaf, title, className, fixed, showListItemOption }) => {
   const intl = useIntl();
   const { hashId } = useContext(ProProvider);
 
@@ -98,7 +99,7 @@ const CheckboxListItem: React.FC<{
       <div className={`${className}-list-item-title ${hashId}`.trim()}>
         {title}
       </div>
-      {!isLeaf ? dom : null}
+      {showListItemOption && !isLeaf ? dom : null}
     </span>
   );
 };
@@ -109,12 +110,14 @@ const CheckboxList: React.FC<{
   title: string;
   draggable: boolean;
   checkable: boolean;
+  showListItemOption: boolean;
   showTitle?: boolean;
   listHeight?: number;
 }> = ({
   list,
   draggable,
   checkable,
+  showListItemOption,
   className,
   showTitle = true,
   title: listTitle,
@@ -261,6 +264,7 @@ const CheckboxList: React.FC<{
           <CheckboxListItem
             className={className}
             {...node}
+            showListItemOption={showListItemOption}
             title={runFunction(node.title, node)}
             columnKey={node.key}
           />
@@ -292,8 +296,9 @@ const GroupCheckboxList: React.FC<{
   className?: string;
   draggable: boolean;
   checkable: boolean;
+  showListItemOption: boolean;
   listsHeight?: number;
-}> = ({ localColumns, className, draggable, checkable, listsHeight }) => {
+}> = ({ localColumns, className, draggable, checkable, showListItemOption, listsHeight }) => {
   const { hashId } = useContext(ProProvider);
   const rightList: (ProColumns<any> & { index?: number })[] = [];
   const leftList: (ProColumns<any> & { index?: number })[] = [];
@@ -330,6 +335,7 @@ const GroupCheckboxList: React.FC<{
         list={leftList}
         draggable={draggable}
         checkable={checkable}
+        showListItemOption={showListItemOption}
         className={className}
         listHeight={listsHeight}
       />
@@ -338,6 +344,7 @@ const GroupCheckboxList: React.FC<{
         list={list}
         draggable={draggable}
         checkable={checkable}
+        showListItemOption={showListItemOption}
         title={intl.getMessage('tableToolBar.noFixedTitle', '不固定')}
         showTitle={showLeft || showRight}
         className={className}
@@ -348,6 +355,7 @@ const GroupCheckboxList: React.FC<{
         list={rightList}
         draggable={draggable}
         checkable={checkable}
+        showListItemOption={showListItemOption}
         className={className}
         listHeight={listsHeight}
       />
@@ -480,6 +488,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         <GroupCheckboxList
           checkable={props.checkable ?? true}
           draggable={props.draggable ?? true}
+          showListItemOption={props.showListItemOption ?? true}
           className={className}
           localColumns={localColumns}
           listsHeight={props.listsHeight}
