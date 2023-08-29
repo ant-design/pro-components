@@ -49,8 +49,7 @@
     "dayjs": "^1.11.9",
     "omit.js": "^2.0.2",
     "rc-resize-observer": "^1.0.0",
-    "rc-util": "^5.0.1",
-    "use-json-comparison": "^1.0.5"
+    "rc-util": "^5.0.1"
   },
   "devDependencies": {
     "typescript": "^5.0.4"

@@ -18,6 +18,7 @@ import {
   parseValueToDay,
   pickProProps,
   setAlpha,
+  stringify,
   transformKeySubmitValue,
   useDebounceFn,
   useDebounceValue,
@@ -1092,10 +1093,54 @@ describe('utils', () => {
   });
 
   it('🪓 nanoid', () => {
+    // @ts-ignore
     window.crypto.randomUUID = jest.fn(() => '1234567890abcdef');
 
     const id = nanoid();
 
     expect(id).toBe('1234567890abcdef');
+  });
+
+  it('🪓 stringify', () => {
+    expect(
+      stringify({
+        name: 'kiner',
+        age: 28,
+        liked: false,
+        favs: ['Reading', 'Running'],
+        userInfo: { fullName: 'kinertang' },
+      }),
+    ).toBe(
+      '{"name":"kiner","age":28,"liked":false,"favs":["Reading","Running"],"userInfo":{"fullName":"kinertang"}}',
+    );
+
+    const json: any = {
+      name: 'kiner',
+      age: 28,
+    };
+    json.detail = json;
+    expect(stringify(json)).toBe(
+      '{"name":"kiner","age":28,"detail":"Magic circle!"}',
+    );
+
+    expect(
+      stringify({
+        name: 'kiner',
+        age: BigInt(999),
+      }),
+    ).toBe('{"name":"kiner","age":999}');
+
+    expect(
+      stringify({
+        name: 'kiner',
+        age: BigInt(99999),
+        node: <div>aaaa</div>,
+        fn: function () {
+          console.log(1);
+        },
+      }),
+    ).toBe(
+      '{"name":"kiner","age":99999,"node":{"type":"div","key":null,"ref":null,"props":{"children":"aaaa"},"_owner":null,"_store":{}}}',
+    );
   });
 });

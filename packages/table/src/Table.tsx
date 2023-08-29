@@ -12,6 +12,7 @@ import {
   ErrorBoundary,
   omitUndefined,
   recordKeyToString,
+  stringify,
   useDeepCompareEffect,
   useDeepCompareEffectDebounce,
   useEditableArray,
@@ -34,7 +35,6 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { stringify } from 'use-json-comparison';
 import type { ActionType } from '.';
 import Alert from './components/Alert';
 import FormRender from './components/Form';

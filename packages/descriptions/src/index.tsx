@@ -16,6 +16,7 @@ import {
   getFieldPropsOrFormItemProps,
   InlineErrorFormItem,
   LabelIconTip,
+  stringify,
   useEditableMap,
 } from '@ant-design/pro-utils';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
@@ -24,7 +25,6 @@ import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect } from 'react';
-import { stringify } from 'use-json-comparison';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 

@@ -2,6 +2,7 @@
   LabelIconTip,
   omitUndefined,
   runFunction,
+  stringify,
   useLatest,
   useReactiveRef,
 } from '@ant-design/pro-utils';
@@ -14,7 +15,6 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { stringify } from 'use-json-comparison';
 import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
