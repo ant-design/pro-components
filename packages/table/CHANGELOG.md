@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.11.1...@ant-design/pro-table@3.12.0) (2023-08-29)
+
+
+### Bug Fixes
+
+* **form:** 解决因 stringify 导致死循环的问题 ([#7599](https://github.com/ant-design/pro-components/issues/7599)) ([d1ab1d1](https://github.com/ant-design/pro-components/commit/d1ab1d1a256cfe41beba7f69abf3588de7dbd446))
+* ProColumnGroupType => ProColumns ([#7601](https://github.com/ant-design/pro-components/issues/7601)) ([5aba49e](https://github.com/ant-design/pro-components/commit/5aba49e3bc1d87c844e4f2def5878ae3c8f9e916))
+
+
+### Features
+
+* **table:** table columns setting add fixable config ([#7586](https://github.com/ant-design/pro-components/issues/7586)) ([b869c7a](https://github.com/ant-design/pro-components/commit/b869c7ac6a3c29e08f6f2621dacaa411f1d901b6))
+
+
+
+
 
 ## [3.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.11.0...@ant-design/pro-table@3.11.1) (2023-08-28)
 

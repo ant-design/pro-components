@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.16.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.10...@ant-design/pro-layout@7.16.11) (2023-08-29)
+
+
+### Bug Fixes
+
+* **form:** 解决因 stringify 导致死循环的问题 ([#7599](https://github.com/ant-design/pro-components/issues/7599)) ([d1ab1d1](https://github.com/ant-design/pro-components/commit/d1ab1d1a256cfe41beba7f69abf3588de7dbd446))
+
+
+
+
 
 ## [7.16.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.9...@ant-design/pro-layout@7.16.10) (2023-08-28)
 
