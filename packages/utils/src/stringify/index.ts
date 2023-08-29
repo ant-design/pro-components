@@ -4,7 +4,7 @@ const stringify = configure({
   bigint: true,
   circularValue: 'Magic circle!',
   deterministic: false,
-  //   maximumDepth: 1,
+  maximumDepth: 4,
   //   maximumBreadth: 4,
 });
 
