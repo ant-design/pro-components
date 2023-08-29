@@ -12,7 +12,7 @@ import {
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
 import type { ContainerType } from '../Store/Provide';
-import type { ProColumnGroupType, ProColumns } from '../typing';
+import type { ProColumns } from '../typing';
 import {
   columnRender,
   defaultOnFilter,
@@ -43,7 +43,7 @@ type ColumnToColumnParams<T> = {
  */
 export function genProColumnToColumn<T>(
   params: ColumnToColumnParams<T> & { marginSM: number },
-  parents?: ProColumnGroupType<T, any>,
+  parents?: ProColumns<T, any>,
 ): ColumnToColumnReturnType<T> {
   const {
     columns,
@@ -70,7 +70,7 @@ export function genProColumnToColumn<T>(
         children,
         onFilter,
         filters = [],
-      } = columnProps as ProColumnGroupType<T, any>;
+      } = columnProps as ProColumns<T, any>;
       const columnKey = genColumnKey(
         key || dataIndex?.toString(),
         [parents?.key, columnsIndex].filter(Boolean).join('-'),
@@ -131,13 +131,13 @@ export function genProColumnToColumn<T>(
         onFilter: genOnFilter(),
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
-        children: (columnProps as ProColumnGroupType<T, any>).children
+        children: (columnProps as ProColumns<T, any>).children
           ? genProColumnToColumn(
               {
                 ...params,
-                columns: (columnProps as ProColumnGroupType<T, any>)?.children,
+                columns: (columnProps as ProColumns<T, any>)?.children || [],
               },
-              { ...columnProps, key: columnKey } as ProColumnGroupType<T, any>,
+              { ...columnProps, key: columnKey } as ProColumns<T, any>,
             )
           : undefined,
         render: (text: any, rowData: T, index: number) => {
