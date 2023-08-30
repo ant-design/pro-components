@@ -13,7 +13,6 @@ import type {
 import {
   omitUndefined,
   pickProProps,
-  stringify,
   useRefFunction,
 } from '@ant-design/pro-utils';
 import { Avatar } from 'antd';
@@ -656,7 +655,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
       }
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, stringify(restFieldProps), onChangeCallBack]);
+  }, [value, restFieldProps, onChangeCallBack]);
 
   const renderedDom = useMemo(() => {
     return defaultRenderText(
