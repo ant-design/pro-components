@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.12.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.2...@ant-design/pro-field@2.12.3) (2023-08-30)
+
+
+### Bug Fixes
+
+* remove stringify ([f7c7d63](https://github.com/ant-design/pro-components/commit/f7c7d63b5cbcfe7f59f84af5049a8c6624482994))
+
+
+
+
 
 ## [2.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.1...@ant-design/pro-field@2.12.2) (2023-08-29)
 
