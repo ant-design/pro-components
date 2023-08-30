@@ -703,7 +703,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
     readonly,
     ref,
     renderFormItem,
-    stringify(rest),
+    rest,
     text,
     valueType,
   ]);

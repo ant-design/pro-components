@@ -10,10 +10,10 @@ In the `ProComponents`, we have used the same definition as tables for component
 | Field Name | Type | Description |
 | --- | --- | --- |
 | `key` | `React.key` | Determines the unique value of this column, commonly used for cases where dataIndex is duplicated |
-| `dataIndex` | `React.key` \| `React.key[]` | 	Key mapped to an entity, and arrays will be transformed into `[a,b] => Entity.a.b` |
+| `dataIndex` | `React.key` \| `React.key[]` | Key mapped to an entity, and arrays will be transformed into `[a,b] => Entity.a.b` |
 | `valueType` | `ProFieldValueType` | The rendering method of the data. We provide some built-in options, and you can also customize the valueType |
-| `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | 	Content of the title, which serves as the label in a form |
-| `tooltip` | `string` | 	Shows an icon next to the title, and displays the tooltip when the mouse hovers over it |
+| `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | Content of the title, which serves as the label in a form |
+| `tooltip` | `string` | Shows an icon next to the title, and displays the tooltip when the mouse hovers over it |
 | `valueEnum` | `(Entity)=> ValueEnum` \| `ValueEnum` | Supports objects and maps, where maps can use other basic types as keys |
 | `fieldProps` | `(form,config)=>fieldProps`\| `fieldProps` | Props passed to the rendering component. They are also passed when customizing |
 | `formItemProps` | `(form,config)=>formItemProps` \| `formItemProps` | Configuration passed to Form.Item |
@@ -22,12 +22,12 @@ In the `ProComponents`, we have used the same definition as tables for component
 | `renderFormItem` | `(schema,config,form) => React.ReactNode` | Custom editing mode that returns a ReactNode, automatically wrapping value and onChange |
 | `request` | `(params,props) => Promise<{label,value}[]>` | Requests network data remotely, usually used for selection-type components |
 | `params` | `Record<string, any>` | Additional parameters passed to `request`. The component does not process them, but changes will trigger a new data request in `request` |
-| `hideInForm` | `boolean` | 	Hidden in the form |
+| `hideInForm` | `boolean` | Hidden in the form |
 | `hideInTable` | `boolean` | Hidden in the table |
-| `hideInSearch` | `boolean` | 	Hidden in the search form of the table |
-| `hideInDescriptions` | `boolean` | 	Hidden in the descriptions |
+| `hideInSearch` | `boolean` | Hidden in the search form of the table |
+| `hideInDescriptions` | `boolean` | Hidden in the descriptions |
 | `rowProps` | [RowProps](https://ant.design/components/grid/#Row) | Passed to the Row when the `grid` mode is enabled, only effective in `ProFormGroup`, `ProFormList`, `ProFormFieldSet` |
-| `colProps` | [ColProps](https://ant.design/components/grid/#Col) | 	Passed to the Col when the `grid` mode is enabled |
+| `colProps` | [ColProps](https://ant.design/components/grid/#Col) | Passed to the Col when the `grid` mode is enabled |
 
 ## Definition to TypeScript
 
@@ -122,46 +122,46 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
 
 valueType is the soul of ProComponents. ProComponents maps it to different form items based on valueType. Here are the commonly supported form items:
 
-| valueType       | Description                  |
-| --------------- | ---------------------------- |
-| `password`      | Password input box           |
-| `money`         | Money input box              |
-| `textarea`      | Text area                    |
-| `date`          | Date                         |
-| `dateTime`      | Date and time                |
-| `dateWeek`      | Week                         |
-| `dateMonth`     | Month                        |
-| `dateQuarter`   | Quarter input                |
-| `dateYear`      | Year input                   |
-| `dateRange`     | Date range                   |
-| `dateTimeRange` | Date and time range          |
-| `time`          | Time                         |
-| `timeRange`     | Time range                   |
-| `text`          | Text box                     |
-| `select`        | Dropdown box                 |
-| `treeSelect`    | Tree dropdown box            |
-| `checkbox`      | Checkbox                     |
-| `rate`          | Star rating component        |
-| `radio`         | Radio button                 |
-| `radioButton`   | Button radio button          |
-| `progress`      | Progress bar                 |
-| `percent`       | Percentage component         |
-| `digit`         | Number input box             |
-| `second`        | Seconds formatting           |
-| `avatar`        | Avatar                       |
-| `code`          | Code box                     |
-| `switch`        | Switch                       |
-| `fromNow`       | Relative to current time     |
-| `image`         | Image                        |
-| `jsonCode`      | Code box with JSON formatting|
-| `color`         | Color picker                 |
-| `cascader`      | Cascading select box         |
-| `segmented`     | Segmented control            |
-| `group`         | Group                        |
-| `formList`      | Form list                    |
-| `formSet`       | Form set                     |
-| `divider`       | Divider                      |
-| `dependency`    | Dependency                   |
+| valueType       | Description                   |
+| --------------- | ----------------------------- |
+| `password`      | Password input box            |
+| `money`         | Money input box               |
+| `textarea`      | Text area                     |
+| `date`          | Date                          |
+| `dateTime`      | Date and time                 |
+| `dateWeek`      | Week                          |
+| `dateMonth`     | Month                         |
+| `dateQuarter`   | Quarter input                 |
+| `dateYear`      | Year input                    |
+| `dateRange`     | Date range                    |
+| `dateTimeRange` | Date and time range           |
+| `time`          | Time                          |
+| `timeRange`     | Time range                    |
+| `text`          | Text box                      |
+| `select`        | Dropdown box                  |
+| `treeSelect`    | Tree dropdown box             |
+| `checkbox`      | Checkbox                      |
+| `rate`          | Star rating component         |
+| `radio`         | Radio button                  |
+| `radioButton`   | Button radio button           |
+| `progress`      | Progress bar                  |
+| `percent`       | Percentage component          |
+| `digit`         | Number input box              |
+| `second`        | Seconds formatting            |
+| `avatar`        | Avatar                        |
+| `code`          | Code box                      |
+| `switch`        | Switch                        |
+| `fromNow`       | Relative to current time      |
+| `image`         | Image                         |
+| `jsonCode`      | Code box with JSON formatting |
+| `color`         | Color picker                  |
+| `cascader`      | Cascading select box          |
+| `segmented`     | Segmented control             |
+| `group`         | Group                         |
+| `formList`      | Form list                     |
+| `formSet`       | Form set                      |
+| `divider`       | Divider                       |
+| `dependency`    | Dependency                    |
 
 Here, you can explore the display effects of each valueType through the available demos.
 
