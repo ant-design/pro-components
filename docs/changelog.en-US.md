@@ -1,4 +1,11 @@
-﻿## @ant-design/pro-components@2.6.14
+﻿## @ant-design/pro-components@2.6.15
+
+`2023-08-29`
+
+- fix(form): 解决因 stringify 导致死循环的问题 (#7599). [#7599](https://github.com/ant-design/pro-components/pull/#7599) [@kiner-tang](https://github.com/kiner-tang)
+- feat(table): table columns setting add fixable config (#7586). [#7586](https://github.com/ant-design/pro-components/pull/#7586) [@LeoZeda](https://github.com/LeoZeda)
+
+## @ant-design/pro-components@2.6.14
 
 `2023-08-28`
 
