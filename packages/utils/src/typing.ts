@@ -735,7 +735,7 @@ export type ProSchema<
   /** @name 在 table的查询表单 中隐藏 */
   hideInSearch?: boolean;
   /** 设置到 ProField 上面的 Props，内部属性 */
-  proFieldProps?: ProFieldProps & any;
+  proFieldProps?: ProFieldProps & Record<string, any>;
 } & ExtraProps &
   ValueTypeWithFieldProps<Entity, ComponentsType, ExtraProps, ValueType>;
 

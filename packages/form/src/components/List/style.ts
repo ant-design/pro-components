@@ -48,7 +48,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-action': {
         display: 'flex',
         height: '32px',
-        marginBlockEnd: '24px',
+        marginBlockEnd: token.marginLG,
         lineHeight: '32px',
       },
       '&-action-icon': {
