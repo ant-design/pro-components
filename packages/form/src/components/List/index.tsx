@@ -280,6 +280,8 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                       }
                       onAfterRemove?.(index, count);
                     }}
+                    containerClassName={props.containerClassName}
+                    containerStyle={props.containerStyle}
                   >
                     {children}
                   </ProFormListContainer>
