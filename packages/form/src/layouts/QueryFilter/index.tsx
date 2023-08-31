@@ -193,10 +193,20 @@ export type BaseQueryFilterProps = Omit<
 const flatMapItems = (
   items: React.ReactNode[],
   ignoreRules?: boolean,
+  form?:FormInstance
 ): React.ReactNode[] => {
   return items?.flatMap((item: any) => {
     if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
+    }
+    if(item?.type.displayName === 'ProFormDependency'  && !item.props?.title) {
+      const values = item.props.name.reduce((current: any, next: any) => {
+        return {
+          ...current,
+          [next]: form?.getFieldValue(next)
+        }
+      },{})
+      return item.props.children(values)
     }
     if (ignoreRules && React.isValidElement(item)) {
       return React.cloneElement(item, {
@@ -273,6 +283,7 @@ const QueryFilterContent: React.FC<{
     showLength,
     searchGutter,
     showHiddenNum,
+    form
   } = props;
 
   const submitter = useMemo(() => {
@@ -312,7 +323,7 @@ const QueryFilterContent: React.FC<{
   let currentSpan = 0;
 
   // 处理过，包含是否需要隐藏的 数组
-  const processedList = flatMapItems(items, props.ignoreRules).map(
+  const processedList = flatMapItems(items, props.ignoreRules,form).map(
     (
       item,
       index,

@@ -106,4 +106,6 @@ const ProFormDependency = <T,>({
   );
 };
 
+ProFormDependency.displayName = 'ProFormDependency';
+
 export default ProFormDependency;
