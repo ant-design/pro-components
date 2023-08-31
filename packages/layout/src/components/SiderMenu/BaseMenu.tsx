@@ -236,6 +236,8 @@ class MenuUtil {
             this.props?.hashId,
             {
               [`${baseClassName}-item-title-collapsed`]: collapsed,
+              [`${baseClassName}-item-title-collapsed-level-${level}`]:
+                collapsed,
               [`${baseClassName}-group-item-title`]: menuType === 'group',
               [`${baseClassName}-item-collapsed-show-title`]:
                 menu?.collapsedShowTitle && collapsed,
@@ -379,6 +381,7 @@ class MenuUtil {
           this.props?.hashId,
           {
             [`${baseClassName}-item-title-collapsed`]: collapsed,
+            [`${baseClassName}-item-title-collapsed-level-${level}`]: collapsed,
             [`${baseClassName}-item-collapsed-show-title`]:
               menu?.collapsedShowTitle && collapsed,
           },
@@ -421,6 +424,8 @@ class MenuUtil {
             this.props?.hashId,
             {
               [`${baseClassName}-item-title-collapsed`]: collapsed,
+              [`${baseClassName}-item-title-collapsed-level-${level}`]:
+                collapsed,
               [`${baseClassName}-item-link`]: true,
               [`${baseClassName}-item-collapsed-show-title`]:
                 menu?.collapsedShowTitle && collapsed,
@@ -460,7 +465,7 @@ class MenuUtil {
         onClick: () => onCollapse && onCollapse(true),
         children: undefined,
       };
-      return (
+      return level === 0 ? (
         <MenuItemTooltip
           collapsed={collapsed}
           title={menuItemTitle}
@@ -468,9 +473,11 @@ class MenuUtil {
         >
           {menuItemRender(renderItemProps, defaultItem, this.props)}
         </MenuItemTooltip>
+      ) : (
+        menuItemRender(renderItemProps, defaultItem, this.props)
       );
     }
-    return (
+    return level === 0 ? (
       <MenuItemTooltip
         collapsed={collapsed}
         title={menuItemTitle}
@@ -478,6 +485,8 @@ class MenuUtil {
       >
         {defaultItem}
       </MenuItemTooltip>
+    ) : (
+      defaultItem
     );
   };
 

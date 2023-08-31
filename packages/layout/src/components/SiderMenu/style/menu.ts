@@ -75,8 +75,6 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           whiteSpace: 'nowrap',
         },
         '&-collapsed': {
-          flexDirection: 'column',
-          justifyContent: 'center',
           minWidth: 40,
           height: 40,
           [`${token.componentCls}-item-icon`]: {
@@ -92,6 +90,10 @@ const genProLayoutBaseMenuStyle: GenerateStyle<ProLayoutBaseMenuToken> = (
           [`${token.componentCls}-item-text-has-icon`]: {
             display: 'none !important',
           },
+        },
+        '&-collapsed-level-0': {
+          flexDirection: 'column',
+          justifyContent: 'center',
         },
         [`&${token.componentCls}-group-item-title`]: {
           gap: token.marginXS,
