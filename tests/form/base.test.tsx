@@ -3341,7 +3341,7 @@ describe('ProForm', () => {
         {},
       );
     });
-    await waitForWaitTime(100);
+    await waitForWaitTime(300);
     expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });
