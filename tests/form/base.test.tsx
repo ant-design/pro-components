@@ -3320,7 +3320,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    await waitForWaitTime(100);
+    await waitForWaitTime(300);
 
     act(() => {
       fireEvent.change(
@@ -3334,14 +3334,14 @@ describe('ProForm', () => {
         },
       );
     });
-    await waitForWaitTime(100);
+    await waitForWaitTime(300);
     act(() => {
       fireEvent.mouseDown(
         wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
         {},
       );
     });
-    await waitForWaitTime(100);
+    await waitForWaitTime(300);
     expect(onRequest.mock.calls.length).toBe(3);
     wrapper.unmount();
   });
