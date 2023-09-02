@@ -963,7 +963,7 @@ const ProTable = <
       toolbarDom={toolbarDom}
       onSortChange={(sortConfig) => {
         if (proSort === sortConfig) return;
-        setProSort(sortConfig);
+        setProSort(sortConfig ?? {});
       }}
       onFilterChange={(filterConfig) => {
         if (filterConfig === proFilter) return;
