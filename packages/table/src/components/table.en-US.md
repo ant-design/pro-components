@@ -169,6 +169,7 @@ export type OptionConfig = {
 export type SettingOptionType = {
   draggable?: boolean;
   checkable?: boolean;
+  showListItemOption?: boolean;
   checkedReset?: boolean;
   listsHeight?: number;
   extra?: React.ReactNode;
