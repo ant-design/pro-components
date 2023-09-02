@@ -56,6 +56,7 @@ export type BaseLayoutDesignToken = {
     colorBgScrollHeader: string;
     colorHeaderTitle: string;
     colorBgMenuItemHover: string;
+    colorBgMenuElevated: string;
     colorBgMenuItemSelected: string;
     colorTextMenuSelected: string;
     colorTextMenuActive: string;
