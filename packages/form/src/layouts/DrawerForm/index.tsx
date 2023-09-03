@@ -23,13 +23,11 @@ import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { useStyle } from './style';
 
-export type CustomizeResizeType =
-  | {
-      onResize?: () => void;
-      maxWidth?: DrawerProps['width'];
-      minWidth?: DrawerProps['width'];
-    }
-  | false;
+export type CustomizeResizeType = {
+  onResize?: () => void;
+  maxWidth?: DrawerProps['width'];
+  minWidth?: DrawerProps['width'];
+};
 
 export type DrawerFormProps<
   T = Record<string, any>,
@@ -87,7 +85,7 @@ export type DrawerFormProps<
      *
      * @name draggableDrawer
      */
-    resize?: CustomizeResizeType | false;
+    resize?: CustomizeResizeType | boolean;
   };
 
 function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
@@ -110,14 +108,25 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     !rest['footer'] || !drawerProps?.footer,
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
-
-  const resizeInfo: CustomizeResizeType = resize
-    ? omitUndefined({
-        onResize: resize.onResize,
-        maxWidth: resize.maxWidth,
-        minWidth: resize.minWidth,
-      })
-    : {};
+  const resizeInfo: CustomizeResizeType = React.useMemo(() => {
+    const defaultResize: CustomizeResizeType = {
+      onResize: () => { },
+      maxWidth: window.innerWidth * 0.8,
+      minWidth: 300,
+    }
+    if (typeof resize === 'boolean') {
+      if (resize) {
+        return defaultResize;
+      } else {
+        return {};
+      }
+    }
+    return omitUndefined({
+      onResize: resize?.onResize ?? defaultResize.onResize,
+      maxWidth: resize?.maxWidth ?? defaultResize.maxWidth,
+      minWidth: resize?.minWidth ?? defaultResize.minWidth,
+    })
+  }, [resize]);
 
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-drawer');
@@ -325,11 +334,11 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           className={
             resize
               ? classNames(getCls('sidebar-dragger'), hashId, {
-                  [getCls('sidebar-dragger-min-disabled')]:
-                    drawerWidth === resizeInfo?.minWidth,
-                  [getCls('sidebar-dragger-max-disabled')]:
-                    drawerWidth === resizeInfo?.maxWidth,
-                })
+                [getCls('sidebar-dragger-min-disabled')]:
+                  drawerWidth === resizeInfo?.minWidth,
+                [getCls('sidebar-dragger-max-disabled')]:
+                  drawerWidth === resizeInfo?.maxWidth,
+              })
               : null
           }
           onMouseDown={(e) => {
