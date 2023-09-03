@@ -39,10 +39,14 @@ export const DefaultContent: React.FC<{
               // eslint-disable-next-line react/no-array-index-key
               key={index}
               className={`${baseClassName}-content-list-item ${hashId}`.trim()}
+              onClick={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                itemClick?.(app);
+              }}
             >
               <a
                 href={itemClick ? undefined : app.url}
-                onClick={() => itemClick?.(app)}
                 target={app.target}
                 rel="noreferrer"
               >
