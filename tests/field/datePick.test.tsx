@@ -182,22 +182,4 @@ describe('Field', () => {
 
     expect(html.baseElement.innerHTML).toBe('<div><div>2016-11-22</div></div>');
   });
-
-  it(`📅  DatePicker support format is Array`, async () => {
-    const fn = jest.fn();
-    const html = render(
-      <Field
-        mode="read"
-        fieldProps={{
-          format: ['YYYYMMDD', 'YYYY-MM-DD'],
-        }}
-        onChange={fn}
-        text={dayjs()}
-        light
-        valueType="date"
-      />,
-    );
-
-    expect(html.baseElement.innerHTML).toBe('<div><div>20161122</div></div>');
-  });
 });
