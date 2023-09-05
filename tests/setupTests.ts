@@ -121,6 +121,10 @@ if (process.env.TEST_LOG === 'none') {
   console.log = () => {};
 }
 
+// https://github.com/nickcolley/jest-axe/issues/147#issuecomment-758804533
+const { getComputedStyle } = globalThis;
+globalThis.getComputedStyle = (elt) => getComputedStyle(elt);
+
 // with jest-canvas-mock
 (globalThis as any).jest = vi;
 await import('jest-canvas-mock');
