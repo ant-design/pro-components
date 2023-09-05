@@ -18,7 +18,9 @@ const formatDate = (text: any, format: any) => {
   if (typeof format === 'function') {
     return format(dayjs(text));
   } else {
-    return dayjs(text).format(format || 'YYYY-MM-DD');
+    return dayjs(text).format(
+      (Array.isArray(format) ? format[0] : format) || 'YYYY-MM-DD',
+    );
   }
 };
 
