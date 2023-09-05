@@ -1,79 +1,63 @@
 ﻿import '@testing-library/jest-dom';
-import 'jest-canvas-mock';
-import { enableFetchMocks } from 'jest-fetch-mock';
+import { vi } from 'vitest'
 import MockDate from 'mockdate';
 import React from 'react';
 import tableData from './table/mock.data.json';
+import crypto from 'crypto';
 
 import { defaultConfig } from 'antd/lib/theme/internal';
 
 defaultConfig.hashed = false;
+globalThis.React = React;
 
-jest.mock('antd', () => {
-  const antd = jest.requireActual('antd');
+vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true)
+vi.stubGlobal('ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION', true)
+vi.stubEnv('TZ', 'UTC')
+
+vi.mock('antd', async (importActual) => {
+  const antd = await importActual<typeof import('antd')>();
   antd.theme.defaultConfig.hashed = false;
   return antd;
 });
 
-process.env.TZ = 'UTC';
-
-global.React = React;
-
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useLayoutEffect: jest.requireActual('react').useEffect,
+vi.mock('react', async (importActual) => ({
+  ...(await importActual<typeof import('react')>()),
+  useLayoutEffect: ((await importActual<typeof import('react')>()).useEffect),
 }));
 
-jest.setTimeout(60000);
-
-/* eslint-disable global-require */
-if (typeof window !== 'undefined') {
+if (typeof globalThis !== 'undefined') {
   // ref: https://github.com/ant-design/ant-design/issues/18774
-  if (!window.matchMedia) {
-    Object.defineProperty(global.window, 'matchMedia', {
+  if (!globalThis.matchMedia) {
+    Object.defineProperty(globalThis, 'matchMedia', {
       writable: true,
       configurable: true,
-      value: jest.fn(() => ({
+      value: vi.fn(() => ({
         matches: false,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-      })),
-    });
-  }
-  if (!window.matchMedia) {
-    Object.defineProperty(global.window, 'matchMedia', {
-      writable: true,
-      configurable: true,
-      value: jest.fn((query) => ({
-        matches: query.includes('max-width'),
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
       })),
     });
   }
 }
 
-enableFetchMocks();
-
-Object.defineProperty(window, 'open', {
-  value: jest.fn,
+Object.defineProperty(globalThis, 'open', {
+  value: vi.fn(),
 });
 
-const crypto = require('crypto');
-Object.defineProperty(global.self, 'crypto', {
+Object.defineProperty(globalThis, 'crypto', {
   value: {
     getRandomValues: (arr: any[]) => crypto.randomBytes(arr.length),
   },
 });
 
-global.requestAnimationFrame =
-  global.requestAnimationFrame ||
+globalThis.requestAnimationFrame =
+  globalThis.requestAnimationFrame ||
   function requestAnimationFrame(cb) {
     return setTimeout(cb, 0);
   };
 
-global.cancelAnimationFrame =
-  global.cancelAnimationFrame ||
+globalThis.cancelAnimationFrame =
+  globalThis.cancelAnimationFrame ||
   function cancelAnimationFrame() {
     return null;
   };
@@ -100,12 +84,12 @@ export const localStorageMock = (() => {
   };
 })();
 
-Object.defineProperty(window, 'localStorage', {
+Object.defineProperty(globalThis, 'localStorage', {
   value: localStorageMock,
   writable: true,
 });
 
-Object.defineProperty(window, 'cancelAnimationFrame', {
+Object.defineProperty(globalThis, 'cancelAnimationFrame', {
   value: () => null,
 });
 
@@ -114,13 +98,10 @@ MockDate.set(1479828164000);
 
 Math.random = () => 0.8404419276253765;
 
-//@ts-ignore
-fetch.mockResponse(async () => {
-  return { body: JSON.stringify(tableData) };
-});
+
 
 // @ts-ignore-next-line
-global.Worker = class {
+globalThis.Worker = class {
   constructor(stringUrl: string) {
     // @ts-ignore-next-line
     this.url = stringUrl;
@@ -139,3 +120,14 @@ if (process.env.TEST_LOG === 'none') {
   console.warn = () => {};
   console.log = () => {};
 }
+
+// with jest-canvas-mock
+(globalThis as any).jest = vi;
+await import('jest-canvas-mock');
+
+// with jest-fetch-mock
+(await import('jest-fetch-mock')).enableFetchMocks();
+//@ts-ignore
+fetch.mockResponse(async () => {
+  return { body: JSON.stringify(tableData) };
+});

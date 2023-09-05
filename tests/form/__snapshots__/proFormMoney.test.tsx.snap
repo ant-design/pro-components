@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
+exports[`💵 ProFormMoney > 💵 ProFormMoney value expect number 1`] = `
 <div>
   <form
     autocomplete="off"
@@ -131,7 +131,7 @@ exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
 </div>
 `;
 
-exports[`💵 ProFormMoney 💵 can input negative 1`] = `
+exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
 <div>
   <form
     autocomplete="off"
@@ -262,7 +262,7 @@ exports[`💵 ProFormMoney 💵 can input negative 1`] = `
 </div>
 `;
 
-exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
+exports[`💵 ProFormMoney > 💵 can not input negative 1`] = `
 <div>
   <form
     autocomplete="off"
@@ -393,7 +393,7 @@ exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
 </div>
 `;
 
-exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
+exports[`💵 ProFormMoney > 💵 moneySymbol with custom locale 1`] = `
 <div>
   <form
     autocomplete="off"
@@ -524,7 +524,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
 </div>
 `;
 
-exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
+exports[`💵 ProFormMoney > 💵 moneySymbol with custom symbol 1`] = `
 <div>
   <form
     autocomplete="off"
@@ -655,7 +655,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
 </div>
 `;
 
-exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
+exports[`💵 ProFormMoney > 💵 moneySymbol with global locale 1`] = `
 <div>
   <form
     autocomplete="off"
@@ -786,7 +786,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
 </div>
 `;
 
-exports[`💵 ProFormMoney 💵 update money precision when init 1`] = `
+exports[`💵 ProFormMoney > 💵 update money precision when init 1`] = `
 <div>
   <form
     autocomplete="off"

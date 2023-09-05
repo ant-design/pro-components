@@ -5,7 +5,7 @@ import { getFetchData } from './demo';
 
 describe('BasicTable Search', () => {
   it('🎏 filter test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable
         size="small"
@@ -59,7 +59,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 filter test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable
         size="small"
@@ -114,7 +114,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 filter test by namePath is array', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable
         size="small"
@@ -200,7 +200,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 order multiple test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable<{ money: number }>
         size="small"
@@ -262,7 +262,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 order test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable<{ money: number }>
         size="small"

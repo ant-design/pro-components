@@ -134,7 +134,7 @@ describe('Table valueEnum', () => {
   });
 
   it('🎏 dynamic request', async () => {
-    const request = jest.fn();
+    const request = vi.fn();
     render(
       <ProTable
         size="small"

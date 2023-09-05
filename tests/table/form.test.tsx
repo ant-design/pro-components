@@ -5,7 +5,7 @@ import React from 'react';
 
 describe('BasicTable Search', () => {
   it('🎏 table type=form', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable
         type="form"
@@ -61,7 +61,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 table support initialValue', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     render(
       <ProTable
         size="small"
@@ -103,7 +103,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 table support initialValues', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     render(
       <ProTable
         size="small"
@@ -149,7 +149,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 table type=form and formRef', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const ref = React.createRef<FormInstance | undefined>();
     const { container } = render(
       <ProTable

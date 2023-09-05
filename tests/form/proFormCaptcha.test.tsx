@@ -6,8 +6,8 @@ import React from 'react';
 describe('ProFormCaptcha', () => {
   it('😊 ProFormCaptcha Manual open', async () => {
     const captchaRef = React.createRef<any>();
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const TimingText = '获取验证码';
 
     const html = render(
@@ -91,13 +91,13 @@ describe('ProFormCaptcha', () => {
     expect(captchaRef.current).toBeTruthy();
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     expect(
       html.container.querySelectorAll('#captchaButton')[0],
     ).toHaveTextContent('获取验证码');
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 });

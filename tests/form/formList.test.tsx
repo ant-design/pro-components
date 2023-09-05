@@ -26,7 +26,7 @@ import { waitForWaitTime } from '../util';
 
 describe('ProForm List', () => {
   it('⛲ ProForm.List', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     render(
       <ProForm
         onFinish={async (values) => {
@@ -196,7 +196,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List add button', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -244,7 +244,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List render children', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     render(
       <ProForm
         onFinish={async (values) => {
@@ -285,7 +285,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List getCurrentRowData and setCurrentRowData', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProForm
         onFinish={async (values) => {
@@ -411,7 +411,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List add button when creatorRecord', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -455,7 +455,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List add button on top', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -505,7 +505,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List copy to newline', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -545,7 +545,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List delete icon', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -589,7 +589,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List itemRender', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     render(
       <ProForm
         onFinish={async (values) => {
@@ -629,7 +629,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List in ProForm.List', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -704,7 +704,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List support ProFormDependency', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm>
         <ProFormText name="name" label="姓名" />
@@ -940,8 +940,8 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List use behavior guard when triggering behavior', async () => {
-    const fnAdd = jest.fn();
-    const fnRemove = jest.fn();
+    const fnAdd = vi.fn();
+    const fnRemove = vi.fn();
     const html = render(
       <ProForm>
         <ProFormList
@@ -1038,7 +1038,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List use behavior guard when triggering no behavior', async () => {
-    const fnAdd = jest.fn();
+    const fnAdd = vi.fn();
     const html = render(
       <ProForm>
         <ProFormList
@@ -1085,9 +1085,9 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List warning after remove', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
-    const fnRemove = jest.fn();
+    const fnRemove = vi.fn();
     const html = render(
       <ProForm>
         <ProFormList
@@ -1195,7 +1195,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ valid to set the format property in ProForm.List', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const html = render(
       <ProForm
         onFinish={onFinish}
@@ -1236,7 +1236,7 @@ describe('ProForm List', () => {
   });
 
   it('⛲ ProForm.List fieldExtraRender', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     render(
       <ProForm
         onFinish={async (values) => {
@@ -1475,8 +1475,8 @@ describe('ProForm List', () => {
     expect(ref.current?.getCurrentRowData().name).toBe('New Name');
   });
   it('⛲ ProForm.List action hooks should be emit', async () => {
-    const handleAdd = jest.fn();
-    const handleRemove = jest.fn();
+    const handleAdd = vi.fn();
+    const handleRemove = vi.fn();
 
     const html = render(
       <ProForm>
@@ -1565,7 +1565,7 @@ describe('ProForm List', () => {
   });
 
   it(`⛲ ProForm.List support validate formList empty`, async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const html = render(
       <ProForm>
         <ProFormList name="list" label="表格" isValidateList>
@@ -1604,11 +1604,11 @@ describe('ProForm List', () => {
   });
 
   it('⛲  ProForm.List transform should be call', async () => {
-    const handleFinish1 = jest.fn();
-    const handleFinish2 = jest.fn();
-    const handleFinish3 = jest.fn();
-    const handleFinish4 = jest.fn();
-    const handleFinish5 = jest.fn();
+    const handleFinish1 = vi.fn();
+    const handleFinish2 = vi.fn();
+    const handleFinish3 = vi.fn();
+    const handleFinish4 = vi.fn();
+    const handleFinish5 = vi.fn();
     const html = render(
       <ProForm
         onFinish={async (values) => {

@@ -21,14 +21,14 @@ describe('BasicLayout', () => {
   });
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
-    const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+    const matchMediaSpy = vi.spyOn(window, 'matchMedia');
     matchMediaSpy.mockImplementation(
       (query) =>
         ({
           addListener: (cb: (e: { matches: boolean }) => void) => {
             cb({ matches: query === '(min-width: 768px)' });
           },
-          removeListener: jest.fn(),
+          removeListener: vi.fn(),
           matches: query === '(min-width: 768px)',
         } as any),
     );
@@ -115,7 +115,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 support appList', async () => {
-    const itemClicking = jest.fn();
+    const itemClicking = vi.fn();
     const wrapper = render(
       <ProLayout
         appList={[
@@ -214,7 +214,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 appList icon is simple', async () => {
-    const itemClicking = jest.fn();
+    const itemClicking = vi.fn();
     const wrapper = render(
       <ProLayout
         appList={[
@@ -573,7 +573,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 use onLogoClick', async () => {
-    const onLogoClick = jest.fn();
+    const onLogoClick = vi.fn();
     const wrapper = render(
       <ProLayout
         siderWidth={undefined}
@@ -614,7 +614,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 onCollapse', async () => {
-    const onCollapse = jest.fn();
+    const onCollapse = vi.fn();
     const wrapper = render(<ProLayout onCollapse={onCollapse} />);
     await waitForWaitTime(100);
     act(() => {
@@ -933,7 +933,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 onPageChange', async () => {
-    const onPageChange = jest.fn();
+    const onPageChange = vi.fn();
     const wrapper = render(
       <ProLayout
         onPageChange={onPageChange}
@@ -980,7 +980,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 onMenuHeaderClick', async () => {
-    const onMenuHeaderClick = jest.fn();
+    const onMenuHeaderClick = vi.fn();
     const wrapper = render(
       <ProLayout
         pageTitleRender={false}
@@ -1002,7 +1002,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 renderPageTitle return value should is string', async () => {
-    const renderPageTitle = jest.fn();
+    const renderPageTitle = vi.fn();
     render(
       <ProLayout
         // @ts-expect-error
@@ -1449,7 +1449,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 BasicLayout menu support onSelect', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const Demo = () => {
       const [pathname, setPathname] = useState('/admin/sub-page1');
       return (
@@ -1527,7 +1527,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 ProLayout support menu.request', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const actionRef = React.createRef<
       | {
           reload: () => void;
@@ -1604,7 +1604,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 ProLayout support menu.params', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const defaultMenu = {
       locale: false,
       params: {},
@@ -1957,7 +1957,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 siderMenu should restore openKeys when collapsed is false', async () => {
-    const onCollapse = jest.fn();
+    const onCollapse = vi.fn();
     const html = render(
       <ProLayout
         {...bigDefaultProps}
@@ -2005,7 +2005,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 ProLayout support suppressSiderWhenMenuEmpty', async () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     let serviceData = [
       {
         path: '/',

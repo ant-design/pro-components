@@ -29,7 +29,7 @@ const offsetWidth = 'offsetWidth';
   el.getBoundingClientRect mock
 */
 const mockGetBoundingClientRect = (element: any, index: number) =>
-  jest.spyOn(element, 'getBoundingClientRect').mockImplementation(() => ({
+  vi.spyOn(element, 'getBoundingClientRect').mockImplementation(() => ({
     bottom: 0,
     height,
     left: 0,
@@ -75,7 +75,7 @@ describe('dragSort', () => {
   });
 
   it('🔥 [dragSort] render drag sort default handle by dragSortKey', async () => {
-    const onDragSortEndFn = jest.fn();
+    const onDragSortEndFn = vi.fn();
     type DataSourceItemStruct = {
       id: string;
       name: string;
@@ -160,7 +160,7 @@ describe('dragSort', () => {
         name: 'kiner',
       },
     ];
-    const callback = jest.fn();
+    const callback = vi.fn();
     const dragHandleRender = (rowData: any, idx: any) => {
       callback(rowData.name, idx);
       return (
@@ -226,7 +226,7 @@ describe('dragSort', () => {
         {idx + 1} - {rowData.name}
       </>
     );
-    const callback = jest.fn();
+    const callback = vi.fn();
     const { container } = render(
       <DragSortTable
         size="small"

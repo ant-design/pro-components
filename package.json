@@ -25,9 +25,9 @@
     "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "npm run version && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
-    "test": "npm run version && cross-env TZ=UTC jest ",
-    "test:coverage": "npm run version && cross-env TZ=UTC TEST_LOG=none jest --coverage",
-    "test:update": "pnpm run version && cross-env TZ=UTC  jest --updateSnapshot",
+    "test": "npm run version && cross-env TZ=UTC vitest ",
+    "test:coverage": "npm run version && cross-env TZ=UTC TEST_LOG=none vitest --coverage",
+    "test:update": "pnpm run version && cross-env TZ=UTC  vitest -u",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
     "update:deps": "pnpm up --latest",
@@ -72,7 +72,6 @@
     "@types/chroma-js": "^2.4.0",
     "@types/glob": "^8.1.0",
     "@types/history": "^4.7.11",
-    "@types/jest": "^27.5.2",
     "@types/lodash": "^4.14.197",
     "@types/lodash.merge": "^4.6.7",
     "@types/mockjs": "^1.0.7",
@@ -90,6 +89,7 @@
     "@umijs/test": "^3.5.41",
     "@umijs/test-utils": "^3.5.41",
     "@umijs/utils": "^4.0.79",
+    "@vitest/coverage-istanbul": "^0.34.3",
     "animated-scroll-to": "^2.3.0",
     "antd": "^5.8.5",
     "antd-style": "^3.4.4",
@@ -103,9 +103,7 @@
     "dumi": "^2.2.7",
     "dumi-theme-antd-style": "0.25.1",
     "esbuild": "^0.15.18",
-    "esbuild-jest": "^0.5.0",
     "eslint": "^8.48.0",
-    "eslint-plugin-jest": "^27.2.3",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unicorn": "^47.0.0",
@@ -117,9 +115,7 @@
     "glob": "^8.1.0",
     "identity-obj-proxy": "^3.0.0",
     "inquirer": "^8.2.6",
-    "jest": "^29.6.4",
     "jest-canvas-mock": "^2.5.2",
-    "jest-environment-jsdom": "^29.6.4",
     "jest-fetch-mock": "^3.0.3",
     "jsdom": "^19.0.0",
     "lerna": "^3.22.1",
@@ -169,5 +165,8 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
   },
-  "packageManager": "pnpm@8.6.0"
+  "packageManager": "pnpm@8.6.0",
+  "dependencies": {
+    "vitest": "^0.34.3"
+  }
 }

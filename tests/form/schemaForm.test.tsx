@@ -74,9 +74,9 @@ describe('SchemaForm', () => {
   });
 
   it('😊 SchemaForm support dependencies', async () => {
-    const requestFn = jest.fn();
-    const fieldPropsFn = jest.fn();
-    const formItemPropsFn = jest.fn();
+    const requestFn = vi.fn();
+    const fieldPropsFn = vi.fn();
+    const formItemPropsFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
         columns={[
@@ -128,10 +128,10 @@ describe('SchemaForm', () => {
   });
 
   it('😊 SchemaForm support shouldUpdate as true', async () => {
-    const fieldPropsFn = jest.fn();
-    const formItemPropsFn = jest.fn();
-    const renderFormItemFn = jest.fn();
-    const onValuesChangeFn = jest.fn();
+    const fieldPropsFn = vi.fn();
+    const formItemPropsFn = vi.fn();
+    const renderFormItemFn = vi.fn();
+    const onValuesChangeFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
         columns={[
@@ -182,10 +182,10 @@ describe('SchemaForm', () => {
   });
 
   it('😊 SchemaForm support shouldUpdate as function', async () => {
-    const fieldPropsFn = jest.fn();
-    const formItemPropsFn = jest.fn();
-    const renderFormItemFn = jest.fn();
-    const shouldUpdateFn = jest.fn();
+    const fieldPropsFn = vi.fn();
+    const formItemPropsFn = vi.fn();
+    const renderFormItemFn = vi.fn();
+    const shouldUpdateFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
         shouldUpdate={(value: any, oldValue?: any) => {
@@ -268,9 +268,9 @@ describe('SchemaForm', () => {
   });
 
   it('😊 SchemaForm columns do not interfere with each other', async () => {
-    const fieldPropsFn = jest.fn();
-    const formItemPropsFn = jest.fn();
-    const renderFormItemFn = jest.fn();
+    const fieldPropsFn = vi.fn();
+    const formItemPropsFn = vi.fn();
+    const renderFormItemFn = vi.fn();
     const { container } = render(
       <BetaSchemaForm
         shouldUpdate={false}
@@ -503,7 +503,7 @@ describe('SchemaForm', () => {
   });
 
   it('😊 SchemaForm support ProFormDependency', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <BetaSchemaForm
         onFinish={onFinish}
@@ -580,7 +580,7 @@ describe('SchemaForm', () => {
       state: string;
     };
 
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const curColumns: ProFormColumnsType<DataItem>[] = [
       {
@@ -601,7 +601,7 @@ describe('SchemaForm', () => {
         ],
       },
     ];
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <BetaSchemaForm
         shouldUpdate={false}
@@ -628,7 +628,7 @@ describe('SchemaForm', () => {
     });
 
     await act(() => {
-      return jest.runOnlyPendingTimers();
+      return vi.runOnlyPendingTimers();
     });
 
     await act(async () => {
@@ -636,7 +636,7 @@ describe('SchemaForm', () => {
     });
 
     await act(() => {
-      return jest.runOnlyPendingTimers();
+      return vi.runOnlyPendingTimers();
     });
 
     await waitFor(async () => {
@@ -656,14 +656,14 @@ describe('SchemaForm', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(async () => {
       expect((await wrapper.findAllByText('请填写列表')).length).toBe(1);
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   ['ModalForm', 'DrawerForm'].forEach((layoutType) => {
@@ -736,7 +736,7 @@ describe('SchemaForm', () => {
     'QueryFilter',
   ].forEach((layoutType) => {
     it(`😊 When SchemaForm's layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
       const formColumns = [
         [
           {
@@ -801,7 +801,7 @@ describe('SchemaForm', () => {
         });
 
         act(() => {
-          jest.runOnlyPendingTimers();
+          vi.runOnlyPendingTimers();
         });
 
         const stepsValue = {
@@ -817,13 +817,13 @@ describe('SchemaForm', () => {
             stepsValue,
           );
         });
-        jest.useRealTimers();
+        vi.useRealTimers();
       }
     });
   });
 
   it('test custom component should not rerender when other field change', () => {
-    const fibonacci = jest.fn();
+    const fibonacci = vi.fn();
 
     const ExpensiveCustomComp = React.memo<{
       value: any;

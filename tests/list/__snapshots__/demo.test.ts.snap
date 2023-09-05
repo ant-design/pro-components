@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -555,7 +555,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/ToolBar.tsx correctly
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -1032,7 +1032,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -2278,7 +2278,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -2716,7 +2716,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -3215,7 +3215,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -3588,7 +3588,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/layout.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -4299,7 +4299,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -5215,7 +5215,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -5682,7 +5682,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -6269,7 +6269,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -6875,7 +6875,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/size.tsx correctly 1`
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -7518,7 +7518,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
 </DocumentFragment>
 `;
 
-exports[`list demos 📸 renders ./packages/list/src/demos/testConfigProvider.tsx correctly 1`] = `
+exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test

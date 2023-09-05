@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
+exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -637,7 +637,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
 </DocumentFragment>
 `;
 
-exports[`BasicLayout 🥩 base use 1`] = `
+exports[`BasicLayout > 🥩 base use 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -853,7 +853,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`BasicLayout 🥩 compatibleStyle 1`] = `
+exports[`BasicLayout > 🥩 compatibleStyle 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -1071,7 +1071,7 @@ exports[`BasicLayout 🥩 compatibleStyle 1`] = `
 </DocumentFragment>
 `;
 
-exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
+exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -1288,7 +1288,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 </DocumentFragment>
 `;
 
-exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
+exports[`BasicLayout > 🥩 mix layout hideInMenu render right 1`] = `
 <body>
   <div>
     <div
@@ -1552,7 +1552,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 </body>
 `;
 
-exports[`BasicLayout 🥩 support loading 1`] = `
+exports[`BasicLayout > 🥩 support loading 1`] = `
 <div
   class="ant-skeleton ant-skeleton-active"
 >

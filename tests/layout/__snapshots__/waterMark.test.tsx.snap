@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`WaterMark test image watermark 1`] = `
+exports[`WaterMark > test image watermark 1`] = `
 <div>
   <div
     class="ant-pro-layout-watermark-wrapper"
@@ -19,7 +19,7 @@ exports[`WaterMark test image watermark 1`] = `
 </div>
 `;
 
-exports[`WaterMark test text watermark 1`] = `
+exports[`WaterMark > test text watermark 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-layout-watermark-wrapper"

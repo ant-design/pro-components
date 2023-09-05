@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/demos/drag.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTable/demos/drag.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -817,7 +817,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/demos/drag-sort-table.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTable/demos/drag-sort-table.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -2399,7 +2399,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/basic.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/basic.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -2952,7 +2952,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/children.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/children.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -3397,7 +3397,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/custom.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/custom.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -3773,7 +3773,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/form-item.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/form-item.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -4293,7 +4293,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/form-linkage.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/form-linkage.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -5056,7 +5056,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/demos/real-time-editing.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/real-time-editing.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -10685,7 +10685,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -11457,7 +11457,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -11629,7 +11629,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                       </div>
                       <div
                         class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                        style="left: 0px; width: 0px;"
                       />
                     </div>
                   </div>
@@ -12415,7 +12414,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipleLine.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multipleLine.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -13205,7 +13204,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-title.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-title.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -13958,7 +13957,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -14123,7 +14122,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                     </div>
                     <div
                       class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                      style="left: 0px; width: 0px;"
                     />
                   </div>
                 </div>
@@ -14797,7 +14795,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -16372,7 +16370,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/card-title.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -17012,7 +17010,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-custom-icon.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/columns-setting-custom-icon.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -17281,7 +17279,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columns-setting-cus
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/columnsStateMap.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -17714,7 +17712,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -18408,7 +18406,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -18480,7 +18478,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
               </div>
               <div
                 class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                style="left: 0px; width: 0px;"
               />
             </div>
           </div>
@@ -19317,7 +19314,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/customization-value-type.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/customization-value-type.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -20102,7 +20099,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -21860,7 +21857,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -23401,7 +23398,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-state.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-state.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -24957,7 +24954,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-columns-sta
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -26417,7 +26414,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                     </div>
                     <div
                       class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                      style="left: 0px; width: 0px;"
                     />
                   </div>
                 </div>
@@ -27830,7 +27826,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/edittable-rules.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -28040,7 +28036,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/edittable-rules.tsx
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -28146,7 +28142,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.ts
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-false.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries-false.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -28764,7 +28760,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries-fa
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -29282,7 +29278,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -30005,7 +30001,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/lightfilter.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -30479,7 +30475,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -31225,7 +31221,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -31415,7 +31411,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                       </div>
                       <div
                         class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                        style="left: 0px; width: 0px;"
                       />
                     </div>
                   </div>
@@ -32165,7 +32160,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -33144,7 +33139,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -33738,7 +33733,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/normal.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -34527,7 +34522,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -36009,7 +36004,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -37059,7 +37054,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -38052,7 +38047,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -38738,7 +38733,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/search.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -39065,7 +39060,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -39673,7 +39668,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -40582,7 +40577,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -43411,7 +43406,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -44339,7 +44334,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/table-nested.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -44863,7 +44858,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -45776,7 +45771,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/theme.tsx correctly
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -46789,7 +46784,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -48300,7 +48295,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -49655,7 +49650,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
 </DocumentFragment>
 `;
 
-exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx correctly 1`] = `
+exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test

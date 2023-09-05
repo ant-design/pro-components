@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
+exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-table"
@@ -620,7 +620,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
 </DocumentFragment>
 `;
 
-exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1`] = `
+exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-table"

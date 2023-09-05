@@ -5,7 +5,7 @@ import enGBIntl from 'antd/lib/locale/en_GB';
 
 describe('💵 ProFormMoney', () => {
   it('💵 ProFormMoney value expect number', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -32,7 +32,7 @@ describe('💵 ProFormMoney', () => {
   });
 
   it('💵 moneySymbol with global locale', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ConfigProvider locale={enGBIntl}>
         <ProForm
@@ -61,7 +61,7 @@ describe('💵 ProFormMoney', () => {
   });
 
   it('💵 moneySymbol with custom locale', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -85,7 +85,7 @@ describe('💵 ProFormMoney', () => {
     expect(container).toMatchSnapshot();
   });
   it('💵 moneySymbol with custom symbol', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -109,7 +109,7 @@ describe('💵 ProFormMoney', () => {
     expect(container).toMatchSnapshot();
   });
   it('💵 can not input negative', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -139,7 +139,7 @@ describe('💵 ProFormMoney', () => {
     expect(container).toMatchSnapshot();
   });
   it('💵 can input negative', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {
@@ -175,7 +175,7 @@ describe('💵 ProFormMoney', () => {
   });
 
   it('💵 update money precision when init', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProForm
         onFinish={async (values) => {

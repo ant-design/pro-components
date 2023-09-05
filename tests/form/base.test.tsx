@@ -45,7 +45,7 @@ describe('ProForm', () => {
   });
 
   it('📦 addonAfter should work for ProFormCheck', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (e) => {
@@ -74,7 +74,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm support sync form url', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
@@ -108,7 +108,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm support sync form url as important', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
@@ -143,7 +143,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm support sync form url and rest', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
@@ -183,7 +183,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm initialValues update will warning', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
@@ -220,8 +220,8 @@ describe('ProForm', () => {
   });
 
   it('📦 onFinish should simulate button loading', async () => {
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const wrapper = render(
       <ProForm
         onFinish={async () => {
@@ -242,13 +242,13 @@ describe('ProForm', () => {
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
     expect(fn).toBeCalled();
     wrapper.unmount();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('📦 onFinish should simulate button close loading', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async () => {
@@ -273,7 +273,7 @@ describe('ProForm', () => {
     expect(fn).toBeCalled();
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await act(async () => {
@@ -281,7 +281,7 @@ describe('ProForm', () => {
     });
 
     expect(dom?.className.includes('ant-btn-loading')).toBe(false);
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('📦 onFinish support params and request', async () => {
@@ -413,7 +413,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm support namePath is array', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         initialValues={{
@@ -447,7 +447,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm support enter submit', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         omitNil={false}
@@ -511,7 +511,7 @@ describe('ProForm', () => {
   });
 
   it('📦 submitter props support submitButtonProps', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         submitter={{
@@ -542,7 +542,7 @@ describe('ProForm', () => {
   });
 
   it('📦 submitter props support resetButtonProps', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         submitter={{
@@ -571,7 +571,7 @@ describe('ProForm', () => {
   });
 
   it('📦 submitter.render simulate onFinish', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={onFinish}
@@ -603,7 +603,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormCaptcha support onGetCaptcha', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
@@ -635,17 +635,17 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await wrapper.findByText('2 秒后重新获取');
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     captcha = await wrapper.findByText('获取验证码');
@@ -654,11 +654,11 @@ describe('ProForm', () => {
 
     wrapper.unmount();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('📦 ProFormCaptcha support value and onchange', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm onFinish={(values) => onFinish(values.name)}>
         <ProFormCaptcha
@@ -693,7 +693,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormCaptcha support captchaTextRender', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const wrapper = render(
       <ProForm>
         <ProFormCaptcha
@@ -724,16 +724,16 @@ describe('ProForm', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     const captcha = await wrapper.findByText('重新获取');
     expect(!!captcha).toBeTruthy();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('📦 ProFormCaptcha onGetCaptcha throw error', async () => {
@@ -767,7 +767,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormCaptcha onGetCaptcha support rules', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormText
@@ -822,7 +822,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormDependency', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={onFinish}
@@ -904,7 +904,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm.Group support collapsible', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProForm.Group title="qixian" collapsible onCollapse={(c) => fn(c)}>
@@ -933,7 +933,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm.Group support defaultCollapsed', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProForm.Group
@@ -967,7 +967,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm.Group support defaultCollapsed', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProForm.Group
@@ -1015,7 +1015,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormField support onChange in ProForm', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm onValuesChange={fn}>
         <ProFormField name="phone2">
@@ -1039,7 +1039,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormField support onChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormField
@@ -1071,7 +1071,7 @@ describe('ProForm', () => {
   });
 
   it('📦 DatePicker support dateformat', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={onFinish}
@@ -1110,7 +1110,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect onSearch support', async () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
@@ -1161,7 +1161,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect onSearch support valueEnum', async () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
@@ -1221,8 +1221,8 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect onSearch support valueEnum clear', async () => {
-    const onSearch = jest.fn();
-    const onValuesChange = jest.fn();
+    const onSearch = vi.fn();
+    const onValuesChange = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
@@ -1295,7 +1295,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect onSearch support valueEnum clear item filter', async () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
@@ -1381,7 +1381,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect support onClear', async () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const wrapper = render(
       <ProForm onValuesChange={(e) => console.log(e)}>
         <ProFormSelect.SearchSelect
@@ -1484,7 +1484,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect support searchOnFocus', async () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
@@ -1570,7 +1570,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect support resetAfterSelect', async () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
 
     const wrapper = render(
       <ProForm>
@@ -1662,7 +1662,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect support fetchDataOnSearch: false', async () => {
-    const onRequest = jest.fn();
+    const onRequest = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
@@ -1703,7 +1703,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect support fetchDataOnSearch: true', async () => {
-    const onRequest = jest.fn();
+    const onRequest = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormSelect.SearchSelect
@@ -1758,8 +1758,8 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect support multiple', async () => {
-    const onSearch = jest.fn();
-    const onFinish = jest.fn();
+    const onSearch = vi.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
@@ -1835,7 +1835,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect filter support optionGroup', async () => {
-    const onValuesChange = jest.fn();
+    const onValuesChange = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
@@ -1946,7 +1946,7 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect filter support (', async () => {
-    const onValuesChange = jest.fn();
+    const onValuesChange = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
@@ -2031,8 +2031,8 @@ describe('ProForm', () => {
   });
 
   it('📦 SearchSelect support multiple and autoClearSearchValue: false ', async () => {
-    const onSearch = jest.fn();
-    const onFinish = jest.fn();
+    const onSearch = vi.fn();
+    const onFinish = vi.fn();
 
     const wrapper = render(
       <ProForm
@@ -2179,7 +2179,7 @@ describe('ProForm', () => {
   });
 
   it('📦 Select support single', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
@@ -2244,7 +2244,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormSelect support filterOption', async () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormSelect
@@ -2359,7 +2359,7 @@ describe('ProForm', () => {
   });
 
   it('📦 Select support labelInValue single', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
@@ -2454,8 +2454,8 @@ describe('ProForm', () => {
   });
 
   it('📦 Select support multiple and autoClearSearchValue: false ', async () => {
-    const onSearch = jest.fn();
-    const onFinish = jest.fn();
+    const onSearch = vi.fn();
+    const onFinish = vi.fn();
 
     const wrapper = render(
       <ProForm
@@ -2625,8 +2625,8 @@ describe('ProForm', () => {
   });
 
   it('📦 Select support multiple and autoClearSearchValue: true', async () => {
-    const onSearch = jest.fn();
-    const onFinish = jest.fn();
+    const onSearch = vi.fn();
+    const onFinish = vi.fn();
 
     const wrapper = render(
       <ProForm
@@ -2774,7 +2774,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ColorPicker support rgba new', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
@@ -2800,7 +2800,7 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith('#f5222d');
   });
   it('📦 ColorPicker support rgba old', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={async (values) => {
@@ -2843,8 +2843,8 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith('rgba(91, 143, 249, 0.02)');
   });
   it('📦 validateFieldsReturnFormatValue', async () => {
-    const fn1 = jest.fn();
-    const fn2 = jest.fn();
+    const fn1 = vi.fn();
+    const fn2 = vi.fn();
     const App = () => {
       const formRef = useRef<
         ProFormInstance<{
@@ -2897,7 +2897,7 @@ describe('ProForm', () => {
   });
 
   it('📦 DigitRange Will return undefined when both value equal to undefined', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const wrapper = render(
       <ProForm
         onFinish={async (values) => {
@@ -2975,8 +2975,8 @@ describe('ProForm', () => {
   });
 
   it('📦 when dateFormatter is a Function', async () => {
-    const fn1 = jest.fn();
-    const fn2 = jest.fn();
+    const fn1 = vi.fn();
+    const fn2 = vi.fn();
     const App = () => {
       return (
         <ProForm
@@ -3059,7 +3059,7 @@ describe('ProForm', () => {
   });
 
   it('📦 fix onChange will get empty object when you set labelInValue ture in ProForm', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormSelect
@@ -3129,7 +3129,7 @@ describe('ProForm', () => {
   });
 
   it(`📦 valueType digit with precision value`, async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProForm
         onFinish={async (value) => {
@@ -3173,7 +3173,7 @@ describe('ProForm', () => {
 
   // https://github.com/ant-design/pro-components/issues/5743
   it(`📦 submitted value should be consistent with input when precision=0`, async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProForm
         onFinish={async (value) => {
@@ -3205,7 +3205,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormTreeSelect support fetchDataOnSearch: false', async () => {
-    const onRequest = jest.fn();
+    const onRequest = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormTreeSelect
@@ -3271,7 +3271,7 @@ describe('ProForm', () => {
   });
 
   it('📦 ProFormTreeSelect support fetchDataOnSearch: true', async () => {
-    const onRequest = jest.fn();
+    const onRequest = vi.fn();
     const wrapper = render(
       <ProForm>
         <ProFormTreeSelect

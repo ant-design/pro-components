@@ -48,7 +48,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 base use', async () => {
-    const pageSizeOnchange = jest.fn();
+    const pageSizeOnchange = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -182,10 +182,10 @@ describe('BasicTable', () => {
   });
 
   it('🎏 table support visibilitychange', async () => {
-    const requestFfn = jest.fn();
+    const requestFfn = vi.fn();
     let fn: Function | null = null;
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const addEventListenerSpy = jest
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const addEventListenerSpy = vi
       .spyOn(document, 'addEventListener')
       .mockImplementation((eventName, eventFn) => {
         if (eventName === 'visibilitychange') {
@@ -251,8 +251,8 @@ describe('BasicTable', () => {
   });
 
   it('🎏 onLoadingChange should work', async () => {
-    const loadingChangerFn = jest.fn();
-    jest.useFakeTimers();
+    const loadingChangerFn = vi.fn();
+    vi.useFakeTimers();
     const html = render(
       <ProTable
         size="small"
@@ -287,7 +287,7 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
     await waitFor(() => {
       return html.findByText('序号');
@@ -296,7 +296,7 @@ describe('BasicTable', () => {
       expect(loadingChangerFn).toBeCalledWith(false, true);
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('🎏 do not render default option', async () => {
@@ -630,7 +630,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 request test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -661,8 +661,8 @@ describe('BasicTable', () => {
   });
 
   it('🎏 onLoadingChange test', async () => {
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const html = render(
       <ProTable
         size="small"
@@ -693,19 +693,19 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
       expect(fn).toBeCalled();
     });
 
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   it('🎏 reload request test', async () => {
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const Reload = () => {
       const actionRef = useRef<ActionType>();
       return (
@@ -772,7 +772,7 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -784,19 +784,19 @@ describe('BasicTable', () => {
       fireEvent.click(html.baseElement.querySelector('#reset')!);
     });
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
     await waitFor(() => {
       expect(fn).toBeCalledTimes(3);
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
 
     html.unmount();
   });
 
   it('🎏 request error test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     render(
       <ProTable
         size="small"
@@ -820,8 +820,8 @@ describe('BasicTable', () => {
   });
 
   it('🎏 actionRef support clearSelected', async () => {
-    const fn = jest.fn();
-    const onChangeFn = jest.fn();
+    const fn = vi.fn();
+    const onChangeFn = vi.fn();
     const actionRef = React.createRef<ActionType>();
     const html = render(
       <ProTable
@@ -861,7 +861,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 options.reload support is true', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -912,8 +912,8 @@ describe('BasicTable', () => {
   });
 
   it('🎏 receives two parameters when options.(reload | fullScreen) is passed the function', async () => {
-    const reloadFn = jest.fn();
-    const fullScreenFn = jest.fn();
+    const reloadFn = vi.fn();
+    const fullScreenFn = vi.fn();
     const actionRef = React.createRef<any>();
     const html = render(
       <ProTable
@@ -967,7 +967,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 request reload', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -1015,7 +1015,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 onSizeChange load', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         columns={[
@@ -1063,10 +1063,10 @@ describe('BasicTable', () => {
   });
 
   it('🎏 request load array', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const actionRef = React.createRef<ActionType>();
 
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const html = render(
       <ProTable
         size="small"
@@ -1093,7 +1093,7 @@ describe('BasicTable', () => {
     );
     await html.findByText('查 询');
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
     await waitFor(() => {
       expect(fn).toBeCalledTimes(1);
@@ -1108,17 +1108,17 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
       expect(fn).toBeCalledTimes(2);
     });
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('🎏 request should use postData', async () => {
-    const postFn = jest.fn();
+    const postFn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -1147,7 +1147,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 fullscreen icon test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -1185,7 +1185,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 fullscreen icon test when fullscreenEnabled', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     // @ts-ignore
     document.fullscreenEnabled = false;
     const html = render(
@@ -1225,7 +1225,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 fullscreen icon mock function', async () => {
-    const exitFullscreen = jest.fn();
+    const exitFullscreen = vi.fn();
     document.exitFullscreen = async () => {
       // @ts-ignore
       document.fullscreenElement = null;
@@ -1320,7 +1320,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 size icon test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -1422,7 +1422,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 search = true', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         columns={[{ dataIndex: 'name' }]}
@@ -1475,7 +1475,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 search = true, name = test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable<
         Record<string, any>,
@@ -1528,7 +1528,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 search = true, name = test,onSearch return false', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable<
         Record<string, any>,
@@ -1670,8 +1670,8 @@ describe('BasicTable', () => {
 
   it('🎏 debounce time', async () => {
     const ref = React.createRef<ActionType>();
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const html = render(
       <ProTable
         actionRef={ref as any}
@@ -1702,7 +1702,7 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -1714,7 +1714,7 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -1726,7 +1726,7 @@ describe('BasicTable', () => {
     }
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -1734,12 +1734,12 @@ describe('BasicTable', () => {
     });
 
     await html.findByText('暂无数据');
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('🎏 support showHiddenNum', async () => {
     const ref = React.createRef<ActionType>();
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         actionRef={ref as any}

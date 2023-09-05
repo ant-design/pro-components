@@ -6,7 +6,7 @@ import { waitForWaitTime } from '../util';
 
 describe('DrawerForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         width={600}
@@ -26,7 +26,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 DrawerForm first no render items', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         width={600}
@@ -151,7 +151,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 drawer close button will simulate onOpenChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         visible
@@ -175,7 +175,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 drawer close button will simulate onOpenChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         visible
@@ -200,7 +200,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 reset button will simulate onOpenChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         visible
@@ -221,7 +221,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 drawer close button will simulate drawerProps.onClose', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         visible
@@ -248,7 +248,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 drawer reset button will simulate drawerProps.onClose', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         visible
@@ -271,8 +271,8 @@ describe('DrawerForm', () => {
   });
 
   it('📦 drawer reset button will simulate drawerProps.onCancel', async () => {
-    const fn = jest.fn();
-    const onCloseFn = jest.fn();
+    const fn = vi.fn();
+    const onCloseFn = vi.fn();
     const wrapper = render(
       <DrawerForm
         visible
@@ -300,7 +300,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 form onFinish return true should close drawer', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         visible
@@ -323,7 +323,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 form onFinish is null, no close drawer', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         visible
@@ -344,7 +344,7 @@ describe('DrawerForm', () => {
   });
 
   it('📦 submitter config no reset default config', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DrawerForm
         width={600}
@@ -688,7 +688,7 @@ describe('DrawerForm', () => {
   tests.forEach((item) => {
     const { name, Comp, close, props } = item;
     it(`📦 ${name} resetFields when destroy`, async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const App = () => {
         const [form] = Form.useForm();
         const prop = {

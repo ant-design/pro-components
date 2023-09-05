@@ -75,7 +75,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺  theme color Change', async () => {
-    const onSettingChange = jest.fn();
+    const onSettingChange = vi.fn();
     const colorList = [
       { key: 'dust', color: '#F5222D' },
       { key: 'volcano', color: '#FA541C' },
@@ -134,7 +134,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 initState form query', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container, unmount } = render(
       <div>
         <SettingDrawer
@@ -189,7 +189,7 @@ describe('settingDrawer.test', () => {
         },
       },
     });
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container, unmount } = render(
       <SettingDrawer
         disableUrlParams
@@ -207,7 +207,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 onCollapseChange', async () => {
-    const onCollapseChange = jest.fn();
+    const onCollapseChange = vi.fn();
     const { container } = render(
       <SettingDrawer
         disableUrlParams
@@ -228,7 +228,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 onLayout Change', async () => {
-    const onSettingChange = jest.fn();
+    const onSettingChange = vi.fn();
     const { container } = render(
       <SettingDrawer
         disableUrlParams
@@ -257,7 +257,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 fix-siderbar Change', async () => {
-    const onSettingChange = jest.fn();
+    const onSettingChange = vi.fn();
     const { container } = render(
       <SettingDrawer
         disableUrlParams
@@ -279,7 +279,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 content-width change', async () => {
-    const onSettingChange = jest.fn();
+    const onSettingChange = vi.fn();
     const { container } = render(
       <SettingDrawer
         disableUrlParams
@@ -304,7 +304,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 splitMenu change', async () => {
-    const onSettingChange = jest.fn();
+    const onSettingChange = vi.fn();
     const { container } = render(
       <SettingDrawer
         disableUrlParams
@@ -325,7 +325,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 fixed-header Change', async () => {
-    const onSettingChange = jest.fn();
+    const onSettingChange = vi.fn();
     const { container } = render(
       <SettingDrawer
         disableUrlParams
@@ -347,7 +347,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 theme Change', async () => {
-    const onSettingChange = jest.fn();
+    const onSettingChange = vi.fn();
     const { container } = render(
       <SettingDrawer
         disableUrlParams
@@ -377,7 +377,7 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 colorWeak Change', async () => {
-    const onSettingChange = jest.fn();
+    const onSettingChange = vi.fn();
     document.body.appendChild(document.createElement('div'));
     const { container, rerender } = render(
       <SettingDrawer
@@ -418,7 +418,7 @@ describe('settingDrawer.test', () => {
 
   ['header', 'footer', 'menu', 'menuHeader'].map((key) => {
     it(`🌺 ${key} regional config change`, async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const { container, unmount } = render(
         <SettingDrawer
           disableUrlParams
@@ -441,7 +441,7 @@ describe('settingDrawer.test', () => {
 
   it('🌺 onLanguageChange support', async () => {
     let fn: Function | null = null;
-    const addEventListenerSpy = jest
+    const addEventListenerSpy = vi
       .spyOn(document, 'addEventListener')
       .mockImplementation((eventName, eventFn) => {
         if (eventName === 'languagechange') {

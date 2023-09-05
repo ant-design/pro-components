@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BasicLayout ActionsContent support contentRender 1`] = `
+exports[`BasicLayout > ActionsContent support contentRender 1`] = `
 <div>
   <div
     class="ant-pro-global-header-right-content"
@@ -13,7 +13,7 @@ exports[`BasicLayout ActionsContent support contentRender 1`] = `
 </div>
 `;
 
-exports[`BasicLayout base use 1`] = `
+exports[`BasicLayout > base use 1`] = `
 <div>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -252,7 +252,7 @@ exports[`BasicLayout base use 1`] = `
 </div>
 `;
 
-exports[`BasicLayout content is text 1`] = `
+exports[`BasicLayout > content is text 1`] = `
 <div>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"

@@ -3,8 +3,8 @@ import { act, render, waitFor } from '@testing-library/react';
 
 describe('CheckCard', () => {
   it('should invoke onChange and onClick function when click option', async () => {
-    const onChange = jest.fn();
-    const onClick = jest.fn();
+    const onChange = vi.fn();
+    const onClick = vi.fn();
     const wrapper = render(
       <CheckCard
         title="示例一"
@@ -36,7 +36,7 @@ describe('CheckCard', () => {
   });
 
   it('should invoke onChange function when group click option', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group
         onChange={(e) => onChange(e)}
@@ -114,7 +114,7 @@ describe('CheckCard', () => {
   });
 
   it('should invoke onChange function when group click option in multiple mode', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group
         onChange={(e) => onChange(e)}
@@ -152,7 +152,7 @@ describe('CheckCard', () => {
   });
 
   it('should support defaultValue', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group onChange={(e) => onChange(e)} defaultValue="A">
         <CheckCard title="Card A" description="选项一" value="A" />
@@ -187,7 +187,7 @@ describe('CheckCard', () => {
   });
 
   it('should support defaultValue in multiple mode', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group
         onChange={(e) => onChange(e)}
@@ -223,7 +223,7 @@ describe('CheckCard', () => {
   });
 
   it('should disabled onChange when group disabled', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group onChange={(e) => onChange(e)} disabled defaultValue="A">
         <CheckCard title="Card A" description="选项一" value="A" />

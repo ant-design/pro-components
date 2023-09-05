@@ -13,8 +13,8 @@ type Options = {
 
 function demoTest(component: string, options: Options = {}) {
   const LINE_STR_COUNT = 20;
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-  const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
 
   // Mock offsetHeight
   // @ts-expect-error
@@ -73,14 +73,14 @@ function demoTest(component: string, options: Options = {}) {
     );
   };
 
-  const matchMediaSpy = jest.spyOn(window, 'matchMedia');
+  const matchMediaSpy = vi.spyOn(window, 'matchMedia');
   matchMediaSpy.mockImplementation(
     (query) =>
       ({
         addListener: (cb: (e: { matches: boolean }) => void) => {
           cb({ matches: query === '(max-width: 575px)' });
         },
-        removeListener: jest.fn(),
+        removeListener: vi.fn(),
         matches: query === '(max-width: 575px)',
       } as any),
   );
@@ -95,12 +95,12 @@ function demoTest(component: string, options: Options = {}) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        jest.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
+        vi.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
 
-        const fn = jest.fn();
+        const fn = vi.fn();
         Math.random = () => 0.8404419276253765;
 
-        const Demo = require(`.${file}`).default;
+        const Demo = (await import(`.${file}`)).default;
         const wrapper = reactRender(
           <App onInit={fn}>
             <Demo />
@@ -108,7 +108,7 @@ function demoTest(component: string, options: Options = {}) {
         );
 
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         await waitFor(() => {
@@ -116,7 +116,7 @@ function demoTest(component: string, options: Options = {}) {
         });
 
         act(() => {
-          jest.runAllTimers();
+          vi.runAllTimers();
         });
 
         await waitFor(() => {
@@ -131,7 +131,7 @@ function demoTest(component: string, options: Options = {}) {
         });
 
         wrapper.unmount();
-        jest.useRealTimers();
+        vi.useRealTimers();
         cleanup();
       });
     });

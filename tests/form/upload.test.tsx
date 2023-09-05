@@ -32,7 +32,7 @@ export function setup() {
 export const teardown = mock.teardown.bind(mock);
 
 describe('ProFormUpload', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeEach(() => setup());
   afterEach(() => {
@@ -41,7 +41,7 @@ describe('ProFormUpload', () => {
   });
 
   it('🏐 ProFormUploadButton support onChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
@@ -72,7 +72,7 @@ describe('ProFormUpload', () => {
   });
 
   it('🏐 ProFormUploadButton support beforeUpload', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
@@ -179,8 +179,8 @@ describe('ProFormUpload', () => {
   });
 
   it('🏐 ProFormUploadDragger support onChange', async () => {
-    const fn = jest.fn();
-    const onChangeFn = jest.fn();
+    const fn = vi.fn();
+    const onChangeFn = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {

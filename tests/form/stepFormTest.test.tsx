@@ -77,7 +77,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 pre button ', async () => {
-    const onCurrentChange = jest.fn();
+    const onCurrentChange = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -104,9 +104,9 @@ describe('StepsForm', () => {
   });
 
   it('🐲 async onFinish', async () => {
-    const fn = jest.fn();
-    const currentFn = jest.fn();
-    const onFinish = jest.fn();
+    const fn = vi.fn();
+    const currentFn = vi.fn();
+    const onFinish = vi.fn();
 
     const html = render(
       <StepsForm onCurrentChange={currentFn} onFinish={onFinish}>
@@ -150,8 +150,8 @@ describe('StepsForm', () => {
   });
 
   it('🐲 submit when onFinish is null', async () => {
-    const fn = jest.fn();
-    const currentFn = jest.fn();
+    const fn = vi.fn();
+    const currentFn = vi.fn();
 
     const { unmount } = render(
       <StepsForm onCurrentChange={currentFn}>
@@ -187,8 +187,8 @@ describe('StepsForm', () => {
   });
 
   it('🐲 onFinish return true', async () => {
-    const fn = jest.fn();
-    const currentFn = jest.fn();
+    const fn = vi.fn();
+    const currentFn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -219,7 +219,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 onFinish throw error', async () => {
-    const currentFn = jest.fn();
+    const currentFn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -269,7 +269,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 submitter render props', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -302,7 +302,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 current min=0', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={0}
@@ -340,7 +340,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 current max=1', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -474,7 +474,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 support deepmerge form value', async () => {
-    const submit = jest.fn(() => Promise.resolve());
+    const submit = vi.fn(() => Promise.resolve());
     const html = render(
       <StepsForm
         stepFormRender={(dom) => {

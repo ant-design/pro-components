@@ -174,7 +174,7 @@ describe('Field', () => {
   });
 
   it('🐴 should trigger onChange function provided when change', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <Field
         text="100"
@@ -303,11 +303,11 @@ describe('Field', () => {
     });
 
     it(`🐴 ${valueType} read mode support request function`, async () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
       const ref = React.createRef<{
         fetchData: (keyWord?: string) => void;
       }>();
-      const fn = jest.fn();
+      const fn = vi.fn();
       const html = render(
         <Field
           ref={ref}
@@ -332,7 +332,7 @@ describe('Field', () => {
       );
 
       act(() => {
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       await html.findAllByText('default');
@@ -344,12 +344,12 @@ describe('Field', () => {
       });
 
       act(() => {
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(fn).toBeCalledTimes(2);
       html.unmount();
-      jest.useRealTimers();
+      vi.useRealTimers();
     });
 
     it(`🐴 ${valueType}  edit model support renderFormItem function`, async () => {
@@ -534,7 +534,7 @@ describe('Field', () => {
 
   ['cascader', 'treeSelect'].map((valueType) => {
     it(`🐴 ${valueType} labelInValue use label`, async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const html = render(
         <Field
           fieldProps={{
@@ -758,7 +758,7 @@ describe('Field', () => {
   });
 
   it(`🐴 treeSelect searchValue control mode`, async () => {
-    const onSearch = jest.fn();
+    const onSearch = vi.fn();
     const html = render(
       <TreeSelectDemo
         multiple={false}
@@ -802,8 +802,8 @@ describe('Field', () => {
   });
 
   it(`🐴 treeSelect options single value`, async () => {
-    jest.useFakeTimers();
-    const onChangeFn = jest.fn();
+    vi.useFakeTimers();
+    const onChangeFn = vi.fn();
     const TreeSelectChangeDemo = () => {
       const [value, setValue] = useState();
       return (
@@ -854,18 +854,18 @@ describe('Field', () => {
     expect(html.queryAllByText('Child Node5').length > 0).toBeTruthy();
 
     expect(onChangeFn).toHaveBeenCalledWith(false);
-    jest.useRealTimers();
+    vi.useRealTimers();
     html.unmount();
   });
 
   it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
-    const requestFn = jest.fn(),
-      onSearchFn = jest.fn(),
-      onBlurFn = jest.fn(),
-      loadDataFn = jest.fn(),
-      onClearFn = jest.fn();
+    const requestFn = vi.fn(),
+      onSearchFn = vi.fn(),
+      onBlurFn = vi.fn(),
+      loadDataFn = vi.fn(),
+      onClearFn = vi.fn();
 
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     const TreeSelectChangeDemo = () => {
       const [value, setValue] = useState();
@@ -890,7 +890,7 @@ describe('Field', () => {
     const html = render(<TreeSelectChangeDemo />);
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -1013,7 +1013,7 @@ describe('Field', () => {
 
     expect(onBlurFn).toBeCalledTimes(1);
     html.unmount();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('🐴 edit and no plain', async () => {
@@ -1472,7 +1472,7 @@ describe('Field', () => {
   });
 
   it('🐴 password support controlled open', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <Field
         text={123456}
@@ -1499,7 +1499,7 @@ describe('Field', () => {
   });
 
   it('🐴 password support controlled visible', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <Field
         text={123456}
@@ -1675,7 +1675,7 @@ describe('Field', () => {
   });
 
   it(`🐴 valueType digit support precision when change with`, async () => {
-    const change = jest.fn();
+    const change = vi.fn();
     const html = render(
       <Field
         text={1000.3}
@@ -1883,7 +1883,7 @@ describe('Field', () => {
   });
 
   it('🐴 select request debounceTime', async () => {
-    const requestFn = jest.fn();
+    const requestFn = vi.fn();
     const ref = React.createRef<{
       fetchData: (keyWord?: string) => void;
     }>();

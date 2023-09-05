@@ -70,7 +70,7 @@ Ant Design 定义了基础的设计规范，对应也提供了大量的基础组
 - .fatherrc.ts       * 编译脚手架的配置
 - .umirc.js          * dumi 的核心配置
 - webpack.config.js  * 编译 umd 包的配置文件
-- jest.config.js     * 测试环境的配置
+- vitest.config.js     * 测试环境的配置
 - lerna.json         * 多包的配置
 - package.json       * 项目的配置
 - tsconfig.json      * typescript 的配置

@@ -8,13 +8,13 @@ describe('mobile BasicLayout', () => {
     process.env.USE_MEDIA = 'xs';
 
     Object.defineProperty(global.window, 'matchMedia', {
-      value: jest.fn((query) => {
+      value: vi.fn((query) => {
         //  (max-width: 575px)
         return {
           media: query,
           matches: query.includes('max-width: 575px'),
-          addListener: jest.fn(),
-          removeListener: jest.fn(),
+          addListener: vi.fn(),
+          removeListener: vi.fn(),
         };
       }),
     });
@@ -134,7 +134,7 @@ describe('mobile BasicLayout', () => {
   });
 
   it('📱 layout collapsedButtonRender', async () => {
-    const onCollapse = jest.fn();
+    const onCollapse = vi.fn();
     const html = render(
       <ProLayout
         {...defaultProps}
