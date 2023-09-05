@@ -36,6 +36,15 @@ export default defineConfig({
       provider :'istanbul',
       include: [
         'packages/**/src/**/*.{ts,tsx}',
+      ],
+      exclude: [
+        'packages/**/src/**/*.d.ts',
+        'packages/card/src/components/TabPane/index.tsx',
+        'packages/**/src/**/typing.ts',
+        'packages/**/src/demos/**',
+        'packages/**/src/**/demos/**',
+        'packages/utils/src/isDeepEqualReact/*.{ts,tsx}',
+        'packages/utils/src/useMountMergeState/*.{ts,tsx}',
       ]
     },
     testTimeout: 60_000
