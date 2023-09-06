@@ -8,8 +8,8 @@ export default defineConfig({
     externals: {
       react: 'React',
       'react-dom': 'ReactDOM',
-      antd: 'antd',
-      moment: 'moment',
+      '^/antd/.*': 'antd',
+      '^/dayjs/.*': 'dayjs',
     },
   },
 });
