@@ -1,23 +1,21 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vitest/config';
 
 const pkgList = readdirSync(join(__dirname, './packages')).filter(
   (pkg: string) => pkg.charAt(0) !== '.',
 );
 
-const moduleNameMapper = {
-};
+const moduleNameMapper = {};
 
 pkgList.forEach((shortName: string) => {
   const name = `@ant-design/pro-${shortName}`;
   moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
 });
 
-
 export default defineConfig({
   resolve: {
-    alias: moduleNameMapper
+    alias: moduleNameMapper,
   },
   define: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
@@ -30,13 +28,11 @@ export default defineConfig({
     environmentOptions: {
       jsdom: {
         url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',
-      }
+      },
     },
     coverage: {
-      provider :'istanbul',
-      include: [
-        'packages/**/src/**/*.{ts,tsx}',
-      ],
+      provider: 'istanbul',
+      include: ['packages/**/src/**/*.{ts,tsx}'],
       exclude: [
         'packages/**/src/**/*.d.ts',
         'packages/card/src/components/TabPane/index.tsx',
@@ -45,8 +41,8 @@ export default defineConfig({
         'packages/**/src/**/demos/**',
         'packages/utils/src/isDeepEqualReact/*.{ts,tsx}',
         'packages/utils/src/useMountMergeState/*.{ts,tsx}',
-      ]
+      ],
     },
-    testTimeout: 60_000
-  }
-})
+    testTimeout: 60_000,
+  },
+});

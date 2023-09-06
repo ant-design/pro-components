@@ -14,9 +14,7 @@
     "declaration": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "types": [
-      "vitest/globals"
-    ],
+    "types": ["vitest/globals"],
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@ant-design/pro-layout": ["./packages/layout/src/index.tsx"],

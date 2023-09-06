@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.2...@ant-design/pro-utils@2.14.3) (2023-09-06)
 
-
 ### Bug Fixes
 
-* **form:** fix marginBlockEnd no use marginLG error ([6e5f384](https://github.com/ant-design/pro-components/commit/6e5f384aa9663e5859cfbceb0d328099ebf36fc8))
-
-
-
-
+- **form:** fix marginBlockEnd no use marginLG error ([6e5f384](https://github.com/ant-design/pro-components/commit/6e5f384aa9663e5859cfbceb0d328099ebf36fc8))
 
 ## [2.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.1...@ant-design/pro-utils@2.14.2) (2023-08-29)
 

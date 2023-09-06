@@ -1,21 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.18.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.4...@ant-design/pro-form@2.18.5) (2023-09-06)
 
-
 ### Bug Fixes
 
-* **form:** dependency 支持 colSize ([#7611](https://github.com/ant-design/pro-components/issues/7611)) ([27436cc](https://github.com/ant-design/pro-components/commit/27436cc6351cfaa535d1ec9aef1f74e567ef44d7))
-* **form:** fix formList containerClassName and containerStyle no work error ([7a2c9e0](https://github.com/ant-design/pro-components/commit/7a2c9e0ddeb580b618f87773ff336c382be5f38a))
-* **form:** fix marginBlockEnd no use marginLG error ([6e5f384](https://github.com/ant-design/pro-components/commit/6e5f384aa9663e5859cfbceb0d328099ebf36fc8))
-* remove stringify ([25d2c42](https://github.com/ant-design/pro-components/commit/25d2c42a0bda673a0b40b5ae56bd0a852998ecd1))
-
-
-
-
+- **form:** dependency 支持 colSize ([#7611](https://github.com/ant-design/pro-components/issues/7611)) ([27436cc](https://github.com/ant-design/pro-components/commit/27436cc6351cfaa535d1ec9aef1f74e567ef44d7))
+- **form:** fix formList containerClassName and containerStyle no work error ([7a2c9e0](https://github.com/ant-design/pro-components/commit/7a2c9e0ddeb580b618f87773ff336c382be5f38a))
+- **form:** fix marginBlockEnd no use marginLG error ([6e5f384](https://github.com/ant-design/pro-components/commit/6e5f384aa9663e5859cfbceb0d328099ebf36fc8))
+- remove stringify ([25d2c42](https://github.com/ant-design/pro-components/commit/25d2c42a0bda673a0b40b5ae56bd0a852998ecd1))
 
 ## [2.18.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.3...@ant-design/pro-form@2.18.4) (2023-08-30)
 

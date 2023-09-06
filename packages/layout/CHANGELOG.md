@@ -1,20 +1,14 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.16.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.11...@ant-design/pro-layout@7.16.12) (2023-09-06)
 
-
 ### Bug Fixes
 
-* **form:** fix formList containerClassName and containerStyle no work error ([7a2c9e0](https://github.com/ant-design/pro-components/commit/7a2c9e0ddeb580b618f87773ff336c382be5f38a))
-* **layout:** appList item click preventDefault and stopPropagation ([9b3cd65](https://github.com/ant-design/pro-components/commit/9b3cd656cacbf9890745161f7dde3531e6090f10))
-* **layout:** fix menu title center error ([904a89f](https://github.com/ant-design/pro-components/commit/904a89f705712007dbf62d134a8cc9d6a090d9ce))
-
-
-
-
+- **form:** fix formList containerClassName and containerStyle no work error ([7a2c9e0](https://github.com/ant-design/pro-components/commit/7a2c9e0ddeb580b618f87773ff336c382be5f38a))
+- **layout:** appList item click preventDefault and stopPropagation ([9b3cd65](https://github.com/ant-design/pro-components/commit/9b3cd656cacbf9890745161f7dde3531e6090f10))
+- **layout:** fix menu title center error ([904a89f](https://github.com/ant-design/pro-components/commit/904a89f705712007dbf62d134a8cc9d6a090d9ce))
 
 ## [7.16.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.10...@ant-design/pro-layout@7.16.11) (2023-08-29)
 

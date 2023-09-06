@@ -1,4 +1,17 @@
-﻿## @ant-design/pro-components@2.6.15
+﻿## @ant-design/pro-components@2.6.17
+
+`2023-09-06`
+
+- fix(layout): appList item click preventDefault and stopPropagation. [9b3cd65](https://github.com/ant-design/pro-components/commit/9b3cd65)
+- fix(layout): fix menu title center error. [904a89f](https://github.com/ant-design/pro-components/commit/904a89f)
+- fix(form): fix datepicker format (#7622). [#7622](https://github.com/ant-design/pro-components/pull/#7622) [@SummyGitHub](https://github.com/SummyGitHub)
+- fix(form):更新 DrawerForm resize 参数默认值&文档描述 (#7621). [#7621](https://github.com/ant-design/pro-components/pull/#7621) [@LengYXin](https://github.com/LengYXin)
+- fix(form): dependency 支持 colSize (#7611). [#7611](https://github.com/ant-design/pro-components/pull/#7611) [@yiyi17](https://github.com/yiyi17)
+- fix(form): fix marginBlockEnd no use marginLG error. [6e5f384](https://github.com/ant-design/pro-components/commit/6e5f384)
+- fix(form): fix formList containerClassName and containerStyle no work error. [7a2c9e0](https://github.com/ant-design/pro-components/commit/7a2c9e0)
+- fix(table): sortConfig 值为 undefined 时与默认值{}不一致，会导致翻页时再次触发 request 请求 (#7616). [#7616](https://github.com/ant-design/pro-components/pull/#7616) [@caronchen](https://github.com/caronchen)
+
+## @ant-design/pro-components@2.6.15
 
 `2023-08-29`
 

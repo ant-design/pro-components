@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.1...@ant-design/pro-table@3.12.2) (2023-09-06)
 
-
 ### Bug Fixes
 
-* **table:** sortConfig值为undefined时与默认值{}不一致，会导致翻页时再次触发request请求 ([#7616](https://github.com/ant-design/pro-components/issues/7616)) ([c51be62](https://github.com/ant-design/pro-components/commit/c51be62a7045abdee73467985c9d9a61835751ee))
-* remove stringify ([25d2c42](https://github.com/ant-design/pro-components/commit/25d2c42a0bda673a0b40b5ae56bd0a852998ecd1))
-
-
-
-
+- **table:** sortConfig 值为 undefined 时与默认值{}不一致，会导致翻页时再次触发 request 请求 ([#7616](https://github.com/ant-design/pro-components/issues/7616)) ([c51be62](https://github.com/ant-design/pro-components/commit/c51be62a7045abdee73467985c9d9a61835751ee))
+- remove stringify ([25d2c42](https://github.com/ant-design/pro-components/commit/25d2c42a0bda673a0b40b5ae56bd0a852998ecd1))
 
 ## [3.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.0...@ant-design/pro-table@3.12.1) (2023-08-30)
 

@@ -1,18 +1,18 @@
 ﻿import '@testing-library/jest-dom';
-import { vi } from 'vitest'
+import crypto from 'crypto';
 import MockDate from 'mockdate';
 import React from 'react';
+import { vi } from 'vitest';
 import tableData from './table/mock.data.json';
-import crypto from 'crypto';
 
 import { defaultConfig } from 'antd/lib/theme/internal';
 
 defaultConfig.hashed = false;
 globalThis.React = React;
 
-vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true)
-vi.stubGlobal('ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION', true)
-vi.stubEnv('TZ', 'UTC')
+vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true);
+vi.stubGlobal('ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION', true);
+vi.stubEnv('TZ', 'UTC');
 
 vi.mock('antd', async (importActual) => {
   const antd = await importActual<typeof import('antd')>();
@@ -22,7 +22,7 @@ vi.mock('antd', async (importActual) => {
 
 vi.mock('react', async (importActual) => ({
   ...(await importActual<typeof import('react')>()),
-  useLayoutEffect: ((await importActual<typeof import('react')>()).useEffect),
+  useLayoutEffect: (await importActual<typeof import('react')>()).useEffect,
 }));
 
 if (typeof globalThis !== 'undefined') {
@@ -97,8 +97,6 @@ Object.defineProperty(globalThis, 'cancelAnimationFrame', {
 MockDate.set(1479828164000);
 
 Math.random = () => 0.8404419276253765;
-
-
 
 // @ts-ignore-next-line
 globalThis.Worker = class {
