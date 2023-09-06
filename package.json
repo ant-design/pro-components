@@ -21,7 +21,7 @@
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --loglevel warn",
     "publishOnly": "node ./scripts/release.js --publishOnly",
-    "release": "npm run test  -- -w=2  && node ./scripts/release.js",
+    "release": "npm run test && node ./scripts/release.js",
     "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "npm run version && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
@@ -44,6 +44,9 @@
     "@types/react-dom": "^18.0.11",
     "@types/responselike": "^1.0.0",
     "typescript": "~4.8.4"
+  },
+  "dependencies": {
+    "vitest": "^0.34.3"
   },
   "devDependencies": {
     "@ant-design/antd-theme-variable": "^1.0.0",
@@ -165,8 +168,5 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
   },
-  "packageManager": "pnpm@8.6.0",
-  "dependencies": {
-    "vitest": "^0.34.3"
-  }
+  "packageManager": "pnpm@8.6.0"
 }
