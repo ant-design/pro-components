@@ -95,7 +95,7 @@ describe('PageContainer', () => {
   });
 
   it('pageHeader should contain back it back', () => {
-    const callback = jest.fn(() => true);
+    const callback = vi.fn(() => true);
     const { container } = render(
       <ConfigProvider direction="rtl">
         <PageHeader title="Page Title" onBack={callback} />
@@ -105,7 +105,7 @@ describe('PageContainer', () => {
   });
 
   it('pageHeader onBack transfer', () => {
-    const callback = jest.fn(() => true);
+    const callback = vi.fn(() => true);
     const { container } = render(
       <PageHeader title="Page Title" onBack={callback} />,
     );

@@ -13,7 +13,7 @@ function fireDragEvent(ele: HTMLElement, eventName: string, data: object = {}) {
 
 describe('Table ColumnSetting', () => {
   beforeEach(() => {
-    console.warn = jest.fn();
+    console.warn = vi.fn();
   });
   it('🎏 columnSetting', async () => {
     const html = render(
@@ -141,7 +141,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting columnsStateMap onChange', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -279,7 +279,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting columnsState.value props throw error', async () => {
-    console.warn = jest.fn();
+    console.warn = vi.fn();
     const localStorage = { ...window.localStorage };
 
     // 为了测试报错的情况
@@ -390,7 +390,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting columnsState.onChange', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -454,7 +454,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting columnsState.persistenceKey', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
 
     window.localStorage.setItem(
       'test-keys',
@@ -538,7 +538,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting columnsState.persistenceKey is error dom', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
 
     window.localStorage.setItem(
       'test-keys',
@@ -619,7 +619,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting select all', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -735,7 +735,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting click Reset and reset when columnsState.value and columnsState.defaultValue also exist', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -825,7 +825,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnsState use the column key or dataIndex as index name', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -930,7 +930,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting select one', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -1339,7 +1339,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 DensityIcon support onChange', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const html = render(
       <ProTable
         onSizeChange={(size) => onChange(size)}

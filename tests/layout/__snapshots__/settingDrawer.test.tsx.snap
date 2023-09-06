@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`settingDrawer.test 🌺 base user 1`] = `
+exports[`settingDrawer.test > 🌺 base user 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle"
@@ -1207,7 +1207,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
 </DocumentFragment>
 `;
 
-exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
+exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle"
@@ -2345,7 +2345,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
 </DocumentFragment>
 `;
 
-exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
+exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle"
@@ -3520,7 +3520,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
 </DocumentFragment>
 `;
 
-exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
+exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle"
@@ -4692,7 +4692,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
 </DocumentFragment>
 `;
 
-exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
+exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-setting-drawer-handle"

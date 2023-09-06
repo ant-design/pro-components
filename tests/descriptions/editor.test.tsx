@@ -167,7 +167,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 support onEditorChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DescriptionsDemo
         onEditorChange={(keys) => {
@@ -316,7 +316,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 support cancel click', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DescriptionsDemo
         onEditorChange={(keys) => {
@@ -360,7 +360,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 support cancel click render false', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DescriptionsDemo
         onEditorChange={(keys) => {
@@ -406,7 +406,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 type=single, only edit one rows', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DescriptionsDemo
         defaultKeys={['state']}
@@ -428,7 +428,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 type=multiple, edit multiple rows', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DescriptionsDemo
         type="multiple"
@@ -450,7 +450,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 support onSave', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(<DescriptionsDemo onSave={(key) => fn(key)} />);
     await wrapper.findAllByText('重置');
     act(() => {
@@ -483,7 +483,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 support onSave support false', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DescriptionsDemo
         onSave={async (key) => {
@@ -536,7 +536,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 support onCancel', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(<DescriptionsDemo onCancel={(key) => fn(key)} />);
 
     await wrapper.findAllByText('重置');
@@ -571,7 +571,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 support form rules', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DescriptionsDemo onSave={(key, row) => fn(row.title)} />,
     );
@@ -654,7 +654,7 @@ describe('Descriptions', () => {
   });
 
   it('📝 when dataIndex is array', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <DescriptionsDemo onSave={(key, row) => fn(row?.time?.created_at)} />,
     );

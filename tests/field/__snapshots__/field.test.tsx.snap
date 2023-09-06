@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Field 🐴 base use 1`] = `
+exports[`Field > 🐴 base use 1`] = `
 <DocumentFragment>
   <div
     class="ant-input-number"
@@ -79,7 +79,7 @@ exports[`Field 🐴 base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 edit and no plain 1`] = `
+exports[`Field > 🐴 edit and no plain 1`] = `
 <DocumentFragment>
   <div
     class="ant-descriptions"
@@ -1295,7 +1295,7 @@ Done in 9.70s.
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 edit and plain=true 1`] = `
+exports[`Field > 🐴 edit and plain=true 1`] = `
 <DocumentFragment>
   <div
     class="ant-descriptions"
@@ -2477,25 +2477,25 @@ Done in 9.70s.
                     class="ant-input"
                     type="text"
                     value="{
-  "compilerOptions": {
-    "target": "esnext",
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "declaration": true,
-    "skipLibCheck": true
+  \\"compilerOptions\\": {
+    \\"target\\": \\"esnext\\",
+    \\"moduleResolution\\": \\"node\\",
+    \\"jsx\\": \\"preserve\\",
+    \\"esModuleInterop\\": true,
+    \\"experimentalDecorators\\": true,
+    \\"strict\\": true,
+    \\"forceConsistentCasingInFileNames\\": true,
+    \\"noImplicitReturns\\": true,
+    \\"suppressImplicitAnyIndexErrors\\": true,
+    \\"declaration\\": true,
+    \\"skipLibCheck\\": true
   },
-  "include": [
-    "**/src",
-    "**/docs",
-    "scripts",
-    "**/demo",
-    ".eslintrc.js"
+  \\"include\\": [
+    \\"**/src\\",
+    \\"**/docs\\",
+    \\"scripts\\",
+    \\"**/demo\\",
+    \\".eslintrc.js\\"
   ]
 }"
                   />
@@ -2510,7 +2510,7 @@ Done in 9.70s.
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 1`] = `
+exports[`Field > 🐴 money valueType is Object 1`] = `
 <DocumentFragment>
   <div
     class="ant-input-number"
@@ -2589,7 +2589,7 @@ exports[`Field 🐴 money valueType is Object 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 2`] = `
+exports[`Field > 🐴 money valueType is Object 2`] = `
 <DocumentFragment>
   <span>
     100.00
@@ -2597,7 +2597,7 @@ exports[`Field 🐴 money valueType is Object 2`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 3`] = `
+exports[`Field > 🐴 money valueType is Object 3`] = `
 <DocumentFragment>
   <span>
     100
@@ -2605,7 +2605,7 @@ exports[`Field 🐴 money valueType is Object 3`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 4`] = `
+exports[`Field > 🐴 money valueType is Object 4`] = `
 <DocumentFragment>
   <div
     class="ant-input-number"
@@ -2684,7 +2684,7 @@ exports[`Field 🐴 money valueType is Object 4`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 5`] = `
+exports[`Field > 🐴 money valueType is Object 5`] = `
 <DocumentFragment>
   <span>
     100.00
@@ -2692,7 +2692,7 @@ exports[`Field 🐴 money valueType is Object 5`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 6`] = `
+exports[`Field > 🐴 money valueType is Object 6`] = `
 <DocumentFragment>
   <span>
     100
@@ -2700,7 +2700,7 @@ exports[`Field 🐴 money valueType is Object 6`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 7`] = `
+exports[`Field > 🐴 money valueType is Object 7`] = `
 <DocumentFragment>
   <div
     class="ant-input-number"
@@ -2779,7 +2779,7 @@ exports[`Field 🐴 money valueType is Object 7`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 8`] = `
+exports[`Field > 🐴 money valueType is Object 8`] = `
 <DocumentFragment>
   <span>
     100.00
@@ -2787,7 +2787,7 @@ exports[`Field 🐴 money valueType is Object 8`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 9`] = `
+exports[`Field > 🐴 money valueType is Object 9`] = `
 <DocumentFragment>
   <span>
     100
@@ -2795,7 +2795,7 @@ exports[`Field 🐴 money valueType is Object 9`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 10`] = `
+exports[`Field > 🐴 money valueType is Object 10`] = `
 <DocumentFragment>
   <div
     class="ant-input-number"
@@ -2874,7 +2874,7 @@ exports[`Field 🐴 money valueType is Object 10`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 11`] = `
+exports[`Field > 🐴 money valueType is Object 11`] = `
 <DocumentFragment>
   <span>
     100.00
@@ -2882,7 +2882,7 @@ exports[`Field 🐴 money valueType is Object 11`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 money valueType is Object 12`] = `
+exports[`Field > 🐴 money valueType is Object 12`] = `
 <DocumentFragment>
   <span>
     100
@@ -2890,7 +2890,7 @@ exports[`Field 🐴 money valueType is Object 12`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 options support dom list 1`] = `
+exports[`Field > 🐴 options support dom list 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-field-option"
@@ -2918,7 +2918,7 @@ exports[`Field 🐴 options support dom list 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 options support dom text 1`] = `
+exports[`Field > 🐴 options support dom text 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-field-option"
@@ -2938,11 +2938,11 @@ exports[`Field 🐴 options support dom text 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 options support empty dom 1`] = `<DocumentFragment />`;
+exports[`Field > 🐴 options support empty dom 1`] = `<DocumentFragment />`;
 
-exports[`Field 🐴 options support no text 1`] = `<DocumentFragment />`;
+exports[`Field > 🐴 options support no text 1`] = `<DocumentFragment />`;
 
-exports[`Field 🐴 options support one dom 1`] = `
+exports[`Field > 🐴 options support one dom 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-field-option"
@@ -2961,7 +2961,7 @@ exports[`Field 🐴 options support one dom 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 percent support unit string 1`] = `
+exports[`Field > 🐴 percent support unit string 1`] = `
 <DocumentFragment>
   <span>
     + 100.00%
@@ -2969,7 +2969,7 @@ exports[`Field 🐴 percent support unit string 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 percent valueType is Object 1`] = `
+exports[`Field > 🐴 percent valueType is Object 1`] = `
 <DocumentFragment>
   <div
     class="ant-input-number"
@@ -3048,7 +3048,7 @@ exports[`Field 🐴 percent valueType is Object 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 percent=0 1`] = `
+exports[`Field > 🐴 percent=0 1`] = `
 <DocumentFragment>
   <span
     style="color: rgb(89, 89, 89);"
@@ -3058,7 +3058,7 @@ exports[`Field 🐴 percent=0 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 progress support no number 1`] = `
+exports[`Field > 🐴 progress support no number 1`] = `
 <DocumentFragment>
   <div
     aria-valuenow="NaN"
@@ -3089,7 +3089,7 @@ exports[`Field 🐴 progress support no number 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 progress support string number 1`] = `
+exports[`Field > 🐴 progress support string number 1`] = `
 <DocumentFragment>
   <div
     aria-valuenow="12"
@@ -3120,7 +3120,7 @@ exports[`Field 🐴 progress support string number 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 read and plain 1`] = `
+exports[`Field > 🐴 read and plain 1`] = `
 <DocumentFragment>
   <div
     class="ant-descriptions"
@@ -3701,7 +3701,7 @@ Done in 9.70s.
 </DocumentFragment>
 `;
 
-exports[`Field 🐴 read ant no plain 1`] = `
+exports[`Field > 🐴 read ant no plain 1`] = `
 <DocumentFragment>
   <div
     class="ant-descriptions"

@@ -7,7 +7,7 @@ import { request } from './demo';
 
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     render(
       <ProTable
         size="small"
@@ -31,7 +31,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 query should parse by valueType', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     render(
       <ProTable
         size="small"
@@ -92,7 +92,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 render text', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     render(
       <ProTable
         size="small"

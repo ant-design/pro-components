@@ -29,8 +29,8 @@ describe('BasicTable Search', () => {
   };
 
   it('🎏 submit test', async () => {
-    const fn = jest.fn();
-    const paramsFn = jest.fn();
+    const fn = vi.fn();
+    const paramsFn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -72,8 +72,8 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 reset test', async () => {
-    const fn = jest.fn();
-    const resetFn = jest.fn();
+    const fn = vi.fn();
+    const resetFn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -117,9 +117,9 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 reset test when pagination is false', async () => {
-    const fn = jest.fn();
-    const resetFn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    const resetFn = vi.fn();
+    vi.useFakeTimers();
     const html = render(
       <ProTable
         size="small"
@@ -149,7 +149,7 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('重 置');
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
     const dom = await (await html.findAllByText('重 置')).at(0);
 
@@ -161,11 +161,11 @@ describe('BasicTable Search', () => {
       expect(fn).toBeCalledTimes(2);
       expect(resetFn).toBeCalledTimes(1);
     });
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('🎏 table will render loading dom', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -216,7 +216,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 manualRequest no render loading dom', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -264,8 +264,8 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 manualRequest test', async () => {
-    const requestFn = jest.fn();
-    jest.useFakeTimers();
+    const requestFn = vi.fn();
+    vi.useFakeTimers();
     const actionRef = React.createRef<any>();
     const html = render(
       <ProTable
@@ -300,7 +300,7 @@ describe('BasicTable Search', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     act(() => {
@@ -312,7 +312,7 @@ describe('BasicTable Search', () => {
       expect(requestFn).toBeCalledTimes(1);
     });
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('🎏 search span test', async () => {
@@ -356,7 +356,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 transform test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     let formValues = { origin: '', status: '', startTime: '', endTime: '' };
     const html = render(
       <ProTable
@@ -413,8 +413,8 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 renderFormItem test and fieldProps onChange', async () => {
-    const fn = jest.fn();
-    const onChangeFn = jest.fn();
+    const fn = vi.fn();
+    const onChangeFn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -670,7 +670,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 when dateFormatter is a Function', async () => {
-    const fn2 = jest.fn();
+    const fn2 = vi.fn();
     const html = render(
       <ProTable
         columns={[
@@ -721,7 +721,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 ProTable support formRef', async () => {
-    const onSubmitFn = jest.fn();
+    const onSubmitFn = vi.fn();
     const formRef = React.createRef<ProFormInstance | undefined>();
     const html = render(
       <ProTable

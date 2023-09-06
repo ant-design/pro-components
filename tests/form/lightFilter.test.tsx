@@ -22,8 +22,8 @@ import KeyCode from 'rc-util/es/KeyCode';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use text', async () => {
-    const onValuesChange = jest.fn();
-    const onFinish = jest.fn();
+    const onValuesChange = vi.fn();
+    const onFinish = vi.fn();
 
     const { container } = render(
       <LightFilter
@@ -95,8 +95,8 @@ describe('LightFilter', () => {
     });
   });
   it(' 🪕 basic use secondary', async () => {
-    const onValuesChange = jest.fn();
-    const onFinish = jest.fn();
+    const onValuesChange = vi.fn();
+    const onFinish = vi.fn();
     render(
       <LightFilter
         onFinish={onFinish}
@@ -146,8 +146,8 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 basic use DatePicker', async () => {
-    const onValuesChange = jest.fn();
-    const onFinish = jest.fn();
+    const onValuesChange = vi.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <LightFilter
         initialValues={{
@@ -414,7 +414,7 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 multiple select showSearch', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const { container } = render(
       <LightFilter
         initialValues={{
@@ -452,7 +452,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -464,7 +464,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await act(async () => {
@@ -480,7 +480,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -498,7 +498,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await act(async () => {
@@ -510,7 +510,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -530,7 +530,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -540,13 +540,13 @@ describe('LightFilter', () => {
         '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABCDEFGHIJKL...3项',
       );
     });
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it(' 🪕 Base DateRangePicker', async () => {
-    const onFinish = jest.fn();
-    const onOpenChange = jest.fn();
-    const onLoadingChange = jest.fn();
+    const onFinish = vi.fn();
+    const onOpenChange = vi.fn();
+    const onLoadingChange = vi.fn();
     const { baseElement, container } = render(
       <LightFilter
         onFinish={async (e) => {
@@ -726,7 +726,7 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 DateTimePicker', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <LightFilter onFinish={onFinish}>
         <ProFormDateTimePicker name="datetime" label="日期时间" />
@@ -768,7 +768,7 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 TimePicker', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container, unmount } = render(
       <LightFilter onFinish={onFinish}>
         <ProFormTimePicker name="time" label="时间" />
@@ -803,7 +803,7 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 use ProFormRadio', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <LightFilter
         onFinish={onFinish}
@@ -864,7 +864,7 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 collapse mode', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const { container, unmount } = render(
       <LightFilter
         onValuesChange={(values) => {

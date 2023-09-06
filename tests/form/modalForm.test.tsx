@@ -7,7 +7,7 @@ import { waitForWaitTime } from '../util';
 
 describe('ModalForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         width={600}
@@ -54,7 +54,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 submitter config no reset default config', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         width={600}
@@ -96,7 +96,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 ModalForm first no render items', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         width={600}
@@ -130,7 +130,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 ModalForm first render items', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         width={600}
@@ -157,7 +157,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 ModalForm destroyOnClose', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         width={600}
@@ -234,7 +234,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 modal close button will simulate onOpenChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         visible
@@ -261,7 +261,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 modal open=true simulate onOpenChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     render(
       <ModalForm
         open
@@ -278,7 +278,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 reset button will simulate onOpenChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         visible
@@ -299,7 +299,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 modal close button will simulate modalProps.onCancel', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         visible
@@ -328,7 +328,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 form onFinish return true should close modal', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         visible
@@ -356,7 +356,7 @@ describe('ModalForm', () => {
   });
 
   it('📦 form onFinish is null, no close modal', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         visible
@@ -526,8 +526,8 @@ describe('ModalForm', () => {
   });
 
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const html = render(
       <ModalForm
         visible
@@ -563,7 +563,7 @@ describe('ModalForm', () => {
     expect(fn).not.toBeCalled();
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     expect(
@@ -576,14 +576,14 @@ describe('ModalForm', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
     expect(fn).toBeCalled();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('📦 modal submitTimeout is null no disable close button when submit', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ModalForm
         visible

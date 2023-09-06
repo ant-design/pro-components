@@ -3,8 +3,8 @@ import { act, render } from '@testing-library/react';
 
 describe('DrawerForm', () => {
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const html = render(
       <DrawerForm
         open
@@ -38,7 +38,7 @@ describe('DrawerForm', () => {
     });
 
     act(() => {
-      jest.advanceTimersByTime(3000);
+      vi.advanceTimersByTime(3000);
     });
 
     expect(fn).not.toBeCalled();
@@ -54,12 +54,12 @@ describe('DrawerForm', () => {
 
     expect(fn).toBeCalled();
     html.unmount();
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('📦 DrawerForm submitTimeout is null no disable close button when submit', async () => {
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const wrapper = render(
       <DrawerForm
         open
@@ -87,7 +87,7 @@ describe('DrawerForm', () => {
     ).toEqual(undefined);
 
     act(() => {
-      jest.advanceTimersByTime(3000);
+      vi.advanceTimersByTime(3000);
     });
 
     await act(async () => {

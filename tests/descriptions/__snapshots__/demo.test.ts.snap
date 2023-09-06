@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/arrayDataIndex.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arrayDataIndex.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -232,7 +232,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.demo-test.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/base.demo-test.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -348,7 +348,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/base.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -818,7 +818,7 @@ Done in 9.70s.
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/columns.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/columns.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -1228,7 +1228,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/customization-value-type.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/customization-value-type.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -1404,7 +1404,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/custo
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynamic-descriptions.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dynamic-descriptions.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -2372,7 +2372,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/editable.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/editable.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -3249,7 +3249,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/format.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/format.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -3436,7 +3436,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/request.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/request.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -3582,7 +3582,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
 </DocumentFragment>
 `;
 
-exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-data-source.tsx correctly 1`] = `
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use-data-source.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test

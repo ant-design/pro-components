@@ -182,7 +182,7 @@ describe('List', () => {
   });
 
   it('🚏 expandable', async () => {
-    const onExpand = jest.fn();
+    const onExpand = vi.fn();
     const Wrapper = () => {
       const [expandedRowKeys, onExpandedRowsChange] = useState<
         readonly ReactText[]
@@ -222,7 +222,7 @@ describe('List', () => {
   });
 
   it('🚏 expandable support expandRowByClick', async () => {
-    const onExpand = jest.fn();
+    const onExpand = vi.fn();
     const Wrapper = () => {
       const [expandedRowKeys, onExpandedRowsChange] = useState<
         readonly ReactText[]
@@ -350,7 +350,7 @@ describe('List', () => {
   });
 
   it('🚏 expandable with expandIcon', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const Wrapper = () => {
       return (
         <ProList
@@ -471,7 +471,7 @@ describe('List', () => {
   });
 
   it('🚏 filter and request', async () => {
-    const onRequest = jest.fn();
+    const onRequest = vi.fn();
     const { container, findByText, baseElement } = reactRender(
       <ProList<any, { title: string }>
         metas={{
@@ -538,8 +538,8 @@ describe('List', () => {
   });
 
   it('🚏 ProList support onRow', async () => {
-    const onClick = jest.fn();
-    const onMouseEnter = jest.fn();
+    const onClick = vi.fn();
+    const onMouseEnter = vi.fn();
     const { container } = reactRender(
       <ProList<DataSourceType>
         dataSource={[
@@ -790,8 +790,8 @@ describe('List', () => {
   });
 
   it('🚏 trigger list item event when has grid prop', async () => {
-    const fn1 = jest.fn();
-    const fn2 = jest.fn();
+    const fn1 = vi.fn();
+    const fn2 = vi.fn();
     const html = reactRender(
       <ProList
         grid={{ gutter: 16, column: 2 }}

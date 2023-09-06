@@ -378,8 +378,8 @@ describe('👍🏻 ProHelpPanel', () => {
   });
 
   it('🎏 infiniteScrollFull panel', async () => {
-    jest.useFakeTimers();
-    const onSelectedKeyChangeFn = jest.fn();
+    vi.useFakeTimers();
+    const onSelectedKeyChangeFn = vi.fn();
     const html = render(
       <ProHelp
         dataSource={[
@@ -767,7 +767,7 @@ describe('👍🏻 ProHelpPanel', () => {
       );
     });
     await act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     const dom = await html.findByTestId('navigation-switch');
@@ -780,7 +780,7 @@ describe('👍🏻 ProHelpPanel', () => {
 
     html.unmount();
 
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it('🎏 click menuItem show demo', async () => {
@@ -834,7 +834,7 @@ describe('👍🏻 ProHelpPanel', () => {
   });
 
   it('🎏 ProHelpModal', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <DefaultProHelp>
         <div
@@ -876,7 +876,7 @@ describe('👍🏻 ProHelpPanel', () => {
   });
 
   it('🎏 ProHelpDrawer', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <DefaultProHelp>
         <div
@@ -918,7 +918,7 @@ describe('👍🏻 ProHelpPanel', () => {
   });
 
   it('🎏 ProHelpSelect', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const html = render(
       <DefaultProHelp>
         <div
@@ -941,7 +941,7 @@ describe('👍🏻 ProHelpPanel', () => {
       fireEvent.mouseDown(
         html.container.querySelector('.ant-select-selector')!,
       );
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await html.findByText('常见问题');
@@ -953,7 +953,7 @@ describe('👍🏻 ProHelpPanel', () => {
         },
       });
 
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     expect(
@@ -964,13 +964,13 @@ describe('👍🏻 ProHelpPanel', () => {
 
     await act(async () => {
       fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
     expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });
 
   it('🎏 ProHelpSelect in panel', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     const html = render(
       <DefaultProHelp>
         <div
@@ -995,7 +995,7 @@ describe('👍🏻 ProHelpPanel', () => {
       fireEvent.mouseDown(
         html.container.querySelector('.ant-select-selector')!,
       );
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await html.findAllByText('常见问题');
@@ -1007,7 +1007,7 @@ describe('👍🏻 ProHelpPanel', () => {
         },
       });
 
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     expect(
@@ -1025,7 +1025,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
@@ -1036,7 +1036,7 @@ describe('👍🏻 ProHelpPanel', () => {
 
     await act(async () => {
       fireEvent.blur(html.container.querySelector('.ant-select-selector')!);
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
     expect(!!html.container.querySelector('.ant-select-selector')!).toBeFalsy();
   });

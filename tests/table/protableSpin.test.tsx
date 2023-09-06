@@ -101,7 +101,7 @@ export default ProTableSpinDemo;
 
 describe('ProTable test', () => {
   it('loading and polling props', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         loading={{ spinning: true, delay: 1000 }}

@@ -37,7 +37,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 filter test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         size="small"
@@ -80,7 +80,7 @@ describe('BasicTable Search', () => {
   });
 
   it('✔️ selected rows support row is function', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const DemoTable = () => {
       const columns = [
         {

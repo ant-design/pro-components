@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/descriptions.tsx correctly 1`] = `
+exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/descriptions.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -454,7 +454,7 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/descriptions.
 </DocumentFragment>
 `;
 
-exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.static.tsx correctly 1`] = `
+exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.static.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -926,7 +926,7 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.static.t
 </DocumentFragment>
 `;
 
-exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.tsx correctly 1`] = `
+exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/list.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -1398,7 +1398,7 @@ exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/list.tsx corr
 </DocumentFragment>
 `;
 
-exports[`skeleton demos 📸 renders ./packages/skeleton/src/demos/result.tsx correctly 1`] = `
+exports[`skeleton demos > 📸 renders ./packages/skeleton/src/demos/result.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test

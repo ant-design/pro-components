@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`skeleton 🥩 descriptions api use 1`] = `
+exports[`skeleton > 🥩 descriptions api use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -1126,7 +1126,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 descriptions api use 2`] = `
+exports[`skeleton > 🥩 descriptions api use 2`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -1867,7 +1867,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 descriptions base use 1`] = `
+exports[`skeleton > 🥩 descriptions base use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -2554,7 +2554,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 list api use 1`] = `
+exports[`skeleton > 🥩 list api use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -3216,7 +3216,7 @@ exports[`skeleton 🥩 list api use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 list api use 2`] = `
+exports[`skeleton > 🥩 list api use 2`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -3224,7 +3224,7 @@ exports[`skeleton 🥩 list api use 2`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 list base use 1`] = `
+exports[`skeleton > 🥩 list base use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -3737,7 +3737,7 @@ exports[`skeleton 🥩 list base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 result base use 1`] = `
+exports[`skeleton > 🥩 result base use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -3835,7 +3835,7 @@ exports[`skeleton 🥩 result base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 statistic=1,span=16 1`] = `
+exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"

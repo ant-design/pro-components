@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DefaultFooter test 🦶 copyright support false 1`] = `
+exports[`DefaultFooter test > 🦶 copyright support false 1`] = `
 <DocumentFragment>
   <footer
     class="ant-layout-footer"
@@ -9,7 +9,7 @@ exports[`DefaultFooter test 🦶 copyright support false 1`] = `
 </DocumentFragment>
 `;
 
-exports[`DefaultFooter test 🦶 links support false 1`] = `
+exports[`DefaultFooter test > 🦶 links support false 1`] = `
 <DocumentFragment>
   <footer
     class="ant-layout-footer"

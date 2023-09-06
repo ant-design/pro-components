@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageContainer ⚡️ support fixHeader 1`] = `
+exports[`PageContainer > ⚡️ support fixHeader 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container"
@@ -27,9 +27,9 @@ exports[`PageContainer ⚡️ support fixHeader 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer ⚡️ support fixedHeader 1`] = `null`;
+exports[`PageContainer > ⚡️ support fixedHeader 1`] = `null`;
 
-exports[`PageContainer ⚡️ support footer 1`] = `
+exports[`PageContainer > ⚡️ support footer 1`] = `
 <div>
   <div
     class="ant-pro-page-container ant-pro-page-container-with-footer"
@@ -72,9 +72,9 @@ exports[`PageContainer ⚡️ support footer 1`] = `
 </div>
 `;
 
-exports[`PageContainer ⚡️ support loading 1`] = `null`;
+exports[`PageContainer > ⚡️ support loading 1`] = `null`;
 
-exports[`PageContainer ⚡️ support more loading props 1`] = `
+exports[`PageContainer > ⚡️ support more loading props 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container"
@@ -135,7 +135,7 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
+exports[`PageContainer > 🌛 PageContainer with custom loading 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container custom-className"
@@ -176,7 +176,7 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🐛 className prop should not be passed to its page header, fix #3493 1`] = `
+exports[`PageContainer > 🐛 className prop should not be passed to its page header, fix #3493 1`] = `
 <div>
   <div
     class="ant-pro-page-container custom-className"
@@ -203,7 +203,7 @@ exports[`PageContainer 🐛 className prop should not be passed to its page head
 </div>
 `;
 
-exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
+exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
 <div>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
@@ -442,7 +442,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
 </div>
 `;
 
-exports[`PageContainer 🐲 content is text and title is null 1`] = `
+exports[`PageContainer > 🐲 content is text and title is null 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container"
@@ -476,7 +476,7 @@ exports[`PageContainer 🐲 content is text and title is null 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🐲 content is text and title is null 2`] = `
+exports[`PageContainer > 🐲 content is text and title is null 2`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container"
@@ -512,7 +512,7 @@ exports[`PageContainer 🐲 content is text and title is null 2`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
+exports[`PageContainer > 🐲 footer is null, do not render footerToolbar  1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container ant-pro-page-container-with-footer"
@@ -536,7 +536,7 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
+exports[`PageContainer > 🐲 footer is null, do not render footerToolbar  2`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container"
@@ -544,7 +544,7 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🐲 footer should know width 1`] = `
+exports[`PageContainer > 🐲 footer should know width 1`] = `
 <div>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
@@ -789,7 +789,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
 </div>
 `;
 
-exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
+exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
 <DocumentFragment>
   <div
     class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
@@ -1047,7 +1047,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 💄 base use 1`] = `
+exports[`PageContainer > 💄 base use 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container"
@@ -1074,7 +1074,7 @@ exports[`PageContainer 💄 base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 💄 config is null 1`] = `
+exports[`PageContainer > 💄 config is null 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container"
@@ -1082,7 +1082,7 @@ exports[`PageContainer 💄 config is null 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🔥 footer bar support extra 1`] = `
+exports[`PageContainer > 🔥 footer bar support extra 1`] = `
 <DocumentFragment>
   <div
     class="qixian_footer ant-pro-footer-bar"
@@ -1108,7 +1108,7 @@ exports[`PageContainer 🔥 footer bar support extra 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
+exports[`PageContainer > 🔥 footer bar support renderContent 1`] = `
 <DocumentFragment>
   <div
     class="qixian_footer ant-pro-footer-bar"
@@ -1118,7 +1118,7 @@ exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 </DocumentFragment>
 `;
 
-exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
+exports[`PageContainer > 🔥 support footer and breadcrumb 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-page-container ant-pro-page-container-with-footer"

@@ -25,8 +25,8 @@ describe('Field', () => {
   ];
   datePickList.forEach((valueType) => {
     it(`📅 ${valueType} base use`, async () => {
-      const fn = jest.fn();
-      const openChangeFn = jest.fn();
+      const fn = vi.fn();
+      const openChangeFn = vi.fn();
       const { container } = render(
         <Field
           mode="edit"
@@ -88,8 +88,8 @@ describe('Field', () => {
   ];
   dateRangePickList.forEach((valueType) => {
     it(`📅 ${valueType} base use`, async () => {
-      const onChangeFn = jest.fn();
-      const openChangeFn = jest.fn();
+      const onChangeFn = vi.fn();
+      const openChangeFn = vi.fn();
       const { container } = render(
         <Field
           mode="edit"
@@ -146,7 +146,7 @@ describe('Field', () => {
   });
 
   it(`📅  RangePicker support format is function`, async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <Field
         mode="read"
@@ -166,7 +166,7 @@ describe('Field', () => {
   });
 
   it(`📅  DatePicker support format is Array`, async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <Field
         mode="read"

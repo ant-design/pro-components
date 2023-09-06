@@ -3,7 +3,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 
 describe('QueryFilter', () => {
   it('🕵️‍♀️ basic use', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <QueryFilter
         onFinish={onFinish}
@@ -28,7 +28,7 @@ describe('QueryFilter', () => {
   });
 
   it('🕵️‍♀️ keep all field value when collapsed', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <QueryFilter
         defaultCollapsed
@@ -62,7 +62,7 @@ describe('QueryFilter', () => {
   });
 
   it('🕵️‍♀️ no keep collapsed field value', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <QueryFilter
         defaultCollapsed
@@ -158,7 +158,7 @@ describe('QueryFilter', () => {
   });
 
   it('🕵️‍♀️ submitter support render', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container, findByText } = render(
       <QueryFilter
         style={{ width: 1064 }}

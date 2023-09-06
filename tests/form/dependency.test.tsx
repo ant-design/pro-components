@@ -118,7 +118,7 @@ describe('ProForm Dependency component', () => {
   });
 
   it('⛲ ProFormDependency support transform', async () => {
-    const dependencyFn = jest.fn();
+    const dependencyFn = vi.fn();
     const Demo: React.FC<{
       shouldUpdate?: boolean;
     }> = () => {

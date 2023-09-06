@@ -444,7 +444,7 @@ describe('PageContainer', () => {
   });
 
   it('🐲 tabList and onTabChange is run', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <PageContainer
         title="标题"

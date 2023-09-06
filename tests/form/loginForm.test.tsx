@@ -118,7 +118,7 @@ describe('LoginForm', () => {
   });
 
   it('📦 LoginForm support submitter=false', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <LoginForm
         submitter={{

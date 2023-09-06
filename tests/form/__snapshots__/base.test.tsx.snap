@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ProForm 📦 submit props actionsRender is one 1`] = `
+exports[`ProForm > 📦 submit props actionsRender is one 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -17,7 +17,7 @@ exports[`ProForm 📦 submit props actionsRender is one 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
+exports[`ProForm > 📦 submit props actionsRender=()=>[] 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -31,7 +31,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
+exports[`ProForm > 📦 submit props actionsRender=()=>false 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -46,7 +46,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 submit props actionsRender=false 1`] = `
+exports[`ProForm > 📦 submit props actionsRender=false 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -60,7 +60,7 @@ exports[`ProForm 📦 submit props actionsRender=false 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 submit props actionsRender=false 2`] = `
+exports[`ProForm > 📦 submit props actionsRender=false 2`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -74,7 +74,7 @@ exports[`ProForm 📦 submit props actionsRender=false 2`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 submit props render=()=>[] 1`] = `
+exports[`ProForm > 📦 submit props render=()=>[] 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -96,7 +96,7 @@ exports[`ProForm 📦 submit props render=()=>[] 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 submitted value should be consistent with input when precision=0 1`] = `
+exports[`ProForm > 📦 submitted value should be consistent with input when precision=0 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -239,7 +239,7 @@ exports[`ProForm 📦 submitted value should be consistent with input when preci
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
+exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -273,7 +273,7 @@ exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
+exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -307,7 +307,7 @@ exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
+exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -425,7 +425,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 valueType digit with precision value 1`] = `
+exports[`ProForm > 📦 valueType digit with precision value 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"
@@ -568,7 +568,7 @@ exports[`ProForm 📦 valueType digit with precision value 1`] = `
 </DocumentFragment>
 `;
 
-exports[`ProForm 📦 when dateFormatter is a Function 1`] = `
+exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
 <DocumentFragment>
   <form
     autocomplete="off"

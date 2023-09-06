@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`👍🏻 ProHelpPanel 🎏 ProHelp is empty 1`] = `
+exports[`👍🏻 ProHelpPanel > 🎏 ProHelp is empty 1`] = `
 <body>
   <div>
     <div

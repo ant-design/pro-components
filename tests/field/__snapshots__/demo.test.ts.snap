@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 1`] = `
+exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -1432,7 +1432,7 @@ Done in 9.70s.
 </DocumentFragment>
 `;
 
-exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx correctly 1`] = `
+exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -4406,7 +4406,7 @@ Done in 9.70s.
 </DocumentFragment>
 `;
 
-exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx correctly 1`] = `
+exports[`field demos > 📸 renders ./packages/field/src/demos/search-value.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -4496,7 +4496,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
 </DocumentFragment>
 `;
 
-exports[`field demos 📸 renders ./packages/field/src/demos/search-value-autoClearSearchValue.tsx correctly 1`] = `
+exports[`field demos > 📸 renders ./packages/field/src/demos/search-value-autoClearSearchValue.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -4600,7 +4600,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value-autoCl
 </DocumentFragment>
 `;
 
-exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx correctly 1`] = `
+exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test
@@ -4830,7 +4830,7 @@ exports[`field demos 📸 renders ./packages/field/src/demos/select-request.tsx 
 </DocumentFragment>
 `;
 
-exports[`field demos 📸 renders ./packages/field/src/demos/tree-select-search-value.tsx correctly 1`] = `
+exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-search-value.tsx correctly 1`] = `
 <DocumentFragment>
   <div>
     test

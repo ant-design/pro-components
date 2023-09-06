@@ -1,11 +1,11 @@
 import { ProCard } from '@ant-design/pro-components';
 import { act, render } from '@testing-library/react';
 
-jest.mock('antd/lib/grid/hooks/useBreakpoint');
+vi.mock('antd/lib/grid/hooks/useBreakpoint');
 
 describe('Card', () => {
   it('🥩 collapsible onCollapse', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
 
     const wrapper = render(
       <ProCard title="父节点">
@@ -152,7 +152,7 @@ describe('Card', () => {
   });
 
   it('🥩 tabs onChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProCard
         tabs={{
