@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.12.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.3...@ant-design/pro-field@2.12.4) (2023-09-06)
+
+
+### Bug Fixes
+
+* **form:** fix datepicker format ([#7622](https://github.com/ant-design/pro-components/issues/7622)) ([a6aa0db](https://github.com/ant-design/pro-components/commit/a6aa0dbb0e24b3ca1ffa5ce364e90cba4db5369c))
+* remove stringify ([25d2c42](https://github.com/ant-design/pro-components/commit/25d2c42a0bda673a0b40b5ae56bd0a852998ecd1))
+
+
+
+
 
 ## [2.12.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.2...@ant-design/pro-field@2.12.3) (2023-08-30)
 
