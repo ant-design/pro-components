@@ -33,6 +33,7 @@ export default () => {
         }>
           title="新建表单"
           formRef={formRef}
+          width={600}
           trigger={
             <Button type="primary">
               <PlusOutlined />
