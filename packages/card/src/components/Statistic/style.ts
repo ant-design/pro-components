@@ -8,13 +8,6 @@ export interface ProListToken extends ProAliasToken {
 const genProStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
-      '@font-face': {
-        fontFamily: 'AlipayNumber-Regular',
-        src: "url('https://gw.alipayobjects.com/as/g/antui/antui-static/1.0.3/fonts/AlipayNumber-Regular.ttf')",
-        fontWeight: 'normal',
-        fontStyle: 'normal',
-      },
-
       display: 'flex',
       fontSize: token.fontSize,
       '& + &': {
@@ -47,17 +40,11 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         [`${token.antCls}-statistic-content`]: {
           '&-value-int': {
             fontSize: token.fontSizeHeading3,
-            fontFamily: `AlipayNumber-Regular,${token.fontFamily}`,
           },
         },
       },
       '&-description': {
         width: '100%',
-        [`${token.antCls}-statistic-content`]: {
-          '&-value': {
-            fontFamily: `AlipayNumber-Regular,${token.fontFamily}`,
-          },
-        },
       },
       [`${token.antCls}-statistic-title`]: {
         color: token.colorText,
