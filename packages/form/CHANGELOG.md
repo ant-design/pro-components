@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.18.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.5...@ant-design/pro-form@2.18.6) (2023-09-07)
+
+
+### Bug Fixes
+
+* **form:** 修复 DrawerForm With 控制权重失效的问题 ([#7642](https://github.com/ant-design/pro-components/issues/7642)) ([50d7e4e](https://github.com/ant-design/pro-components/commit/50d7e4e442bc9a93b885d499bda9273947e47381))
+
+
+
+
 
 ## [2.18.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.4...@ant-design/pro-form@2.18.5) (2023-09-06)
 
