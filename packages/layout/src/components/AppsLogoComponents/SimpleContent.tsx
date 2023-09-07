@@ -71,7 +71,6 @@ export const SimpleContent: React.FC<{
               className={`${baseClassName}-content-list-item ${hashId}`.trim()}
               onClick={(e) => {
                 e.stopPropagation();
-                e.preventDefault();
                 itemClick?.(app);
               }}
             >
