@@ -96,7 +96,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   onFinish,
   submitTimeout,
   title,
-  width = 800,
+  width,
   resize,
   onOpenChange,
   visible: propVisible,
@@ -110,10 +110,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   );
   const resizeInfo: CustomizeResizeType = React.useMemo(() => {
     const defaultResize: CustomizeResizeType = {
-      onResize: () => { },
+      onResize: () => {},
       maxWidth: window.innerWidth * 0.8,
       minWidth: 300,
-    }
+    };
     if (typeof resize === 'boolean') {
       if (resize) {
         return defaultResize;
@@ -125,7 +125,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
       onResize: resize?.onResize ?? defaultResize.onResize,
       maxWidth: resize?.maxWidth ?? defaultResize.maxWidth,
       minWidth: resize?.minWidth ?? defaultResize.minWidth,
-    })
+    });
   }, [resize]);
 
   const context = useContext(ConfigProvider.ConfigContext);
@@ -137,8 +137,9 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const [, forceUpdate] = useState([]);
   const [loading, setLoading] = useState(false);
   const [resizableDrawer, setResizableDrawer] = useState(false);
+
   const [drawerWidth, setDrawerWidth] = useState<DrawerProps['width']>(
-    resizeInfo?.minWidth ?? width,
+    width ? width : resize ? resizeInfo?.minWidth : 800,
   );
 
   const [open, setOpen] = useMergedState<boolean>(!!propVisible, {
@@ -334,11 +335,11 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           className={
             resize
               ? classNames(getCls('sidebar-dragger'), hashId, {
-                [getCls('sidebar-dragger-min-disabled')]:
-                  drawerWidth === resizeInfo?.minWidth,
-                [getCls('sidebar-dragger-max-disabled')]:
-                  drawerWidth === resizeInfo?.maxWidth,
-              })
+                  [getCls('sidebar-dragger-min-disabled')]:
+                    drawerWidth === resizeInfo?.minWidth,
+                  [getCls('sidebar-dragger-max-disabled')]:
+                    drawerWidth === resizeInfo?.maxWidth,
+                })
               : null
           }
           onMouseDown={(e) => {

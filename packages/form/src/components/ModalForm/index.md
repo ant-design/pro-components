@@ -59,10 +59,10 @@ DrawerForm 组合了 Drawer 和 ProForm 可以减少繁琐的状态管理。
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
-| resize | 是否调整大小 | `{onResize,maxWidth,minWidth}` \| `Boolean` | { onResize: () => { },   maxWidth: window.innerWidth * 0.8,  minWidth: 300} |
+| resize | 是否调整大小 | `{onResize,maxWidth,minWidth}` \| `Boolean` | { onResize: () => { }, maxWidth: window.innerWidth \* 0.8, minWidth: 300} |
 | onOpenChange | open 改变时触发 | `(open:boolean)=>void` | - |
 | drawerProps | Drawer 的 props，使用方式与 [antd](https://ant.design/components/drawer-cn/) 相同。注意：不支持 'visible'，请使用全局的 visible | [props](https://ant.design/components/drawer-cn/#API) | - |
 | title | 抽屉的标题 | `ReactNode` | - |
-| width | 抽屉的宽度 | `Number` | - |
+| width | 抽屉的宽度（受控属性，使用时权重高于 resize） | `Number` | - |
 | onFinish | 提交数据时触发，如果返回一个 true。会关掉抽屉,如果配置了 `destroyOnClose` 还会重置表单。 | `async (values)=>boolean` | - |
 | submitTimeout | 提交数据时，禁用取消按钮的超时时间（毫秒）。 | `Number` | - |
