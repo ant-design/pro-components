@@ -1,10 +1,17 @@
-﻿## @ant-design/pro-components@2.6.17
+﻿## @ant-design/pro-components@2.6.18
+
+`2023-09-07`
+
+- 修复了布局中点击链接无效的错误。[9252b14](https://github.com/ant-design/pro-components/commit/9252b14)
+- 修复了抽屉表单（DrawerForm）中控制宽度权重失效的问题。[#7642](https://github.com/ant-design/pro-components/pull/#7642) [@ONLY-yours](https://github.com/ONLY-yours)
+
+## @ant-design/pro-components@2.6.17
 
 `2023-09-06`
 
 - fix(layout): appList item click preventDefault and stopPropagation. [9b3cd65](https://github.com/ant-design/pro-components/commit/9b3cd65)
 - fix(layout): fix menu title center error. [904a89f](https://github.com/ant-design/pro-components/commit/904a89f)
-- fix(form): fix datepicker format (#7622). [#7622](https://github.com/ant-design/pro-components/pull/#7622) [@SummyGitHub](https://github.com/SummyGitHub)
+- fix(form): fix DatePicker format (#7622). [#7622](https://github.com/ant-design/pro-components/pull/#7622) [@SummyGitHub](https://github.com/SummyGitHub)
 - fix(form):更新 DrawerForm resize 参数默认值&文档描述 (#7621). [#7621](https://github.com/ant-design/pro-components/pull/#7621) [@LengYXin](https://github.com/LengYXin)
 - fix(form): dependency 支持 colSize (#7611). [#7611](https://github.com/ant-design/pro-components/pull/#7611) [@yiyi17](https://github.com/yiyi17)
 - fix(form): fix marginBlockEnd no use marginLG error. [6e5f384](https://github.com/ant-design/pro-components/commit/6e5f384)

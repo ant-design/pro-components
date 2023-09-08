@@ -1,36 +1,42 @@
-﻿## @ant-design/pro-components@2.6.17
+﻿## @ant-design/pro-components@2.6.18
+
+`2023-09-07`
+
+- fix(layout): fix click url no work error. [9252b14](https://github.com/ant-design/pro-components/commit/9252b14)
+- fix(form): 修复 DrawerForm width 控制权重失效的问题 (#7642). [#7642](https://github.com/ant-design/pro-components/pull/#7642) [@ONLY-yours](https://github.com/ONLY-yours)
+
+## @ant-design/pro-components@2.6.17
 
 `2023-09-06`
 
-- fix(layout): appList item click preventDefault and stopPropagation. [9b3cd65](https://github.com/ant-design/pro-components/commit/9b3cd65)
-- fix(layout): fix menu title center error. [904a89f](https://github.com/ant-design/pro-components/commit/904a89f)
-- fix(form): fix datepicker format (#7622). [#7622](https://github.com/ant-design/pro-components/pull/#7622) [@SummyGitHub](https://github.com/SummyGitHub)
-- fix(form):更新 DrawerForm resize 参数默认值&文档描述 (#7621). [#7621](https://github.com/ant-design/pro-components/pull/#7621) [@LengYXin](https://github.com/LengYXin)
-- fix(form): dependency 支持 colSize (#7611). [#7611](https://github.com/ant-design/pro-components/pull/#7611) [@yiyi17](https://github.com/yiyi17)
-- fix(form): fix marginBlockEnd no use marginLG error. [6e5f384](https://github.com/ant-design/pro-components/commit/6e5f384)
-- fix(form): fix formList containerClassName and containerStyle no work error. [7a2c9e0](https://github.com/ant-design/pro-components/commit/7a2c9e0)
-- fix(table): sortConfig 值为 undefined 时与默认值{}不一致，会导致翻页时再次触发 request 请求 (#7616). [#7616](https://github.com/ant-design/pro-components/pull/#7616) [@caronchen](https://github.com/caronchen)
+- Prevented default and propagation of click events on appList items in the layout. Commit: [9b3cd65](https://github.com/ant-design/pro-components/commit/9b3cd65)
+- Fixed an error in the layout where the menu title was not centered. Commit: [904a89f](https://github.com/ant-design/pro-components/commit/904a89f)
+- Fixed the datepicker format in the form. Pull Request: [#7622](https://github.com/ant-design/pro-components/pull/#7622) by [@SummyGitHub](https://github.com/SummyGitHub)
+- Updated the default value and documentation of the `resize` parameter in DrawerForm. Pull Request: [#7621](https://github.com/ant-design/pro-components/pull/#7621) by [@LengYXin](https://github.com/LengYXin)
+- Added support for `colSize` in form dependencies. Pull Request: [#7611](https://github.com/ant-design/pro-components/pull/#7611) by [@yiyi17](https://github.com/yiyi17)
+- Fixed an error where `marginBlockEnd` was not applying `marginLG`. Commit: [6e5f384](https://github.com/ant-design/pro-components/commit/6e5f384)
+- Fixed an error where `containerClassName` and `containerStyle` were not working in formList. Commit: [7a2c9e0](https://github.com/ant-design/pro-components/commit/7a2c9e0)
+- Fixed a typo and made a modification in `sortConfig` to prevent triggering request again on pagination. Pull Request: [#7616](https://github.com/ant-design/pro-components/pull/#7616) by [@caronchen](https://github.com/caronchen)
 
 ## @ant-design/pro-components@2.6.15
 
 `2023-08-29`
 
-- fix(form): 解决因 stringify 导致死循环的问题 (#7599). [#7599](https://github.com/ant-design/pro-components/pull/#7599) [@kiner-tang](https://github.com/kiner-tang)
-- feat(table): table columns setting add fixable config (#7586). [#7586](https://github.com/ant-design/pro-components/pull/#7586) [@LeoZeda](https://github.com/LeoZeda)
+- Resolved an issue with a potential infinite loop caused by `stringify`. Pull Request: [#7599](https://github.com/ant-design/pro-components/pull/#7599) by [@kiner-tang](https://github.com/kiner-tang). Unfortunately, the commit message or details of the fix are not provided.
+- Added a new feature to the table component where columns can now have a `fixable` configuration. Pull Request: [#7586](https://github.com/ant-design/pro-components/pull/#7586) by [@LeoZeda](https://github.com/LeoZeda). No further details about the feature are provided.
 
 ## @ant-design/pro-components@2.6.14
 
 `2023-08-28`
 
-- fix(layout): fix menuItem icon no align error. [62f1bb5](https://github.com/ant-design/pro-components/commit/62f1bb5)
-- fix(layout): 修复 sider token 样式问题 (#7574). [#7574](https://github.com/ant-design/pro-components/pull/#7574) [@daifuyang](https://github.com/daifuyang)
-- fix(layout): use useBreakpoint utils. [af522ee](https://github.com/ant-design/pro-components/commit/af522ee)
-- fix(layout): use useBreakpoint utils. [3a174d1](https://github.com/ant-design/pro-components/commit/3a174d1)
-- fix(form): textarea 只读状态样式不统一(#7578 #6618) (#7579). [#7579](https://github.com/ant-design/pro-components/pull/#7579) [@HoPGoldy](https://github.com/HoPGoldy)
-- fix(form): fix FormItem name is null，but has data error (#7583). [#7583](https://github.com/ant-design/pro-components/pull/#7583) [@chenshuai2144](https://github.com/chenshuai2144)
-- fix(form): ValueTypeWithFieldPropsBase 泛型参数失效 (#7582). [#7582](https://github.com/ant-design/pro-components/pull/#7582) [@ldc-37](https://github.com/ldc-37)
-- feat(descriptions): support emptyText. [d5ccc34](https://github.com/ant-design/pro-components/commit/d5ccc34)
-- fix(descriptions): fix valueType is null. label no work error. [8779112](https://github.com/ant-design/pro-components/commit/8779112)
+- Fixed an error in the layout where the menuItem icon was not aligned correctly. Commit: [62f1bb5](https://github.com/ant-design/pro-components/commit/62f1bb5)
+- Fixed a styling issue with the sider token in the layout. Pull Request: [#7574](https://github.com/ant-design/pro-components/pull/#7574) by [@daifuyang](https://github.com/daifuyang)
+- Updated the usage of `useBreakpoint` utility in the layout. Commits: [af522ee](https://github.com/ant-design/pro-components/commit/af522ee), [3a174d1](https://github.com/ant-design/pro-components/commit/3a174d1)
+- Fixed an inconsistency in the textarea's read-only state styling. Pull Request: [#7579](https://github.com/ant-design/pro-components/pull/#7579) by [@HoPGoldy](https://github.com/HoPGoldy)
+- Fixed an error in the form where `FormItem` had a null name but still had data. Pull Request: [#7583](https://github.com/ant-design/pro-components/pull/#7583) by [@chenshuai2144](https://github.com/chenshuai2144)
+- Fixed an issue where the generic parameter `ValueTypeWithFieldPropsBase` was not working correctly. Pull Request: [#7582](https://github.com/ant-design/pro-components/pull/#7582) by [@ldc-37](https://github.com/ldc-37)
+- Added support for `emptyText` in the descriptions component. Commit: [d5ccc34](https://github.com/ant-design/pro-components/commit/d5ccc34)
+- Fixed an error where the label was not working when the `valueType` was null in the descriptions component. Commit: [8779112](https://github.com/ant-design/pro-components/commit/8779112)
 
 ## @ant-design/pro-components@2.6.13
 

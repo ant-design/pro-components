@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.16.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.12...@ant-design/pro-layout@7.16.13) (2023-09-07)
 
-
 ### Bug Fixes
 
-* **layout:** fix click url no work error ([9252b14](https://github.com/ant-design/pro-components/commit/9252b14b6b95a0901c16106c3d53d45e501744b4))
-
-
-
-
+- **layout:** fix click url no work error ([9252b14](https://github.com/ant-design/pro-components/commit/9252b14b6b95a0901c16106c3d53d45e501744b4))
 
 ## [7.16.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.11...@ant-design/pro-layout@7.16.12) (2023-09-06)
 
