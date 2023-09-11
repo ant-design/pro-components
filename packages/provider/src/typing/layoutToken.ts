@@ -161,7 +161,7 @@ export const getLayoutDesignToken: (
       paddingInlinePageContainerContent:
         finalDesignTokens.pageContainer?.marginInlinePageContainerContent || 40,
       paddingBlockPageContainerContent:
-        finalDesignTokens.pageContainer?.marginBlockPageContainerContent || 24,
+        finalDesignTokens.pageContainer?.marginBlockPageContainerContent || 32,
       colorBgPageContainerFixed: antdToken.colorBgElevated,
       ...finalDesignTokens.pageContainer,
     },
