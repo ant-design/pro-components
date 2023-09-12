@@ -130,7 +130,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | labelWidth | Label width | `'number'` \| `'auto'` | 80 |
 | span | Configure the number of columns in the query form | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | className | Encapsulated search Form className | `string` | - |
-| collapseRender | Collapse button render | `(collapsed: boolean,showCollapseButton?: boolean,) => ReactNode` | - |
+| collapseRender | Collapse button render | `(collapsed: boolean,showCollapseButton?: boolean) => ReactNode`\|`false` | - |
 | defaultCollapsed | Whether to collapse by default | `boolean` | true |
 | collapsed | collapsed | `boolean` | - |
 | onCollapse | Collapse button event | `(collapsed: boolean) => void;` | - |
