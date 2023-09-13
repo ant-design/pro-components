@@ -28,6 +28,17 @@ export default () => {
         <div>Card content</div>
       </ProCard>
       <ProCard
+        title="带卡片阴影"
+        extra="extra"
+        tooltip="这是提示"
+        style={{ maxWidth: 300 }}
+        boxShadow
+      >
+        <div>Card content</div>
+        <div>Card content</div>
+        <div>Card content</div>
+      </ProCard>
+      <ProCard
         title="小尺寸卡片"
         extra="extra"
         tooltip="这是提示"

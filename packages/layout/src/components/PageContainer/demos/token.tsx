@@ -1,5 +1,5 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import { PageContainer, ProCard } from '@ant-design/pro-components';
+import { PageContainer, ProTable } from '@ant-design/pro-components';
 import { Button, Dropdown } from 'antd';
 
 export default () => (
@@ -10,7 +10,7 @@ export default () => (
   >
     <PageContainer
       token={{
-        paddingBlockPageContainerContent: 20,
+        paddingBlockPageContainerContent: 24,
         paddingInlinePageContainerContent: 60,
       }}
       header={{
@@ -64,33 +64,8 @@ export default () => (
           </Dropdown>,
         ],
       }}
-      tabBarExtraContent="测试tabBarExtraContent"
-      tabList={[
-        {
-          tab: '基本信息',
-          key: 'base',
-          closable: false,
-        },
-        {
-          tab: '详细信息',
-          key: 'info',
-        },
-      ]}
-      tabProps={{
-        type: 'editable-card',
-        hideAdd: true,
-        onEdit: (e, action) => console.log(e, action),
-      }}
-      footer={[
-        <Button key="3">重置</Button>,
-        <Button key="2" type="primary">
-          提交
-        </Button>,
-      ]}
     >
-      <ProCard direction="column" ghost gutter={[0, 16]}>
-        <ProCard style={{ height: 200 }} />
-      </ProCard>
+      <ProTable />
     </PageContainer>
   </div>
 );
