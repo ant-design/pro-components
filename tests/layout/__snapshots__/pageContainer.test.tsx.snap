@@ -98,7 +98,7 @@ exports[`PageContainer > ⚡️ support more loading props 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-grid-content"
+      class="ant-pro-grid-content ant-pro-grid-content-wide"
     >
       <div
         class="ant-pro-grid-content-children"
@@ -159,7 +159,7 @@ exports[`PageContainer > 🌛 PageContainer with custom loading 1`] = `
       </div>
     </div>
     <div
-      class="ant-pro-grid-content"
+      class="ant-pro-grid-content ant-pro-grid-content-wide"
     >
       <div
         class="ant-pro-grid-content-children"
@@ -402,13 +402,14 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
             class="ant-pro-page-container"
           >
             <div
-              class="ant-pro-grid-content"
+              class="ant-pro-grid-content ant-pro-grid-content-wide"
             >
               <div
                 class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
+                  style="padding-block-start: 32px;"
                 >
                   <div
                     class="ant-pro-footer-bar"
@@ -434,7 +435,7 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
         </main>
         <div
           class="ant-pro-layout-has-footer"
-          style="height: 64px; margin-block-start: 24px;"
+          style="height: 64px; margin-block-start: 32px;"
         />
       </div>
     </div>
@@ -781,7 +782,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
         </main>
         <div
           class="ant-pro-layout-has-footer"
-          style="height: 64px; margin-block-start: 24px;"
+          style="height: 64px; margin-block-start: 32px;"
         />
       </div>
     </div>

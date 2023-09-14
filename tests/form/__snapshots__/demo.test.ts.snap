@@ -47992,13 +47992,14 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
               </div>
             </div>
             <div
-              class="ant-pro-grid-content"
+              class="ant-pro-grid-content ant-pro-grid-content-wide"
             >
               <div
                 class="ant-pro-grid-content-children"
               >
                 <div
                   class="ant-pro-page-container-children-container"
+                  style="padding-block-start: 32px;"
                 >
                   <div
                     class="ant-card ant-card-bordered"
@@ -49457,7 +49458,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
         </main>
         <div
           class="ant-pro-layout-has-footer"
-          style="height: 64px; margin-block-start: 24px;"
+          style="height: 64px; margin-block-start: 32px;"
         />
       </div>
     </div>

@@ -25,7 +25,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const value = useContext(RouteContext);
   const {
     children,
-    contentWidth: propsContentWidth,
+    contentWidth: propsContentWidth = 'Fluid',
     className: propsClassName,
     style,
   } = props;
@@ -35,7 +35,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const contentWidth = propsContentWidth || value.contentWidth;
   const className = `${prefixCls}-grid-content`;
   const { wrapSSR, hashId } = useStyle(className);
-  const isWide = contentWidth === 'Fixed';
+  const isWide = contentWidth !== 'Fixed';
 
   return wrapSSR(
     <div

@@ -1310,7 +1310,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                       style="margin-right: 8px;"
                     >
                       <span>
-                        ＊ ＊ ＊ ＊ ＊
+                        ************************
                       </span>
                     </div>
                     <div

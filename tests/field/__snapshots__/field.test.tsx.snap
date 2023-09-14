@@ -3579,7 +3579,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                       style="margin-right: 8px;"
                     >
                       <span>
-                        ＊ ＊ ＊ ＊ ＊
+                        ************************
                       </span>
                     </div>
                     <div
@@ -4129,7 +4129,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                       style="margin-right: 8px;"
                     >
                       <span>
-                        ＊ ＊ ＊ ＊ ＊
+                        ************************
                       </span>
                     </div>
                     <div
