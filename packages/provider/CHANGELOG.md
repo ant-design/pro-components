@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.12.3...@ant-design/pro-provider@2.13.0) (2023-09-14)
 
-
 ### Features
 
-* **layout:** 更新 PageContainer Token 样式和计算规则 ([#7645](https://github.com/ant-design/pro-components/issues/7645)) ([f341313](https://github.com/ant-design/pro-components/commit/f341313672562619e443a2d4b8b716da0248da02))
-
-
-
-
+- **layout:** 更新 PageContainer Token 样式和计算规则 ([#7645](https://github.com/ant-design/pro-components/issues/7645)) ([f341313](https://github.com/ant-design/pro-components/commit/f341313672562619e443a2d4b8b716da0248da02))
 
 ## [2.12.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.12.2...@ant-design/pro-provider@2.12.3) (2023-09-06)
 

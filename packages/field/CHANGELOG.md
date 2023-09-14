@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.12.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.4...@ant-design/pro-field@2.12.5) (2023-09-14)
 
-
 ### Bug Fixes
 
-* **form:** 优化PassWord 展现形式 ([#7657](https://github.com/ant-design/pro-components/issues/7657)) ([e5ebbe5](https://github.com/ant-design/pro-components/commit/e5ebbe532c97b72e8fa22378e3ce0f0525fb0f87))
-
-
-
-
+- **form:** 优化 PassWord 展现形式 ([#7657](https://github.com/ant-design/pro-components/issues/7657)) ([e5ebbe5](https://github.com/ant-design/pro-components/commit/e5ebbe532c97b72e8fa22378e3ce0f0525fb0f87))
 
 ## [2.12.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.3...@ant-design/pro-field@2.12.4) (2023-09-06)
 
