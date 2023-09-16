@@ -173,8 +173,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                 }
               : undefined
           }
-          {...fieldProps}
           bordered={!light}
+          {...fieldProps}
           treeData={options as TreeSelectProps['treeData']}
           showSearch={showSearch}
           style={{
