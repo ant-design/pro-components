@@ -743,9 +743,9 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fixed"
                                 >
-                                  流式
+                                  Fixed
                                 </span>
                               </div>
                               <span
@@ -1881,9 +1881,9 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fixed"
                                 >
-                                  流式
+                                  Fixed
                                 </span>
                               </div>
                               <span
@@ -3088,9 +3088,9 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fixed"
                                 >
-                                  流式
+                                  Fixed
                                 </span>
                               </div>
                               <span
@@ -4263,9 +4263,9 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                                 </span>
                                 <span
                                   class="ant-select-selection-item"
-                                  title="流式"
+                                  title="Fixed"
                                 >
-                                  流式
+                                  Fixed
                                 </span>
                               </div>
                               <span
