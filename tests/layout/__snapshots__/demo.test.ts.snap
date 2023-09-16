@@ -73,11 +73,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             class="ant-page-header-heading-extra"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -90,7 +89,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
               </div>
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -103,7 +101,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
               </div>
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -222,7 +219,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                   </div>
                   <div
                     class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                    style="left: 0px; width: 0px;"
+                    style="left: 0px; transform: translateX(-50%); width: 0px;"
                   />
                 </div>
               </div>
@@ -533,7 +530,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         </div>
                         <div
                           class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                          style="left: 0px; width: 0px;"
+                          style="left: 0px; transform: translateX(-50%); width: 0px;"
                         />
                       </div>
                     </div>
@@ -1319,11 +1316,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             class="ant-page-header-heading-extra"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -1336,7 +1332,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
               </div>
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -1349,7 +1344,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
               </div>
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -1452,6 +1446,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               >
                                 <div
                                   class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="column-gap: 16px; row-gap: 16px;"
                                 >
                                   <div
                                     class="ant-space-item"
@@ -1946,6 +1941,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                           />
                           <div
                             aria-disabled="false"
+                            aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="16"
@@ -2002,6 +1998,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                           />
                           <div
                             aria-disabled="false"
+                            aria-orientation="horizontal"
                             aria-valuemax="100"
                             aria-valuemin="0"
                             aria-valuenow="9"
@@ -2058,6 +2055,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                           />
                           <div
                             aria-disabled="false"
+                            aria-orientation="horizontal"
                             aria-valuemax="90"
                             aria-valuemin="-90"
                             aria-valuenow="-22"
@@ -8339,11 +8337,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                     class="ant-page-header-heading-extra"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
                       >
                         <button
                           class="ant-btn ant-btn-default"
@@ -8356,7 +8353,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                       </div>
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
                       >
                         <button
                           class="ant-btn ant-btn-default"
@@ -8773,11 +8769,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                     class="ant-page-header-heading-extra"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
                       >
                         <button
                           class="ant-btn ant-btn-default"
@@ -8790,7 +8785,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                       </div>
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
                       >
                         <button
                           class="ant-btn ant-btn-default"
@@ -9146,11 +9140,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                   class="ant-page-header-heading-extra"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"
@@ -9163,7 +9156,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                     </div>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"
@@ -9511,11 +9503,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                   class="qixian-page-header-heading-extra"
                 >
                   <div
-                    class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                    class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-space-gap-row-small qixian-space-gap-col-small"
                   >
                     <div
                       class="qixian-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="qixian-btn qixian-btn-default"
@@ -9528,7 +9519,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                     </div>
                     <div
                       class="qixian-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="qixian-btn qixian-btn-default"
@@ -9696,10 +9686,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                       >
                         <div
                           class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                          style="column-gap: 24px; row-gap: 24px;"
                         >
                           <div
                             class="qixian-space-item"
-                            style="margin-right: 24px;"
                           >
                             <div
                               class="qixian-statistic"
@@ -9833,7 +9823,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                         </div>
                         <div
                           class="qixian-tabs-ink-bar qixian-tabs-ink-bar-animated"
-                          style="left: 0px; width: 0px;"
+                          style="left: 0px; transform: translateX(-50%); width: 0px;"
                         />
                       </div>
                     </div>
@@ -11391,11 +11381,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                   class="ant-page-header-heading-extra"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"
@@ -11408,7 +11397,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                     </div>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"
@@ -11782,11 +11770,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                   class="ant-page-header-heading-extra"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"
@@ -11799,7 +11786,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                     </div>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"
@@ -12194,11 +12180,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                     class="ant-page-header-heading-extra"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
                       >
                         <button
                           class="ant-btn ant-btn-default"
@@ -12211,7 +12196,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                       </div>
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
                       >
                         <button
                           class="ant-btn ant-btn-default"
@@ -13377,11 +13361,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                     class="ant-page-header-heading-extra"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
                       >
                         <button
                           class="ant-btn ant-btn-default"
@@ -13394,7 +13377,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                       </div>
                       <div
                         class="ant-space-item"
-                        style="margin-right: 8px;"
                       >
                         <button
                           class="ant-btn ant-btn-default"
@@ -13562,10 +13544,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                         >
                           <div
                             class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="column-gap: 24px; row-gap: 24px;"
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 24px;"
                             >
                               <div
                                 class="ant-statistic"
@@ -13699,7 +13681,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                           </div>
                           <div
                             class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                            style="left: 0px; width: 0px;"
+                            style="left: 0px; transform: translateX(-50%); width: 0px;"
                           />
                         </div>
                       </div>
@@ -15414,12 +15396,11 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
             </div>
           </main>
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             style="height: 64px; display: flex; justify-content: end; align-items: center; margin-inline-end: 24px;"
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
             >
               <button
                 class="ant-btn ant-btn-default"
@@ -17341,11 +17322,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                   class="ant-page-header-heading-extra"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         class="ant-input-group-wrapper ant-input-search"
@@ -17396,7 +17376,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                     </div>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"
@@ -21059,11 +21038,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                   class="ant-page-header-heading-extra"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"
@@ -21076,7 +21054,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                     </div>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <button
                         class="ant-btn ant-btn-default"

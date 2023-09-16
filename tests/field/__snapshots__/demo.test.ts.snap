@@ -6,11 +6,10 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
     test
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-radio-group ant-radio-group-outline"
@@ -58,7 +57,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       简约模式
     </div>
@@ -743,11 +741,10 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
-                      style="flex-wrap: wrap; margin-bottom: -2px;"
+                      style="flex-wrap: wrap; column-gap: 2px; row-gap: 2px;"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 1px; padding-bottom: 2px;"
                       >
                         <span
                           class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -764,13 +761,11 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                       </div>
                       <span
                         class="ant-space-item-split"
-                        style="margin-right: 1px; padding-bottom: 2px;"
                       >
                         ,
                       </span>
                       <div
                         class="ant-space-item"
-                        style="padding-bottom: 2px;"
                       >
                         <span
                           class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
@@ -810,23 +805,20 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
-                      style="flex-wrap: wrap; margin-bottom: -2px;"
+                      style="flex-wrap: wrap; column-gap: 2px; row-gap: 2px;"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right: 1px; padding-bottom: 2px;"
                       >
                         打开
                       </div>
                       <span
                         class="ant-space-item-split"
-                        style="margin-right: 1px; padding-bottom: 2px;"
                       >
                         ,
                       </span>
                       <div
                         class="ant-space-item"
-                        style="padding-bottom: 2px;"
                       >
                         关闭
                       </div>
@@ -939,35 +931,30 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                 >
                   <div
                     class="ant-space ant-space-horizontal ant-space-align-center"
-                    style="flex-wrap: wrap; margin-bottom: -2px;"
+                    style="flex-wrap: wrap; column-gap: 2px; row-gap: 2px;"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       Zhejiang
                     </div>
                     <span
                       class="ant-space-item-split"
-                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       ,
                     </span>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       Hangzhou
                     </div>
                     <span
                       class="ant-space-item-split"
-                      style="margin-right: 1px; padding-bottom: 2px;"
                     >
                       ,
                     </span>
                     <div
                       class="ant-space-item"
-                      style="padding-bottom: 2px;"
                     >
                       West Lake
                     </div>
@@ -1062,11 +1049,10 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         style="color: rgb(255, 77, 79);"
@@ -1076,7 +1062,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                     </div>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         style="color: rgb(89, 89, 89);"
@@ -1136,11 +1121,10 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span>
                         in 3 years
@@ -1303,11 +1287,10 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span>
                         ************************
@@ -1438,11 +1421,10 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
     test
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-radio-group ant-radio-group-outline"
@@ -1490,7 +1472,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       简约模式
     </div>
@@ -2655,6 +2636,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     />
                     <div
                       aria-disabled="false"
+                      aria-orientation="horizontal"
                       aria-valuemax="100"
                       aria-valuemin="0"
                       aria-valuenow="0"
@@ -3634,11 +3616,10 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         style="color: rgb(255, 77, 79);"
@@ -3648,7 +3629,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     </div>
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         style="color: rgb(89, 89, 89);"
@@ -3746,11 +3726,10 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <div
                         class="ant-picker"

@@ -368,10 +368,10 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -1185,10 +1185,10 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -3403,11 +3403,10 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
     test
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -14858,10 +14857,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
               >
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="column-gap: 24px; row-gap: 24px;"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right: 24px;"
                   >
                     <span>
                       已选 1 项
@@ -14874,7 +14873,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                   </div>
                   <div
                     class="ant-space-item"
-                    style="margin-right: 24px;"
                   >
                     <span>
                       容器数量: 16 个
@@ -14894,10 +14892,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
               >
                 <div
                   class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="column-gap: 16px; row-gap: 16px;"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right: 16px;"
                   >
                     <a>
                       批量删除
@@ -17975,6 +17973,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                     >
                       <div
                         class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="qixian-space-item"
@@ -18887,10 +18886,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                         >
                           <div
                             class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="column-gap: 16px; row-gap: 16px;"
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 16px;"
                             >
                               <div
                                 style="display: flex; gap: 8px; align-items: center;"
@@ -19418,7 +19417,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                       >
                         <div
                           class="ant-space-item"
@@ -19468,6 +19467,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -20531,10 +20531,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -22098,6 +22098,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -22609,6 +22610,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -23120,6 +23122,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -23866,10 +23869,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -25276,10 +25279,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               >
                                 <div
                                   class="ant-space ant-space-horizontal ant-space-align-center"
+                                  style="column-gap: 16px; row-gap: 16px;"
                                 >
                                   <div
                                     class="ant-space-item"
-                                    style="margin-right: 16px;"
                                   >
                                     <div
                                       style="display: flex; gap: 8px; align-items: center;"
@@ -26511,7 +26514,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -26591,7 +26593,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -26713,7 +26714,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -26793,7 +26793,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -26873,7 +26872,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -26953,7 +26951,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -27212,7 +27209,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -27312,7 +27308,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -27412,7 +27407,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -27492,7 +27486,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -27572,7 +27565,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -27652,7 +27644,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 0px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -27955,9 +27946,50 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.t
                                           colspan="2"
                                         >
                                           <div
-                                            class="ant-table-expanded-row-fixed"
-                                            style="width: 0px; position: sticky; left: 0px; overflow: hidden;"
-                                          />
+                                            class="ant-empty ant-empty-normal"
+                                          >
+                                            <div
+                                              class="ant-empty-image"
+                                            >
+                                              <svg
+                                                height="41"
+                                                viewBox="0 0 64 41"
+                                                width="64"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <g
+                                                  fill="none"
+                                                  fill-rule="evenodd"
+                                                  transform="translate(0 1)"
+                                                >
+                                                  <ellipse
+                                                    cx="32"
+                                                    cy="33"
+                                                    fill="#f5f5f5"
+                                                    rx="32"
+                                                    ry="7"
+                                                  />
+                                                  <g
+                                                    fill-rule="nonzero"
+                                                    stroke="#d9d9d9"
+                                                  >
+                                                    <path
+                                                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                                    />
+                                                    <path
+                                                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                                      fill="#fafafa"
+                                                    />
+                                                  </g>
+                                                </g>
+                                              </svg>
+                                            </div>
+                                            <div
+                                              class="ant-empty-description"
+                                            >
+                                              暂无数据
+                                            </div>
+                                          </div>
                                         </td>
                                       </tr>
                                     </tbody>
@@ -28975,6 +29007,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -29522,6 +29555,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -29577,11 +29611,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                 class="ant-pro-table-list-toolbar-title"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right: 8px;"
                   >
                     <span>
                       Basic Table
@@ -30835,10 +30868,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -33220,11 +33253,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                         class="ant-table-cell"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
                           >
                             <span>
                               <span
@@ -33305,11 +33337,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                         class="ant-table-cell"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
                           >
                             <span>
                               <span
@@ -33390,11 +33421,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                         class="ant-table-cell"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
                           >
                             <span>
                               <span
@@ -33475,11 +33505,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                         class="ant-table-cell"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
                           >
                             <span>
                               <span
@@ -33560,11 +33589,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                         class="ant-table-cell"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
+                          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
                           >
                             <span>
                               <span
@@ -34774,6 +34802,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -35150,7 +35179,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
@@ -35511,6 +35540,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -35887,7 +35917,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
@@ -36451,10 +36481,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -37303,6 +37333,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -38304,6 +38335,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -39304,6 +39336,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -40034,10 +40067,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -41138,6 +41171,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     >
                       <div
                         class="canvas-space canvas-space-horizontal canvas-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="canvas-space-item"
@@ -41951,10 +41985,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     >
                       <div
                         class="canvas-space canvas-space-horizontal canvas-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="canvas-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -42489,7 +42523,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             class="canvas-table-cell"
                           >
                             <div
-                              class="canvas-space canvas-space-horizontal canvas-space-align-center"
+                              class="canvas-space canvas-space-horizontal canvas-space-align-center canvas-space-gap-row-small canvas-space-gap-col-small"
                             >
                               <div
                                 class="canvas-space-item"
@@ -42828,7 +42862,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             class="canvas-table-cell"
                           >
                             <div
-                              class="canvas-space canvas-space-horizontal canvas-space-align-center"
+                              class="canvas-space canvas-space-horizontal canvas-space-align-center canvas-space-gap-row-small canvas-space-gap-col-small"
                             >
                               <div
                                 class="canvas-space-item"
@@ -43167,7 +43201,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             class="canvas-table-cell"
                           >
                             <div
-                              class="canvas-space canvas-space-horizontal canvas-space-align-center"
+                              class="canvas-space canvas-space-horizontal canvas-space-align-center canvas-space-gap-row-small canvas-space-gap-col-small"
                             >
                               <div
                                 class="canvas-space-item"
@@ -45227,10 +45261,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="column-gap: 16px; row-gap: 16px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 16px;"
                           >
                             <div
                               style="display: flex; gap: 4px; align-items: center;"
@@ -46029,10 +46063,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -46322,11 +46356,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
                               >
                                 <span>
                                   <span
@@ -46446,11 +46479,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                             class="ant-table-cell"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
                               >
                                 <span>
                                   <span
@@ -47653,10 +47685,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -47998,23 +48030,20 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -2px;"
+                              style="flex-wrap: wrap; column-gap: 2px; row-gap: 2px;"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 1px; padding-bottom: 2px;"
                               >
                                 front end
                               </div>
                               <span
                                 class="ant-space-item-split"
-                                style="margin-right: 1px; padding-bottom: 2px;"
                               >
                                 ,
                               </span>
                               <div
                                 class="ant-space-item"
-                                style="padding-bottom: 2px;"
                               >
                                 Javascript
                               </div>
@@ -48025,23 +48054,20 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -2px;"
+                              style="flex-wrap: wrap; column-gap: 2px; row-gap: 2px;"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 1px; padding-bottom: 2px;"
                               >
                                 front end
                               </div>
                               <span
                                 class="ant-space-item-split"
-                                style="margin-right: 1px; padding-bottom: 2px;"
                               >
                                 ,
                               </span>
                               <div
                                 class="ant-space-item"
-                                style="padding-bottom: 2px;"
                               >
                                 Javascript
                               </div>
@@ -48136,23 +48162,20 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -2px;"
+                              style="flex-wrap: wrap; column-gap: 2px; row-gap: 2px;"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 1px; padding-bottom: 2px;"
                               >
                                 front end
                               </div>
                               <span
                                 class="ant-space-item-split"
-                                style="margin-right: 1px; padding-bottom: 2px;"
                               >
                                 ,
                               </span>
                               <div
                                 class="ant-space-item"
-                                style="padding-bottom: 2px;"
                               >
                                 Javascript
                               </div>
@@ -48163,23 +48186,20 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -2px;"
+                              style="flex-wrap: wrap; column-gap: 2px; row-gap: 2px;"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 1px; padding-bottom: 2px;"
                               >
                                 front end
                               </div>
                               <span
                                 class="ant-space-item-split"
-                                style="margin-right: 1px; padding-bottom: 2px;"
                               >
                                 ,
                               </span>
                               <div
                                 class="ant-space-item"
-                                style="padding-bottom: 2px;"
                               >
                                 Javascript
                               </div>
@@ -49012,10 +49032,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -50266,10 +50286,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"

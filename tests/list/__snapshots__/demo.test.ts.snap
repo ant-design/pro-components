@@ -2368,7 +2368,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 0px;"
                                 >
                                   <span
                                     class="ant-tag ant-tag-blue"
@@ -2464,7 +2463,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 0px;"
                                 >
                                   <span
                                     class="ant-tag ant-tag-blue"
@@ -2560,7 +2558,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 0px;"
                                 >
                                   <span
                                     class="ant-tag ant-tag-blue"
@@ -2656,7 +2653,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 0px;"
                                 >
                                   <span
                                     class="ant-tag ant-tag-blue"
@@ -2847,7 +2843,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 0px;"
                                 >
                                   <span
                                     class="ant-tag ant-tag-blue"
@@ -2954,7 +2949,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 0px;"
                                 >
                                   <span
                                     class="ant-tag ant-tag-blue"
@@ -3061,7 +3055,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 0px;"
                                 >
                                   <span
                                     class="ant-tag ant-tag-blue"
@@ -3168,7 +3161,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                               >
                                 <div
                                   class="ant-space-item"
-                                  style="margin-right: 0px;"
                                 >
                                   <span
                                     class="ant-tag ant-tag-blue"
@@ -5450,6 +5442,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"

@@ -60,8 +60,8 @@ describe('BasicTable SearchGutter', () => {
       />,
     );
     await waitForWaitTime(1200);
-    const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-col');
-    expect(window.getComputedStyle(ele!).padding).toBe('12px 8px 12px 8px');
+    const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-form');
+    expect(ele).toMatchSnapshot();
   });
 
   it('🎏 ProTable searchGutter default is [24 0]', async () => {
