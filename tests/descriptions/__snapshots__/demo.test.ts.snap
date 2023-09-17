@@ -20,7 +20,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
         class="ant-descriptions-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
         >
           <div
             class="ant-space-item"
@@ -72,11 +72,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       这是一段文本
                     </div>
@@ -129,11 +128,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       2020-07-30
                     </div>
@@ -186,11 +184,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span>
                         ¥12,121.00
@@ -1248,7 +1245,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/cus
         class="ant-descriptions-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
         >
           <div
             class="ant-space-item"
@@ -1292,11 +1289,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/cus
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <a>
                         TradeCode 1
@@ -1351,11 +1347,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/cus
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         class="ant-tag"
@@ -1496,6 +1491,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                           </span>
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class="ant-descriptions-row"
+                    >
                       <td
                         class="ant-descriptions-item"
                         colspan="1"
@@ -1527,6 +1526,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                           </span>
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class="ant-descriptions-row"
+                    >
                       <td
                         class="ant-descriptions-item"
                         colspan="1"
@@ -1571,6 +1574,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                           </span>
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class="ant-descriptions-row"
+                    >
                       <td
                         class="ant-descriptions-item"
                         colspan="1"
@@ -1593,6 +1600,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                           </span>
                         </div>
                       </td>
+                    </tr>
+                    <tr
+                      class="ant-descriptions-row"
+                    >
                       <td
                         class="ant-descriptions-item"
                         colspan="1"
@@ -1693,7 +1704,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                     </div>
                     <div
                       class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                      style="left: 0px; width: 0px;"
+                      style="left: 0px; transform: translateX(-50%); width: 0px;"
                     />
                   </div>
                 </div>
@@ -1831,11 +1842,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                           <div>
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                              style="row-gap: 0;"
+                              style="column-gap: 32px; row-gap: 0;"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 32px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -1960,7 +1970,6 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 32px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -2040,7 +2049,6 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 32px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -2165,7 +2173,6 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                               </div>
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 32px;"
                               >
                                 <div
                                   class="ant-form-item"
@@ -2392,7 +2399,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
         class="ant-descriptions-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
         >
           <div
             class="ant-space-item"
@@ -2452,11 +2459,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         aria-label="这是一段文本columns"
@@ -2621,11 +2627,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       open
                     </div>
@@ -2678,11 +2683,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       -
                     </div>
@@ -2735,11 +2739,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       2020-08-09
                     </div>
@@ -2792,11 +2795,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <ul
                         class="ant-rate ant-rate-disabled"
@@ -3144,11 +3146,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <div>
                         1212100
@@ -3203,11 +3204,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                   style="min-width: 0;"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span>
                         100.00%
@@ -3456,11 +3456,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
         class="ant-descriptions-extra"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
           >
             <div
               class="ant-pro-field-option"

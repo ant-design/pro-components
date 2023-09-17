@@ -159,6 +159,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
@@ -532,6 +533,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                     >
                       <div
                         class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="qixian-space-item"
@@ -905,6 +907,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"

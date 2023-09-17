@@ -87,6 +87,7 @@ export default () => {
       name: string;
       company: string;
     }>
+      grid
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);

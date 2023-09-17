@@ -98,6 +98,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"

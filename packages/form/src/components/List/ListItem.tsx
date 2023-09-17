@@ -12,6 +12,7 @@ import set from 'rc-util/lib/utils/set';
 import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';
+import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { useGridHelpers } from '../../helpers';
 
 export type ChildrenItemFunction = (
@@ -296,8 +297,9 @@ const ProFormListItem: React.FC<
   } = props;
   const { hashId } = useContext(ProProvider);
   const listContext = useContext(FormListContext);
-
   const unmountedRef = useRef(false);
+
+  const { mode } = useContext(EditOrReadOnlyContext);
 
   const [loadingRemove, setLoadingRemove] = useState(false);
   const [loadingCopy, setLoadingCopy] = useState(false);
@@ -355,6 +357,7 @@ const ProFormListItem: React.FC<
       return childrenItem;
     });
   const copyIcon = useMemo(() => {
+    if (mode === 'read') return null;
     /** 复制按钮的配置 */
     if (copyIconProps === false || max === count) return null;
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
@@ -392,6 +395,7 @@ const ProFormListItem: React.FC<
   ]);
 
   const deleteIcon = useMemo(() => {
+    if (mode === 'read') return null;
     if (deleteIconProps === false || min === count) return null;
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps!;
     return (
@@ -433,7 +437,7 @@ const ProFormListItem: React.FC<
     actionRender?.(field, action, defaultActionDom, count) || defaultActionDom;
 
   const dom =
-    actions.length > 0 ? (
+    actions.length > 0 && mode !== 'read' ? (
       <div className={`${prefixCls}-action ${hashId}`.trim()}>{actions}</div>
     ) : null;
 

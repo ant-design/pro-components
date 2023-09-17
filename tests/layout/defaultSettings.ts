@@ -50,7 +50,7 @@ export type ProSettings = PureSettings & RenderSetting;
 
 const defaultSettings: ProSettings = {
   layout: 'side',
-  contentWidth: 'Fluid',
+  contentWidth: 'Fixed',
   fixedHeader: false,
   fixSiderbar: false,
   menu: {

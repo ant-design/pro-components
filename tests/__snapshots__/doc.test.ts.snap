@@ -41,11 +41,10 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
           <div>
             <div
               class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-              style="row-gap: 0;"
+              style="column-gap: 32px; row-gap: 0;"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 32px;"
               >
                 <div
                   class="ant-form-item"
@@ -138,11 +137,10 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
           <div>
             <div
               class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-              style="row-gap: 0;"
+              style="column-gap: 32px; row-gap: 0;"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 32px;"
               >
                 <div
                   class="ant-form-item"
@@ -171,11 +169,10 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                           >
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
                             >
                               <span
                                 class="ant-tag"
@@ -185,7 +182,6 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
                             </div>
                             <div
                               class="ant-space-item"
-                              style="margin-right: 8px;"
                             >
                               <span
                                 class="ant-tag"
@@ -396,7 +392,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                           >
                             <div
                               class="ant-space-item"
@@ -446,6 +442,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
                         >
                           <div
                             class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="column-gap: 16px; row-gap: 16px;"
                           >
                             <div
                               class="ant-space-item"
@@ -1011,10 +1008,10 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueEnum-map.ts
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="column-gap: 16px; row-gap: 16px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 16px;"
                         >
                           <div
                             style="display: flex; gap: 8px; align-items: center;"
@@ -1415,11 +1412,10 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueType.tsx co
       <div>
         <div
           class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-          style="row-gap: 0;"
+          style="column-gap: 32px; row-gap: 0;"
         >
           <div
             class="ant-space-item"
-            style="margin-right: 32px;"
           >
             <div
               class="ant-form-item"

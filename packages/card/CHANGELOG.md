@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.15...@ant-design/pro-card@2.5.16) (2023-09-14)
+
+### Bug Fixes
+
+- **card:** check card extra tag token fixed ([#7669](https://github.com/ant-design/pro-components/issues/7669)) ([d3daf14](https://github.com/ant-design/pro-components/commit/d3daf14d16259c46494ed26345e07744be07b00c))
+
 ## [2.5.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.14...@ant-design/pro-card@2.5.15) (2023-09-06)
 
 **Note:** Version bump only for package @ant-design/pro-card

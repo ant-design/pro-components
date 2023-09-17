@@ -8,6 +8,7 @@ import {
   ProFormDependency,
   ProFormDigit,
   ProFormFieldSet,
+  ProFormList,
   ProFormRadio,
   ProFormRate,
   ProFormSelect,
@@ -310,6 +311,23 @@ const Demo = () => (
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
+      <ProFormList
+        name="textList"
+        label="地址列表"
+        initialValue={[
+          {
+            name: '张三',
+            addr: '地址1',
+          },
+          {
+            name: '李四',
+            addr: '地址2',
+          },
+        ]}
+      >
+        <ProFormText name="name" label="姓名" />
+        <ProFormText name="addr" label="地址" />
+      </ProFormList>
       <ProFormFieldSet
         name="list"
         label="组件列表"

@@ -1,4 +1,13 @@
-﻿## @ant-design/pro-components@2.6.18
+﻿## @ant-design/pro-components@2.6.19
+
+`2023-09-14`
+
+- fix(layout): 默认宽度更改为 1152. [8fd2665](https://github.com/ant-design/pro-components/commit/8fd2665)
+- feat(layout): 更新 PageContainer Token 样式和计算规则 (#7645). [#7645](https://github.com/ant-design/pro-components/pull/#7645) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): 优化 PassWord 展现形式 (#7657). [#7657](https://github.com/ant-design/pro-components/pull/#7657) [@leshalv](https://github.com/leshalv)
+- fix(card): check card extra tag token fixed (#7669). [#7669](https://github.com/ant-design/pro-components/pull/#7669) [@ONLY-yours](https://github.com/ONLY-yours)
+
+## @ant-design/pro-components@2.6.18
 
 `2023-09-07`
 
