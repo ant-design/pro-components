@@ -59,7 +59,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
           components: {
             Layout: {
               colorBgHeader: 'transparent',
-              colorBgBody: 'transparent',
+              bodyBg: 'transparent',
             },
             Menu: {
               ...coverToNewToken({
