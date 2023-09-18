@@ -1,4 +1,12 @@
-﻿## @ant-design/pro-components@2.6.20
+﻿## @ant-design/pro-components@2.6.21
+
+`2023-09-18`
+
+- fix(layout): 默认宽度更改为 1152. [84cc927](https://github.com/ant-design/pro-components/commit/84cc927)
+- fix(layout): deprecated warning (#7693). [#7693](https://github.com/ant-design/pro-components/pull/#7693) [@kungege](https://github.com/kungege)
+- fix(table): less render function. [b3ef405](https://github.com/ant-design/pro-components/commit/b3ef405)
+
+## @ant-design/pro-components@2.6.20
 
 `2023-09-18`
 
