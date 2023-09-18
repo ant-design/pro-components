@@ -1,15 +1,16 @@
 ﻿import {
-  isDeepEqualReact,
   omitUndefined,
   pickProFormItemProps,
   stringify,
+  useDeepCompareMemo,
   usePrevious,
+  useRefFunction,
 } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
 import classnames from 'classnames';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useCallback, useContext, useMemo, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { ProFormDependency, ProFormItem } from '../components';
 import FieldContext from '../FieldContext';
 import { useGridHelpers } from '../helpers';
@@ -118,7 +119,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     /**
      * dependenciesValues change to trigger re-execute of getFieldProps and getFormItemProps
      */
-    const changedProps = useMemo(
+    const changedProps = useDeepCompareMemo(
       () => {
         return {
           formItemProps: getFormItemProps?.(),
@@ -130,7 +131,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       [getFieldProps, getFormItemProps, rest.dependenciesValues, onlyChange],
     );
 
-    const fieldProps: Record<string, any> = useMemo(() => {
+    const fieldProps: Record<string, any> = useDeepCompareMemo(() => {
       const newFieldProps: any = {
         ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
         placeholder,
@@ -157,7 +158,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
 
-    const formItemProps: FormItemProps = useMemo(
+    const formItemProps: FormItemProps = useDeepCompareMemo(
       () => ({
         ...contextValue.formItemProps,
         ...restFormItemProps,
@@ -174,7 +175,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       ],
     );
 
-    const otherProps = useMemo(
+    const otherProps = useDeepCompareMemo(
       () => ({
         messageVariables,
         ...defaultFormItemProps,
@@ -190,7 +191,8 @@ function createField<P extends ProFormFieldItemProps = any>(
     );
 
     const { prefixName } = useContext(RcFieldContext);
-    const proFieldKey = useMemo(() => {
+
+    const proFieldKey = useDeepCompareMemo(() => {
       let name = otherProps?.name;
       if (Array.isArray(name)) name = name.join('_');
       if (Array.isArray(prefixName) && name)
@@ -203,19 +205,16 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     const prefRest = usePrevious(rest);
 
-    const onChange = useCallback(
-      (...restParams: any[]) => {
-        if (getFormItemProps || getFieldProps) {
-          forceUpdateByOnChange([]);
-        } else if (rest.renderFormItem) {
-          forceUpdate([]);
-        }
-        fieldProps?.onChange?.(...restParams);
-      },
-      [getFieldProps, getFormItemProps, fieldProps, rest.renderFormItem],
-    );
+    const onChange = useRefFunction((...restParams: any[]) => {
+      if (getFormItemProps || getFieldProps) {
+        forceUpdateByOnChange([]);
+      } else if (rest.renderFormItem) {
+        forceUpdate([]);
+      }
+      fieldProps?.onChange?.(...restParams);
+    });
 
-    const style = useMemo(() => {
+    const style = useDeepCompareMemo(() => {
       const newStyle = {
         width:
           width && !WIDTH_SIZE_ENUM[width]
@@ -232,7 +231,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stringify(fieldProps?.style), contextValue.grid, isIgnoreWidth, width]);
 
-    const className = useMemo(() => {
+    const className = useDeepCompareMemo(() => {
       const isSizeEnum = width && WIDTH_SIZE_ENUM[width];
       return (
         classnames(fieldProps?.className, {
@@ -242,7 +241,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       );
     }, [width, fieldProps?.className, isIgnoreWidth]);
 
-    const fieldProFieldProps = useMemo(() => {
+    const fieldProFieldProps = useDeepCompareMemo(() => {
       return omitUndefined({
         ...contextValue.proFieldProps,
         mode: rest?.mode,
@@ -262,7 +261,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       proFieldProps,
     ]);
 
-    const fieldFieldProps = useMemo(() => {
+    const fieldFieldProps = useDeepCompareMemo(() => {
       return {
         onChange,
         allowClear,
@@ -271,7 +270,8 @@ function createField<P extends ProFormFieldItemProps = any>(
         className,
       };
     }, [allowClear, className, onChange, fieldProps, style]);
-    const field = useMemo(() => {
+
+    const field = useDeepCompareMemo(() => {
       return (
         <Field
           // @ts-ignore
@@ -285,22 +285,10 @@ function createField<P extends ProFormFieldItemProps = any>(
         />
       );
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [
-      fieldProFieldProps,
-      fieldFieldProps,
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      isDeepEqualReact(prefRest, rest, [
-        'onChange',
-        'onBlur',
-        'onFocus',
-        'record',
-      ])
-        ? undefined
-        : {},
-    ]);
+    }, [fieldProFieldProps, fieldFieldProps, rest]);
 
     // 使用useMemo包裹避免不必要的re-render
-    const formItem = useMemo(() => {
+    const formItem = useDeepCompareMemo(() => {
       return (
         <ProFormItem
           // 全局的提供一个 tip 功能，可以减少代码量

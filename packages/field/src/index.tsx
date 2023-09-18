@@ -4,20 +4,18 @@ import type {
   ProRenderFieldPropsType,
 } from '@ant-design/pro-provider';
 import ProConfigContext from '@ant-design/pro-provider';
-import type {
+import {
+  omitUndefined,
+  pickProProps,
   ProFieldRequestData,
   ProFieldTextType,
   ProFieldValueObjectType,
   ProFieldValueType,
-} from '@ant-design/pro-utils';
-import {
-  omitUndefined,
-  pickProProps,
+  useDeepCompareMemo,
   useRefFunction,
 } from '@ant-design/pro-utils';
 import { Avatar } from 'antd';
-import { noteOnce } from 'rc-util/lib/warning';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import FieldCascader from './components/Cascader';
 import FieldCheckbox from './components/Checkbox';
 import FieldCode from './components/Code';
@@ -239,28 +237,6 @@ const defaultRenderText = (
       );
     }
   }
-
-  const needValueEnum = REQUEST_VALUE_TYPE.includes(valueType as string);
-  const hasValueEnum = !!(
-    props.valueEnum ||
-    props.request ||
-    props.options ||
-    props.fieldProps?.options
-  );
-
-  noteOnce(
-    !needValueEnum || hasValueEnum,
-    `如果设置了 valueType 为 ${REQUEST_VALUE_TYPE.join(
-      ',',
-    )}中任意一个，则需要配置options，request, valueEnum 其中之一，否则无法生成选项。`,
-  );
-
-  noteOnce(
-    !needValueEnum || hasValueEnum,
-    `If you set valueType to any of ${REQUEST_VALUE_TYPE.join(
-      ',',
-    )}, you need to configure options, request or valueEnum.`,
-  );
 
   /** 如果是金额的值 */
   if (valueType === 'money') {
@@ -645,7 +621,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
     onChange?.(...restParams);
   });
 
-  const fieldProps: any = useMemo(() => {
+  const fieldProps: any = useDeepCompareMemo(() => {
     return (
       (value !== undefined || restFieldProps) && {
         value,
@@ -657,7 +633,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, restFieldProps, onChangeCallBack]);
 
-  const renderedDom = useMemo(() => {
+  const renderedDom = useDeepCompareMemo(() => {
     return defaultRenderText(
       mode === 'edit'
         ? fieldProps?.value ?? text ?? ''
@@ -706,6 +682,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
     text,
     valueType,
   ]);
+
   return <React.Fragment>{renderedDom}</React.Fragment>;
 };
 

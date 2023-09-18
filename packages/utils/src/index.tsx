@@ -32,6 +32,7 @@ import {
   useDeepCompareEffect,
   useDeepCompareEffectDebounce,
 } from './hooks/useDeepCompareEffect';
+import useDeepCompareMemo from './hooks/useDeepCompareMemo';
 import { useDocumentTitle } from './hooks/useDocumentTitle';
 import type { ProRequestData } from './hooks/useFetchData';
 import { useFetchData } from './hooks/useFetchData';
@@ -147,4 +148,5 @@ export {
   useReactiveRef,
   useRefCallback,
   useBreakpoint,
+  useDeepCompareMemo,
 };

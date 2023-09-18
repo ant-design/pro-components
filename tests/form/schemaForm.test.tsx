@@ -123,7 +123,7 @@ describe('SchemaForm', () => {
     await waitFor(() => {
       expect(requestFn).toBeCalledWith('qixian');
       expect(formItemPropsFn).toBeCalledTimes(2);
-      expect(fieldPropsFn).toBeCalledTimes(4);
+      expect(fieldPropsFn).toBeCalledTimes(2);
     });
   });
 
@@ -174,9 +174,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(6);
-      expect(fieldPropsFn).toBeCalledTimes(2);
-      expect(formItemPropsFn).toBeCalledTimes(2);
+      expect(renderFormItemFn).toBeCalledTimes(5);
+      expect(fieldPropsFn).toBeCalledTimes(1);
+      expect(formItemPropsFn).toBeCalledTimes(1);
       expect(onValuesChangeFn).toBeCalled();
     });
   });
@@ -234,8 +234,8 @@ describe('SchemaForm', () => {
 
     await waitFor(() => {
       expect(shouldUpdateFn).toBeCalledTimes(0);
-      expect(fieldPropsFn).toBeCalledTimes(3);
-      expect(formItemPropsFn).toBeCalledTimes(3);
+      expect(fieldPropsFn).toBeCalledTimes(1);
+      expect(formItemPropsFn).toBeCalledTimes(1);
       expect(renderFormItemFn).toBeCalledTimes(4);
     });
 
@@ -247,8 +247,8 @@ describe('SchemaForm', () => {
     // Although shouldUpdate returns false, but using dependencies will still update
     await waitFor(() => {
       expect(renderFormItemFn).toBeCalledTimes(5);
-      expect(formItemPropsFn).toBeCalledTimes(4);
-      expect(fieldPropsFn).toBeCalledTimes(4);
+      expect(formItemPropsFn).toBeCalledTimes(2);
+      expect(fieldPropsFn).toBeCalledTimes(2);
       expect(shouldUpdateFn).toBeCalledTimes(1);
     });
 
@@ -259,9 +259,9 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toBeCalledTimes(7);
-      expect(formItemPropsFn).toBeCalledTimes(5);
-      expect(fieldPropsFn).toBeCalledTimes(5);
+      expect(renderFormItemFn).toBeCalledTimes(6);
+      expect(formItemPropsFn).toBeCalledTimes(3);
+      expect(fieldPropsFn).toBeCalledTimes(3);
       expect(shouldUpdateFn).toBeCalledTimes(2);
       expect(shouldUpdateFn).toBeCalledWith(true);
     });

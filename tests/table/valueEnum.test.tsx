@@ -74,7 +74,9 @@ describe('Table valueEnum', () => {
         rowKey="key"
       />,
     );
-    await waitForWaitTime(1200);
+    await waitFor(() => {
+      return html.findAllByText('2');
+    });
 
     act(() => {
       html.rerender(
@@ -108,7 +110,11 @@ describe('Table valueEnum', () => {
         />,
       );
     });
-    await waitForWaitTime(200);
+
+    await waitFor(() => {
+      return html.findAllByText('已上线');
+    });
+
     act(() => {
       html.baseElement
         .querySelector<HTMLDivElement>('form.ant-form div.ant-select')
@@ -121,6 +127,9 @@ describe('Table valueEnum', () => {
         )?.textContent,
       ).toBe('01关闭运行中已上线异常');
     });
+
+    console.log(html.baseElement.querySelector('table')?.innerHTML);
+
     expect(
       html.baseElement.querySelector<HTMLDivElement>('td.ant-table-cell')
         ?.textContent,

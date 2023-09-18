@@ -141,7 +141,9 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   shouldUpdate?: boolean | ((newValues: T, oldValues?: T) => boolean);
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T, ValueType> &
-  CommonFormProps<T>;
+  CommonFormProps<T> & {
+    open?: boolean;
+  };
 
 export type ProFormRenderValueTypeItem<T, ValueType> = {
   label: any;

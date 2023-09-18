@@ -1,16 +1,16 @@
-﻿import type {
+﻿import {
+  isDropdownValueType,
+  omitUndefined,
   ProFieldValueType,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
-} from '@ant-design/pro-utils';
-import {
-  isDropdownValueType,
-  omitUndefined,
+  useDeepCompareMemo,
   useRefFunction,
 } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
+import omit from 'omit.js';
 import React, { useContext, useEffect, useMemo } from 'react';
 import type { LightWrapperProps } from '../../BaseForm';
 import { LightWrapper } from '../../BaseForm';
@@ -42,21 +42,26 @@ const WithValueFomFiledProps: React.FC<
     ...restProps
   } = formFieldProps;
 
+  const isProFormComponent =
+    // @ts-ignore
+    filedChildren?.type?.displayName !== 'ProFormComponent';
+
+  const isValidElementForFiledChildren = !React.isValidElement(filedChildren);
+
   const onChangeMemo = useRefFunction(function (...restParams: any[]): void {
     onChange?.(...restParams);
-    // @ts-ignore
-    if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
-    if (!React.isValidElement(filedChildren)) return undefined;
+    if (isProFormComponent) return;
+    if (isValidElementForFiledChildren) return undefined;
     filedChildren?.props?.onChange?.(...restParams);
+
     (filedChildren?.props as Record<string, any>)?.fieldProps?.onChange?.(
       ...restParams,
     );
   });
 
   const onBlurMemo = useRefFunction(function (...restParams: any[]): void {
-    // @ts-ignore
-    if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
-    if (!React.isValidElement(filedChildren)) return;
+    if (isProFormComponent) return;
+    if (isValidElementForFiledChildren) return;
     onBlur?.(...restParams);
     filedChildren?.props?.onBlur?.(...restParams);
     (filedChildren?.props as Record<string, any>)?.fieldProps?.onBlur?.(
@@ -64,26 +69,40 @@ const WithValueFomFiledProps: React.FC<
     );
   });
 
-  const fieldProps = useMemo(() => {
-    // @ts-ignore
-    if (filedChildren?.type?.displayName !== 'ProFormComponent')
-      return undefined;
-    if (!React.isValidElement(filedChildren)) return undefined;
+  const omitOnBlurAndOnChangeProps = useDeepCompareMemo(
+    () =>
+      omit(
+        // @ts-ignore
+        filedChildren?.props?.fieldProps || {},
+        ['onBlur', 'onChange'],
+      ),
+    [
+      omit(
+        // @ts-ignore
+        filedChildren?.props?.fieldProps || {},
+        ['onBlur', 'onChange'],
+      ),
+    ],
+  );
+  const propsValuePropName = formFieldProps[valuePropName];
 
+  const fieldProps = useMemo(() => {
+    if (isProFormComponent) return undefined;
+    if (isValidElementForFiledChildren) return undefined;
     return omitUndefined({
       id: restProps.id,
       // 优先使用 children.props.fieldProps，
       // 比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
-      [valuePropName]: formFieldProps[valuePropName],
-      ...(filedChildren?.props?.fieldProps || {}),
+      [valuePropName]: propsValuePropName,
+      ...omitOnBlurAndOnChangeProps,
       onBlur: onBlurMemo,
       // 这个 onChange 是 Form.Item 添加上的，
       // 要通过 fieldProps 透传给 ProField 调用
       onChange: onChangeMemo,
     });
   }, [
-    filedChildren,
-    formFieldProps,
+    propsValuePropName,
+    omitOnBlurAndOnChangeProps,
     onBlurMemo,
     onChangeMemo,
     restProps.id,

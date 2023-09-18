@@ -1,23 +1,22 @@
 import { useIntl } from '@ant-design/pro-provider';
-import type {
+import {
+  nanoid,
   ProFieldRequestData,
   ProFieldValueEnumType,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   RequestOptionsType,
-} from '@ant-design/pro-utils';
-import {
-  nanoid,
   useDebounceValue,
   useDeepCompareEffect,
+  useDeepCompareMemo,
   useMountMergeState,
+  useRefFunction,
   useStyle,
 } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Space, Spin } from 'antd';
 import type { ReactNode } from 'react';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -324,7 +323,7 @@ export const useFieldFetchData = (
 
   const proFieldKeyRef = useRef(cacheKey);
 
-  const getOptionsFormValueEnum = useCallback(
+  const getOptionsFormValueEnum = useRefFunction(
     (coverValueEnum: ProFieldValueEnumType) => {
       return proFieldParsingValueEnumToArray(ObjToMap(coverValueEnum)).map(
         ({ value, text, ...rest }) => ({
@@ -335,10 +334,9 @@ export const useFieldFetchData = (
         }),
       );
     },
-    [],
   );
 
-  const defaultOptions = useMemo(() => {
+  const defaultOptions = useDeepCompareMemo(() => {
     if (!fieldProps) return undefined;
     const data = fieldProps?.options || fieldProps?.treeData;
     if (!data) return undefined;
