@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.12.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.5...@ant-design/pro-field@2.12.6) (2023-09-18)
 
-
 ### Bug Fixes
 
-* **form:** 修复treeSelect组件bordered属性无法生效 ([#7687](https://github.com/ant-design/pro-components/issues/7687)) ([695f5a6](https://github.com/ant-design/pro-components/commit/695f5a695112be92f9300966b52536b5edda1196))
-
-
-
-
+- **form:** 修复 treeSelect 组件 bordered 属性无法生效 ([#7687](https://github.com/ant-design/pro-components/issues/7687)) ([695f5a6](https://github.com/ant-design/pro-components/commit/695f5a695112be92f9300966b52536b5edda1196))
 
 ## [2.12.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.4...@ant-design/pro-field@2.12.5) (2023-09-14)
 

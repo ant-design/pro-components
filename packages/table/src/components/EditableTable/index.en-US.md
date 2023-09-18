@@ -143,7 +143,6 @@ recordCreatorProps = {
   // Button properties, see https://ant.design/components/button/#API
   ...antButtonProps,
 };
-
 ```
 
 ```typescript

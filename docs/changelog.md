@@ -1,4 +1,14 @@
-﻿## @ant-design/pro-components@2.6.19
+﻿## @ant-design/pro-components@2.6.20
+
+`2023-09-18`
+
+- fix(layout): default set contentWidth=Fixed. [065524d](https://github.com/ant-design/pro-components/commit/065524d)
+- fix(form): 修复 treeSelect 组件 bordered 属性无法生效 (#7687). [#7687](https://github.com/ant-design/pro-components/pull/#7687) [@badrylin](https://github.com/badrylin)
+- fix(form): form list support readonly. [6407072](https://github.com/ant-design/pro-components/commit/6407072)
+- fix(table): EditableProTable reset FormItem grid. [c53ecce](https://github.com/ant-design/pro-components/commit/c53ecce)
+- fix(card): check card extra tag token fixed (#7669). [#7669](https://github.com/ant-design/pro-components/pull/#7669) [@ONLY-yours](https://github.com/ONLY-yours)
+
+## @ant-design/pro-components@2.6.19
 
 `2023-09-14`
 

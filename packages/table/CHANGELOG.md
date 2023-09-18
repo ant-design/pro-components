@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.12.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.4...@ant-design/pro-table@3.12.5) (2023-09-18)
 
-
 ### Bug Fixes
 
-* **table:** EditableProTable reset FormItem grid ([c53ecce](https://github.com/ant-design/pro-components/commit/c53ecce5d82553f952b19db22903970f13a586a5))
-
-
-
-
+- **table:** EditableProTable reset FormItem grid ([c53ecce](https://github.com/ant-design/pro-components/commit/c53ecce5d82553f952b19db22903970f13a586a5))
 
 ## [3.12.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.3...@ant-design/pro-table@3.12.4) (2023-09-14)
 

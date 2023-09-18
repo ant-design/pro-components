@@ -324,11 +324,10 @@ SearchProps is a property of antd's [Input.Search](https://ant.design/components
 | items | menu items | `{ key: string; tab: ReactNode }[]` | - |
 | onChange | Callback for toggling menu items | `(activeKey)=>void` | - |
 
-
 #### TableDropdown
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
 | key | Unique identifier | `string` | - |
 | name | Content | `ReactNode` | - |
-| (...Menu.Item) |  [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) from Ant Design | Menu.Item | - |
+| (...Menu.Item) | [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) from Ant Design | Menu.Item | - |

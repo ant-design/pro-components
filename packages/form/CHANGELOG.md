@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.18.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.7...@ant-design/pro-form@2.18.8) (2023-09-18)
 
-
 ### Bug Fixes
 
-* **form:** form list support readonly ([6407072](https://github.com/ant-design/pro-components/commit/6407072ea4cc3cc6d1d5a8d9f7bea99cdfc6b372))
-* **table:** EditableProTable reset FormItem grid ([c53ecce](https://github.com/ant-design/pro-components/commit/c53ecce5d82553f952b19db22903970f13a586a5))
-
-
-
-
+- **form:** form list support readonly ([6407072](https://github.com/ant-design/pro-components/commit/6407072ea4cc3cc6d1d5a8d9f7bea99cdfc6b372))
+- **table:** EditableProTable reset FormItem grid ([c53ecce](https://github.com/ant-design/pro-components/commit/c53ecce5d82553f952b19db22903970f13a586a5))
 
 ## [2.18.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.6...@ant-design/pro-form@2.18.7) (2023-09-14)
 

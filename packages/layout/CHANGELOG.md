@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.0...@ant-design/pro-layout@7.17.1) (2023-09-18)
 
-
 ### Bug Fixes
 
-* **layout:** default set contentWidth=Fixed ([065524d](https://github.com/ant-design/pro-components/commit/065524d74c9be77b0889640a2183f7adf0c60290))
-
-
-
-
+- **layout:** default set contentWidth=Fixed ([065524d](https://github.com/ant-design/pro-components/commit/065524d74c9be77b0889640a2183f7adf0c60290))
 
 # [7.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.16.13...@ant-design/pro-layout@7.17.0) (2023-09-14)
 
