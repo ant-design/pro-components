@@ -47992,7 +47992,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"

@@ -3,7 +3,6 @@
   pickProFormItemProps,
   stringify,
   useDeepCompareMemo,
-  usePrevious,
   useRefFunction,
 } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
@@ -202,8 +201,6 @@ function createField<P extends ProFormFieldItemProps = any>(
 
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stringify(otherProps?.name), prefixName, contextValue.formKey]);
-
-    const prefRest = usePrevious(rest);
 
     const onChange = useRefFunction((...restParams: any[]) => {
       if (getFormItemProps || getFieldProps) {

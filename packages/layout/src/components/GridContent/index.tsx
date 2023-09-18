@@ -35,7 +35,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const contentWidth = propsContentWidth || value.contentWidth;
   const className = `${prefixCls}-grid-content`;
   const { wrapSSR, hashId } = useStyle(className);
-  const isWide = contentWidth === 'Fixed';
+  const isWide = contentWidth === 'Fixed' && value.layout === 'top';
 
   return wrapSSR(
     <div

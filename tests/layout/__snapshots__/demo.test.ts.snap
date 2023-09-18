@@ -284,7 +284,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
         </div>
       </div>
       <div
-        class="ant-pro-grid-content ant-pro-grid-content-wide"
+        class="ant-pro-grid-content"
       >
         <div
           class="ant-pro-grid-content-children"
@@ -593,7 +593,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
         </div>
       </div>
       <div
-        class="ant-pro-grid-content ant-pro-grid-content-wide"
+        class="ant-pro-grid-content"
       >
         <div
           class="ant-pro-grid-content-children"
@@ -858,7 +858,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
         </div>
       </div>
       <div
-        class="ant-pro-grid-content ant-pro-grid-content-wide"
+        class="ant-pro-grid-content"
       >
         <div
           class="ant-pro-grid-content-children"
@@ -1012,7 +1012,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             </div>
           </div>
           <div
-            class="ant-pro-grid-content ant-pro-grid-content-wide"
+            class="ant-pro-grid-content"
           >
             <div
               class="ant-pro-grid-content-children"
@@ -1118,7 +1118,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             </div>
           </div>
           <div
-            class="ant-pro-grid-content ant-pro-grid-content-wide"
+            class="ant-pro-grid-content"
           >
             <div
               class="ant-pro-grid-content-children"
@@ -1224,7 +1224,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
             </div>
           </div>
           <div
-            class="ant-pro-grid-content ant-pro-grid-content-wide"
+            class="ant-pro-grid-content"
           >
             <div
               class="ant-pro-grid-content-children"
@@ -1388,7 +1388,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
         </div>
       </div>
       <div
-        class="ant-pro-grid-content ant-pro-grid-content-wide"
+        class="ant-pro-grid-content"
       >
         <div
           class="ant-pro-grid-content-children"
@@ -4273,7 +4273,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -4575,7 +4575,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/BreadcrumbsRepe
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -4819,7 +4819,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -5063,7 +5063,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/IconFont.tsx co
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -5307,7 +5307,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MenuGroup.tsx c
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -5573,7 +5573,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MultipleMenuOne
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -5785,7 +5785,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                         </div>
                       </div>
                       <div
-                        class="ant-pro-grid-content ant-pro-grid-content-wide"
+                        class="ant-pro-grid-content"
                       >
                         <div
                           class="ant-pro-grid-content-children"
@@ -6120,7 +6120,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
                         </div>
                       </div>
                       <div
-                        class="ant-pro-grid-content ant-pro-grid-content-wide"
+                        class="ant-pro-grid-content"
                       >
                         <div
                           class="ant-pro-grid-content-children"
@@ -6401,7 +6401,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/antd@4MenuIconF
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -6888,7 +6888,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/api.tsx correct
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -8380,7 +8380,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -8812,7 +8812,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -9183,7 +9183,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -9883,7 +9883,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
               </div>
             </div>
             <div
-              class="qixian-pro-grid-content qixian-pro-grid-content-wide"
+              class="qixian-pro-grid-content"
             >
               <div
                 class="qixian-pro-grid-content-children"
@@ -10569,7 +10569,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -10863,7 +10863,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -11079,7 +11079,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customizeMenu.t
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -11424,7 +11424,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -11813,7 +11813,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -12223,7 +12223,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -12607,7 +12607,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designSiderMenu
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -13741,7 +13741,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -14414,7 +14414,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -14941,7 +14941,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer.tsx corr
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -15371,7 +15371,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -15797,7 +15797,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/ghost.tsx corre
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -16851,7 +16851,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/hideMenu.tsx co
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -17403,7 +17403,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -18082,7 +18082,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
               class="ant-pro-page-container"
             >
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -18750,7 +18750,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/mixMode.tsx cor
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -19083,7 +19083,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/pageSimplify.ts
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -19401,7 +19401,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/searchMenu.tsx 
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -19721,7 +19721,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siderMode.tsx c
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -20052,7 +20052,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siteMenu.tsx co
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -20711,7 +20711,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -21441,7 +21441,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/top-breadcrumb.
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
