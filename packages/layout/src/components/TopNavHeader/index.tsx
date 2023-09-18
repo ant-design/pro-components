@@ -58,8 +58,8 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
           hashed: isNeedOpenHash(),
           components: {
             Layout: {
-              colorBgHeader: 'transparent',
-              colorBgBody: 'transparent',
+              headerBg: 'transparent',
+              bodyBg: 'transparent',
             },
             Menu: {
               ...coverToNewToken({
