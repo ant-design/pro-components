@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.1...@ant-design/pro-layout@7.17.2) (2023-09-18)
+
+
+### Bug Fixes
+
+* **layout:** deprecated warning ([#7693](https://github.com/ant-design/pro-components/issues/7693)) ([896c4d6](https://github.com/ant-design/pro-components/commit/896c4d6797345e19a1c9193799fa573a9bfd01ea))
+* **layout:** 默认宽度更改为 1152 ([84cc927](https://github.com/ant-design/pro-components/commit/84cc9274d5a161b171254b2039a78b2a6942b375))
+
+
+
+
 
 ## [7.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.0...@ant-design/pro-layout@7.17.1) (2023-09-18)
 
