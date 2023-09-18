@@ -139,7 +139,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (
             hashed: isNeedOpenHash(),
             components: {
               Layout: {
-                colorBgHeader: 'transparent',
+                headerBg: 'transparent',
                 bodyBg: 'transparent',
               },
             },
