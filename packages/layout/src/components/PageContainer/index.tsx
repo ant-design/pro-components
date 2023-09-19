@@ -355,10 +355,6 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   const basePageContainer = `${prefixCls}-page-container`;
 
   const { wrapSSR, hashId } = useStyle(basePageContainer, propsToken);
-  console.log(
-    'useStyle(basePageContainer, propsToken)',
-    useStyle(basePageContainer, propsToken),
-  );
 
   const stylish = useStylish(
     `${basePageContainer}.${basePageContainer}-stylish`,
