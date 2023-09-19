@@ -64,8 +64,6 @@ dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekday);
 
-const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
-
 export type ProFieldMoneyProps = FieldMoneyProps;
 
 export type ProFieldEmptyText = string | false;
