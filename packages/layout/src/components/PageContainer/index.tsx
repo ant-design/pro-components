@@ -398,10 +398,12 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
       <>
         <div
           className={classNames(
-            `${basePageContainer}-children-container ${
-              !props?.header &&
-              `${basePageContainer}-children-container-no-header`
-            } ${hashId}`.trim(),
+            hashId,
+            `${basePageContainer}-children-container`,
+            {
+              [`${basePageContainer}-children-container-no-header`]:
+                !props?.header,
+            },
           )}
           style={childrenContentStyle}
         >

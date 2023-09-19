@@ -333,7 +333,6 @@ export function SaveEditableAction<T>(
         .filter(Boolean) as string[];
       setLoading(true);
       await form.validateFields(namePath, {
-        // @ts-expect-error
         recursive: true,
       });
 
