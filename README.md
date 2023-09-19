@@ -4,6 +4,13 @@ English | [简体中文](./README.zh-CN.md) | [Español](./README.es-PR.md)
 
 The Pro Series components are placed here to support heavy-duty components.
 
+<a href="https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=183895098" target="_blank" style="display: block" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=183895098&image_size=auto&color_scheme=dark" width="546.5" height="auto">
+    <img alt="Activity Trends of ant-design/pro-components - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=183895098&image_size=auto&color_scheme=light" width="546.5" height="auto">
+  </picture>
+</a>
+
 ![coverage CI](https://github.com/ant-design/pro-components/workflows/coverage%20CI/badge.svg) ![Node CI](https://github.com/ant-design/pro-components/workflows/Node%20CI/badge.svg) [![](https://codecov.io/gh/ant-design/pro-components/branch/master/graph/badge.svg)](https://codecov.io/gh/ant-design/pro-components) [![ docs by dumi](https://img.shields.io/badge/docs%20by-dumi-blue)](https://d.umijs.org/) [![Build With father](https://img.shields.io/badge/build%20with-father-028fe4.svg)](https://github.com/umijs/father/) [![](https://badgen.net/badge/icon/Ant%20Design?icon=https://gw.alipayobjects.com/zos/antfincdn/Pp4WPgVDB3/KDpgvguMpGfqaHPjicRK.svg&label)](https://ant.design) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 ProComponents is a UI component library designed for enterprise-level applications using React. Some of the advantages of ProComponents include:
@@ -56,6 +63,14 @@ Any type of contribution is welcome, here are some examples of how you may contr
 | Components | Downloads | Downloads a version |
 | --- | --- | --- |
 | pro-components | [![components](https://img.shields.io/npm/dw/@ant-design/pro-components.svg)](https://www.npmjs.com/package/@ant-design/pro-components) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-components.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-components) |
+
+
+<a href="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors?repo_id=183895098&limit=30" target="_blank" style="display: block" align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=183895098&limit=30&image_size=auto&color_scheme=dark" width="662" height="auto">
+    <img alt="Active Contributors of ant-design/pro-components - Last 28 days" src="https://next.ossinsight.io/widgets/official/compose-recent-active-contributors/thumbnail.png?repo_id=183895098&limit=30&image_size=auto&color_scheme=light" width="662" height="auto">
+  </picture>
+</a>
 
 ## LICENSE
 
