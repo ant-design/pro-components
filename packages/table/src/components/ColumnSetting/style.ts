@@ -69,6 +69,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         '&-title': {
           flex: 1,
           maxWidth: 80,
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          wordBreak: 'break-all',
+          whiteSpace: 'nowrap',
         },
         '&-option': {
           display: 'none',
