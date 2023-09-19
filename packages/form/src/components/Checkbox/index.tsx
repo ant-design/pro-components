@@ -70,7 +70,7 @@ const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> =
   React.forwardRef<any, ProFormCheckboxProps>(
     ({ fieldProps, children }, ref) => {
       return (
-        <Checkbox ref={ref} {...fieldProps}>
+        <Checkbox ref={ref || undefined} {...fieldProps}>
           {children}
         </Checkbox>
       );
