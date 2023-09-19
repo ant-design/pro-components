@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.12.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.6...@ant-design/pro-table@3.12.7) (2023-09-19)
+
+
+### Bug Fixes
+
+* **layout:** unuse Tab.TabPanel ([6dd59a2](https://github.com/ant-design/pro-components/commit/6dd59a22b46696aa3d89680b7c2635b75be60aaf))
+* **table:** 修复 ColumnSetting Tree 组件 title 过长导致强制换行的问题 ([08ded31](https://github.com/ant-design/pro-components/commit/08ded31326c3139865d5c291745ecb2c7659f67b))
+
+
+
+
 
 ## [3.12.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.5...@ant-design/pro-table@3.12.6) (2023-09-18)
 
