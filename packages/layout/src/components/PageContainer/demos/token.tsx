@@ -65,7 +65,7 @@ export default () => (
         ],
       }}
     >
-      <ProTable />
+      <ProTable search={false} />
     </PageContainer>
   </div>
 );

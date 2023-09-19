@@ -355,6 +355,10 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   const basePageContainer = `${prefixCls}-page-container`;
 
   const { wrapSSR, hashId } = useStyle(basePageContainer, propsToken);
+  console.log(
+    'useStyle(basePageContainer, propsToken)',
+    useStyle(basePageContainer, propsToken),
+  );
 
   const stylish = useStylish(
     `${basePageContainer}.${basePageContainer}-stylish`,
@@ -398,15 +402,12 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
       <>
         <div
           className={classNames(
-            `${basePageContainer}-children-container ${hashId}`.trim(),
+            `${basePageContainer}-children-container ${
+              !props?.header &&
+              `${basePageContainer}-children-container-no-header`
+            } ${hashId}`.trim(),
           )}
-          // 没有 header 存在需要给 container 加上 BlockStart，正常时间不需要
-          style={{
-            paddingBlockStart: props?.header
-              ? 0
-              : token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-            ...childrenContentStyle,
-          }}
+          style={childrenContentStyle}
         >
           {children}
         </div>
