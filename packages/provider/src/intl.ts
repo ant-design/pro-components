@@ -25,6 +25,7 @@ import trTR from './locale/tr_TR';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
+import ukUA from './locale/uk_UA';
 
 /**
  * 安全的从一个对象中读取相应的值
@@ -100,6 +101,7 @@ const thTHIntl = createIntl('th_TH', thTH);
 const csCZIntl = createIntl('cs_cz', csCZ);
 const skSKIntl = createIntl('sk_SK', skSK);
 const heILIntl = createIntl('he_IL', heIL);
+const ukUAIntl = createIntl('uk_UA', ukUA);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -129,6 +131,7 @@ const intlMap = {
   'cs-CZ': csCZIntl,
   'sk-SK': skSKIntl,
   'he-IL': heILIntl,
+  'uk-UA': ukUAIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -174,6 +177,7 @@ export {
   csCZIntl,
   skSKIntl,
   heILIntl,
+  ukUAIntl,
   intlMap,
   intlMapKeys,
 };
