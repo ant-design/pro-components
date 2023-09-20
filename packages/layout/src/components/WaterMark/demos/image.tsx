@@ -6,6 +6,7 @@ export default () => {
     <WaterMark
       height={36}
       width={115}
+      content="qixian.cs"
       image="https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg"
     >
       <div style={{ height: 500 }}>

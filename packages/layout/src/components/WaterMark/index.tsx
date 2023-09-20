@@ -1,3 +1,4 @@
+import { useToken } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 
 import classNames from 'classnames';
@@ -68,6 +69,7 @@ const getPixelRatio = (context: any) => {
 };
 
 export const WaterMark: React.FC<WaterMarkProps> = (props) => {
+  const { token } = useToken();
   const {
     children,
     style,
@@ -82,12 +84,11 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
     height = 64,
     rotate = -22, // 默认旋转 -22 度
     image,
-    content,
     offsetLeft,
     offsetTop,
     fontStyle = 'normal',
     fontWeight = 'normal',
-    fontColor = 'rgba(0,0,0,.15)',
+    fontColor = token.colorFill,
     fontSize = 16,
     fontFamily = 'sans-serif',
     prefixCls: customizePrefixCls,
@@ -96,7 +97,7 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-layout-watermark', customizePrefixCls);
   const wrapperCls = classNames(`${prefixCls}-wrapper`, className);
-  const waterMakrCls = classNames(prefixCls, markClassName);
+  const waterMarkCls = classNames(prefixCls, markClassName);
   const [base64Url, setBase64Url] = useState('');
 
   useEffect(() => {
@@ -112,39 +113,54 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
     canvas.setAttribute('width', canvasWidth);
     canvas.setAttribute('height', canvasHeight);
 
-    if (ctx) {
-      // 旋转字符 rotate
-      ctx.translate(canvasOffsetLeft * ratio, canvasOffsetTop * ratio);
-      ctx.rotate((Math.PI / 180) * Number(rotate));
-      const markWidth = width * ratio;
-      const markHeight = height * ratio;
-
-      if (image) {
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.referrerPolicy = 'no-referrer';
-        img.src = image;
-        img.onload = () => {
-          ctx.drawImage(img, 0, 0, markWidth, markHeight);
-          setBase64Url(canvas.toDataURL());
-        };
-      } else if (content) {
-        const markSize = Number(fontSize) * ratio;
-        ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`;
-        ctx.fillStyle = fontColor;
-        if (Array.isArray(content)) {
-          content?.forEach((item: string, index: number) =>
-            ctx.fillText(item, 0, index * markSize),
-          );
-        } else {
-          ctx.fillText(content, 0, 0);
-        }
-        setBase64Url(canvas.toDataURL());
-      }
-    } else {
-      // eslint-disable-next-line no-console
-      console.error('当前环境不支持Canvas');
+    if (!ctx) {
+      return;
     }
+
+    const writeContent = (
+      contentText: string | string[],
+      offsetTop: number = 0,
+    ) => {
+      const markSize = Number(fontSize) * ratio;
+      ctx.font = `${fontStyle} normal ${fontWeight} ${markSize}px/${markHeight}px ${fontFamily}`;
+      ctx.fillStyle = fontColor;
+      if (Array.isArray(contentText)) {
+        contentText?.forEach((item: string, index: number) =>
+          ctx.fillText(item, 0, index * markSize + offsetTop),
+        );
+      } else {
+        ctx.fillText(contentText, 0, offsetTop ? offsetTop + markSize : 0);
+      }
+      setBase64Url(canvas.toDataURL());
+    };
+
+    // 旋转字符 rotate
+    ctx.translate(canvasOffsetLeft * ratio, canvasOffsetTop * ratio);
+    ctx.rotate((Math.PI / 180) * Number(rotate));
+    const markWidth = width * ratio;
+    const markHeight = height * ratio;
+
+    if (image) {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.referrerPolicy = 'no-referrer';
+      img.src = image;
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, markWidth, markHeight);
+        setBase64Url(canvas.toDataURL());
+        if (props.content) {
+          writeContent(props.content, img.height + 8);
+          return;
+        }
+      };
+      return;
+    }
+    if (props.content) {
+      writeContent(props.content);
+      return;
+    }
+    // eslint-disable-next-line no-console
+    console.error('当前环境不支持Canvas');
   }, [
     gapX,
     gapY,
@@ -158,7 +174,7 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
     fontFamily,
     fontColor,
     image,
-    content,
+    props.content,
     fontSize,
   ]);
 
@@ -172,7 +188,7 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
     >
       {children}
       <div
-        className={waterMakrCls}
+        className={waterMarkCls}
         style={{
           zIndex,
           position: 'absolute',
