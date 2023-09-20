@@ -114,6 +114,8 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
     canvas.setAttribute('height', canvasHeight);
 
     if (!ctx) {
+      // eslint-disable-next-line no-console
+      console.error('当前环境不支持Canvas');
       return;
     }
 
@@ -159,8 +161,6 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
       writeContent(props.content);
       return;
     }
-    // eslint-disable-next-line no-console
-    console.error('当前环境不支持Canvas');
   }, [
     gapX,
     gapY,
