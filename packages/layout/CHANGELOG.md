@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.17.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.3...@ant-design/pro-layout@7.17.4) (2023-09-20)
+
+### Bug Fixes
+
+- **layout:** WaterMark support dark theme ([0898061](https://github.com/ant-design/pro-components/commit/089806108fd815b672ea080015cba032c14296f6))
+- **layout:** WaterMark support dark theme ([7a09db5](https://github.com/ant-design/pro-components/commit/7a09db5b0ba5b994579e830c7125fafa8a702343))
+
 ## [7.17.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.2...@ant-design/pro-layout@7.17.3) (2023-09-19)
 
 ### Bug Fixes
