@@ -1,4 +1,11 @@
-﻿## @ant-design/pro-components@2.6.21
+﻿## @ant-design/pro-components@2.6.23
+
+`2023-09-20`
+
+- fix(layout): WaterMark support dark theme. [0898061](https://github.com/ant-design/pro-components/commit/0898061)
+- fix(table): 修复 ColumnSetting Tree 组件 title 过长导致强制换行的问题. [08ded31](https://github.com/ant-design/pro-components/commit/08ded31)
+
+## @ant-design/pro-components@2.6.21
 
 `2023-09-18`
 
