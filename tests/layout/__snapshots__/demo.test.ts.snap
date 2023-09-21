@@ -7997,7 +7997,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/background-cont
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"
@@ -21081,7 +21081,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-pro-grid-content-wide"
+              class="ant-pro-grid-content"
             >
               <div
                 class="ant-pro-grid-content-children"
@@ -21761,7 +21761,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/topMode.tsx cor
                 </div>
               </div>
               <div
-                class="ant-pro-grid-content ant-pro-grid-content-wide"
+                class="ant-pro-grid-content"
               >
                 <div
                   class="ant-pro-grid-content-children"

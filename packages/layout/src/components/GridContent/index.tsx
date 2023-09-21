@@ -25,7 +25,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const value = useContext(RouteContext);
   const {
     children,
-    contentWidth: propsContentWidth = 'Fixed',
+    contentWidth: propsContentWidth,
     className: propsClassName,
     style,
   } = props;

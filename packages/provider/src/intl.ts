@@ -22,6 +22,7 @@ import skSK from './locale/sk_SK';
 import srRS from './locale/sr_RS';
 import thTH from './locale/th_TH';
 import trTR from './locale/tr_TR';
+import ukUA from './locale/uk_UA';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
@@ -100,6 +101,7 @@ const thTHIntl = createIntl('th_TH', thTH);
 const csCZIntl = createIntl('cs_cz', csCZ);
 const skSKIntl = createIntl('sk_SK', skSK);
 const heILIntl = createIntl('he_IL', heIL);
+const ukUAIntl = createIntl('uk_UA', ukUA);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -129,6 +131,7 @@ const intlMap = {
   'cs-CZ': csCZIntl,
   'sk-SK': skSKIntl,
   'he-IL': heILIntl,
+  'uk-UA': ukUAIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -174,6 +177,7 @@ export {
   csCZIntl,
   skSKIntl,
   heILIntl,
+  ukUAIntl,
   intlMap,
   intlMapKeys,
 };
