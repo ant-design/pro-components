@@ -88,7 +88,7 @@ const columns: ProColumns<TableListItem>[] = [
 
 export default () => {
   const [time, setTime] = useState(() => Date.now());
-  const [polling, setPolling] = useState<number | undefined>(2000);
+  const [polling, setPolling] = useState<number>(2000);
   return (
     <ProTable<TableListItem>
       columns={columns}
@@ -96,7 +96,7 @@ export default () => {
       pagination={{
         showSizeChanger: true,
       }}
-      polling={polling || undefined}
+      polling={polling}
       request={async () => {
         await timeAwait(2000);
         setTime(Date.now());
@@ -114,7 +114,7 @@ export default () => {
           type="primary"
           onClick={() => {
             if (polling) {
-              setPolling(undefined);
+              setPolling(0);
               return;
             }
             setPolling(2000);
