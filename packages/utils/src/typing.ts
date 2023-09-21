@@ -501,7 +501,7 @@ export type SearchTransformKeyFn = (
   value: any,
   namePath: string,
   allValues: any,
-) => string | Record<string, any>;
+) => any;
 export type SearchConvertKeyFn = (
   value: any,
   field: NamePath,
