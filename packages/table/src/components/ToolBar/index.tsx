@@ -283,7 +283,7 @@ export type ToolbarRenderProps<T> = {
   tableColumn: any[];
   tooltip?: string | LabelTooltipType;
   selectedRows: T[];
-  selectedRowKeys: React.Key[];
+  selectedRowKeys: React.Key[] | (string | number)[];
   headerTitle: React.ReactNode;
   toolbar: ProTableProps<T, any, any>['toolbar'];
   options: ProTableProps<T, any, any>['options'];
@@ -400,7 +400,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
         action={actionRef}
         onSearch={this.onSearch}
         selectedRows={selectedRows}
-        selectedRowKeys={selectedRowKeys}
+        selectedRowKeys={selectedRowKeys as (string | number)[]}
         toolBarRender={toolBarRender}
         toolbar={{
           filter: searchNode,

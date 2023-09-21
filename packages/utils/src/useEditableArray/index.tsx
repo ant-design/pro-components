@@ -345,7 +345,7 @@ export function SaveEditableAction<T>(
         const [, ...recordKeyPath] = recordKey;
         // 将目标值获取出来并设置到 fields 当中
         const curValue = get(fields, recordKeyPath as string[]);
-        set(fields, recordKeyPath, curValue);
+        set(fields, recordKeyPath as (number | string)[], curValue);
       }
       const data = isMapEditor ? set({}, namePath, fields, true) : fields;
 
@@ -488,7 +488,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         await cancelEditable(recordKey);
         /** 重置为默认值，不然编辑的行会丢掉 */
         form.setFieldsValue({
-          [recordKey as React.Key]: isMapEditor ? get(row, namePath) : row,
+          [`${recordKey as React.Key}`]: isMapEditor ? get(row, namePath) : row,
         });
         return res;
       }}

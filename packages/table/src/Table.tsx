@@ -28,6 +28,7 @@ import type {
 import classNames from 'classnames';
 import type Summary from 'rc-table/lib/Footer/Summary';
 import React, {
+  Key,
   useCallback,
   useContext,
   useEffect,
@@ -478,7 +479,7 @@ const ProTable = <
 
   /** 单选多选的相关逻辑 */
   const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<
-    (string | number)[] | undefined
+    (string | number)[] | Key[] | undefined
   >(
     propsRowSelection
       ? propsRowSelection?.defaultSelectedRowKeys || []
@@ -692,7 +693,7 @@ const ProTable = <
     setSelectedRowKeys([]);
   }, [propsRowSelection, setSelectedRowKeys]);
 
-  counter.propsRef.current = props;
+  counter.propsRef.current = props as ProTableProps<any, any, any>;
 
   /** 可编辑行的相关配置 */
   const editableUtils = useEditableArray<any>({

@@ -114,7 +114,7 @@ export function genProColumnToColumn<T>(
         return omitBoolean(onFilter);
       };
 
-      let keyName: React.Key = rowKey as string;
+      let keyName: string | number | symbol = rowKey as string;
 
       const tempColumns = {
         index: columnsIndex,
@@ -142,7 +142,7 @@ export function genProColumnToColumn<T>(
           : undefined,
         render: (text: any, rowData: T, index: number) => {
           if (typeof rowKey === 'function') {
-            keyName = rowKey(rowData, index);
+            keyName = rowKey(rowData, index) as string;
           }
 
           let uniqueKey: any;

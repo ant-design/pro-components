@@ -11,7 +11,7 @@ import {
 } from 'react';
 import type { DensitySize } from '../components/ToolBar/DensityIcon';
 import type { ProTableProps } from '../index';
-import type { ActionType } from '../typing';
+import type { ActionType, ProColumns } from '../typing';
 import { genColumnKey } from '../utils';
 
 export type ColumnsState = {
@@ -33,7 +33,7 @@ export type UseContainerProps<T = any> = {
   size?: DensitySize;
   defaultSize?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
-  columns?: ProTableColumn<T>[];
+  columns?: ProTableColumn<T>[] | ProColumns<T, T>[];
   columnsState?: ProTableProps<any, any, any>['columnsState'];
 };
 

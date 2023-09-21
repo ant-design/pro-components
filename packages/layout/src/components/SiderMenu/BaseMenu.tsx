@@ -546,7 +546,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     menu?.defaultOpenAll,
   );
 
-  const [openKeys, setOpenKeys] = useMountMergeState<WithFalse<React.Key[]>>(
+  const [openKeys, setOpenKeys] = useMountMergeState<
+    (string | number)[] | false
+  >(
     () => {
       if (menu?.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -605,7 +607,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         propsOpenKeys !== false &&
         matchMenuKeys.join('-') !== (openKeys || []).join('-')
       ) {
-        let newKeys: React.Key[] = matchMenuKeys;
+        let newKeys: (string | number)[] | false = matchMenuKeys;
         // 如果不自动关闭，我需要把 openKeys 放进去
         if (menu?.autoClose === false) {
           newKeys = Array.from(
@@ -697,7 +699,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         [`${baseClassName}-collapsed`]: props.collapsed,
       })}
       items={menuUtils.getNavMenuItems(finallyData, 0)}
-      onOpenChange={(_openKeys: React.Key[]) => {
+      onOpenChange={(_openKeys) => {
         if (!props.collapsed) {
           setOpenKeys(_openKeys);
         }
