@@ -47998,8 +47998,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   <div
                     class="ant-card ant-card-bordered"

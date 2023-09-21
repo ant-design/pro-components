@@ -291,7 +291,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
         >
           <div
             class="ant-pro-page-container-children-container"
-            style="padding-block-start: 0;"
           >
             <div
               class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -600,7 +599,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
         >
           <div
             class="ant-pro-page-container-children-container"
-            style="padding-block-start: 0;"
           >
             <div
               class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -865,7 +863,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
         >
           <div
             class="ant-pro-page-container-children-container"
-            style="padding-block-start: 0;"
           >
             <div
               class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -1395,93 +1392,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
         >
           <div
             class="ant-pro-page-container-children-container"
-            style="padding-block-start: 0;"
           >
             <div
               class="ant-pro-table"
             >
-              <div
-                class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
-              >
-                <form
-                  autocomplete="off"
-                  class="ant-form ant-form-horizontal ant-pro-query-filter ant-pro-form"
-                >
-                  <input
-                    style="display: none;"
-                    type="text"
-                  />
-                  <div
-                    class="ant-row ant-row-start ant-pro-query-filter-row"
-                    style="margin-left: -12px; margin-right: -12px;"
-                  >
-                    <div
-                      class="ant-col ant-col-8 ant-col-offset-16"
-                      style="padding-left: 12px; padding-right: 12px; text-align: end;"
-                    >
-                      <div
-                        class="ant-form-item ant-pro-query-filter-actions"
-                      >
-                        <div
-                          class="ant-row ant-form-item-row"
-                        >
-                          <div
-                            class="ant-col ant-form-item-label"
-                          >
-                            <label
-                              class="ant-form-item-no-colon"
-                              title=" "
-                            >
-                               
-                            </label>
-                          </div>
-                          <div
-                            class="ant-col ant-form-item-control"
-                          >
-                            <div
-                              class="ant-form-item-control-input"
-                            >
-                              <div
-                                class="ant-form-item-control-input-content"
-                              >
-                                <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center"
-                                  style="column-gap: 16px; row-gap: 16px;"
-                                >
-                                  <div
-                                    class="ant-space-item"
-                                  >
-                                    <div
-                                      style="display: flex; gap: 8px; align-items: center;"
-                                    >
-                                      <button
-                                        class="ant-btn ant-btn-default"
-                                        type="button"
-                                      >
-                                        <span>
-                                          重 置
-                                        </span>
-                                      </button>
-                                      <button
-                                        class="ant-btn ant-btn-primary"
-                                        type="button"
-                                      >
-                                        <span>
-                                          查 询
-                                        </span>
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
               <div
                 class="ant-pro-card"
               >
@@ -4279,8 +4193,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div>
                       Hello World
@@ -4581,8 +4494,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/BreadcrumbsRepe
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div>
                       Hello World
@@ -4825,8 +4737,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div>
                       Hello World
@@ -5069,8 +4980,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/IconFont.tsx co
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div>
                       Hello World
@@ -5313,8 +5223,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MenuGroup.tsx c
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div>
                       Hello World
@@ -5579,8 +5488,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MultipleMenuOne
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div>
                       Hello World
@@ -5791,8 +5699,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                           class="ant-pro-grid-content-children"
                         >
                           <div
-                            class="ant-pro-page-container-children-container"
-                            style="padding-block-start: 32px;"
+                            class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                           >
                             <div>
                               Hello World
@@ -6126,8 +6033,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
                           class="ant-pro-grid-content-children"
                         >
                           <div
-                            class="ant-pro-page-container-children-container"
-                            style="padding-block-start: 32px;"
+                            class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                           >
                             <div>
                               Hello World
@@ -6407,8 +6313,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/antd@4MenuIconF
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   <div
                     style="height: 120vh; min-height: 600px;"
@@ -6894,8 +6799,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/api.tsx correct
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   Hello World
                 </div>
@@ -8003,8 +7907,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/background-cont
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -8386,8 +8289,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -8818,8 +8720,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -9189,8 +9090,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   <div
                     class="ant-pro-card"
@@ -9889,8 +9789,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                 class="qixian-pro-grid-content-children"
               >
                 <div
-                  class="qixian-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="qixian-pro-page-container-children-container qixian-pro-page-container-children-container-no-header"
                 >
                   <div
                     style="height: 120vh; min-height: 600px;"
@@ -10575,8 +10474,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -10869,8 +10767,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   <div
                     style="height: 120vh; min-height: 600px;"
@@ -11085,8 +10982,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customizeMenu.t
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     Hello World
                   </div>
@@ -11430,8 +11326,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   <div
                     class="ant-pro-card"
@@ -11819,8 +11714,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   <div
                     class="ant-pro-card"
@@ -12229,8 +12123,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -12613,8 +12506,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designSiderMenu
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -13751,8 +13643,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                     style="position: relative;"
                   >
                     <div
-                      class="ant-pro-page-container-children-container"
-                      style="padding-block-start: 32px;"
+                      class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                     >
                       <div
                         style="height: 120vh; min-height: 600px;"
@@ -14420,8 +14311,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   <div>
                     当从服务器获取的菜单为空时隐藏Sider：
@@ -14947,8 +14837,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer.tsx corr
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   Hello World
                 </div>
@@ -15377,8 +15266,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -15803,8 +15691,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/ghost.tsx corre
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -16857,8 +16744,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/hideMenu.tsx co
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   Hello World
                 </div>
@@ -17410,7 +17296,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
               >
                 <div
                   class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 0;"
                 >
                   <div
                     style="height: 120vh; min-height: 600px;"
@@ -18092,8 +17977,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                     style="position: relative;"
                   >
                     <div
-                      class="ant-pro-page-container-children-container"
-                      style="padding-block-start: 32px;"
+                      class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                     >
                       <div
                         class="ant-pro-card"
@@ -18756,8 +18640,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/mixMode.tsx cor
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -19089,8 +18972,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/pageSimplify.ts
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -19407,8 +19289,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/searchMenu.tsx 
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div>
                       Hello World
@@ -19727,8 +19608,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siderMode.tsx c
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -20058,8 +19938,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siteMenu.tsx co
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
@@ -20717,8 +20596,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   xxxx
                 </div>
@@ -21087,8 +20965,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container"
-                  style="padding-block-start: 32px;"
+                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                 >
                   <div
                     class="ant-pro-card"
@@ -21447,8 +21324,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/top-breadcrumb.
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div>
                       Hello World
@@ -21767,8 +21643,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/topMode.tsx cor
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container"
-                    style="padding-block-start: 32px;"
+                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
                   >
                     <div
                       class="ant-pro-card"
