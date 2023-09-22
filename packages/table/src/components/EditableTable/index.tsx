@@ -299,7 +299,7 @@ function EditableTable<
         },
       } as EditableFormInstance<DataType>;
     },
-    [coverRowKey, props.name],
+    [coverRowKey, props.name, formRef.current],
   );
 
   useEffect(() => {
