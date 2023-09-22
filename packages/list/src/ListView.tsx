@@ -257,9 +257,11 @@ function ListView<RecordType extends AnyObject>(
         });
         let checkboxDom: React.ReactNode;
         if (selectItemDom && selectItemDom.render) {
-          checkboxDom =
-            (selectItemDom.render(item, item, index) as React.ReactNode) ||
-            undefined;
+          checkboxDom = selectItemDom.render(
+            item,
+            item,
+            index,
+          ) as React.ReactNode;
         }
         const { isEditable, recordKey } =
           actionRef.current?.isEditable({ ...item, index }) || {};
@@ -278,12 +280,11 @@ function ListView<RecordType extends AnyObject>(
                     onChange: React.isValidElement(checkboxDom)
                       ? (changeChecked) => {
                           return (
-                            React.isValidElement(checkboxDom) &&
-                            (checkboxDom?.props as any)?.onChange({
-                              nativeEvent: {},
-                              changeChecked,
-                            })
-                          );
+                            (checkboxDom as JSX.Element)?.props as any
+                          )?.onChange({
+                            nativeEvent: {},
+                            changeChecked,
+                          });
                         }
                       : undefined,
                   }
