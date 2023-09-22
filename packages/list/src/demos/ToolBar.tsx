@@ -102,7 +102,7 @@ export default () => {
           },
         },
         description: {
-          dataIndex: 'desc',
+          key: 'desc',
         },
         content: {
           dataIndex: 'content',

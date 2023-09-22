@@ -219,15 +219,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                             </div>
                           </div>
                         </h4>
-                        <div
-                          class="ant-list-item-meta-description"
-                        >
-                          <div
-                            class="ant-pro-list-row-description"
-                          >
-                            系统性的沉淀B端知识体系
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -337,15 +328,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                             </div>
                           </div>
                         </h4>
-                        <div
-                          class="ant-list-item-meta-description"
-                        >
-                          <div
-                            class="ant-pro-list-row-description"
-                          >
-                            系统性的沉淀B端知识体系
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -455,15 +437,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                             </div>
                           </div>
                         </h4>
-                        <div
-                          class="ant-list-item-meta-description"
-                        >
-                          <div
-                            class="ant-pro-list-row-description"
-                          >
-                            系统性的沉淀B端知识体系
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>

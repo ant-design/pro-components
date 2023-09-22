@@ -32,7 +32,9 @@ export type ProListMeta<T> = Pick<
   | 'fieldProps'
   | 'formItemProps'
   | 'renderFormItem'
->;
+> & {
+  key?: React.Key;
+};
 
 type ProListMetaAction<T> = ProListMeta<T> & {
   /**
