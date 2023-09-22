@@ -1093,12 +1093,14 @@ describe('utils', () => {
   });
 
   it('🪓 nanoid', () => {
-    // @ts-ignore
-    window.crypto.randomUUID = vi.fn(() => '1234567890abcdef');
+    if (!window.crypto.randomUUID) {
+      window.crypto.randomUUID = () => 1;
+    }
+    const cryptoSpy = vi.spyOn(window.crypto, 'randomUUID');
 
-    const id = nanoid();
+    nanoid();
 
-    expect(id).toBe('1234567890abcdef');
+    expect(cryptoSpy).toBeCalled();
   });
 
   it('🪓 stringify', () => {

@@ -44,11 +44,13 @@ Object.defineProperty(globalThis, 'open', {
   value: vi.fn(),
 });
 
-Object.defineProperty(globalThis, 'crypto', {
-  value: {
-    getRandomValues: (arr: any[]) => crypto.randomBytes(arr.length),
-  },
-});
+if (!globalThis.crypto) {
+  Object.defineProperty(globalThis, 'crypto', {
+    value: {
+      getRandomValues: (arr: any[]) => crypto.randomBytes(arr.length),
+    },
+  });
+}
 
 globalThis.requestAnimationFrame =
   globalThis.requestAnimationFrame ||
