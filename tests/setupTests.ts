@@ -52,18 +52,6 @@ if (!globalThis.crypto) {
   });
 }
 
-globalThis.requestAnimationFrame =
-  globalThis.requestAnimationFrame ||
-  function requestAnimationFrame(cb) {
-    return setTimeout(cb, 0);
-  };
-
-globalThis.cancelAnimationFrame =
-  globalThis.cancelAnimationFrame ||
-  function cancelAnimationFrame() {
-    return null;
-  };
-
 // browserMocks.js
 export const localStorageMock = (() => {
   let store: any = {
