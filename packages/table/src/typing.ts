@@ -337,7 +337,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
 
   /**
    * 是否轮询 ProTable 它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()
-   *
+   * @property {number} polling 表示轮询的时间间隔，0 表示关闭轮询，大于 0 表示开启轮询，最小的轮询时间为 2000ms
    * @param dataSource 返回当前的表单数据，你可以用它判断要不要打开轮询
    */
   polling?: number | ((dataSource: DataSource[]) => number);

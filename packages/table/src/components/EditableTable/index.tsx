@@ -19,7 +19,6 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
 import React, {
-  Key,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -201,34 +200,34 @@ function EditableTable<
    * @param finlayRowKey
    * @returns string | number
    */
-  const coverRowKey = (
-    finlayRowKey: number | string,
-  ): string | number | Key => {
-    /**
-     * 如果是 prop.name 的模式，就需要把行号转化成具体的rowKey。
-     */
-    if (typeof finlayRowKey === 'number' && !props.name) {
-      if (finlayRowKey >= value.length) return finlayRowKey;
-      const rowData = value && value[finlayRowKey];
-      return getRowKey?.(rowData!, finlayRowKey);
-    }
+  const coverRowKey = useRefFunction(
+    (finlayRowKey: number | string): string | number => {
+      /**
+       * 如果是 prop.name 的模式，就需要把行号转化成具体的rowKey。
+       */
+      if (typeof finlayRowKey === 'number' && !props.name) {
+        if (finlayRowKey >= value.length) return finlayRowKey;
+        const rowData = value && value[finlayRowKey];
+        return getRowKey?.(rowData!, finlayRowKey);
+      }
 
-    /**
-     * 如果是 prop.name 的模式，就直接返回行号
-     */
-    if (
-      (typeof finlayRowKey === 'string' || finlayRowKey >= value.length) &&
-      props.name
-    ) {
-      const rowIndex = value.findIndex((item, index) => {
-        return (
-          getRowKey?.(item, index)?.toString() === finlayRowKey?.toString()
-        );
-      });
-      if (rowIndex !== -1) return rowIndex;
-    }
-    return finlayRowKey;
-  };
+      /**
+       * 如果是 prop.name 的模式，就直接返回行号
+       */
+      if (
+        (typeof finlayRowKey === 'string' || finlayRowKey >= value.length) &&
+        props.name
+      ) {
+        const rowIndex = value.findIndex((item, index) => {
+          return (
+            getRowKey?.(item, index)?.toString() === finlayRowKey?.toString()
+          );
+        });
+        if (rowIndex !== -1) return rowIndex;
+      }
+      return finlayRowKey;
+    },
+  );
 
   // 设置 editableFormRef
   useImperativeHandle(
@@ -300,7 +299,7 @@ function EditableTable<
         },
       } as EditableFormInstance<DataType>;
     },
-    [props.name, formRef.current],
+    [coverRowKey, props.name],
   );
 
   useEffect(() => {
