@@ -1,7 +1,7 @@
 import { EllipsisOutlined } from '@ant-design/icons';
 import { ProList } from '@ant-design/pro-components';
 import { Button, Progress, Tag } from 'antd';
-import type { ReactText } from 'react';
+import type { Key } from 'react';
 import { useState } from 'react';
 
 const types = ['top', 'inline', 'new'];
@@ -51,13 +51,11 @@ const data = [
 }));
 
 export default () => {
-  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>(
-    [],
-  );
-  const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
+  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly Key[]>([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
   const rowSelection = {
     selectedRowKeys,
-    onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
+    onChange: (keys: Key[]) => setSelectedRowKeys(keys),
   };
   const [dataSource, setDataSource] = useState<any[]>([...data] as any[]);
 

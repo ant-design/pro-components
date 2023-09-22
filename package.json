@@ -26,7 +26,7 @@
     "start": "npm run version && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "npm run version && cross-env TZ=UTC vitest",
-    "test:coverage": "npm run version && cross-env TZ=UTC TEST_LOG=none vitest --threads=false --coverage",
+    "test:coverage": "npm run version && cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
     "test:update": "pnpm run version && cross-env TZ=UTC  vitest -u",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",

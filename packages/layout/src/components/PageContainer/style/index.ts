@@ -12,10 +12,15 @@ const genPageContainerStyle: GenerateStyle<PageContainerToken> = (token) => {
     [token.componentCls]: {
       position: 'relative',
       '&-children-container': {
+        paddingBlockStart: 0,
         paddingBlockEnd:
           token.layout?.pageContainer?.paddingBlockPageContainerContent,
         paddingInline:
           token.layout?.pageContainer?.paddingInlinePageContainerContent,
+      },
+      '&-children-container-no-header': {
+        paddingBlockStart:
+          token.layout?.pageContainer?.paddingBlockPageContainerContent,
       },
       '&-affix': {
         [`${token.antCls}-affix`]: {

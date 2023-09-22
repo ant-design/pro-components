@@ -19,7 +19,6 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import get from 'rc-util/lib/utils/get';
 import set from 'rc-util/lib/utils/set';
 import React, {
-  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -201,7 +200,7 @@ function EditableTable<
    * @param finlayRowKey
    * @returns string | number
    */
-  const coverRowKey = useCallback(
+  const coverRowKey = useRefFunction(
     (finlayRowKey: number | string): string | number => {
       /**
        * 如果是 prop.name 的模式，就需要把行号转化成具体的rowKey。
@@ -228,7 +227,6 @@ function EditableTable<
       }
       return finlayRowKey;
     },
-    [getRowKey, props.name, value],
   );
 
   // 设置 editableFormRef
@@ -301,14 +299,14 @@ function EditableTable<
         },
       } as EditableFormInstance<DataType>;
     },
-    [coverRowKey, props.name],
+    [coverRowKey, props.name, formRef.current],
   );
 
   useEffect(() => {
     if (!props.controlled) return;
     value.forEach((current, index) => {
       formRef.current?.setFieldsValue({
-        [getRowKey(current, index)]: current,
+        [`${getRowKey(current, index)}`]: current,
       });
     }, {});
     // eslint-disable-next-line react-hooks/exhaustive-deps

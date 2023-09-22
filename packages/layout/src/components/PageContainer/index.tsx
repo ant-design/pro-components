@@ -410,15 +410,14 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
       <>
         <div
           className={classNames(
-            `${basePageContainer}-children-container ${hashId}`.trim(),
+            hashId,
+            `${basePageContainer}-children-container`,
+            {
+              [`${basePageContainer}-children-container-no-header`]:
+                !props?.header,
+            },
           )}
-          // 没有 header 存在需要给 container 加上 BlockStart，正常时间不需要
-          style={{
-            paddingBlockStart: props?.header
-              ? 0
-              : token?.layout?.pageContainer?.paddingBlockPageContainerContent,
-            ...childrenContentStyle,
-          }}
+          style={childrenContentStyle}
         >
           {children}
         </div>

@@ -236,7 +236,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
         noStyle
         shouldUpdate={(pre, next) => {
           if (pre === next) return false;
-          const shouldName = [rowName].flat(1);
+          const shouldName = [rowName].flat(1) as (string | number | symbol)[];
           try {
             return (
               JSON.stringify(get(pre, shouldName)) !==

@@ -51,9 +51,9 @@ export default {
     densitySmall: 'Стислий',
   },
   stepsForm: {
-      next: 'Наступний',
-        prev: 'Попередній',
-        submit: 'Завершити',
+    next: 'Наступний',
+    prev: 'Попередній',
+    submit: 'Завершити',
   },
   loginForm: {
     submitText: 'Вхіх',

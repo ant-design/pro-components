@@ -3,6 +3,7 @@ import type { UseEditableUtilType } from '@ant-design/pro-utils';
 import type { TablePaginationConfig } from 'antd';
 import type { SortOrder } from 'antd/lib/table/interface';
 import type React from 'react';
+import { Key } from 'react';
 import type {
   ActionType,
   Bordered,
@@ -160,7 +161,7 @@ export const isMergeCell = (
  * @param index 序列号，理论上唯一
  */
 export const genColumnKey = (
-  key?: string | number,
+  key?: string | number | Key,
   index?: number | string,
 ): string => {
   if (key) {

@@ -620,8 +620,9 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       return wrapper.findByDisplayValue('动态设置的title' + i);
     });
-
-    expect(formRef.current?.getFieldValue('table').length).toEqual(2);
+    await waitFor(() => {
+      expect(formRef.current?.getFieldValue?.('table').length).toEqual(2);
+    });
   });
 
   it('📝 EditableProTable ensures that xxxProps are functions also executed', async () => {
@@ -2187,7 +2188,7 @@ describe('EditorProTable 2', () => {
   it('📝 support add line for bottom', async () => {
     const fn = vi.fn();
     const wrapper = render(<EditorProTableDemo onSave={fn} />);
-    await wrapper.findByText('增加一行');
+    await wrapper.findAllByText('增加一行');
 
     await waitFor(() => {
       expect(
@@ -2311,7 +2312,7 @@ describe('EditorProTable 2', () => {
 
   it('📝 support add line when single line edit when keys', async () => {
     const wrapper = render(<EditorProTableDemo editorRowKeys={[624748504]} />);
-    await wrapper.findByText('增加一行');
+    await wrapper.findAllByText('增加一行');
     await waitFor(() => {
       expect(
         wrapper.container
@@ -2347,7 +2348,7 @@ describe('EditorProTable 2', () => {
 
   it('📝 support add line when single line edit', async () => {
     const wrapper = render(<EditorProTableDemo />);
-    await wrapper.findByText('增加一行');
+    await wrapper.findAllByText('增加一行');
     await waitFor(
       () => {
         expect(

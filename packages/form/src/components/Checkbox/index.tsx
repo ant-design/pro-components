@@ -1,5 +1,5 @@
 import { runFunction } from '@ant-design/pro-utils';
-import type { CheckboxProps } from 'antd';
+import type { CheckboxProps, CheckboxRef } from 'antd';
 import { Checkbox } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import React from 'react';
@@ -56,10 +56,7 @@ const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
   ),
 );
 
-export type ProFormCheckboxProps = ProFormFieldItemProps<
-  CheckboxProps,
-  HTMLInputElement
->;
+export type ProFormCheckboxProps = ProFormFieldItemProps<CheckboxProps>;
 
 /**
  * 多选框的
@@ -67,7 +64,7 @@ export type ProFormCheckboxProps = ProFormFieldItemProps<
  * @param
  */
 const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> =
-  React.forwardRef<any, ProFormCheckboxProps>(
+  React.forwardRef<CheckboxRef, ProFormCheckboxProps>(
     ({ fieldProps, children }, ref) => {
       return (
         <Checkbox ref={ref} {...fieldProps}>

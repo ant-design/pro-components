@@ -133,7 +133,7 @@ export const transformKeySubmitValue = <T extends object = any>(
         : [entityKey].flat(1);
       const itemValue = tempValues[entityKey];
 
-      const transformFunction = get(dataFormatMap, key);
+      const transformFunction = get(dataFormatMap, key as (number | string)[]);
 
       const transform = () => {
         let tempKey,

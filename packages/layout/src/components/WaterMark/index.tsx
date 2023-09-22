@@ -85,7 +85,7 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
     rotate = -22, // 默认旋转 -22 度
     image,
     offsetLeft,
-    offsetTop,
+    offsetTop: outOffsetTop,
     fontStyle = 'normal',
     fontWeight = 'normal',
     fontColor = token.colorFill,
@@ -108,7 +108,7 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
     const canvasWidth = `${(gapX + width) * ratio}px`;
     const canvasHeight = `${(gapY + height) * ratio}px`;
     const canvasOffsetLeft = offsetLeft || gapX / 2;
-    const canvasOffsetTop = offsetTop || gapY / 2;
+    const canvasOffsetTop = outOffsetTop || gapY / 2;
 
     canvas.setAttribute('width', canvasWidth);
     canvas.setAttribute('height', canvasHeight);
@@ -118,6 +118,12 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
       console.error('当前环境不支持Canvas');
       return;
     }
+
+    // 旋转字符 rotate
+    ctx.translate(canvasOffsetLeft * ratio, canvasOffsetTop * ratio);
+    ctx.rotate((Math.PI / 180) * Number(rotate));
+    const markWidth = width * ratio;
+    const markHeight = height * ratio;
 
     const writeContent = (
       contentText: string | string[],
@@ -135,12 +141,6 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
       }
       setBase64Url(canvas.toDataURL());
     };
-
-    // 旋转字符 rotate
-    ctx.translate(canvasOffsetLeft * ratio, canvasOffsetTop * ratio);
-    ctx.rotate((Math.PI / 180) * Number(rotate));
-    const markWidth = width * ratio;
-    const markHeight = height * ratio;
 
     if (image) {
       const img = new Image();
@@ -165,7 +165,7 @@ export const WaterMark: React.FC<WaterMarkProps> = (props) => {
     gapX,
     gapY,
     offsetLeft,
-    offsetTop,
+    outOffsetTop,
     rotate,
     fontStyle,
     fontWeight,

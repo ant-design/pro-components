@@ -7,7 +7,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Tag } from 'antd';
-import type { ReactText } from 'react';
+import type { Key } from 'react';
 import { useState } from 'react';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForWaitTime } from '../util';
@@ -184,9 +184,9 @@ describe('List', () => {
   it('🚏 expandable', async () => {
     const onExpand = vi.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<
-        readonly ReactText[]
-      >([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
       return (
         <ProList
           dataSource={[
@@ -224,9 +224,9 @@ describe('List', () => {
   it('🚏 expandable support expandRowByClick', async () => {
     const onExpand = vi.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<
-        readonly ReactText[]
-      >([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
       return (
         <ProList
           dataSource={[
@@ -301,9 +301,9 @@ describe('List', () => {
 
   it('🚏 expandable with expandedRowRender', async () => {
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<
-        readonly ReactText[]
-      >([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
       return (
         <ProList
           dataSource={[

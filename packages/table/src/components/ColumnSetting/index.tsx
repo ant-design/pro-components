@@ -224,7 +224,7 @@ const CheckboxList: React.FC<{
       if (treeDataConfig.map?.get(key)?.children) {
         treeDataConfig.map
           .get(key)
-          ?.children?.forEach((item) => loopSetShow(item.key));
+          ?.children?.forEach((item) => loopSetShow(item.key as string));
       }
       newColumnMap[key] = newSetting;
     };
@@ -266,7 +266,7 @@ const CheckboxList: React.FC<{
             {...node}
             showListItemOption={showListItemOption}
             title={runFunction(node.title, node)}
-            columnKey={node.key}
+            columnKey={node.key as string}
           />
         );
       }}
