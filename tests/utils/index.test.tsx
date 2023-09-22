@@ -1094,7 +1094,7 @@ describe('utils', () => {
 
   it('🪓 nanoid', () => {
     if (!window.crypto.randomUUID) {
-      window.crypto.randomUUID = () => 1;
+      window.crypto.randomUUID = () => '1';
     }
     const cryptoSpy = vi.spyOn(window.crypto, 'randomUUID');
 
