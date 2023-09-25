@@ -29,6 +29,7 @@ export interface PageHeaderProps {
   onBack?: (e?: React.MouseEvent<HTMLElement>) => void;
   className?: string;
   contentWidth?: ContentWidth;
+  layout?: string;
   ghost?: boolean;
   children?: React.ReactNode;
 }
@@ -178,6 +179,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     breadcrumbRender,
     className: customizeClassName,
     contentWidth,
+    layout,
   } = props;
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
@@ -217,7 +219,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     [`${prefixCls}-has-footer`]: !!footer,
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
-    [`${prefixCls}-wide`]: contentWidth === 'Fixed',
+    [`${prefixCls}-wide`]: contentWidth === 'Fixed' && layout == 'top',
     [`${prefixCls}-ghost`]: true,
   });
   const title = renderTitle(prefixCls, props, direction, hashId);

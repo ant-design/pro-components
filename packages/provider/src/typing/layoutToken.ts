@@ -127,6 +127,10 @@ export const getLayoutDesignToken: (
       colorHeaderTitle: antdToken.colorText,
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: 'transparent',
+      colorBgMenuElevated:
+        finalDesignTokens?.header?.colorBgHeader !== 'rgba(255, 255, 255, 0.6)'
+          ? finalDesignTokens.header?.colorBgHeader
+          : antdToken.colorBgElevated,
       colorTextMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),
       colorBgRightActionsItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorTextRightActionsItem: antdToken.colorTextTertiary,

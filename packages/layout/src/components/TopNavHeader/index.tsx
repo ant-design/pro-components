@@ -51,6 +51,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     renderKey,
   );
   const { token } = useContext(ProProvider);
+
   const contentDom = useMemo(() => {
     const defaultDom = (
       <ConfigProvider // @ts-ignore
@@ -137,10 +138,12 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     token.layout?.header?.colorTextMenu,
     token.layout?.header?.colorTextMenuActive,
     token.layout?.header?.colorTextMenuSelected,
+    token.layout?.header?.colorBgMenuElevated,
     token?.colorBgTextHover,
     token?.colorTextSecondary,
     token?.colorText,
     token?.colorTextBase,
+    token.colorBgElevated,
     dark,
     props,
     prefixCls,
@@ -158,7 +161,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
       <div
         ref={ref}
         className={classNames(`${prefixCls}-main`, hashId, {
-          [`${prefixCls}-wide`]: contentWidth === 'Fixed',
+          [`${prefixCls}-wide`]: contentWidth === 'Fixed' && layout === 'top',
         })}
       >
         {headerDom && (
