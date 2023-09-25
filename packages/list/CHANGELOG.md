@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.5.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.22...@ant-design/pro-list@2.5.23) (2023-09-25)
+
+
+### Bug Fixes
+
+* **layout:** 统一 PageContainer 计算到 styles.ts 中 ([#7699](https://github.com/ant-design/pro-components/issues/7699)) ([ed5c61c](https://github.com/ant-design/pro-components/commit/ed5c61ced2bda9e0f6bab22f3c942792eec682b6))
+
+
+
+
 
 ## [2.5.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.21...@ant-design/pro-list@2.5.22) (2023-09-19)
 
