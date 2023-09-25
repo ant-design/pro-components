@@ -90,7 +90,7 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
       >
         {items?.map((item, index) => {
           /* 如果版本低于 4.23.0，不支持 items */
-          return compareVersions(version, '4.23.0') < 0 ? (
+          return compareVersions(version, '4.23.0') == 1 ? (
             <Tabs.TabPane {...item} key={item.key || index} tab={item.label} />
           ) : null;
         })}
