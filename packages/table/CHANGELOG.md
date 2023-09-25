@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.12.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.7...@ant-design/pro-table@3.12.8) (2023-09-25)
 
-
 ### Bug Fixes
 
-* **layout:** 统一 PageContainer 计算到 styles.ts 中 ([#7699](https://github.com/ant-design/pro-components/issues/7699)) ([ed5c61c](https://github.com/ant-design/pro-components/commit/ed5c61ced2bda9e0f6bab22f3c942792eec682b6))
-* **table:** 修复editableFormRef hooks 未正确传递 deps 依赖导致 value 取值不是最新 ([#7707](https://github.com/ant-design/pro-components/issues/7707)) ([f93ebed](https://github.com/ant-design/pro-components/commit/f93ebed9ad8aede82bf854b7cc5afbc7a4373f53))
-
-
-
-
+- **layout:** 统一 PageContainer 计算到 styles.ts 中 ([#7699](https://github.com/ant-design/pro-components/issues/7699)) ([ed5c61c](https://github.com/ant-design/pro-components/commit/ed5c61ced2bda9e0f6bab22f3c942792eec682b6))
+- **table:** 修复 editableFormRef hooks 未正确传递 deps 依赖导致 value 取值不是最新 ([#7707](https://github.com/ant-design/pro-components/issues/7707)) ([f93ebed](https://github.com/ant-design/pro-components/commit/f93ebed9ad8aede82bf854b7cc5afbc7a4373f53))
 
 ## [3.12.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.6...@ant-design/pro-table@3.12.7) (2023-09-19)
 

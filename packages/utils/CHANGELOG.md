@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.5...@ant-design/pro-utils@2.14.6) (2023-09-25)
 
-
 ### Bug Fixes
 
-* **layout:** 统一 PageContainer 计算到 styles.ts 中 ([#7699](https://github.com/ant-design/pro-components/issues/7699)) ([ed5c61c](https://github.com/ant-design/pro-components/commit/ed5c61ced2bda9e0f6bab22f3c942792eec682b6))
-* **Table:** 修改 search transform 类型 ([#7708](https://github.com/ant-design/pro-components/issues/7708)) ([df16931](https://github.com/ant-design/pro-components/commit/df16931bcb9274f3a49e37a316664b9e0c28956b))
-
-
-
-
+- **layout:** 统一 PageContainer 计算到 styles.ts 中 ([#7699](https://github.com/ant-design/pro-components/issues/7699)) ([ed5c61c](https://github.com/ant-design/pro-components/commit/ed5c61ced2bda9e0f6bab22f3c942792eec682b6))
+- **Table:** 修改 search transform 类型 ([#7708](https://github.com/ant-design/pro-components/issues/7708)) ([df16931](https://github.com/ant-design/pro-components/commit/df16931bcb9274f3a49e37a316664b9e0c28956b))
 
 ## [2.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.4...@ant-design/pro-utils@2.14.5) (2023-09-18)
 

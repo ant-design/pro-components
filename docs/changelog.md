@@ -1,4 +1,13 @@
-﻿## @ant-design/pro-components@2.6.23
+﻿## @ant-design/pro-components@2.6.24
+
+`2023-09-25`
+
+- fix(layout): fix colorBgMenuElevated no extends colorBgHeader error. [d915ed1](https://github.com/ant-design/pro-components/commit/d915ed1)
+- fix(layout): 统一 PageContainer 计算到 styles.ts 中 (#7699). [#7699](https://github.com/ant-design/pro-components/pull/#7699) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(Table): 修改 search transform 类型 (#7708). [#7708](https://github.com/ant-design/pro-components/pull/#7708) [@linxianxi](https://github.com/linxianxi)
+- fix(table): 修复 editableFormRef hooks 未正确传递 deps 依赖导致 value 取值不是最新 (#7707). [#7707](https://github.com/ant-design/pro-components/pull/#7707) [@xliez](https://github.com/xliez)
+
+## @ant-design/pro-components@2.6.23
 
 `2023-09-20`
 

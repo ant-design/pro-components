@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.4...@ant-design/pro-layout@7.17.5) (2023-09-25)
 
-
 ### Bug Fixes
 
-* **layout:** fix colorBgMenuElevated no extends colorBgHeader error ([d915ed1](https://github.com/ant-design/pro-components/commit/d915ed1c3a0e0f049e7e35968b393f687de647e6))
-* **layout:** 统一 PageContainer 计算到 styles.ts 中 ([#7699](https://github.com/ant-design/pro-components/issues/7699)) ([ed5c61c](https://github.com/ant-design/pro-components/commit/ed5c61ced2bda9e0f6bab22f3c942792eec682b6))
-
-
-
-
+- **layout:** fix colorBgMenuElevated no extends colorBgHeader error ([d915ed1](https://github.com/ant-design/pro-components/commit/d915ed1c3a0e0f049e7e35968b393f687de647e6))
+- **layout:** 统一 PageContainer 计算到 styles.ts 中 ([#7699](https://github.com/ant-design/pro-components/issues/7699)) ([ed5c61c](https://github.com/ant-design/pro-components/commit/ed5c61ced2bda9e0f6bab22f3c942792eec682b6))
 
 ## [7.17.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.3...@ant-design/pro-layout@7.17.4) (2023-09-20)
 
