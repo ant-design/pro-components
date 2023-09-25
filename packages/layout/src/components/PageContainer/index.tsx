@@ -414,7 +414,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
             `${basePageContainer}-children-container`,
             {
               [`${basePageContainer}-children-container-no-header`]:
-                pageHeaderDom === null,
+                !pageHeaderDom,
             },
           )}
           style={childrenContentStyle}
