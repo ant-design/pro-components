@@ -40,7 +40,7 @@ const FieldPassword: ProFieldFC<{
     if (text) {
       dom = (
         <Space>
-          <span ref={ref}>{open ? text : '************************'}</span>
+          <span ref={ref}>{open ? text : '********'}</span>
           <a onClick={() => setOpen(!open)}>
             {open ? <EyeOutlined /> : <EyeInvisibleOutlined />}
           </a>
