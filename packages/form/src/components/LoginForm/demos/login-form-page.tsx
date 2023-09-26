@@ -31,8 +31,7 @@ export default () => {
     <div
       style={{
         backgroundColor: 'white',
-        height: 'calc(100vh - 48px)',
-        margin: -24,
+        height: '100vh',
       }}
     >
       <LoginFormPage

@@ -1,5 +1,8 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
-import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
+﻿import {
+  GenerateStyle,
+  ProAliasToken,
+  useStyle as useAntdStyle,
+} from '@ant-design/pro-provider';
 
 export interface LoginFormToken extends ProAliasToken {
   componentCls: string;
@@ -26,16 +29,23 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
           '&-action': { marginBlockStart: '24px' },
         },
       },
-      '&-container': {
+      '&-left': {
         display: 'flex',
         flex: '1',
         flexDirection: 'column',
         maxWidth: '550px',
-        height: '100%',
         paddingInline: 0,
         paddingBlock: 32,
         overflow: 'auto',
-        background: token.colorBgContainer,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 24,
+      },
+      '&-container': {
+        backgroundColor: '#fff',
+        borderRadius: '8px',
+        padding: 48,
+        boxShadow: '0px 0px 24px 0px rgba(0,0,0,0.1)',
       },
       '&-top': {
         textAlign: 'center',
@@ -100,9 +110,6 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
     [`@media (min-width: ${token.screenMDMin}px)`]: {
       [token.componentCls]: {
         '&-container': {
-          paddingInline: 0,
-          paddingBlockStart: 128,
-          paddingBlockEnd: 24,
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center 110px',
           backgroundSize: '100%',

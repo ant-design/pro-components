@@ -150,24 +150,28 @@ export function LoginFormPage<T = Record<string, any>>(
           </div>
         )}
       </div>
-      <div className={getCls('container')}>
-        <div className={getCls('top')}>
-          {title || logoDom ? (
-            <div className={getCls('header')}>
-              {logoDom ? (
-                <span className={getCls('logo')}>{logoDom}</span>
-              ) : null}
-              {title ? <span className={getCls('title')}>{title}</span> : null}
-            </div>
-          ) : null}
-          {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
-        </div>
-        <div className={getCls('main')}>
-          <ProForm isKeyPressSubmit {...proFormProps} submitter={submitter}>
-            {message}
-            {children}
-          </ProForm>
-          {actions ? <div className={getCls('other')}>{actions}</div> : null}
+      <div className={getCls('left')}>
+        <div className={getCls('container')}>
+          <div className={getCls('top')}>
+            {title || logoDom ? (
+              <div className={getCls('header')}>
+                {logoDom ? (
+                  <span className={getCls('logo')}>{logoDom}</span>
+                ) : null}
+                {title ? (
+                  <span className={getCls('title')}>{title}</span>
+                ) : null}
+              </div>
+            ) : null}
+            {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
+          </div>
+          <div className={getCls('main')}>
+            <ProForm isKeyPressSubmit {...proFormProps} submitter={submitter}>
+              {message}
+              {children}
+            </ProForm>
+            {actions ? <div className={getCls('other')}>{actions}</div> : null}
+          </div>
         </div>
       </div>
     </div>,
