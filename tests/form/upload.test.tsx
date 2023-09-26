@@ -42,6 +42,7 @@ describe('ProFormUpload', () => {
 
   it('🏐 ProFormUploadButton support onChange', async () => {
     const fn = vi.fn();
+    const onChangeFn = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
@@ -51,6 +52,7 @@ describe('ProFormUpload', () => {
         <ProFormUploadButton
           action="http://upload.com"
           listType="text"
+          onChange={() => onChangeFn()}
           label="upload"
           name="files"
         />
@@ -69,6 +71,7 @@ describe('ProFormUpload', () => {
     });
     await waitForWaitTime(1000);
     expect(fn).toBeCalled();
+    expect(onChangeFn).toBeCalledTimes(3);
   });
 
   it('🏐 ProFormUploadButton support beforeUpload', async () => {
