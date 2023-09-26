@@ -88,12 +88,18 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
         activeKey={activeItem.key as string}
         onTabClick={(key) => setActiveKey(key)}
       >
-        {items?.map((item, index) => {
-          /* 如果版本低于 4.23.0，不支持 items */
-          return compareVersions(version, '4.23.0') < 0 ? (
-            <Tabs.TabPane {...item} key={item.key || index} tab={item.label} />
-          ) : null;
-        })}
+        {compareVersions(version, '4.23.0') < 0
+          ? items?.map((item, index) => {
+              /* 如果版本低于 4.23.0，不支持 items */
+              return (
+                <Tabs.TabPane
+                  {...item}
+                  key={item.key || index}
+                  tab={item.label}
+                />
+              );
+            })
+          : null}
       </Tabs>
     );
   }
