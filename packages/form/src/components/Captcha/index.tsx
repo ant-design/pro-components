@@ -104,6 +104,7 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
             flex: 1,
             transition: 'width .3s',
             marginRight: 8,
+            ...fieldProps?.style,
           }}
         />
         <Button
