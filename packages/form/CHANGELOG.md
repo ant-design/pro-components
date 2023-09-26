@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.19.0...@ant-design/pro-form@2.20.0) (2023-09-26)
+
+
+### Features
+
+* **form:** support more style config ([b8c3954](https://github.com/ant-design/pro-components/commit/b8c39542ffc2d3c7909338c02738e84a3804f13a))
+
+
+
+
 
 # [2.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.11...@ant-design/pro-form@2.19.0) (2023-09-26)
 
