@@ -4193,7 +4193,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div>
                       Hello World
@@ -4494,7 +4494,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/BreadcrumbsRepe
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div>
                       Hello World
@@ -4737,7 +4737,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div>
                       Hello World
@@ -4980,7 +4980,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/IconFont.tsx co
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div>
                       Hello World
@@ -5223,7 +5223,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MenuGroup.tsx c
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div>
                       Hello World
@@ -5488,7 +5488,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MultipleMenuOne
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div>
                       Hello World
@@ -5699,7 +5699,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                           class="ant-pro-grid-content-children"
                         >
                           <div
-                            class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                            class="ant-pro-page-container-children-container"
                           >
                             <div>
                               Hello World
@@ -6033,7 +6033,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
                           class="ant-pro-grid-content-children"
                         >
                           <div
-                            class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                            class="ant-pro-page-container-children-container"
                           >
                             <div>
                               Hello World
@@ -6313,7 +6313,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/antd@4MenuIconF
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   <div
                     style="height: 120vh; min-height: 600px;"
@@ -6799,7 +6799,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/api.tsx correct
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   Hello World
                 </div>
@@ -7907,7 +7907,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/background-cont
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -8289,7 +8289,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -8720,7 +8720,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -9090,7 +9090,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   <div
                     class="ant-pro-card"
@@ -9789,7 +9789,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                 class="qixian-pro-grid-content-children"
               >
                 <div
-                  class="qixian-pro-page-container-children-container qixian-pro-page-container-children-container-no-header"
+                  class="qixian-pro-page-container-children-container"
                 >
                   <div
                     style="height: 120vh; min-height: 600px;"
@@ -10474,7 +10474,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -10767,7 +10767,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   <div
                     style="height: 120vh; min-height: 600px;"
@@ -10982,7 +10982,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customizeMenu.t
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     Hello World
                   </div>
@@ -11326,7 +11326,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   <div
                     class="ant-pro-card"
@@ -11714,7 +11714,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   <div
                     class="ant-pro-card"
@@ -12123,7 +12123,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -12506,7 +12506,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designSiderMenu
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -13643,7 +13643,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                     style="position: relative;"
                   >
                     <div
-                      class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                      class="ant-pro-page-container-children-container"
                     >
                       <div
                         style="height: 120vh; min-height: 600px;"
@@ -14311,7 +14311,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   <div>
                     当从服务器获取的菜单为空时隐藏Sider：
@@ -14837,7 +14837,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer.tsx corr
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   Hello World
                 </div>
@@ -15266,7 +15266,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -15691,7 +15691,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/ghost.tsx corre
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -16744,7 +16744,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/hideMenu.tsx co
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   Hello World
                 </div>
@@ -17977,7 +17977,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                     style="position: relative;"
                   >
                     <div
-                      class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                      class="ant-pro-page-container-children-container"
                     >
                       <div
                         class="ant-pro-card"
@@ -18640,7 +18640,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/mixMode.tsx cor
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -18972,7 +18972,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/pageSimplify.ts
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -19289,7 +19289,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/searchMenu.tsx 
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div>
                       Hello World
@@ -19608,7 +19608,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siderMode.tsx c
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -19938,7 +19938,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siteMenu.tsx co
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
@@ -20596,7 +20596,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   xxxx
                 </div>
@@ -20965,7 +20965,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                  class="ant-pro-page-container-children-container"
                 >
                   <div
                     class="ant-pro-card"
@@ -21324,7 +21324,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/top-breadcrumb.
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div>
                       Hello World
@@ -21643,7 +21643,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/topMode.tsx cor
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-container ant-pro-page-container-children-container-no-header"
+                    class="ant-pro-page-container-children-container"
                   >
                     <div
                       class="ant-pro-card"
