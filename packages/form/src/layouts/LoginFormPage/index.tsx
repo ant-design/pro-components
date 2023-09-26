@@ -58,6 +58,8 @@ export type LoginFormPageProps<T> = {
    */
   backgroundImageUrl?: string;
   children?: React.ReactNode | React.ReactNode[];
+
+  containerStyle?: React.CSSProperties;
 } & ProFormProps<T>;
 
 export function LoginFormPage<T = Record<string, any>>(
@@ -73,6 +75,7 @@ export function LoginFormPage<T = Record<string, any>>(
     subTitle,
     actions,
     children,
+    containerStyle,
     ...proFormProps
   } = props;
 
@@ -104,7 +107,7 @@ export function LoginFormPage<T = Record<string, any>>(
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
   const getCls = (className: string) =>
-    `${baseClassName}-${className} ${hashId}`;
+    `${baseClassName}-${className} ${hashId}`.trim();
 
   /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
   const logoDom = useMemo(() => {
@@ -151,7 +154,7 @@ export function LoginFormPage<T = Record<string, any>>(
         )}
       </div>
       <div className={getCls('left')}>
-        <div className={getCls('container')}>
+        <div className={getCls('container')} style={containerStyle}>
           <div className={getCls('top')}>
             {title || logoDom ? (
               <div className={getCls('header')}>

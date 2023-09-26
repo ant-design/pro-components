@@ -1,6 +1,7 @@
 ﻿import {
   GenerateStyle,
   ProAliasToken,
+  setAlpha,
   useStyle as useAntdStyle,
 } from '@ant-design/pro-provider';
 
@@ -14,7 +15,9 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       display: 'flex',
       width: '100%',
       height: '100%',
-      backgroundSize: 'contain',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
       '&-notice': {
         display: 'flex',
         flex: '1',
@@ -42,9 +45,14 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         padding: 24,
       },
       '&-container': {
-        backgroundColor: '#fff',
-        borderRadius: '8px',
-        padding: 48,
+        borderRadius: token.borderRadius,
+        backgroundSize: '100%',
+        backgroundPosition: 'top',
+        backdropFilter: 'blur(10px)',
+        backgroundColor: setAlpha(token.colorBgContainer, 0.6),
+        backgroundImage:
+          'radial-gradient(circle at 93% 1e+02%, rgba(22,119,255,0.17) 0%, rgba(255,255,255,0.05) 23%, rgba(255,255,255,0.03) 87%, rgba(22,119,255,0.12) 109%)',
+        padding: 32,
         boxShadow: '0px 0px 24px 0px rgba(0,0,0,0.1)',
       },
       '&-top': {
@@ -96,6 +104,12 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       [token.componentCls]: {
         flexDirection: 'column-reverse',
         background: 'none !important',
+        '&-container': {
+          padding: 24,
+          boxShadow: 'none',
+          backgroundImage: 'none',
+          borderRadius: '0px',
+        },
         '&-notice': {
           display: 'flex',
           flex: 'none',
@@ -109,7 +123,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
     },
     [`@media (min-width: ${token.screenMDMin}px)`]: {
       [token.componentCls]: {
-        '&-container': {
+        '&-left': {
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center 110px',
           backgroundSize: '100%',
