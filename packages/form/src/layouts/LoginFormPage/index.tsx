@@ -57,6 +57,12 @@ export type LoginFormPageProps<T> = {
    * @example  backgroundImageUrl="xxx.svg"
    */
   backgroundImageUrl?: string;
+  /**
+   * @name 登录页面的背景视频，可以用它来设置一个背景，优先级高于 backgroundImageUrl
+   *
+   * @example  backgroundImageUrl="xxx.svg"
+   */
+  backgroundVideoUrl?: string;
   children?: React.ReactNode | React.ReactNode[];
 
   containerStyle?: React.CSSProperties;
@@ -73,6 +79,7 @@ export function LoginFormPage<T = Record<string, any>>(
     style,
     activityConfig = {},
     backgroundImageUrl,
+    backgroundVideoUrl,
     title,
     subTitle,
     actions,
@@ -127,9 +134,38 @@ export function LoginFormPage<T = Record<string, any>>(
       className={classNames(baseClassName, hashId)}
       style={{
         ...style,
+        position: 'relative',
         backgroundImage: `url("${backgroundImageUrl}")`,
       }}
     >
+      {backgroundVideoUrl ? (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            overflow: 'hidden',
+            height: '100%',
+            zIndex: 1,
+            pointerEvents: 'none',
+          }}
+        >
+          <video
+            src={backgroundVideoUrl}
+            controls={false}
+            autoPlay
+            loop
+            muted={true}
+            crossOrigin="anonymous"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+        </div>
+      ) : null}
       <div className={getCls('notice')}>
         {activityConfig && (
           <div
