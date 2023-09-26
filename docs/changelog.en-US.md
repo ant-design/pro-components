@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.26
+﻿## @ant-design/pro-components@2.6.27
+
+`2023-09-26`
+
+- fix(form): fix Captcha style no work error. [f31381d](https://github.com/ant-design/pro-components/commit/f31381d)
+
+## @ant-design/pro-components@2.6.26
 
 `2023-09-26`
 
