@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.25
+﻿## @ant-design/pro-components@2.6.26
+
+`2023-09-26`
+
+- feat(form): support more style config. [b8c3954](https://github.com/ant-design/pro-components/commit/b8c3954)
+
+## @ant-design/pro-components@2.6.25
 
 `2023-09-26`
 
