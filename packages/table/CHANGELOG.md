@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [3.12.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.8...@ant-design/pro-table@3.12.9) (2023-09-26)
 
-
 ### Bug Fixes
 
-* **table:** unuse Tab.TabPanel ([#7731](https://github.com/ant-design/pro-components/issues/7731)) ([344729c](https://github.com/ant-design/pro-components/commit/344729c1c2c2d328738bc0a7af899236d5668f41))
-
-
-
-
+- **table:** unuse Tab.TabPanel ([#7731](https://github.com/ant-design/pro-components/issues/7731)) ([344729c](https://github.com/ant-design/pro-components/commit/344729c1c2c2d328738bc0a7af899236d5668f41))
 
 ## [3.12.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.7...@ant-design/pro-table@3.12.8) (2023-09-25)
 

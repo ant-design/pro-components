@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.5...@ant-design/pro-layout@7.17.6) (2023-09-26)
 
-
 ### Bug Fixes
 
-* **layou:** 调整 PageContainer 无 Header 的判断规则 ([#7726](https://github.com/ant-design/pro-components/issues/7726)) ([c1830cb](https://github.com/ant-design/pro-components/commit/c1830cb73a1a575b39714bc8adf5b19520aadf7c))
-
-
-
-
+- **layou:** 调整 PageContainer 无 Header 的判断规则 ([#7726](https://github.com/ant-design/pro-components/issues/7726)) ([c1830cb](https://github.com/ant-design/pro-components/commit/c1830cb73a1a575b39714bc8adf5b19520aadf7c))
 
 ## [7.17.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.4...@ant-design/pro-layout@7.17.5) (2023-09-25)
 
