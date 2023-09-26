@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.20.0...@ant-design/pro-form@2.20.1) (2023-09-26)
+
+
+### Bug Fixes
+
+* **form:** fix Captcha style no work error ([f31381d](https://github.com/ant-design/pro-components/commit/f31381dab2fb966eb0223e33cabfd7d3af7b88fc))
+
+
+
+
 
 # [2.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.19.0...@ant-design/pro-form@2.20.0) (2023-09-26)
 
