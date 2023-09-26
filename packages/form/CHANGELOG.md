@@ -1,6 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.11...@ant-design/pro-form@2.19.0) (2023-09-26)
+
+
+### Bug Fixes
+
+* **form:** the `onChange` event in `ProFormUploadButton`  has been triggered multiple times ([#7732](https://github.com/ant-design/pro-components/issues/7732)) ([a76b18c](https://github.com/ant-design/pro-components/commit/a76b18c2f37d16285bcf973081834e3e95d33754))
+
+
+### Features
+
+* **form:** new LoginFormPage style ([#7734](https://github.com/ant-design/pro-components/issues/7734)) ([1bc5453](https://github.com/ant-design/pro-components/commit/1bc54531ad3aebac6fc8dc7904dc2299987951c5))
+
+
+
+
 
 ## [2.18.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.10...@ant-design/pro-form@2.18.11) (2023-09-25)
 
