@@ -16272,12 +16272,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
           <div
             class="ant-pro-form-login-page-notice-activity-subTitle"
           >
-             活动介绍说明文字 
+            活动介绍说明文字
           </div>
           <div
             class="ant-pro-form-login-page-notice-activity-action"
           >
-             
             <button
               class="ant-btn ant-btn-default ant-btn-lg"
               style="border-radius: 20px; background: rgb(255, 255, 255); color: rgb(22, 119, 255); width: 120px;"
@@ -16287,7 +16286,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                 去看看
               </span>
             </button>
-             
           </div>
         </div>
       </div>
