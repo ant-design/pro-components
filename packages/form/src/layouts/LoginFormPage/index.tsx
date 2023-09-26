@@ -60,6 +60,8 @@ export type LoginFormPageProps<T> = {
   children?: React.ReactNode | React.ReactNode[];
 
   containerStyle?: React.CSSProperties;
+  mainStyle?: React.CSSProperties;
+  otherStyle?: React.CSSProperties;
 } & ProFormProps<T>;
 
 export function LoginFormPage<T = Record<string, any>>(
@@ -76,6 +78,8 @@ export function LoginFormPage<T = Record<string, any>>(
     actions,
     children,
     containerStyle,
+    otherStyle,
+    mainStyle,
     ...proFormProps
   } = props;
 
@@ -140,14 +144,12 @@ export function LoginFormPage<T = Record<string, any>>(
             )}
             {activityConfig.subTitle && (
               <div className={getCls('notice-activity-subTitle')}>
-                {' '}
-                {activityConfig.subTitle}{' '}
+                {activityConfig.subTitle}
               </div>
             )}
             {activityConfig.action && (
               <div className={getCls('notice-activity-action')}>
-                {' '}
-                {activityConfig.action}{' '}
+                {activityConfig.action}
               </div>
             )}
           </div>
@@ -168,12 +170,16 @@ export function LoginFormPage<T = Record<string, any>>(
             ) : null}
             {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
           </div>
-          <div className={getCls('main')}>
+          <div className={getCls('main')} style={mainStyle}>
             <ProForm isKeyPressSubmit {...proFormProps} submitter={submitter}>
               {message}
               {children}
             </ProForm>
-            {actions ? <div className={getCls('other')}>{actions}</div> : null}
+            {actions ? (
+              <div className={getCls('other')} style={otherStyle}>
+                {actions}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
