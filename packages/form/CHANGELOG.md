@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.20.1...@ant-design/pro-form@2.21.0) (2023-09-26)
 
-
 ### Features
 
-* **form:** LoginFormPage support backgroundVideoUrl ([6dc50b0](https://github.com/ant-design/pro-components/commit/6dc50b0eea177dac53fa16d354ae368766e001a6))
-
-
-
-
+- **form:** LoginFormPage support backgroundVideoUrl ([6dc50b0](https://github.com/ant-design/pro-components/commit/6dc50b0eea177dac53fa16d354ae368766e001a6))
 
 ## [2.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.20.0...@ant-design/pro-form@2.20.1) (2023-09-26)
 
