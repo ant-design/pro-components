@@ -16273,7 +16273,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
       >
         <div
           class="ant-pro-form-login-page-notice-activity"
-          style="box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); color: rgb(255, 255, 255); border-radius: 8px; background-color: rgb(22, 119, 255);"
+          style="box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); color: rgba(255, 255, 255, 0.85); border-radius: 8px; background-color: rgba(255, 255, 255, 0.25);"
         >
           <div
             class="ant-pro-form-login-page-notice-activity-title"
@@ -16290,7 +16290,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
           >
             <button
               class="ant-btn ant-btn-default ant-btn-lg"
-              style="border-radius: 20px; background: rgb(255, 255, 255); color: rgb(22, 119, 255); width: 120px;"
+              style="border-radius: 20px; background: rgb(31, 31, 31); color: rgb(22, 104, 220); width: 120px;"
               type="button"
             >
               <span>
@@ -16305,6 +16305,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
       >
         <div
           class="ant-pro-form-login-page-container"
+          style="background-color: rgba(0, 0, 0, 0.65);"
         >
           <div
             class="ant-pro-form-login-page-top"
@@ -16469,6 +16470,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                               aria-label="mobile"
                               class="anticon anticon-mobile prefixIcon"
                               role="img"
+                              style="color: rgba(255, 255, 255, 0.85);"
                             >
                               <svg
                                 aria-hidden="true"
@@ -16557,6 +16559,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                                 aria-label="lock"
                                 class="anticon anticon-lock prefixIcon"
                                 role="img"
+                                style="color: rgba(255, 255, 255, 0.85);"
                               >
                                 <svg
                                   aria-hidden="true"
@@ -16648,7 +16651,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     class="ant-divider-inner-text"
                   >
                     <span
-                      style="color: rgb(204, 204, 204); font-weight: normal; font-size: 14px;"
+                      style="color: rgba(255, 255, 255, 0.25); font-weight: normal; font-size: 14px;"
                     >
                       其他登录方式
                     </span>
@@ -16662,7 +16665,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     class="ant-space-item"
                   >
                     <div
-                      style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 40px; width: 40px; border: 1px solid #d4d8dd; border-radius: 50%;"
+                      style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 40px; width: 40px; border: 1px solid #15325b; border-radius: 50%;"
                     >
                       <span
                         aria-label="alipay"
@@ -16690,7 +16693,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     class="ant-space-item"
                   >
                     <div
-                      style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 40px; width: 40px; border: 1px solid #d4d8dd; border-radius: 50%;"
+                      style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 40px; width: 40px; border: 1px solid #15325b; border-radius: 50%;"
                     >
                       <span
                         aria-label="taobao"
@@ -16718,13 +16721,13 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     class="ant-space-item"
                   >
                     <div
-                      style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 40px; width: 40px; border: 1px solid #d4d8dd; border-radius: 50%;"
+                      style="display: flex; justify-content: center; align-items: center; flex-direction: column; height: 40px; width: 40px; border: 1px solid #15325b; border-radius: 50%;"
                     >
                       <span
                         aria-label="weibo"
                         class="anticon anticon-weibo"
                         role="img"
-                        style="color: rgb(51, 51, 51); font-size: 18px; vertical-align: middle; cursor: pointer;"
+                        style="color: rgb(24, 144, 255); font-size: 18px; vertical-align: middle; cursor: pointer;"
                       >
                         <svg
                           aria-hidden="true"
