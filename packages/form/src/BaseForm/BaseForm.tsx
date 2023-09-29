@@ -642,10 +642,10 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
 
   useEffect(() => {
     if (!syncToUrl) return;
-    setUrlSearch({
+    setUrlSearch(genParams(syncToUrl, {
       ...urlSearch,
       ...extraUrlParams,
-    });
+    }, 'set'));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [extraUrlParams, syncToUrl]);
 
