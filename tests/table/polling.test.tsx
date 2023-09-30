@@ -1,7 +1,11 @@
 import ProTable from '@ant-design/pro-table';
-import { act, render, waitFor } from '@testing-library/react';
+import { act, cleanup, render, waitFor } from '@testing-library/react';
 import useFetchData from '../../packages/table/src/useFetchData';
 import { columns } from './demo';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('polling', () => {
   it('⏱️ polling should clearTime', async () => {

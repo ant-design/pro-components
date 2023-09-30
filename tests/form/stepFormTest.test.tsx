@@ -1,6 +1,7 @@
 ﻿import { ProFormText, StepsForm } from '@ant-design/pro-form';
 import {
   act,
+  cleanup,
   fireEvent,
   render,
   screen,
@@ -10,6 +11,10 @@ import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
 import React from 'react';
 import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('StepsForm', () => {
   it('🐲 basic use', async () => {

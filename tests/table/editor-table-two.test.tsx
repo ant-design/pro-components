@@ -6,7 +6,13 @@ import type {
 } from '@ant-design/pro-components';
 import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { EditableProTable } from '@ant-design/pro-table';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useRef } from 'react';
@@ -224,6 +230,11 @@ const EditorProTableDemo = (
     />
   );
 };
+
+afterEach(() => {
+  cleanup();
+});
+
 describe('EditorProTable 2', () => {
   it('📝 EditableProTable controlled will trigger onchange', async () => {
     const onChange = vi.fn();

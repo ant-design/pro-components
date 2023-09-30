@@ -1,5 +1,9 @@
 import { DefaultFooter } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('DefaultFooter test', () => {
   it('🦶 set title', () => {

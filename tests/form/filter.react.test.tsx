@@ -16,6 +16,10 @@ import { TreeSelect } from 'antd';
 import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
 import { waitForWaitTime } from '../util';
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('✔️ ProFormLightFilter', () => {
   afterEach(() => {
     cleanup();

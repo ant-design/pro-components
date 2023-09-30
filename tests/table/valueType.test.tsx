@@ -1,6 +1,6 @@
 import { ProProvider } from '@ant-design/pro-provider';
 import ProTable from '@ant-design/pro-table';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
 import { waitForWaitTime } from '../util';
 
@@ -79,6 +79,10 @@ const defaultProps = {
     });
   },
 };
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('BasicTable valueType', () => {
   it('🎏 table support user valueType', async () => {

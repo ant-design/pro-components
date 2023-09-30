@@ -42,6 +42,7 @@
     "@chenshuai2144/sketch-color": "^1.0.7",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.3.2",
+    "dayjs": "^1.11.10",
     "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
     "rc-resize-observer": "^1.1.0",

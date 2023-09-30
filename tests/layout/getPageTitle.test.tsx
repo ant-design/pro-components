@@ -1,4 +1,5 @@
 ﻿import { getPageTitle } from '@ant-design/pro-components';
+import { cleanup } from '@testing-library/react';
 
 const pageProps = {
   pathname: '/welcome',
@@ -91,6 +92,10 @@ const pageProps = {
   },
   breadcrumbMap: new Map(),
 };
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('getPageTitle', () => {
   it('🗒️ base', () => {

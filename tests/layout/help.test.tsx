@@ -6,7 +6,13 @@ import {
   ProHelpPanel,
   ProHelpSelect,
 } from '@ant-design/pro-components';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Typography } from 'antd';
 
 export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (
@@ -328,6 +334,10 @@ export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (
     </ProHelp>
   );
 };
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('👍🏻 ProHelpPanel', () => {
   beforeAll(() => {
