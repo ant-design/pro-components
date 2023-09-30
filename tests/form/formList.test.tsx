@@ -12,6 +12,7 @@ import ProForm, {
 } from '@ant-design/pro-form';
 import {
   act,
+  cleanup,
   fireEvent,
   render,
   screen,
@@ -23,6 +24,10 @@ import _ from 'lodash';
 import moment from 'moment';
 import React from 'react';
 import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('ProForm List', () => {
   it('⛲ ProForm.List', async () => {

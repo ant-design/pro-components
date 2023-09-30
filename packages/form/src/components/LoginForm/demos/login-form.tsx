@@ -12,26 +12,29 @@ import {
   ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
+  setAlpha,
 } from '@ant-design/pro-components';
-import { message, Space, Tabs } from 'antd';
+import { message, Space, Tabs, theme } from 'antd';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
 
 type LoginType = 'phone' | 'account';
 
-const iconStyles: CSSProperties = {
-  marginInlineStart: '16px',
-  color: 'rgba(0, 0, 0, 0.2)',
-  fontSize: '24px',
-  verticalAlign: 'middle',
-  cursor: 'pointer',
-};
-
 export default () => {
+  const { token } = theme.useToken();
   const [loginType, setLoginType] = useState<LoginType>('phone');
+
+  const iconStyles: CSSProperties = {
+    marginInlineStart: '16px',
+    color: setAlpha(token.colorTextBase, 0.2),
+    fontSize: '24px',
+    verticalAlign: 'middle',
+    cursor: 'pointer',
+  };
+
   return (
     <ProConfigProvider hashed={false}>
-      <div style={{ backgroundColor: 'white' }}>
+      <div style={{ backgroundColor: token.colorBgContainer }}>
         <LoginForm
           logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
           title="Github"

@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.27
+﻿## @ant-design/pro-components@2.6.28
+
+`2023-09-26`
+
+- feat(form): LoginFormPage support backgroundVideoUrl. [6dc50b0](https://github.com/ant-design/pro-components/commit/6dc50b0)
+
+## @ant-design/pro-components@2.6.27
 
 `2023-09-26`
 

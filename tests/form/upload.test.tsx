@@ -2,7 +2,7 @@
   ProFormUploadButton,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { Form } from 'antd';
 import type { UploadFile } from 'antd/lib/upload/interface';
 import mock from 'xhr-mock';
@@ -30,6 +30,10 @@ export function setup() {
 }
 
 export const teardown = mock.teardown.bind(mock);
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('ProFormUpload', () => {
   const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});

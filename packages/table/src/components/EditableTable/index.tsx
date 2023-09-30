@@ -208,7 +208,7 @@ function EditableTable<
       if (typeof finlayRowKey === 'number' && !props.name) {
         if (finlayRowKey >= value.length) return finlayRowKey;
         const rowData = value && value[finlayRowKey];
-        return getRowKey?.(rowData!, finlayRowKey);
+        return getRowKey?.(rowData!, finlayRowKey) as string | number;
       }
 
       /**

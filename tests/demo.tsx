@@ -3,6 +3,7 @@ import {
   render as reactRender,
   waitFor,
 } from '@testing-library/react';
+import { App } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
 import { useEffect } from 'react';
@@ -59,17 +60,17 @@ function demoTest(component: string, options: Options = {}) {
   const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
   files.push(...glob.sync(`./${component}/**/**/[!_]*.tsx`));
 
-  const App = (props: { children: any; onInit: () => void }) => {
+  const TestApp = (props: { children: any; onInit: () => void }) => {
     useEffect(() => {
       setTimeout(() => {
         props.onInit?.();
       }, 1000);
     }, []);
     return (
-      <>
+      <App>
         <div>test</div>
         {props.children}
-      </>
+      </App>
     );
   };
 
@@ -102,9 +103,9 @@ function demoTest(component: string, options: Options = {}) {
 
         const Demo = (await import(`.${file}`)).default;
         const wrapper = reactRender(
-          <App onInit={fn}>
+          <TestApp onInit={fn}>
             <Demo />
-          </App>,
+          </TestApp>,
         );
 
         act(() => {

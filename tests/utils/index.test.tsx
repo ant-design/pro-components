@@ -23,12 +23,22 @@ import {
   useDebounceFn,
   useDebounceValue,
 } from '@ant-design/pro-utils';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Form, Input } from 'antd';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('utils', () => {
   beforeEach(() => {

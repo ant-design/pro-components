@@ -1,6 +1,10 @@
 import { ProConfigProvider, useStyle } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('ProConfigProvider', () => {
   it('token should be correct in useStyle', () => {

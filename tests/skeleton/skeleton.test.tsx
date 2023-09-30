@@ -1,5 +1,9 @@
-import { act, render } from '@testing-library/react';
+import { act, cleanup, render } from '@testing-library/react';
 import ProSkeleton from '../../packages/skeleton/src/index';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('skeleton', () => {
   it('🥩 list base use', async () => {

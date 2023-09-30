@@ -3,10 +3,17 @@ import {
   ProFormDependency,
   ProFormText,
 } from '@ant-design/pro-components';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { waitForWaitTime } from '../util';
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('ProForm Dependency component', () => {
+  afterEach(() => {
+    cleanup();
+  });
   it('⛲ shouldUpdate of ProFormDependency is Boolean', async () => {
     const Demo: React.FC<{
       shouldUpdate?: boolean;

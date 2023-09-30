@@ -1,5 +1,11 @@
 import ProTable from '@ant-design/pro-table';
-import { act, createEvent, fireEvent, render } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  createEvent,
+  fireEvent,
+  render,
+} from '@testing-library/react';
 import { waitForWaitTime } from '../util';
 import { columns } from './demo';
 
@@ -10,6 +16,10 @@ function fireDragEvent(ele: HTMLElement, eventName: string, data: object = {}) {
   });
   fireEvent(ele, event);
 }
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('Table ColumnSetting', () => {
   beforeEach(() => {

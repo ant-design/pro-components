@@ -4,7 +4,13 @@ import type {
 } from '@ant-design/pro-descriptions';
 import Descriptions from '@ant-design/pro-descriptions';
 import type { RowEditableConfig } from '@ant-design/pro-utils';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Form, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useRef } from 'react';
@@ -139,7 +145,15 @@ const DescriptionsDemo = (
   );
 };
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('Descriptions', () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   it('📝 Descriptions close editable', async () => {
     const wrapper = render(
       <Descriptions<DataSourceType>

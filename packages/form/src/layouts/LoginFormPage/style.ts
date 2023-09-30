@@ -73,7 +73,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       '&-title': {
         position: 'relative',
         tinsetBlockStartop: '2px',
-        color: '@heading-color',
+        color: token.colorTextHeading,
         fontWeight: '600',
         fontSize: '33px',
       },

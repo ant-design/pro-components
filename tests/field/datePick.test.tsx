@@ -1,5 +1,11 @@
 import Field from '@ant-design/pro-field';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import dayjs from 'dayjs';
 
 function closePicker(container: HTMLElement, index = 0) {
@@ -13,7 +19,14 @@ export function openPicker(container: HTMLElement, index = 0) {
   fireEvent.focus(input);
 }
 
-describe('Field', () => {
+afterEach(() => {
+  cleanup();
+});
+
+describe('DateField', () => {
+  afterEach(() => {
+    cleanup();
+  });
   const datePickList = [
     'date',
     'dateWeek',

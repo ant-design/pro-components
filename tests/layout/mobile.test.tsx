@@ -1,6 +1,10 @@
 ﻿import { ProLayout } from '@ant-design/pro-components';
-import { act, render, waitFor } from '@testing-library/react';
+import { act, cleanup, render, waitFor } from '@testing-library/react';
 import defaultProps from './defaultProps';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('mobile BasicLayout', () => {
   beforeAll(() => {

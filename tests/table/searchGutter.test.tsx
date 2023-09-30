@@ -1,6 +1,11 @@
 import ProTable from '@ant-design/pro-table';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
+
 describe('BasicTable SearchGutter', () => {
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
