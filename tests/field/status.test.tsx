@@ -1,7 +1,14 @@
 import Field from '@ant-design/pro-field';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('Field Status', () => {
+  afterEach(() => {
+    cleanup();
+  });
   const statusList = [
     'Success',
     'Error',

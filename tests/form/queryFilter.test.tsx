@@ -1,5 +1,9 @@
 import { ProFormGroup, ProFormText, QueryFilter } from '@ant-design/pro-form';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('QueryFilter', () => {
   it('🕵️‍♀️ basic use', async () => {

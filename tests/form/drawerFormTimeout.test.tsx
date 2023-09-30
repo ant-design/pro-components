@@ -1,5 +1,9 @@
 ﻿import { DrawerForm, ProFormText } from '@ant-design/pro-form';
-import { act, render } from '@testing-library/react';
+import { act, cleanup, render } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('DrawerForm', () => {
   it('📦 DrawerForm submitTimeout is number will disabled close button when submit', async () => {

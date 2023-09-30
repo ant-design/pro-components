@@ -1,8 +1,18 @@
 ﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-form';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Button, Form } from 'antd';
 import React from 'react';
 import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('DrawerForm', () => {
   it('📦 trigger will simulate onOpenChange', async () => {

@@ -1,9 +1,13 @@
 import ProTable from '@ant-design/pro-table';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
 import type { RequestOptionsType } from 'packages/utils/src/typing';
 import { request } from './demo';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {

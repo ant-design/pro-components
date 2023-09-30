@@ -1,7 +1,11 @@
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { waitForWaitTime } from '../util';
 import { request } from './demo';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('BasicTable pagination', () => {
   it('🎏 pagination current test', async () => {
@@ -324,6 +328,10 @@ describe('BasicTable pagination', () => {
     await waitForWaitTime(200);
     expect(currentFn).toBeCalledWith(2);
   });
+});
+
+afterEach(() => {
+  cleanup();
 });
 
 describe('TableDropdown', () => {

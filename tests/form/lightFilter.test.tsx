@@ -11,6 +11,7 @@ import {
 } from '@ant-design/pro-form';
 import {
   act,
+  cleanup,
   fireEvent,
   render,
   screen,
@@ -19,6 +20,10 @@ import {
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('LightFilter', () => {
   it(' 🪕 basic use text', async () => {

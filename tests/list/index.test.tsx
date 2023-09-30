@@ -1,6 +1,7 @@
 import ProList, { BaseProList } from '@ant-design/pro-list';
 import {
   act,
+  cleanup,
   fireEvent,
   render as reactRender,
   screen,
@@ -18,6 +19,10 @@ type DataSourceType = {
     text: string;
   };
 };
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('List', () => {
   it('🚏 base use', async () => {

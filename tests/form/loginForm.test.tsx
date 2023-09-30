@@ -5,9 +5,13 @@ import {
   WeiboCircleOutlined,
 } from '@ant-design/icons';
 import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
-import { act, render } from '@testing-library/react';
+import { act, cleanup, render } from '@testing-library/react';
 import { Alert, Space } from 'antd';
 import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {

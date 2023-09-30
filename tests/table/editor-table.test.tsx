@@ -155,6 +155,10 @@ const columns: ProColumns<DataSourceType>[] = [
   },
 ];
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('EditorProTable', () => {
   afterEach(() => {
     cleanup();

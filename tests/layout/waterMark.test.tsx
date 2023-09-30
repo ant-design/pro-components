@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { WaterMark } from '@ant-design/pro-components';
-import { act, render } from '@testing-library/react';
+import { act, cleanup, render } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('WaterMark', () => {
   it('test image watermark', async () => {

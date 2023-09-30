@@ -1,5 +1,9 @@
 import { CheckCard } from '@ant-design/pro-components';
-import { act, render, waitFor } from '@testing-library/react';
+import { act, cleanup, render, waitFor } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('CheckCard', () => {
   it('should invoke onChange and onClick function when click option', async () => {
