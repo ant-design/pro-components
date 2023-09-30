@@ -762,7 +762,7 @@ describe('LightFilter', () => {
 
     await waitFor(() => {
       expect(
-        container.querySelector('.ant-pro-core-field-label')?.textContent,
+        container.querySelector('.ant-pro-core-field-label'),
       ).toMatchSnapshot();
     });
   });
