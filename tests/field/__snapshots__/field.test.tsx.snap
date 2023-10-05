@@ -3578,7 +3578,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                       class="ant-space-item"
                     >
                       <span>
-                        ************************
+                        ********
                       </span>
                     </div>
                     <div
@@ -4127,7 +4127,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                       class="ant-space-item"
                     >
                       <span>
-                        ************************
+                        ********
                       </span>
                     </div>
                     <div

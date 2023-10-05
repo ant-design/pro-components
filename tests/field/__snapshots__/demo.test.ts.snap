@@ -1296,7 +1296,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                         class="ant-space-item"
                       >
                         <span>
-                          ************************
+                          ********
                         </span>
                       </div>
                       <div
