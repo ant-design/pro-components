@@ -502,7 +502,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const { cache } = useSWRConfig();
   useEffect(() => {
     return () => {
-      if (cache instanceof Map) cache.clear();
+      if (cache instanceof Map) cache.delete(defaultId);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
