@@ -1469,7 +1469,7 @@ describe('Field', () => {
     const html = render(
       <Field text={123456} valueType="password" mode="read" />,
     );
-    await html.findByText('************************');
+    await html.findByText('********');
 
     act(() => {
       fireEvent.click(
