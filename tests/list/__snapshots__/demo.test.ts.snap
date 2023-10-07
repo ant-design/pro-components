@@ -232,38 +232,26 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                         style="display: flex; justify-content: space-around;"
                       >
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             模型数
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             2903
                           </div>
                         </div>
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             指标数
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             3720
                           </div>
                         </div>
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             实验状态
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             <span
                               style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgb(82, 196, 26); margin-inline-end: 8px;"
                             />
@@ -341,38 +329,26 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                         style="display: flex; justify-content: space-around;"
                       >
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             模型数
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             2904
                           </div>
                         </div>
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             指标数
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             3721
                           </div>
                         </div>
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             实验状态
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             <span
                               style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgb(82, 196, 26); margin-inline-end: 8px;"
                             />
@@ -450,38 +426,26 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                         style="display: flex; justify-content: space-around;"
                       >
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             模型数
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             2905
                           </div>
                         </div>
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             指标数
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             3722
                           </div>
                         </div>
                         <div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.451);"
-                          >
+                          <div>
                             实验状态
                           </div>
-                          <div
-                            style="color: rgba(0, 0, 0, 0.851);"
-                          >
+                          <div>
                             <span
                               style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgb(82, 196, 26); margin-inline-end: 8px;"
                             />
