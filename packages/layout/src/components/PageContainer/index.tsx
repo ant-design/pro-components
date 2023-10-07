@@ -1,15 +1,17 @@
 import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
+import type {
+  AffixProps,
+  BreadcrumbProps,
+  TabPaneProps,
+  TabsProps,
+} from 'antd';
 import {
   Affix,
-  AffixProps,
   Breadcrumb,
-  BreadcrumbProps,
   ConfigProvider,
   SpinProps,
-  TabPaneProps,
   Tabs,
-  TabsProps,
   version,
 } from 'antd';
 import classNames from 'classnames';
