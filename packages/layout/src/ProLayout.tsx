@@ -14,6 +14,7 @@ import {
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
+import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -61,6 +62,9 @@ let layoutIndex = 0;
 
 export type LayoutBreadcrumbProps = {
   minLength?: number;
+  itemRender?: (
+    route: ItemType & { linkPath?: string; component?: string },
+  ) => React.ReactNode;
 };
 
 type GlobalTypes = Omit<
@@ -225,7 +229,7 @@ export type ProLayoutProps = GlobalTypes & {
   className?: string;
 
   /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
-  breadcrumbProps?: BreadcrumbProps & LayoutBreadcrumbProps;
+  breadcrumbProps?: Omit<BreadcrumbProps, 'itemRender'> & LayoutBreadcrumbProps;
 
   /** @name 水印的相关配置 */
   waterMarkProps?: WaterMarkProps;
