@@ -79,7 +79,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | onRequestError | Triggered when data loading fails | `(error) => void` | - |
 | tableClassName | className of the encapsulated table | `string` | - |
 | tableStyle | style of the encapsulated table | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table toolbar, not displayed when set to false | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#menu-bar-options-configuration) `}}` | `{ fullScreen: false, reload :true, setting: true}` |
+| options | table toolbar, not displayed when set to false | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#menu-bar-options-configuration) `}}` | `{ fullScreen: false, reload :true, density: true, setting: true}` |
 | search | Whether to display the search form, when the object is passed in, it is the configuration of the search form | `false` \| [SearchConfig](#search-search-form) | - |
 | dateFormatter | Convert moment format data to a specific type, false will not be converted | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \|`false` | `"string"` |
 | defaultSize | Default size | SizeType | - |
