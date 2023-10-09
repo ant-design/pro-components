@@ -15,6 +15,7 @@ import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
+import type { AnyObject } from 'antd/es/_util/type';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -60,10 +61,15 @@ import { WrapContent } from './WrapContent';
 
 let layoutIndex = 0;
 
-export type LayoutBreadcrumbProps = {
+type LayoutItemType = ItemType & { linkPath?: string; component?: string };
+
+export type LayoutBreadcrumbProps<T extends AnyObject = AnyObject> = {
   minLength?: number;
   itemRender?: (
-    route: ItemType & { linkPath?: string; component?: string },
+    route: LayoutItemType,
+    params: T,
+    routes: LayoutItemType[],
+    paths: string[],
   ) => React.ReactNode;
 };
 
