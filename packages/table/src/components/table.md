@@ -291,7 +291,7 @@ Form 的列是根据 `valueType` 来生成不同的类型,详细的值类型请�
 | --- | --- | --- | --- |
 | title | 标题 | `ReactNode` | - |
 | subTitle | 子标题 | `ReactNode` | - |
-| description | 描述 | `ReactNode` | - |
+| tooltip | tooltip 描述 | `string` | - |
 | search | 查询区 | `ReactNode` \| `SearchProps` | - |
 | actions | 操作区 | `ReactNode[]` | - |
 | settings | 设置区 | `(ReactNode \| Setting)[]` | - |

@@ -287,7 +287,7 @@ Toolbar configuration properties for lists and tables
 | --- | --- | --- | --- |
 | title | title | `ReactNode` | - |
 | subTitle | subTitle | `ReactNode` | - |
-| description | description | `ReactNode` | - |
+| tooltip | tooltip Description | `string` | - |
 | search | query area | `ReactNode` \| `SearchProps` | - |
 | actions | actions area | `ReactNode[]` | - |
 | settings | settings area | `(ReactNode \| Setting)[]` | - |
