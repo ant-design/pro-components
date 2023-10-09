@@ -514,6 +514,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
       />
       <div
         class="ant-form-item"
+        style="padding: 0px;"
       >
         <div
           class="ant-row ant-form-item-row"
@@ -637,6 +638,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                         >
                           <div
                             class="ant-form-item"
+                            style="padding: 0px;"
                           >
                             <div
                               class="ant-row ant-form-item-row"

@@ -288,8 +288,6 @@ function createField<P extends ProFormFieldItemProps = any>(
     const formItem = useDeepCompareMemo(() => {
       return (
         <ProFormItem
-          // 透传 rest 中要给 ProFormItem 的内容，例如 Style
-          {...rest}
           // 全局的提供一个 tip 功能，可以减少代码量
           // 轻量模式下不通过 FormItem 显示 label
           label={label && proFieldProps?.light !== true ? label : undefined}
