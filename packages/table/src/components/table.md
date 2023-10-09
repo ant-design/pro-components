@@ -81,7 +81,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
 | tableClassName | 封装的 table 的 className | `string` | - |
 | tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table 工具栏，设为 false 时不显示.传入 function 会点击时触发 | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#菜单栏-options-配置) `}}` | `{ fullScreen: false, reload: true, setting: true }` |
+| options | table 工具栏，设为 false 时不显示.传入 function 会点击时触发 | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#菜单栏-options-配置) `}}` | `{ fullScreen: false, reload: true, density: true, setting: true }` |
 | search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `false` \| [SearchConfig](#search-搜索表单) | - |
 | defaultSize | 默认的 size | SizeType | - |
 | dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \| `false` | `"string"` |
@@ -291,7 +291,7 @@ Form 的列是根据 `valueType` 来生成不同的类型,详细的值类型请�
 | --- | --- | --- | --- |
 | title | 标题 | `ReactNode` | - |
 | subTitle | 子标题 | `ReactNode` | - |
-| description | 描述 | `ReactNode` | - |
+| tooltip | tooltip 描述 | `string` | - |
 | search | 查询区 | `ReactNode` \| `SearchProps` | - |
 | actions | 操作区 | `ReactNode[]` | - |
 | settings | 设置区 | `(ReactNode \| Setting)[]` | - |
