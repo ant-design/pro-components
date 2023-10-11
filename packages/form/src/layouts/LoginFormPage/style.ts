@@ -45,6 +45,8 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         alignItems: 'center',
         justifyContent: 'center',
         padding: 24,
+        height: 'max-content',
+        margin: 'auto',
       },
       '&-container': {
         borderRadius: token.borderRadius,
