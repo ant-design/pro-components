@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.14.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.6...@ant-design/pro-utils@2.14.7) (2023-10-11)
+
+
+### Bug Fixes
+
+* **form:** 增加透传给 FormItem 的 style 和 className ([#7769](https://github.com/ant-design/pro-components/issues/7769)) ([8a61322](https://github.com/ant-design/pro-components/commit/8a61322e70c3ead150a34af7efaa2a76eb34bc4e))
+
+
+
+
 
 ## [2.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.5...@ant-design/pro-utils@2.14.6) (2023-09-25)
 

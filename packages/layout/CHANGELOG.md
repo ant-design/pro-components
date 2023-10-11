@@ -1,6 +1,20 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.17.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.6...@ant-design/pro-layout@7.17.7) (2023-10-11)
+
+
+### Bug Fixes
+
+* **layout:** 修复layout组件在销毁时，删除了其他不相关的SWR缓存 ([#7737](https://github.com/ant-design/pro-components/issues/7737)) ([8f08d3d](https://github.com/ant-design/pro-components/commit/8f08d3d80946e212c921230cba7664a7bed001bc))
+* **types:** breadcrumbProps ([#7757](https://github.com/ant-design/pro-components/issues/7757)) ([704f3de](https://github.com/ant-design/pro-components/commit/704f3de9a55ad7660c754dcc2b4de591007497aa))
+* **types:** breadcrumbProps ([#7760](https://github.com/ant-design/pro-components/issues/7760)) ([fb1090c](https://github.com/ant-design/pro-components/commit/fb1090c50540c35a970a4c112e0832b142cce6ae))
+
+
+
+
 
 ## [7.17.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.5...@ant-design/pro-layout@7.17.6) (2023-09-26)
 

@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.21.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.0...@ant-design/pro-form@2.21.1) (2023-10-11)
+
+
+### Bug Fixes
+
+* **form:** fix loginPage style error ([80ace22](https://github.com/ant-design/pro-components/commit/80ace22a7628fab9e9070e482706096e6d8d44d7))
+* **form:** 首次同步到 url 参数时也执行 syncToUrl ([#7741](https://github.com/ant-design/pro-components/issues/7741)) ([f733b47](https://github.com/ant-design/pro-components/commit/f733b47a372fcf450c151cc43f72dfa99eaee293))
+
+
+
+
 
 # [2.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.20.1...@ant-design/pro-form@2.21.0) (2023-09-26)
 
