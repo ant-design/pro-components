@@ -1,4 +1,14 @@
-﻿## @ant-design/pro-components@2.6.28
+﻿## @ant-design/pro-components@2.6.29
+
+`2023-10-11`
+
+- fix(layout): 修复 layout 组件在销毁时，删除了其他不相关的 SWR 缓存 (#7737). [#7737](https://github.com/ant-design/pro-components/pull/#7737) [@febear](https://github.com/febear)
+- fix(form): fix loginPage style error. [80ace22](https://github.com/ant-design/pro-components/commit/80ace22)
+- fix(form): 增加透传给 FormItem 的 style 和 className (#7769). [#7769](https://github.com/ant-design/pro-components/pull/#7769) [@ONLY-yours](https://github.com/ONLY-yours)
+- feat(form): 优化密码只读模式展现形式 (#7736). [#7736](https://github.com/ant-design/pro-components/pull/#7736) [@gamemock](https://github.com/gamemock)
+- fix(form): 首次同步到 url 参数时也执行 syncToUrl (#7741). [#7741](https://github.com/ant-design/pro-components/pull/#7741) [@ldc-37](https://github.com/ldc-37)
+
+## @ant-design/pro-components@2.6.28
 
 `2023-09-26`
 

@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.9...@ant-design/pro-field@2.13.0) (2023-10-11)
 
-
 ### Features
 
-* **form:** 优化密码只读模式展现形式 ([#7736](https://github.com/ant-design/pro-components/issues/7736)) ([5e729ad](https://github.com/ant-design/pro-components/commit/5e729adbcfbf0cec4a38b23473cf017e94e94f6f))
-
-
-
-
+- **form:** 优化密码只读模式展现形式 ([#7736](https://github.com/ant-design/pro-components/issues/7736)) ([5e729ad](https://github.com/ant-design/pro-components/commit/5e729adbcfbf0cec4a38b23473cf017e94e94f6f))
 
 ## [2.12.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.8...@ant-design/pro-field@2.12.9) (2023-09-25)
 
