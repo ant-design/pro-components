@@ -31,6 +31,9 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
       backgroundColor: token.pageHeaderBgGhost,
       paddingBlock: token.pageHeaderPaddingVertical + 2,
       paddingInline: token.pageHeaderPadding,
+      '&-no-children': {
+        height: token.layout?.pageContainer?.paddingBlockPageContainerContent,
+      },
       '& &-has-breadcrumb': {
         paddingBlockStart: token.pageHeaderPaddingBreadCrumb,
       },

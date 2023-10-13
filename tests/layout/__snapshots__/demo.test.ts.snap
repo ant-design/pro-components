@@ -18154,6 +18154,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                 class="ant-pro-page-container"
               >
                 <div
+                  class="ant-page-header-no-children"
+                />
+                <div
                   class="ant-pro-grid-content"
                 >
                   <div
