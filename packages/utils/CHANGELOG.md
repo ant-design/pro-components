@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.7...@ant-design/pro-utils@2.14.8) (2023-10-13)
+
+### Bug Fixes
+
+- revert form item style ([#7777](https://github.com/ant-design/pro-components/issues/7777)) ([5fc5406](https://github.com/ant-design/pro-components/commit/5fc5406a19e429d5575a695988f497005fe0d772))
+
 ## [2.14.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.6...@ant-design/pro-utils@2.14.7) (2023-10-11)
 
 ### Bug Fixes
