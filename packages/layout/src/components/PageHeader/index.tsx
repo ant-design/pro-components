@@ -227,7 +227,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const footerDom = renderFooter(prefixCls, footer, hashId);
 
   if (!breadcrumbDom && !title && !footerDom && !childDom) {
-    return null;
+    return <div className={classNames(hashId, [`${prefixCls}-no-children`])} />;
   }
 
   return wrapSSR(
