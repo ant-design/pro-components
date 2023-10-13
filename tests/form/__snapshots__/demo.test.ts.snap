@@ -12838,7 +12838,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ho
                         >
                           <div
                             class="ant-form-item"
-                            style="padding: 0px;"
                           >
                             <div
                               class="ant-row ant-form-item-row"
@@ -45066,7 +45065,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout.tsx cor
       />
       <div
         class="ant-form-item"
-        style="margin: 16px;"
       >
         <div
           class="ant-row ant-form-item-row"
@@ -47101,7 +47099,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
     </div>
     <div
       class="ant-form-item"
-      style="margin: 16px;"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -51082,7 +51079,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
                             >
                               <div
                                 class="ant-form-item"
-                                style="padding: 0px;"
                               >
                                 <div
                                   class="ant-row ant-form-item-row"
