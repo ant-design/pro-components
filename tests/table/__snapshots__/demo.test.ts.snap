@@ -31,7 +31,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-form-item drag-visible"
+                class="ant-form-item"
                 style="flex-wrap: nowrap;"
               >
                 <div
@@ -112,7 +112,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-form-item drag-visible"
+                class="ant-form-item"
                 style="flex-wrap: nowrap;"
               >
                 <div
@@ -933,7 +933,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               style="padding-left: 12px; padding-right: 12px;"
             >
               <div
-                class="ant-form-item drag-visible"
+                class="ant-form-item"
                 style="flex-wrap: nowrap;"
               >
                 <div
