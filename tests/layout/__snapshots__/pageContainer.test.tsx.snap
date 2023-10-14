@@ -402,6 +402,9 @@ exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
             class="ant-pro-page-container"
           >
             <div
+              class="ant-page-header-no-children"
+            />
+            <div
               class="ant-pro-grid-content"
             >
               <div
