@@ -10287,7 +10287,6 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
