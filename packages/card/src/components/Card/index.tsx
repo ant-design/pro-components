@@ -239,7 +239,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       onClick={(e) => {
         onChecked?.(e);
         rest?.onClick?.(e);
-        e.stopPropagation();
       }}
       {...omit(rest, ['prefixCls', 'colSpan'])}
     >
