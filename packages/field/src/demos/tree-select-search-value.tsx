@@ -85,7 +85,7 @@ export default function App() {
             return treeData;
           }}
           fieldProps={{
-            showArrow: false,
+            suffixIcon: null,
             filterTreeNode: true,
             showSearch: true, // 使单选模式可搜索
             popupMatchSelectWidth: false,
@@ -114,7 +114,7 @@ export default function App() {
           secondary
           fieldProps={{
             treeData,
-            showArrow: false,
+            suffixIcon: null,
             filterTreeNode: true,
             showSearch: true, // 使单选模式可搜索
             popupMatchSelectWidth: false,

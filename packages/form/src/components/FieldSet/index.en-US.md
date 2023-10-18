@@ -424,7 +424,7 @@ Same as [tree-select](https://ant.design/components/tree-select/). Both request 
   }}
   // tree-select args
   fieldProps={{
-    showArrow: false,
+    suffixIcon: null,
     filterTreeNode: true,
     showSearch: true,
     dropdownMatchSelectWidth: false,

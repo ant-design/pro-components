@@ -114,7 +114,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
       mode: (mode as 'multiple') || 'multiple',
       labelInValue: true,
       showSearch: true,
-      showArrow: false,
+      suffixIcon: null,
       autoClearSearchValue: true,
       optionLabelProp: 'label',
       ...fieldProps,
