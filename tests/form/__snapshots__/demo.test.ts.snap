@@ -61,6 +61,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                         aria-controls="globalUseMode_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="globalUseMode_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -203,6 +204,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                                   aria-controls="default_users_0_useMode_list"
                                                   aria-expanded="false"
                                                   aria-haspopup="listbox"
+                                                  aria-label="Search"
                                                   aria-owns="default_users_0_useMode_list"
                                                   autocomplete="off"
                                                   class="ant-select-selection-search-input"
@@ -2120,6 +2122,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   aria-controls="validate_other_select_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="validate_other_select_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -2243,6 +2246,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   aria-controls="validate_other_select2_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="validate_other_select2_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -2363,6 +2367,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   aria-controls="validate_other_useMode_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="validate_other_useMode_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -2578,6 +2583,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                       aria-controls="validate_other_select-multiple_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="validate_other_select-multiple_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -8943,6 +8949,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               aria-controls="rc_select_TEST_OR_SSR_list"
                               aria-expanded="false"
                               aria-haspopup="listbox"
+                              aria-label="Search"
                               aria-owns="rc_select_TEST_OR_SSR_list"
                               autocomplete="off"
                               class="ant-select-selection-search-input"
@@ -9489,7 +9496,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-show-search"
                             style="min-width: 140px;"
                           >
                             <span
@@ -9515,6 +9522,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                       aria-controls="userQuery_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="userQuery_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -9539,12 +9547,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 请选择
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
                           </div>
                         </div>
                       </div>
@@ -9582,7 +9584,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                             style="min-width: 140px;"
                           >
                             <div
@@ -9604,6 +9606,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                       aria-controls="userQuery2_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="userQuery2_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -9630,12 +9633,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 请选择
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
                           </div>
                         </div>
                       </div>
@@ -9673,7 +9670,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                             style="min-width: 140px;"
                           >
                             <div
@@ -9695,6 +9692,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                       aria-controls="userQuery3_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="userQuery3_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -9721,12 +9719,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 请选择
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
                           </div>
                         </div>
                       </div>
@@ -11300,6 +11292,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                                                   aria-controls="creatorButtonProps_icon_list"
                                                   aria-expanded="false"
                                                   aria-haspopup="listbox"
+                                                  aria-label="Search"
                                                   aria-owns="creatorButtonProps_icon_list"
                                                   autocomplete="off"
                                                   class="ant-select-selection-search-input"
@@ -11443,6 +11436,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                                                   aria-controls="creatorButtonProps_position_list"
                                                   aria-expanded="false"
                                                   aria-haspopup="listbox"
+                                                  aria-label="Search"
                                                   aria-owns="creatorButtonProps_position_list"
                                                   autocomplete="off"
                                                   class="ant-select-selection-search-input"
@@ -11566,6 +11560,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                                                   aria-controls="creatorButtonProps_type_list"
                                                   aria-expanded="false"
                                                   aria-haspopup="listbox"
+                                                  aria-label="Search"
                                                   aria-owns="creatorButtonProps_type_list"
                                                   autocomplete="off"
                                                   class="ant-select-selection-search-input"
@@ -11823,6 +11818,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                                                   aria-controls="copyIconProps_Icon_list"
                                                   aria-expanded="false"
                                                   aria-haspopup="listbox"
+                                                  aria-label="Search"
                                                   aria-owns="copyIconProps_Icon_list"
                                                   autocomplete="off"
                                                   class="ant-select-selection-search-input"
@@ -12097,6 +12093,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                                                   aria-controls="deleteIconProps_Icon_list"
                                                   aria-expanded="false"
                                                   aria-haspopup="listbox"
+                                                  aria-label="Search"
                                                   aria-owns="deleteIconProps_Icon_list"
                                                   autocomplete="off"
                                                   class="ant-select-selection-search-input"
@@ -12571,6 +12568,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/de
                                                   aria-controls="default_users_0_addr_list"
                                                   aria-expanded="false"
                                                   aria-haspopup="listbox"
+                                                  aria-label="Search"
                                                   aria-owns="default_users_0_addr_list"
                                                   autocomplete="off"
                                                   class="ant-select-selection-search-input"
@@ -13737,6 +13735,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                                                   aria-controls="users_0_sex_list"
                                                   aria-expanded="false"
                                                   aria-haspopup="listbox"
+                                                  aria-label="Search"
                                                   aria-owns="users_0_sex_list"
                                                   autocomplete="off"
                                                   class="ant-select-selection-search-input"
@@ -13967,6 +13966,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                                                       aria-controls="rc_select_TEST_OR_SSR_list"
                                                       aria-expanded="false"
                                                       aria-haspopup="listbox"
+                                                      aria-label="Search"
                                                       aria-owns="rc_select_TEST_OR_SSR_list"
                                                       autocomplete="off"
                                                       class="ant-select-selection-search-input"
@@ -14031,6 +14031,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                                                       aria-controls="rc_select_TEST_OR_SSR_list"
                                                       aria-expanded="false"
                                                       aria-haspopup="listbox"
+                                                      aria-label="Search"
                                                       aria-owns="rc_select_TEST_OR_SSR_list"
                                                       autocomplete="off"
                                                       class="ant-select-selection-search-input"
@@ -17299,6 +17300,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                     aria-controls="sex_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
+                                    aria-label="Search"
                                     aria-owns="sex_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
@@ -17558,6 +17560,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                         aria-controls="area_list"
                                         aria-expanded="false"
                                         aria-haspopup="listbox"
+                                        aria-label="Search"
                                         aria-owns="area_list"
                                         autocomplete="off"
                                         class="ant-select-selection-search-input"
@@ -17828,6 +17831,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                             aria-controls="treeSelect_list"
                                             aria-expanded="false"
                                             aria-haspopup="listbox"
+                                            aria-label="Search"
                                             aria-owns="treeSelect_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
@@ -17957,6 +17961,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                     aria-controls="area_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
+                                    aria-label="Search"
                                     aria-owns="area_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
@@ -19104,6 +19109,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                   aria-controls="sex_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="sex_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -20068,6 +20074,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                     aria-controls="sex_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
+                                    aria-label="Search"
                                     aria-owns="sex_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
@@ -20186,6 +20193,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                         aria-controls="area_list"
                                         aria-expanded="false"
                                         aria-haspopup="listbox"
+                                        aria-label="Search"
                                         aria-owns="area_list"
                                         autocomplete="off"
                                         class="ant-select-selection-search-input"
@@ -20979,6 +20987,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                     aria-controls="sex_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
+                                    aria-label="Search"
                                     aria-owns="sex_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
@@ -21112,6 +21121,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                         aria-controls="area_list"
                                         aria-expanded="false"
                                         aria-haspopup="listbox"
+                                        aria-label="Search"
                                         aria-owns="area_list"
                                         autocomplete="off"
                                         class="ant-select-selection-search-input"
@@ -27957,6 +27967,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -28467,6 +28478,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         aria-controls="state_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="state_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -28813,6 +28825,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         aria-controls="type_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="type_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -28936,6 +28949,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         aria-controls="type_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="type_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -29297,6 +29311,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         aria-controls="state_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="state_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -29704,6 +29719,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                             aria-controls="select-multiple_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="select-multiple_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -29878,6 +29894,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         aria-controls="state_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="state_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -30059,6 +30076,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                 aria-controls="groupState_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="groupState_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -30438,6 +30456,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         aria-controls="state_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="state_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -30795,6 +30814,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -31011,6 +31031,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                             aria-controls="state_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="state_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -31544,6 +31565,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                     aria-controls="groupState_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
+                                    aria-label="Search"
                                     aria-owns="groupState_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
@@ -31782,6 +31804,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                                           aria-controls="list_0_state_list"
                                                           aria-expanded="false"
                                                           aria-haspopup="listbox"
+                                                          aria-label="Search"
                                                           aria-owns="list_0_state_list"
                                                           autocomplete="off"
                                                           class="ant-select-selection-search-input"
@@ -32216,6 +32239,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                           aria-controls="groupState_list"
                                           aria-expanded="false"
                                           aria-haspopup="listbox"
+                                          aria-label="Search"
                                           aria-owns="groupState_list"
                                           autocomplete="off"
                                           class="ant-select-selection-search-input"
@@ -32771,6 +32795,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                   aria-controls="0_state_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="0_state_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -33035,6 +33060,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                           aria-controls="1_groupState_list"
                                           aria-expanded="false"
                                           aria-haspopup="listbox"
+                                          aria-label="Search"
                                           aria-owns="1_groupState_list"
                                           autocomplete="off"
                                           class="ant-select-selection-search-input"
@@ -33271,6 +33297,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                                             aria-controls="2_list_0_state_list"
                                                             aria-expanded="false"
                                                             aria-haspopup="listbox"
+                                                            aria-label="Search"
                                                             aria-owns="2_list_0_state_list"
                                                             autocomplete="off"
                                                             class="ant-select-selection-search-input"
@@ -33606,6 +33633,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                                 aria-controls="2_groupState_list"
                                                 aria-expanded="false"
                                                 aria-haspopup="listbox"
+                                                aria-label="Search"
                                                 aria-owns="2_groupState_list"
                                                 autocomplete="off"
                                                 class="ant-select-selection-search-input"
@@ -33935,7 +33963,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
                 style="width: 200px;"
               >
                 <div
@@ -33949,6 +33977,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -33965,12 +33994,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                     文本框
                   </span>
                 </div>
-                <span
-                  aria-hidden="true"
-                  class="ant-select-arrow"
-                  style="user-select: none;"
-                  unselectable="on"
-                />
                 <span
                   aria-hidden="true"
                   class="ant-select-clear"
@@ -34075,6 +34098,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                 aria-controls="text_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="text_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -34442,6 +34466,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                   aria-controls="step1_jobInfo_type_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="step1_jobInfo_type_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -35764,6 +35789,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       aria-controls="time_remark_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="time_remark_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -35883,6 +35909,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       aria-controls="time_remark2_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="time_remark2_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -36351,6 +36378,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                               aria-controls="base_source_list"
                                               aria-expanded="false"
                                               aria-haspopup="listbox"
+                                              aria-label="Search"
                                               aria-owns="base_source_list"
                                               autocomplete="off"
                                               class="ant-select-selection-search-input"
@@ -36435,6 +36463,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                               aria-controls="base_target_list"
                                               aria-expanded="false"
                                               aria-haspopup="listbox"
+                                              aria-label="Search"
                                               aria-owns="base_target_list"
                                               autocomplete="off"
                                               class="ant-select-selection-search-input"
@@ -36976,6 +37005,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                           aria-controls="base_l_list"
                                           aria-expanded="false"
                                           aria-haspopup="listbox"
+                                          aria-label="Search"
                                           aria-owns="base_l_list"
                                           autocomplete="off"
                                           class="ant-select-selection-search-input"
@@ -37600,6 +37630,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       aria-controls="time_remark_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="time_remark_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -37719,6 +37750,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       aria-controls="time_remark2_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="time_remark2_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -40162,6 +40194,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       aria-controls="time_remark_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="time_remark_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -40281,6 +40314,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                       aria-controls="time_remark2_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="time_remark2_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -41007,7 +41041,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-multiple ant-select-allow-clear ant-select-show-search"
                           style="min-width: 100px;"
                         >
                           <div
@@ -41029,6 +41063,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                                     aria-controls="unusedMode_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
+                                    aria-label="Search"
                                     aria-owns="unusedMode_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
@@ -41055,12 +41090,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                               请选择
                             </span>
                           </div>
-                          <span
-                            aria-hidden="true"
-                            class="ant-select-arrow"
-                            style="user-select: none;"
-                            unselectable="on"
-                          />
                         </div>
                       </div>
                     </div>
@@ -41479,6 +41508,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                           aria-controls="areaList_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="areaList_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -41617,6 +41647,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -42444,7 +42475,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select pro-field pro-field-xs ant-select-multiple ant-select-allow-clear ant-select-show-search"
                           style="min-width: 100px;"
                         >
                           <div
@@ -42466,6 +42497,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                                     aria-controls="unusedMode_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
+                                    aria-label="Search"
                                     aria-owns="unusedMode_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
@@ -42492,12 +42524,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                               请选择
                             </span>
                           </div>
-                          <span
-                            aria-hidden="true"
-                            class="ant-select-arrow"
-                            style="user-select: none;"
-                            unselectable="on"
-                          />
                         </div>
                       </div>
                     </div>
@@ -42879,6 +42905,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                           aria-controls="areaList_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="areaList_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -43017,6 +43044,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -44759,6 +44787,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/dependency.tsx corr
                         aria-controls="useMode_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="useMode_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -44878,6 +44907,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/dependency.tsx corr
                         aria-controls="useMode_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="useMode_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -46191,6 +46221,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                             aria-controls="level_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="level_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -46946,6 +46977,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/labelInValue.tsx co
                         aria-controls="useMode_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="useMode_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -47677,6 +47709,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                                   aria-controls="unusedMode_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="unusedMode_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -48678,6 +48711,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                                     aria-controls="chapter_list"
                                                     aria-expanded="false"
                                                     aria-haspopup="listbox"
+                                                    aria-label="Search"
                                                     aria-owns="chapter_list"
                                                     autocomplete="off"
                                                     class="ant-select-selection-search-input"
@@ -48773,6 +48807,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                                     aria-controls="unusedMode_list"
                                                     aria-expanded="false"
                                                     aria-haspopup="listbox"
+                                                    aria-label="Search"
                                                     aria-owns="unusedMode_list"
                                                     autocomplete="off"
                                                     class="ant-select-selection-search-input"
@@ -49097,6 +49132,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                                     aria-controls="useMode_list"
                                                     aria-expanded="false"
                                                     aria-haspopup="listbox"
+                                                    aria-label="Search"
                                                     aria-owns="useMode_list"
                                                     autocomplete="off"
                                                     class="ant-select-selection-search-input"
@@ -49220,6 +49256,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                                     aria-controls="taxRate_list"
                                                     aria-expanded="false"
                                                     aria-haspopup="listbox"
+                                                    aria-label="Search"
                                                     aria-owns="taxRate_list"
                                                     autocomplete="off"
                                                     class="ant-select-selection-search-input"
@@ -50632,6 +50669,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       aria-controls="time_remark_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="time_remark_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -50751,6 +50789,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                       aria-controls="time_remark2_list"
                                       aria-expanded="false"
                                       aria-haspopup="listbox"
+                                      aria-label="Search"
                                       aria-owns="time_remark2_list"
                                       autocomplete="off"
                                       class="ant-select-selection-search-input"
@@ -53500,6 +53539,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
                                                           aria-controls="624748504_state_list"
                                                           aria-expanded="false"
                                                           aria-haspopup="listbox"
+                                                          aria-label="Search"
                                                           aria-owns="624748504_state_list"
                                                           autocomplete="off"
                                                           class="ant-select-selection-search-input"
@@ -53725,6 +53765,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
                                                           aria-controls="624691229_state_list"
                                                           aria-expanded="false"
                                                           aria-haspopup="listbox"
+                                                          aria-label="Search"
                                                           aria-owns="624691229_state_list"
                                                           autocomplete="off"
                                                           class="ant-select-selection-search-input"
@@ -53950,6 +53991,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/sync-to-url.tsx cor
                         aria-controls="useMode_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="useMode_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
