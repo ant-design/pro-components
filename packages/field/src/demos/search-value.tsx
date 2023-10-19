@@ -61,7 +61,7 @@ export default function App() {
             label: 'l',
             options: 'options',
           },
-          showArrow: false,
+          suffixIcon: null,
           showSearch: true, // 使单选模式可搜索
           popupMatchSelectWidth: false,
           optionFilterProp: 'label', // 搜索时过滤对应的 option 属性
