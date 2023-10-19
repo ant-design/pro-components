@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.14.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.8...@ant-design/pro-utils@2.14.9) (2023-10-19)
+
+
+### Bug Fixes
+
+* **table:** 修复 EditableProTable 实时编辑表格存在 name 属性且有分页的时候，渲染的数据总是为第一页 ([#7794](https://github.com/ant-design/pro-components/issues/7794)) ([eda3b82](https://github.com/ant-design/pro-components/commit/eda3b8263e4889a930a9e5655f75dc9a6fe06a00))
+
+
+
+
 
 ## [2.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.7...@ant-design/pro-utils@2.14.8) (2023-10-13)
 
