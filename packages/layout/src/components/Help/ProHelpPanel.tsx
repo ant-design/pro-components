@@ -20,6 +20,10 @@ export const SelectKeyProvide = React.createContext<{
 
 export type ProHelpPanelProps = {
   /**
+   * 帮助面板的标题
+   */
+  title?: string;
+  /**
    * 帮助面板首次打开时的默认选中文档的键名
    */
   defaultSelectedKey?: string;
@@ -87,6 +91,7 @@ export type ProHelpPanelProps = {
  * @returns
  */
 export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
+  title = '帮助中心',
   bordered = true,
   onClose,
   footer,
@@ -200,7 +205,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     >
       <Card
         bordered={bordered}
-        title="帮助中心"
+        title={title}
         bodyStyle={{
           display: 'flex',
           padding: 0,
