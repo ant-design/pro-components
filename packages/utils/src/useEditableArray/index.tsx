@@ -137,6 +137,11 @@ export type RowEditableConfig<DataType> = {
   cancelText?: React.ReactNode;
   /** 删除一行的文字 */
   deleteText?: React.ReactNode;
+  /**
+   * 解决分页带来的 FormItem namePath 使用错误的 index 作为路径
+   * @link https://github.com/ant-design/pro-components/issues/7790
+   */
+  getRealIndex?: (record: DataType) => number;
 };
 export type ActionTypeText<T> = {
   deleteText?: React.ReactNode;
@@ -1057,6 +1062,7 @@ export function useEditableArray<RecordType>(
     newLineRecord: newLineRecordCache,
     preEditableKeys: editableKeysRef,
     onValuesChange,
+    getRealIndex: props.getRealIndex
   };
 }
 

@@ -76,16 +76,21 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     recordKey,
     subName,
     proFieldProps,
+    editableUtils,
   } = props;
 
   const editableForm = ProForm.useFormInstance();
 
   const key = recordKey || index;
+  const realIndex = useMemo(
+    () => editableUtils?.getRealIndex?.(rowData) ?? index,
+    [editableUtils, index, rowData],
+  );
   const [formItemName, setName] = useState<React.Key[]>(() =>
     spellNamePath(
       prefixName,
       prefixName ? subName : [],
-      prefixName ? index : key,
+      prefixName ? realIndex : key,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     ),
   );
@@ -98,7 +103,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     const value = spellNamePath(
       prefixName,
       prefixName ? subName : [],
-      prefixName ? index : key,
+      prefixName ? realIndex : key,
       columnProps?.key ?? columnProps?.dataIndex ?? index,
     );
     if (value.join('-') !== formItemName.join('-')) setName(value);
@@ -111,6 +116,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     key,
     subName,
     formItemName,
+    realIndex,
   ]);
 
   const needProps = useMemo(
