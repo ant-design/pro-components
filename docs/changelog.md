@@ -1,4 +1,12 @@
-﻿## @ant-design/pro-components@2.6.29
+﻿## @ant-design/pro-components@2.6.31
+
+`2023-10-19`
+
+- fix(layout): add `title` property to `ProHelp` component (#7795). [#7795](https://github.com/ant-design/pro-components/pull/#7795) [@yuetyeelo2855](https://github.com/yuetyeelo2855)
+- fix(layout): Page Contianer 无 Header 边界情况调整 (#7779). [#7779](https://github.com/ant-design/pro-components/pull/#7779) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(table): 修复 EditableProTable 实时编辑表格存在 name 属性且有分页的时候，渲染的数据总是为第一页 (#7794). [#7794](https://github.com/ant-design/pro-components/pull/#7794) [@xliez](https://github.com/xliez)
+
+## @ant-design/pro-components@2.6.29
 
 `2023-10-11`
 

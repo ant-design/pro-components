@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.1...@ant-design/pro-field@2.13.2) (2023-10-19)
 
-
 ### Bug Fixes
 
-* **select:** remove deprecated warning ([#7793](https://github.com/ant-design/pro-components/issues/7793)) ([c6249f0](https://github.com/ant-design/pro-components/commit/c6249f0011fac78f5b535160cb65ac96d64c279e))
-
-
-
-
+- **select:** remove deprecated warning ([#7793](https://github.com/ant-design/pro-components/issues/7793)) ([c6249f0](https://github.com/ant-design/pro-components/commit/c6249f0011fac78f5b535160cb65ac96d64c279e))
 
 ## [2.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.0...@ant-design/pro-field@2.13.1) (2023-10-13)
 

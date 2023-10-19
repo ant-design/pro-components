@@ -30,7 +30,7 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
       closeIcon={null}
       styles={{
         header: {
-          display: 'none'
+          display: 'none',
         },
         body: {
           padding: 0,

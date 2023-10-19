@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.8...@ant-design/pro-layout@7.17.9) (2023-10-19)
 
-
 ### Bug Fixes
 
-* **layout:** add `title` property to `ProHelp` component ([#7795](https://github.com/ant-design/pro-components/issues/7795)) ([bae3348](https://github.com/ant-design/pro-components/commit/bae3348db3a7a17a6f68f358f4f4d2ec04ef59ef))
-* **layout:** Page Contianer 无 Header 边界情况调整 ([#7779](https://github.com/ant-design/pro-components/issues/7779)) ([9764246](https://github.com/ant-design/pro-components/commit/97642468f7b360adb15772828b8c8c56c4e9c0ef))
-
-
-
-
+- **layout:** add `title` property to `ProHelp` component ([#7795](https://github.com/ant-design/pro-components/issues/7795)) ([bae3348](https://github.com/ant-design/pro-components/commit/bae3348db3a7a17a6f68f358f4f4d2ec04ef59ef))
+- **layout:** Page Contianer 无 Header 边界情况调整 ([#7779](https://github.com/ant-design/pro-components/issues/7779)) ([9764246](https://github.com/ant-design/pro-components/commit/97642468f7b360adb15772828b8c8c56c4e9c0ef))
 
 ## [7.17.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.7...@ant-design/pro-layout@7.17.8) (2023-10-13)
 

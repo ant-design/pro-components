@@ -1062,7 +1062,7 @@ export function useEditableArray<RecordType>(
     newLineRecord: newLineRecordCache,
     preEditableKeys: editableKeysRef,
     onValuesChange,
-    getRealIndex: props.getRealIndex
+    getRealIndex: props.getRealIndex,
   };
 }
 
