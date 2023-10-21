@@ -178,17 +178,14 @@ const enLocale = {
 };
 
 // 生成 intl 对象
+import { ProProvider } from '@ant-design/pro-components';
 const enUSIntl = createIntl('en_US', enUS);
-import { ConfigProvider } from '@ant-design/pro-provide';
+const values = useContext(ProProvider)
 
 // 使用
-<ConfigProvider
-  value={{
-    intl: enUSIntl,
-  }}
->
+<ProProvider.Provider value={{ ...values, intl: enUSIntl }}>
   <ProTable />
-</ConfigProvider>;
+</ProProvider.Provider>;
 ```
 
 <code src="../demos/intl.tsx"  background="var(--main-bg-color)" title="国际化相关的配置"></code>
