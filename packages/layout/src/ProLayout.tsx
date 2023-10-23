@@ -721,7 +721,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
    * 使用number是因为多标签页的时候有多个 PageContainer，只有有任意一个就应该展示这个className
    */
   const [hasPageContainer, setHasPageContainer] = useState(0);
+
   useDocumentTitle(pageTitleInfo, props.title || false);
+
   const bgImgStyleList = useMemo(() => {
     if (bgLayoutImgList && bgLayoutImgList.length > 0) {
       return bgLayoutImgList.map((item, index) => {
@@ -789,7 +791,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                       token.layout?.sider?.colorMenuBackground || 'transparent',
                     colorSubItemBg:
                       token.layout?.sider?.colorMenuBackground || 'transparent',
-                    radiusItem: 4,
+                    radiusItem: token.borderRadius,
                     controlHeightLG:
                       token.layout?.sider?.menuHeight || token?.controlHeightLG,
                     colorItemBgSelected:

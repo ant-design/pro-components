@@ -277,8 +277,6 @@ class MenuUtil {
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle, this.props)
         : defaultTitle;
 
-      const childrenList = this.getNavMenuItems(children, level + 1);
-
       // 如果收起来，没有子菜单了，就不需要展示 group，所以 level 不增加
       if (
         isGroup &&
@@ -288,6 +286,11 @@ class MenuUtil {
       ) {
         return this.getNavMenuItems(children, level);
       }
+
+      const childrenList = this.getNavMenuItems(
+        children,
+        isGroup && level === 0 ? level : level + 1,
+      );
 
       return [
         {

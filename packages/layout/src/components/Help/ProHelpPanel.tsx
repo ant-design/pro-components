@@ -231,7 +231,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                     lineHeight: 1.2,
                     controlHeightLG: 26,
                     fontSize: 12,
-                    radiusItem: 4,
+                    radiusItem: token.borderRadius,
                     colorActiveBarWidth: 0,
                     colorActiveBarBorderSize: 0,
                     colorItemBgSelected:
