@@ -34,6 +34,7 @@ export function coverToNewToken(
   const newToken = { ...token };
   Object.keys(deprecatedTokens).forEach((key) => {
     if (newToken[key] !== undefined) {
+      // @ts-ignore
       newToken[deprecatedTokens[key]] = newToken[key];
       delete newToken[key];
     }

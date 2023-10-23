@@ -9,9 +9,11 @@ import {
 import { waitForWaitTime } from '../util';
 import { columns } from './demo';
 
-function fireDragEvent(ele: HTMLElement, eventName: string, data: object = {}) {
+function fireDragEvent(ele: HTMLElement, eventName: string, data: object) {
+  // @ts-ignore
   const event = createEvent[eventName](ele);
   Object.keys(data).forEach((key) => {
+    // @ts-ignore
     event[key] = data[key];
   });
   fireEvent(ele, event);

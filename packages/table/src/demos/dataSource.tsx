@@ -31,7 +31,7 @@ for (let i = 0; i < 5; i += 1) {
     name: 'AppName',
     containers: Math.floor(Math.random() * 20),
     creator: creators[Math.floor(Math.random() * creators.length)],
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     money: Math.floor(Math.random() * 2000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,

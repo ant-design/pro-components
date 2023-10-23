@@ -37,7 +37,7 @@ export type UseContainerProps<T = any> = {
   columnsState?: ProTableProps<any, any, any>['columnsState'];
 };
 
-function useContainer(props: UseContainerProps = {}) {
+function useContainer(props: UseContainerProps = {} as Record<string, any>) {
   const actionRef = useRef<ActionType>();
   const rootDomRef = useRef<HTMLDivElement>(null);
   /** 父 form item 的 name */
@@ -63,7 +63,7 @@ function useContainer(props: UseContainerProps = {}) {
   const defaultColumnKeyMap = useMemo(() => {
     if (props?.columnsState?.defaultValue)
       return props.columnsState.defaultValue;
-    const columnKeyMap = {};
+    const columnKeyMap = {} as Record<string, any>;
     props.columns?.forEach(({ key, dataIndex, fixed, disable }, index) => {
       const columnKey = genColumnKey(key ?? (dataIndex as React.Key), index);
       if (columnKey) {
@@ -239,4 +239,4 @@ const Container: React.FC<{
   );
 };
 
-export { TableContext, Container };
+export { Container, TableContext };

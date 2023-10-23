@@ -48,6 +48,7 @@ export function isDeepEqualReact(
       length = a.length;
       // @ts-ignore
       if (length != b.length) return false;
+      // @ts-ignore
       for (i = length; i-- !== 0; ) if (a[i] !== b[i]) return false;
       return true;
     }

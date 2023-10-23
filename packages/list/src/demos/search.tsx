@@ -30,7 +30,7 @@ export default () => (
     search={{}}
     rowKey="name"
     headerTitle="基础列表"
-    request={async (params = {}) =>
+    request={async (params = {} as Record<string, any>) =>
       request<{
         data: GithubIssueItem[];
       }>('https://proapi.azurewebsites.net/github/issues', {

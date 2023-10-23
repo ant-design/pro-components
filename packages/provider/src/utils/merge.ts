@@ -1,5 +1,5 @@
 ﻿export const merge = <T extends Record<string, any>>(...rest: any[]): T => {
-  const obj = {};
+  const obj = {} as Record<string, any>;
   const il = rest.length;
   let key;
   let i = 0;

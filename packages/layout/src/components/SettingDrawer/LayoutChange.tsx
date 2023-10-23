@@ -22,7 +22,7 @@ const LayoutSetting: React.FC<{
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
   hashId: string;
   prefixCls: string;
-}> = ({ settings = {}, prefixCls, changeSetting, hashId }) => {
+}> = ({ settings, prefixCls, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
   const { contentWidth, splitMenus, fixedHeader, layout, fixSiderbar } =
     settings || defaultSettings;

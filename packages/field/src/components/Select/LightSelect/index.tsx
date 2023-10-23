@@ -98,7 +98,7 @@ const LightSelect: React.ForwardRefRenderFunction<
   });
 
   const valueMap: Record<string, string> = useMemo(() => {
-    const values = {};
+    const values = {} as Record<string, any>;
     options?.forEach((item) => {
       const optionLabel = item[optionLabelProp] || item[labelPropsName];
       const optionValue = item[valuePropsName];

@@ -5,8 +5,8 @@
  * @param  {any[]} ...rest
  * @returns T
  */
-const merge = <T>(...rest: any[]): T => {
-  const obj = {};
+const merge = <T = any>(...rest: any[]): T => {
+  const obj = {} as Record<string, any> as any;
   const il = rest.length;
   let key;
   let i = 0;

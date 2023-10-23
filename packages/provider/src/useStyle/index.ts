@@ -105,7 +105,8 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
-  let { token = {} as ProAliasToken } = useContext(ProProvider);
+  let { token = {} as Record<string, any> as ProAliasToken } =
+    useContext(ProProvider);
   const { hashId = '', theme: provideTheme } = useContext(ProProvider);
   const { token: antdToken } = useToken();
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);

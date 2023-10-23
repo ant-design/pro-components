@@ -13,13 +13,13 @@ import {
 import { useUrlSearchParams } from '@umijs/use-params';
 import {
   Alert,
-  Button,
   ConfigProvider as AntConfigProvider,
+  Button,
   Divider,
   Drawer,
   List,
-  message,
   Switch,
+  message,
   version,
 } from 'antd';
 import omit from 'omit.js';
@@ -27,15 +27,15 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';
-import { getLanguage, gLocaleObject } from '../../locales';
+import { gLocaleObject, getLanguage } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
 import { BlockCheckbox } from './BlockCheckbox';
-import { GroupIcon } from './icon/group';
-import { SubIcon } from './icon/sub';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
 import { RegionalSetting } from './RegionalChange';
-import { useStyle } from './style/index';
 import { ThemeColor } from './ThemeColor';
+import { GroupIcon } from './icon/group';
+import { SubIcon } from './icon/sub';
+import { useStyle } from './style/index';
 
 type BodyProps = {
   title: string;
@@ -86,18 +86,25 @@ export type SettingDrawerState = {
   language?: string;
 } & MergerSettingsType<ProSettings>;
 
+type StateKey = keyof ProSettings;
+
 const getDifferentSetting = (
   state: Partial<ProSettings>,
 ): Record<string, any> => {
-  const stateObj: Partial<ProSettings> = {};
-  Object.keys(state).forEach((key) => {
-    if (state[key] !== defaultSettings[key] && key !== 'collapse') {
-      stateObj[key] = state[key];
+  const stateObj = {} as typeof state;
+  (Object.keys(state) as StateKey[]).forEach((key) => {
+    if (
+      state[key] !== defaultSettings[key] &&
+      //@ts-ignore
+      key !== 'collapse'
+    ) {
+      stateObj[key as 'navTheme'] = state[key as 'navTheme'];
     } else {
       stateObj[key] = undefined;
     }
     if (key.includes('Render'))
-      stateObj[key] = state[key] === false ? false : undefined;
+      stateObj[key as 'headerRender'] =
+        state[key] === false ? false : undefined;
   });
   stateObj.menu = undefined;
   return stateObj;
@@ -131,9 +138,12 @@ const initState = (
 ) => {
   if (!isBrowser()) return;
 
-  const replaceSetting = {};
+  const replaceSetting = {} as Record<string, any>;
   Object.keys(urlParams).forEach((key) => {
-    if (defaultSettings[key] || defaultSettings[key] === undefined) {
+    if (
+      defaultSettings[key as 'navTheme'] ||
+      defaultSettings[key as 'navTheme'] === undefined
+    ) {
       if (key === 'colorPrimary') {
         replaceSetting[key] = genStringToTheme(urlParams[key]);
         return;
@@ -276,7 +286,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
    * @param value
    */
   const changeSetting = (key: string, value: string | boolean) => {
-    const nextState = {} as any;
+    const nextState = {} as Record<string, any> as any;
     nextState[key] = value;
 
     if (key === 'layout') {

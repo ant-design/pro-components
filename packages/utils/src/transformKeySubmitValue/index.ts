@@ -131,7 +131,7 @@ export const transformKeySubmitValue = <T extends object = any>(
       const key = parentsKey
         ? [parentsKey, entityKey].flat(1)
         : [entityKey].flat(1);
-      const itemValue = tempValues[entityKey];
+      const itemValue = (tempValues as any)[entityKey];
 
       const transformFunction = get(dataFormatMap, key as (number | string)[]);
 

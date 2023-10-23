@@ -9,7 +9,7 @@ import {
   ProTable,
   TableDropdown,
 } from '@ant-design/pro-components';
-import { Button, message, Space, Tabs, Tag } from 'antd';
+import { Button, Space, Tabs, Tag, message } from 'antd';
 import { useState } from 'react';
 import request from 'umi-request';
 
@@ -123,7 +123,7 @@ export default () => {
         <ProTable<GithubIssueItem>
           columns={columns}
           type={type as 'table'}
-          request={async (params = {}) =>
+          request={async (params = {} as Record<string, any>) =>
             request<{
               data: GithubIssueItem[];
             }>('https://proapi.azurewebsites.net/github/issues', {

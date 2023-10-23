@@ -1,8 +1,8 @@
 import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
 import {
-  isNeedOpenHash,
   ProConfigProvider,
   ProProvider,
+  isNeedOpenHash,
 } from '@ant-design/pro-provider';
 import {
   coverToNewToken,
@@ -14,8 +14,8 @@ import {
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
-import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import type { AnyObject } from 'antd/es/_util/type';
+import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -29,6 +29,7 @@ import React, {
   useState,
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
+import { WrapContent } from './WrapContent';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -57,7 +58,6 @@ import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
 import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
-import { WrapContent } from './WrapContent';
 
 let layoutIndex = 0;
 
@@ -532,7 +532,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [formatMessage, menu, menuDataRender, data, route?.children, route?.routes],
   );
 
-  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData || {};
+  const { breadcrumb, breadcrumbMap, menuData = [] } = menuInfoData || {};
 
   if (actionRef && menu?.request) {
     actionRef.current = {

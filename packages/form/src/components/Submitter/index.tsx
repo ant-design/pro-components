@@ -55,7 +55,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     onReset,
     searchConfig = {},
     submitButtonProps,
-    resetButtonProps = {},
+    resetButtonProps,
   } = props;
 
   const { token } = proTheme.useToken();
@@ -80,7 +80,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
   if (resetButtonProps !== false) {
     dom.push(
       <Button
-        {...omit(resetButtonProps, ['preventDefault'])}
+        {...omit(resetButtonProps, ['preventDefault'] as any)}
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();

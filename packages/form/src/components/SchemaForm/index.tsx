@@ -43,6 +43,7 @@ const FormLayoutType = {
   StepsForm: StepsForm,
   ModalForm,
   Embed,
+  Form: ProForm,
 };
 
 /**
@@ -64,7 +65,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     ...restProps
   } = props;
 
-  const FormRenderComponents = (FormLayoutType[layoutType] ||
+  const FormRenderComponents = (FormLayoutType[layoutType as 'Form'] ||
     ProForm) as React.FC<ProFormProps<T>>;
 
   const [form] = Form.useForm();

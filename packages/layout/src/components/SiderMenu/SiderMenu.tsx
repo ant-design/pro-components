@@ -33,7 +33,7 @@ export const renderLogoAndTitle = (
   renderKey: HeaderRenderKey = 'menuHeaderRender',
 ): React.ReactNode => {
   const { logo, title, layout } = props;
-  const renderFunction = props[renderKey || ''];
+  const renderFunction = props[renderKey as 'menuHeaderRender'];
   if (renderFunction === false) {
     return null;
   }

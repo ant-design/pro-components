@@ -39,7 +39,7 @@ export function spyElementPrototypes(
   properties: { [x: string]: any; [x: number]: any },
 ) {
   const propNames = Object.keys(properties);
-  const originDescriptors = {};
+  const originDescriptors = {} as Record<string, any> as Record<string, any>;
 
   propNames.forEach((propName) => {
     const originDescriptor = Object.getOwnPropertyDescriptor(

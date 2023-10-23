@@ -18,8 +18,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const {
     className,
     style,
-    bodyStyle = {},
-    headStyle = {},
+    bodyStyle,
+    headStyle,
     title,
     subTitle,
     extra,
@@ -212,7 +212,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     <Loading
       prefix={prefixCls}
       style={
-        bodyStyle.padding === 0 || bodyStyle.padding === '0px'
+        bodyStyle?.padding === 0 || bodyStyle?.padding === '0px'
           ? { padding: 24 }
           : undefined
       }

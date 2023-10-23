@@ -34,7 +34,7 @@ for (let i = 0; i < 2; i += 1) {
     image:
       'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     name: `TradeCode ${i}`,
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     updatedAt:
       dayjs('2019-11-16 12:50:26').valueOf() - Math.floor(Math.random() * 1000),
     createdAt:

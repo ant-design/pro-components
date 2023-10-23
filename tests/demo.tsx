@@ -12,7 +12,7 @@ type Options = {
   skip?: boolean;
 };
 
-function demoTest(component: string, options: Options = {}) {
+function demoTest(component: string, options?: Options) {
   const LINE_STR_COUNT = 20;
   const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
   const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -88,10 +88,10 @@ function demoTest(component: string, options: Options = {}) {
 
   describe(`${component} demos`, () => {
     files.forEach((file) => {
-      let testMethod = options.skip === true ? test.skip : test;
+      let testMethod = options?.skip === true ? test.skip : test;
       if (
-        Array.isArray(options.skip) &&
-        options.skip.some((c) => file.includes(c))
+        Array.isArray(options?.skip) &&
+        options?.skip.some((c) => file.includes(c))
       ) {
         testMethod = test.skip;
       }

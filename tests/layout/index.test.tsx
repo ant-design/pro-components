@@ -1912,7 +1912,9 @@ describe('BasicLayout', () => {
           const locales = {
             'menu.home': '主页',
           };
-          return locales[id] ? locales[id] : (defaultMessage as string);
+          return locales[id as 'menu.home']
+            ? locales[id as 'menu.home']
+            : (defaultMessage as string);
         }}
       />,
     );

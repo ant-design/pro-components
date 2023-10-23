@@ -197,7 +197,7 @@ const LightFilterContainer: React.FC<{
                   setOpen(false);
                 },
                 onClear: () => {
-                  const clearValues = {};
+                  const clearValues = {} as Record<string, any>;
                   collapseItems.forEach((child: any) => {
                     const { name } = child.props;
                     clearValues[name] = undefined;

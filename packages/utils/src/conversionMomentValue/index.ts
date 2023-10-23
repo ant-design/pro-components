@@ -88,7 +88,9 @@ export const convertMoment = (
       return value.valueOf();
     }
     if (dateFormatter === 'string') {
-      return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+      return value.format(
+        dateFormatterMap[valueType as 'date'] || 'YYYY-MM-DD HH:mm:ss',
+      );
     }
     if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
       return value.format(dateFormatter);
@@ -123,7 +125,7 @@ export const conversionMomentValue = <T extends {} = any>(
   omitNil?: boolean,
   parentKey?: NamePath,
 ): T => {
-  const tmpValue = {} as T;
+  const tmpValue = {} as Record<string, any> as T;
   if (typeof window === 'undefined') return value;
   // 如果 value 是 string | null | Blob类型 其中之一，直接返回
   // 形如 {key: [File, File]} 的表单字段当进行第二次递归时会导致其直接越过 typeof value !== 'object' 这一判断 https://github.com/ant-design/pro-components/issues/2071
@@ -163,7 +165,7 @@ export const conversionMomentValue = <T extends {} = any>(
       // 不是 moment
       !isMoment(itemValue)
     ) {
-      tmpValue[valueKey] = conversionMomentValue(
+      (tmpValue as any)[valueKey] = conversionMomentValue(
         itemValue,
         dateFormatter,
         valueTypeMap,
@@ -174,7 +176,7 @@ export const conversionMomentValue = <T extends {} = any>(
     }
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
-      tmpValue[valueKey] = itemValue.map((arrayValue, index) => {
+      (tmpValue as any)[valueKey] = itemValue.map((arrayValue, index) => {
         if (dayjs.isDayjs(arrayValue) || isMoment(arrayValue)) {
           return convertMoment(
             arrayValue,
@@ -192,7 +194,7 @@ export const conversionMomentValue = <T extends {} = any>(
       });
       return;
     }
-    tmpValue[valueKey] = convertMoment(
+    (tmpValue as any)[valueKey] = convertMoment(
       itemValue,
       dateFormat || dateFormatter,
       valueType,

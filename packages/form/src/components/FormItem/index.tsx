@@ -281,7 +281,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     transform,
     dataFormat,
     ignoreFormItem,
-    lightProps = {},
+    lightProps,
     children: unusedChildren,
     ...rest
   } = props;
@@ -332,11 +332,11 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     isDropdownValueType(valueType || props.children.props.valueType);
 
   const noLightFormItem = useMemo(() => {
-    if (!lightProps.light || lightProps.customLightMode || isDropdown) {
+    if (!lightProps?.light || lightProps?.customLightMode || isDropdown) {
       return true;
     }
     return false;
-  }, [lightProps.customLightMode, isDropdown, lightProps.light]);
+  }, [lightProps?.customLightMode, isDropdown, lightProps?.light]);
 
   // formItem 支持function，如果是function 我就直接不管了
   if (typeof props.children === 'function') {

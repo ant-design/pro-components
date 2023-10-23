@@ -165,7 +165,7 @@ Done in 9.70s.
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
+
     "declaration": true,
     "skipLibCheck": true
   },

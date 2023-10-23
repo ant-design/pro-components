@@ -16,7 +16,7 @@ const ProcessMap = {
   running: 'active',
   online: 'success',
   error: 'exception',
-};
+} as const;
 
 export type TableListItem = {
   key: number;
@@ -41,7 +41,7 @@ for (let i = 0; i < 50; i += 1) {
     callNumber: Math.floor(Math.random() * 2000),
     progress: Math.ceil(Math.random() * 100) + 1,
     creator: creators[Math.floor(Math.random() * creators.length)],
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
     memo:
       i % 2 === 1
@@ -77,7 +77,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'progress',
     valueType: (item) => ({
       type: 'progress',
-      status: ProcessMap[item.status],
+      status: ProcessMap[item.status as 'close'],
     }),
   },
   {

@@ -151,17 +151,19 @@ export function genProColumnToColumn<T>(
             rowData !== null &&
             Reflect.has(rowData as any, keyName)
           ) {
-            uniqueKey = rowData[keyName];
+            uniqueKey = (rowData as Record<string, any>)[keyName as string];
             const parentInfo = subNameRecord.get(uniqueKey) || [];
-            rowData[childrenColumnName]?.forEach((item: any) => {
-              const itemUniqueKey = item[keyName];
-              if (!subNameRecord.has(itemUniqueKey)) {
-                subNameRecord.set(
-                  itemUniqueKey,
-                  parentInfo.concat([index, childrenColumnName]),
-                );
-              }
-            });
+            (rowData as Record<string, any>)[childrenColumnName]?.forEach(
+              (item: any) => {
+                const itemUniqueKey = item[keyName];
+                if (!subNameRecord.has(itemUniqueKey)) {
+                  subNameRecord.set(
+                    itemUniqueKey,
+                    parentInfo.concat([index, childrenColumnName]),
+                  );
+                }
+              },
+            );
           }
 
           const renderProps = {

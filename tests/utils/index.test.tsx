@@ -882,8 +882,8 @@ describe('utils', () => {
         'new-time',
       ].sort(),
     );
-    expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
-    expect(html['new-time']).toBe('2019-11-16 12:50:26');
+    expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect((html as any)['new-time']).toBe('2019-11-16 12:50:26');
     expect(html.name).toBe('qixian');
     expect(html.money).toBe(20);
     expect(html.dateTimeRange.join(',')).toBe(
@@ -924,7 +924,7 @@ describe('utils', () => {
       dataTime: () => ['new-dataTime'],
       time: undefined,
     });
-    expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect(html.tag).not.toBe(labelInValue);
     expect(React.isValidElement(html.tag.label)).toBeTruthy();
   });
@@ -941,7 +941,7 @@ describe('utils', () => {
       dataTime: () => ['new-dataTime'],
       time: undefined,
     });
-    expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect(html.file).toBe(file);
     expect(html.files[0]).toBe(file);
   });
@@ -956,7 +956,7 @@ describe('utils', () => {
       dataTime: () => ['new-dataTime'],
       time: undefined,
     });
-    expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect(html.file).toBe(undefined);
   });
 
@@ -1104,7 +1104,7 @@ describe('utils', () => {
 
   it('🪓 nanoid', () => {
     if (!window.crypto.randomUUID) {
-      window.crypto.randomUUID = () => '1';
+      window.crypto.randomUUID = () => '1' as any;
     }
     const cryptoSpy = vi.spyOn(window.crypto, 'randomUUID');
 

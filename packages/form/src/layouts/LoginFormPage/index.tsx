@@ -77,7 +77,7 @@ export function LoginFormPage<T = Record<string, any>>(
     logo,
     message,
     style,
-    activityConfig = {},
+    activityConfig,
     backgroundImageUrl,
     backgroundVideoUrl,
     title,

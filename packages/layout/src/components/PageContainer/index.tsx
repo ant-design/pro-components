@@ -309,7 +309,7 @@ const memoRenderPageHeader = (
       'footer',
       'avatar',
       'backIcon',
-    ].every((item) => !pageHeaderProps[item]) &&
+    ].every((item) => !pageHeaderProps[item as 'backIcon']) &&
     noHasBreadCrumb &&
     !content &&
     !extraContent
@@ -503,4 +503,4 @@ const ProPageHeader = (
   });
 };
 
-export { ProPageHeader, PageContainer, ProBreadcrumb };
+export { PageContainer, ProBreadcrumb, ProPageHeader };

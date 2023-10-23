@@ -514,7 +514,7 @@ const getOpenKeysProps = (
 ): {
   openKeys?: undefined | string[];
 } => {
-  let openKeysProps = {};
+  let openKeysProps = {} as Record<string, any>;
 
   if (openKeys && !collapsed && ['side', 'mix'].includes(layout || 'mix')) {
     openKeysProps = {

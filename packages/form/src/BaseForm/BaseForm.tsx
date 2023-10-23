@@ -8,10 +8,10 @@ import type {
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 import {
+  ProFormContext,
   conversionMomentValue,
   isDeepEqualReact,
   nanoid,
-  ProFormContext,
   runFunction,
   transformKeySubmitValue,
   useFetchData,
@@ -39,10 +39,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components';
 import { Submitter } from '../components';
 import { FormListContext } from '../components/List';
-import FieldContext from '../FieldContext';
 import { GridContext, useGridHelpers } from '../helpers';
 import type {
   FieldProps,
@@ -253,7 +253,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
     form,
     loading,
     formComponentType,
-    extraUrlParams = {},
+    extraUrlParams = {} as Record<string, any>,
     syncToUrl,
     onUrlSearchChange,
     onReset,
@@ -394,7 +394,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
             }, extraUrlParams);
 
             /** 在同步到 url 上时对参数进行转化 */
-            onUrlSearchChange(genParams(syncToUrl, params, 'set'));
+            onUrlSearchChange(genParams(syncToUrl, params || {}, 'set'));
           }
         }}
         submitButtonProps={{
@@ -494,7 +494,7 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U>,
 ) {
   const {
-    extraUrlParams = {},
+    extraUrlParams = {} as Record<string, any>,
     syncToUrl,
     isKeyPressSubmit,
     syncToUrlAsImportant = false,
@@ -819,5 +819,5 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   );
 }
 
-export type { FormProps, ProFormInstance, FormItemProps, FormInstance };
 export { BaseForm };
+export type { FormInstance, FormItemProps, FormProps, ProFormInstance };

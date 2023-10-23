@@ -59,20 +59,27 @@ const getSpanConfig = (
     };
   }
 
-  const spanConfig = span
+  const spanConfig: (string | number)[][] = span
     ? ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].map((key) => [
-        CONFIG_SPAN_BREAKPOINTS[key],
-        24 / span[key],
+        CONFIG_SPAN_BREAKPOINTS[key as 'xs'],
+        24 / (span as any)[key as 'sm'],
         'horizontal',
       ])
-    : BREAKPOINTS[layout || 'default'];
+    : BREAKPOINTS[(layout as 'default') || 'default'];
 
   const breakPoint = (spanConfig || BREAKPOINTS.default).find(
-    (item: [number, number, FormProps['layout']]) => width < item[0] + 16, // 16 = 2 * (ant-row -8px margin)
+    (item) => width < (item[0] as number) + 16, // 16 = 2 * (ant-row -8px margin)
   );
+
+  if (!breakPoint) {
+    return {
+      span: 8,
+      layout: 'horizontal',
+    };
+  }
   return {
-    span: 24 / breakPoint[1],
-    layout: breakPoint[2],
+    span: 24 / (breakPoint[1] as number),
+    layout: breakPoint?.[2] as 'horizontal',
   };
 };
 

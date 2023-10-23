@@ -10,12 +10,12 @@ import type {
   UseEditableMapUtilType,
 } from '@ant-design/pro-utils';
 import {
-  compareVersions,
   ErrorBoundary,
-  genCopyable,
-  getFieldPropsOrFormItemProps,
   InlineErrorFormItem,
   LabelIconTip,
+  compareVersions,
+  genCopyable,
+  getFieldPropsOrFormItemProps,
   stringify,
   useEditableMap,
 } from '@ant-design/pro-utils';
@@ -98,7 +98,7 @@ export type ProDescriptionsProps<
   /** 网络请求报错 */
   onRequestError?: (e: Error) => void;
   /** 获取数据的方法 */
-  request?: (params: Record<string, any>) => Promise<RequestData>;
+  request?: (params: Record<string, any> | undefined) => Promise<RequestData>;
 
   columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
 
@@ -481,7 +481,7 @@ const ProDescriptions = <
   const {
     request,
     columns,
-    params = {},
+    params,
     dataSource,
     onDataSourceChange,
     formProps,
@@ -497,7 +497,7 @@ const ProDescriptions = <
 
   const action = useFetchData<RequestData>(
     async () => {
-      const data = request ? await request(params) : { data: {} };
+      const data = request ? await request(params || {}) : { data: {} };
       return data;
     },
     {

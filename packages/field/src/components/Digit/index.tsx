@@ -47,7 +47,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
     [fieldProps],
   );
   if (type === 'read') {
-    let fractionDigits = {} as any;
+    let fractionDigits = {} as Record<string, any> as any;
     if (fieldProps?.precision) {
       fractionDigits = {
         minimumFractionDigits: Number(fieldProps.precision),

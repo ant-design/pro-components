@@ -8,8 +8,8 @@ import ProForm, { GridContext } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ProConfigProvider, proTheme, useIntl } from '@ant-design/pro-provider';
 import {
-  editableRowByKey,
   ErrorBoundary,
+  editableRowByKey,
   omitUndefined,
   recordKeyToString,
   stringify,
@@ -37,10 +37,10 @@ import React, {
   useRef,
 } from 'react';
 import type { ActionType } from '.';
+import { Container, TableContext } from './Store/Provide';
 import Alert from './components/Alert';
 import FormRender from './components/Form';
 import Toolbar from './components/ToolBar';
-import { Container, TableContext } from './Store/Provide';
 import { useStyle } from './style';
 import type {
   OptionSearchProps,
@@ -412,7 +412,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   );
 }
 
-const emptyObj = {};
+const emptyObj = {} as Record<string, any>;
 
 const ProTable = <
   T extends Record<string, any>,

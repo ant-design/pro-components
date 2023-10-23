@@ -433,7 +433,7 @@ describe('settingDrawer.test', () => {
         <SettingDrawer
           disableUrlParams
           onSettingChange={(s) => {
-            if (s[`${key}Render`] === false) {
+            if (s[`${key}Render` as 'headerRender'] === false) {
               fn(key);
             }
           }}
