@@ -1,5 +1,5 @@
 ﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
-import { Button, message, Space } from 'antd';
+import { Button, Space, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

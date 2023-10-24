@@ -19,6 +19,7 @@ export type {
   LightWrapperProps,
   ProFormInstance,
 } from './BaseForm';
+export { FieldContext } from './FieldContext';
 export * from './components';
 export type {
   FormListActionType,
@@ -42,13 +43,12 @@ export type {
   ProFormUploadDraggerProps,
 } from './components';
 export { FormListContext } from './components/List';
-export { FieldContext } from './FieldContext';
 export * from './layouts';
 export type {
   LightFilterFooterRender,
   ProFormFieldItemProps as ProFormItemProps,
 } from './typing';
+export { GridContext, ProForm };
 export type { ProFormGroupProps as GroupProps };
-export { ProForm, GridContext };
 
 export default ProForm;

@@ -1,15 +1,10 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.21.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.3...@ant-design/pro-form@2.21.4) (2023-10-24)
 
 **Note:** Version bump only for package @ant-design/pro-form
-
-
-
-
 
 ## [2.21.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.2...@ant-design/pro-form@2.21.3) (2023-10-19)
 

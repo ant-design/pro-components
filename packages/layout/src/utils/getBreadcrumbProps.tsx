@@ -7,8 +7,8 @@ import type {
 } from 'antd/lib/breadcrumb/Breadcrumb';
 import type H from 'history';
 import pathToRegexp from 'path-to-regexp';
-import type { ProSettings } from '../defaultSettings';
 import type { ProLayoutProps } from '../ProLayout';
+import type { ProSettings } from '../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typing';
 import { urlToList } from './pathTools';
 

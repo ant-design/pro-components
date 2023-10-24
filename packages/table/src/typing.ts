@@ -27,12 +27,12 @@ import type {
 import type dayjs from 'dayjs';
 import type React from 'react';
 import type { CSSProperties } from 'react';
+import type { ColumnsState, ContainerType } from './Store/Provide';
 import type { AlertRenderType } from './components/Alert';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
-import type { ColumnsState, ContainerType } from './Store/Provide';
 
 export type PageInfo = {
   pageSize: number;

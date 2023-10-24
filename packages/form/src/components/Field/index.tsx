@@ -6,8 +6,8 @@ import {
   useRefFunction,
 } from '@ant-design/pro-utils';
 import React, { memo, useContext, useMemo } from 'react';
-import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
+import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../typing';
 
 export type ProFormFieldProps<

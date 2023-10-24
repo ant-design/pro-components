@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.9...@ant-design/pro-layout@7.17.10) (2023-10-24)
 
-
 ### Bug Fixes
 
-* **layout:** fix layout menu align error ([24cf799](https://github.com/ant-design/pro-components/commit/24cf79956f5078f5c68320036c2af01f5cb36fe9))
-
-
-
-
+- **layout:** fix layout menu align error ([24cf799](https://github.com/ant-design/pro-components/commit/24cf79956f5078f5c68320036c2af01f5cb36fe9))
 
 ## [7.17.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.8...@ant-design/pro-layout@7.17.9) (2023-10-19)
 

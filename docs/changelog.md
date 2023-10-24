@@ -1,4 +1,12 @@
-﻿## @ant-design/pro-components@2.6.31
+﻿## @ant-design/pro-components@2.6.32
+
+`2023-10-24`
+
+- fix(layout): fix layout menu align error. [24cf799](https://github.com/ant-design/pro-components/commit/24cf799)
+- feat(table): expose `index` in `onDragSortEnd` (#7803). [#7803](https://github.com/ant-design/pro-components/pull/#7803) [@kungege](https://github.com/kungege)
+- fix(card): 移除 stopPropagation，让事件继续冒泡 (#7785). [#7785](https://github.com/ant-design/pro-components/pull/#7785) [@xliez](https://github.com/xliez)
+
+## @ant-design/pro-components@2.6.31
 
 `2023-10-19`
 

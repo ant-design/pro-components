@@ -7,8 +7,8 @@ import type {
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import {
-  getFieldPropsOrFormItemProps,
   InlineErrorFormItem,
+  getFieldPropsOrFormItemProps,
   runFunction,
 } from '@ant-design/pro-utils';
 import { Form } from 'antd';
@@ -20,8 +20,8 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import type { ProColumnType } from '../index';
 import type { ContainerType } from '../Store/Provide';
+import type { ProColumnType } from '../index';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 

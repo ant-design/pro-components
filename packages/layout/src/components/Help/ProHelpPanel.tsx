@@ -1,5 +1,5 @@
 ﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
-import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
+import { ProProvider, isNeedOpenHash } from '@ant-design/pro-provider';
 import { coverToNewToken } from '@ant-design/pro-utils';
 import { Card, ConfigProvider, Menu } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
