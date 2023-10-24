@@ -110,7 +110,11 @@ const SortableItemCell = React.memo((props: any) => {
 
 export interface UseDragSortOptions<T> {
   dataSource?: T[];
-  onDragSortEnd?: (newDataSource: T[]) => Promise<void> | void;
+  onDragSortEnd?: (
+    beforeIndex: number,
+    afterIndex: number,
+    newDataSource: T[],
+  ) => Promise<void> | void;
   dragSortKey?: string;
   components?: TableComponents<T>;
   rowKey: any;
@@ -121,7 +125,6 @@ const SortContainer = (p: any) => <tbody {...p} />;
 
 export function useDragSort<T>(props: UseDragSortOptions<T>) {
   const { dataSource = [], onDragSortEnd, DragHandle, dragSortKey } = props;
-
   const sensors = useSensors(useSensor(PointerSensor), useSensor(MouseSensor));
 
   const handleDragEnd = useCallback(
@@ -133,7 +136,11 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
           parseInt(active.id as string),
           parseInt(over.id as string),
         );
-        onDragSortEnd?.(newData || []);
+        onDragSortEnd?.(
+          parseInt(active.id as string),
+          parseInt(over.id as string),
+          newData || [],
+        );
       }
     },
     [dataSource, onDragSortEnd],

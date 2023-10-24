@@ -14,7 +14,11 @@ export type DragTableProps<T, U> = {
   /** @name 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 */
   dragSortHandlerRender?: (rowData: T, idx: number) => React.ReactNode;
   /** @name 拖动排序完成回调 */
-  onDragSortEnd?: (newDataSource: T[]) => Promise<void> | void;
+  onDragSortEnd?: (
+    beforeIndex: number,
+    afterIndex: number,
+    newDataSource: T[],
+  ) => Promise<void> | void;
 } & ProTableProps<T, U>;
 
 function DragSortTable<
