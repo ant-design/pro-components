@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.15...@ant-design/pro-table@3.13.0) (2023-10-24)
+
+
+### Features
+
+* **table:** expose `index` in `onDragSortEnd` ([#7803](https://github.com/ant-design/pro-components/issues/7803)) ([8a0786a](https://github.com/ant-design/pro-components/commit/8a0786a2cfe5c738b4928a0c11db247c1438f945))
+
+
+
+
 
 ## [3.12.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.14...@ant-design/pro-table@3.12.15) (2023-10-19)
 

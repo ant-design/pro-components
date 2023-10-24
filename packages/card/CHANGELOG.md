@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.5.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.21...@ant-design/pro-card@2.5.22) (2023-10-24)
+
+
+### Bug Fixes
+
+* **card:** 移除stopPropagation，让事件继续冒泡 ([#7785](https://github.com/ant-design/pro-components/issues/7785)) ([f404bed](https://github.com/ant-design/pro-components/commit/f404bed3fc2abbe057a9fdd006d304b1a833dd4e))
+
+
+
+
 
 ## [2.5.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.20...@ant-design/pro-card@2.5.21) (2023-10-19)
 
