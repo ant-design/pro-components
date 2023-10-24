@@ -67,7 +67,7 @@ export type CommonFormProps<
    * submitter={{ render:(props,dom)=> [...dom.reverse()]}}
    *
    * @example 修改提交和重置按钮文字
-   * submitter={{ searchConfig: { submitText: '提交2',restText: '重置2'}}}
+   * submitter={{ searchConfig: { submitText: '提交2',resetText: '重置2'}}}
    */
   submitter?:
     | SubmitterProps<{
