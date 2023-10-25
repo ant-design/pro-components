@@ -114,9 +114,8 @@ describe('dragSort', () => {
             dataIndex: 'name',
           },
         ]}
-        onDragSortEnd={(data) => {
+        onDragSortEnd={(_before, _after, data) => {
           onDragSortEndFn(data[0].name);
-          console.log(data);
         }}
         rowKey="id"
         dragSortKey="sort"
