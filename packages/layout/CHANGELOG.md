@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.10...@ant-design/pro-layout@7.17.11) (2023-10-26)
 
-
 ### Reverts
 
-* **layout:** 回滚 Layout Menu 的获取逻辑  ([#7819](https://github.com/ant-design/pro-components/issues/7819)) ([160faa3](https://github.com/ant-design/pro-components/commit/160faa3906f66f9c8aecd0a64eb4ec2706fe2e08))
-
-
-
-
+- **layout:** 回滚 Layout Menu 的获取逻辑 ([#7819](https://github.com/ant-design/pro-components/issues/7819)) ([160faa3](https://github.com/ant-design/pro-components/commit/160faa3906f66f9c8aecd0a64eb4ec2706fe2e08))
 
 ## [7.17.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.9...@ant-design/pro-layout@7.17.10) (2023-10-24)
 

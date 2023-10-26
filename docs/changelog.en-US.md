@@ -1,4 +1,11 @@
-﻿## @ant-design/pro-components@2.6.32
+﻿## @ant-design/pro-components@2.6.33
+
+`2023-10-26`
+
+- revert(layout): 回滚 Layout Menu 的获取逻辑 (#7819). [#7819](https://github.com/ant-design/pro-components/pull/#7819) [@ONLY-yours](https://github.com/ONLY-yours)
+- feat(form):addonBefore warp support style. [5dd732e](https://github.com/ant-design/pro-components/commit/5dd732e)
+
+## @ant-design/pro-components@2.6.32
 
 `2023-10-24`
 
