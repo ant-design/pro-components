@@ -407,7 +407,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
     expect(
       wrapper.baseElement.querySelectorAll('.ant-menu-item-group-title').length,
-    ).toBe(3);
+    ).toBe(2);
     expect(
       wrapper.baseElement.querySelectorAll('.ant-pro-sider-actions-collapsed')
         .length,

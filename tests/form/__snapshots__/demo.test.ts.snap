@@ -40434,7 +40434,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                     class="ant-col ant-form-item-control"
                   >
                     <div
-                      style="display: flex; align-items: center;"
+                      style="display: flex; align-items: center; flex-wrap: wrap;"
                     >
                       <div
                         style="margin-inline-end: 8px;"
@@ -41427,7 +41427,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
             class="ant-col ant-form-item-control"
           >
             <div
-              style="display: flex; align-items: center;"
+              style="display: flex; align-items: center; flex-wrap: wrap;"
             >
               <div
                 class="ant-form-item-control-input"
@@ -41865,7 +41865,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                     class="ant-col ant-form-item-control"
                   >
                     <div
-                      style="display: flex; align-items: center;"
+                      style="display: flex; align-items: center; flex-wrap: wrap;"
                     >
                       <div
                         style="margin-inline-end: 8px;"
@@ -42821,7 +42821,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
             class="ant-col ant-form-item-control"
           >
             <div
-              style="display: flex; align-items: center;"
+              style="display: flex; align-items: center; flex-wrap: wrap;"
             >
               <div
                 class="ant-form-item-control-input"
