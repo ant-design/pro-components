@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.21.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.5...@ant-design/pro-form@2.21.6) (2023-10-26)
 
-
 ### Bug Fixes
 
-* **form:** fix addonWarpStyle no work error ([e5374b7](https://github.com/ant-design/pro-components/commit/e5374b78cea0e4ba938759c91df1f5dafe1fcf7c))
-
-
-
-
+- **form:** fix addonWarpStyle no work error ([e5374b7](https://github.com/ant-design/pro-components/commit/e5374b78cea0e4ba938759c91df1f5dafe1fcf7c))
 
 ## [2.21.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.4...@ant-design/pro-form@2.21.5) (2023-10-26)
 
