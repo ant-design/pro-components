@@ -20,7 +20,7 @@
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./ && npm run tsc && npm run lint:prettier",
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,yaml,json}\" --loglevel warn",
-    "publishOnly": "node ./scripts/release.js --publishOnly",
+    "publishOnly": "pnpm  install && node ./scripts/release.js --publishOnly",
     "release": "npm run test && node ./scripts/release.js",
     "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "npm run version && dumi dev",
