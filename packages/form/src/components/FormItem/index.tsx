@@ -138,6 +138,10 @@ type WarpFormItemProps = {
   /** @name 后置的dom * */
   addonAfter?: React.ReactNode;
   /**
+   * 包裹的样式，一般没用
+   */
+  addonWarpStyle?: React.CSSProperties;
+  /**
    * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
    * @param value 字段的值
    * @param namePath 字段的name
@@ -164,6 +168,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   addonAfter,
   addonBefore,
   valuePropName,
+  addonWarpStyle,
   convertValue,
   ...props
 }) => {
@@ -211,6 +216,8 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                 style={{
                   display: 'flex',
                   alignItems: 'center',
+                  flexWrap: 'wrap',
+                  ...addonWarpStyle,
                 }}
               >
                 {addonBefore ? (
