@@ -289,7 +289,7 @@ class MenuUtil {
 
       const childrenList = this.getNavMenuItems(
         children,
-        isGroup && level === 0 ? level : level + 1,
+        isGroup && level === 0 && this.props.collapsed ? level : level + 1,
       );
 
       return [
