@@ -29,6 +29,7 @@ const antdFormItemPropsList = [
   // 我自定义的
   'addonBefore',
   'addonAfter',
+  'addonWarpStyle',
 ];
 
 // eslint-disable-next-line @typescript-eslint/ban-types
