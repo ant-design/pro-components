@@ -15,9 +15,9 @@ export type DragTableProps<T, U> = {
   dragSortHandlerRender?: (rowData: T, idx: number) => React.ReactNode;
   /** @name 拖动排序完成回调 */
   onDragSortEnd?: (
+    newDataSource: T[],
     beforeIndex: number,
     afterIndex: number,
-    newDataSource: T[],
   ) => Promise<void> | void;
 } & ProTableProps<T, U>;
 

@@ -53,11 +53,13 @@ export default () => {
   const [dataSource, setDataSource] = useState(data);
 
   const handleDragSortEnd = (
+    newDataSource: any,
     beforeIndex: number,
     afterIndex: number,
-    newDataSource: any,
   ) => {
     console.log('排序后的数据', newDataSource);
+    console.log('排序前的index', beforeIndex);
+    console.log('排序后的index', afterIndex);
     setDataSource(newDataSource);
     message.success('修改列表排序成功');
   };

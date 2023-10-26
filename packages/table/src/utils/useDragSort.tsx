@@ -111,9 +111,9 @@ const SortableItemCell = React.memo((props: any) => {
 export interface UseDragSortOptions<T> {
   dataSource?: T[];
   onDragSortEnd?: (
+    newDataSource: T[],
     beforeIndex: number,
     afterIndex: number,
-    newDataSource: T[],
   ) => Promise<void> | void;
   dragSortKey?: string;
   components?: TableComponents<T>;
@@ -137,9 +137,9 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
           parseInt(over.id as string),
         );
         onDragSortEnd?.(
+          newData || [],
           parseInt(active.id as string),
           parseInt(over.id as string),
-          newData || [],
         );
       }
     },
