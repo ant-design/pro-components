@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
 
 settings:
   autoInstallPeers: false
@@ -371,7 +371,7 @@ importers:
         specifier: 2.13.3
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.11
+        specifier: 2.14.12
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -396,22 +396,22 @@ importers:
   packages/components:
     dependencies:
       '@ant-design/pro-card':
-        specifier: 2.5.23
+        specifier: 2.5.24
         version: link:../card
       '@ant-design/pro-descriptions':
-        specifier: 2.5.18
+        specifier: 2.5.19
         version: link:../descriptions
       '@ant-design/pro-field':
-        specifier: 2.13.4
+        specifier: 2.13.5
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.21.5
+        specifier: 2.21.6
         version: link:../form
       '@ant-design/pro-layout':
-        specifier: 7.17.11
+        specifier: 7.17.12
         version: link:../layout
       '@ant-design/pro-list':
-        specifier: 2.5.32
+        specifier: 2.5.33
         version: link:../list
       '@ant-design/pro-provider':
         specifier: 2.13.3
@@ -420,10 +420,10 @@ importers:
         specifier: 2.1.9
         version: link:../skeleton
       '@ant-design/pro-table':
-        specifier: 3.13.1
+        specifier: 3.13.2
         version: link:../table
       '@ant-design/pro-utils':
-        specifier: 2.14.11
+        specifier: 2.14.12
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.16.3
@@ -432,16 +432,16 @@ importers:
   packages/descriptions:
     dependencies:
       '@ant-design/pro-field':
-        specifier: 2.13.4
+        specifier: 2.13.5
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.21.5
+        specifier: 2.21.6
         version: link:../form
       '@ant-design/pro-skeleton':
         specifier: 2.1.9
         version: link:../skeleton
       '@ant-design/pro-utils':
-        specifier: 2.14.11
+        specifier: 2.14.12
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -466,7 +466,7 @@ importers:
         specifier: 2.13.3
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.11
+        specifier: 2.14.12
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -512,13 +512,13 @@ importers:
         specifier: ^5.0.0
         version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-field':
-        specifier: 2.13.4
+        specifier: 2.13.5
         version: link:../field
       '@ant-design/pro-provider':
         specifier: 2.13.3
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.11
+        specifier: 2.14.12
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -564,7 +564,7 @@ importers:
         specifier: 2.13.3
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.11
+        specifier: 2.14.12
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -610,16 +610,16 @@ importers:
         specifier: ^5.0.0
         version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
-        specifier: 2.5.23
+        specifier: 2.5.24
         version: link:../card
       '@ant-design/pro-field':
-        specifier: 2.13.4
+        specifier: 2.13.5
         version: link:../field
       '@ant-design/pro-table':
-        specifier: 3.13.1
+        specifier: 3.13.2
         version: link:../table
       '@ant-design/pro-utils':
-        specifier: 2.14.11
+        specifier: 2.14.12
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -679,19 +679,19 @@ importers:
         specifier: ^5.0.0
         version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
-        specifier: 2.5.23
+        specifier: 2.5.24
         version: link:../card
       '@ant-design/pro-field':
-        specifier: 2.13.4
+        specifier: 2.13.5
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.21.5
+        specifier: 2.21.6
         version: link:../form
       '@ant-design/pro-provider':
         specifier: 2.13.3
         version: link:../provider
       '@ant-design/pro-utils':
-        specifier: 2.14.11
+        specifier: 2.14.12
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
@@ -5334,7 +5334,7 @@ packages:
     dependencies:
       '@babel/core': 7.23.2
       postcss: 8.4.31
-      postcss-syntax: 0.36.2(postcss@8.4.31)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6718,7 +6718,7 @@ packages:
       eslint-plugin-react: 7.33.2(eslint@8.51.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.51.0)
       postcss: 8.4.31
-      postcss-syntax: 0.36.2(postcss@8.4.31)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
       stylelint-config-standard: 25.0.0(stylelint@13.13.1)
     transitivePeerDependencies:
       - eslint
@@ -8352,8 +8352,9 @@ packages:
       randombytes: 2.1.0
     dev: true
 
-  /browserify-sign@4.2.1:
-    resolution: {integrity: sha512-/vrA5fguVAKKAVTNJjgSm1tRQDHUU6DbwO9IROu/0WAzC8PKhucDSh18J0RMvVeHAn5puMd+QHC2erPRNf8lmg==}
+  /browserify-sign@4.2.2:
+    resolution: {integrity: sha512-1rudGyeYY42Dk6texmv7c4VcQ0EsvVbLwZkA+AQB7SxvXxmcD93jcHie8bzecJ+ChDlmAm2Qyu0+Ccg5uhZXCg==}
+    engines: {node: '>= 4'}
     dependencies:
       bn.js: 5.2.1
       browserify-rsa: 4.1.0
@@ -9627,7 +9628,7 @@ packages:
     resolution: {integrity: sha512-fz4spIh+znjO2VjL+IdhEpRJ3YN6sMzITSBijk6FK2UvTqruSQW+/cCZTSNsMiZNvUeq0CqurF+dAbyiGOY6Wg==}
     dependencies:
       browserify-cipher: 1.0.1
-      browserify-sign: 4.2.1
+      browserify-sign: 4.2.2
       create-ecdh: 4.0.4
       create-hash: 1.2.0
       create-hmac: 1.1.7
@@ -19024,30 +19025,6 @@ packages:
       postcss-html: 0.36.0(postcss-syntax@0.36.2)(postcss@7.0.39)
       postcss-less: 3.1.4
       postcss-scss: 2.1.1
-    dev: true
-
-  /postcss-syntax@0.36.2(postcss@8.4.31):
-    resolution: {integrity: sha512-nBRg/i7E3SOHWxF3PpF5WnJM/jQ1YpY9000OaVXlAQj6Zp/kIqJxEDWIZ67tAd7NLuk7zqN4yqe9nc0oNAOs1w==}
-    peerDependencies:
-      postcss: '>=5.0.0'
-      postcss-html: '*'
-      postcss-jsx: '*'
-      postcss-less: '*'
-      postcss-markdown: '*'
-      postcss-scss: '*'
-    peerDependenciesMeta:
-      postcss-html:
-        optional: true
-      postcss-jsx:
-        optional: true
-      postcss-less:
-        optional: true
-      postcss-markdown:
-        optional: true
-      postcss-scss:
-        optional: true
-    dependencies:
-      postcss: 8.4.31
     dev: true
 
   /postcss-value-parser@4.2.0:
