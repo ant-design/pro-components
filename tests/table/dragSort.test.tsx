@@ -115,6 +115,7 @@ describe('dragSort', () => {
           },
         ]}
         onDragSortEnd={(data) => {
+          //@ts-ignore
           onDragSortEndFn(data[0].name);
           console.log(data);
         }}
