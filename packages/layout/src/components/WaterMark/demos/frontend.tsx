@@ -1,6 +1,12 @@
 /** Title: 前置水印 */
 import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown, WaterMark } from '@ant-design/pro-components';
+import {
+  LightFilter,
+  ProFormDatePicker,
+  ProTable,
+  TableDropdown,
+  WaterMark,
+} from '@ant-design/pro-components';
 
 const valueEnum = {
   0: 'close',
@@ -103,18 +109,27 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => (
-  <WaterMark content="蚂蚁集团">
-    <ProTable<TableListItem>
-      columns={columns}
-      dataSource={tableListDataSource}
-      rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
-      search={false}
-      dateFormatter="string"
-      headerTitle="表格标题"
-      toolBarRender={false}
-    />
-  </WaterMark>
+  <>
+    <WaterMark content="蚂蚁集团">
+      <ProTable<TableListItem>
+        columns={columns}
+        dataSource={tableListDataSource}
+        rowKey="key"
+        pagination={{
+          showQuickJumper: true,
+        }}
+        toolbar={{
+          title: '标签',
+          multipleLine: true,
+          filter: (
+            <LightFilter>
+              <ProFormDatePicker name="startdate" label="响应日期" />
+            </LightFilter>
+          ),
+        }}
+        search={false}
+        dateFormatter="string"
+      />
+    </WaterMark>
+  </>
 );

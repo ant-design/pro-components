@@ -114,10 +114,9 @@ const ListToolBarTabBar: React.FC<{
   tabs: ListToolBarProps['tabs'];
 }> = ({ prefixCls, tabs, multipleLine, filtersNode }) => {
   if (!multipleLine) return null;
-  if (!tabs) return null;
   return (
     <div className={`${prefixCls}-extra-line`}>
-      {tabs.items && tabs.items.length ? (
+      {tabs?.items && tabs?.items.length ? (
         <Tabs
           style={{
             width: '100%',
@@ -246,7 +245,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   }, [actions]);
 
   const hasRight = useMemo(() => {
-    return (
+    return !!(
       (hasTitle && searchNode) ||
       (!multipleLine && filtersNode) ||
       actionDom ||
