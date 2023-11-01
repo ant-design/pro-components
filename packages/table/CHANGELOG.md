@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.2...@ant-design/pro-table@3.13.3) (2023-11-01)
+
+
+### Bug Fixes
+
+* **table:** 修复不能单独展示 filter 的问题 ([b77b5d4](https://github.com/ant-design/pro-components/commit/b77b5d4a91aaf6f7e229c80350ea0d6ee656ff30))
+* update table.md ([#7818](https://github.com/ant-design/pro-components/issues/7818)) ([fb385c3](https://github.com/ant-design/pro-components/commit/fb385c30d60a35e165ac765ab3dea7534c24aa90))
+
+
+
+
 
 ## [3.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.1...@ant-design/pro-table@3.13.2) (2023-10-26)
 
