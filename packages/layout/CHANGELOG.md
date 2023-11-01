@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.12...@ant-design/pro-layout@7.17.13) (2023-11-01)
 
-
 ### Bug Fixes
 
-* **layout:** 修复 Layout 菜单submenu 和  grounp  混用的时候收起错误 ([d99a14d](https://github.com/ant-design/pro-components/commit/d99a14dc8b9c37c2c2841840cbe28a93a679e468))
-* **table:** 修复不能单独展示 filter 的问题 ([b77b5d4](https://github.com/ant-design/pro-components/commit/b77b5d4a91aaf6f7e229c80350ea0d6ee656ff30))
-
-
-
-
+- **layout:** 修复 Layout 菜单 submenu 和 grounp 混用的时候收起错误 ([d99a14d](https://github.com/ant-design/pro-components/commit/d99a14dc8b9c37c2c2841840cbe28a93a679e468))
+- **table:** 修复不能单独展示 filter 的问题 ([b77b5d4](https://github.com/ant-design/pro-components/commit/b77b5d4a91aaf6f7e229c80350ea0d6ee656ff30))
 
 ## [7.17.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.11...@ant-design/pro-layout@7.17.12) (2023-10-26)
 

@@ -1,4 +1,12 @@
-﻿## @ant-design/pro-components@2.6.33
+﻿## @ant-design/pro-components@2.6.35
+
+`2023-11-01`
+
+- fix(layout): 修复 Layout 菜单 submenu 和 grounp 混用的时候收起错误. [d99a14d](https://github.com/ant-design/pro-components/commit/d99a14d)
+- fix(form): fix addonWarpStyle no work error. [e5374b7](https://github.com/ant-design/pro-components/commit/e5374b7)
+- fix(table): 修复不能单独展示 filter 的问题. [b77b5d4](https://github.com/ant-design/pro-components/commit/b77b5d4)
+
+## @ant-design/pro-components@2.6.33
 
 `2023-10-26`
 
