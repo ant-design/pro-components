@@ -75,12 +75,12 @@ type StepsFormProps<T = Record<string, any>> = {
   ) => React.ReactNode;
   /** 按钮的统一配置，优先级低于分步表单的配置 */
   submitter?:
-    | SubmitterProps<{
-        step: number;
-        onPre: () => void;
-        form?: FormInstance<any>;
-      }>
-    | false;
+  | SubmitterProps<{
+    step: number;
+    onPre: () => void;
+    form?: FormInstance<any>;
+  }>
+  | false;
 
   containerStyle?: React.CSSProperties;
   /**
@@ -96,19 +96,19 @@ type StepsFormProps<T = Record<string, any>> = {
 
 export const StepsFormProvide = React.createContext<
   | {
-      regForm: (name: string, props: StepsFormProps<any>) => void;
-      unRegForm: (name: string) => void;
-      onFormFinish: (name: string, formData: any) => void;
-      keyArray: string[];
-      formArrayRef: React.MutableRefObject<
-        React.MutableRefObject<FormInstance<any> | undefined>[]
-      >;
-      loading: boolean;
-      setLoading: (loading: boolean) => void;
-      lastStep: boolean;
-      formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
-      next: () => void;
-    }
+    regForm: (name: string, props: StepsFormProps<any>) => void;
+    unRegForm: (name: string) => void;
+    onFormFinish: (name: string, formData: any) => void;
+    keyArray: string[];
+    formArrayRef: React.MutableRefObject<
+      React.MutableRefObject<FormInstance<any> | undefined>[]
+    >;
+    loading: boolean;
+    setLoading: (loading: boolean) => void;
+    lastStep: boolean;
+    formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
+    next: () => void;
+  }
   | undefined
 >(undefined);
 
@@ -289,15 +289,15 @@ function StepsForm<T = Record<string, any>>(
     const isNewAntd = compareVersions(version, '4.24.0') > -1;
     const itemsProps = isNewAntd
       ? {
-          items: formArray.map((item) => {
-            const itemProps = formMapRef.current.get(item);
-            return {
-              key: item,
-              title: itemProps?.title,
-              ...itemProps?.stepProps,
-            };
-          }),
-        }
+        items: formArray.map((item) => {
+          const itemProps = formMapRef.current.get(item);
+          return {
+            key: item,
+            title: itemProps?.title,
+            ...itemProps?.stepProps,
+          };
+        }),
+      }
       : {};
 
     return (
@@ -311,7 +311,7 @@ function StepsForm<T = Record<string, any>>(
           {...stepsProps}
           {...itemsProps}
           current={step}
-          onChange={undefined}
+          onChange={props.onCurrentChange}
         >
           {!isNewAntd &&
             formArray.map((item) => {
@@ -446,9 +446,9 @@ function StepsForm<T = Record<string, any>>(
 
       const config = isShow
         ? {
-            contentRender: stepFormRender,
-            submitter: false,
-          }
+          contentRender: stepFormRender,
+          submitter: false,
+        }
         : {};
       return (
         <div
