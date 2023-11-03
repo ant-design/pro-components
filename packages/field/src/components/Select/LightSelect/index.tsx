@@ -11,6 +11,7 @@ import type { ProFieldLightProps } from '../../../index';
 export type LightSelectProps = {
   label?: string;
   placeholder?: any;
+  valueMaxLength?: number;
 } & ProFieldLightProps;
 
 /**
@@ -61,6 +62,7 @@ const LightSelect: React.ForwardRefRenderFunction<
     labelTrigger,
     optionFilterProp,
     optionLabelProp = '',
+    valueMaxLength=41,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -226,6 +228,7 @@ const LightSelect: React.ForwardRefRenderFunction<
           onChange?.(undefined, undefined as any);
         }}
         ref={lightLabel}
+        valueMaxLength={valueMaxLength}
       />
     </div>,
   );
