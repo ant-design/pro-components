@@ -38,7 +38,6 @@ import FieldRate from './components/Rate';
 import FieldSecond from './components/Second';
 import FieldSegmented from './components/Segmented';
 import FieldSelect, {
-  proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
 import FieldSlider from './components/Slider';
@@ -584,7 +583,6 @@ export {
   FieldStatus,
   FieldText,
   FieldTimePicker,
-  proFieldParsingText,
   proFieldParsingValueEnumToArray,
 };
 export type { FieldMoneyProps, ProFieldValueType };

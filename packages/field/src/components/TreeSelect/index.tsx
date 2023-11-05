@@ -1,5 +1,9 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { FieldLabel } from '@ant-design/pro-utils';
+import {
+  FieldLabel,
+  objectToMap,
+  proFieldParsingText,
+} from '@ant-design/pro-utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
@@ -13,7 +17,7 @@ import React, {
 } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
-import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select';
 
 // 兼容代码-----------
 import 'antd/lib/spin/style';
@@ -130,7 +134,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       <>
         {proFieldParsingText(
           rest.text,
-          ObjToMap(rest.valueEnum || optionsValueEnum),
+          objectToMap(rest.valueEnum || optionsValueEnum),
         )}
       </>
     );

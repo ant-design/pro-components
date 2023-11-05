@@ -55,6 +55,7 @@ import { omitUndefinedAndEmptyArr } from './omitUndefinedAndEmptyArr';
 import { parseValueToDay } from './parseValueToMoment';
 import { pickProFormItemProps } from './pickProFormItemProps';
 import { pickProProps } from './pickProProps';
+import { objectToMap, proFieldParsingText } from './proFieldParsingText';
 import { runFunction } from './runFunction';
 import stringify from './stringify';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
@@ -106,6 +107,7 @@ export {
   menuOverlayCompatible,
   merge,
   nanoid,
+  objectToMap,
   omitBoolean,
   omitUndefined,
   omitUndefinedAndEmptyArr,
@@ -114,6 +116,7 @@ export {
   parseValueToDay,
   pickProFormItemProps,
   pickProProps,
+  proFieldParsingText,
   recordKeyToString,
   resetComponent,
   runFunction,

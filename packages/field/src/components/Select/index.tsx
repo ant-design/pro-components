@@ -1,9 +1,10 @@
 import { useIntl } from '@ant-design/pro-provider';
 import {
   nanoid,
+  objectToMap,
+  proFieldParsingText,
   ProFieldRequestData,
   ProFieldValueEnumType,
-  ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   RequestOptionsType,
   useDebounceValue,
@@ -14,7 +15,7 @@ import {
   useStyle,
 } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
-import { ConfigProvider, Space, Spin } from 'antd';
+import { ConfigProvider, Spin } from 'antd';
 import type { ReactNode } from 'react';
 import React, {
   useContext,
@@ -26,8 +27,6 @@ import React, {
 } from 'react';
 import useSWR from 'swr';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
-import type { ProFieldStatusType } from '../Status';
-import TableStatus, { ProFieldBadgeColor } from '../Status';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
 
@@ -58,80 +57,6 @@ export type FieldSelectProps<FieldProps = any> = {
   /** 默认搜素条件 */
   defaultKeyWords?: string;
 } & ProFieldLightProps;
-
-export const ObjToMap = (
-  value: ProFieldValueEnumType | undefined,
-): ProSchemaValueEnumMap => {
-  if (getType(value) === 'map') {
-    return value as ProSchemaValueEnumMap;
-  }
-  return new Map(Object.entries(value || {}));
-};
-
-/**
- * 转化 text 和 valueEnum 通过 type 来添加 Status
- *
- * @param text
- * @param valueEnum
- * @param pure 纯净模式，不增加 status
- */
-export const proFieldParsingText = (
-  text: string | number | (string | number)[],
-  valueEnumParams: ProFieldValueEnumType,
-  key?: number | string,
-): React.ReactNode => {
-  if (Array.isArray(text)) {
-    return (
-      <Space key={key} split="," size={2} wrap>
-        {text.map((value, index) =>
-          // @ts-ignore
-          proFieldParsingText(value, valueEnumParams, index),
-        )}
-      </Space>
-    );
-  }
-
-  const valueEnum = ObjToMap(valueEnumParams);
-
-  if (!valueEnum.has(text) && !valueEnum.has(`${text}`)) {
-    // @ts-ignore
-    return text?.label || text;
-  }
-
-  const domText = (valueEnum.get(text) || valueEnum.get(`${text}`)) as {
-    text: ReactNode;
-    status: ProFieldStatusType;
-    color?: string;
-  };
-
-  if (!domText) {
-    // @ts-ignore
-    return <React.Fragment key={key}>{text?.label || text}</React.Fragment>;
-  }
-
-  const { status, color } = domText;
-
-  const Status = TableStatus[status || 'Init'];
-  // 如果类型存在优先使用类型
-  if (Status) {
-    return <Status key={key}>{domText.text}</Status>;
-  }
-
-  // 如果不存在使用颜色
-  if (color) {
-    return (
-      <ProFieldBadgeColor key={key} color={color}>
-        {domText.text}
-      </ProFieldBadgeColor>
-    );
-  }
-  // 什么都没有使用 text
-  return (
-    <React.Fragment key={key}>
-      {domText.text || (domText as any as React.ReactNode)}
-    </React.Fragment>
-  );
-};
 
 const Highlight: React.FC<{
   label: string;
@@ -203,23 +128,6 @@ const Highlight: React.FC<{
 };
 
 /**
- * 获取类型的 type
- *
- * @param obj
- */
-function getType(obj: any) {
-  // @ts-ignore
-  const type = Object.prototype.toString
-    .call(obj)
-    .match(/^\[object (.*)\]$/)[1]
-    .toLowerCase();
-  if (type === 'string' && typeof obj === 'object') return 'object'; // Let "new String('')" return 'object'
-  if (obj === null) return 'null'; // PhantomJS has type "DOMWindow" for null
-  if (obj === undefined) return 'undefined'; // PhantomJS has type "DOMWindow" for undefined
-  return type;
-}
-
-/**
  * 递归筛选 item
  *
  * @param item
@@ -269,7 +177,7 @@ export const proFieldParsingValueEnumToArray = (
       disabled?: boolean;
     }
   >[] = [];
-  const valueEnum = ObjToMap(valueEnumParams);
+  const valueEnum = objectToMap(valueEnumParams);
 
   valueEnum.forEach((_, key) => {
     const value = (valueEnum.get(key) || valueEnum.get(`${key}`)) as {
@@ -325,7 +233,7 @@ export const useFieldFetchData = (
 
   const getOptionsFormValueEnum = useRefFunction(
     (coverValueEnum: ProFieldValueEnumType) => {
-      return proFieldParsingValueEnumToArray(ObjToMap(coverValueEnum)).map(
+      return proFieldParsingValueEnumToArray(objectToMap(coverValueEnum)).map(
         ({ value, text, ...rest }) => ({
           label: text,
           value,
@@ -560,7 +468,7 @@ const FieldSelect: ProFieldFC<
       <>
         {proFieldParsingText(
           rest.text,
-          ObjToMap(
+          objectToMap(
             valueEnum || optionsValueEnum,
           ) as unknown as ProSchemaValueEnumObj,
         )}
@@ -568,7 +476,7 @@ const FieldSelect: ProFieldFC<
     );
 
     if (render) {
-      return render(rest.text, { mode, ...fieldProps }, dom) ?? null;
+      return render(dom, { mode, ...fieldProps }, dom) ?? null;
     }
     return dom;
   }
