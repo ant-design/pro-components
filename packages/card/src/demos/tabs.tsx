@@ -17,7 +17,7 @@ export default () => {
         <Select
           value={tabPosition}
           onChange={(value) => setTabPosition(value)}
-          dropdownMatchSelectWidth={false}
+          popupMatchSelectWidth={false}
         >
           <Option value="top">top</Option>
           <Option value="bottom">bottom</Option>

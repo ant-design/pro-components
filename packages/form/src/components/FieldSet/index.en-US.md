@@ -427,7 +427,7 @@ Same as [tree-select](https://ant.design/components/tree-select/). Both request 
     suffixIcon: null,
     filterTreeNode: true,
     showSearch: true,
-    dropdownMatchSelectWidth: false,
+    popupMatchSelectWidth: false,
     labelInValue: true,
     autoClearSearchValue: true,
     multiple: true,
