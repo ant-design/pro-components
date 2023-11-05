@@ -155,7 +155,6 @@
     "typescript": "^5.2.2",
     "umi": "^4.0.86",
     "umi-request": "^1.4.0",
-    "use-merge-value": "^1.2.0",
     "vitest": "^0.34.6",
     "write-pkg": "^4.0.0",
     "xhr-mock": "^2.5.1",

@@ -741,7 +741,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     }
     return null;
   }, [bgLayoutImgList]);
+
   const { token } = useContext(ProProvider);
+
   return wrapSSR(
     <RouteContext.Provider
       value={{

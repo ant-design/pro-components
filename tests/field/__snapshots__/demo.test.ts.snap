@@ -1905,7 +1905,8 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-input-number-input-wrap"
                       >
                         <input
-                          aria-valuemin="0"
+                          aria-valuemax="10000"
+                          aria-valuemin="1"
                           autocomplete="off"
                           class="ant-input-number-input"
                           placeholder="请输入"

@@ -41,10 +41,10 @@ export type MediaQueryKey = keyof typeof MediaQueryEnum;
  * So should use Array.forEach
  */
 export const getScreenClassName = () => {
-  let className: MediaQueryKey = 'md';
+  let queryKey: MediaQueryKey | undefined = undefined;
   // support ssr
   if (typeof window === 'undefined') {
-    return className;
+    return queryKey;
   }
   const mediaQueryKey = (Object.keys(MediaQueryEnum) as MediaQueryKey[]).find(
     (key) => {
@@ -55,8 +55,8 @@ export const getScreenClassName = () => {
       return false;
     },
   );
-  className = mediaQueryKey as unknown as MediaQueryKey;
-  return className;
+  queryKey = mediaQueryKey as unknown as MediaQueryKey;
+  return queryKey;
 };
 
 const useBreakpoint = () => {
@@ -66,9 +66,10 @@ const useBreakpoint = () => {
   const isXl = useMediaQuery(MediaQueryEnum.xl.matchMedia);
   const isSm = useMediaQuery(MediaQueryEnum.sm.matchMedia);
   const isXs = useMediaQuery(MediaQueryEnum.xs.matchMedia);
-  const [colSpan, setColSpan] = useState<keyof typeof MediaQueryEnum>(
-    getScreenClassName(),
-  );
+
+  const [colSpan, setColSpan] = useState<
+    keyof typeof MediaQueryEnum | undefined
+  >(getScreenClassName());
 
   useEffect(() => {
     if (process.env.NODE_ENV === 'TEST') {

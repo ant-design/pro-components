@@ -343,9 +343,6 @@ importers:
       umi-request:
         specifier: ^1.4.0
         version: 1.4.0
-      use-merge-value:
-        specifier: ^1.2.0
-        version: 1.2.0(react@18.2.0)
       vitest:
         specifier: ^0.34.6
         version: 0.34.6(jsdom@19.0.0)
@@ -5650,7 +5647,7 @@ packages:
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@types/react': ^16.9.0 || ^17.0.0
+      '@types/react': ^18.0.38
       react: ^16.9.0 || ^17.0.0
       react-dom: ^16.9.0 || ^17.0.0
       react-test-renderer: ^16.9.0 || ^17.0.0
@@ -20324,7 +20321,7 @@ packages:
   /react-markdown@8.0.7(@types/react@18.0.38)(react@18.2.0):
     resolution: {integrity: sha512-bvWbzG4MtOU62XqBx3Xx+zB2raaFFsq4mYiAzfjXJMEz2sixgeAfraA3tvzULF02ZdOMUOKTBFFaZJDDrq+BJQ==}
     peerDependencies:
-      '@types/react': '>=16'
+      '@types/react': ^18.0.38
       react: '>=16'
     dependencies:
       '@types/hast': 2.3.7
@@ -24588,7 +24585,7 @@ packages:
     resolution: {integrity: sha512-oRy+X3ZazZvLfmv6viIaQmtLOMeij1noakIsK/Y47PWYhT8glfXzQ4j0YcP5i0P0qI1A4rIB//SGROGyZhx91A==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
-      '@types/react': '>=16.8'
+      '@types/react': ^18.0.38
       immer: '>=9.0'
       react: '>=16.8'
     peerDependenciesMeta:
