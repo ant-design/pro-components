@@ -261,7 +261,7 @@ export const FieldRender: React.FC<
       : undefined;
     return (
       <div
-        style={{ display: 'flex', gap: token.marginXS, alignItems: 'center' }}
+        style={{ display: 'flex', gap: token.marginXS, alignItems: 'baseline' }}
       >
         <InlineErrorFormItem
           name={dataIndex}
@@ -281,11 +281,20 @@ export const FieldRender: React.FC<
             />
           )}
         </InlineErrorFormItem>
-        {editableUtils?.actionRender?.(dataIndex || index, {
-          cancelText: <CloseOutlined />,
-          saveText: <CheckOutlined />,
-          deleteText: false,
-        })}
+        <div
+          style={{
+            display: 'flex',
+            maxHeight: token.controlHeight,
+            alignItems: 'center',
+            gap: token.marginXS,
+          }}
+        >
+          {editableUtils?.actionRender?.(dataIndex || index, {
+            cancelText: <CloseOutlined />,
+            saveText: <CheckOutlined />,
+            deleteText: false,
+          })}
+        </div>
       </div>
     ) as React.ReactNode;
   };
