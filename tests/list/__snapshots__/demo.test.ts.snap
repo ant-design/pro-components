@@ -1209,14 +1209,10 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       class="ant-pro-field-option"
                                       style="display: flex; gap: 16px; align-items: center;"
                                     >
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         邀请
                                       </a>
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         删除
                                       </a>
                                     </div>
@@ -1331,14 +1327,10 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       class="ant-pro-field-option"
                                       style="display: flex; gap: 16px; align-items: center;"
                                     >
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         邀请
                                       </a>
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         删除
                                       </a>
                                     </div>
@@ -1453,14 +1445,10 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       class="ant-pro-field-option"
                                       style="display: flex; gap: 16px; align-items: center;"
                                     >
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         邀请
                                       </a>
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         删除
                                       </a>
                                     </div>
@@ -1575,14 +1563,10 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       class="ant-pro-field-option"
                                       style="display: flex; gap: 16px; align-items: center;"
                                     >
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         邀请
                                       </a>
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         删除
                                       </a>
                                     </div>
@@ -1697,14 +1681,10 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       class="ant-pro-field-option"
                                       style="display: flex; gap: 16px; align-items: center;"
                                     >
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         邀请
                                       </a>
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         删除
                                       </a>
                                     </div>
@@ -1819,14 +1799,10 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       class="ant-pro-field-option"
                                       style="display: flex; gap: 16px; align-items: center;"
                                     >
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         邀请
                                       </a>
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         删除
                                       </a>
                                     </div>
@@ -1941,14 +1917,10 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       class="ant-pro-field-option"
                                       style="display: flex; gap: 16px; align-items: center;"
                                     >
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         邀请
                                       </a>
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         删除
                                       </a>
                                     </div>
@@ -2063,14 +2035,10 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       class="ant-pro-field-option"
                                       style="display: flex; gap: 16px; align-items: center;"
                                     >
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         邀请
                                       </a>
-                                      <a
-                                        style="flex: 1;"
-                                      >
+                                      <a>
                                         删除
                                       </a>
                                     </div>
@@ -4404,19 +4372,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"
@@ -4544,19 +4506,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"
@@ -4684,19 +4640,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"
@@ -4824,19 +4774,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"
@@ -4964,19 +4908,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"
@@ -7014,19 +6952,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"
@@ -7157,19 +7089,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"
@@ -7300,19 +7226,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"
@@ -7443,19 +7363,13 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                             class="ant-pro-field-option"
                             style="display: flex; gap: 16px; align-items: center;"
                           >
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               邀请
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               操作
                             </a>
-                            <a
-                              style="flex: 1;"
-                            >
+                            <a>
                               <span
                                 aria-label="ellipsis"
                                 class="anticon anticon-ellipsis"

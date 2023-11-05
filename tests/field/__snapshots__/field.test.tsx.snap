@@ -2892,7 +2892,6 @@ exports[`Field > 🐴 options support dom list 1`] = `
   >
     <button
       class="ant-btn ant-btn-default"
-      style="flex: 1;"
       type="button"
     >
       <span>
@@ -2901,7 +2900,6 @@ exports[`Field > 🐴 options support dom list 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
-      style="flex: 1;"
       type="button"
     >
       <span>
@@ -2921,7 +2919,6 @@ exports[`Field > 🐴 options support dom text 1`] = `
     新建
     <button
       class="ant-btn ant-btn-default"
-      style="flex: 1;"
       type="button"
     >
       <span>
@@ -2944,7 +2941,6 @@ exports[`Field > 🐴 options support one dom 1`] = `
   >
     <button
       class="ant-btn ant-btn-default"
-      style="flex: 1;"
       type="button"
     >
       <span>
