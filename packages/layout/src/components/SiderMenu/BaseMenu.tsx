@@ -185,9 +185,10 @@ class MenuUtil {
   getNavMenuItems = (
     menusData: MenuDataItem[] = [],
     level: number,
+    noGroupLevel: number,
   ): ItemType[] =>
     menusData
-      .map((item) => this.getSubMenuOrItem(item, level))
+      .map((item) => this.getSubMenuOrItem(item, level, noGroupLevel))
       .filter((item) => item)
       .flat(1);
 
@@ -195,6 +196,7 @@ class MenuUtil {
   getSubMenuOrItem = (
     item: MenuDataItem,
     level: number,
+    noGroupLevel: number,
   ): ItemType | ItemType[] => {
     const {
       subMenuItemRender,
@@ -236,7 +238,7 @@ class MenuUtil {
             this.props?.hashId,
             {
               [`${baseClassName}-item-title-collapsed`]: collapsed,
-              [`${baseClassName}-item-title-collapsed-level-${level}`]:
+              [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
                 collapsed,
               [`${baseClassName}-group-item-title`]: menuType === 'group',
               [`${baseClassName}-item-collapsed-show-title`]:
@@ -277,8 +279,6 @@ class MenuUtil {
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle, this.props)
         : defaultTitle;
 
-      const childrenList = this.getNavMenuItems(children, level + 1);
-
       // 如果收起来，没有子菜单了，就不需要展示 group，所以 level 不增加
       if (
         isGroup &&
@@ -286,8 +286,14 @@ class MenuUtil {
         this.props.collapsed &&
         !menu.collapsedShowGroupTitle
       ) {
-        return this.getNavMenuItems(children, level);
+        return this.getNavMenuItems(children, level + 1, level);
       }
+
+      const childrenList = this.getNavMenuItems(
+        children,
+        level + 1,
+        isGroup && level === 0 && this.props.collapsed ? level : level + 1,
+      );
 
       return [
         {
@@ -326,7 +332,7 @@ class MenuUtil {
       disabled: item.disabled,
       key: item.key! || item.path!,
       onClick: item.onTitleClick,
-      label: this.getMenuItemPath(item, level),
+      label: this.getMenuItemPath(item, level, noGroupLevel),
     };
   };
 
@@ -347,7 +353,11 @@ class MenuUtil {
    *
    * @memberof SiderMenu
    */
-  getMenuItemPath = (item: MenuDataItem, level: number) => {
+  getMenuItemPath = (
+    item: MenuDataItem,
+    level: number,
+    noGroupLevel: number,
+  ) => {
     const itemPath = this.conversionPath(item.path || '/');
     const {
       location = { pathname: '/' },
@@ -383,7 +393,8 @@ class MenuUtil {
           this.props?.hashId,
           {
             [`${baseClassName}-item-title-collapsed`]: collapsed,
-            [`${baseClassName}-item-title-collapsed-level-${level}`]: collapsed,
+            [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
+              collapsed,
             [`${baseClassName}-item-collapsed-show-title`]:
               menu?.collapsedShowTitle && collapsed,
           },
@@ -426,7 +437,7 @@ class MenuUtil {
             this.props?.hashId,
             {
               [`${baseClassName}-item-title-collapsed`]: collapsed,
-              [`${baseClassName}-item-title-collapsed-level-${level}`]:
+              [`${baseClassName}-item-title-collapsed-level-${noGroupLevel}`]:
                 collapsed,
               [`${baseClassName}-item-link`]: true,
               [`${baseClassName}-item-collapsed-show-title`]:
@@ -511,7 +522,7 @@ const getOpenKeysProps = (
 ): {
   openKeys?: undefined | string[];
 } => {
-  let openKeysProps = {};
+  let openKeysProps = {} as Record<string, any>;
 
   if (openKeys && !collapsed && ['side', 'mix'].includes(layout || 'mix')) {
     openKeysProps = {
@@ -700,7 +711,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         [`${baseClassName}-horizontal`]: mode === 'horizontal',
         [`${baseClassName}-collapsed`]: props.collapsed,
       })}
-      items={menuUtils.getNavMenuItems(finallyData, 0)}
+      items={menuUtils.getNavMenuItems(finallyData, 0, 0)}
       onOpenChange={(_openKeys) => {
         if (!props.collapsed) {
           setOpenKeys(_openKeys);

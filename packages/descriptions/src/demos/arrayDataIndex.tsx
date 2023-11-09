@@ -28,7 +28,17 @@ export default () => {
         },
       }}
     >
-      <ProDescriptions.Item dataIndex={['info', 'id']} />
+      <ProDescriptions.Item
+        formItemProps={{
+          rules: [
+            {
+              required: true,
+              message: '此项为必填项',
+            },
+          ],
+        }}
+        dataIndex={['info', 'id']}
+      />
       <ProDescriptions.Item
         dataIndex={['info', 'date']}
         label="日期"

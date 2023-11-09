@@ -86,6 +86,12 @@ export default () => {
           <ProField
             text="19897979797979"
             valueType="digit"
+            fieldProps={{
+              min: 1,
+              max: 10000,
+              precision: 0,
+              formatter: null,
+            }}
             mode={state}
             plain={plain}
           />
@@ -471,7 +477,7 @@ Done in 9.70s.
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
+
     "declaration": true,
     "skipLibCheck": true
   },

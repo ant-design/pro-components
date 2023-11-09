@@ -45,6 +45,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       verticalAlign: 'top',
       backgroundColor: token.colorBgContainer,
       borderRadius: token.borderRadius,
+      overflow: 'auto',
       cursor: 'pointer',
       transition: `all 0.3s`,
       '&:last-child': {

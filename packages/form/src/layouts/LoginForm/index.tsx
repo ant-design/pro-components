@@ -47,6 +47,11 @@ export type LoginFormProps<T> = {
    * @name 登录框主表格的样式
    */
   contentStyle?: React.CSSProperties;
+  /**
+   * @name 登录框容器的样式
+   */
+  containerStyle?: React.CSSProperties;
+  otherStyle?: React.CSSProperties;
 } & Omit<ProFormProps<T>, 'title'>;
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
@@ -58,6 +63,8 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
     subTitle,
     actions,
     children,
+    containerStyle,
+    otherStyle,
     ...proFormProps
   } = props;
 
@@ -110,7 +117,10 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   }, [logo]);
 
   return wrapSSR(
-    <div className={classNames(getCls('container'), hashId)}>
+    <div
+      className={classNames(getCls('container'), hashId)}
+      style={containerStyle}
+    >
       <div className={`${getCls('top')} ${hashId}`.trim()}>
         {title || logoDom ? (
           <div className={`${getCls('header')}`}>
@@ -131,7 +141,11 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           {message}
           {children}
         </ProForm>
-        {actions ? <div className={getCls('main-other')}>{actions}</div> : null}
+        {actions ? (
+          <div className={getCls('main-other')} style={otherStyle}>
+            {actions}
+          </div>
+        ) : null}
       </div>
     </div>,
   );

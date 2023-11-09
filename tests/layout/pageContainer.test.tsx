@@ -3,10 +3,20 @@ import {
   PageContainer,
   ProLayout,
 } from '@ant-design/pro-components';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Button } from 'antd';
 import React, { useEffect, useMemo, useState } from 'react';
 import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {

@@ -1,11 +1,15 @@
-﻿import { useStyle } from '@ant-design/pro-utils';
+﻿import {
+  objectToMap,
+  proFieldParsingText,
+  useStyle,
+} from '@ant-design/pro-utils';
 import { Checkbox, ConfigProvider, Form, Spin } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
-import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select';
 export type GroupProps = {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
@@ -88,7 +92,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
 
     const dom = proFieldParsingText(
       rest.text,
-      ObjToMap(rest.valueEnum || optionsValueEnum),
+      objectToMap(rest.valueEnum || optionsValueEnum),
     );
 
     if (render) {

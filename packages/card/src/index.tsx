@@ -16,15 +16,15 @@ import type { ProCardTabsProps } from './typing';
 
 import 'antd/lib/card/style';
 
+export { CheckCard, ProCard, Statistic, StatisticCard };
 export type {
-  ProCardTabsProps,
-  ProCardProps,
-  StatisticCardProps,
-  StatisticsCardProps,
   CheckCardGroupProps,
   CheckCardProps,
+  ProCardProps,
+  ProCardTabsProps,
+  StatisticCardProps,
   StatisticProps,
+  StatisticsCardProps,
 };
-export { StatisticCard, Statistic, CheckCard, ProCard };
 
 export default ProCard;

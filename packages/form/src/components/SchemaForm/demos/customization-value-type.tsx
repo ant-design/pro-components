@@ -156,11 +156,13 @@ export default () => {
           status: [
             {
               value: Math.floor(Math.random() * 10),
-              label: valueEnum[Math.floor(Math.random() * 10) % 4],
+              label:
+                valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '1'],
             },
             {
               value: Math.floor(Math.random() * 10),
-              label: valueEnum[Math.floor(Math.random() * 10) % 4],
+              label:
+                valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '1'],
             },
           ],
         }}

@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.4...@ant-design/pro-field@2.13.5) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.13.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.3...@ant-design/pro-field@2.13.4) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.2...@ant-design/pro-field@2.13.3) (2023-10-24)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.1...@ant-design/pro-field@2.13.2) (2023-10-19)
+
+### Bug Fixes
+
+- **select:** remove deprecated warning ([#7793](https://github.com/ant-design/pro-components/issues/7793)) ([c6249f0](https://github.com/ant-design/pro-components/commit/c6249f0011fac78f5b535160cb65ac96d64c279e))
+
+## [2.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.0...@ant-design/pro-field@2.13.1) (2023-10-13)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [2.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.9...@ant-design/pro-field@2.13.0) (2023-10-11)
+
+### Features
+
+- **form:** 优化密码只读模式展现形式 ([#7736](https://github.com/ant-design/pro-components/issues/7736)) ([5e729ad](https://github.com/ant-design/pro-components/commit/5e729adbcfbf0cec4a38b23473cf017e94e94f6f))
+
 ## [2.12.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.12.8...@ant-design/pro-field@2.12.9) (2023-09-25)
 
 **Note:** Version bump only for package @ant-design/pro-field

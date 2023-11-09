@@ -138,6 +138,10 @@ type WarpFormItemProps = {
   /** @name 后置的dom * */
   addonAfter?: React.ReactNode;
   /**
+   * 包裹的样式，一般没用
+   */
+  addonWarpStyle?: React.CSSProperties;
+  /**
    * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
    * @param value 字段的值
    * @param namePath 字段的name
@@ -164,6 +168,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   addonAfter,
   addonBefore,
   valuePropName,
+  addonWarpStyle,
   convertValue,
   ...props
 }) => {
@@ -189,6 +194,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
         </Form.Item>
       );
     }
+
     return (
       <Form.Item
         {...props}
@@ -211,6 +217,8 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                 style={{
                   display: 'flex',
                   alignItems: 'center',
+                  flexWrap: 'wrap',
+                  ...addonWarpStyle,
                 }}
               >
                 {addonBefore ? (
@@ -281,7 +289,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     transform,
     dataFormat,
     ignoreFormItem,
-    lightProps = {},
+    lightProps,
     children: unusedChildren,
     ...rest
   } = props;
@@ -332,11 +340,11 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     isDropdownValueType(valueType || props.children.props.valueType);
 
   const noLightFormItem = useMemo(() => {
-    if (!lightProps.light || lightProps.customLightMode || isDropdown) {
+    if (!lightProps?.light || lightProps?.customLightMode || isDropdown) {
       return true;
     }
     return false;
-  }, [lightProps.customLightMode, isDropdown, lightProps.light]);
+  }, [lightProps?.customLightMode, isDropdown, lightProps?.light]);
 
   // formItem 支持function，如果是function 我就直接不管了
   if (typeof props.children === 'function') {

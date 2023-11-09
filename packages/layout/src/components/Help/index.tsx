@@ -12,8 +12,8 @@ export * from './ProHelpModal';
 export * from './ProHelpPanel';
 export * from './ProHelpPopover';
 export * from './RenderContentPanel';
-export type { ProHelpDataSource, ProHelpDataSourceChildren };
 export { ProHelpProvide, ProHelpSelect };
+export type { ProHelpDataSource, ProHelpDataSourceChildren };
 
 export type ProHelpProps<ValueType> = {
   /**

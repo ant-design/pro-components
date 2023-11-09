@@ -109,15 +109,17 @@ function renderDefaultOption<T>(
   return Object.keys(options)
     .filter((item) => item)
     .map((key) => {
-      const value = options[key];
+      const value = options[key as 'fullScreen'];
       if (!value) {
         return null;
       }
 
-      let onClick: OptionsFunctionType =
+      let onClick =
         value === true
-          ? defaultOptions[key]
-          : (event) => value?.(event, actions.current);
+          ? defaultOptions[key as keyof OptionConfig]
+          : (event: any) => {
+              value?.(event, actions.current);
+            };
 
       if (typeof onClick !== 'function') {
         onClick = () => {};
@@ -139,7 +141,9 @@ function renderDefaultOption<T>(
           </span>
         );
       }
-      const optionItem = getButtonText(defaultOptions, options)[key];
+      const optionItem = getButtonText(defaultOptions, options)[
+        key as 'fullScreen'
+      ];
       if (optionItem) {
         return (
           <span key={key} onClick={onClick}>

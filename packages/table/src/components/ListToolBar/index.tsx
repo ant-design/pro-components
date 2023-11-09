@@ -1,5 +1,5 @@
 import { proTheme, useIntl } from '@ant-design/pro-provider';
-import { compareVersions, LabelIconTip } from '@ant-design/pro-utils';
+import { LabelIconTip, compareVersions } from '@ant-design/pro-utils';
 import {
   ConfigProvider,
   Input,
@@ -112,11 +112,11 @@ const ListToolBarTabBar: React.FC<{
   filtersNode: React.ReactNode;
   multipleLine: boolean;
   tabs: ListToolBarProps['tabs'];
-}> = ({ prefixCls, tabs = {}, multipleLine, filtersNode }) => {
+}> = ({ prefixCls, tabs, multipleLine, filtersNode }) => {
   if (!multipleLine) return null;
   return (
     <div className={`${prefixCls}-extra-line`}>
-      {tabs.items && tabs.items.length ? (
+      {tabs?.items && tabs?.items.length ? (
         <Tabs
           style={{
             width: '100%',
@@ -156,7 +156,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   filter,
   actions = [],
   settings = [],
-  tabs = {},
+  tabs,
   menu,
 }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -245,7 +245,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   }, [actions]);
 
   const hasRight = useMemo(() => {
-    return (
+    return !!(
       (hasTitle && searchNode) ||
       (!multipleLine && filtersNode) ||
       actionDom ||

@@ -117,9 +117,10 @@ const DescriptionsItemSkeleton: React.FC<{
   const col = Grid.useBreakpoint() || defaultCol;
 
   const colSize =
-    Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
+    Object.keys(col).filter((key) => col[key as 'lg'] === true)[0] || 'md';
 
-  const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 3 : size;
+  const arraySize =
+    size === undefined ? MediaQueryKeyEnum[colSize as 'md'] || 3 : size;
   return (
     <div
       style={{
@@ -191,9 +192,9 @@ export const TableItemSkeleton = ({
   const col = Grid.useBreakpoint() || defaultCol;
 
   const colSize =
-    Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
+    Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';
 
-  const arraySize = MediaQueryKeyEnum[colSize] || 3;
+  const arraySize = MediaQueryKeyEnum[colSize as 'md'] || 3;
   return (
     <>
       <div

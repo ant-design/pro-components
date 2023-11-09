@@ -68,7 +68,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
                   token.layout?.header?.colorBgHeader || 'transparent',
                 colorSubItemBg:
                   token.layout?.header?.colorBgHeader || 'transparent',
-                radiusItem: 4,
+                radiusItem: token.borderRadius,
                 colorItemBgSelected:
                   token.layout?.header?.colorBgMenuItemSelected ||
                   token?.colorBgTextHover,
@@ -139,6 +139,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
     token.layout?.header?.colorTextMenuActive,
     token.layout?.header?.colorTextMenuSelected,
     token.layout?.header?.colorBgMenuElevated,
+    token.borderRadius,
     token?.colorBgTextHover,
     token?.colorTextSecondary,
     token?.colorText,

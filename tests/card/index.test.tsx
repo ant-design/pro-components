@@ -1,7 +1,11 @@
 import { ProCard } from '@ant-design/pro-components';
-import { act, render } from '@testing-library/react';
+import { act, cleanup, render } from '@testing-library/react';
 
 vi.mock('antd/lib/grid/hooks/useBreakpoint');
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('Card', () => {
   it('🥩 collapsible onCollapse', async () => {

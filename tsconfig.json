@@ -10,7 +10,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
+
     "declaration": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
@@ -32,7 +32,6 @@
   },
   "include": [
     "./tests/setupTests.ts",
-    ".dumi/**/*",
     "vitest.config.ts",
     ".dumirc.ts",
     "typings.d.ts",

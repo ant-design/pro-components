@@ -15,14 +15,27 @@ import ProForm, {
   ProFormTimePicker,
   ProFormTreeSelect,
 } from '@ant-design/pro-form';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useEffect, useRef } from 'react';
 import { waitForWaitTime } from '../util';
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('ProForm', () => {
+  afterEach(() => {
+    cleanup();
+  });
   it('📦 submit props actionsRender=false', async () => {
     const wrapper = render(<ProForm submitter={false} />);
 

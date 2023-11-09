@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.11...@ant-design/pro-utils@2.14.12) (2023-10-26)
+
+### Bug Fixes
+
+- **form:** fix addonWarpStyle no work error ([e5374b7](https://github.com/ant-design/pro-components/commit/e5374b78cea0e4ba938759c91df1f5dafe1fcf7c))
+
+## [2.14.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.10...@ant-design/pro-utils@2.14.11) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.14.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.9...@ant-design/pro-utils@2.14.10) (2023-10-24)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.14.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.8...@ant-design/pro-utils@2.14.9) (2023-10-19)
+
+### Bug Fixes
+
+- **table:** 修复 EditableProTable 实时编辑表格存在 name 属性且有分页的时候，渲染的数据总是为第一页 ([#7794](https://github.com/ant-design/pro-components/issues/7794)) ([eda3b82](https://github.com/ant-design/pro-components/commit/eda3b8263e4889a930a9e5655f75dc9a6fe06a00))
+
+## [2.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.7...@ant-design/pro-utils@2.14.8) (2023-10-13)
+
+### Bug Fixes
+
+- revert form item style ([#7777](https://github.com/ant-design/pro-components/issues/7777)) ([5fc5406](https://github.com/ant-design/pro-components/commit/5fc5406a19e429d5575a695988f497005fe0d772))
+
+## [2.14.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.6...@ant-design/pro-utils@2.14.7) (2023-10-11)
+
+### Bug Fixes
+
+- **form:** 增加透传给 FormItem 的 style 和 className ([#7769](https://github.com/ant-design/pro-components/issues/7769)) ([8a61322](https://github.com/ant-design/pro-components/commit/8a61322e70c3ead150a34af7efaa2a76eb34bc4e))
+
 ## [2.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.5...@ant-design/pro-utils@2.14.6) (2023-09-25)
 
 ### Bug Fixes

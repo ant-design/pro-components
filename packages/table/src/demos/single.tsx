@@ -153,7 +153,7 @@ export default () => {
       columns={columns}
       actionRef={actionRef}
       cardBordered
-      request={async (params = {}, sort, filter) => {
+      request={async (params, sort, filter) => {
         console.log(sort, filter);
         await waitTime(2000);
         return request<{

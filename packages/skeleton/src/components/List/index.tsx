@@ -39,9 +39,10 @@ const StatisticSkeleton: React.FC<{
   const col = Grid.useBreakpoint() || defaultCol;
 
   const colSize =
-    Object.keys(col).filter((key) => col[key] === true)[0] || 'md';
+    Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';
 
-  const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 6 : size;
+  const arraySize =
+    size === undefined ? MediaQueryKeyEnum[colSize as 'md'] || 6 : size;
   const firstWidth = (index: number) => {
     if (index === 0) {
       return 0;

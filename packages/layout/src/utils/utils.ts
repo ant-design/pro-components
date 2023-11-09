@@ -31,7 +31,9 @@ const themeConfig = {
  * @param val
  */
 export function genStringToTheme(val?: string): string {
-  return val && themeConfig[val] ? themeConfig[val] : val;
+  return val && themeConfig[val as 'techBlue']
+    ? themeConfig[val as 'techBlue']
+    : val || '';
 }
 export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
   return menusData

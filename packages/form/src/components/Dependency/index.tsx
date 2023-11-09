@@ -78,7 +78,7 @@ const ProFormDependency = <T,>({
       }}
     >
       {(form) => {
-        let values: Record<string, any> = {};
+        let values: Record<string, any> = {} as Record<string, any>;
         for (let i = 0; i < nameList.length; i++) {
           const itemName = flattenNames[i],
             itemOriginName = originDependencies[i];
@@ -88,12 +88,12 @@ const ProFormDependency = <T,>({
             // transform 会生成多余的value，这里需要注入一下
             values = merge({}, values, value);
             if (get(value, itemName)) {
-              values = set(values, finalName, get(value, itemName), false);
+              values = set(values, finalName, get(value, itemName));
             }
           } else {
             value = form.getFieldValue?.(itemName);
             if (typeof value !== 'undefined') {
-              values = set(values, finalName, value, false);
+              values = set(values, finalName, value);
             }
           }
         }

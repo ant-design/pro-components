@@ -152,10 +152,12 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   });
 
   const getMergeValue: SelectProps<any>['onChange'] = (value, option) => {
-    if (Array.isArray(value) && value.length > 0) {
+    if (Array.isArray(value) && Array.isArray(option) && value.length > 0) {
       // 多选情况且用户有选择
       return value.map((item, index) => {
-        const optionItem = option?.[index] as DefaultOptionType;
+        const optionItem = (option as DefaultOptionType[])?.[
+          index
+        ] as DefaultOptionType;
         const dataItem = optionItem?.['data-item'] || {};
         return {
           ...dataItem,
@@ -276,7 +278,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           return;
         }
 
-        if (mode !== 'multiple') {
+        if (mode !== 'multiple' && !Array.isArray(optionList)) {
           // 单选情况且用户选择了选项
           const dataItem = optionList && optionList['data-item'];
           // 如果value值为空则是清空时产生的回调,直接传值就可以了

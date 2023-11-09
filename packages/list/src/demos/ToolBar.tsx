@@ -113,8 +113,8 @@ export default () => {
             >
               {(text as any[]).map((t) => (
                 <div key={t.label}>
-                  <div style={{ color: '#00000073' }}>{t.label}</div>
-                  <div style={{ color: '#000000D9' }}>
+                  <div>{t.label}</div>
+                  <div>
                     {t.status === 'success' && (
                       <span
                         style={{

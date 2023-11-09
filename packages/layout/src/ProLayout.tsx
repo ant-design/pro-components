@@ -1,8 +1,8 @@
 import type { GenerateStyle, ProTokenType } from '@ant-design/pro-provider';
 import {
-  isNeedOpenHash,
   ProConfigProvider,
   ProProvider,
+  isNeedOpenHash,
 } from '@ant-design/pro-provider';
 import {
   coverToNewToken,
@@ -14,6 +14,8 @@ import {
 import { getMatchMenu } from '@umijs/route-utils';
 import type { BreadcrumbProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
+import type { AnyObject } from 'antd/es/_util/type';
+import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
 import Omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -27,6 +29,7 @@ import React, {
   useState,
 } from 'react';
 import useSWR, { useSWRConfig } from 'swr';
+import { WrapContent } from './WrapContent';
 import { Logo } from './assert/Logo';
 import { DefaultFooter as Footer } from './components/Footer';
 import type { HeaderViewProps } from './components/Header';
@@ -55,12 +58,19 @@ import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
 import { getMenuData } from './utils/getMenuData';
 import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
-import { WrapContent } from './WrapContent';
 
 let layoutIndex = 0;
 
-export type LayoutBreadcrumbProps = {
+type LayoutItemType = ItemType & { linkPath?: string; component?: string };
+
+export type LayoutBreadcrumbProps<T extends AnyObject = AnyObject> = {
   minLength?: number;
+  itemRender?: (
+    route: LayoutItemType,
+    params: T,
+    routes: LayoutItemType[],
+    paths: string[],
+  ) => React.ReactNode;
 };
 
 type GlobalTypes = Omit<
@@ -225,7 +235,7 @@ export type ProLayoutProps = GlobalTypes & {
   className?: string;
 
   /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
-  breadcrumbProps?: BreadcrumbProps & LayoutBreadcrumbProps;
+  breadcrumbProps?: Omit<BreadcrumbProps, 'itemRender'> & LayoutBreadcrumbProps;
 
   /** @name 水印的相关配置 */
   waterMarkProps?: WaterMarkProps;
@@ -502,7 +512,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const { cache } = useSWRConfig();
   useEffect(() => {
     return () => {
-      if (cache instanceof Map) cache.clear();
+      if (cache instanceof Map) cache.delete(defaultId);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -522,7 +532,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     [formatMessage, menu, menuDataRender, data, route?.children, route?.routes],
   );
 
-  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData || {};
+  const { breadcrumb, breadcrumbMap, menuData = [] } = menuInfoData || {};
 
   if (actionRef && menu?.request) {
     actionRef.current = {
@@ -711,7 +721,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
    * 使用number是因为多标签页的时候有多个 PageContainer，只有有任意一个就应该展示这个className
    */
   const [hasPageContainer, setHasPageContainer] = useState(0);
+
   useDocumentTitle(pageTitleInfo, props.title || false);
+
   const bgImgStyleList = useMemo(() => {
     if (bgLayoutImgList && bgLayoutImgList.length > 0) {
       return bgLayoutImgList.map((item, index) => {
@@ -729,7 +741,9 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     }
     return null;
   }, [bgLayoutImgList]);
+
   const { token } = useContext(ProProvider);
+
   return wrapSSR(
     <RouteContext.Provider
       value={{
@@ -779,7 +793,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                       token.layout?.sider?.colorMenuBackground || 'transparent',
                     colorSubItemBg:
                       token.layout?.sider?.colorMenuBackground || 'transparent',
-                    radiusItem: 4,
+                    radiusItem: token.borderRadius,
                     controlHeightLG:
                       token.layout?.sider?.menuHeight || token?.controlHeightLG,
                     colorItemBgSelected:

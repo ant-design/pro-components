@@ -49,7 +49,7 @@ for (let i = 0; i < 5; i += 1) {
     name: 'AppName',
     containers: Math.floor(Math.random() * 20),
     creator: creators[Math.floor(Math.random() * creators.length)],
-    status: statusMap[Math.floor(Math.random() * 10) % 5],
+    status: statusMap[((Math.floor(Math.random() * 10) % 5) + '') as '0'],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
   });
 }

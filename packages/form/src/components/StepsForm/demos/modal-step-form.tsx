@@ -9,7 +9,7 @@ import {
   ProFormTextArea,
   StepsForm,
 } from '@ant-design/pro-components';
-import { Button, message, Modal } from 'antd';
+import { Button, Modal, message } from 'antd';
 import { useState } from 'react';
 
 const waitTime = (time: number = 100) => {

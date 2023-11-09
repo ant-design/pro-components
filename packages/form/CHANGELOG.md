@@ -2,6 +2,65 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.21.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.5...@ant-design/pro-form@2.21.6) (2023-10-26)
+
+### Bug Fixes
+
+- **form:** fix addonWarpStyle no work error ([e5374b7](https://github.com/ant-design/pro-components/commit/e5374b78cea0e4ba938759c91df1f5dafe1fcf7c))
+
+## [2.21.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.4...@ant-design/pro-form@2.21.5) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.21.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.3...@ant-design/pro-form@2.21.4) (2023-10-24)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.21.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.2...@ant-design/pro-form@2.21.3) (2023-10-19)
+
+### Bug Fixes
+
+- **select:** remove deprecated warning ([#7793](https://github.com/ant-design/pro-components/issues/7793)) ([c6249f0](https://github.com/ant-design/pro-components/commit/c6249f0011fac78f5b535160cb65ac96d64c279e))
+
+## [2.21.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.1...@ant-design/pro-form@2.21.2) (2023-10-13)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.21.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.0...@ant-design/pro-form@2.21.1) (2023-10-11)
+
+### Bug Fixes
+
+- **form:** fix loginPage style error ([80ace22](https://github.com/ant-design/pro-components/commit/80ace22a7628fab9e9070e482706096e6d8d44d7))
+- **form:** 首次同步到 url 参数时也执行 syncToUrl ([#7741](https://github.com/ant-design/pro-components/issues/7741)) ([f733b47](https://github.com/ant-design/pro-components/commit/f733b47a372fcf450c151cc43f72dfa99eaee293))
+
+# [2.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.20.1...@ant-design/pro-form@2.21.0) (2023-09-26)
+
+### Features
+
+- **form:** LoginFormPage support backgroundVideoUrl ([6dc50b0](https://github.com/ant-design/pro-components/commit/6dc50b0eea177dac53fa16d354ae368766e001a6))
+
+## [2.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.20.0...@ant-design/pro-form@2.20.1) (2023-09-26)
+
+### Bug Fixes
+
+- **form:** fix Captcha style no work error ([f31381d](https://github.com/ant-design/pro-components/commit/f31381dab2fb966eb0223e33cabfd7d3af7b88fc))
+
+# [2.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.19.0...@ant-design/pro-form@2.20.0) (2023-09-26)
+
+### Features
+
+- **form:** support more style config ([b8c3954](https://github.com/ant-design/pro-components/commit/b8c39542ffc2d3c7909338c02738e84a3804f13a))
+
+# [2.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.11...@ant-design/pro-form@2.19.0) (2023-09-26)
+
+### Bug Fixes
+
+- **form:** the `onChange` event in `ProFormUploadButton` has been triggered multiple times ([#7732](https://github.com/ant-design/pro-components/issues/7732)) ([a76b18c](https://github.com/ant-design/pro-components/commit/a76b18c2f37d16285bcf973081834e3e95d33754))
+
+### Features
+
+- **form:** new LoginFormPage style ([#7734](https://github.com/ant-design/pro-components/issues/7734)) ([1bc5453](https://github.com/ant-design/pro-components/commit/1bc54531ad3aebac6fc8dc7904dc2299987951c5))
+
 ## [2.18.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.18.10...@ant-design/pro-form@2.18.11) (2023-09-25)
 
 ### Bug Fixes

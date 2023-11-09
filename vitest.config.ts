@@ -6,7 +6,7 @@ const pkgList = readdirSync(join(__dirname, './packages')).filter(
   (pkg: string) => pkg.charAt(0) !== '.',
 );
 
-const moduleNameMapper = {};
+const moduleNameMapper = {} as Record<string, any>;
 
 pkgList.forEach((shortName: string) => {
   const name = `@ant-design/pro-${shortName}`;

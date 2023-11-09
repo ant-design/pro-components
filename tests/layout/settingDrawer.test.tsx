@@ -1,6 +1,16 @@
 import { SettingDrawer } from '@ant-design/pro-components';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { defaultSettings } from './defaultSettings';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('settingDrawer.test', () => {
   beforeAll(() => {
@@ -423,7 +433,7 @@ describe('settingDrawer.test', () => {
         <SettingDrawer
           disableUrlParams
           onSettingChange={(s) => {
-            if (s[`${key}Render`] === false) {
+            if (s[`${key}Render` as 'headerRender'] === false) {
               fn(key);
             }
           }}

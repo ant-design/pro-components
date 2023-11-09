@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-list",
-  "version": "2.5.23",
+  "version": "2.5.34",
   "description": "🏆 Use Ant Design List like a Pro!",
   "keywords": [
     "antd",
@@ -33,13 +33,13 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
-    "@ant-design/pro-card": "2.5.18",
-    "@ant-design/pro-field": "2.12.9",
-    "@ant-design/pro-table": "3.12.8",
-    "@ant-design/pro-utils": "2.14.6",
+    "@ant-design/pro-card": "2.5.24",
+    "@ant-design/pro-field": "2.13.5",
+    "@ant-design/pro-table": "3.13.3",
+    "@ant-design/pro-utils": "2.14.12",
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.9",
+    "dayjs": "^1.11.10",
     "rc-resize-observer": "^1.0.0",
     "rc-util": "^4.19.0"
   },

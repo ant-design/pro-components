@@ -15,7 +15,7 @@ const alias = pkgList.reduce((pre, pkg) => {
   return {
     ...pre,
   };
-}, {});
+}, {} as Record<string, string>);
 
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 

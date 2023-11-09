@@ -29,5 +29,5 @@ export const getLanguage = (): string => {
 };
 export const gLocaleObject = (): Record<string, string> => {
   const gLocale = getLanguage();
-  return locales[gLocale] || locales['zh-CN'];
+  return locales[gLocale as 'zh-CN'] || locales['zh-CN'];
 };

@@ -2,6 +2,7 @@ import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import {
   act,
+  cleanup,
   fireEvent,
   render,
   screen,
@@ -10,6 +11,10 @@ import {
 import { Button, Input, Select } from 'antd';
 import React, { useEffect, useRef } from 'react';
 import { columns, request } from './demo';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;

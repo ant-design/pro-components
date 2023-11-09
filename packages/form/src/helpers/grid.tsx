@@ -23,7 +23,7 @@ export const gridHelpers: (
   config: ProFormGridConfig & CommonProps,
 ) => GridHelpers = ({ grid, rowProps, colProps }) => ({
   grid: !!grid,
-  RowWrapper({ children, Wrapper, ...props } = {}) {
+  RowWrapper({ children, Wrapper, ...props } = {} as Record<string, any>) {
     if (!grid) {
       return Wrapper ? <Wrapper>{children}</Wrapper> : (children as any);
     }
@@ -34,7 +34,7 @@ export const gridHelpers: (
       </Row>
     );
   },
-  ColWrapper({ children, Wrapper, ...rest } = {}) {
+  ColWrapper({ children, Wrapper, ...rest } = {} as Record<string, any>) {
     const props = useMemo(() => {
       const originProps = { ...colProps, ...rest };
 

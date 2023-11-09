@@ -1,6 +1,12 @@
 /** Title: 前置水印 */
 import type { ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown, WaterMark } from '@ant-design/pro-components';
+import {
+  LightFilter,
+  ProFormDatePicker,
+  ProTable,
+  TableDropdown,
+  WaterMark,
+} from '@ant-design/pro-components';
 
 const valueEnum = {
   0: 'close',
@@ -28,7 +34,7 @@ for (let i = 0; i < 10; i += 1) {
     name: 'AppName',
     containers: Math.floor(Math.random() * 20),
     creator: creators[Math.floor(Math.random() * creators.length)],
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
     memo:
       i % 2 === 1
@@ -103,18 +109,27 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => (
-  <WaterMark content="蚂蚁集团">
-    <ProTable<TableListItem>
-      columns={columns}
-      dataSource={tableListDataSource}
-      rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
-      search={false}
-      dateFormatter="string"
-      headerTitle="表格标题"
-      toolBarRender={false}
-    />
-  </WaterMark>
+  <>
+    <WaterMark content="蚂蚁集团">
+      <ProTable<TableListItem>
+        columns={columns}
+        dataSource={tableListDataSource}
+        rowKey="key"
+        pagination={{
+          showQuickJumper: true,
+        }}
+        toolbar={{
+          title: '标签',
+          multipleLine: true,
+          filter: (
+            <LightFilter>
+              <ProFormDatePicker name="startdate" label="响应日期" />
+            </LightFilter>
+          ),
+        }}
+        search={false}
+        dateFormatter="string"
+      />
+    </WaterMark>
+  </>
 );

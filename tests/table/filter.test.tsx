@@ -1,7 +1,11 @@
 import ProTable from '@ant-design/pro-table';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getFetchData } from './demo';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('BasicTable Search', () => {
   it('🎏 filter test', async () => {

@@ -5,7 +5,7 @@ import type {
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import { genCopyable, isNil, LabelIconTip } from '@ant-design/pro-utils';
+import { LabelIconTip, genCopyable, isNil } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import React from 'react';
 import { isMergeCell } from '.';

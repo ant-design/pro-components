@@ -38,7 +38,6 @@ import FieldRate from './components/Rate';
 import FieldSecond from './components/Second';
 import FieldSegmented from './components/Segmented';
 import FieldSelect, {
-  proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
 import FieldSlider from './components/Slider';
@@ -571,23 +570,22 @@ const defaultRenderText = (
   return <FieldText text={dataValue as string} {...props} />;
 };
 
-export { defaultRenderText };
-export type { ProFieldValueType, FieldMoneyProps };
 export {
-  FieldPercent,
-  FieldIndexColumn,
-  FieldProgress,
-  FieldMoney,
-  FieldDatePicker,
-  FieldRangePicker,
+  defaultRenderText,
   FieldCode,
-  FieldTimePicker,
-  FieldText,
-  FieldStatus,
+  FieldDatePicker,
+  FieldIndexColumn,
+  FieldMoney,
+  FieldPercent,
+  FieldProgress,
+  FieldRangePicker,
   FieldSelect,
-  proFieldParsingText,
+  FieldStatus,
+  FieldText,
+  FieldTimePicker,
   proFieldParsingValueEnumToArray,
 };
+export type { FieldMoneyProps, ProFieldValueType };
 
 /** ProField 的类型 */
 export type ProFieldPropsType = {

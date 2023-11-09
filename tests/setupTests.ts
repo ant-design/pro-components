@@ -69,7 +69,7 @@ export const localStorageMock = (() => {
       store[key] = null;
     },
     clear() {
-      store = {};
+      store = {} as Record<string, any>;
     },
   };
 })();

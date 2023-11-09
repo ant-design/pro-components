@@ -10,12 +10,12 @@ import type {
   UseEditableMapUtilType,
 } from '@ant-design/pro-utils';
 import {
-  compareVersions,
   ErrorBoundary,
-  genCopyable,
-  getFieldPropsOrFormItemProps,
   InlineErrorFormItem,
   LabelIconTip,
+  compareVersions,
+  genCopyable,
+  getFieldPropsOrFormItemProps,
   stringify,
   useEditableMap,
 } from '@ant-design/pro-utils';
@@ -98,7 +98,7 @@ export type ProDescriptionsProps<
   /** 网络请求报错 */
   onRequestError?: (e: Error) => void;
   /** 获取数据的方法 */
-  request?: (params: Record<string, any>) => Promise<RequestData>;
+  request?: (params: Record<string, any> | undefined) => Promise<RequestData>;
 
   columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
 
@@ -190,11 +190,12 @@ export const FieldRender: React.FC<
     proFieldProps: {
       emptyText: props.emptyText,
       render: render
-        ? () =>
-            render?.(text, entity, index, action, {
+        ? (finText: string) => {
+            return render?.(finText, entity, index, action, {
               ...props,
               type: 'descriptions',
-            })
+            });
+          }
         : undefined,
     },
     ignoreFormItem: true,
@@ -239,29 +240,10 @@ export const FieldRender: React.FC<
         isEditable: true,
       },
     );
-    const dom = renderFormItem
-      ? renderFormItem?.(
-          {
-            ...props,
-            type: 'descriptions',
-          },
-          {
-            isEditable: true,
-            recordKey: dataIndex,
-            record: form.getFieldValue(
-              [dataIndex].flat(1) as (string | number)[],
-            ),
-            defaultRender: () => (
-              <ProFormField {...fieldConfig} fieldProps={fieldProps} />
-            ),
-            type: 'descriptions',
-          },
-          form as FormInstance<any>,
-        )
-      : undefined;
+
     return (
       <div
-        style={{ display: 'flex', gap: token.marginXS, alignItems: 'center' }}
+        style={{ display: 'flex', gap: token.marginXS, alignItems: 'baseline' }}
       >
         <InlineErrorFormItem
           name={dataIndex}
@@ -272,20 +254,53 @@ export const FieldRender: React.FC<
           }}
           initialValue={text || formItemProps?.initialValue}
         >
-          {dom || (
-            <ProFormField
-              {...fieldConfig}
-              // @ts-ignore
-              proFieldProps={{ ...fieldConfig.proFieldProps }}
-              fieldProps={fieldProps}
-            />
-          )}
+          <ProFormField
+            {...fieldConfig}
+            // @ts-ignore
+            proFieldProps={{ ...fieldConfig.proFieldProps }}
+            renderFormItem={
+              renderFormItem
+                ? () =>
+                    renderFormItem?.(
+                      {
+                        ...props,
+                        type: 'descriptions',
+                      },
+                      {
+                        isEditable: true,
+                        recordKey: dataIndex,
+                        record: form.getFieldValue(
+                          [dataIndex].flat(1) as (string | number)[],
+                        ),
+                        defaultRender: () => (
+                          <ProFormField
+                            {...fieldConfig}
+                            fieldProps={fieldProps}
+                          />
+                        ),
+                        type: 'descriptions',
+                      },
+                      form as FormInstance<any>,
+                    )
+                : undefined
+            }
+            fieldProps={fieldProps}
+          />
         </InlineErrorFormItem>
-        {editableUtils?.actionRender?.(dataIndex || index, {
-          cancelText: <CloseOutlined />,
-          saveText: <CheckOutlined />,
-          deleteText: false,
-        })}
+        <div
+          style={{
+            display: 'flex',
+            maxHeight: token.controlHeight,
+            alignItems: 'center',
+            gap: token.marginXS,
+          }}
+        >
+          {editableUtils?.actionRender?.(dataIndex || index, {
+            cancelText: <CloseOutlined />,
+            saveText: <CheckOutlined />,
+            deleteText: false,
+          })}
+        </div>
       </div>
     ) as React.ReactNode;
   };
@@ -337,6 +352,7 @@ const schemaToDescriptionsItem = (
       } = item as ProDescriptionsItemProps;
 
       const defaultData = getDataFromConfig(item, entity) ?? restItem.children;
+
       const text = renderText
         ? renderText(defaultData, entity, index, action)
         : defaultData;
@@ -481,7 +497,7 @@ const ProDescriptions = <
   const {
     request,
     columns,
-    params = {},
+    params,
     dataSource,
     onDataSourceChange,
     formProps,
@@ -497,7 +513,7 @@ const ProDescriptions = <
 
   const action = useFetchData<RequestData>(
     async () => {
-      const data = request ? await request(params) : { data: {} };
+      const data = request ? await request(params || {}) : { data: {} };
       return data;
     },
     {

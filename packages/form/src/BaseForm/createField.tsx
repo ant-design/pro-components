@@ -10,8 +10,8 @@ import classnames from 'classnames';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
 import { noteOnce } from 'rc-util/lib/warning';
 import React, { useContext, useMemo, useState } from 'react';
-import { ProFormDependency, ProFormItem } from '../components';
 import FieldContext from '../FieldContext';
+import { ProFormDependency, ProFormItem } from '../components';
 import { useGridHelpers } from '../helpers';
 import type {
   ExtendsProps,
@@ -214,7 +214,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     const style = useDeepCompareMemo(() => {
       const newStyle = {
         width:
-          width && !WIDTH_SIZE_ENUM[width]
+          width && !WIDTH_SIZE_ENUM[width as 'xs']
             ? width
             : contextValue.grid
             ? '100%'
@@ -229,7 +229,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     }, [stringify(fieldProps?.style), contextValue.grid, isIgnoreWidth, width]);
 
     const className = useDeepCompareMemo(() => {
-      const isSizeEnum = width && WIDTH_SIZE_ENUM[width];
+      const isSizeEnum = width && WIDTH_SIZE_ENUM[width as 'xs'];
       return (
         classnames(fieldProps?.className, {
           'pro-field': isSizeEnum,

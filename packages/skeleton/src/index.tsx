@@ -34,15 +34,15 @@ const ProSkeleton: React.FC<
 };
 
 export {
-  ProSkeleton,
+  DescriptionsSkeleton,
   ListPageSkeleton,
   ListSkeleton,
   ListSkeletonItem,
-  PageHeaderSkeleton,
   ListToolbarSkeleton,
-  DescriptionsSkeleton,
-  TableSkeleton,
+  PageHeaderSkeleton,
+  ProSkeleton,
   TableItemSkeleton,
+  TableSkeleton,
 };
 
 export default ProSkeleton;

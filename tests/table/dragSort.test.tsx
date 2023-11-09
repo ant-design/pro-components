@@ -1,6 +1,6 @@
 import { MenuOutlined } from '@ant-design/icons';
 import { DragSortTable } from '@ant-design/pro-table';
-import { act, fireEvent, render } from '@testing-library/react';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { waitForWaitTime } from '../util';
 
 async function dragAndDrop(cell: Element) {
@@ -39,6 +39,10 @@ const mockGetBoundingClientRect = (element: any, index: number) =>
     x: 0,
     y: index * height,
   }));
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('dragSort', () => {
   const originalOffsetHeight = Object.getOwnPropertyDescriptor(
@@ -111,6 +115,7 @@ describe('dragSort', () => {
           },
         ]}
         onDragSortEnd={(data) => {
+          //@ts-ignore
           onDragSortEndFn(data[0].name);
           console.log(data);
         }}

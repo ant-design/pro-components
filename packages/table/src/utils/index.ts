@@ -192,8 +192,11 @@ function parseDataIndex(
 export function parseDefaultColumnConfig<T, Value>(
   columns: ProColumns<T, Value>[],
 ) {
-  const filter: Record<string, (string | number)[] | null> = {};
-  const sort: Record<string, SortOrder> = {};
+  const filter: Record<string, (string | number)[] | null> = {} as Record<
+    string,
+    any
+  >;
+  const sort: Record<string, SortOrder> = {} as Record<string, any>;
   columns.forEach((column) => {
     // 转换 dataIndex
     const dataIndex = parseDataIndex(column.dataIndex);

@@ -18,7 +18,6 @@ const addArrayKeys = (doms: React.ReactNode[]) =>
       key: index,
       ...dom?.props,
       style: {
-        flex: 1,
         // @ts-ignore
         ...dom?.props?.style,
       },

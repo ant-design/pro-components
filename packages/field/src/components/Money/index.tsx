@@ -159,7 +159,8 @@ const getTextByLocale = (
   try {
     // Formatting the number, when readonly moneySymbol = false, unused currency.
     const finalMoneyText = new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
-      ...(intlMap[moneySymbol || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
+      ...(intlMap[(moneySymbol as 'zh-Hans-CN') || 'zh-Hans-CN'] ||
+        intlMap['zh-Hans-CN']),
       maximumFractionDigits: precision,
       ...config,
     })
@@ -278,8 +279,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   const precision = fieldProps?.precision ?? DefaultPrecisionCont;
   let intl = useIntl();
   // 当手动传入locale时，应该以传入的locale为准，未传入时则根据全局的locale进行国际化
-  if (locale && allIntlMap[locale]) {
-    intl = allIntlMap[locale];
+  if (locale && allIntlMap[locale as 'zh-CN']) {
+    intl = allIntlMap[locale as 'zh-CN'];
   }
   const placeholderValue =
     placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');

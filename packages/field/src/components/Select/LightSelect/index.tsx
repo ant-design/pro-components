@@ -11,6 +11,7 @@ import type { ProFieldLightProps } from '../../../index';
 export type LightSelectProps = {
   label?: string;
   placeholder?: any;
+  valueMaxLength?: number;
 } & ProFieldLightProps;
 
 /**
@@ -61,6 +62,7 @@ const LightSelect: React.ForwardRefRenderFunction<
     labelTrigger,
     optionFilterProp,
     optionLabelProp = '',
+    valueMaxLength=41,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -98,7 +100,7 @@ const LightSelect: React.ForwardRefRenderFunction<
   });
 
   const valueMap: Record<string, string> = useMemo(() => {
-    const values = {};
+    const values = {} as Record<string, any>;
     options?.forEach((item) => {
       const optionLabel = item[optionLabelProp] || item[labelPropsName];
       const optionValue = item[valuePropsName];
@@ -226,6 +228,7 @@ const LightSelect: React.ForwardRefRenderFunction<
           onChange?.(undefined, undefined as any);
         }}
         ref={lightLabel}
+        valueMaxLength={valueMaxLength}
       />
     </div>,
   );

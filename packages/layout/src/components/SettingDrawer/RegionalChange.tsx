@@ -1,15 +1,15 @@
 import { List, Switch } from 'antd';
 import React from 'react';
 import type { ProSettings } from '../../defaultSettings';
-import { getFormatMessage } from './index';
 import { renderLayoutSettingItem } from './LayoutChange';
+import { getFormatMessage } from './index';
 
 const RegionalSetting: React.FC<{
   settings: Partial<ProSettings>;
   changeSetting: (key: string, value: any, hideLoading?: boolean) => void;
   hashId: string;
   prefixCls: string;
-}> = ({ settings = {}, prefixCls, changeSetting, hashId }) => {
+}> = ({ settings, prefixCls, changeSetting, hashId }) => {
   const formatMessage = getFormatMessage();
   const regionalSetting = ['header', 'footer', 'menu', 'menuHeader'];
   return (
@@ -25,8 +25,8 @@ const RegionalSetting: React.FC<{
               size="small"
               className={`regional-${key} ${hashId}`.trim()}
               checked={
-                settings[`${key}Render`] ||
-                settings[`${key}Render`] === undefined
+                settings[`${key}Render` as 'headerRender'] ||
+                settings[`${key}Render` as 'headerRender'] === undefined
               }
               onChange={(checked) =>
                 changeSetting(

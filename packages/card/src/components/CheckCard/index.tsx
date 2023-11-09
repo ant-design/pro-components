@@ -154,7 +154,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     props?.onClick?.(e);
     const newChecked = !stateChecked;
     checkCardGroup?.toggleOption?.({ value: props.value });
-    setStateChecked?.(newChecked, e);
+    setStateChecked?.(newChecked);
   };
 
   // small => sm large => lg

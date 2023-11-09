@@ -21,6 +21,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       '&-notice': {
         display: 'flex',
         flex: '1',
+        zIndex: 99,
         alignItems: 'flex-end',
         '&-activity': {
           marginBlock: 24,
@@ -35,6 +36,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       '&-left': {
         display: 'flex',
         flex: '1',
+        zIndex: 99,
         flexDirection: 'column',
         maxWidth: '550px',
         paddingInline: 0,
@@ -43,13 +45,15 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         alignItems: 'center',
         justifyContent: 'center',
         padding: 24,
+        height: 'max-content',
+        margin: 'auto',
       },
       '&-container': {
         borderRadius: token.borderRadius,
         backgroundSize: '100%',
         backgroundPosition: 'top',
         backdropFilter: 'blur(10px)',
-        backgroundColor: setAlpha(token.colorBgContainer, 0.6),
+        backgroundColor: setAlpha(token.colorBgContainer, 0.8),
         backgroundImage:
           'radial-gradient(circle at 93% 1e+02%, rgba(22,119,255,0.17) 0%, rgba(255,255,255,0.05) 23%, rgba(255,255,255,0.03) 87%, rgba(22,119,255,0.12) 109%)',
         padding: 32,
@@ -71,7 +75,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
       '&-title': {
         position: 'relative',
         tinsetBlockStartop: '2px',
-        color: '@heading-color',
+        color: token.colorTextHeading,
         fontWeight: '600',
         fontSize: '33px',
       },

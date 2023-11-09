@@ -1,10 +1,17 @@
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
-import { act, render, waitFor } from '@testing-library/react';
+import { act, cleanup, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import React from 'react';
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('descriptions', () => {
+  afterEach(() => {
+    cleanup();
+  });
   it('🥩 descriptions render valueEnum when data = 0', async () => {
     const { container } = render(
       <ProDescriptions

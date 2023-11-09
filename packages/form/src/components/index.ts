@@ -23,7 +23,7 @@ export { default as ProFormField } from './Field';
 export type { ProFormFieldProps } from './Field';
 export { default as ProFormFieldSet } from './FieldSet';
 export type { ProFormFieldSetProps } from './FieldSet';
-export { default as ProFormItem, FormItemProvide } from './FormItem';
+export { FormItemProvide, default as ProFormItem } from './FormItem';
 export type { ProFormItemProps } from './FormItem';
 export { default as Group } from './Group';
 export { ProFormList } from './List';

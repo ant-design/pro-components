@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.17.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.12...@ant-design/pro-layout@7.17.13) (2023-11-01)
+
+### Bug Fixes
+
+- **layout:** 修复 Layout 菜单 submenu 和 grounp 混用的时候收起错误 ([d99a14d](https://github.com/ant-design/pro-components/commit/d99a14dc8b9c37c2c2841840cbe28a93a679e468))
+- **table:** 修复不能单独展示 filter 的问题 ([b77b5d4](https://github.com/ant-design/pro-components/commit/b77b5d4a91aaf6f7e229c80350ea0d6ee656ff30))
+
+## [7.17.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.11...@ant-design/pro-layout@7.17.12) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.17.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.10...@ant-design/pro-layout@7.17.11) (2023-10-26)
+
+### Reverts
+
+- **layout:** 回滚 Layout Menu 的获取逻辑 ([#7819](https://github.com/ant-design/pro-components/issues/7819)) ([160faa3](https://github.com/ant-design/pro-components/commit/160faa3906f66f9c8aecd0a64eb4ec2706fe2e08))
+
+## [7.17.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.9...@ant-design/pro-layout@7.17.10) (2023-10-24)
+
+### Bug Fixes
+
+- **layout:** fix layout menu align error ([24cf799](https://github.com/ant-design/pro-components/commit/24cf79956f5078f5c68320036c2af01f5cb36fe9))
+
+## [7.17.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.8...@ant-design/pro-layout@7.17.9) (2023-10-19)
+
+### Bug Fixes
+
+- **layout:** add `title` property to `ProHelp` component ([#7795](https://github.com/ant-design/pro-components/issues/7795)) ([bae3348](https://github.com/ant-design/pro-components/commit/bae3348db3a7a17a6f68f358f4f4d2ec04ef59ef))
+- **layout:** Page Contianer 无 Header 边界情况调整 ([#7779](https://github.com/ant-design/pro-components/issues/7779)) ([9764246](https://github.com/ant-design/pro-components/commit/97642468f7b360adb15772828b8c8c56c4e9c0ef))
+
+## [7.17.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.7...@ant-design/pro-layout@7.17.8) (2023-10-13)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [7.17.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.6...@ant-design/pro-layout@7.17.7) (2023-10-11)
+
+### Bug Fixes
+
+- **layout:** 修复 layout 组件在销毁时，删除了其他不相关的 SWR 缓存 ([#7737](https://github.com/ant-design/pro-components/issues/7737)) ([8f08d3d](https://github.com/ant-design/pro-components/commit/8f08d3d80946e212c921230cba7664a7bed001bc))
+- **types:** breadcrumbProps ([#7757](https://github.com/ant-design/pro-components/issues/7757)) ([704f3de](https://github.com/ant-design/pro-components/commit/704f3de9a55ad7660c754dcc2b4de591007497aa))
+- **types:** breadcrumbProps ([#7760](https://github.com/ant-design/pro-components/issues/7760)) ([fb1090c](https://github.com/ant-design/pro-components/commit/fb1090c50540c35a970a4c112e0832b142cce6ae))
+
+## [7.17.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.5...@ant-design/pro-layout@7.17.6) (2023-09-26)
+
+### Bug Fixes
+
+- **layou:** 调整 PageContainer 无 Header 的判断规则 ([#7726](https://github.com/ant-design/pro-components/issues/7726)) ([c1830cb](https://github.com/ant-design/pro-components/commit/c1830cb73a1a575b39714bc8adf5b19520aadf7c))
+
 ## [7.17.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.4...@ant-design/pro-layout@7.17.5) (2023-09-25)
 
 ### Bug Fixes

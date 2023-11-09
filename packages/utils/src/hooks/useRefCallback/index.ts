@@ -28,8 +28,8 @@ export function useRefCallback<T>(
 
     return new Proxy(defaultValue, {
       set(target, prop, newValue: T) {
-        if (!Object.is(target[prop], newValue)) {
-          target[prop] = newValue;
+        if (!Object.is((target as any)[prop], newValue)) {
+          (target as any)[prop] = newValue;
           callback(ref);
         }
 

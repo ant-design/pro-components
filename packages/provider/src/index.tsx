@@ -248,8 +248,8 @@ const ConfigProviderContainer: React.FC<{
     // antd 的 key 存在的时候以 antd 的为主
     const intl =
       localeName && proProvide.intl?.locale === 'default'
-        ? intlMap[key!]
-        : proProvide.intl || intlMap[key!];
+        ? intlMap[key! as 'zh-CN']
+        : proProvide.intl || intlMap[key! as 'zh-CN'];
 
     return {
       ...proProvide,
@@ -435,7 +435,9 @@ export function useIntl(): IntlType {
   }
 
   if (locale?.locale) {
-    return intlMap[findIntlKeyByAntdLocaleKey(locale.locale)] || zhCNIntl;
+    return (
+      intlMap[findIntlKeyByAntdLocaleKey(locale.locale) as 'zh-CN'] || zhCNIntl
+    );
   }
 
   return zhCNIntl;

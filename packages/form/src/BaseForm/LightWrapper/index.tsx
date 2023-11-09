@@ -70,7 +70,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const { wrapSSR, hashId } = useStyle(prefixCls);
   const [tempValue, setTempValue] = useState<string | undefined>(
-    props[valuePropName!],
+    (props as any)[valuePropName!],
   );
   const [open, setOpen] = useMountMergeState<boolean>(false);
 
@@ -79,7 +79,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
     propsOnChange?.(...restParams);
   };
 
-  const labelValue = props[valuePropName!];
+  const labelValue = (props as any)[valuePropName!];
 
   /** DataRange的转化，dayjs 的 toString 有点不好用 */
   const labelValueText = useMemo(() => {
@@ -91,7 +91,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
     ) {
       return dateArrayFormatter(
         labelValue,
-        dateFormatterMap[valueType] || 'YYYY-MM-DD',
+        (dateFormatterMap as any)[valueType] || 'YYYY-MM-DD',
       );
     }
     if (Array.isArray(labelValue))

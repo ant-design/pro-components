@@ -1,6 +1,10 @@
 import { ProLayout } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('settings.test', () => {
   it('set title', async () => {

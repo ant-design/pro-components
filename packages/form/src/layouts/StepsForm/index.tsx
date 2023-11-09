@@ -565,5 +565,5 @@ function StepsFormWarp<T = Record<string, any>>(
 StepsFormWarp.StepForm = StepForm;
 StepsFormWarp.useForm = Form.useForm;
 
-export type { StepFormProps, StepsFormProps };
 export { StepsFormWarp as StepsForm };
+export type { StepFormProps, StepsFormProps };

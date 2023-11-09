@@ -21,6 +21,7 @@ export type FieldLabelProps = {
   allowClear?: boolean;
   downIcon?: React.ReactNode | false;
   onClick?: () => void;
+  valueMaxLength?: number;
   /**
    * 点击标签的事件，用来唤醒 down menu 状态
    */
@@ -45,6 +46,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     style,
     downIcon,
     allowClear = true,
+    valueMaxLength=41,
   } = props;
   const { componentSize } = ConfigProvider?.useConfig?.() || {
     componentSize: 'middle',
@@ -130,14 +132,12 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           </span>
         );
       }
-      // 普通表单值最大长度41，如2022-06-21 20:11:25 ~ 2022-06-22 20:11:25
-      const VALUE_MAX_LENGTH = 41;
       const getText = () => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
         if (
           typeof str === 'string' &&
-          str.length > VALUE_MAX_LENGTH &&
+          str.length > valueMaxLength &&
           isArrayValue
         ) {
           return `...${aValue.length}${unitText}`;
@@ -157,7 +157,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
           {prefix}
           <span style={{ paddingInlineStart: 4, display: 'flex' }}>
             {typeof str === 'string'
-              ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH)
+              ? str?.toString()?.substr?.(0, valueMaxLength)
               : str}
           </span>
           {tail}

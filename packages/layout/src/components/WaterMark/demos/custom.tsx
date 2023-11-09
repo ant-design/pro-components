@@ -10,6 +10,7 @@ import {
   WaterMark,
 } from '@ant-design/pro-components';
 import { Divider } from 'antd';
+import { ColorFactory } from "antd/es/color-picker/color";
 
 export default () => {
   return (
@@ -38,7 +39,11 @@ export default () => {
                 <WaterMark
                   rotate={rotate}
                   content={content}
-                  fontColor={fontColor}
+                  fontColor={
+                    fontColor instanceof ColorFactory
+                      ? fontColor.toHexString()
+                      : fontColor
+                  }
                   fontSize={fontSize}
                   zIndex={zIndex}
                 >

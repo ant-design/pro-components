@@ -1,7 +1,7 @@
 // import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { act, render } from '@testing-library/react';
+import { act, cleanup, render } from '@testing-library/react';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
 import { waitForWaitTime } from '../util';
@@ -98,6 +98,10 @@ const ProTableSpinDemo = () => {
 };
 
 export default ProTableSpinDemo;
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('ProTable test', () => {
   it('loading and polling props', async () => {

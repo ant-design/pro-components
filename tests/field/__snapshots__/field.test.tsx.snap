@@ -548,7 +548,6 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -631,7 +630,6 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1271,7 +1269,6 @@ Done in 9.70s.
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
     "skipLibCheck": true
   },
@@ -1764,7 +1761,6 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1847,7 +1843,6 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                           aria-controls="rc_select_TEST_OR_SSR_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -2486,7 +2481,6 @@ Done in 9.70s.
     \\"strict\\": true,
     \\"forceConsistentCasingInFileNames\\": true,
     \\"noImplicitReturns\\": true,
-    \\"suppressImplicitAnyIndexErrors\\": true,
     \\"declaration\\": true,
     \\"skipLibCheck\\": true
   },
@@ -2898,7 +2892,6 @@ exports[`Field > 🐴 options support dom list 1`] = `
   >
     <button
       class="ant-btn ant-btn-default"
-      style="flex: 1;"
       type="button"
     >
       <span>
@@ -2907,7 +2900,6 @@ exports[`Field > 🐴 options support dom list 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
-      style="flex: 1;"
       type="button"
     >
       <span>
@@ -2927,7 +2919,6 @@ exports[`Field > 🐴 options support dom text 1`] = `
     新建
     <button
       class="ant-btn ant-btn-default"
-      style="flex: 1;"
       type="button"
     >
       <span>
@@ -2950,7 +2941,6 @@ exports[`Field > 🐴 options support one dom 1`] = `
   >
     <button
       class="ant-btn ant-btn-default"
-      style="flex: 1;"
       type="button"
     >
       <span>
@@ -3578,7 +3568,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                       class="ant-space-item"
                     >
                       <span>
-                        ************************
+                        ********
                       </span>
                     </div>
                     <div
@@ -3675,7 +3665,6 @@ Done in 9.70s.
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
     "skipLibCheck": true
   },
@@ -4127,7 +4116,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                       class="ant-space-item"
                     >
                       <span>
-                        ************************
+                        ********
                       </span>
                     </div>
                     <div
@@ -4224,7 +4213,6 @@ Done in 9.70s.
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
     "skipLibCheck": true
   },

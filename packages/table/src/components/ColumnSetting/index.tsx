@@ -398,7 +398,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
    * @param show
    */
   const setAllSelectAction = useRefFunction((show: boolean = true) => {
-    const columnKeyMap = {};
+    const columnKeyMap = {} as Record<string, any>;
     const loopColumns = (columns: any) => {
       columns.forEach(({ key, fixed, index, children, disable }: any) => {
         const columnKey = genColumnKey(key, index);

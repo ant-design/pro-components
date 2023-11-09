@@ -28,8 +28,10 @@ export const ProHelpModal: React.FC<ProHelpModalProps> = ({
       onCancel={() => {
         setModalOpen(false);
       }}
-      bodyStyle={{
-        margin: -24,
+      styles={{
+        body: {
+          margin: -24,
+        },
       }}
       centered
       closable={false}

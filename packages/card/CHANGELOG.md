@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.23...@ant-design/pro-card@2.5.24) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.5.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.22...@ant-design/pro-card@2.5.23) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.5.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.21...@ant-design/pro-card@2.5.22) (2023-10-24)
+
+### Bug Fixes
+
+- **card:** 移除 stopPropagation，让事件继续冒泡 ([#7785](https://github.com/ant-design/pro-components/issues/7785)) ([f404bed](https://github.com/ant-design/pro-components/commit/f404bed3fc2abbe057a9fdd006d304b1a833dd4e))
+
+## [2.5.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.20...@ant-design/pro-card@2.5.21) (2023-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.5.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.19...@ant-design/pro-card@2.5.20) (2023-10-13)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.5.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.18...@ant-design/pro-card@2.5.19) (2023-10-11)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [2.5.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.17...@ant-design/pro-card@2.5.18) (2023-09-25)
 
 **Note:** Version bump only for package @ant-design/pro-card

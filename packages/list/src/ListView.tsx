@@ -15,10 +15,10 @@ import type { GetRowKey, TableRowSelection } from 'antd/lib/table/interface';
 import classNames from 'classnames';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext } from 'react';
-import { PRO_LIST_KEYS_MAP } from './constants';
-import type { GetComponentProps } from './index';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
+import { PRO_LIST_KEYS_MAP } from './constants';
+import type { GetComponentProps } from './index';
 
 import { compareVersions } from '@ant-design/pro-utils';
 import type { AnyObject } from 'antd/es/_util/type';
@@ -253,7 +253,7 @@ function ListView<RecordType extends AnyObject>(
           const data = column.render
             ? column.render(rawData, item, index)
             : rawData;
-          if (data !== '-') listItemProps[column.listKey] = data;
+          if (data !== '-') (listItemProps as any)[column.listKey] = data;
         });
         let checkboxDom: React.ReactNode;
         if (selectItemDom && selectItemDom.render) {

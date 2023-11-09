@@ -6,6 +6,7 @@ import { BetaSchemaForm } from '@ant-design/pro-form';
 import { ProProvider } from '@ant-design/pro-provider';
 import {
   act,
+  cleanup,
   fireEvent,
   render,
   screen,
@@ -65,6 +66,10 @@ const columns: ProFormColumnsType<any>[] = [
     dataIndex: 'id',
   },
 ];
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('SchemaForm', () => {
   it('😊 SchemaForm support columns', async () => {

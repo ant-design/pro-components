@@ -19,8 +19,8 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8.6.7
-      - run: pnpm install 
+          version: 8.10.0
+      - run: pnpm install
       - run: pnpm run build
         env:
           PRO_COMPONENTS_CI: CI

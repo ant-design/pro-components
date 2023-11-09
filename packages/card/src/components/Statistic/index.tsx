@@ -1,9 +1,9 @@
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import type { BadgeProps, StatisticProps as AntdStatisticProps } from 'antd';
+import type { StatisticProps as AntdStatisticProps, BadgeProps } from 'antd';
 import {
+  Statistic as AntdStatistic,
   Badge,
   ConfigProvider,
-  Statistic as AntdStatistic,
   Tooltip,
 } from 'antd';
 import classNames from 'classnames';
@@ -43,7 +43,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   const {
     className,
     layout = 'inline',
-    style = {},
+    style,
     description,
     children,
     title,

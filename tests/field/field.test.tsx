@@ -1,5 +1,11 @@
 import Field from '@ant-design/pro-field';
-import { act, fireEvent, render, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
@@ -9,7 +15,14 @@ import { TreeSelectDemo } from './fixtures/treeSelectDemo';
 
 const domRef = React.createRef();
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('Field', () => {
+  afterEach(() => {
+    cleanup();
+  });
   it('🐴 base use', async () => {
     const html = render(<Field text="100" valueType="money" mode="edit" />);
     expect(html.asFragment()).toMatchSnapshot();
@@ -1456,7 +1469,7 @@ describe('Field', () => {
     const html = render(
       <Field text={123456} valueType="password" mode="read" />,
     );
-    await html.findByText('************************');
+    await html.findByText('********');
 
     act(() => {
       fireEvent.click(

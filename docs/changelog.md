@@ -1,4 +1,71 @@
-﻿## @ant-design/pro-components@2.6.24
+﻿## @ant-design/pro-components@2.6.35
+
+`2023-11-01`
+
+- fix(layout): 修复 Layout 菜单 submenu 和 grounp 混用的时候收起错误. [d99a14d](https://github.com/ant-design/pro-components/commit/d99a14d)
+- fix(form): fix addonWarpStyle no work error. [e5374b7](https://github.com/ant-design/pro-components/commit/e5374b7)
+- fix(table): 修复不能单独展示 filter 的问题. [b77b5d4](https://github.com/ant-design/pro-components/commit/b77b5d4)
+
+## @ant-design/pro-components@2.6.33
+
+`2023-10-26`
+
+- revert(layout): 回滚 Layout Menu 的获取逻辑 (#7819). [#7819](https://github.com/ant-design/pro-components/pull/#7819) [@ONLY-yours](https://github.com/ONLY-yours)
+- feat(form):addonBefore warp support style. [5dd732e](https://github.com/ant-design/pro-components/commit/5dd732e)
+
+## @ant-design/pro-components@2.6.32
+
+`2023-10-24`
+
+- fix(layout): fix layout menu align error. [24cf799](https://github.com/ant-design/pro-components/commit/24cf799)
+- feat(table): expose `index` in `onDragSortEnd` (#7803). [#7803](https://github.com/ant-design/pro-components/pull/#7803) [@kungege](https://github.com/kungege)
+- fix(card): 移除 stopPropagation，让事件继续冒泡 (#7785). [#7785](https://github.com/ant-design/pro-components/pull/#7785) [@xliez](https://github.com/xliez)
+
+## @ant-design/pro-components@2.6.31
+
+`2023-10-19`
+
+- fix(layout): add `title` property to `ProHelp` component (#7795). [#7795](https://github.com/ant-design/pro-components/pull/#7795) [@yuetyeelo2855](https://github.com/yuetyeelo2855)
+- fix(layout): Page Contianer 无 Header 边界情况调整 (#7779). [#7779](https://github.com/ant-design/pro-components/pull/#7779) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(table): 修复 EditableProTable 实时编辑表格存在 name 属性且有分页的时候，渲染的数据总是为第一页 (#7794). [#7794](https://github.com/ant-design/pro-components/pull/#7794) [@xliez](https://github.com/xliez)
+
+## @ant-design/pro-components@2.6.29
+
+`2023-10-11`
+
+- fix(layout): 修复 layout 组件在销毁时，删除了其他不相关的 SWR 缓存 (#7737). [#7737](https://github.com/ant-design/pro-components/pull/#7737) [@febear](https://github.com/febear)
+- fix(form): fix loginPage style error. [80ace22](https://github.com/ant-design/pro-components/commit/80ace22)
+- fix(form): 增加透传给 FormItem 的 style 和 className (#7769). [#7769](https://github.com/ant-design/pro-components/pull/#7769) [@ONLY-yours](https://github.com/ONLY-yours)
+- feat(form): 优化密码只读模式展现形式 (#7736). [#7736](https://github.com/ant-design/pro-components/pull/#7736) [@gamemock](https://github.com/gamemock)
+- fix(form): 首次同步到 url 参数时也执行 syncToUrl (#7741). [#7741](https://github.com/ant-design/pro-components/pull/#7741) [@ldc-37](https://github.com/ldc-37)
+
+## @ant-design/pro-components@2.6.28
+
+`2023-09-26`
+
+- feat(form): LoginFormPage support backgroundVideoUrl. [6dc50b0](https://github.com/ant-design/pro-components/commit/6dc50b0)
+
+## @ant-design/pro-components@2.6.27
+
+`2023-09-26`
+
+- fix(form): fix Captcha style no work error. [f31381d](https://github.com/ant-design/pro-components/commit/f31381d)
+
+## @ant-design/pro-components@2.6.26
+
+`2023-09-26`
+
+- feat(form): support more style config. [b8c3954](https://github.com/ant-design/pro-components/commit/b8c3954)
+
+## @ant-design/pro-components@2.6.25
+
+`2023-09-26`
+
+- fix(form): the `onChange` event in `ProFormUploadButton` has been triggered multiple times (#7732). [#7732](https://github.com/ant-design/pro-components/pull/#7732) [@kungege](https://github.com/kungege)
+- feat(form): new LoginFormPage style (#7734). [#7734](https://github.com/ant-design/pro-components/pull/#7734) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(table): unuse Tab.TabPanel (#7731). [#7731](https://github.com/ant-design/pro-components/pull/#7731) [@leshalv](https://github.com/leshalv)
+
+## @ant-design/pro-components@2.6.24
 
 `2023-09-25`
 

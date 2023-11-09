@@ -19,7 +19,7 @@ import {
   QueryFilter,
   StepsForm,
 } from '@ant-design/pro-components';
-import { Button, message, Space } from 'antd';
+import { Button, Space, message } from 'antd';
 import { useState } from 'react';
 
 const iconStyles = {
@@ -39,7 +39,6 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const [type, setType] = useState('ProForm');
   const Components = {
     ProForm,
     ModalForm,
@@ -49,6 +48,7 @@ export default () => {
     StepsForm,
     LoginForm,
   };
+  const [type, setType] = useState<keyof typeof Components>('ProForm');
 
   if (type === 'StepsForm') {
     return (
@@ -158,12 +158,11 @@ export default () => {
     );
   }
 
-  const FormComponents = Components[type];
+  const FormComponents = Components[type as 'LoginForm'];
 
   if (type === 'LoginForm') {
     return (
       <>
-        {' '}
         <ProFormRadio.Group
           style={{
             margin: 16,
@@ -255,6 +254,7 @@ export default () => {
         }}
       >
         <FormComponents
+          // @ts-ignore
           labelWidth="auto"
           trigger={
             <Button type="primary">

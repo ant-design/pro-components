@@ -2,6 +2,59 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.2...@ant-design/pro-table@3.13.3) (2023-11-01)
+
+### Bug Fixes
+
+- **table:** 修复不能单独展示 filter 的问题 ([b77b5d4](https://github.com/ant-design/pro-components/commit/b77b5d4a91aaf6f7e229c80350ea0d6ee656ff30))
+- update table.md ([#7818](https://github.com/ant-design/pro-components/issues/7818)) ([fb385c3](https://github.com/ant-design/pro-components/commit/fb385c30d60a35e165ac765ab3dea7534c24aa90))
+
+## [3.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.1...@ant-design/pro-table@3.13.2) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.0...@ant-design/pro-table@3.13.1) (2023-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.15...@ant-design/pro-table@3.13.0) (2023-10-24)
+
+### Features
+
+- **table:** expose `index` in `onDragSortEnd` ([#7803](https://github.com/ant-design/pro-components/issues/7803)) ([8a0786a](https://github.com/ant-design/pro-components/commit/8a0786a2cfe5c738b4928a0c11db247c1438f945))
+
+## [3.12.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.14...@ant-design/pro-table@3.12.15) (2023-10-19)
+
+### Bug Fixes
+
+- **table:** 修复 EditableProTable 实时编辑表格存在 name 属性且有分页的时候，渲染的数据总是为第一页 ([#7794](https://github.com/ant-design/pro-components/issues/7794)) ([eda3b82](https://github.com/ant-design/pro-components/commit/eda3b8263e4889a930a9e5655f75dc9a6fe06a00))
+
+## [3.12.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.13...@ant-design/pro-table@3.12.14) (2023-10-13)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.12.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.12...@ant-design/pro-table@3.12.13) (2023-10-11)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.12.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.11...@ant-design/pro-table@3.12.12) (2023-09-26)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.12.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.10...@ant-design/pro-table@3.12.11) (2023-09-26)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.12.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.9...@ant-design/pro-table@3.12.10) (2023-09-26)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.12.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.8...@ant-design/pro-table@3.12.9) (2023-09-26)
+
+### Bug Fixes
+
+- **table:** unuse Tab.TabPanel ([#7731](https://github.com/ant-design/pro-components/issues/7731)) ([344729c](https://github.com/ant-design/pro-components/commit/344729c1c2c2d328738bc0a7af899236d5668f41))
+
 ## [3.12.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.12.7...@ant-design/pro-table@3.12.8) (2023-09-25)
 
 ### Bug Fixes

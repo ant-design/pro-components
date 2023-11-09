@@ -93,7 +93,7 @@ for (let i = 0; i < 10; i += 1) {
     ip: `106.14.98.1${i}4`,
     cpu: 10,
     mem: 20,
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     disk: 30,
   });
 }

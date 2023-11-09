@@ -2,8 +2,8 @@ import { UploadOutlined } from '@ant-design/icons';
 import type { ButtonProps, UploadProps } from 'antd';
 import { Button, Upload } from 'antd';
 import React, { useContext, useMemo } from 'react';
-import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
+import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../typing';
 
 type PickUploadProps = Pick<

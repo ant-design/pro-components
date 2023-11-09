@@ -28,8 +28,14 @@ export const ProHelpDrawer: React.FC<ProHelpDrawerProps> = ({
     <Drawer
       width={720}
       closeIcon={null}
-      headerStyle={{ display: 'none' }}
-      bodyStyle={{ padding: 0 }}
+      styles={{
+        header: {
+          display: 'none',
+        },
+        body: {
+          padding: 0,
+        },
+      }}
       maskClosable
       {...drawerProps}
       open={drawerOpen}

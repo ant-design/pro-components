@@ -1,5 +1,5 @@
 ﻿import { CloseOutlined, ProfileOutlined } from '@ant-design/icons';
-import { isNeedOpenHash, ProProvider } from '@ant-design/pro-provider';
+import { ProProvider, isNeedOpenHash } from '@ant-design/pro-provider';
 import { coverToNewToken } from '@ant-design/pro-utils';
 import { Card, ConfigProvider, Menu } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
@@ -19,6 +19,10 @@ export const SelectKeyProvide = React.createContext<{
 });
 
 export type ProHelpPanelProps = {
+  /**
+   * 帮助面板的标题
+   */
+  title?: string;
   /**
    * 帮助面板首次打开时的默认选中文档的键名
    */
@@ -87,6 +91,7 @@ export type ProHelpPanelProps = {
  * @returns
  */
 export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
+  title = '帮助中心',
   bordered = true,
   onClose,
   footer,
@@ -200,7 +205,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
     >
       <Card
         bordered={bordered}
-        title="帮助中心"
+        title={title}
         bodyStyle={{
           display: 'flex',
           padding: 0,
@@ -226,7 +231,7 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                     lineHeight: 1.2,
                     controlHeightLG: 26,
                     fontSize: 12,
-                    radiusItem: 4,
+                    radiusItem: token.borderRadius,
                     colorActiveBarWidth: 0,
                     colorActiveBarBorderSize: 0,
                     colorItemBgSelected:

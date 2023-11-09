@@ -68,7 +68,7 @@ export default () => {
   const actionRef = useRef<ActionType>();
   const [intl, setIntl] = useState('zhCNIntl');
   return (
-    <ConfigProvider locale={intlMap[intl]}>
+    <ConfigProvider locale={intlMap[intl as 'zhCNIntl']}>
       <ProTable<GithubIssueItem>
         columns={columns}
         actionRef={actionRef}
@@ -97,7 +97,7 @@ export default () => {
               bordered={false}
               value={intl}
               onChange={(value) => {
-                dayjs.locale(intlMap[value].locale);
+                dayjs.locale(intlMap[value as 'zhCNIntl'].locale);
                 setIntl(value);
               }}
               options={Object.keys(intlMap).map((value) => ({
