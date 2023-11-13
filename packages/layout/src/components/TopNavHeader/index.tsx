@@ -99,9 +99,9 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (
                 colorItemTextSelected:
                   token.layout?.header?.colorTextMenuSelected ||
                   'rgba(0, 0, 0, 1)',
-                colorBgElevated:
-                  token.layout?.header?.colorBgMenuElevated ||
-                  token.colorBgElevated,
+                popupBg: token?.colorBgElevated,
+                // @ts-expect-error
+                darkPopupBg: token?.colorBgElevated,
               }),
             },
           },

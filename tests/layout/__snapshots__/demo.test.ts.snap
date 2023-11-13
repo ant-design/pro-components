@@ -1820,6 +1820,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                         >
                           <div
                             class="ant-color-picker-trigger ant-pro-field-color-picker"
+                            id="fontColor"
                             style="display: table-cell; width: 100%;"
                           >
                             <div

@@ -226,11 +226,13 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
             <ConfigProvider
               theme={{
                 hashed: isNeedOpenHash(),
+                token: {
+                  lineHeight: 1.2,
+                  fontSize: 12,
+                  controlHeightLG: 26,
+                },
                 components: {
                   Menu: coverToNewToken({
-                    lineHeight: 1.2,
-                    controlHeightLG: 26,
-                    fontSize: 12,
                     radiusItem: token.borderRadius,
                     colorActiveBarWidth: 0,
                     colorActiveBarBorderSize: 0,
@@ -251,9 +253,9 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                       'rgba(0, 0, 0, 1)',
                     colorItemBg: 'transparent',
                     colorSubItemBg: 'transparent',
-                    colorBgElevated:
-                      token.layout?.sider?.colorBgMenuItemCollapsedElevated ||
-                      '#fff',
+                    popupBg: token?.colorBgElevated,
+                    // @ts-expect-error
+                    darkPopupBg: token?.colorBgElevated,
                   }),
                 },
               }}
