@@ -629,55 +629,42 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, restFieldProps, onChangeCallBack]);
 
-  const renderedDom = useDeepCompareMemo(() => {
-    return defaultRenderText(
-      mode === 'edit'
-        ? fieldProps?.value ?? text ?? ''
-        : text ?? fieldProps?.value ?? '',
-      valueType || 'text',
-      omitUndefined({
-        ref,
-        ...rest,
-        mode: readonly ? 'read' : mode,
-        renderFormItem: renderFormItem
-          ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
-              const { placeholder: _placeholder, ...restProps } = props;
-              const newDom = renderFormItem(curText, restProps, dom);
-              // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
-              if (React.isValidElement(newDom))
-                return React.cloneElement(newDom, {
-                  ...fieldProps,
-                  ...((newDom.props as any) || {}),
-                });
-              return newDom;
-            }
-          : undefined,
-        placeholder: renderFormItem
-          ? undefined
-          : rest?.placeholder ?? fieldProps?.placeholder,
-        fieldProps: pickProProps(
-          omitUndefined({
-            ...fieldProps,
-            placeholder: renderFormItem
-              ? undefined
-              : rest?.placeholder ?? fieldProps?.placeholder,
-          }),
-        ),
-      }),
-      context.valueTypeMap || {},
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    context.valueTypeMap,
-    fieldProps,
-    mode,
-    readonly,
-    ref,
-    renderFormItem,
-    rest,
-    text,
-    valueType,
-  ]);
+  const renderedDom = defaultRenderText(
+    mode === 'edit'
+      ? fieldProps?.value ?? text ?? ''
+      : text ?? fieldProps?.value ?? '',
+    valueType || 'text',
+    omitUndefined({
+      ref,
+      ...rest,
+      mode: readonly ? 'read' : mode,
+      renderFormItem: renderFormItem
+        ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
+            const { placeholder: _placeholder, ...restProps } = props;
+            const newDom = renderFormItem(curText, restProps, dom);
+            // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
+            if (React.isValidElement(newDom))
+              return React.cloneElement(newDom, {
+                ...fieldProps,
+                ...((newDom.props as any) || {}),
+              });
+            return newDom;
+          }
+        : undefined,
+      placeholder: renderFormItem
+        ? undefined
+        : rest?.placeholder ?? fieldProps?.placeholder,
+      fieldProps: pickProProps(
+        omitUndefined({
+          ...fieldProps,
+          placeholder: renderFormItem
+            ? undefined
+            : rest?.placeholder ?? fieldProps?.placeholder,
+        }),
+      ),
+    }),
+    context.valueTypeMap || {},
+  );
 
   return <React.Fragment>{renderedDom}</React.Fragment>;
 };
