@@ -1,5 +1,5 @@
 export default {
-  moneySymbol: '￥',
+  moneySymbol: '¥',
   deleteThisLine: '删除此项',
   copyThisLine: '复制此项',
   form: {

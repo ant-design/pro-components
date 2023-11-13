@@ -2573,7 +2573,7 @@ exports[`Field > 🐴 money valueType is Object 1`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="请输入"
+        placeholder="Please enter"
         role="spinbutton"
         step="1"
         value=""
@@ -2586,7 +2586,7 @@ exports[`Field > 🐴 money valueType is Object 1`] = `
 exports[`Field > 🐴 money valueType is Object 2`] = `
 <DocumentFragment>
   <span>
-    100.00
+    $100.00
   </span>
 </DocumentFragment>
 `;
@@ -2594,7 +2594,7 @@ exports[`Field > 🐴 money valueType is Object 2`] = `
 exports[`Field > 🐴 money valueType is Object 3`] = `
 <DocumentFragment>
   <span>
-    100
+    $$100.00
   </span>
 </DocumentFragment>
 `;
@@ -2668,7 +2668,7 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="请输入"
+        placeholder="Введите значение"
         role="spinbutton"
         step="1"
         value=""
@@ -2681,7 +2681,7 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
 exports[`Field > 🐴 money valueType is Object 5`] = `
 <DocumentFragment>
   <span>
-    100.00
+    100,00 ₽
   </span>
 </DocumentFragment>
 `;
@@ -2689,7 +2689,7 @@ exports[`Field > 🐴 money valueType is Object 5`] = `
 exports[`Field > 🐴 money valueType is Object 6`] = `
 <DocumentFragment>
   <span>
-    100
+    ₽100,00 ₽
   </span>
 </DocumentFragment>
 `;
@@ -2763,7 +2763,7 @@ exports[`Field > 🐴 money valueType is Object 7`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="请输入"
+        placeholder="Sila masuk"
         role="spinbutton"
         step="1"
         value=""
@@ -2776,7 +2776,7 @@ exports[`Field > 🐴 money valueType is Object 7`] = `
 exports[`Field > 🐴 money valueType is Object 8`] = `
 <DocumentFragment>
   <span>
-    100.00
+    RM 100.00
   </span>
 </DocumentFragment>
 `;
@@ -2784,7 +2784,7 @@ exports[`Field > 🐴 money valueType is Object 8`] = `
 exports[`Field > 🐴 money valueType is Object 9`] = `
 <DocumentFragment>
   <span>
-    100
+    RMRM 100.00
   </span>
 </DocumentFragment>
 `;
@@ -2858,7 +2858,7 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="请输入"
+        placeholder="Molimo unesite"
         role="spinbutton"
         step="1"
         value=""
@@ -2871,7 +2871,7 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
 exports[`Field > 🐴 money valueType is Object 11`] = `
 <DocumentFragment>
   <span>
-    100.00
+    100 RSD
   </span>
 </DocumentFragment>
 `;
@@ -2879,7 +2879,7 @@ exports[`Field > 🐴 money valueType is Object 11`] = `
 exports[`Field > 🐴 money valueType is Object 12`] = `
 <DocumentFragment>
   <span>
-    100
+    RSD100 RSD
   </span>
 </DocumentFragment>
 `;

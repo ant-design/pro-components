@@ -51825,7 +51825,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
                       placeholder="请输入"
                       role="spinbutton"
                       step="1"
-                      value="￥ 22.22"
+                      value="¥ 22.22"
                     />
                   </div>
                 </div>

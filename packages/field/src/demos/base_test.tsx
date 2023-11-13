@@ -81,6 +81,17 @@ export default () => {
             mode={state}
             plain={plain}
           />
+
+          <ProField
+            valueType="money"
+            label="自定义货币符号"
+            name="amount4"
+            fieldProps={{
+              value: 2221212.22,
+              customSymbol: '💰',
+            }}
+            mode="read"
+          />
         </Descriptions.Item>
         <Descriptions.Item label="数字">
           <ProField

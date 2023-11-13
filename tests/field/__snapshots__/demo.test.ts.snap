@@ -1822,6 +1822,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         />
                       </div>
                     </div>
+                    <span>
+                      💰2,221,212.22
+                    </span>
                   </span>
                 </div>
               </td>

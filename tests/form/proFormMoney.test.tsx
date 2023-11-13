@@ -28,7 +28,7 @@ describe('💵 ProFormMoney', () => {
 
     expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
       'value',
-      '￥ 44.33',
+      '¥ 44.33',
     );
 
     act(() => {
@@ -173,7 +173,7 @@ describe('💵 ProFormMoney', () => {
 
     expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
       'value',
-      '￥ -55.33',
+      '¥ -55.33',
     );
 
     fireEvent.click(container.querySelector('button.ant-btn-primary')!);

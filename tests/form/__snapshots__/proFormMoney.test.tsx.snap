@@ -98,7 +98,7 @@ exports[`💵 ProFormMoney > 💵 ProFormMoney value expect number 1`] = `
                     placeholder="请输入"
                     role="spinbutton"
                     step="1"
-                    value="￥ 44.33"
+                    value="¥ 44.33"
                   />
                 </div>
               </div>
@@ -229,7 +229,7 @@ exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
                     placeholder="请输入"
                     role="spinbutton"
                     step="1"
-                    value="￥ -55.33"
+                    value="¥ -55.33"
                   />
                 </div>
               </div>
