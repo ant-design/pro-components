@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.13.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.3...@ant-design/pro-table@3.13.4) (2023-11-14)
+
+
+### Bug Fixes
+
+* **table:** less render function ([b314a37](https://github.com/ant-design/pro-components/commit/b314a37b2c3de7afeba877d07963403b4ebc8a3d))
+
+
+
+
 
 ## [3.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.2...@ant-design/pro-table@3.13.3) (2023-11-01)
 

@@ -1,6 +1,25 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.12...@ant-design/pro-utils@2.15.0) (2023-11-14)
+
+
+### Bug Fixes
+
+* **descriptions:** fix ProTable 和 ProDescriptions render 行为不一样的问题 ([227d302](https://github.com/ant-design/pro-components/commit/227d3023934efceb2f86184767ef7afe37a73c3b))
+* **layout:** fix popupBg no work error ([ea20878](https://github.com/ant-design/pro-components/commit/ea20878c4c239ed9df27f42131a00b691261d73d))
+* **layout:** fix ProLayout did not match error ([cb330f9](https://github.com/ant-design/pro-components/commit/cb330f98d8708dc1320d00ef1190643ecfa25139))
+
+
+### Features
+
+* **utils:** FieldLabel的VALUE_MAX_LENGTH可以通过参数传入 ([#7845](https://github.com/ant-design/pro-components/issues/7845)) ([#7846](https://github.com/ant-design/pro-components/issues/7846)) ([8cba14f](https://github.com/ant-design/pro-components/commit/8cba14f24e4549d428432f0ffdf194f8474eddfb))
+
+
+
+
 
 ## [2.14.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.14.11...@ant-design/pro-utils@2.14.12) (2023-10-26)
 
