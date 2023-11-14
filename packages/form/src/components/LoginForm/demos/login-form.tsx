@@ -77,6 +77,43 @@ export default () => {
                 fieldProps={{
                   size: 'large',
                   prefix: <LockOutlined className={'prefixIcon'} />,
+                  getStatus: (value) => {
+                    if (value && value.length > 12) {
+                      return 'ok';
+                    }
+                    if (value && value.length > 6) {
+                      return 'pass';
+                    }
+                    return 'poor';
+                  },
+                  getPercent: (value) => {
+                    if (value && value.length > 12) {
+                      return 100;
+                    }
+                    if (value && value.length > 6) {
+                      return 50;
+                    }
+                    return ((value?.length || 1) / 12) * 100;
+                  },
+                  statusRender: (status) => {
+                    if (status === 'pass') {
+                      return (
+                        <div style={{ color: token.colorWarning }}>
+                          强度：中
+                        </div>
+                      );
+                    }
+                    if (status === 'ok') {
+                      return (
+                        <div style={{ color: token.colorSuccess }}>
+                          强度：强
+                        </div>
+                      );
+                    }
+                    return (
+                      <div style={{ color: token.colorError }}>强度：弱</div>
+                    );
+                  },
                 }}
                 placeholder={'密码: ant.design'}
                 rules={[

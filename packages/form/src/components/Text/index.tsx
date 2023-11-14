@@ -1,6 +1,8 @@
-import type { InputProps } from 'antd';
+import { useMountMergeState } from '@ant-design/pro-utils';
+import { Form, Popover, Progress, type InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/lib/input';
-import React from 'react';
+import omit from 'omit.js';
+import React, { useState } from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
 
@@ -30,11 +32,133 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
   );
 };
 
-const Password: React.FC<ProFormFieldItemProps<PasswordProps, InputRef>> = ({
+export type PasswordStatus = 'ok' | 'pass' | 'poor' | undefined;
+
+const passwordProgressMap = {
+  ok: 'success',
+  pass: 'normal',
+  poor: 'exception',
+} as const;
+
+export type PasssWordStrengthProps = {
+  getStatus?: (value?: string) => PasswordStatus;
+  statusRender?: (status: PasswordStatus) => React.ReactNode;
+  getPercent?: (value?: string) => number;
+};
+
+const PasssWordStrength: React.FC<
+  PasssWordStrengthProps & {
+    name?: string[];
+    open?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    children: React.ReactNode;
+  }
+> = (props) => {
+  const [open, setOpen] = useMountMergeState<boolean>(props.open || false, {
+    value: props.open,
+    onChange: props.onOpenChange,
+  });
+  return (
+    <Form.Item shouldUpdate noStyle>
+      {(form) => {
+        const value = form.getFieldValue(props.name || []);
+        const status = props.getStatus?.(value);
+        const getPasswordProgressDom = () => {
+          return value && value.length && status ? (
+            <Progress
+              status={passwordProgressMap[status]}
+              style={{
+                width: '100%',
+              }}
+              percent={props.getPercent?.(value) || 0}
+              showInfo={false}
+            />
+          ) : null;
+        };
+        return (
+          <Popover
+            getPopupContainer={(node) => {
+              if (node && node.parentNode) {
+                return node.parentNode as HTMLElement;
+              }
+              return node;
+            }}
+            onOpenChange={setOpen}
+            content={
+              <div
+                style={{
+                  padding: '4px 0',
+                }}
+              >
+                {props?.statusRender?.(status)}
+                {getPasswordProgressDom()}
+                <div
+                  style={{
+                    marginTop: 10,
+                  }}
+                >
+                  <span>请至少输入 6 个字符。请不要使用容易被猜到的密码。</span>
+                </div>
+              </div>
+            }
+            overlayStyle={{
+              width: 240,
+            }}
+            placement="right"
+            open={open}
+          >
+            {props.children}
+          </Popover>
+        );
+      }}
+    </Form.Item>
+  );
+};
+
+const Password: React.FC<
+  ProFormFieldItemProps<PasswordProps & PasssWordStrengthProps, InputRef>
+> = ({
   fieldProps,
   proFieldProps,
   ...rest
-}: ProFormFieldItemProps<InputProps, InputRef>) => {
+}: ProFormFieldItemProps<PasswordProps & PasssWordStrengthProps, InputRef>) => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  if (fieldProps?.getStatus && fieldProps?.statusRender) {
+    return (
+      <PasssWordStrength
+        name={rest.name}
+        getStatus={fieldProps?.getStatus}
+        statusRender={fieldProps?.statusRender}
+        getPercent={fieldProps?.getPercent}
+        open={open}
+        onOpenChange={setOpen}
+      >
+        <ProField
+          valueType="password"
+          fieldProps={{
+            ...omit(fieldProps, ['getStatus', 'statusRender', 'getPercent']),
+            onBlur: (e: any) => {
+              fieldProps?.onBlur?.(e);
+              setOpen(false);
+            },
+            onClick: (e: any) => {
+              fieldProps?.onClick?.(e);
+              setOpen(true);
+            },
+          }}
+          proFieldProps={proFieldProps}
+          filedConfig={
+            {
+              valueType,
+            } as const
+          }
+          {...rest}
+        />
+      </PasssWordStrength>
+    );
+  }
+
   return (
     <ProField
       valueType="password"
