@@ -1,4 +1,20 @@
-﻿## @ant-design/pro-components@2.6.35
+﻿## @ant-design/pro-components@2.6.36
+
+`2023-11-14`
+
+- feat(utils): FieldLabel 的 VALUE_MAX_LENGTH 可以通过参数传入 (#7845) (#7846). [#7845](https://github.com/ant-design/pro-components/pull/#7845) [@Rabbit](https://github.com/Rabbit)
+- fix(layout): fix popupBg no work error. [ea20878](https://github.com/ant-design/pro-components/commit/ea20878)
+- fix(layout): [antd: Drawer] `bodyStyle` is deprecated waring (#7864). [#7864](https://github.com/ant-design/pro-components/pull/#7864) [@OXXD](https://github.com/OXXD)
+- fix(layout): fix ProLayout did not match error. [cb330f9](https://github.com/ant-design/pro-components/commit/cb330f9)
+- fix(form): fix ProFormMoney customSymbol no work error. [d0f30b8](https://github.com/ant-design/pro-components/commit/d0f30b8)
+- fix(form): 修复 FieldOptions 中子元素换行问题 (#7856). [#7856](https://github.com/ant-design/pro-components/pull/#7856) [@zavven](https://github.com/zavven)
+- style(list): 样式修复 (#7855). [#7855](https://github.com/ant-design/pro-components/pull/#7855) [@xliez](https://github.com/xliez)
+- fix(table): less render function. [b314a37](https://github.com/ant-design/pro-components/commit/b314a37)
+- fix(field): remove useDeepCompareMemo which causing renderFormItem not updated (#7887). [#7887](https://github.com/ant-design/pro-components/pull/#7887) [@mjss](https://github.com/mjss)
+- fix(descriptions): fix ProTable 和 ProDescriptions render 行为不一样的问题. [227d302](https://github.com/ant-design/pro-components/commit/227d302)
+- fix(descriptions): fix save and cancel are not aligned when using Form rules. [ebd1898](https://github.com/ant-design/pro-components/commit/ebd1898)
+
+## @ant-design/pro-components@2.6.35
 
 `2023-11-01`
 

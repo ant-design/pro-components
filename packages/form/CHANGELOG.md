@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.6...@ant-design/pro-form@2.22.0) (2023-11-14)
 
-
 ### Features
 
-* **from:** ProForm support statusRender ([fb8b42e](https://github.com/ant-design/pro-components/commit/fb8b42e14175e2cdc4641c39b1f5059c98ae6d4d))
-
-
-
-
+- **from:** ProForm support statusRender ([fb8b42e](https://github.com/ant-design/pro-components/commit/fb8b42e14175e2cdc4641c39b1f5059c98ae6d4d))
 
 ## [2.21.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.5...@ant-design/pro-form@2.21.6) (2023-10-26)
 

@@ -10,7 +10,7 @@ import {
   WaterMark,
 } from '@ant-design/pro-components';
 import { Divider } from 'antd';
-import { ColorFactory } from "antd/es/color-picker/color";
+import { ColorFactory } from 'antd/es/color-picker/color';
 
 export default () => {
   return (

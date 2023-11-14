@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.13.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.13.3...@ant-design/pro-provider@2.13.4) (2023-11-14)
 
-
 ### Bug Fixes
 
-* **form:** fix ProFormMoney customSymbol no work error ([d0f30b8](https://github.com/ant-design/pro-components/commit/d0f30b8b9b7354798ac5b9271b88dad772f56f36))
-
-
-
-
+- **form:** fix ProFormMoney customSymbol no work error ([d0f30b8](https://github.com/ant-design/pro-components/commit/d0f30b8b9b7354798ac5b9271b88dad772f56f36))
 
 ## [2.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.13.2...@ant-design/pro-provider@2.13.3) (2023-10-26)
 

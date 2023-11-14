@@ -62,7 +62,7 @@ const LightSelect: React.ForwardRefRenderFunction<
     labelTrigger,
     optionFilterProp,
     optionLabelProp = '',
-    valueMaxLength=41,
+    valueMaxLength = 41,
     ...restProps
   } = props;
   const { placeholder = label } = props;

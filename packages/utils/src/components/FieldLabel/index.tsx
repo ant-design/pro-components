@@ -46,7 +46,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     style,
     downIcon,
     allowClear = true,
-    valueMaxLength=41,
+    valueMaxLength = 41,
   } = props;
   const { componentSize } = ConfigProvider?.useConfig?.() || {
     componentSize: 'middle',

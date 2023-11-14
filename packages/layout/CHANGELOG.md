@@ -1,20 +1,14 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.13...@ant-design/pro-layout@7.17.14) (2023-11-14)
 
-
 ### Bug Fixes
 
-* **layout:** [antd: Drawer] `bodyStyle` is deprecated waring ([#7864](https://github.com/ant-design/pro-components/issues/7864)) ([912c4dd](https://github.com/ant-design/pro-components/commit/912c4ddfec94deda34a99d7c879d4d38b4f0080b))
-* **layout:** fix popupBg no work error ([ea20878](https://github.com/ant-design/pro-components/commit/ea20878c4c239ed9df27f42131a00b691261d73d))
-* **layout:** fix ProLayout did not match error ([cb330f9](https://github.com/ant-design/pro-components/commit/cb330f98d8708dc1320d00ef1190643ecfa25139))
-
-
-
-
+- **layout:** [antd: Drawer] `bodyStyle` is deprecated waring ([#7864](https://github.com/ant-design/pro-components/issues/7864)) ([912c4dd](https://github.com/ant-design/pro-components/commit/912c4ddfec94deda34a99d7c879d4d38b4f0080b))
+- **layout:** fix popupBg no work error ([ea20878](https://github.com/ant-design/pro-components/commit/ea20878c4c239ed9df27f42131a00b691261d73d))
+- **layout:** fix ProLayout did not match error ([cb330f9](https://github.com/ant-design/pro-components/commit/cb330f98d8708dc1320d00ef1190643ecfa25139))
 
 ## [7.17.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.12...@ant-design/pro-layout@7.17.13) (2023-11-01)
 
