@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.36
+﻿## @ant-design/pro-components@2.6.37
+
+`2023-11-15`
+
+- fix(form): Password support popoverProps. [39aa69b](https://github.com/ant-design/pro-components/commit/39aa69b)
+
+## @ant-design/pro-components@2.6.36
 
 `2023-11-14`
 
