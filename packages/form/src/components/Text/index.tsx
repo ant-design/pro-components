@@ -69,6 +69,7 @@ const PasssWordStrength: React.FC<
           return value && value.length && status ? (
             <Progress
               status={passwordProgressMap[status]}
+              steps={3}
               style={{
                 width: '100%',
               }}
