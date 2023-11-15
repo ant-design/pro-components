@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.37
+﻿## @ant-design/pro-components@2.6.38
+
+`2023-11-15`
+
+- fix(form): Password support strengthText. [fcade9f](https://github.com/ant-design/pro-components/commit/fcade9f)
+
+## @ant-design/pro-components@2.6.37
 
 `2023-11-15`
 

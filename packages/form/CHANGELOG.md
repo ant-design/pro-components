@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.1...@ant-design/pro-form@2.22.2) (2023-11-15)
 
-
 ### Bug Fixes
 
-* **form:** Password support strengthText ([fcade9f](https://github.com/ant-design/pro-components/commit/fcade9f3bce22cb032ad5c00a71fc22035e224d2))
-
-
-
-
+- **form:** Password support strengthText ([fcade9f](https://github.com/ant-design/pro-components/commit/fcade9f3bce22cb032ad5c00a71fc22035e224d2))
 
 ## [2.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.0...@ant-design/pro-form@2.22.1) (2023-11-15)
 
