@@ -1,4 +1,12 @@
-﻿## @ant-design/pro-components@2.6.38
+﻿## @ant-design/pro-components@2.6.39
+
+`2023-11-15`
+
+- fix(form): PassWord getPercent support status. [7c1bf34](https://github.com/ant-design/pro-components/commit/7c1bf34)
+- fix(form): PasssWord statusRender support value. [5abe403](https://github.com/ant-design/pro-components/commit/5abe403)
+- fix(form): PasssWord use Progress step. [ee6beb6](https://github.com/ant-design/pro-components/commit/ee6beb6)
+
+## @ant-design/pro-components@2.6.38
 
 `2023-11-15`
 

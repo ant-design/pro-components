@@ -1,20 +1,14 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.22.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.2...@ant-design/pro-form@2.22.3) (2023-11-15)
 
-
 ### Bug Fixes
 
-* **form:** PasssWord statusRender support value ([5abe403](https://github.com/ant-design/pro-components/commit/5abe403aecc3d98b365c8b5fa75763f8b79a494d))
-* **form:** PasssWord use Progress step ([ee6beb6](https://github.com/ant-design/pro-components/commit/ee6beb6d35ec6b58a06e2357a7616dac09252b16))
-* **form:** PassWord getPercent support status ([7c1bf34](https://github.com/ant-design/pro-components/commit/7c1bf34115e2ff0eeafea4545261e35591347e3d))
-
-
-
-
+- **form:** PasssWord statusRender support value ([5abe403](https://github.com/ant-design/pro-components/commit/5abe403aecc3d98b365c8b5fa75763f8b79a494d))
+- **form:** PasssWord use Progress step ([ee6beb6](https://github.com/ant-design/pro-components/commit/ee6beb6d35ec6b58a06e2357a7616dac09252b16))
+- **form:** PassWord getPercent support status ([7c1bf34](https://github.com/ant-design/pro-components/commit/7c1bf34115e2ff0eeafea4545261e35591347e3d))
 
 ## [2.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.1...@ant-design/pro-form@2.22.2) (2023-11-15)
 
