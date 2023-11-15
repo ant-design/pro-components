@@ -71,6 +71,7 @@ const PasssWordStrength: React.FC<
                   padding: '4px 0',
                 }}
               >
+                {props.statusRender?.(value)}
                 {props.strengthText ? (
                   <div
                     style={{
