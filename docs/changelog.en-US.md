@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.40
+﻿## @ant-design/pro-components@2.6.41
+
+`2023-11-15`
+
+- fix(form): fix statusRender no work error. [a94f13e](https://github.com/ant-design/pro-components/commit/a94f13e)
+
+## @ant-design/pro-components@2.6.40
 
 `2023-11-15`
 

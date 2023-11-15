@@ -396,19 +396,19 @@ importers:
         specifier: 2.5.26
         version: link:../card
       '@ant-design/pro-descriptions':
-        specifier: 2.5.24
+        specifier: 2.5.25
         version: link:../descriptions
       '@ant-design/pro-field':
         specifier: 2.14.1
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.22.4
+        specifier: 2.22.5
         version: link:../form
       '@ant-design/pro-layout':
         specifier: 7.17.15
         version: link:../layout
       '@ant-design/pro-list':
-        specifier: 2.5.39
+        specifier: 2.5.40
         version: link:../list
       '@ant-design/pro-provider':
         specifier: 2.13.4
@@ -417,7 +417,7 @@ importers:
         specifier: 2.1.9
         version: link:../skeleton
       '@ant-design/pro-table':
-        specifier: 3.13.8
+        specifier: 3.13.9
         version: link:../table
       '@ant-design/pro-utils':
         specifier: 2.15.1
@@ -432,7 +432,7 @@ importers:
         specifier: 2.14.1
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.22.4
+        specifier: 2.22.5
         version: link:../form
       '@ant-design/pro-skeleton':
         specifier: 2.1.9
@@ -613,7 +613,7 @@ importers:
         specifier: 2.14.1
         version: link:../field
       '@ant-design/pro-table':
-        specifier: 3.13.8
+        specifier: 3.13.9
         version: link:../table
       '@ant-design/pro-utils':
         specifier: 2.15.1
@@ -682,7 +682,7 @@ importers:
         specifier: 2.14.1
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.22.4
+        specifier: 2.22.5
         version: link:../form
       '@ant-design/pro-provider':
         specifier: 2.13.4
