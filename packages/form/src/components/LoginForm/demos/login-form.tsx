@@ -88,7 +88,7 @@ export default () => {
                     }
                     return 'poor';
                   },
-                  getPercent: (value) => {
+                  getPercent: (status, value) => {
                     if (value && value.length > 12) {
                       return 100;
                     }

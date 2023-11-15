@@ -43,7 +43,7 @@ const passwordProgressMap = {
 export type PasssWordStrengthProps = {
   getStatus?: (value?: string) => PasswordStatus;
   statusRender?: (status: PasswordStatus, value?: string) => React.ReactNode;
-  getPercent?: (value?: string) => number;
+  getPercent?: (status: PasswordStatus, value?: string) => number;
   popoverProps?: PopoverProps;
   strengthText?: React.ReactNode;
 };
@@ -73,7 +73,7 @@ const PasssWordStrength: React.FC<
               style={{
                 width: '100%',
               }}
-              percent={props.getPercent?.(value) || 0}
+              percent={props.getPercent?.(status, value) || 0}
               showInfo={false}
             />
           ) : null;
@@ -95,13 +95,15 @@ const PasssWordStrength: React.FC<
               >
                 {props?.statusRender?.(status, value)}
                 {getPasswordProgressDom()}
-                <div
-                  style={{
-                    marginTop: 10,
-                  }}
-                >
-                  <span>{props.strengthText}</span>
-                </div>
+                {props.strengthText ? (
+                  <div
+                    style={{
+                      marginTop: 10,
+                    }}
+                  >
+                    <span>{props.strengthText}</span>
+                  </div>
+                ) : null}
               </div>
             }
             overlayStyle={{
