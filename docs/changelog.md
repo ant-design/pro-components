@@ -1,4 +1,10 @@
-﻿## @ant-design/pro-components@2.6.39
+﻿## @ant-design/pro-components@2.6.40
+
+`2023-11-15`
+
+- fix(form): PasssWordStrength remove progressDom. [77099e4](https://github.com/ant-design/pro-components/commit/77099e4)
+
+## @ant-design/pro-components@2.6.39
 
 `2023-11-15`
 
