@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.22.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.4...@ant-design/pro-form@2.22.5) (2023-11-15)
+
+
+### Bug Fixes
+
+* **form:** fix statusRender no work error ([a94f13e](https://github.com/ant-design/pro-components/commit/a94f13eeb9993c96d9f660a1f16e1255b701b04d))
+
+
+
+
 
 ## [2.22.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.3...@ant-design/pro-form@2.22.4) (2023-11-15)
 
