@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.22.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.3...@ant-design/pro-form@2.22.4) (2023-11-15)
+
+
+### Bug Fixes
+
+* **form:** PasssWordStrength remove progressDom ([77099e4](https://github.com/ant-design/pro-components/commit/77099e4728c5539325109025c369598ae7e0df82))
+
+
+
+
 
 ## [2.22.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.2...@ant-design/pro-form@2.22.3) (2023-11-15)
 
