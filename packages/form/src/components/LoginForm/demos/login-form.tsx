@@ -77,6 +77,8 @@ export default () => {
                 fieldProps={{
                   size: 'large',
                   prefix: <LockOutlined className={'prefixIcon'} />,
+                  strengthText:
+                    'Password should contain numbers, letters and special characters, at least 8 characters long.',
                   getStatus: (value) => {
                     if (value && value.length > 12) {
                       return 'ok';

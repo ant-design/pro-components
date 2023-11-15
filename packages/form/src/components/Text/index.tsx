@@ -45,6 +45,7 @@ export type PasssWordStrengthProps = {
   statusRender?: (status: PasswordStatus) => React.ReactNode;
   getPercent?: (value?: string) => number;
   popoverProps?: PopoverProps;
+  strengthText?: React.ReactNode;
 };
 
 const PasssWordStrength: React.FC<
@@ -98,7 +99,7 @@ const PasssWordStrength: React.FC<
                     marginTop: 10,
                   }}
                 >
-                  <span>请至少输入 6 个字符。请不要使用容易被猜到的密码。</span>
+                  <span>{props.strengthText}</span>
                 </div>
               </div>
             }
@@ -134,6 +135,7 @@ const Password: React.FC<
         statusRender={fieldProps?.statusRender}
         getPercent={fieldProps?.getPercent}
         popoverProps={fieldProps?.popoverProps}
+        strengthText={fieldProps?.strengthText}
         open={open}
         onOpenChange={setOpen}
       >
@@ -145,6 +147,7 @@ const Password: React.FC<
               'statusRender',
               'getPercent',
               'popoverProps',
+              'strengthText',
             ]),
             onBlur: (e: any) => {
               fieldProps?.onBlur?.(e);
