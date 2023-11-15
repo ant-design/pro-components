@@ -1,5 +1,5 @@
 import { useMountMergeState } from '@ant-design/pro-utils';
-import { Form, Popover, Progress, type InputProps } from 'antd';
+import { Form, Popover, PopoverProps, Progress, type InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/lib/input';
 import omit from 'omit.js';
 import React, { useState } from 'react';
@@ -44,6 +44,7 @@ export type PasssWordStrengthProps = {
   getStatus?: (value?: string) => PasswordStatus;
   statusRender?: (status: PasswordStatus) => React.ReactNode;
   getPercent?: (value?: string) => number;
+  popoverProps?: PopoverProps;
 };
 
 const PasssWordStrength: React.FC<
@@ -105,6 +106,7 @@ const PasssWordStrength: React.FC<
               width: 240,
             }}
             placement="right"
+            {...props.popoverProps}
             open={open}
           >
             {props.children}
@@ -131,13 +133,19 @@ const Password: React.FC<
         getStatus={fieldProps?.getStatus}
         statusRender={fieldProps?.statusRender}
         getPercent={fieldProps?.getPercent}
+        popoverProps={fieldProps?.popoverProps}
         open={open}
         onOpenChange={setOpen}
       >
         <ProField
           valueType="password"
           fieldProps={{
-            ...omit(fieldProps, ['getStatus', 'statusRender', 'getPercent']),
+            ...omit(fieldProps, [
+              'getStatus',
+              'statusRender',
+              'getPercent',
+              'popoverProps',
+            ]),
             onBlur: (e: any) => {
               fieldProps?.onBlur?.(e);
               setOpen(false);
