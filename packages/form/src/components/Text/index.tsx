@@ -1,5 +1,5 @@
 import { useMountMergeState } from '@ant-design/pro-utils';
-import { Form, Popover, PopoverProps, Progress, type InputProps } from 'antd';
+import { Form, Popover, PopoverProps, type InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/lib/input';
 import omit from 'omit.js';
 import React, { useState } from 'react';
@@ -34,16 +34,8 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
 
 export type PasswordStatus = 'ok' | 'pass' | 'poor' | undefined;
 
-const passwordProgressMap = {
-  ok: 'success',
-  pass: 'normal',
-  poor: 'exception',
-} as const;
-
 export type PasssWordStrengthProps = {
-  getStatus?: (value?: string) => PasswordStatus;
-  statusRender?: (status: PasswordStatus, value?: string) => React.ReactNode;
-  getPercent?: (status: PasswordStatus, value?: string) => number;
+  statusRender?: (value?: string) => React.ReactNode;
   popoverProps?: PopoverProps;
   strengthText?: React.ReactNode;
 };
@@ -64,20 +56,6 @@ const PasssWordStrength: React.FC<
     <Form.Item shouldUpdate noStyle>
       {(form) => {
         const value = form.getFieldValue(props.name || []) as string;
-        const status = props.getStatus?.(value);
-        const getPasswordProgressDom = () => {
-          return value && value.length && status ? (
-            <Progress
-              status={passwordProgressMap[status]}
-              steps={3}
-              style={{
-                width: '100%',
-              }}
-              percent={props.getPercent?.(status, value) || 0}
-              showInfo={false}
-            />
-          ) : null;
-        };
         return (
           <Popover
             getPopupContainer={(node) => {
@@ -93,8 +71,6 @@ const PasssWordStrength: React.FC<
                   padding: '4px 0',
                 }}
               >
-                {props?.statusRender?.(status, value)}
-                {getPasswordProgressDom()}
                 {props.strengthText ? (
                   <div
                     style={{
@@ -130,13 +106,11 @@ const Password: React.FC<
 }: ProFormFieldItemProps<PasswordProps & PasssWordStrengthProps, InputRef>) => {
   const [open, setOpen] = useState<boolean>(false);
 
-  if (fieldProps?.getStatus && fieldProps?.statusRender && rest.name) {
+  if (fieldProps?.statusRender && rest.name) {
     return (
       <PasssWordStrength
         name={rest.name}
-        getStatus={fieldProps?.getStatus}
         statusRender={fieldProps?.statusRender}
-        getPercent={fieldProps?.getPercent}
         popoverProps={fieldProps?.popoverProps}
         strengthText={fieldProps?.strengthText}
         open={open}
@@ -146,9 +120,7 @@ const Password: React.FC<
           valueType="password"
           fieldProps={{
             ...omit(fieldProps, [
-              'getStatus',
               'statusRender',
-              'getPercent',
               'popoverProps',
               'strengthText',
             ]),

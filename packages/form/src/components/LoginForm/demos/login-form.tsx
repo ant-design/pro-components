@@ -79,25 +79,18 @@ export default () => {
                   prefix: <LockOutlined className={'prefixIcon'} />,
                   strengthText:
                     'Password should contain numbers, letters and special characters, at least 8 characters long.',
-                  getStatus: (value) => {
-                    if (value && value.length > 12) {
-                      return 'ok';
-                    }
-                    if (value && value.length > 6) {
-                      return 'pass';
-                    }
-                    return 'poor';
-                  },
-                  getPercent: (status, value) => {
-                    if (value && value.length > 12) {
-                      return 100;
-                    }
-                    if (value && value.length > 6) {
-                      return 50;
-                    }
-                    return ((value?.length || 1) / 12) * 100;
-                  },
-                  statusRender: (status) => {
+
+                  statusRender: (value) => {
+                    const getStatus = () => {
+                      if (value && value.length > 12) {
+                        return 'ok';
+                      }
+                      if (value && value.length > 6) {
+                        return 'pass';
+                      }
+                      return 'poor';
+                    };
+                    const status = getStatus();
                     if (status === 'pass') {
                       return (
                         <div style={{ color: token.colorWarning }}>
