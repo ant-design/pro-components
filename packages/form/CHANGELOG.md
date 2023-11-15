@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.0...@ant-design/pro-form@2.22.1) (2023-11-15)
+
+
+### Bug Fixes
+
+* **form:** Password support popoverProps ([39aa69b](https://github.com/ant-design/pro-components/commit/39aa69b9b38f9cafe2e3df1c66da78d6c784ad6d))
+
+
+
+
 
 # [2.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.21.6...@ant-design/pro-form@2.22.0) (2023-11-14)
 
