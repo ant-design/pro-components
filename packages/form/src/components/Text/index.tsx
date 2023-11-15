@@ -42,7 +42,7 @@ const passwordProgressMap = {
 
 export type PasssWordStrengthProps = {
   getStatus?: (value?: string) => PasswordStatus;
-  statusRender?: (status: PasswordStatus) => React.ReactNode;
+  statusRender?: (status: PasswordStatus, value?: string) => React.ReactNode;
   getPercent?: (value?: string) => number;
   popoverProps?: PopoverProps;
   strengthText?: React.ReactNode;
@@ -63,7 +63,7 @@ const PasssWordStrength: React.FC<
   return (
     <Form.Item shouldUpdate noStyle>
       {(form) => {
-        const value = form.getFieldValue(props.name || []);
+        const value = form.getFieldValue(props.name || []) as string;
         const status = props.getStatus?.(value);
         const getPasswordProgressDom = () => {
           return value && value.length && status ? (
@@ -93,7 +93,7 @@ const PasssWordStrength: React.FC<
                   padding: '4px 0',
                 }}
               >
-                {props?.statusRender?.(status)}
+                {props?.statusRender?.(status, value)}
                 {getPasswordProgressDom()}
                 <div
                   style={{
@@ -128,7 +128,7 @@ const Password: React.FC<
 }: ProFormFieldItemProps<PasswordProps & PasssWordStrengthProps, InputRef>) => {
   const [open, setOpen] = useState<boolean>(false);
 
-  if (fieldProps?.getStatus && fieldProps?.statusRender) {
+  if (fieldProps?.getStatus && fieldProps?.statusRender && rest.name) {
     return (
       <PasssWordStrength
         name={rest.name}
