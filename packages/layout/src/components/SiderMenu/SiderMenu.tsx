@@ -2,7 +2,6 @@ import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { AvatarProps, SiderProps } from 'antd';
 import { Avatar, Layout, Menu, Space } from 'antd';
-import { SiderContext } from 'antd/es/layout/Sider';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
 import type { CSSProperties } from 'react';
@@ -17,7 +16,7 @@ import { BaseMenu } from './BaseMenu';
 import type { SiderMenuToken } from './style/stylish';
 import { useStylish } from './style/stylish';
 
-const { Sider } = Layout;
+const { Sider, _InternalSiderContext: SiderContext } = Layout;
 
 export type HeaderRenderKey = 'menuHeaderRender' | 'headerTitleRender';
 
