@@ -17,7 +17,7 @@
   "license": "MIT",
   "sideEffects": false,
   "main": "lib/index.js",
-  "unpkg": "dist/components.min.js",
+  "unpkg": "dist/pro-components.min.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
   "files": [
