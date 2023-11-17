@@ -58,6 +58,9 @@ export default () => {
             reject();
           });
         }}
+        onTimingFinish={() => {
+          console.log('timing finish');
+        }}
         fieldRef={captchaRef}
         fieldProps={{ ref: inputRef }}
         name="code"
