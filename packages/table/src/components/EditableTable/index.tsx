@@ -304,7 +304,7 @@ function EditableTable<
 
   useEffect(() => {
     if (!props.controlled) return;
-    value.forEach((current, index) => {
+    (value || []).forEach((current, index) => {
       formRef.current?.setFieldsValue({
         [`${getRowKey(current, index)}`]: current,
       });
