@@ -15,6 +15,9 @@ export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
   /** @name 获取验证码的方法 */
   onGetCaptcha: (mobile: string) => Promise<void>;
 
+  /** @name 计时回调 */
+  onTiming?: (count: number) => void;
+
   /** @name 渲染按钮的文字 */
   captchaTextRender?: (timing: boolean, count: number) => React.ReactNode;
 
@@ -42,6 +45,7 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
       name,
       phoneName,
       fieldProps,
+      onTiming,
       captchaTextRender = (paramsTiming, paramsCount) => {
         return paramsTiming ? `${paramsCount} 秒后重新获取` : '获取验证码';
       },
@@ -89,6 +93,13 @@ const BaseProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef(
       return () => clearInterval(interval);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [timing]);
+
+    useEffect(() => {
+      if (onTiming) {
+        onTiming(count);
+      }
+    }, [count, onTiming]);
+
     return (
       <div
         style={{

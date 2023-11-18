@@ -141,6 +141,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | onGetCaptcha | 点击获取验证码的事件，如果配置了 phoneName 会自动注入 | `(phone)=>Promise<any>` | - |
+| onTiming | 计时数字监听 | `(count: number)=>void` | - |
 | captchaProps | 获取验证码按钮的 props，与 antd 的 props 相同 | `ButtonProps` | - |
 | countDown | 倒计时的秒数 | number | 60 |
 | captchaTextRender | 渲染计时的文案 | `(timing: boolean, count: number) => React.ReactNode` | - |
