@@ -1,4 +1,11 @@
-﻿## @ant-design/pro-components@2.6.41
+﻿## @ant-design/pro-components@2.6.42
+
+`2023-11-20`
+
+- feat(form): ProFormCaptcha onTiming callback (#7908). [#7908](https://github.com/ant-design/pro-components/pull/#7908) [@ModestFun](https://github.com/ModestFun)
+- fix(table): slove editable wrapper by null initvalue (#7900). [#7900](https://github.com/ant-design/pro-components/pull/#7900) [@ONLY-yours](https://github.com/ONLY-yours)
+
+## @ant-design/pro-components@2.6.41
 
 `2023-11-15`
 
