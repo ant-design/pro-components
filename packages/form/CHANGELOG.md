@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.5...@ant-design/pro-form@2.23.0) (2023-11-20)
+
+
+### Features
+
+* **form:** ProFormCaptcha onTiming callback ([#7908](https://github.com/ant-design/pro-components/issues/7908)) ([b04a280](https://github.com/ant-design/pro-components/commit/b04a2809773df13959110e64179a6c36eb136c15))
+
+
+
+
 
 ## [2.22.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.22.4...@ant-design/pro-form@2.22.5) (2023-11-15)
 

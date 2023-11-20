@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.13.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.9...@ant-design/pro-table@3.13.10) (2023-11-20)
+
+
+### Bug Fixes
+
+* **table:** slove editable wrapper by null initvalue ([#7900](https://github.com/ant-design/pro-components/issues/7900)) ([c9cad09](https://github.com/ant-design/pro-components/commit/c9cad091682eeb3b0901f7e7dcbf9f5583ea31dd))
+
+
+
+
 
 ## [3.13.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.8...@ant-design/pro-table@3.13.9) (2023-11-15)
 

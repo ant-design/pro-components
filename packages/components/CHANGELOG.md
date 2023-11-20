@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.6.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.6.41...@ant-design/pro-components@2.6.42) (2023-11-20)
+
+
+### Bug Fixes
+
+* entry file of the unpkg ([#7903](https://github.com/ant-design/pro-components/issues/7903)) ([4e1dc70](https://github.com/ant-design/pro-components/commit/4e1dc704af46c82acd57218835d14b43a0e8fbd5))
+
+
+
+
 
 ## [2.6.41](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.6.40...@ant-design/pro-components@2.6.41) (2023-11-15)
 
