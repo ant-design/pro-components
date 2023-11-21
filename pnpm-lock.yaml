@@ -149,11 +149,11 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
       antd:
-        specifier: ^5.11.1
-        version: 5.11.1(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.11.2
+        version: 5.11.2(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
       antd-style:
         specifier: ^3.5.2
-        version: 3.5.2(@types/react@18.2.37)(antd@5.11.1)(react-dom@18.2.0)(react@18.2.0)
+        version: 3.5.2(@types/react@18.2.37)(antd@5.11.2)(react-dom@18.2.0)(react@18.2.0)
       babel-loader:
         specifier: ^9.1.3
         version: 9.1.3(@babel/core@7.23.3)
@@ -180,7 +180,7 @@ importers:
         version: 2.2.14(@babel/core@7.23.3)(@types/node@14.18.63)(@types/react@18.2.37)(eslint@8.53.0)(prettier@2.8.8)(react-dom@18.2.0)(react@18.2.0)(stylelint@13.13.1)(typescript@5.2.2)
       dumi-theme-antd-style:
         specifier: 0.25.1
-        version: 0.25.1(@ant-design/icons@5.2.6)(@types/react@18.2.37)(antd@5.11.1)(dumi@2.2.14)(react-dom@18.2.0)(react@18.2.0)
+        version: 0.25.1(@ant-design/icons@5.2.6)(@types/react@18.2.37)(antd@5.11.2)(dumi@2.2.14)(react-dom@18.2.0)(react@18.2.0)
       esbuild:
         specifier: ^0.15.18
         version: 0.15.18
@@ -7263,7 +7263,7 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /antd-style@3.5.2(@types/react@18.2.37)(antd@5.11.1)(react-dom@18.2.0)(react@18.2.0):
+  /antd-style@3.5.2(@types/react@18.2.37)(antd@5.11.2)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-DnISjaD4M37wbKvMVkkx4XetCOvTnmTrmSgETQADzQPRn9PNb0FuLE6djS9SFJgjR9XqNIytn0ano0UBgwgpvA==}
     peerDependencies:
       antd: '>=5.8.1'
@@ -7277,7 +7277,7 @@ packages:
       '@emotion/serialize': 1.1.2
       '@emotion/server': 11.11.0(@emotion/css@11.11.2)
       '@emotion/utils': 1.2.1
-      antd: 5.11.1(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
+      antd: 5.11.2(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       use-merge-value: 1.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -7285,8 +7285,8 @@ packages:
       - react-dom
     dev: true
 
-  /antd@5.11.1(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-X7Gk1TtJtM9goTrmTPVserqcP7crtV2TX/pbxgqyHpMZRrnBy0EI3h4ngrW+zsIAW8/iqpgrYsG/NVUel6xkBA==}
+  /antd@5.11.2(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-7/yqmfXpShHH0MJQOgv3vX9PUFwctyBm/G5L0i/S4AQy20ON6ZZ2UkjmWxgwg3vq2CEHKyVGTHozpH9WwDizgw==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -7329,7 +7329,7 @@ packages:
       rc-slider: 10.4.0(react-dom@18.2.0)(react@18.2.0)
       rc-steps: 6.0.1(react-dom@18.2.0)(react@18.2.0)
       rc-switch: 4.1.0(react-dom@18.2.0)(react@18.2.0)
-      rc-table: 7.35.2(react-dom@18.2.0)(react@18.2.0)
+      rc-table: 7.36.0(react-dom@18.2.0)(react@18.2.0)
       rc-tabs: 12.13.1(react-dom@18.2.0)(react@18.2.0)
       rc-textarea: 1.5.3(react-dom@18.2.0)(react@18.2.0)
       rc-tooltip: 6.1.2(react-dom@18.2.0)(react@18.2.0)
@@ -10319,7 +10319,7 @@ packages:
     resolution: {integrity: sha512-a/Y5lf0G6gwsEQ9hop/n03CcjmHsGBk384Cz/AEX6mRYrfSpUx/lQvP9HLoXkCzScl9PL1sSmLPnMkgaXDCZLA==}
     dev: true
 
-  /dumi-theme-antd-style@0.25.1(@ant-design/icons@5.2.6)(@types/react@18.2.37)(antd@5.11.1)(dumi@2.2.14)(react-dom@18.2.0)(react@18.2.0):
+  /dumi-theme-antd-style@0.25.1(@ant-design/icons@5.2.6)(@types/react@18.2.37)(antd@5.11.2)(dumi@2.2.14)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-L9QFflPNkwm8Fm13UapGlViRUutukEANOSkZme75rjzkfqroFNs7Yaur0dXanARkC0VYLfSfhAmh94xdd02vCw==}
     peerDependencies:
       '@ant-design/icons': '>=4'
@@ -10337,8 +10337,8 @@ packages:
       '@floating-ui/react': 0.17.0(react-dom@18.2.0)(react@18.2.0)
       ahooks: 3.7.8(react@18.2.0)
       animated-scroll-to: 2.3.0
-      antd: 5.11.1(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
-      antd-style: 3.5.2(@types/react@18.2.37)(antd@5.11.1)(react-dom@18.2.0)(react@18.2.0)
+      antd: 5.11.2(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
+      antd-style: 3.5.2(@types/react@18.2.37)(antd@5.11.2)(react-dom@18.2.0)(react@18.2.0)
       chalk: 4.1.2
       chroma-js: 2.4.2
       copy-to-clipboard: 3.3.3
@@ -19851,6 +19851,23 @@ packages:
 
   /rc-table@7.35.2(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-ZLIZdAEdfen21FI21xt2LDg9chQ7gc5Lpy4nkjWKPDgmQMnH0KJ8JQQzrd3zrEN16xzjiVdHHvRmi1RU8BtgYg==}
+    engines: {node: '>=8.x'}
+    peerDependencies:
+      react: '>=16.9.0'
+      react-dom: '>=16.9.0'
+    dependencies:
+      '@babel/runtime': 7.23.2
+      '@rc-component/context': 1.4.0(react-dom@18.2.0)(react@18.2.0)
+      classnames: 2.3.2
+      rc-resize-observer: 1.4.0(react-dom@18.2.0)(react@18.2.0)
+      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
+      rc-virtual-list: 3.11.3(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
+  /rc-table@7.36.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-3xVcdCC5OLeOOhaCg+5Lps2oPreM/GWXmUXWTSX4p6vF7F76ABM4dfPpMJ9Dnf5yGRyh+8pe7FRyhRVnWw2H/w==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
