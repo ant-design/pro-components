@@ -6,12 +6,12 @@ order: 1
 
 # ProForm 高级表单
 
-ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
+ProForm 在原来的 Form 的基础上增加了一些语法糖和更多的布局设置，帮助我们快速地开发一个表单，同时添加了一些默认行为，让我们的表单默认好用。
 
-分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选等多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的功能。
+分步表单、Modal 表单、Drawer 表单、查询表单、轻量筛选等多种 layout 可以覆盖大部分的使用场景，让我们脱离复杂而且繁琐的表单布局工作，用更少的代码完成更多的功能。
 
-- 如果你想要设置默认值，请使用 `initialValues`,任何直接使用组件 `value` 和 `onChange` 的方式都有可能导致值绑定失效。
-- 如果想要表单联动或者做一些依赖，可以使用 render props 模式, ProFormDependency 绝对是最好的选择
+- 如果想要设置默认值，请使用 `initialValues`，任何直接使用组件 `value` 和 `onChange` 的方式都有可能导致值绑定失效
+- 如果想要表单联动或者做一些依赖，可以使用 render props 模式，ProFormDependency 绝对是最好的选择
 - ProForm 的 onFinish 与 antd 的 Form 不同，是个 Promise，如果你正常返回会自动为你设置按钮的加载效果
 - 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有裨益
 - ProForm 没有黑科技，只是 antd 的 Form 的封装，如果要使用自定义的组件可以用 Form.Item 包裹后使用，支持混用
@@ -65,10 +65,10 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 
 | 布局 | 使用场景 |
 | --- | --- |
-| [ProForm](/components/form#proform) | 标准 Form，增加了 `onFinish` 中自动 `loading` 和 根据 `request` 自动获取默认值的功能。 |
-| [ModalForm\|DrawerForm](/components/modal-form) | 在 ProForm 的基础上增加了 `trigger` ，无需维护 `visible` 状态 |
-| [QueryFilter](/components/query-filter) | 一般用于作为筛选表单，需要配合其他数据展示组件使用 |
-| [LightFilter](/components/query-filter) | 一般用于作为行内内置的筛选，比如卡片操作栏和 表格操作栏。 |
+| [ProForm](/components/form#proform) | 标准 Form，增加了 `onFinish` 中自动 `loading` 和根据 `request` 自动获取默认值的功能。 |
+| [ModalForm\|DrawerForm](/components/modal-form) | 在 ProForm 的基础上增加了 `trigger` ，无需维护 `visible` 状态。 |
+| [QueryFilter](/components/query-filter) | 一般用于作为筛选表单，需要配合其他数据展示组件使用。 |
+| [LightFilter](/components/query-filter) | 一般用于作为行内内置的筛选，比如卡片操作栏和表格操作栏。 |
 | [StepsForm](/components/steps-form) | 分步表单，需要配置 StepForm 使用。 |
 
 <code src="../demos/layout-change.tsx" title="Form 的 layout 切换"></code>
@@ -120,7 +120,7 @@ transform 发生在提交的时候，一般来说都是吐给后端的存在数�
 </ProFormDependency>
 ```
 
-formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 的 Form 多的功能，详细可以看 ProFormInstance 的类型定义。
+formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 的 Form 新增的功能，详细可以看 ProFormInstance 的类型定义。
 
 ```tsx | pure
   /** 获取被 ProForm 格式化后的所有数据  */
@@ -204,21 +204,21 @@ formRef 内置了几个方法来获取转化之后的值，这也是相比 antd 
 
 ## ProForm
 
-ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProForm 与 antd 的方法是相同的，你仍然可以用 FormItem + 自定义组件的方式来自定义。当然这样不会影响到别的组件，QueryFilter 等组件同理。
+ProForm 是对 antd Form 的再封装，如果你想要自定义表单元素，ProForm 与 antd 的方法是相同的，你仍然可以用 FormItem + 自定义组件的方式来自定义。当然这样不会影响到别的组件，QueryFilter 等组件同理。
 
-> antd 的 Form api 查看[这里](https://ant.design/components/form-cn/) initialValues 相关知识查看[这里](https://procomponents.ant.design/docs/faq)
+> antd 的 Form api 查看[这里](https://ant.design/components/form-cn/)，initialValues 相关知识查看[这里](https://procomponents.ant.design/docs/faq)
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `(values)=>Promise<void>` | - |
 | onReset | 点击重置按钮的回调 | `(e)=>void` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
-| syncToUrl | 同步参数到 url 上,url 只支持 string，在使用之前最好读一下[url 中的参数类型](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `true` \| `(values,type)=>values` | - |
-| syncToInitialValues | 同步结果到 initialValues,默认为 true 如果为 false，form.reset 的时将会忽略从 url 上获取的数据 | `boolean` | `true` |
-| dateFormatter | 自动格式数据,主要是 moment 的表单,支持 string 和 number 两种模式，此外还支持指定函数进行格式化。 | `string\| number \| ((value: Moment, valueType: string) => string \| number) \| false` | string |
+| syncToUrl | 同步参数到 url 上，url 只支持 string，在使用之前最好读一下[url 中的参数类型](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `true` \| `(values,type)=>values` | - |
+| syncToInitialValues | 同步结果到 initialValues，默认为 true，如果为 false，form.reset 的时候将会忽略从 url 上获取的数据 | `boolean` | `true` |
+| dateFormatter | 自动格式化数据，主要是 moment 的表单，支持 string 和 number 两种模式，此外还支持指定函数进行格式化。 | `string\| number \| ((value: Moment, valueType: string) => string \| number) \| false` | string |
 | omitNil | ProForm 会自动清空 null 和 undefined 的数数据，如果你约定了 nil 代表某种数据，可以设置为 false 关闭此功能 | `boolean` | true |
-| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
-| request | 发起网络请求的参数,返回值会覆盖给 initialValues | `(params)=>Promise<data>` | - |
+| params | 发起网络请求的参数，与 request 配合使用 | `Record` | - |
+| request | 发起网络请求的参数，返回值会覆盖给 initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | 是否使用回车提交 | `boolean` | - |
 | formRef | 获取表单所使用的 form | `MutableRefObject<Instance<T>>` | - |
 | autoFocusFirstInput | 自动 focus 表单第一个输入框 | `boolean` | - |
@@ -435,13 +435,13 @@ export default () => {
 };
 ```
 
-`ProFormInstance`在原先`FormInstance`的基础上增加了如下方法：
+`ProFormInstance` 在原先 `FormInstance` 的基础上增加了如下方法：
 
 | 方法名 | 使用描述 | 备注 |
 | :-: | :-: | :-: |
-| `getFieldsFormatValue` | 使用方法与`FormInstance`的`getFieldsValue`方法相同，将返回格式化后的所有数据 |  |
-| `getFieldFormatValue` | 使用方法与`FormInstance`的`getFieldValue`方法相同，将返回格式化后的指定数据 |  |
-| `validateFieldsReturnFormatValue` | 使用方法与`FormInstance`的`validateFields`方法相同，验证通过后将返回格式化后的所有数据 |  |
+| `getFieldsFormatValue` | 使用方法与 `FormInstance` 的 `getFieldsValue` 方法相同，将返回格式化后的所有数据 |  |
+| `getFieldFormatValue` | 使用方法与 `FormInstance` 的 `getFieldValue` 方法相同，将返回格式化后的指定数据 |  |
+| `validateFieldsReturnFormatValue` | 使用方法与 `FormInstance` 的 `validateFields` 方法相同，验证通过后将返回格式化后的所有数据 |  |
 
 <code src="../demos/modalform-test.tsx"  debug></code>
 

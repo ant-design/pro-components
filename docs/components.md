@@ -5,7 +5,7 @@ order: 0
 
 # 架构设计
 
-ProComponents 是基于 Ant Design 而开发的模板组件，提供了更高级别的抽象支持，开箱即用。可以显著的提升制作 CRUD 页面的效率，更加专注于页面。
+ProComponents 是基于 Ant Design 而开发的模板组件，提供了更高级别的抽象支持，开箱即用。可以显著地提升制作 CRUD 页面的效率，更加专注于页面。
 
 - [ProLayout](/components/layout) 解决布局的问题，提供开箱即用的菜单和面包屑功能
 - [ProTable](/components/table) 表格模板组件，抽象网络请求和表格格式化
@@ -18,7 +18,7 @@ ProComponents 是基于 Ant Design 而开发的模板组件，提供了更高级
 
 ## 与网络请求库配置使用
 
-ProTable，ProList 使用了新的数据结构，如果你使用了我们约定的参数使用起来会非常简单。
+ProTable 和 ProList 使用了新的数据结构，如果你使用了我们约定的参数使用起来会非常简单。
 
 ```tsx | pure
 const msg: {
@@ -34,7 +34,7 @@ const msg: {
 };
 ```
 
-如果你的后端数据使用了自己熟悉的 url，虽然我们可以用 umi 的 request 来转化，但是每个 table 都需要配置就比较麻烦。如果你使用 umi 的 request，我们可以定义一个全局的转化器。我们需要在 app.tsx 中配置
+如果你的后端数据使用了自己熟悉的 url，虽然我们可以用 Umi 的 request 来转化，但是每个 table 都需要配置就比较麻烦。如果你使用 Umi 的 request，我们可以定义一个全局的转化器。我们需要在 app.tsx 中配置
 
 ```tsx | pure
 import { request, RequestConfig } from 'umi';
