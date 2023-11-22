@@ -116,6 +116,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             key: originItem.key || originItem.dataIndex || index,
             columns: originItem.columns,
             valueEnum: originItem.valueEnum,
+            disabled: originItem.disable,
             dataIndex: originItem.dataIndex || originItem.key,
             initialValue: originItem.initialValue,
             width: originItem.width,
