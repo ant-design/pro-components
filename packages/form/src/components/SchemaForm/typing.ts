@@ -80,6 +80,8 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
     colSize?: number;
     /** 是否只读模式 */
     readonly?: boolean;
+    /** 是否禁用表单项 */
+    disable?: boolean;
     /** 搜索表单的默认值 */
     initialValue?: any;
     /**
