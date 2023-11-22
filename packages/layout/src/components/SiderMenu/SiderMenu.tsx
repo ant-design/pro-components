@@ -1,10 +1,10 @@
 import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { AvatarProps, SiderProps } from 'antd';
-import { Avatar, Layout, Menu, Space } from 'antd';
+import { Avatar, Layout, Menu, Space, version } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { WithFalse } from '../../typing';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
@@ -16,7 +16,22 @@ import { BaseMenu } from './BaseMenu';
 import type { SiderMenuToken } from './style/stylish';
 import { useStylish } from './style/stylish';
 
-const { Sider, _InternalSiderContext: SiderContext } = Layout;
+const _SafetyWarningProvider: FC<{ children: ReactNode }> = React.memo(
+  (props) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(
+        `[pro-layout] SiderMenu required antd@^4.24.15 || antd@^5.11.2 for access the menu context, please upgrade your antd version (current ${version}).`,
+      );
+    }
+
+    return props.children;
+  },
+);
+
+const {
+  Sider,
+  _InternalSiderContext: SiderContext = { Provider: _SafetyWarningProvider },
+} = Layout;
 
 export type HeaderRenderKey = 'menuHeaderRender' | 'headerTitleRender';
 
