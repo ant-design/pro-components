@@ -48,7 +48,7 @@
     "@babel/runtime": "^7.16.3"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0 || >=5.0.0",
+    "antd": "^4.24.15 || ^5.11.2",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },
