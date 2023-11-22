@@ -24,7 +24,7 @@ const _SafetyWarningProvider: FC<{ children: ReactNode }> = React.memo(
       );
     }
 
-    return props.children;
+    return <>{props.children}</>;
   },
 );
 
