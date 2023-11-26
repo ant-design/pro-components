@@ -705,7 +705,7 @@ export type ProSchema<
    * @example 如果id=1不允许编辑
    * editable={(value,row,index)=> row.id !==1 }
    */
-  editable?: false | ProTableEditableFnType<Entity>;
+  editable?: boolean | ProTableEditableFnType<Entity>;
 
   /** @name 从服务器请求枚举 */
   request?: ProFieldRequestData;
