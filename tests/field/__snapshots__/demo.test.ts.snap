@@ -347,7 +347,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                     class="ant-descriptions-item-content"
                   >
                     <span>
-                      23天555小时33分钟20秒
+                      23天3小时33分钟20秒
                     </span>
                   </span>
                 </div>
