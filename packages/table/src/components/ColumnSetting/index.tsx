@@ -189,7 +189,7 @@ const CheckboxList: React.FC<{
       const targetIndex = newColumns.findIndex(
         (columnKey) => columnKey === targetId,
       );
-      const isDownWard = dropPosition > findIndex;
+      const isDownWard = dropPosition >= findIndex;
       if (findIndex < 0) return;
       const targetItem = newColumns[findIndex];
       newColumns.splice(findIndex, 1);
