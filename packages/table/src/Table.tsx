@@ -750,11 +750,6 @@ const ProTable = <
   /** 同步 action */
   counter.setAction(actionRef.current);
 
-  if (propsActionRef) {
-    // @ts-ignore
-    propsActionRef.current = actionRef.current;
-  }
-
   // ---------- 列计算相关 start  -----------------
   const tableColumn = useMemo(() => {
     return genProColumnToColumn<T>({
