@@ -7,10 +7,11 @@ import { TableContext } from '../../Store/Provide';
 
 export type DensitySize = 'middle' | 'small' | 'large' | undefined;
 
-const DensityIcon = () => {
+const DensityIcon = (props: { icon?: React.ReactNode }) => {
+  const { icon = <ColumnHeightOutlined /> } = props;
   const counter = useContext(TableContext);
   const intl = useIntl();
-  const props = menuOverlayCompatible({
+  const dropdownProps = menuOverlayCompatible({
     selectedKeys: [counter.tableSize as string],
     onClick: ({ key }) => {
       counter.setTableSize?.(key as DensitySize);
@@ -33,10 +34,13 @@ const DensityIcon = () => {
       },
     ],
   });
+
+  console.log('props', props);
+
   return (
-    <Dropdown {...props} trigger={['click']}>
+    <Dropdown {...dropdownProps} trigger={['click']}>
       <Tooltip title={intl.getMessage('tableToolBar.density', '表格密度')}>
-        <ColumnHeightOutlined />
+        {icon}
       </Tooltip>
     </Dropdown>
   );
