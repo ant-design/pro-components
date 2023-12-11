@@ -15373,7 +15373,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>
@@ -15554,7 +15554,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>
@@ -15734,7 +15734,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>
@@ -15914,7 +15914,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>
@@ -16094,7 +16094,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>
@@ -36943,7 +36943,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>
@@ -37013,7 +37013,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>
@@ -37970,7 +37970,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 86%; height: 6px;"
+                                          style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -38019,7 +38019,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 86%; height: 6px;"
+                                          style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -50724,7 +50724,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>
@@ -50798,7 +50798,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 86%; height: 6px;"
+                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
                                     />
                                   </div>
                                 </div>

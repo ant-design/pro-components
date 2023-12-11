@@ -1251,7 +1251,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -1369,7 +1369,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -1487,7 +1487,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -1605,7 +1605,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -1723,7 +1723,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -1841,7 +1841,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -1959,7 +1959,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -2077,7 +2077,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                         />
                                       </div>
                                     </div>
@@ -4349,7 +4349,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -4483,7 +4483,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -4617,7 +4617,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -4751,7 +4751,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -4885,7 +4885,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -5762,7 +5762,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -5891,7 +5891,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -6020,7 +6020,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -6149,7 +6149,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>
@@ -7567,7 +7567,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                               >
                                 <div
                                   class="qixian-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 100%; height: 8px; clip-path: inset(0 20% 0 0 round 100px);"
                                 />
                               </div>
                             </div>

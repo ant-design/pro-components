@@ -81,18 +81,18 @@ const genSettingDrawerStyle: GenerateStyle<SettingDrawerToken> = (token) => {
           },
 
           '&-dark,&-side': {
-            backgroundColor: '#f7f8fa',
+            backgroundColor: token.colorBgElevated,
             '&::before': { zIndex: '1', backgroundColor: '#001529' },
-            '&::after': { backgroundColor: '#fff' },
+            '&::after': { backgroundColor: token.colorBgContainer },
           },
           '&-top': {
-            backgroundColor: '#f7f8fa',
+            backgroundColor: token.colorBgElevated,
             '&::before': { backgroundColor: 'transparent' },
             '&::after': { backgroundColor: '#001529' },
           },
           '&-mix': {
-            backgroundColor: '#f7f8fa',
-            '&::before': { backgroundColor: '#fff' },
+            backgroundColor: token.colorBgElevated,
+            '&::before': { backgroundColor: token.colorBgContainer },
             '&::after': { backgroundColor: '#001529' },
           },
         },
