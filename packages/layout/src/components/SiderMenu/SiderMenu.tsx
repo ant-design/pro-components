@@ -98,8 +98,9 @@ export type SiderMenuProps = {
     AvatarProps & {
       title?: React.ReactNode;
       render?: (
-        props: AvatarProps,
+        avatarProps: AvatarProps,
         defaultDom: React.ReactNode,
+        props: SiderMenuProps,
       ) => React.ReactNode;
     }
   >;
@@ -300,7 +301,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       </div>
     );
     if (render) {
-      return render(avatarProps, dom);
+      return render(avatarProps, dom, props);
     }
     return dom;
   }, [avatarProps, baseClassName, collapsed]);
