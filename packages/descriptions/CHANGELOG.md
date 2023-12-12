@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.5.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.27...@ant-design/pro-descriptions@2.5.28) (2023-12-12)
+
+
+### Bug Fixes
+
+* **Descriptions:** fix emptytext alway set error ([85f1366](https://github.com/ant-design/pro-components/commit/85f1366383cd9308f8197a1d2ea87e07602ceb70))
+
+
+
+
 
 ## [2.5.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.26...@ant-design/pro-descriptions@2.5.27) (2023-11-22)
 
