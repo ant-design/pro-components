@@ -1,4 +1,15 @@
-﻿## @ant-design/pro-components@2.6.42
+﻿## @ant-design/pro-components@2.6.44
+
+`2023-12-12`
+
+- fix(layout): pass SiderProps to avatar render function (#7963). [#7963](https://github.com/ant-design/pro-components/pull/#7963) [@jaulz](https://github.com/jaulz)
+- fix(layout): slove DensityIcon setting not work (#7942). [#7942](https://github.com/ant-design/pro-components/pull/#7942) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): fix cjs require statement (#7952). [#7952](https://github.com/ant-design/pro-components/pull/#7952) [@shijistar](https://github.com/shijistar)
+- fix(table): remove unless code (#7954). [#7954](https://github.com/ant-design/pro-components/pull/#7954) [@linxianxi](https://github.com/linxianxi)
+- fix(table): DragSortTable --- Reorder columns by dragging and dropping columns will have issues when the table has fixed columns first (#7936). [#7936](https://github.com/ant-design/pro-components/pull/#7936) [@tanjianyong](https://github.com/tanjianyong)
+- fix(Descriptions): fix emptytext alway set error. [85f1366](https://github.com/ant-design/pro-components/commit/85f1366)
+
+## @ant-design/pro-components@2.6.42
 
 `2023-11-20`
 
