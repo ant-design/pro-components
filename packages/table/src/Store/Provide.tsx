@@ -89,7 +89,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         try {
           const storageValue = storage?.getItem(persistenceKey);
           if (storageValue) {
-            return JSON.parse(storageValue);
+            return { ...JSON.parse(storageValue), ...defaultColumnKeyMap };
           }
         } catch (error) {
           console.warn(error);
@@ -118,7 +118,10 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
       try {
         const storageValue = storage?.getItem(persistenceKey);
         if (storageValue) {
-          setColumnsMap(JSON.parse(storageValue));
+          setColumnsMap({
+            ...JSON.parse(storageValue),
+            ...defaultColumnKeyMap,
+          });
         } else {
           setColumnsMap(defaultColumnKeyMap);
         }

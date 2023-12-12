@@ -168,6 +168,9 @@ export default () => {
       columnsState={{
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
+        defaultValue: {
+          title: { show: false },
+        },
         onChange(value) {
           console.log('value: ', value);
         },
