@@ -100,7 +100,7 @@ export type SiderMenuProps = {
       render?: (
         avatarProps: AvatarProps,
         defaultDom: React.ReactNode,
-        props: SiderMenuProps,
+        props?: SiderMenuProps,
       ) => React.ReactNode;
     }
   >;
