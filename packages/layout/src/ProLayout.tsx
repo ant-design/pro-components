@@ -824,6 +824,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                       token.layout?.sider?.colorTextMenuSelected ||
                       'rgba(0, 0, 0, 1)',
                     popupBg: token?.colorBgElevated,
+                    subMenuItemBg: token?.colorBgElevated,
+                    darkSubMenuItemBg: 'transparent',
                     // @ts-expect-error
                     darkPopupBg: token?.colorBgElevated,
                   }),

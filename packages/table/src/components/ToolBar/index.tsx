@@ -83,7 +83,7 @@ function getButtonText(
     },
     density: {
       text: intl.getMessage('tableToolBar.density', '表格密度'),
-      icon: options.densityIcon ?? <DensityIcon />,
+      icon: <DensityIcon icon={options.densityIcon} />,
     },
     fullScreen: {
       text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
