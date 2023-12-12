@@ -320,7 +320,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             hashId,
           ])}
         >
-          {actionsRender?.(props).map((item, index) => {
+          {actionsRender?.(props as HeaderViewProps).map((item, index) => {
             return (
               <div
                 key={index}
