@@ -82,14 +82,13 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
   >(
     () => {
       const { persistenceType, persistenceKey } = props.columnsState || {};
-
       if (persistenceKey && persistenceType && typeof window !== 'undefined') {
         /** 从持久化中读取数据 */
         const storage = window[persistenceType];
         try {
           const storageValue = storage?.getItem(persistenceKey);
           if (storageValue) {
-            return JSON.parse(storageValue);
+            return { ...JSON.parse(storageValue), ...defaultColumnKeyMap };
           }
         } catch (error) {
           console.warn(error);
@@ -111,14 +110,13 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
   /**  配置或列更改时对columnsMap重新赋值 */
   useEffect(() => {
     const { persistenceType, persistenceKey } = props.columnsState || {};
-
     if (persistenceKey && persistenceType && typeof window !== 'undefined') {
       /** 从持久化中读取数据 */
       const storage = window[persistenceType];
       try {
         const storageValue = storage?.getItem(persistenceKey);
         if (storageValue) {
-          setColumnsMap(JSON.parse(storageValue));
+          setColumnsMap({...JSON.parse(storageValue),...defaultColumnKeyMap});
         } else {
           setColumnsMap(defaultColumnKeyMap);
         }
