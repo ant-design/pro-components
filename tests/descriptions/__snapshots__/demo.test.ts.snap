@@ -834,7 +834,6 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
     </div>
     <div
       class="ant-descriptions ant-pro-descriptions"
-      emptytext="空"
     >
       <div
         class="ant-descriptions-header"

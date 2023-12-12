@@ -44,7 +44,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
     ];
 
     if (render) {
-      return render(avatarProps, <div>{domList}</div>);
+      return render(avatarProps, <div>{domList}</div>, props);
     }
     return <div>{domList}</div>;
   }, [avatarProps]);

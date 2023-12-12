@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.17.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.16...@ant-design/pro-layout@7.17.17) (2023-12-12)
+
+### Bug Fixes
+
+- **layout:** pass SiderProps to avatar render function ([#7963](https://github.com/ant-design/pro-components/issues/7963)) ([627e7bf](https://github.com/ant-design/pro-components/commit/627e7bf67551a479a7473085aec716c910db54a0))
+
 ## [7.17.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.15...@ant-design/pro-layout@7.17.16) (2023-11-22)
 
 **Note:** Version bump only for package @ant-design/pro-layout

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.2...@ant-design/pro-field@2.14.3) (2023-12-12)
+
+### Bug Fixes
+
+- **Description:** slove valueType as Second calc problem ([#7929](https://github.com/ant-design/pro-components/issues/7929)) ([81249b3](https://github.com/ant-design/pro-components/commit/81249b3650d74684c02436d5d2ed378d5f29cb75))
+- **form:** fix cjs require statement ([#7952](https://github.com/ant-design/pro-components/issues/7952)) ([e16d2ec](https://github.com/ant-design/pro-components/commit/e16d2ec316c28f75fe82f576045cae48467408fa))
+
 ## [2.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.1...@ant-design/pro-field@2.14.2) (2023-11-22)
 
 **Note:** Version bump only for package @ant-design/pro-field

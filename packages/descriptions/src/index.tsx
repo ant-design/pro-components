@@ -178,6 +178,7 @@ export const FieldRender: React.FC<
     request,
     renderFormItem,
     params,
+    emptyText,
   } = props;
   const form = ProForm.useFormInstance();
 
@@ -188,7 +189,7 @@ export const FieldRender: React.FC<
     valueEnum,
     mode: mode || 'read',
     proFieldProps: {
-      emptyText: props.emptyText,
+      emptyText,
       render: render
         ? (finText: string) => {
             return render?.(finText, entity, index, action, {
@@ -506,6 +507,7 @@ const ProDescriptions = <
     onLoadingChange,
     actionRef,
     onRequestError,
+    emptyText,
     ...rest
   } = props;
 

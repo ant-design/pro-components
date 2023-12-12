@@ -73,6 +73,7 @@ export type GlobalHeaderProps = {
       render?: (
         props: AvatarProps,
         defaultDom: React.ReactNode,
+        siderProps: SiderMenuProps,
       ) => React.ReactNode;
     }
   >;

@@ -13,7 +13,10 @@ function useDeepCompareMemo<T>(
   factory: () => T,
   dependencies: React.DependencyList,
 ) {
-  return React.useMemo(factory, useDeepCompareMemoize(dependencies));
+  return React.useMemo(
+    factory,
+    useDeepCompareMemoize(dependencies) as unknown as React.DependencyList,
+  );
 }
 
 export default useDeepCompareMemo;
