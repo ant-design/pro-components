@@ -104,10 +104,10 @@ importers:
         specifier: ^14.18.63
         version: 14.18.63
       '@types/react':
-        specifier: ^18.2.45
+        specifier: ^18.0.38
         version: 18.2.45
       '@types/react-dom':
-        specifier: ^18.2.17
+        specifier: ^18.0.11
         version: 18.2.17
       '@types/react-helmet':
         specifier: ^6.1.11
@@ -4888,7 +4888,7 @@ packages:
       resolve: 1.22.8
       semver: 7.5.4
       source-map: 0.6.1
-      typescript: 4.8.4
+      typescript: 5.0.4
     transitivePeerDependencies:
       - '@types/node'
     dev: true
@@ -23455,12 +23455,6 @@ packages:
     dependencies:
       minimatch: 3.1.2
       typescript: 5.0.4
-    dev: true
-
-  /typescript@4.8.4:
-    resolution: {integrity: sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
     dev: true
 
   /typescript@5.0.4:
