@@ -549,6 +549,62 @@ describe('Table ColumnSetting', () => {
     expect(overlay.length).toBe(2);
   });
 
+  it('🎏 columnSetting columnsState.persistenceKey with defaultValue', async () => {
+    const callBack = vi.fn();
+
+    window.localStorage.setItem(
+      'test-keys-with-defaultValue',
+      JSON.stringify({
+        index: { fixed: 'left' },
+        Age: { show: false },
+        option: { fixed: 'right' },
+      }),
+    );
+    const html = render(
+      <ProTable
+        size="small"
+        columnsState={{
+          persistenceKey: 'test-keys-with-defaultValue',
+          persistenceType: 'localStorage',
+          defaultValue: {
+            status: { disable: true },
+            option: { disable: true },
+          },
+          onChange: callBack,
+        }}
+        columns={columns}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitForWaitTime(100);
+
+    act(() => {
+      html.baseElement
+        .querySelector<HTMLDivElement>(
+          '.ant-pro-table-list-toolbar-setting-item .anticon-setting',
+        )
+        ?.click();
+    });
+    await waitForWaitTime(100);
+    const overlay = html.baseElement.querySelectorAll<HTMLDivElement>(
+      '.ant-tree-checkbox-disabled',
+    );
+    expect(overlay.length).toBe(2);
+  });
+
   it('🎏 columnSetting columnsState.persistenceKey is error dom', async () => {
     const callBack = vi.fn();
 
