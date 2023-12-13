@@ -169,7 +169,7 @@ export default () => {
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
         defaultValue: {
-          title: { show: false },
+          option: { fixed: 'right', disable: true },
         },
         onChange(value) {
           console.log('value: ', value);

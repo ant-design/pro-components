@@ -1,4 +1,5 @@
 ﻿import type { TableColumnType } from 'antd';
+import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
 import {
@@ -89,7 +90,13 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         try {
           const storageValue = storage?.getItem(persistenceKey);
           if (storageValue) {
-            return { ...JSON.parse(storageValue), ...defaultColumnKeyMap };
+            if (props?.columnsState?.defaultValue) {
+              return merge(
+                JSON.parse(storageValue),
+                props?.columnsState?.defaultValue,
+              );
+            }
+            return JSON.parse(storageValue);
           }
         } catch (error) {
           console.warn(error);
@@ -118,10 +125,16 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
       try {
         const storageValue = storage?.getItem(persistenceKey);
         if (storageValue) {
-          setColumnsMap({
-            ...JSON.parse(storageValue),
-            ...defaultColumnKeyMap,
-          });
+          if (props?.columnsState?.defaultValue) {
+            setColumnsMap(
+              merge(
+                JSON.parse(storageValue),
+                props?.columnsState?.defaultValue,
+              ),
+            );
+          } else {
+            setColumnsMap(JSON.parse(storageValue));
+          }
         } else {
           setColumnsMap(defaultColumnKeyMap);
         }
