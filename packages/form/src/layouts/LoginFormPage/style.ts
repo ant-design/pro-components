@@ -66,7 +66,7 @@ const genLoginFormStyle: GenerateStyle<LoginFormToken> = (token) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '44px',
+        minHeight: '44px',
         lineHeight: '44px',
         a: {
           textDecoration: 'none',
