@@ -99,7 +99,7 @@
     "copy-to-clipboard": "^3.3.3",
     "cross-env": "^7.0.3",
     "dayjs": "^1.11.10",
-    "dumi": "^2.2.15",
+    "dumi": "^2.2.16",
     "dumi-theme-antd-style": "0.25.1",
     "esbuild": "^0.15.18",
     "eslint": "^8.55.0",
