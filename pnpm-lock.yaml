@@ -711,6 +711,9 @@ importers:
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
+      lodash.merge:
+        specifier: ^4.6.2
+        version: 4.6.2
       omit.js:
         specifier: ^2.0.2
         version: 2.0.2
@@ -721,6 +724,9 @@ importers:
         specifier: ^5.0.1
         version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
+      '@types/lodash.merge':
+        specifier: ^4.6.7
+        version: 4.6.9
       typescript:
         specifier: ^5.0.4
         version: 5.2.2
