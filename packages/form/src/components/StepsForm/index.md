@@ -51,4 +51,6 @@ StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完
 
 与 [ProForm](/components/form) 完全相同，只是 onFinish 支持了 Promise，如果返回 `false`, 就不会跳转下一步。
 
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
 | onFinish | 表单提交成功触发 | `(values:T)=>Promise<false>` | - |
