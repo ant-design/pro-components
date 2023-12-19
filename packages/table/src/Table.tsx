@@ -885,7 +885,10 @@ const ProTable = <
       );
 
     if (searchFormRender && node) {
-      return <>{searchFormRender(props, node)}</>;
+      return <>{searchFormRender({
+        ...props,
+        onFormSearchSubmit,
+      }, node)}</>;
     } else {
       return node;
     }
