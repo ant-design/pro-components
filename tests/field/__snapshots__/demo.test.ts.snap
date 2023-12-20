@@ -245,7 +245,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                     class="ant-descriptions-item-content"
                   >
                     <span>
-                      ¥100.00
+                      ¥¥100.00
                     </span>
                   </span>
                 </div>
@@ -1825,7 +1825,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                       </div>
                     </div>
                     <span>
-                      💰2,221,212.22
+                      💰¥2,221,212.22
                     </span>
                   </span>
                 </div>
@@ -4688,19 +4688,19 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
               重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
             </span>
           </button>
         </div>
@@ -4798,19 +4798,19 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
               重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
             </span>
           </button>
         </div>
@@ -5209,19 +5209,19 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
               重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
             </span>
           </button>
         </div>
