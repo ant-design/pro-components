@@ -331,26 +331,24 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           )
         }
       >
-        <div
-          className={
-            resize
-              ? classNames(getCls('sidebar-dragger'), hashId, {
-                  [getCls('sidebar-dragger-min-disabled')]:
-                    drawerWidth === resizeInfo?.minWidth,
-                  [getCls('sidebar-dragger-max-disabled')]:
-                    drawerWidth === resizeInfo?.maxWidth,
-                })
-              : null
-          }
-          onMouseDown={(e) => {
-            resizeInfo?.onResize?.();
-            e.stopPropagation();
-            e.preventDefault();
-            document.addEventListener('mousemove', cbHandleMouseMove);
-            document.addEventListener('mouseup', cbHandleMouseUp);
-            setResizableDrawer(true);
-          }}
-        />
+        {resize ? (
+          <div
+            className={classNames(getCls('sidebar-dragger'), hashId, {
+              [getCls('sidebar-dragger-min-disabled')]:
+                drawerWidth === resizeInfo?.minWidth,
+              [getCls('sidebar-dragger-max-disabled')]:
+                drawerWidth === resizeInfo?.maxWidth,
+            })}
+            onMouseDown={(e) => {
+              resizeInfo?.onResize?.();
+              e.stopPropagation();
+              e.preventDefault();
+              document.addEventListener('mousemove', cbHandleMouseMove);
+              document.addEventListener('mouseup', cbHandleMouseUp);
+              setResizableDrawer(true);
+            }}
+          />
+        ) : null}
         <>
           <BaseForm<T, U>
             formComponentType="DrawerForm"
