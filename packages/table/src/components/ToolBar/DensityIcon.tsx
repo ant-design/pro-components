@@ -35,8 +35,6 @@ const DensityIcon = (props: { icon?: React.ReactNode }) => {
     ],
   });
 
-  console.log('props', props);
-
   return (
     <Dropdown {...dropdownProps} trigger={['click']}>
       <Tooltip title={intl.getMessage('tableToolBar.density', '表格密度')}>
