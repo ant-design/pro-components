@@ -1,152 +1,152 @@
 ---
-title: StatisticCard - 指标卡
+title: StatisticCard - Indicator Card
 order: 1
 atomId: StatisticCard
 ---
 
-# StatisticCard 指标卡
+# StatisticCard - Indicator Card
 
-指标卡结合统计数值用于展示某主题的核心指标，结合 [Ant Design Charts](https://charts.ant.design/) 图表库丰富数值内容，满足大多数数值展示的场景。
+The Indicator Card combines statistical values to display the core indicators of a certain topic. It integrates with [Ant Design Charts](https://charts.ant.design/) to enrich the numerical content and meet the requirements of most data display scenarios.
 
-> 注意 demo 中的所有图表示例可以到 charts 的官网中找到，这里不再给出实际代码示例，仅以图片进行代替，所以相关交互是没有的。
+> Note: All chart examples in the demo can be found on the official website of charts. Here, only images are used instead of actual code examples, so there is no related interaction.
 
-> 若有内容撑开卡片的情况请设置内容宽度为 100% 或设置定宽。
+> If the content of the card is expanded, please set the content width to 100% or set a fixed width.
 
-## 何时使用
+## When to use
 
-- 1）在页面内的重要位置，展示重要信息；
-- 2）在概览页面展示系统功能。
+- 1) Display important information in important positions within a page;
+- 2) Display system functions on overview pages.
 
-## 代码演示
+## Code Demo
 
-### 基本使用
+### Basic Usage
 
-使用数值统计配置 `statistic` 和 `chart` 完成基本的指标卡。
+Use the `statistic` and `chart` properties to configure the numerical statistics and chart to create a basic indicator card.
 
-<code src="./demos/basic.tsx" background="var(--main-bg-color)"  oldtitle="基本使用"></code>
+<code src="./demos/basic.tsx" background="var(--main-bg-color)"  oldtitle="Basic Usage"></code>
 
-### 只有图表
+### Chart Only
 
-当图表单独展示在卡片中时。
+When the chart is displayed alone in the card.
 
-<code src="./demos/chart.tsx" background="var(--main-bg-color)" oldtitle="只有图表" ></code>
+<code src="./demos/chart.tsx" background="var(--main-bg-color)" oldtitle="Chart Only" ></code>
 
-### 额外指标
+### Extra Indicators
 
-- `footer` 用于设置额外的指标展示区域。
-- 你可以设置 `Statistic` 组件的布局方式`layout` 为 `horizontal` 来展示横向指标。
+- The `footer` property is used to set the area for displaying additional indicators.
+- You can set the `layout` property of the `Statistic` component to `horizontal` to display the indicators horizontally.
 
-### 总分/主次关系
+### Total Score/Primary and Secondary Relationship
 
-<code src="./demos/total.tsx" background="var(--main-bg-color)" oldtitle="总分/主次关系" ></code>
+<code src="./demos/total.tsx" background="var(--main-bg-color)" oldtitle="Total Score/Primary and Secondary Relationship" ></code>
 
-### 总分/业绩目标
+### Total Score/Performance Target
 
-<code src="./demos/total-layout.tsx" background="var(--main-bg-color)" oldtitle="总分/业绩目标" ></code>
+<code src="./demos/total-layout.tsx" background="var(--main-bg-color)" oldtitle="Total Score/Performance Target" ></code>
 
-### 分组指标
+### Grouped Indicators
 
-你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
+You can nest indicator card components to group indicators, and use the `Divider` component to separate these indicators.
 
-### 分组指标带图表
+### Grouped Indicators with Chart
 
-<code src="./demos/group-chart.tsx" background="var(--main-bg-color)"  oldtitle="分组指标带图表"></code>
+<code src="./demos/group-chart.tsx" background="var(--main-bg-color)"  oldtitle="Grouped Indicators with Chart"></code>
 
-### 公式计算指标
+### Formula Calculation Indicator
 
-`Operation` 可以接受子元素，借此可以实现各种各样的公式计算指标。
+The `Operation` component can accept child elements, allowing you to implement various formula calculation indicators.
 
-<code src="./demos/fomula.tsx" background="var(--main-bg-color)" oldtitle="公式计算指标" ></code>
+<code src="./demos/fomula.tsx" background="var(--main-bg-color)" oldtitle="Formula Calculation Indicator" ></code>
 
-### 状态展示
+### Status Display
 
-你可以给每个数值统计配置 `status` 展示其状态。
+You can set the `status` property for each numerical statistic to display its status.
 
-<code src="./demos/status.tsx" background="var(--main-bg-color)" oldtitle="状态展示" ></code>
+<code src="./demos/status.tsx" background="var(--main-bg-color)" oldtitle="Status Display" ></code>
 
-### 图标展示
+### Icon Display
 
-你可以给每个数值统计配置 `icon` 展示其图标。
+You can set the `icon` property for each numerical statistic to display its icon.
 
-<code src="./demos/icon.tsx" background="var(--main-bg-color)" oldtitle="图标展示" ></code>
+<code src="./demos/icon.tsx" background="var(--main-bg-color)" oldtitle="Icon Display" ></code>
 
-### 卡片布局
+### Card Layout
 
-配合 `ProCard` 的卡片切分能力可以实现复杂的卡片布局。
+By using the card splitting capability of `ProCard`, you can achieve complex card layouts.
 
-<code src="./demos/layout.tsx" background="var(--main-bg-color)" oldtitle="卡片布局" ></code>
+<code src="./demos/layout.tsx" background="var(--main-bg-color)" oldtitle="Card Layout" ></code>
 
-### 图表在右
+### Chart on the Right
 
-配置 `chartPlacement` 为 `right` 可以指定图表在数值统计的右边。默认为上下结构。
+Set the `chartPlacement` property to `right` to specify that the chart should be on the right side of the numerical statistic. The default is top-bottom layout.
 
-<code src="./demos/horizontal.tsx" background="var(--main-bg-color)" oldtitle="图表在右" ></code>
+<code src="./demos/horizontal.tsx" background="var(--main-bg-color)" oldtitle="Chart on the Right" ></code>
 
-### 图表在左
+### Chart on the Left
 
-配置 `chartPlacement` 为 `left` 可以指定图表在数值统计的左边。
+Set the `chartPlacement` property to `left` to specify that the chart should be on the left side of the numerical statistic.
 
-<code src="./demos/horizontal-left.tsx" background="var(--main-bg-color)" oldtitle="图表在左" ></code>
+<code src="./demos/horizontal-left.tsx" background="var(--main-bg-color)" oldtitle="Chart on the Left" ></code>
 
-### 指标页签联动
+### Linked Indicator Tabs
 
-结合 `Statistic` 可以实现带指标统计的页签。
+By combining with `Statistic`, you can create tabs with indicator statistics.
 
-<code src="./demos/tabs-statistic.tsx" background="var(--main-bg-color)" oldtitle="带指标页签" ></code>
+<code src="./demos/tabs-statistic.tsx" background="var(--main-bg-color)" oldtitle="Linked Indicator Tabs" ></code>
 
-### 环比趋势
+### Sequential Trend
 
-你可以使用 `Statistic` 组件配置布局 `layout` 为 `inline` 以及 `trend` 来展示环比趋势。
+You can use the `Statistic` component with the `layout` property set to `inline` and the `trend` property to display the sequential trend.
 
-<code src="./demos/trend.tsx" background="var(--main-bg-color)" oldtitle="环比趋势" ></code>
+<code src="./demos/trend.tsx" background="var(--main-bg-color)" oldtitle="Sequential Trend" ></code>
 
 ## API
 
 ### StatisticCard
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| title | 卡片标题 | `string\|ReactNode` | - |
-| extra | 卡片右上角的操作区域 | `string\|ReactNode` | - |
-| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
-| bordered | 是否有边框 | boolean | true |
-| chart | 图表卡片 | ReactNode | - |
-| statistic | 数值统计配置，布局默认为 `vertical` | 参数见下 Statistic | - |
-| chartPlacement | 图表位置，相对于 statistic 的位置 | `left \| right \| bottom` | - |
-| footer | 额外指标展示 | `ReactNode` | - |
+| title | Title of the card | `string\|ReactNode` | - |
+| extra | Extra operations area on the top right of the card | `string\|ReactNode` | - |
+| loading | Whether the card content is still loading, can be used to show a placeholder with loading icon | boolean | false |
+| bordered | Whether the card has a border | boolean | true |
+| chart | Chart component | ReactNode | - |
+| statistic | Configuration for numerical statistics, default layout is `vertical` | See Statistic below | - |
+| chartPlacement | Position of the chart relative to the statistic | `left \| right \| bottom` | - |
+| footer | Extra area for displaying additional indicators | `ReactNode` | - |
 
-更多参考 `ProCard`，支持 `ProCard` 的所有 API。
+Refer to `ProCard` for more details, supports all APIs of `ProCard`.
 
 ### Statistic
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| prefix | 设置数值的前缀 | string \| ReactNode | - |
-| suffix | 设置数值的后缀 | string \| ReactNode | - |
-| title | 数值的标题 | string \| ReactNode | - |
-| tip | 标题提示 | string\| ReactNode | - |
-| value | 数值内容 | string \| number | - |
-| icon | 图标 | ReactNode | - |
-| status | 设置状态点, 同 Badge 组件 | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | - |
-| valueStyle | 设置数值的样式 | style | - |
-| description | 描述性标签 | React.ReactNode \| () => React.ReactNode | - |
-| layout | 布局 | `horizontal \| vertical \| inline` | `inline` |
-| trend | 趋势 | `up \| down \|` | - |
+| prefix | Prefix of the value | string \| ReactNode | - |
+| suffix | Suffix of the value | string \| ReactNode | - |
+| title | Title of the value | string \| ReactNode | - |
+| tip | Tooltip of the title | string\| ReactNode | - |
+| value | Content of the value | string \| number | - |
+| icon | Icon | ReactNode | - |
+| status | Status dot, same as Badge component | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | - |
+| valueStyle | Style of the value | style | - |
+| description | Description label | React.ReactNode \| () => React.ReactNode | - |
+| layout | Layout | `horizontal \| vertical \| inline` | `inline` |
+| trend | Trend | `up \| down \|` | - |
 
-更多 API 参考 [Statistic](https://ant.design/components/statistic-cn/)，支持 `Statistic` 的所有 API。
+Refer to [Statistic](https://ant.design/components/statistic/) for more APIs, supports all APIs of `Statistic`.
 
 ### Divider
 
-用于在将数值统计进行分组时进行分隔。
+Used to separate numerical statistics when grouping.
 
-| 参数 | 说明     | 类型                     | 默认值 |
+| Property | Description | Type | Default |
 | ---- | -------- | ------------------------ | ------ |
-| type | 分隔类型 | `horizontal \| vertical` | -      |
+| type | Type of the divider | `horizontal \| vertical` | -      |
 
 ### Operation
 
-用于操作符渲染。
+Used for rendering operators.
 
 ### Group
 
-属性同 `StatisticCard`，会取消卡片内容边距，用于将多个卡片进行分组。
+Same properties as `StatisticCard`, but cancels the content margin of the card, used to group multiple cards.

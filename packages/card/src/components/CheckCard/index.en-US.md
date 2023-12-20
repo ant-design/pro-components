@@ -1,121 +1,121 @@
 ---
-title: CheckCard - 多选卡片
+title: CheckCard - Multi-select Card
 order: 1
 atomId: CheckCard
 ---
 
-# CheckCard 多选卡片
+# CheckCard - Multi-select Card
 
-集合多种相关联说明信息，并且可被选择的卡片。特点：
+The CheckCard is a card that can contain various related descriptive information and can be selected. Features:
 
-- ① 可容纳多种相关联说明信息，如标题、描述、图片、标签等
-- ② 有明显边界
-- ③ 有明显选中态
+- ① Can contain various related descriptive information, such as title, description, image, labels, etc.
+- ② Has a clear boundary.
+- ③ Has a clear selected state.
 
-## 何时使用
+## When to use
 
-- 需要展示被选择对象的多种说明信息时
-- 被选择对象的数量不多时
+- When you need to display multiple descriptive information of selected objects.
+- When the number of selected objects is not large.
 
-## 代码演示
+## Code Demo
 
-### 基本使用
+### Basic Usage
 
-最常用的选项卡示例，包括头像，标题，描述等部分，可被选择。
+The most commonly used example of a card, including avatar, title, description, etc., and can be selected.
 
 <code src="./demos/basic.tsx" ></code>
 
-<code src="./demos/single.tsx"  description="在多个选项存在的情况下可通过 `CheckCard.Group` 分组，默认选项卡组件为单选模式。" thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/be0fcade-afae-4e85-95ef-a3cc90f6d4b3/kc60kq47_w1362_h412.jpeg" ></code>
+<code src="./demos/single.tsx"  description="When there are multiple options, you can use the `CheckCard.Group` to group them. The default option card component is in single selection mode." thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/be0fcade-afae-4e85-95ef-a3cc90f6d4b3/kc60kq47_w1362_h412.jpeg" ></code>
 
-<code src="./demos/multiple.tsx"  thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/06963ad4-ba2b-4733-a1c5-778e7f696ac1/kc61xhvk_w1364_h280.jpeg" description="通过设置 `CheckCard.Group` 的 `multiple` 属性配置多选，注意多选模式下表单项返回值为数组。"></code>
+<code src="./demos/multiple.tsx"  thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/06963ad4-ba2b-4733-a1c5-778e7f696ac1/kc61xhvk_w1364_h280.jpeg" description="Set the `multiple` property of `CheckCard.Group` to enable multiple selection. Note that in multiple selection mode, the form item returns an array." ></code>
 
-### 不同尺寸
+### Different Sizes
 
-配置 `size` 尺寸大小，当前可选 `large`，`default`，`small`，不同尺寸仅宽度不同。
+Configure the `size` property to change the size of the card. Currently available options are `large`, `default`, and `small`, with only the width being different.
 
 <code src="./demos/size.tsx" ></code>
 
-当然你也可以通过 `style` 或 `className` 自定义卡片大小。
+Of course, you can also customize the size of the card using the `style` or `className` properties.
 
-### 自定义尺寸
+### Custom Size
 
 <code src="./demos/custom.tsx" ></code>
 
-### 表单中使用
+### Using in Form
 
-CheckCard 可以和表单组件一起使用，这里给出演示示例。
+CheckCard can be used together with form components. Here is an example.
 
-<code src="./demos/form.tsx" oldtitle="多选卡片 - 表单中使用" thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/c8fa2080-5a46-4f50-ae99-846b1804f56d/kc62b0ug_w1360_h656.jpeg" ></code>
+<code src="./demos/form.tsx" oldtitle="CheckCard - Using in Form" thumbnail="https://gw.alipayobjects.com/zos/bmw-prod/c8fa2080-5a46-4f50-ae99-846b1804f56d/kc62b0ug_w1360_h656.jpeg" ></code>
 
-### 组合样式
+### Composing Styles
 
-头像，标题，描述区域可以自由组合或者单独呈现，组件会为你调整为最合适的对齐方式。
+The avatar, title, and description areas can be freely combined or presented separately. The component will adjust the alignment for you.
 
 <code src="./demos/compose.tsx" ></code>
 
-### 自定义头像
+### Custom Avatar
 
-你可以通过 `avatar` 属性自定义头像区域。
+You can customize the avatar area using the `avatar` property.
 
 <code src="./demos/avatar.tsx" ></code>
 
-### 自定义标题
+### Custom Title
 
-你可以通过 `title` 属性自定义标题区域。
+You can customize the title area using the `title` property.
 
 <code src="./demos/title.tsx" ></code>
 
-### 自定义描述
+### Custom Description
 
-描述区域可通过 `description` 自定义 React 节点。
+The description area can be customized using the `description` property with a React node.
 
 <code src="./demos/description.tsx" ></code>
 
-### 默认选中
+### Default Checked
 
-通过配置 `defaultChecked` 属性为 `true` 来配置选项默认被选中。
+Set the `defaultChecked` property to `true` to specify that the option is checked by default.
 
 <code src="./demos/defaultChecked.tsx" ></code>
 
-### 操作栏
+### Action Area
 
-配置 `extra` 为卡片添加操作栏。
+Use the `extra` property to add an action area to the card.
 
 <code src="./demos/extra.tsx" ></code>
 
-### 组件 Loading
+### Loading State
 
-通过配置 `loading` 属性为 `true` 来配置内容在加载中。
+Set the `loading` property to `true` to indicate that the content is still loading.
 
 <code src="./demos/loading.tsx" ></code>
 
-### 纯图片选项
+### Image Only Option
 
-通过仅仅配置 `cover` 属性可以让你的选项成为一个纯图片选项。
+By only setting the `cover` property, you can create an image-only option.
 
 <code src="./demos/image.tsx" ></code>
 
-### 选项不可用
+### Disabled Option
 
-通过配置 `disabled` 属性配置选项不可用。
+Set the `disabled` property to disable an option.
 
 <code src="./demos/disabled.tsx" ></code>
 
-### 选项列表
+### Option List
 
-`CheckCard.Group` 支持通过 `options` 属性配置化来列表展示多个选项。
+`CheckCard.Group` supports listing multiple options using the `options` property.
 
 <code src="./demos/group.tsx" ></code>
 
-### 应用列表示例
+### Application List Example
 
-这里展示在实际 AiDesk 中图像算法选择的使用示例。
+Here is an example of using CheckCard to select image algorithms in the actual AiDesk.
 
 <code src="./demos/list.tsx" ></code>
 
-### 布局
+### Layout
 
-`CheckCard.Group` 内嵌 `CheckCard` 并与 `Grid` 组件一起使用，可以实现更灵活的布局。
+`CheckCard.Group` can be used together with `CheckCard` and `Grid` components to achieve more flexible layouts.
 
 <code src="./demos/grid.tsx" ></code>
 
@@ -123,32 +123,32 @@ CheckCard 可以和表单组件一起使用，这里给出演示示例。
 
 ### CheckCard
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| checked | 指定当前是否选中 | boolean | false |
-| bordered | 是否显示边框 | boolean | true | 1.20.0 |
-| value | 选项值 | string | - |
-| defaultChecked | 初始是否选中 | boolean | false |
-| disabled | 失效状态 | boolean | false |
-| size | 选择框大小，可选 `large` `small` | string | `default` |  |
-| onChange | 变化时回调函数 | Function(checked) | - |
-| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
-| title | 标题 | string \| ReactNode | - |
-| description | 描述 | ReactNode | - |
-| avatar | 选项元素的图片地址 | link \| ReactNode | - |
-| extra | 动作区域 | 卡片右上角的操作区域 | - |
-| cover | 卡片背景图片, 注意使用该选项后`title`，`description`和`avatar`失效 | ReactNode | - |
+| checked | Specifies whether the option is selected | boolean | false |  |
+| bordered | Whether to display the border | boolean | true | 1.20.0 |
+| value | Value of the option | string | - |  |
+| defaultChecked | Specifies whether the option is initially selected | boolean | false |  |
+| disabled | Disabled state | boolean | false |  |
+| size | Size of the checkbox, options: `large`, `small` | string | `default` |  |
+| onChange | Callback function when the value changes | Function(checked) | - |  |
+| loading | When the card content is still loading, you can use loading to show a placeholder | boolean | false |  |
+| title | Title | string \| ReactNode | - |  |
+| description | Description | ReactNode | - |  |
+| avatar | Image URL of the option element | link \| ReactNode | - |  |
+| extra | Action area | Extra operations area on the top right of the card | - |  |
+| cover | Background image of the card. Note that when using this option, `title`, `description`, and `avatar` will be ignored | ReactNode | - |  |
 
 ### CheckCard.Group
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| multiple | 多选 | boolean | false |
-| bordered | 是否显示边框 | boolean | true | 1.20.0 |
-| defaultValue | 默认选中的选项 | string \| string\[] | - |
-| disabled | 整组失效 | boolean | false |
-| loading | 当卡片组内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
-| options | 指定可选项 | string\[] \| Array<{ title: ReactNode, value: string, description?: ReactNode, avatar?: link or ReactNode, cover?:ReactNode, disabled?: boolean }> | \[] |
-| value | 指定选中的选项 | string \| string\[] | - |
-| size | 选择框大小，可选 `large` `small` | string | `default` |  |
-| onChange | 变化时回调函数 | Function(checkedValue) | - |
+| multiple | Multiple selection | boolean | false |  |
+| bordered | Whether to display the border | boolean | true | 1.20.0 |
+| defaultValue | Default selected options | string \| string\[] | - |  |
+| disabled | Disable the entire group | boolean | false |  |
+| loading | When the card group content is still loading, you can use loading to show a placeholder | boolean | false |  |
+| options | Specify the options | string\[] \| Array<{ title: ReactNode, value: string, description?: ReactNode, avatar?: link or ReactNode, cover?:ReactNode, disabled?: boolean }> | \[] |  |
+| value | Specify the selected options | string \| string\[] | - |  |
+| size | Size of the checkbox, options: `large`, `small` | string | `default` |  |
+| onChange | Callback function when the value changes | Function(checkedValue) | - |  |

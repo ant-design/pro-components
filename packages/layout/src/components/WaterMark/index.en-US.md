@@ -1,77 +1,77 @@
 ---
-title: WaterMark - 水印组件
+title: WaterMark - Watermark Component
 order: 0
 atomId: WaterMark
 legacy: /layout
 ---
 
-# WaterMark 水印组件
+# WaterMark - Watermark Component
 
-给页面的某个区域加上水印。
+Add a watermark to a specific area of the page.
 
-## 何时使用
+## When to use
 
-页面需要添加水印标识版权时使用。
+Use when you need to add a watermark to indicate copyright on a page.
 
-## 代码演示
+## Code Demo
 
-### 前置水印
+### Frontend Watermark
 
-水印组件默认实现为前置水印，即设想水印会显示在内容的上方，zIndex 默认设置为 9，如果你不希望水印遮挡上层内容，可以调整该值到小于上层内容的 zIndex。
+The watermark component is implemented as a frontend watermark by default, which means the watermark will be displayed on top of the content. The default `zIndex` is set to 9. If you don't want the watermark to cover the content on top, you can adjust this value to a value lower than the `zIndex` of the content on top.
 
 <code src="./demos/frontend.tsx" ></code>
 
-### 文字水印
+### Text Watermark
 
-通过 `content` 指定文字水印内容。
+Specify the text watermark content using the `content` property.
 
 <code src="./demos/text.tsx" ></code>
 
-### 多行文字水印
+### Multiline Text Watermark
 
-通过 `content`设置 字符串数组 指定多行文字水印内容。
+Specify the multiline text watermark content using the `content` property as an array of strings.
 
 <code src="./demos/textRows.tsx" ></code>
 
-### 图片水印
+### Image Watermark
 
-通过 `image` 指定图片地址。为保证图片高清且不被拉伸，请传入水印图片的宽高 width 和 height, 并上传至少两倍的宽高的 logo 图片地址。
+Specify the image URL using the `image` property. To ensure the image is high-definition and not stretched, please provide the width and height of the watermark image, and upload a logo image with at least double the width and height.
 
 <code src="./demos/image.tsx" ></code>
 
-### 自定义配置
+### Custom Configuration
 
-这里给出一些通用配置项。如需进一步配置请联系我们。
+Here are some common configuration options. If you need further customization, please contact us.
 
 <code src="./demos/custom.tsx" background="var(--main-bg-color)"></code>
 
 ## API
 
-### 基础参数
+### Basic Parameters
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| width | 水印的宽度 | number | 120 | 2.2.0 |
-| height | 水印的高度 | number | 64 | 2.2.0 |
-| rotate | 水印绘制时，旋转的角度，单位 ° | number | -22 | 2.2.0 |
-| image | 图片源，建议导出 2 倍或 3 倍图，优先使用图片渲染水印 | `string` | - | 2.2.0 |
-| zIndex | 追加的水印元素的 z-index | number | 9 | 2.2.0 |
-| content | 水印文字内容 | `string` \| `string[]` | - | 2.2.0 |
-| fontColor | 水印文字颜色 | `string` | `rgba(0,0,0,.15)` | 2.2.0 |
-| fontSize | 文字大小 | `string` \| `number` | 16 | 2.2.0 |
+| width | Width of the watermark | number | 120 | 2.2.0 |
+| height | Height of the watermark | number | 64 | 2.2.0 |
+| rotate | Rotation angle of the watermark in degrees | number | -22 | 2.2.0 |
+| image | Image source, it is recommended to export a 2x or 3x image, the watermark will be rendered with the image if specified | `string` | - | 2.2.0 |
+| zIndex | The `z-index` of the appended watermark elements | number | 9 | 2.2.0 |
+| content | Text content of the watermark | `string` \| `string[]` | - | 2.2.0 |
+| fontColor | Text color of the watermark | `string` | `rgba(0,0,0,.15)` | 2.2.0 |
+| fontSize | Font size | `string` \| `number` | 16 | 2.2.0 |
 
-### 高级参数
+### Advanced Parameters
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| markStyle | 水印层的样式 | React.CSSProperties | - | 2.3.0 |
-| markClassName | 水印层的类名 | string | - | 2.3.0 |
-| gapX | 水印之间的水平间距 | number | 212 | 2.4.0 |
-| gapY | 水印之间的垂直间距 | number | 222 | 2.4.0 |
-| offsetLeft | 水印在 canvas 画布上绘制的水平偏移量, 正常情况下，水印绘制在中间位置, 即 `offsetTop = gapX / 2` | number | `offsetTop = gapX / 2` | 2.4.0 |
-| offsetTop | 水印在 canvas 画布上绘制的垂直偏移量，正常情况下，水印绘制在中间位置, 即 `offsetTop = gapY / 2` | number | `offsetTop = gapY / 2` | 2.4.0 |
+| markStyle | Style of the watermark layer | React.CSSProperties | - | 2.3.0 |
+| markClassName | Class name of the watermark layer | string | - | 2.3.0 |
+| gapX | Horizontal spacing between watermarks | number | 212 | 2.4.0 |
+| gapY | Vertical spacing between watermarks | number | 222 | 2.4.0 |
+| offsetLeft | Horizontal offset of the watermark when drawing on the canvas. Normally, the watermark is drawn in the middle position, i.e. `offsetTop = gapX / 2` | number | `offsetTop = gapX / 2` | 2.4.0 |
+| offsetTop | Vertical offset of the watermark when drawing on the canvas. Normally, the watermark is drawn in the middle position, i.e. `offsetTop = gapY / 2` | number | `offsetTop = gapY / 2` | 2.4.0 |
 
-### 水印 API 可视化
+### Watermark API Visualization
 
 ```jsx | inline
 import react from 'react';
