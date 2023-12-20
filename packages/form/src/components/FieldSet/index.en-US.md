@@ -201,8 +201,8 @@ Same as [Input.TextArea](https://ant.design/components/input/#Input.TextArea).
 Same as [checkbox](https://ant.design/components/checkbox/), but supports `options` and `layout`.
 
 | parameters | description | type | default |
-| --- | --- | --- | --- | --- |
-| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| --- | --- | --- | --- |
+| options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
 | layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
 
 ```tsx | pure
@@ -221,8 +221,9 @@ Same as [checkbox](https://ant.design/components/checkbox/), but supports `optio
 Same as [radio](https://ant.design/components/radio/) but with support for `options`.
 
 | parameters | description | type | default |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |  | radioType | Set whether button mode or radio mode | `default` \| `button` | `default` |
+| --- | --- | --- | --- |
+| options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| radioType | Set whether button mode or radio mode | `default` \| `button` | `default` |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -285,9 +286,9 @@ Same as [slider](https://ant.design/components/slider/).
 Same as [upload](https://ant.design/components/upload/). Dragger style is preset, otherwise it is the same as Upload.
 
 | Parameters | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | icon | The chart of the Dragger. | `ReactNode` | InboxOutlined |
-| title | Title | Dragger's title | `ReactNode` | 'Click or drag files to this area to upload' |
+| title | Dragger's title | `ReactNode` | 'Click or drag files to this area to upload' |
 | description | Dragger's description | `ReactNode` | 'Support single or bulk uploads' |
 
 ```tsx | pure
