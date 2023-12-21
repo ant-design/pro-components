@@ -191,7 +191,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
                         class="ant-space-item"
                       >
                         <span>
-                          ¥12,121.00
+                          ¥¥12,121.00
                         </span>
                       </div>
                       <div
@@ -507,7 +507,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     style="min-width: 0;"
                   >
                     <span>
-                      ¥100.00
+                      ¥¥100.00
                     </span>
                   </span>
                 </div>
@@ -975,7 +975,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     style="min-width: 0;"
                   >
                     <span>
-                      ¥1,212,100.00
+                      ¥¥1,212,100.00
                     </span>
                   </span>
                 </div>
@@ -1093,7 +1093,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     style="min-width: 0;"
                   >
                     <span>
-                      ¥1,212,100.00
+                      ¥¥1,212,100.00
                     </span>
                   </span>
                 </div>
@@ -1119,7 +1119,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     style="min-width: 0;"
                   >
                     <span>
-                      1,212,100.00
+                      ¥1,212,100.00
                     </span>
                   </span>
                 </div>
@@ -1145,7 +1145,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     style="min-width: 0;"
                   >
                     <span>
-                      -12,345.33
+                      -¥12,345.33
                     </span>
                   </span>
                 </div>
@@ -1606,7 +1606,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                               style="min-width: 0;"
                             >
                               <span>
-                                ¥1,212,100.00
+                                ¥¥1,212,100.00
                               </span>
                             </span>
                           </div>
@@ -3584,7 +3584,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
                     style="min-width: 0;"
                   >
                     <span>
-                      ¥12,121.00
+                      ¥¥12,121.00
                     </span>
                   </span>
                 </div>
@@ -3854,7 +3854,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                     style="min-width: 0;"
                   >
                     <span>
-                      ¥1,212,100.00
+                      ¥¥1,212,100.00
                     </span>
                   </span>
                 </div>

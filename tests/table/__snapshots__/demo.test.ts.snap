@@ -380,19 +380,19 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -1201,19 +1201,19 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -4295,19 +4295,19 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
             重 置
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
           </span>
         </button>
       </div>
@@ -5059,19 +5059,19 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
               style="display: flex; gap: 8px; align-items: center;"
             >
               <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  提 交
-                </span>
-              </button>
-              <button
                 class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>
                   重 置
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  提 交
                 </span>
               </button>
             </div>
@@ -18032,14 +18032,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="qixian-btn qixian-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="qixian-btn qixian-btn-primary qixian-btn-loading"
                                 type="button"
                               >
@@ -18068,6 +18060,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                                 </span>
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="qixian-btn qixian-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -18947,14 +18947,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                   style="display: flex; gap: 8px; align-items: center;"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-default"
-                                    type="button"
-                                  >
-                                    <span>
-                                      重 置
-                                    </span>
-                                  </button>
-                                  <button
                                     class="ant-btn ant-btn-primary ant-btn-loading"
                                     type="button"
                                   >
@@ -18983,6 +18975,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                     </span>
                                     <span>
                                       查 询
+                                    </span>
+                                  </button>
+                                  <button
+                                    class="ant-btn ant-btn-default"
+                                    type="button"
+                                  >
+                                    <span>
+                                      重 置
                                     </span>
                                   </button>
                                 </div>
@@ -19532,19 +19532,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -20598,19 +20598,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -22169,19 +22169,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -22681,19 +22681,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -23193,19 +23193,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -23944,19 +23944,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -25357,19 +25357,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         style="display: flex; gap: 8px; align-items: center;"
                                       >
                                         <button
-                                          class="ant-btn ant-btn-default"
-                                          type="button"
-                                        >
-                                          <span>
-                                            重 置
-                                          </span>
-                                        </button>
-                                        <button
                                           class="ant-btn ant-btn-primary"
                                           type="button"
                                         >
                                           <span>
                                             查 询
+                                          </span>
+                                        </button>
+                                        <button
+                                          class="ant-btn ant-btn-default"
+                                          type="button"
+                                        >
+                                          <span>
+                                            重 置
                                           </span>
                                         </button>
                                       </div>
@@ -28118,19 +28118,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.t
               style="display: flex; gap: 8px; align-items: center;"
             >
               <button
-                class="ant-btn ant-btn-primary"
-                type="button"
-              >
-                <span>
-                  提 交
-                </span>
-              </button>
-              <button
                 class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>
                   重 置
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  提 交
                 </span>
               </button>
             </div>
@@ -29101,19 +29101,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -29653,19 +29653,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -30020,7 +30020,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                               class="ant-table-cell"
                             >
                               <span>
-                                ¥84.04
+                                ¥¥84.04
                               </span>
                             </td>
                           </tr>
@@ -30970,19 +30970,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                               <button
@@ -34922,19 +34922,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -35659,19 +35659,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -36603,19 +36603,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -37459,19 +37459,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -38464,14 +38464,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default ant-btn-rtl"
-                                type="button"
-                              >
-                                <span>
-                                  إعادة تعيين
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary ant-btn-loading ant-btn-rtl"
                                 type="button"
                               >
@@ -38500,6 +38492,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                                 </span>
                                 <span>
                                   ابحث
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default ant-btn-rtl"
+                                type="button"
+                              >
+                                <span>
+                                  إعادة تعيين
                                 </span>
                               </button>
                             </div>
@@ -39473,19 +39473,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                               <button
@@ -39727,7 +39727,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                               class="ant-table-cell"
                             >
                               <span>
-                                ¥84.04
+                                ¥¥84.04
                               </span>
                             </td>
                           </tr>
@@ -40207,14 +40207,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary ant-btn-loading"
                                 type="button"
                               >
@@ -40243,6 +40235,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                 </span>
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -41076,19 +41076,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
             style="display: flex; gap: 8px; align-items: center;"
           >
             <button
-              class="canvas-btn canvas-btn-default"
-              type="button"
-            >
-              <span>
-                重 置
-              </span>
-            </button>
-            <button
               class="canvas-btn canvas-btn-primary"
               type="button"
             >
               <span>
                 提 交
+              </span>
+            </button>
+            <button
+              class="canvas-btn canvas-btn-default"
+              type="button"
+            >
+              <span>
+                重 置
               </span>
             </button>
           </div>
@@ -41315,19 +41315,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="canvas-btn canvas-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="canvas-btn canvas-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="canvas-btn canvas-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -42128,19 +42128,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="canvas-btn canvas-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="canvas-btn canvas-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="canvas-btn canvas-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -45415,14 +45415,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                 style="display: flex; gap: 4px; align-items: center;"
                               >
                                 <button
-                                  class="ant-btn ant-btn-default"
-                                  type="button"
-                                >
-                                  <span>
-                                    重 置
-                                  </span>
-                                </button>
-                                <button
                                   class="ant-btn ant-btn-primary ant-btn-loading"
                                   type="button"
                                 >
@@ -45451,6 +45443,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                   </span>
                                   <span>
                                     查 询
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-default"
+                                  type="button"
+                                >
+                                  <span>
+                                    重 置
                                   </span>
                                 </button>
                               </div>
@@ -46222,19 +46222,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -47845,19 +47845,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -49196,19 +49196,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -50454,19 +50454,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -50742,7 +50742,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               class="ant-table-cell"
                             >
                               <span>
-                                ¥0.00
+                                ¥¥0.00
                               </span>
                             </td>
                             <td
@@ -50816,7 +50816,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               class="ant-table-cell"
                             >
                               <span>
-                                ¥1,680.00
+                                ¥¥1,680.00
                               </span>
                             </td>
                             <td

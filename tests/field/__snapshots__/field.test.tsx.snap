@@ -2586,7 +2586,7 @@ exports[`Field > 🐴 money valueType is Object 1`] = `
 exports[`Field > 🐴 money valueType is Object 2`] = `
 <DocumentFragment>
   <span>
-    $100.00
+    100.00
   </span>
 </DocumentFragment>
 `;
@@ -2594,7 +2594,7 @@ exports[`Field > 🐴 money valueType is Object 2`] = `
 exports[`Field > 🐴 money valueType is Object 3`] = `
 <DocumentFragment>
   <span>
-    $$100.00
+    $100.00
   </span>
 </DocumentFragment>
 `;
@@ -2681,7 +2681,7 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
 exports[`Field > 🐴 money valueType is Object 5`] = `
 <DocumentFragment>
   <span>
-    100,00 ₽
+    00,00 ₽
   </span>
 </DocumentFragment>
 `;
@@ -2689,7 +2689,7 @@ exports[`Field > 🐴 money valueType is Object 5`] = `
 exports[`Field > 🐴 money valueType is Object 6`] = `
 <DocumentFragment>
   <span>
-    ₽100,00 ₽
+    ₽00,00 ₽
   </span>
 </DocumentFragment>
 `;
@@ -2776,7 +2776,7 @@ exports[`Field > 🐴 money valueType is Object 7`] = `
 exports[`Field > 🐴 money valueType is Object 8`] = `
 <DocumentFragment>
   <span>
-    RM 100.00
+    M 100.00
   </span>
 </DocumentFragment>
 `;
@@ -2784,7 +2784,7 @@ exports[`Field > 🐴 money valueType is Object 8`] = `
 exports[`Field > 🐴 money valueType is Object 9`] = `
 <DocumentFragment>
   <span>
-    RMRM 100.00
+    RMM 100.00
   </span>
 </DocumentFragment>
 `;
@@ -2871,7 +2871,7 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
 exports[`Field > 🐴 money valueType is Object 11`] = `
 <DocumentFragment>
   <span>
-    100 RSD
+    00 RSD
   </span>
 </DocumentFragment>
 `;
@@ -2879,7 +2879,7 @@ exports[`Field > 🐴 money valueType is Object 11`] = `
 exports[`Field > 🐴 money valueType is Object 12`] = `
 <DocumentFragment>
   <span>
-    RSD100 RSD
+    RSD00 RSD
   </span>
 </DocumentFragment>
 `;
@@ -3265,7 +3265,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    ¥100.00
+                    ¥¥100.00
                   </span>
                 </span>
               </div>
@@ -3844,7 +3844,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span>
-                    ¥100.00
+                    ¥¥100.00
                   </span>
                 </span>
               </div>
