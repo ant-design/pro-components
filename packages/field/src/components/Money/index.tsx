@@ -183,7 +183,7 @@ const getTextByLocale = (
       .format(moneyText);
 
     // 是否有金额符号，例如 ¥ $
-    const hasMoneySymbol = locale !== false;
+    const hasMoneySymbol = moneySymbol || locale !== false;
 
     /**
      * 首字母判断是否是正负符号
