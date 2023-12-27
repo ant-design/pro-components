@@ -30020,7 +30020,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                               class="ant-table-cell"
                             >
                               <span>
-                                ¥¥84.04
+                                ¥84.04
                               </span>
                             </td>
                           </tr>
@@ -39727,7 +39727,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                               class="ant-table-cell"
                             >
                               <span>
-                                ¥¥84.04
+                                ¥84.04
                               </span>
                             </td>
                           </tr>
@@ -50742,7 +50742,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               class="ant-table-cell"
                             >
                               <span>
-                                ¥¥0.00
+                                ¥0.00
                               </span>
                             </td>
                             <td
@@ -50816,7 +50816,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               class="ant-table-cell"
                             >
                               <span>
-                                ¥¥1,680.00
+                                ¥1,680.00
                               </span>
                             </td>
                             <td

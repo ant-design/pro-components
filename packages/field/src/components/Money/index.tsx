@@ -183,25 +183,36 @@ const getTextByLocale = (
       .format(moneyText);
 
     // 是否有金额符号，例如 ¥ $
-    const hasMoneySymbol = moneySymbol || locale !== false;
+    const hasMoneySymbol = locale === false;
 
     /**
      * 首字母判断是否是正负符号
      */
     const [operatorSymbol] = finalMoneyText || '';
 
+    let FormatFinalMoneyText = '';
     // 兼容正负号
     if (['+', '-'].includes(operatorSymbol)) {
       // 裁剪字符串,有符号截取两位，没有符号截取一位
-      return `${moneySymbol || ''}${operatorSymbol}${finalMoneyText.substring(
-        hasMoneySymbol ? 2 : 1,
-      )}`;
+      FormatFinalMoneyText = `${
+        moneySymbol || ''
+      }${operatorSymbol}${finalMoneyText.substring(hasMoneySymbol ? 2 : 1)}`;
     }
 
     // 没有正负符号截取一位
-    return `${moneySymbol || ''}${finalMoneyText.substring(
+    FormatFinalMoneyText = `${moneySymbol || ''}${finalMoneyText.substring(
       hasMoneySymbol ? 1 : 0,
     )}`;
+    const [firstString] = FormatFinalMoneyText || '';
+    if (
+      !['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(
+        firstString,
+      ) &&
+      !moneySymbol
+    ) {
+      return `${FormatFinalMoneyText.substring(1)}`;
+    }
+    return `${FormatFinalMoneyText}`;
   } catch (error) {
     return moneyText;
   }
