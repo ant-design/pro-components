@@ -20,7 +20,7 @@
 [![][devops-dumi-shield]][devops-dumi-link]
 [![][devops-father-shield]][devops-father-link]
 
-[English](./README.md)  · 简体中文 · [报告错误][github-issues-link] · [请求功能][github-issues-link]
+[English](./README.md) ・ 简体中文 ・ [报告错误][github-issues-link] · [请求功能][github-issues-link]
 
 ![](https://gw.alipayobjects.com/zos/kitchen/OsP5rUT6tc/pro-components.webp)
 
@@ -62,7 +62,7 @@ Pro Series 组件经过精心设计，以增强企业级应用程序的健壮架
 
 <br/>
 
-### ProComponents 的赋能特性
+### 丰富的高阶特性
 
 > \[!NOTE]
 >
@@ -104,7 +104,7 @@ Pro Series 组件经过精心设计，以增强企业级应用程序的健壮架
 
 | [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron\_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge                                                                                                                                              | 最近 2 个版本                                                                                                                                         | 最近 2 个版本                                                                                                                                         | 最近 2 个版本                                                                                                                                         | 最近 2 个版本                                                                                                                                                      |
+| Edge                                                                                                                                              | 最近 2 个版本                                                                                                                                                | 最近 2 个版本                                                                                                                                                | 最近 2 个版本                                                                                                                                                | 最近 2 个版本                                                                                                                                                             |
 
 <br/>
 
@@ -165,9 +165,9 @@ $ pnpm dev
 ## 🛣️ 生态系统
 
 - **[ProComponents](https://github.com/ant-design/pro-components)** - 专为企业级应用设计，像专业人士一样使用 Ant Design！
-- **[ProEditor](https://github.com/ant-design/pro-editor)** - 一个编辑器 UI 框架和组件。
-- **[ProFlow](https://github.com/ant-design/pro-flow)** - 用于快速构建 LLM 聊天界面的组件库。
-- **[ProChat](https://github.com/ant-design/pro-chat)** - 基于 React-Flow 的流程编辑器框架。
+- **[ProEditor](https://github.com/ant-design/pro-editor)** - 编辑器领域 UI 框架与前端组件解决方案。
+- **[ProFlow](https://github.com/ant-design/pro-flow)** - 基于 React-Flow 的流程编辑器框架。
+- **[ProChat](https://github.com/ant-design/pro-chat)** - 用于快速构建 LLM 聊天界面的组件库。
 
 <br/>
 

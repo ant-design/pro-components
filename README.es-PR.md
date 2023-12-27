@@ -33,8 +33,8 @@ Diseñado para aplicaciones a nivel empresarial, ¡usa Ant Design como un profes
 
 - [📦 Instalación](#-instalación)
 - [✨ Características](#-características)
-  - [Características potenciadoras de ProComponents](#características-potenciadoras-de-procomponents)
-  - [Consideraciones y limitaciones](#consideraciones-y-limitaciones)
+  - [Funcionalidades potenciadoras de ProComponents](#funcionalidades-potenciadoras-de-procomponents)
+  - [Consideraciones y Limitaciones](#consideraciones-y-limitaciones)
 - [🖥 Compatibilidad con navegadores](#-compatibilidad-con-navegadores)
 - [⌨️ Desarrollo local](#️-desarrollo-local)
 - [🤝 Contribuir](#-contribuir)
@@ -104,7 +104,7 @@ En esencia, ProComponents es una biblioteca de componentes de interfaz de usuari
 
 | [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron\_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
 | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge                                                                                                                                              | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                                      |
+| Edge                                                                                                                                              | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                                  |
 
 <br/>
 
@@ -166,8 +166,8 @@ Cada contribución, grande o pequeña, es celebrada. Únete a nuestra misión de
 
 - **[ProComponents](https://github.com/ant-design/pro-components)** - Diseñado para Aplicaciones a Nivel Empresarial, ¡Usa Ant Design como un Pro!.
 - **[ProEditor](https://github.com/ant-design/pro-editor)** - Un Marco y Componentes de Interfaz de Usuario para Editores.
-- **[ProFlow](https://github.com/ant-design/pro-flow)** - Biblioteca de Componentes para Construir Rápidamente Interfaces de Chat LLM.
-- **[ProChat](https://github.com/ant-design/pro-chat)** - Un Marco de Editor de Flujo basado en React-Flow.
+- **[ProFlow](https://github.com/ant-design/pro-flow)** - Un Marco de Editor de Flujo basado en React-Flow.
+- **[ProChat](https://github.com/ant-design/pro-chat)** - Biblioteca de Componentes para Construir Rápidamente Interfaces de Chat LLM.
 
 <br/>
 
