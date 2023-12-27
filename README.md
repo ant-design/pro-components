@@ -20,7 +20,7 @@ Designed for Enterprise-Level Application,  Use Ant Design like a Pro!
 [![][devops-dumi-shield]][devops-dumi-link]
 [![][devops-father-shield]][devops-father-link]
 
-English · [简体中文](./README.zh-CN.md) · [Changelog](./CHANGELOG.md) · [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
+English · [简体中文](./README.zh-CN.md) · [Report Bug][github-issues-link] · [Request Feature][github-issues-link]
 
 ![](https://gw.alipayobjects.com/zos/kitchen/OsP5rUT6tc/pro-components.webp)
 

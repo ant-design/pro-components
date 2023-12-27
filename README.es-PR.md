@@ -20,7 +20,7 @@ Diseñado para aplicaciones a nivel empresarial, ¡usa Ant Design como un profes
 [![][devops-dumi-shield]][devops-dumi-link]
 [![][devops-father-shield]][devops-father-link]
 
-[English](./README.md) · [简体中文](./README.zh-CN.md) · [Registro de cambios](./CHANGELOG.md) · [Reportar error][github-issues-link] · [Solicitar función][github-issues-link]
+[English](./README.md) · [简体中文](./README.zh-CN.md) · [Reportar error][github-issues-link] · [Solicitar función][github-issues-link]
 
 ![](https://gw.alipayobjects.com/zos/kitchen/OsP5rUT6tc/pro-components.webp)
 

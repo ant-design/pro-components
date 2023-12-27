@@ -20,7 +20,7 @@
 [![][devops-dumi-shield]][devops-dumi-link]
 [![][devops-father-shield]][devops-father-link]
 
-[English](./README.md)  · 简体中文 · [Changelog](./CHANGELOG.md) · [报告错误][github-issues-link] · [请求功能][github-issues-link]
+[English](./README.md)  · 简体中文 · [报告错误][github-issues-link] · [请求功能][github-issues-link]
 
 ![](https://gw.alipayobjects.com/zos/kitchen/OsP5rUT6tc/pro-components.webp)
 
