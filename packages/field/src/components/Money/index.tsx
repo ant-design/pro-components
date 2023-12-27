@@ -168,7 +168,7 @@ const getTextByLocale = (
 
   try {
     // Formatting the number, when readonly moneySymbol = false, unused currency.
-    const finalMoneyText = new Intl.NumberFormat(
+    const initNumberFormatter = new Intl.NumberFormat(
       supportFormat && locale !== false
         ? locale?.replace('_', '-') || 'zh-Hans-CN'
         : 'zh-Hans-CN',
@@ -178,36 +178,22 @@ const getTextByLocale = (
         maximumFractionDigits: precision,
         ...config,
       },
-    )
-      // fix: #6003 解决未指定货币符号时，金额文本格式化异常问题
-      .format(moneyText);
+    );
 
-    // 是否有金额符号，例如 ¥ $
-    const hasMoneySymbol = locale === false;
+    const finalMoneyText = initNumberFormatter.format(moneyText);
 
     // 同时出现两个符号的情况需要处理
     const doubleSymbolFormat = (Text: string) => {
-      const [firstString, secondString] = Text || '';
-      if (
-        !['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(
-          firstString,
-        )
-      ) {
-        if (!moneySymbol) {
-          // 两个 Symbol 都存在，并且 moneySymbol 不配置的情况，删除两个，否则删除一个
-          if (firstString === secondString) {
-            return `${Text.substring(2)}`;
-          }
-          return `${Text.substring(1)}`;
-        }
-        // 两个 Symbol 都存在，并且 moneySymbol 配置的情况，删除一个，否则删除不删除
-        if (firstString === secondString) {
-          return `${Text.substring(1)}`;
-        }
+      const match = Text.match(/\d+/);
+      if (match) {
+        const number = match[0];
+        return Text.slice(Text.indexOf(number));
+      } else {
         return Text;
       }
-      return Text;
     };
+    // 过滤一下，只留下数字
+    const pureMoneyText = doubleSymbolFormat(finalMoneyText);
 
     /**
      * 首字母判断是否是正负符号
@@ -216,16 +202,9 @@ const getTextByLocale = (
 
     // 兼容正负号
     if (['+', '-'].includes(operatorSymbol)) {
-      // 裁剪字符串,有符号截取两位，没有符号截取一位
-      return `${moneySymbol || ''}${operatorSymbol}${doubleSymbolFormat(
-        `${finalMoneyText.substring(hasMoneySymbol ? 2 : 1)}`,
-      )}`;
+      return `${moneySymbol || ''}${operatorSymbol}${pureMoneyText}`;
     }
-
-    // 没有正负符号截取一位
-    return doubleSymbolFormat(
-      `${moneySymbol || ''}${finalMoneyText.substring(hasMoneySymbol ? 1 : 0)}`,
-    );
+    return `${moneySymbol || ''}${pureMoneyText}`;
   } catch (error) {
     return moneyText;
   }

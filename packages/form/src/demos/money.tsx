@@ -102,6 +102,18 @@ export default () => {
           initialValue={22.22}
         />
         <ProFormMoney
+          label="货币符号指定为 ms-MY"
+          name="amount-ms-My"
+          locale="ms-MY"
+          initialValue={-22.22}
+        />
+         <ProFormMoney
+          label="货币符号指定为 zh-TW"
+          name="amount-zh-TW"
+          locale="zh-TW"
+          initialValue={22.22}
+        />
+        <ProFormMoney
           label="自定义货币符号"
           name="amount5"
           initialValue={22.22}
