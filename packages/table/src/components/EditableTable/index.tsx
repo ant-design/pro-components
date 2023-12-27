@@ -359,7 +359,7 @@ function EditableTable<
       )
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [recordCreatorProps == false, maxLength, value?.length]);
+  }, [recordCreatorProps, maxLength, value?.length]);
 
   const buttonRenderProps = useMemo(() => {
     if (!creatorButtonDom) {
