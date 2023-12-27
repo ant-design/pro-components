@@ -46,8 +46,8 @@ The name parameter must be an array. If it is a nested structure, it can be conf
 
 The following examples demonstrate the order in which dependencies are evaluated in different situations:
 
-- `<ProFormDependency>`** is not in**`<ProFormList>`: according to the dependency declared by `name`, the value is taken from the global (case 1)
-- `<ProFormDependency>`** in **`<ProFormList>`
+- `<ProFormDependency>`\*\* is not in\*\*`<ProFormList>`: according to the dependency declared by `name`, the value is taken from the global (case 1)
+- `<ProFormDependency>`\*\* in \*\*`<ProFormList>`
   - `ignoreFormListField` of `<ProFormDependency>` is `true`: according to the dependency declared by `name`, the value is taken from the global (case 2)
   - `ignoreFormListField` of `<ProFormDependency>` is `false`: according to the dependency declared by `name`, the value is taken locally (case 3)
 

@@ -29,15 +29,15 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ## API
 
-| Properties | Description | Type | Default |
-| --- | --- | --- | --- |
-| `value` | Same as dataSource, pass in an array of metadata for table rendering | `T[]` | `undefined` |
-| `onChange` | The dataSource is triggered when the table is modified, both deletion and modification. | `(value:T[])=>void` | `undefined` |
-| `recordCreatorProps` | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button/#API) | - |
-| `maxLength` | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
-| `editable` | Related configuration of editable table | [TableRowEditable](#editable-edit-line-configuration) | - |
-| `controlled` | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
-| `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>>` | `undefined` |
+| Properties           | Description                                                                                          | Type                                                                                            | Default     |
+| -------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------- |
+| `value`              | Same as dataSource, pass in an array of metadata for table rendering                                 | `T[]`                                                                                           | `undefined` |
+| `onChange`           | The dataSource is triggered when the table is modified, both deletion and modification.              | `(value:T[])=>void`                                                                             | `undefined` |
+| `recordCreatorProps` | Configuration related to creating a new row of data                                                  | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button/#API) | -           |
+| `maxLength`          | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number                                                                                          | -           |
+| `editable`           | Related configuration of editable table                                                              | [TableRowEditable](#editable-edit-line-configuration)                                           | -           |
+| `controlled`         | Whether controlled, if controlled every edit modifies the dataSource                                 | `boolean`                                                                                       | false       |
+| `editableFormRef`    | table All forms, with some table-specific operations                                                 | `React.Ref<EditableFormInstance<T>>`                                                            | `undefined` |
 
 > Other APIs are the same as ProTable.
 
@@ -102,23 +102,23 @@ Compared with the ProForm form, the editable form adds the following three metho
 
 ### editable edit line configuration
 
-| Property | Description | Type | Default Value |
-| --- | --- | --- | --- |
-| type | Type of editable table, single or multiple | `single` \| `multiple` | - |
-| form | Form instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
-| formProps | form properties can be configured, but onFinish is not supported | [`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
-| editableKeys | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]` | - |
-| onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
-| saveText | Text for saving a row | `React.ReactNode` | `Save` |
-| onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
-| deleteText | Text for deleting a row | `React.ReactNode` | `Delete` |
-| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
-| cancelText | Text for canceling the editing of a row | `React.ReactNode` | `Cancel` |
-| actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
-| deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line?` |
-| onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |
-| onlyAddOneLineAlertMessage | Only one line can be added at the same time | `ReactNode` | `Only add one line` |
+| Property                      | Description                                                                                                                                                                            | Type                                                                     | Default Value                                  |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------- |
+| type                          | Type of editable table, single or multiple                                                                                                                                             | `single` \| `multiple`                                                   | -                                              |
+| form                          | Form instance of editable form, use `Form.useForm` to generate and use                                                                                                                 | `FormInstance`                                                           | -                                              |
+| formProps                     | form properties can be configured, but onFinish is not supported                                                                                                                       | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | -                                              |
+| editableKeys                  | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]`                                                                  | -                                              |
+| onChange                      | Triggered when row data is modified                                                                                                                                                    | `(editableKeys: Key[], editableRows: T[]) => void`                       | -                                              |
+| onSave                        | Triggered when a row is saved                                                                                                                                                          | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`  | -                                              |
+| saveText                      | Text for saving a row                                                                                                                                                                  | `React.ReactNode`                                                        | `Save`                                         |
+| onDelete                      | Triggered when a row is deleted                                                                                                                                                        | `(key: Key, row: T) => Promise<any>`                                     | -                                              |
+| deleteText                    | Text for deleting a row                                                                                                                                                                | `React.ReactNode`                                                        | `Delete`                                       |
+| onCancel                      | Triggered when cancel editing a line                                                                                                                                                   | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>`  | -                                              |
+| cancelText                    | Text for canceling the editing of a row                                                                                                                                                | `React.ReactNode`                                                        | `Cancel`                                       |
+| actionRender                  | Custom edit mode action bar                                                                                                                                                            | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]`                 | -                                              |
+| deletePopconfirmMessage       | The pop-up confirmation box prompt message when deleting                                                                                                                               | `ReactNode`                                                              | `Delete this line?`                            |
+| onlyOneLineEditorAlertMessage | Only one line can be edited                                                                                                                                                            | `ReactNode`                                                              | `Only one line can be edited at the same time` |
+| onlyAddOneLineAlertMessage    | Only one line can be added at the same time                                                                                                                                            | `ReactNode`                                                              | `Only add one line`                            |
 
 ### recordCreatorProps New button configuration
 

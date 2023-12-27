@@ -58,14 +58,14 @@ ProForm comes with Filed , which basically corresponds to the valueType one by o
 
 ### Generic properties
 
-| parameter | description | type | default |
-| --- | --- | --- | --- |
-| width | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
-| rowProps | Passed to `Row` when `grid` mode is enabled, Applies only to `ProFormGroup`, `ProFormList`, `ProFormFieldSet` | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
-| colProps | Passed to `Col` when `grid` mode is enabled | [ColProps](https://ant.design/components/grid/#Col) | { xs: 24 } |
-| tooltip | will add an icon next to the label to show the configured information when hovered | `string \| tooltipProps` | - |
-| secondary | Whether secondary control, only valid for LightFilter | `boolean` | `false` |
-| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` if actively set. | `boolean` | `true` |
+| parameter  | description                                                                                                                                  | type                                                | default       |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------- |
+| width      | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"`        | -             |
+| rowProps   | Passed to `Row` when `grid` mode is enabled, Applies only to `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                                | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
+| colProps   | Passed to `Col` when `grid` mode is enabled                                                                                                  | [ColProps](https://ant.design/components/grid/#Col) | { xs: 24 }    |
+| tooltip    | will add an icon next to the label to show the configured information when hovered                                                           | `string \| tooltipProps`                            | -             |
+| secondary  | Whether secondary control, only valid for LightFilter                                                                                        | `boolean`                                           | `false`       |
+| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` if actively set.                                            | `boolean`                                           | `true`        |
 
 ### Width
 
@@ -126,12 +126,12 @@ ProFormCaptcha is a component developed to support common CAPTCHA functionality 
 />
 ```
 
-| parameters | description | type | default |
-| --- | --- | --- | --- |
-| onGetCaptcha | The event to click to get the captcha, if phoneName is configured it will be injected automatically | `(phone)=>Promise<any>` | - |
-| captchaProps | The props of the Get Captcha button, same as antd's props | `ButtonProps` | - |
-| countDown | The number of seconds to count down | number | 60 |
-| captchaTextRender | Render the text of the timer | `(timing: boolean, count: number) => React.ReactNode` | - |
+| parameters        | description                                                                                         | type                                                  | default |
+| ----------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------- |
+| onGetCaptcha      | The event to click to get the captcha, if phoneName is configured it will be injected automatically | `(phone)=>Promise<any>`                               | -       |
+| captchaProps      | The props of the Get Captcha button, same as antd's props                                           | `ButtonProps`                                         | -       |
+| countDown         | The number of seconds to count down                                                                 | number                                                | 60      |
+| captchaTextRender | Render the text of the timer                                                                        | `(timing: boolean, count: number) => React.ReactNode` | -       |
 
 ### ProFormText.Password
 
@@ -196,14 +196,14 @@ Same as [Input.TextArea](https://ant.design/components/input/#Input.TextArea).
 
 ### ProFormCheckbox
 
-> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+> Requesting remote data is more complicated, see \[here]\(/components/field#remote data) for details.
 
 Same as [checkbox](https://ant.design/components/checkbox/), but supports `options` and `layout`.
 
-| parameters | description | type | default |
-| --- | --- | --- | --- |
-| options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
-| layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
+| parameters | description                                                                        | type                                             | default |
+| ---------- | ---------------------------------------------------------------------------------- | ------------------------------------------------ | ------- |
+| options    | Same as select, generates child nodes based on options, recommended.               | `string[]` \| `{label:ReactNode,value:string}[]` | -       |
+| layout     | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical`                       | -       |
 
 ```tsx | pure
 <ProFormCheckbox.Group
@@ -216,14 +216,14 @@ Same as [checkbox](https://ant.design/components/checkbox/), but supports `optio
 
 ### ProFormRadio.Group
 
-> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+> Requesting remote data is more complicated, see \[here]\(/components/field#remote data) for details.
 
 Same as [radio](https://ant.design/components/radio/) but with support for `options`.
 
-| parameters | description | type | default |
-| --- | --- | --- | --- |
-| options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
-| radioType | Set whether button mode or radio mode | `default` \| `button` | `default` |
+| parameters | description                                                          | type                                             | default   |
+| ---------- | -------------------------------------------------------------------- | ------------------------------------------------ | --------- |
+| options    | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | -         |
+| radioType  | Set whether button mode or radio mode                                | `default` \| `button`                            | `default` |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -285,11 +285,11 @@ Same as [slider](https://ant.design/components/slider/).
 
 Same as [upload](https://ant.design/components/upload/). Dragger style is preset, otherwise it is the same as Upload.
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| icon | The chart of the Dragger. | `ReactNode` | InboxOutlined |
-| title | Dragger's title | `ReactNode` | 'Click or drag files to this area to upload' |
-| description | Dragger's description | `ReactNode` | 'Support single or bulk uploads' |
+| Parameters  | Description               | Type        | Default                                      |
+| ----------- | ------------------------- | ----------- | -------------------------------------------- |
+| icon        | The chart of the Dragger. | `ReactNode` | InboxOutlined                                |
+| title       | Dragger's title           | `ReactNode` | 'Click or drag files to this area to upload' |
+| description | Dragger's description     | `ReactNode` | 'Support single or bulk uploads'             |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
@@ -312,14 +312,14 @@ Same as [upload](https://ant.design/components/upload/). The Button style is pre
 
 Same as [select](https://ant.design/components/select/). Both request and valueEnum are supported to generate options.
 
-> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+> Requesting remote data is more complicated, see \[here]\(/components/field#remote data) for details.
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
 
-| parameters | description | type | default |
-| --- | --- | --- | --- |
-| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
-| request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+| parameters | description                                                            | type                                        | default |
+| ---------- | ---------------------------------------------------------------------- | ------------------------------------------- | ------- |
+| valueEnum  | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record`                                    | -       |
+| request    | Enumerate data from network requests                                   | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
 
 ```tsx | pure
 <>
@@ -375,14 +375,14 @@ Customize options：
 
 Same as [tree-select](https://ant.design/components/tree-select/). Both request and valueEnum are supported to generate options.
 
-> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+> Requesting remote data is more complicated, see \[here]\(/components/field#remote data) for details.
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
 
-| parameters | description | type | default |
-| --- | --- | --- | --- |
-| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
-| request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+| parameters | description                                                            | type                                        | default |
+| ---------- | ---------------------------------------------------------------------- | ------------------------------------------- | ------- |
+| valueEnum  | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record`                                    | -       |
+| request    | Enumerate data from network requests                                   | `()=>Promise<{[key:string`\|`number]:any}>` | -       |
 
 ```tsx | pure
 <ProFormTreeSelect
@@ -491,14 +491,14 @@ ProFormMoney's input box for entering amounts supports the display of currency s
 />
 ```
 
-| parameters | description | type | default |
-| --- | --- | --- | --- |
-| locale | The internationalized region values set separately show different currency symbols depending on the region, as detailed in the region directory below | `string` | `zh-Hans-CN` |
-| customSymbol | Custom amount symbol | `string` | - |
-| numberPopoverRender | Custom Popover's value, false, can close his | `((props: InputNumberProps, defaultText: string) => React.ReactNode)` \| `boolean` | false |
-| numberFormatOptions | The configuration of NumberFormat, where the documentation can view the of the [mdn](https://developer.mozilla.org/zh-CN/docs/web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)) | NumberFormatOptions | - |
-| min | The minimum value is | `number` | - |
-| max | The maximum value is | `number` | - |
+| parameters          | description                                                                                                                                                                               | type                                                                               | default      |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------ |
+| locale              | The internationalized region values set separately show different currency symbols depending on the region, as detailed in the region directory below                                     | `string`                                                                           | `zh-Hans-CN` |
+| customSymbol        | Custom amount symbol                                                                                                                                                                      | `string`                                                                           | -            |
+| numberPopoverRender | Custom Popover's value, false, can close his                                                                                                                                              | `((props: InputNumberProps, defaultText: string) => React.ReactNode)` \| `boolean` | false        |
+| numberFormatOptions | The configuration of NumberFormat, where the documentation can view the of the [mdn](https://developer.mozilla.org/zh-CN/docs/web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)) | NumberFormatOptions                                                                | -            |
+| min                 | The minimum value is                                                                                                                                                                      | `number`                                                                           | -            |
+| max                 | The maximum value is                                                                                                                                                                      | `number`                                                                           | -            |
 
 #### Below is a table of regional codes and currency symbols
 

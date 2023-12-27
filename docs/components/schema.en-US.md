@@ -1,4 +1,4 @@
-﻿<!-----
+<!-----
 title: Universal Configuration Overview order
 order: 1
 ----->
@@ -7,27 +7,27 @@ order: 1
 
 In the `ProComponents`, we have used the same definition as tables for components, while also extending some fields to meet additional requirements, allowing them to fulfill more needs.
 
-| Field Name | Type | Description |
-| --- | --- | --- |
-| `key` | `React.key` | Determines the unique value of this column, commonly used for cases where dataIndex is duplicated |
-| `dataIndex` | `React.key` \| `React.key[]` | Key mapped to an entity, and arrays will be transformed into `[a,b] => Entity.a.b` |
-| `valueType` | `ProFieldValueType` | The rendering method of the data. We provide some built-in options, and you can also customize the valueType |
-| `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | Content of the title, which serves as the label in a form |
-| `tooltip` | `string` | Shows an icon next to the title, and displays the tooltip when the mouse hovers over it |
-| `valueEnum` | `(Entity)=> ValueEnum` \| `ValueEnum` | Supports objects and maps, where maps can use other basic types as keys |
-| `fieldProps` | `(form,config)=>fieldProps`\| `fieldProps` | Props passed to the rendering component. They are also passed when customizing |
-| `formItemProps` | `(form,config)=>formItemProps` \| `formItemProps` | Configuration passed to Form.Item |
-| `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | The modified data is consumed by the rendering component defined by valueType |
-| `render` | `(dom,entity,index, action, schema) => React.ReactNode` | Custom DOM for read-only mode. The `render` method only manages read-only mode, while the editing mode should use `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | Custom editing mode that returns a ReactNode, automatically wrapping value and onChange |
-| `request` | `(params,props) => Promise<{label,value}[]>` | Requests network data remotely, usually used for selection-type components |
-| `params` | `Record<string, any>` | Additional parameters passed to `request`. The component does not process them, but changes will trigger a new data request in `request` |
-| `hideInForm` | `boolean` | Hidden in the form |
-| `hideInTable` | `boolean` | Hidden in the table |
-| `hideInSearch` | `boolean` | Hidden in the search form of the table |
-| `hideInDescriptions` | `boolean` | Hidden in the descriptions |
-| `rowProps` | [RowProps](https://ant.design/components/grid/#Row) | Passed to the Row when the `grid` mode is enabled, only effective in `ProFormGroup`, `ProFormList`, `ProFormFieldSet` |
-| `colProps` | [ColProps](https://ant.design/components/grid/#Col) | Passed to the Col when the `grid` mode is enabled |
+| Field Name           | Type                                                                           | Description                                                                                                                              |
+| -------------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `key`                | `React.key`                                                                    | Determines the unique value of this column, commonly used for cases where dataIndex is duplicated                                        |
+| `dataIndex`          | `React.key` \| `React.key[]`                                                   | Key mapped to an entity, and arrays will be transformed into `[a,b] => Entity.a.b`                                                       |
+| `valueType`          | `ProFieldValueType`                                                            | The rendering method of the data. We provide some built-in options, and you can also customize the valueType                             |
+| `title`              | `ReactNode` \|`(props,type,dom)=> ReactNode`                                   | Content of the title, which serves as the label in a form                                                                                |
+| `tooltip`            | `string`                                                                       | Shows an icon next to the title, and displays the tooltip when the mouse hovers over it                                                  |
+| `valueEnum`          | `(Entity)=> ValueEnum` \| `ValueEnum`                                          | Supports objects and maps, where maps can use other basic types as keys                                                                  |
+| `fieldProps`         | `(form,config)=>fieldProps`\| `fieldProps`                                     | Props passed to the rendering component. They are also passed when customizing                                                           |
+| `formItemProps`      | `(form,config)=>formItemProps` \| `formItemProps`                              | Configuration passed to Form.Item                                                                                                        |
+| `renderText`         | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | The modified data is consumed by the rendering component defined by valueType                                                            |
+| `render`             | `(dom,entity,index, action, schema) => React.ReactNode`                        | Custom DOM for read-only mode. The `render` method only manages read-only mode, while the editing mode should use `renderFormItem`       |
+| `renderFormItem`     | `(schema,config,form) => React.ReactNode`                                      | Custom editing mode that returns a ReactNode, automatically wrapping value and onChange                                                  |
+| `request`            | `(params,props) => Promise<{label,value}[]>`                                   | Requests network data remotely, usually used for selection-type components                                                               |
+| `params`             | `Record<string, any>`                                                          | Additional parameters passed to `request`. The component does not process them, but changes will trigger a new data request in `request` |
+| `hideInForm`         | `boolean`                                                                      | Hidden in the form                                                                                                                       |
+| `hideInTable`        | `boolean`                                                                      | Hidden in the table                                                                                                                      |
+| `hideInSearch`       | `boolean`                                                                      | Hidden in the search form of the table                                                                                                   |
+| `hideInDescriptions` | `boolean`                                                                      | Hidden in the descriptions                                                                                                               |
+| `rowProps`           | [RowProps](https://ant.design/components/grid/#Row)                            | Passed to the Row when the `grid` mode is enabled, only effective in `ProFormGroup`, `ProFormList`, `ProFormFieldSet`                    |
+| `colProps`           | [ColProps](https://ant.design/components/grid/#Col)                            | Passed to the Col when the `grid` mode is enabled                                                                                        |
 
 ## Definition to TypeScript
 
