@@ -185,34 +185,47 @@ const getTextByLocale = (
     // 是否有金额符号，例如 ¥ $
     const hasMoneySymbol = locale === false;
 
+    // 同时出现两个符号的情况需要处理
+    const doubleSymbolFormat = (Text: string) => {
+      const [firstString, secondString] = Text || '';
+      if (
+        !['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(
+          firstString,
+        )
+      ) {
+        if (!moneySymbol) {
+          // 两个 Symbol 都存在，并且 moneySymbol 不配置的情况，删除两个，否则删除一个
+          if (firstString === secondString) {
+            return `${Text.substring(2)}`;
+          }
+          return `${Text.substring(1)}`;
+        }
+        // 两个 Symbol 都存在，并且 moneySymbol 配置的情况，删除一个，否则删除不删除
+        if (firstString === secondString) {
+          return `${Text.substring(1)}`;
+        }
+        return Text;
+      }
+      return Text;
+    };
+
     /**
      * 首字母判断是否是正负符号
      */
     const [operatorSymbol] = finalMoneyText || '';
 
-    let FormatFinalMoneyText = '';
     // 兼容正负号
     if (['+', '-'].includes(operatorSymbol)) {
       // 裁剪字符串,有符号截取两位，没有符号截取一位
-      FormatFinalMoneyText = `${
-        moneySymbol || ''
-      }${operatorSymbol}${finalMoneyText.substring(hasMoneySymbol ? 2 : 1)}`;
+      return `${moneySymbol || ''}${operatorSymbol}${doubleSymbolFormat(
+        `${finalMoneyText.substring(hasMoneySymbol ? 2 : 1)}`,
+      )}`;
     }
 
     // 没有正负符号截取一位
-    FormatFinalMoneyText = `${moneySymbol || ''}${finalMoneyText.substring(
-      hasMoneySymbol ? 1 : 0,
-    )}`;
-    const [firstString] = FormatFinalMoneyText || '';
-    if (
-      !['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(
-        firstString,
-      ) &&
-      !moneySymbol
-    ) {
-      return `${FormatFinalMoneyText.substring(1)}`;
-    }
-    return `${FormatFinalMoneyText}`;
+    return doubleSymbolFormat(
+      `${moneySymbol || ''}${finalMoneyText.substring(hasMoneySymbol ? 1 : 0)}`,
+    );
   } catch (error) {
     return moneyText;
   }

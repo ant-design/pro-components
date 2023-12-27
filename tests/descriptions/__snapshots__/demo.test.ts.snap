@@ -1145,7 +1145,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     style="min-width: 0;"
                   >
                     <span>
-                      12,345.33
+                      -12,345.33
                     </span>
                   </span>
                 </div>

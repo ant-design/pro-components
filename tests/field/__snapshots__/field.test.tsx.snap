@@ -2594,7 +2594,7 @@ exports[`Field > 🐴 money valueType is Object 2`] = `
 exports[`Field > 🐴 money valueType is Object 3`] = `
 <DocumentFragment>
   <span>
-    $$100.00
+    $100.00
   </span>
 </DocumentFragment>
 `;
