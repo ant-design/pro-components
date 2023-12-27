@@ -80,7 +80,7 @@ En esencia, ProComponents es una biblioteca de componentes de interfaz de usuari
 
 ### Consideraciones y Limitaciones
 
-> \[!WARN]
+> \[!WARNING]
 >
 > Aunque ProComponents ofrece una gran cantidad de beneficios, es importante considerar ciertas limitaciones:
 
@@ -170,6 +170,7 @@ Cada contribución, grande o pequeña, es celebrada. Únete a nuestra misión de
 - **[ProChat](https://github.com/ant-design/pro-chat)** - Un Marco de Editor de Flujo basado en React-Flow.
 
 <br/>
+
 ---
 
 #### 📝 License

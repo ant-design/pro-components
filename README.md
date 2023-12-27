@@ -80,7 +80,7 @@ In essence, ProComponents is a robust, user-friendly, and versatile UI component
 
 ### Considerations and Limitations
 
-> \[!WARN]
+> \[!WARNING]
 >
 > While ProComponents offers a wealth of benefits, it’s important to weigh certain considerations:
 
@@ -170,6 +170,7 @@ Every contribution, big or small, is celebrated. Join us in our mission to refin
 - **[ProChat](https://github.com/ant-design/pro-chat)** - A Flow Editor Framework base on React-Flow.
 
 <br/>
+
 ---
 
 #### 📝 License
