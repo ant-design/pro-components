@@ -323,7 +323,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- **components:** support antd@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
+- **components:** support antd\@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
 
 ## [2.1.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.1.1...@ant-design/pro-list@2.1.2) (2023-02-28)
 
@@ -532,7 +532,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **form:** 优化 ProList 类型描述,支持用户字段提示 ([#5807](https://github.com/ant-design/pro-components/issues/5807)) ([333bcfd](https://github.com/ant-design/pro-components/commit/333bcfd8d8ab4d729bf908b060593545973e4e3d))
+- **form:** 优化 ProList 类型描述，支持用户字段提示 ([#5807](https://github.com/ant-design/pro-components/issues/5807)) ([333bcfd](https://github.com/ant-design/pro-components/commit/333bcfd8d8ab4d729bf908b060593545973e4e3d))
 
 ## [2.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.0.2...@ant-design/pro-list@2.0.3) (2022-09-02)
 
@@ -1225,7 +1225,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **prolist:** title&description wordBreak ([#3059](https://github.com/ant-design/pro-components/issues/3059)) ([e84ced5](https://github.com/ant-design/pro-components/commit/e84ced54cf6128c79bf71b67f35d32bbba8cb9a1))
+- **prolist:** title\&description wordBreak ([#3059](https://github.com/ant-design/pro-components/issues/3059)) ([e84ced5](https://github.com/ant-design/pro-components/commit/e84ced54cf6128c79bf71b67f35d32bbba8cb9a1))
 
 ## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.0...@ant-design/pro-list@1.10.1) (2021-06-18)
 

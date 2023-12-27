@@ -138,7 +138,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **provide:** unuse process.env.NODE_ENV === 'TEST' ([0d9cba1](https://github.com/ant-design/pro-components/commit/0d9cba1a7fe74a87c6daf93a36f768801059f42d))
+- **provide:** unuse process.env.NODE\_ENV === 'TEST' ([0d9cba1](https://github.com/ant-design/pro-components/commit/0d9cba1a7fe74a87c6daf93a36f768801059f42d))
 
 ## [2.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.0...@ant-design/pro-provider@2.8.1) (2023-04-25)
 
@@ -441,20 +441,20 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- 国际化基于 en_US 全量补充 ([#5498](https://github.com/ant-design/pro-components/issues/5498)) ([3fab520](https://github.com/ant-design/pro-components/commit/3fab520c16880aaf4864285faff8d94f7c54e800))
+- 国际化基于 en\_US 全量补充 ([#5498](https://github.com/ant-design/pro-components/issues/5498)) ([3fab520](https://github.com/ant-design/pro-components/commit/3fab520c16880aaf4864285faff8d94f7c54e800))
 
 ## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.8.0...@ant-design/pro-provider@1.8.1) (2022-07-06)
 
 ### Bug Fixes
 
-- ’添加一行数据'国际化问题 ([#5469](https://github.com/ant-design/pro-components/issues/5469)) ([85cc727](https://github.com/ant-design/pro-components/commit/85cc7275bb58e52e84f25594952d9612742102a0))
+- ’添加一行数据 ' 国际化问题 ([#5469](https://github.com/ant-design/pro-components/issues/5469)) ([85cc727](https://github.com/ant-design/pro-components/commit/85cc7275bb58e52e84f25594952d9612742102a0))
 - **provide:** fix the translation of the `items` (PT-Br) ([#5457](https://github.com/ant-design/pro-components/issues/5457)) ([a30ee7a](https://github.com/ant-design/pro-components/commit/a30ee7a7478fd0e31931aeffe8618d1f748c9cad))
 
 # [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.7.2...@ant-design/pro-provider@1.8.0) (2022-06-16)
 
 ### Features
 
-- add mn_MN locale ([#5372](https://github.com/ant-design/pro-components/issues/5372)) ([e35d38d](https://github.com/ant-design/pro-components/commit/e35d38db2f3e24508769244b84289fc32bb75203))
+- add mn\_MN locale ([#5372](https://github.com/ant-design/pro-components/issues/5372)) ([e35d38d](https://github.com/ant-design/pro-components/commit/e35d38db2f3e24508769244b84289fc32bb75203))
 
 ## [1.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.7.1...@ant-design/pro-provider@1.7.2) (2022-06-02)
 

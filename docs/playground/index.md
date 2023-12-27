@@ -1,4 +1,4 @@
-﻿---
+---
 title: CRUD
 nav:
   title: Playground

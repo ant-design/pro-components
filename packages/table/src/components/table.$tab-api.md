@@ -87,7 +87,7 @@ renderFormItem: (
 };
 ```
 
-`renderFormItem` 的定义, 具体的值可以打开控制台查看。
+`renderFormItem` 的定义，具体的值可以打开控制台查看。
 
 ```tsx | pure
  renderFormItem?: (
@@ -116,7 +116,7 @@ renderFormItem: (
 
 - 你不应该用 setState，可以使用 form.setFieldsValue 来动态改变表单值。
 
-#### 为什么设置 defaultValue 不生效？#
+#### 为什么设置 defaultValue 不生效？\#
 
 因为 ProTable 子组件会转为受控模式。因而 defaultValue 不会生效。你需要在 Form 上通过 initialValues 设置默认值。
 

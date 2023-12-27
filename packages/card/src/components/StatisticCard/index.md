@@ -36,17 +36,17 @@ atomId: StatisticCard
 - `footer` 用于设置额外的指标展示区域。
 - 你可以设置 `Statistic` 组件的布局方式`layout` 为 `horizontal` 来展示横向指标。
 
-### 总分/主次关系
+### 总分 / 主次关系
 
 <code src="./demos/total.tsx" background="var(--main-bg-color)" oldtitle="总分/主次关系" ></code>
 
-### 总分/业绩目标
+### 总分 / 业绩目标
 
 <code src="./demos/total-layout.tsx" background="var(--main-bg-color)" oldtitle="总分/业绩目标" ></code>
 
 ### 分组指标
 
-你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
+你可以嵌套指标卡组件来将指标分组，以及 `Divider` 子组件来分隔这些指标。
 
 ### 分组指标带图表
 
@@ -104,34 +104,34 @@ atomId: StatisticCard
 
 ### StatisticCard
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 卡片标题 | `string\|ReactNode` | - |
-| extra | 卡片右上角的操作区域 | `string\|ReactNode` | - |
-| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
-| bordered | 是否有边框 | boolean | true |
-| chart | 图表卡片 | ReactNode | - |
-| statistic | 数值统计配置，布局默认为 `vertical` | 参数见下 Statistic | - |
-| chartPlacement | 图表位置，相对于 statistic 的位置 | `left \| right \| bottom` | - |
-| footer | 额外指标展示 | `ReactNode` | - |
+| 参数             | 说明                             | 类型                        | 默认值   |
+| -------------- | ------------------------------ | ------------------------- | ----- |
+| title          | 卡片标题                           | `string\|ReactNode`       | -     |
+| extra          | 卡片右上角的操作区域                     | `string\|ReactNode`       | -     |
+| loading        | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean                   | false |
+| bordered       | 是否有边框                          | boolean                   | true  |
+| chart          | 图表卡片                           | ReactNode                 | -     |
+| statistic      | 数值统计配置，布局默认为 `vertical`        | 参数见下 Statistic            | -     |
+| chartPlacement | 图表位置，相对于 statistic 的位置         | `left \| right \| bottom` | -     |
+| footer         | 额外指标展示                         | `ReactNode`               | -     |
 
 更多参考 `ProCard`，支持 `ProCard` 的所有 API。
 
 ### Statistic
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| prefix | 设置数值的前缀 | string \| ReactNode | - |
-| suffix | 设置数值的后缀 | string \| ReactNode | - |
-| title | 数值的标题 | string \| ReactNode | - |
-| tip | 标题提示 | string\| ReactNode | - |
-| value | 数值内容 | string \| number | - |
-| icon | 图标 | ReactNode | - |
-| status | 设置状态点, 同 Badge 组件 | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | - |
-| valueStyle | 设置数值的样式 | style | - |
-| description | 描述性标签 | React.ReactNode \| () => React.ReactNode | - |
-| layout | 布局 | `horizontal \| vertical \| inline` | `inline` |
-| trend | 趋势 | `up \| down \|` | - |
+| 参数          | 说明               | 类型                                                              | 默认值      |
+| ----------- | ---------------- | --------------------------------------------------------------- | -------- |
+| prefix      | 设置数值的前缀          | string \| ReactNode                                             | -        |
+| suffix      | 设置数值的后缀          | string \| ReactNode                                             | -        |
+| title       | 数值的标题            | string \| ReactNode                                             | -        |
+| tip         | 标题提示             | string\| ReactNode                                              | -        |
+| value       | 数值内容             | string \| number                                                | -        |
+| icon        | 图标               | ReactNode                                                       | -        |
+| status      | 设置状态点，同 Badge 组件 | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | -        |
+| valueStyle  | 设置数值的样式          | style                                                           | -        |
+| description | 描述性标签            | React.ReactNode \| () => React.ReactNode                        | -        |
+| layout      | 布局               | `horizontal \| vertical \| inline`                              | `inline` |
+| trend       | 趋势               | `up \| down \|`                                                 | -        |
 
 更多 API 参考 [Statistic](https://ant.design/components/statistic-cn/)，支持 `Statistic` 的所有 API。
 
@@ -139,9 +139,9 @@ atomId: StatisticCard
 
 用于在将数值统计进行分组时进行分隔。
 
-| 参数 | 说明     | 类型                     | 默认值 |
-| ---- | -------- | ------------------------ | ------ |
-| type | 分隔类型 | `horizontal \| vertical` | -      |
+| 参数   | 说明   | 类型                       | 默认值 |
+| ---- | ---- | ------------------------ | --- |
+| type | 分隔类型 | `horizontal \| vertical` | -   |
 
 ### Operation
 

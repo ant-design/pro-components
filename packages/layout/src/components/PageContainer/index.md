@@ -68,30 +68,30 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://4x.ant.design/components/page-header-cn/) 的所有属性。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| content | 内容区 | ReactNode | - |
-| extraContent | 额外内容区，位于 content 的右侧 | ReactNode | - |
-| tabList | tab 标题列表 | `{key: string, tab: ReactNode}[]` | - |
-| tabActiveKey | 当前高亮的 tab 项 | string | - |
-| onTabChange | 切换面板的回调 | `(key) => void` | - |
-| tabBarExtraContent | tab bar 上额外的元素 | `React.ReactNode` | - |
-| header | [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性 | `PageHeaderProps` | - |
-| ghost | 配置头部区域的背景颜色为透明 | boolean | false |
-| fixedHeader | 固定 pageHeader 的内容到顶部，如果页面内容较少，最好不要使用，会有严重的遮挡问题 | `boolean` | - |
-| affixProps | 固钉的配置，与 antd 完全相同 | `AffixProps` | - |
-| footer | 悬浮在底部的操作栏，传入一个数组，会自动加空格 | `ReactNode[]` | - |
-| waterMarkProps | 配置水印，Layout 会透传给 PageContainer，但是以 PageContainer 的配置优先 | [WaterMarkProps](/components/water-mark) | - |
-| tabProps | Tabs 的相关属性，只有卡片样式的页签支持新增和关闭选项。使用 `closable={false}` 禁止关闭 | [TabsProps](https://ant.design/components/tabs-cn/#Tabs) | - |
+| 参数                 | 说明                                                                | 类型                                                       | 默认值   |
+| ------------------ | ----------------------------------------------------------------- | -------------------------------------------------------- | ----- |
+| content            | 内容区                                                               | ReactNode                                                | -     |
+| extraContent       | 额外内容区，位于 content 的右侧                                              | ReactNode                                                | -     |
+| tabList            | tab 标题列表                                                          | `{key: string, tab: ReactNode}[]`                        | -     |
+| tabActiveKey       | 当前高亮的 tab 项                                                       | string                                                   | -     |
+| onTabChange        | 切换面板的回调                                                           | `(key) => void`                                          | -     |
+| tabBarExtraContent | tab bar 上额外的元素                                                    | `React.ReactNode`                                        | -     |
+| header             | [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性 | `PageHeaderProps`                                        | -     |
+| ghost              | 配置头部区域的背景颜色为透明                                                    | boolean                                                  | false |
+| fixedHeader        | 固定 pageHeader 的内容到顶部，如果页面内容较少，最好不要使用，会有严重的遮挡问题                    | `boolean`                                                | -     |
+| affixProps         | 固钉的配置，与 antd 完全相同                                                 | `AffixProps`                                             | -     |
+| footer             | 悬浮在底部的操作栏，传入一个数组，会自动加空格                                           | `ReactNode[]`                                            | -     |
+| waterMarkProps     | 配置水印，Layout 会透传给 PageContainer，但是以 PageContainer 的配置优先            | [WaterMarkProps](/components/water-mark)                 | -     |
+| tabProps           | Tabs 的相关属性，只有卡片样式的页签支持新增和关闭选项。使用 `closable={false}` 禁止关闭          | [TabsProps](https://ant.design/components/tabs-cn/#Tabs) | -     |
 
 > fixedHeader 使用了 antd 的 Affix 实现，默认监听 body，如果你的滚动条不在 body 上需要人肉[设置](https://ant.design/components/affix-cn/)一下。
 
 ### FooterToolbar
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| extra | 额外内容区，位于 content 的右侧 | `ReactNode` | - |
-| children | 内容区域 | `ReactNode`\|`ReactNode[]` | - |
+| 参数       | 说明                   | 类型                         | 默认值 |
+| -------- | -------------------- | -------------------------- | --- |
+| extra    | 额外内容区，位于 content 的右侧 | `ReactNode`                | -   |
+| children | 内容区域                 | `ReactNode`\|`ReactNode[]` | -   |
 
 FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控制浮动，使其不会挡住菜单。如果你没有使用 ProLayout 需要通过 style 来自定义宽度和浮动。
 

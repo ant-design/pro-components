@@ -21,8 +21,8 @@ nav:
 
 ## API
 
-| property | description | type | default value |
-| --- | --- | --- | --- |
-| dragSortKey | If this parameter is configured, the drag sorting handle will be displayed in the row corresponding to the key, allowing drag sorting | `string` | - |
-| dragSortHandlerRender | The function for rendering custom drag sorting handles. If dragSortKey is configured but this parameter is not configured, the default handle icon is used | `(rowData: T, idx: number) => React.ReactNode` | `<MenuOutlined className= "dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />` |
-| onDragSortEnd | Drag sort completion callback | `(beforeIndex: number, afterIndex: number, newDataSource: T[]) => Promise<void> \| void` | - |
+| property              | description                                                                                                                                                | type                                                                                     | default value                                                                                   |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| dragSortKey           | If this parameter is configured, the drag sorting handle will be displayed in the row corresponding to the key, allowing drag sorting                      | `string`                                                                                 | -                                                                                               |
+| dragSortHandlerRender | The function for rendering custom drag sorting handles. If dragSortKey is configured but this parameter is not configured, the default handle icon is used | `(rowData: T, idx: number) => React.ReactNode`                                           | `<MenuOutlined className= "dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />` |
+| onDragSortEnd         | Drag sort completion callback                                                                                                                              | `(beforeIndex: number, afterIndex: number, newDataSource: T[]) => Promise<void> \| void` | -                                                                                               |

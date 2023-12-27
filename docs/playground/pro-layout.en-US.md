@@ -1,4 +1,4 @@
-﻿---
+---
 title: ProLayout
 nav:
   title: Playground

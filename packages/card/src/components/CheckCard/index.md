@@ -123,32 +123,32 @@ CheckCard 可以和表单组件一起使用，这里给出演示示例。
 
 ### CheckCard
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| checked | 指定当前是否选中 | boolean | false |
-| bordered | 是否显示边框 | boolean | true | 1.20.0 |
-| value | 选项值 | string | - |
-| defaultChecked | 初始是否选中 | boolean | false |
-| disabled | 失效状态 | boolean | false |
-| size | 选择框大小，可选 `large` `small` | string | `default` |  |
-| onChange | 变化时回调函数 | Function(checked) | - |
-| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
-| title | 标题 | string \| ReactNode | - |
-| description | 描述 | ReactNode | - |
-| avatar | 选项元素的图片地址 | link \| ReactNode | - |
-| extra | 动作区域 | 卡片右上角的操作区域 | - |
-| cover | 卡片背景图片, 注意使用该选项后`title`，`description`和`avatar`失效 | ReactNode | - |
+| 参数             | 说明                                              | 类型                  | 默认值       | 版本     |
+| -------------- | ----------------------------------------------- | ------------------- | --------- | ------ |
+| checked        | 指定当前是否选中                                        | boolean             | false     |        |
+| bordered       | 是否显示边框                                          | boolean             | true      | 1.20.0 |
+| value          | 选项值                                             | string              | -         |        |
+| defaultChecked | 初始是否选中                                          | boolean             | false     |        |
+| disabled       | 失效状态                                            | boolean             | false     |        |
+| size           | 选择框大小，可选 `large` `small`                        | string              | `default` |        |
+| onChange       | 变化时回调函数                                         | Function(checked)   | -         |        |
+| loading        | 当卡片内容还在加载中时，可以用 loading 展示一个占位                  | boolean             | false     |        |
+| title          | 标题                                              | string \| ReactNode | -         |        |
+| description    | 描述                                              | ReactNode           | -         |        |
+| avatar         | 选项元素的图片地址                                       | link \| ReactNode   | -         |        |
+| extra          | 动作区域                                            | 卡片右上角的操作区域          | -         |        |
+| cover          | 卡片背景图片，注意使用该选项后`title`，`description`和`avatar`失效 | ReactNode           | -         |        |
 
 ### CheckCard.Group
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| multiple | 多选 | boolean | false |
-| bordered | 是否显示边框 | boolean | true | 1.20.0 |
-| defaultValue | 默认选中的选项 | string \| string\[] | - |
-| disabled | 整组失效 | boolean | false |
-| loading | 当卡片组内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
-| options | 指定可选项 | string\[] \| Array<{ title: ReactNode, value: string, description?: ReactNode, avatar?: link or ReactNode, cover?:ReactNode, disabled?: boolean }> | \[] |
-| value | 指定选中的选项 | string \| string\[] | - |
-| size | 选择框大小，可选 `large` `small` | string | `default` |  |
-| onChange | 变化时回调函数 | Function(checkedValue) | - |
+| 参数           | 说明                              | 类型                                                                                                                                                 | 默认值       | 版本     |
+| ------------ | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------ |
+| multiple     | 多选                              | boolean                                                                                                                                            | false     |        |
+| bordered     | 是否显示边框                          | boolean                                                                                                                                            | true      | 1.20.0 |
+| defaultValue | 默认选中的选项                         | string \| string\[]                                                                                                                                | -         |        |
+| disabled     | 整组失效                            | boolean                                                                                                                                            | false     |        |
+| loading      | 当卡片组内容还在加载中时，可以用 loading 展示一个占位 | boolean                                                                                                                                            | false     |        |
+| options      | 指定可选项                           | string\[] \| Array<{ title: ReactNode, value: string, description?: ReactNode, avatar?: link or ReactNode, cover?:ReactNode, disabled?: boolean }> | \[]       |        |
+| value        | 指定选中的选项                         | string \| string\[]                                                                                                                                | -         |        |
+| size         | 选择框大小，可选 `large` `small`        | string                                                                                                                                             | `default` |        |
+| onChange     | 变化时回调函数                         | Function(checkedValue)                                                                                                                             | -         |        |

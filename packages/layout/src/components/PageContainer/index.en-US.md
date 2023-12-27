@@ -66,29 +66,29 @@ We have added a footer attribute to make it easier to do things like forms, so y
 
 PageContainer wraps ant design's PageHeader component, adding tabList and content. It relies on Layout's route property to fill in the title and breadcrumb based on the current route. Of course you can pass in parameters to override the default values. PageContainer supports all of [Tabs](https://ant.design/components/tabs/) and [PageHeader](https://ant.design/components/page-header/)'s attributes of [Tabs]() and [PageHeader]().
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| content | Content area | ReactNode | - |
-| extraContent | The extra content area, located to the right of content | ReactNode | - |
-| tabList | tab title list | `{key: string, tab: ReactNode}[]` | - |
-| tabActiveKey | The currently highlighted tab item | string | - |
-| onTabChange | Callback for switching panels | `(key) => void` | - |
-| tabBarExtraContent | Extra element on tab bar | `React.ReactNode` | - |
-| header | All properties of [PageHeader](https://ant.design/components/page-header/). | `PageHeaderProps` | - |
-| fixedHeader | Fix the content of the pageHeader to the top, better not to use it if the page content is small, it will have serious obscuration problems | `boolean` | - |
-| affixProps | The configuration of the fixed pins, exactly the same as antd | `AffixProps` | - |
-| footer | Hover over the bottom action bar, pass in an array that will automatically add spaces | `ReactNode[]` | - |
-| waterMarkProps | Configure the watermark, Layout will pass you through to PageContainer, but the configuration of PageContainer takes precedence | [WaterMarkProps](/components/water-mark) | - |
-| tabProps | The Tabs properties. Only card-style Tabs support add and close options. Use `closable={false}` to disable closing. | [TabsProps](https://ant.design/components/tabs/#Tabs) | - |
+| Parameters         | Description                                                                                                                                | Type                                                  | Default |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- | ------- |
+| content            | Content area                                                                                                                               | ReactNode                                             | -       |
+| extraContent       | The extra content area, located to the right of content                                                                                    | ReactNode                                             | -       |
+| tabList            | tab title list                                                                                                                             | `{key: string, tab: ReactNode}[]`                     | -       |
+| tabActiveKey       | The currently highlighted tab item                                                                                                         | string                                                | -       |
+| onTabChange        | Callback for switching panels                                                                                                              | `(key) => void`                                       | -       |
+| tabBarExtraContent | Extra element on tab bar                                                                                                                   | `React.ReactNode`                                     | -       |
+| header             | All properties of [PageHeader](https://ant.design/components/page-header/).                                                                | `PageHeaderProps`                                     | -       |
+| fixedHeader        | Fix the content of the pageHeader to the top, better not to use it if the page content is small, it will have serious obscuration problems | `boolean`                                             | -       |
+| affixProps         | The configuration of the fixed pins, exactly the same as antd                                                                              | `AffixProps`                                          | -       |
+| footer             | Hover over the bottom action bar, pass in an array that will automatically add spaces                                                      | `ReactNode[]`                                         | -       |
+| waterMarkProps     | Configure the watermark, Layout will pass you through to PageContainer, but the configuration of PageContainer takes precedence            | [WaterMarkProps](/components/water-mark)              | -       |
+| tabProps           | The Tabs properties. Only card-style Tabs support add and close options. Use `closable={false}` to disable closing.                        | [TabsProps](https://ant.design/components/tabs/#Tabs) | -       |
 
 > fixedHeader uses antd's Affix implementation, listens to the body by default, if your scrollbar is not on the body you need to human [set](https://ant.design/components/affix/) it.
 
 ### FooterToolbar
 
-| Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
-| extra | The extra content area, located to the right of content | `ReactNode` | - |
-| children | content area | `ReactNode`\|`ReactNode[]` | - |
+| Parameters | Description                                             | Type                       | Default |
+| ---------- | ------------------------------------------------------- | -------------------------- | ------- |
+| extra      | The extra content area, located to the right of content | `ReactNode`                | -       |
+| children   | content area                                            | `ReactNode`\|`ReactNode[]` | -       |
 
 The FooterToolbar api is relatively simple, the main function is to implement automatic float control in the layout so that it does not block the menu. If you don't use ProLayout, you need to customize the width and float by style.
 
