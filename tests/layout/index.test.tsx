@@ -1948,7 +1948,6 @@ describe('BasicLayout', () => {
         </ProLayout>
       </ConfigProvider>,
     );
-
     expect(
       html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')
         ?.textContent,
