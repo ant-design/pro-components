@@ -2681,7 +2681,7 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
 exports[`Field > 🐴 money valueType is Object 5`] = `
 <DocumentFragment>
   <span>
-    00,00 ₽
+    100,00 ₽
   </span>
 </DocumentFragment>
 `;
@@ -2689,7 +2689,7 @@ exports[`Field > 🐴 money valueType is Object 5`] = `
 exports[`Field > 🐴 money valueType is Object 6`] = `
 <DocumentFragment>
   <span>
-    ₽00,00 ₽
+    ₽100,00 ₽
   </span>
 </DocumentFragment>
 `;
@@ -2776,7 +2776,7 @@ exports[`Field > 🐴 money valueType is Object 7`] = `
 exports[`Field > 🐴 money valueType is Object 8`] = `
 <DocumentFragment>
   <span>
-    M 100.00
+    100.00
   </span>
 </DocumentFragment>
 `;
@@ -2784,7 +2784,7 @@ exports[`Field > 🐴 money valueType is Object 8`] = `
 exports[`Field > 🐴 money valueType is Object 9`] = `
 <DocumentFragment>
   <span>
-    RMM 100.00
+    RM100.00
   </span>
 </DocumentFragment>
 `;
@@ -2871,7 +2871,7 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
 exports[`Field > 🐴 money valueType is Object 11`] = `
 <DocumentFragment>
   <span>
-    00 RSD
+    100 RSD
   </span>
 </DocumentFragment>
 `;
@@ -2879,7 +2879,7 @@ exports[`Field > 🐴 money valueType is Object 11`] = `
 exports[`Field > 🐴 money valueType is Object 12`] = `
 <DocumentFragment>
   <span>
-    RSD00 RSD
+    RSD100 RSD
   </span>
 </DocumentFragment>
 `;
