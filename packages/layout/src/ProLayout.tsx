@@ -772,9 +772,13 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
         <>{children}</>
       ) : (
         <div className={className}>
-          <div className={classNames(`${proLayoutClassName}-bg-list`, hashId)}>
-            {bgImgStyleList}
-          </div>
+          {bgImgStyleList ? (
+            <div
+              className={classNames(`${proLayoutClassName}-bg-list`, hashId)}
+            >
+              {bgImgStyleList}
+            </div>
+          ) : null}
           <Layout
             style={{
               minHeight: '100%',
