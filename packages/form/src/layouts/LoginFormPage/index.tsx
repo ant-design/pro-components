@@ -155,6 +155,7 @@ export function LoginFormPage<T = Record<string, any>>(
             src={backgroundVideoUrl}
             controls={false}
             autoPlay
+            playsInline
             loop
             muted={true}
             crossOrigin="anonymous"
