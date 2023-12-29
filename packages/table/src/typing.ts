@@ -375,6 +375,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    * @name 如何格式化日期
    */
   dateFormatter?:
+    | (string & {})
     | 'string'
     | 'number'
     | ((value: dayjs.Dayjs, valueType: string) => string | number)
