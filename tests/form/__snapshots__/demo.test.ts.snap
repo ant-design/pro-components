@@ -4039,8 +4039,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             >
                               <span
                                 class="ant-upload"
-                                role="button"
-                                tabindex="0"
                               >
                                 <input
                                   accept=""
@@ -5412,8 +5410,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                     >
                       <span
                         class="ant-upload"
-                        role="button"
-                        tabindex="0"
                       >
                         <input
                           accept=""
@@ -9800,8 +9796,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                   >
                     <span
                       class="ant-upload"
-                      role="button"
-                      tabindex="0"
                     >
                       <input
                         accept=""
@@ -9890,8 +9884,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                     >
                       <span
                         class="ant-upload"
-                        role="button"
-                        tabindex="0"
                       >
                         <input
                           accept=""
@@ -43400,8 +43392,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
                   >
                     <span
                       class="ant-upload"
-                      role="button"
-                      tabindex="0"
                     >
                       <input
                         accept=""
@@ -44033,8 +44023,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
                   >
                     <span
                       class="ant-upload"
-                      role="button"
-                      tabindex="0"
                     >
                       <input
                         accept=""
@@ -49400,8 +49388,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                       >
                                         <span
                                           class="ant-upload"
-                                          role="button"
-                                          tabindex="0"
                                         >
                                           <input
                                             accept=""
