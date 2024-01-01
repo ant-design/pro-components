@@ -698,7 +698,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <div>
+                    <div
+                      style="display: flex; flex-wrap: wrap; align-items: center;"
+                    >
                       <div>
                         2016-11-21 15:22:44
                       </div>
@@ -3359,7 +3361,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <div>
+                    <div
+                      style="display: flex; flex-wrap: wrap; align-items: center;"
+                    >
                       <div>
                         2016.11.21 15:22:44
                       </div>

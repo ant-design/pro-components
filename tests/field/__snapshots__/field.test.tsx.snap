@@ -3206,7 +3206,9 @@ exports[`Field > 🐴 read and plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; align-items: center;"
+                  >
                     <div>
                       2019-11-15
                     </div>
@@ -3484,7 +3486,9 @@ exports[`Field > 🐴 read and plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; align-items: center;"
+                  >
                     <div>
                       2019-11-15 12:50:26
                     </div>
@@ -3510,7 +3514,9 @@ exports[`Field > 🐴 read and plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; align-items: center;"
+                  >
                     <div>
                       2019-11-15 12:50:26
                     </div>
@@ -3785,7 +3791,9 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; align-items: center;"
+                  >
                     <div>
                       2019-11-15
                     </div>
@@ -4032,7 +4040,9 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; align-items: center;"
+                  >
                     <div>
                       2019-11-15 12:50:26
                     </div>
@@ -4058,7 +4068,9 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; align-items: center;"
+                  >
                     <div>
                       2019-11-15 12:50:26
                     </div>

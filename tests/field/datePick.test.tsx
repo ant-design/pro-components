@@ -173,8 +173,8 @@ describe('DateField', () => {
       />,
     );
 
-    expect(html.baseElement.innerHTML).toBe(
-      '<div><div><div>2016-11-22 15:22:44</div><div>2016-11-23 15:22:44</div></div></div>',
+    expect(html.baseElement.textContent).toBe(
+      '2016-11-22 15:22:442016-11-23 15:22:44',
     );
   });
 

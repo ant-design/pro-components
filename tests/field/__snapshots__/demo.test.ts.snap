@@ -1183,7 +1183,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   <span
                     class="ant-descriptions-item-content"
                   >
-                    <div>
+                    <div
+                      style="display: flex; flex-wrap: wrap; align-items: center;"
+                    >
                       <div>
                         2019-11-15
                       </div>
@@ -1209,7 +1211,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   <span
                     class="ant-descriptions-item-content"
                   >
-                    <div>
+                    <div
+                      style="display: flex; flex-wrap: wrap; align-items: center;"
+                    >
                       <div>
                         2019-11-15 12:50:26
                       </div>
