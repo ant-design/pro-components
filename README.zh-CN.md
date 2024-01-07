@@ -6,19 +6,7 @@
 
 专为企业级应用设计，像专家一样使用 Ant Design！
 
-[![][npm-release-shield]][npm-release-link]
-[![][npm-downloads-shield]][npm-downloads-link]
-[![][github-releasedate-shield]][github-releasedate-link]
-[![][github-action-build-shield]][github-action-build-link]
-[![][codecov-shield]][codecov-link] <br/>
-[![][github-contributors-shield]][github-contributors-link]
-[![][github-forks-shield]][github-forks-link]
-[![][github-stars-shield]][github-stars-link]
-[![][github-issues-shield]][github-issues-link]
-[![][github-license-shield]][github-license-link] <br/>
-[![][ant-design-shield]][ant-design-link]
-[![][devops-dumi-shield]][devops-dumi-link]
-[![][devops-father-shield]][devops-father-link]
+[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-releasedate-shield]][github-releasedate-link] [![][github-action-build-shield]][github-action-build-link] [![][codecov-shield]][codecov-link] <br/> [![][github-contributors-shield]][github-contributors-link] [![][github-forks-shield]][github-forks-link] [![][github-stars-shield]][github-stars-link] [![][github-issues-shield]][github-issues-link] [![][github-license-shield]][github-license-link] <br/> [![][ant-design-shield]][ant-design-link] [![][devops-dumi-shield]][devops-dumi-link] [![][devops-father-shield]][devops-father-link]
 
 [English](./README.md) ・ 简体中文 ・ [报告错误][github-issues-link] · [请求功能][github-issues-link]
 
@@ -58,7 +46,7 @@ $ pnpm install @ant-design/pro-components
 
 Pro Series 组件经过精心设计，以增强企业级应用程序的健壮架构。
 
-[![](https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=183895098\&image_size=auto\&color_scheme=dark)](https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=183895098)
+[![](https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=183895098&image_size=auto&color_scheme=dark)](https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=183895098)
 
 <br/>
 
@@ -102,9 +90,9 @@ Pro Series 组件经过精心设计，以增强企业级应用程序的健壮架
 > - 现代浏览器和 Internet Explorer 11（使用[兼容性填充](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11)）
 > - [Electron](https://www.electronjs.org/)
 
-| [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron\_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge                                                                                                                                              | 最近 2 个版本                                                                                                                                                | 最近 2 个版本                                                                                                                                                | 最近 2 个版本                                                                                                                                                | 最近 2 个版本                                                                                                                                                             |
+| [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
+| --- | --- | --- | --- | --- |
+| Edge | 最近 2 个版本 | 最近 2 个版本 | 最近 2 个版本 | 最近 2 个版本 |
 
 <br/>
 
@@ -175,8 +163,7 @@ $ pnpm dev
 
 #### 📝 License
 
-Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdigital.com). <br/>
-This project is [MIT](./LICENSE) licensed.
+Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdigital.com). <br/> This project is [MIT](./LICENSE) licensed.
 
 <!-- LINK GROUP -->
 

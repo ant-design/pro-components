@@ -157,41 +157,41 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 
 ## API
 
-| Parameters            | Description                                                                                                                                                                   | Type                                                         | Default | Version |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------- | ------- |
-| title                 | title                                                                                                                                                                         | `React.ReactNode`                                            | -       |         |
-| subTitle              | Subtitle                                                                                                                                                                      | `React.ReactNode`                                            | -       |         |
-| tooltip               | Icon hover prompt information on the right side of the title                                                                                                                  | `string`                                                     | -       |         |
-| headStyle             | The style of the header                                                                                                                                                       | `CSSProperties`                                              | -       |         |
-| bodyStyle             | style of the content area                                                                                                                                                     | `CSSProperties`                                              | -       |         |
-| extra                 | Custom area in the upper right corner                                                                                                                                         | `React.ReactNode`                                            | -       |         |
-| layout                | Content layout, supports vertical centering                                                                                                                                   | `default` \| `center`                                        | default |         |
-| loading               | Loading, support custom loading style                                                                                                                                         | `boolean` \| `ReactNode`                                     | false   |         |
-| colSpan               | Grid layout width, 24 grid, supports specifying width px or percentage, supports responsive object writing `{ xs: 8, sm: 16, md: 24}`, only set on nested subcards efficient. | `number` \| `string`                                         | 24      |         |
-| gutter                | Number or use array form to set \[horizontal spacing, vertical spacing], supports responsive object notation `{ xs: 8, sm: 16, md: 24}`                                       | `number` \| `array`                                          | 0       |         |
-| split                 | Direction to split the card                                                                                                                                                   | `vertical` \| `horizontal`                                   | -       |         |
-| type                  | card type                                                                                                                                                                     | `inner` \| `default`                                         | -       |         |
-| size                  | card size                                                                                                                                                                     | `default` \| `small`                                         | -       |         |
-| actions               | Card action group, located at the bottom of the card                                                                                                                          | `Array&lt;ReactNode>`                                        | -       |         |
-| direction             | Specifies the flex direction, only valid when subcards are nested, the default direction is row horizontal                                                                    | `column`                                                     | -       |         |
-| wrap                  | Whether to support line wrapping, only valid when subcards are nested                                                                                                         | false                                                        | -       | 1.12.0  |
-| bordered              | whether to have a border                                                                                                                                                      | `boolean`                                                    | false   |         |
-| ghost                 | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card.                                                             | `boolean`                                                    | false   |         |
-| headerBordered        | Whether the header has a dividing line                                                                                                                                        | `boolean`                                                    | false   |         |
-| collapsed             | Controlled property, whether to collapse                                                                                                                                      | `boolean`                                                    | false   |         |
-| collapsible           | Whether the configuration is collapsible, invalid when controlled                                                                                                             | `boolean`                                                    | false   |         |
-| collapsibleIconRender | Replaces default collapsed icon                                                                                                                                               | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | -       |         |
-| defaultCollapsed      | Default collapsing, invalid when controlled                                                                                                                                   | `boolean`                                                    | false   |         |
-| onCollapse            | Collapsed card event, invalid when controlled                                                                                                                                 | `(collapsed: boolean) => void`                               | -       |         |
-| tabs                  | Tab configuration                                                                                                                                                             | See below ProCardTabs                                        | -       |         |
+| Parameters | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| title | title | `React.ReactNode` | - |  |
+| subTitle | Subtitle | `React.ReactNode` | - |  |
+| tooltip | Icon hover prompt information on the right side of the title | `string` | - |  |
+| headStyle | The style of the header | `CSSProperties` | - |  |
+| bodyStyle | style of the content area | `CSSProperties` | - |  |
+| extra | Custom area in the upper right corner | `React.ReactNode` | - |  |
+| layout | Content layout, supports vertical centering | `default` \| `center` | default |  |
+| loading | Loading, support custom loading style | `boolean` \| `ReactNode` | false |  |
+| colSpan | Grid layout width, 24 grid, supports specifying width px or percentage, supports responsive object writing `{ xs: 8, sm: 16, md: 24}`, only set on nested subcards efficient. | `number` \| `string` | 24 |  |
+| gutter | Number or use array form to set \[horizontal spacing, vertical spacing], supports responsive object notation `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |  |
+| split | Direction to split the card | `vertical` \| `horizontal` | - |  |
+| type | card type | `inner` \| `default` | - |  |
+| size | card size | `default` \| `small` | - |  |
+| actions | Card action group, located at the bottom of the card | `Array&lt;ReactNode>` | - |  |
+| direction | Specifies the flex direction, only valid when subcards are nested, the default direction is row horizontal | `column` | - |  |
+| wrap | Whether to support line wrapping, only valid when subcards are nested | false | - | 1.12.0 |
+| bordered | whether to have a border | `boolean` | false |  |
+| ghost | Ghost mode, that is, whether to cancel the padding of the card content area and the background color of the card. | `boolean` | false |  |
+| headerBordered | Whether the header has a dividing line | `boolean` | false |  |
+| collapsed | Controlled property, whether to collapse | `boolean` | false |  |
+| collapsible | Whether the configuration is collapsible, invalid when controlled | `boolean` | false |  |
+| collapsibleIconRender | Replaces default collapsed icon | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | - |  |
+| defaultCollapsed | Default collapsing, invalid when controlled | `boolean` | false |  |
+| onCollapse | Collapsed card event, invalid when controlled | `(collapsed: boolean) => void` | - |  |
+| tabs | Tab configuration | See below ProCardTabs | - |  |
 
 ### ProCardTabs
 
-| parameter | description                                                               | type                           | default value |
-| :-------- | :------------------------------------------------------------------------ | :----------------------------- | :------------ |
-| activeKey | currently selected item                                                   | string                         | -             |
-| type      | The basic style of the tab, optional `line`, `card`, `editable-card` type | string                         | inline        |
-| onChange  | callback                                                                  | `(activeKey: string) => void;` | -             |
+| parameter | description | type | default value |
+| :-- | :-- | :-- | :-- |
+| activeKey | currently selected item | string | - |
+| type | The basic style of the tab, optional `line`, `card`, `editable-card` type | string | inline |
+| onChange | callback | `(activeKey: string) => void;` | - |
 
 - For more properties, see antd [Tab](https://ant.design/components/tabs-cn/#Tabs) API description.
 
@@ -199,12 +199,12 @@ The `Steps` component is combined with the `ProCard` component to complete the v
 
 All properties of [Tabs.TabPane](https://ant.design/components/tabs-cn/#Tabs.TabPane) are supported.
 
-| parameter | description                                                                                                                                   | type        | default value |
-| :-------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :---------- | :------------ |
-| key       | Corresponding to activeKey, used to calibrate whether to select and dom update, must not repeat, otherwise it will cause abnormal performance | `string`    | -             |
-| tab       | Tab header display text                                                                                                                       | `ReactNode` | -             |
-| disabled  | unavailable                                                                                                                                   | `boolean`   | false         |
-| cardProps | ProCard card property passthrough                                                                                                             | `ProCard`   | -             |
+| parameter | description | type | default value |
+| :-- | :-- | :-- | :-- |
+| key | Corresponding to activeKey, used to calibrate whether to select and dom update, must not repeat, otherwise it will cause abnormal performance | `string` | - |
+| tab | Tab header display text | `ReactNode` | - |
+| disabled | unavailable | `boolean` | false |
+| cardProps | ProCard card property passthrough | `ProCard` | - |
 
 ### ProCard.Divider
 

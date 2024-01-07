@@ -104,34 +104,34 @@ You can use the `Statistic` component with the `layout` property set to `inline`
 
 ### StatisticCard
 
-| Property       | Description                                                                                    | Type                      | Default |
-| -------------- | ---------------------------------------------------------------------------------------------- | ------------------------- | ------- |
-| title          | Title of the card                                                                              | `string\|ReactNode`       | -       |
-| extra          | Extra operations area on the top right of the card                                             | `string\|ReactNode`       | -       |
-| loading        | Whether the card content is still loading, can be used to show a placeholder with loading icon | boolean                   | false   |
-| bordered       | Whether the card has a border                                                                  | boolean                   | true    |
-| chart          | Chart component                                                                                | ReactNode                 | -       |
-| statistic      | Configuration for numerical statistics, default layout is `vertical`                           | See Statistic below       | -       |
-| chartPlacement | Position of the chart relative to the statistic                                                | `left \| right \| bottom` | -       |
-| footer         | Extra area for displaying additional indicators                                                | `ReactNode`               | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| title | Title of the card | `string\|ReactNode` | - |
+| extra | Extra operations area on the top right of the card | `string\|ReactNode` | - |
+| loading | Whether the card content is still loading, can be used to show a placeholder with loading icon | boolean | false |
+| bordered | Whether the card has a border | boolean | true |
+| chart | Chart component | ReactNode | - |
+| statistic | Configuration for numerical statistics, default layout is `vertical` | See Statistic below | - |
+| chartPlacement | Position of the chart relative to the statistic | `left \| right \| bottom` | - |
+| footer | Extra area for displaying additional indicators | `ReactNode` | - |
 
 Refer to `ProCard` for more details, supports all APIs of `ProCard`.
 
 ### Statistic
 
-| Property    | Description                         | Type                                                            | Default  |
-| ----------- | ----------------------------------- | --------------------------------------------------------------- | -------- |
-| prefix      | Prefix of the value                 | string \| ReactNode                                             | -        |
-| suffix      | Suffix of the value                 | string \| ReactNode                                             | -        |
-| title       | Title of the value                  | string \| ReactNode                                             | -        |
-| tip         | Tooltip of the title                | string\| ReactNode                                              | -        |
-| value       | Content of the value                | string \| number                                                | -        |
-| icon        | Icon                                | ReactNode                                                       | -        |
-| status      | Status dot, same as Badge component | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | -        |
-| valueStyle  | Style of the value                  | style                                                           | -        |
-| description | Description label                   | React.ReactNode \| () => React.ReactNode                        | -        |
-| layout      | Layout                              | `horizontal \| vertical \| inline`                              | `inline` |
-| trend       | Trend                               | `up \| down \|`                                                 | -        |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| prefix | Prefix of the value | string \| ReactNode | - |
+| suffix | Suffix of the value | string \| ReactNode | - |
+| title | Title of the value | string \| ReactNode | - |
+| tip | Tooltip of the title | string\| ReactNode | - |
+| value | Content of the value | string \| number | - |
+| icon | Icon | ReactNode | - |
+| status | Status dot, same as Badge component | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | - |
+| valueStyle | Style of the value | style | - |
+| description | Description label | React.ReactNode \| () => React.ReactNode | - |
+| layout | Layout | `horizontal \| vertical \| inline` | `inline` |
+| trend | Trend | `up \| down \|` | - |
 
 Refer to [Statistic](https://ant.design/components/statistic/) for more APIs, supports all APIs of `Statistic`.
 

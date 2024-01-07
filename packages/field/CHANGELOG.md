@@ -28,7 +28,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- **utils:** FieldLabel 的 VALUE\_MAX\_LENGTH 可以通过参数传入 ([#7845](https://github.com/ant-design/pro-components/issues/7845)) ([#7846](https://github.com/ant-design/pro-components/issues/7846)) ([8cba14f](https://github.com/ant-design/pro-components/commit/8cba14f24e4549d428432f0ffdf194f8474eddfb))
+- **utils:** FieldLabel 的 VALUE_MAX_LENGTH 可以通过参数传入 ([#7845](https://github.com/ant-design/pro-components/issues/7845)) ([#7846](https://github.com/ant-design/pro-components/issues/7846)) ([8cba14f](https://github.com/ant-design/pro-components/commit/8cba14f24e4549d428432f0ffdf194f8474eddfb))
 
 ## [2.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.4...@ant-design/pro-field@2.13.5) (2023-10-26)
 

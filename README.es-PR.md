@@ -6,19 +6,7 @@
 
 Diseñado para aplicaciones a nivel empresarial, ¡usa Ant Design como un profesional!
 
-[![][npm-release-shield]][npm-release-link]
-[![][npm-downloads-shield]][npm-downloads-link]
-[![][github-releasedate-shield]][github-releasedate-link]
-[![][github-action-build-shield]][github-action-build-link]
-[![][codecov-shield]][codecov-link] <br/>
-[![][github-contributors-shield]][github-contributors-link]
-[![][github-forks-shield]][github-forks-link]
-[![][github-stars-shield]][github-stars-link]
-[![][github-issues-shield]][github-issues-link]
-[![][github-license-shield]][github-license-link] <br/>
-[![][ant-design-shield]][ant-design-link]
-[![][devops-dumi-shield]][devops-dumi-link]
-[![][devops-father-shield]][devops-father-link]
+[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-releasedate-shield]][github-releasedate-link] [![][github-action-build-shield]][github-action-build-link] [![][codecov-shield]][codecov-link] <br/> [![][github-contributors-shield]][github-contributors-link] [![][github-forks-shield]][github-forks-link] [![][github-stars-shield]][github-stars-link] [![][github-issues-shield]][github-issues-link] [![][github-license-shield]][github-license-link] <br/> [![][ant-design-shield]][ant-design-link] [![][devops-dumi-shield]][devops-dumi-link] [![][devops-father-shield]][devops-father-link]
 
 [English](./README.md) · [简体中文](./README.zh-CN.md) · [Reportar error][github-issues-link] · [Solicitar función][github-issues-link]
 
@@ -58,7 +46,7 @@ $ pnpm install @ant-design/pro-components
 
 Los componentes de la Serie Pro están meticulosamente diseñados para reforzar la sólida arquitectura de aplicaciones de grado empresarial.
 
-[![](https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=183895098\&image_size=auto\&color_scheme=dark)](https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=183895098)
+[![](https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=183895098&image_size=auto&color_scheme=dark)](https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=183895098)
 
 <br/>
 
@@ -102,9 +90,9 @@ En esencia, ProComponents es una biblioteca de componentes de interfaz de usuari
 > - Navegadores modernos e Internet Explorer 11 (con [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
 > - [Electron](https://www.electronjs.org/)
 
-| [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron\_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge                                                                                                                                              | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                     | últimas 2 versiones                                                                                                                                                  |
+| [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
+| --- | --- | --- | --- | --- |
+| Edge | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones |
 
 <br/>
 
@@ -175,8 +163,7 @@ Cada contribución, grande o pequeña, es celebrada. Únete a nuestra misión de
 
 #### 📝 License
 
-Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdigital.com). <br/>
-This project is [MIT](./LICENSE) licensed.
+Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdigital.com). <br/> This project is [MIT](./LICENSE) licensed.
 
 <!-- GRUPO DE ENLACES -->
 

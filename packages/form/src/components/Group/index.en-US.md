@@ -70,20 +70,20 @@ ProFormList is basically the same as the [Form.List](https://ant.design/componen
 
 ### ProFormList API
 
-| Parameters          | Description                                                                                                                        | Type                                                                 | Default Value                             |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------- |
-| creatorRecord       | Default value of a new line                                                                                                        | `Record<string, any>`                                                | -                                         |
-| creatorButtonProps  | Configuration of a new line of buttons                                                                                             | `buttonProps & {creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"Create a new line"}` |
-| label               | Same as From.Item                                                                                                                  | `ReactNode`                                                          | -                                         |
-| name                | The value of list in the form, required                                                                                            | `NamePath`                                                           | -                                         |
-| alwaysShowItemLabel | always show label in Item                                                                                                          | `boolean`                                                            | -                                         |
-| actionRef           | The built-in operation of the current List, you can add, delete, modify and check list items                                       | `{add,remove,move,get}`                                              | -                                         |
-| actionGuard         | FormItem's interceptor, including deletion and addition interception, you can use actionRef to get the value of the current row    | `{beforeAddRow:(index)=>boolean,beforeRemoveRow:(index)=>boolean}`   | -                                         |
-| min                 | The minimum number of entries, if the current data entry is less than this number, it cannot be deleted                            | `number`                                                             | -                                         |
-| max                 | The maximum number of entries, when adding or copying, if the current data entry exceeds this number, it cannot be added or copied | `number`                                                             | -                                         |
-| copyIconProps       | Copy button configuration, false to cancel                                                                                         | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`           | -                                         |
-| deleteIconProps     | Delete button configuration, false can cancel                                                                                      | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`           | -                                         |
-| actionRender        | custom action button                                                                                                               | `(field,action,defaultActionDom,count)=>React.ReactNode[]`           | -                                         |
+| Parameters | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| creatorRecord | Default value of a new line | `Record<string, any>` | - |
+| creatorButtonProps | Configuration of a new line of buttons | `buttonProps & {creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"Create a new line"}` |
+| label | Same as From.Item | `ReactNode` | - |
+| name | The value of list in the form, required | `NamePath` | - |
+| alwaysShowItemLabel | always show label in Item | `boolean` | - |
+| actionRef | The built-in operation of the current List, you can add, delete, modify and check list items | `{add,remove,move,get}` | - |
+| actionGuard | FormItem's interceptor, including deletion and addition interception, you can use actionRef to get the value of the current row | `{beforeAddRow:(index)=>boolean,beforeRemoveRow:(index)=>boolean}` | - |
+| min | The minimum number of entries, if the current data entry is less than this number, it cannot be deleted | `number` | - |
+| max | The maximum number of entries, when adding or copying, if the current data entry exceeds this number, it cannot be added or copied | `number` | - |
+| copyIconProps | Copy button configuration, false to cancel | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
+| deleteIconProps | Delete button configuration, false can cancel | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
+| actionRender | custom action button | `(field,action,defaultActionDom,count)=>React.ReactNode[]` | - |
 
 ### actionRef Action item instance
 

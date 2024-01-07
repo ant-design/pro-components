@@ -123,32 +123,32 @@ Here is an example of using CheckCard to select image algorithms in the actual A
 
 ### CheckCard
 
-| Property       | Description                                                                                                          | Type                                               | Default   | Version |
-| -------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | --------- | ------- |
-| checked        | Specifies whether the option is selected                                                                             | boolean                                            | false     |         |
-| bordered       | Whether to display the border                                                                                        | boolean                                            | true      | 1.20.0  |
-| value          | Value of the option                                                                                                  | string                                             | -         |         |
-| defaultChecked | Specifies whether the option is initially selected                                                                   | boolean                                            | false     |         |
-| disabled       | Disabled state                                                                                                       | boolean                                            | false     |         |
-| size           | Size of the checkbox, options: `large`, `small`                                                                      | string                                             | `default` |         |
-| onChange       | Callback function when the value changes                                                                             | Function(checked)                                  | -         |         |
-| loading        | When the card content is still loading, you can use loading to show a placeholder                                    | boolean                                            | false     |         |
-| title          | Title                                                                                                                | string \| ReactNode                                | -         |         |
-| description    | Description                                                                                                          | ReactNode                                          | -         |         |
-| avatar         | Image URL of the option element                                                                                      | link \| ReactNode                                  | -         |         |
-| extra          | Action area                                                                                                          | Extra operations area on the top right of the card | -         |         |
-| cover          | Background image of the card. Note that when using this option, `title`, `description`, and `avatar` will be ignored | ReactNode                                          | -         |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| checked | Specifies whether the option is selected | boolean | false |  |
+| bordered | Whether to display the border | boolean | true | 1.20.0 |
+| value | Value of the option | string | - |  |
+| defaultChecked | Specifies whether the option is initially selected | boolean | false |  |
+| disabled | Disabled state | boolean | false |  |
+| size | Size of the checkbox, options: `large`, `small` | string | `default` |  |
+| onChange | Callback function when the value changes | Function(checked) | - |  |
+| loading | When the card content is still loading, you can use loading to show a placeholder | boolean | false |  |
+| title | Title | string \| ReactNode | - |  |
+| description | Description | ReactNode | - |  |
+| avatar | Image URL of the option element | link \| ReactNode | - |  |
+| extra | Action area | Extra operations area on the top right of the card | - |  |
+| cover | Background image of the card. Note that when using this option, `title`, `description`, and `avatar` will be ignored | ReactNode | - |  |
 
 ### CheckCard.Group
 
-| Property     | Description                                                                             | Type                                                                                                                                               | Default   | Version |
-| ------------ | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
-| multiple     | Multiple selection                                                                      | boolean                                                                                                                                            | false     |         |
-| bordered     | Whether to display the border                                                           | boolean                                                                                                                                            | true      | 1.20.0  |
-| defaultValue | Default selected options                                                                | string \| string\[]                                                                                                                                | -         |         |
-| disabled     | Disable the entire group                                                                | boolean                                                                                                                                            | false     |         |
-| loading      | When the card group content is still loading, you can use loading to show a placeholder | boolean                                                                                                                                            | false     |         |
-| options      | Specify the options                                                                     | string\[] \| Array<{ title: ReactNode, value: string, description?: ReactNode, avatar?: link or ReactNode, cover?:ReactNode, disabled?: boolean }> | \[]       |         |
-| value        | Specify the selected options                                                            | string \| string\[]                                                                                                                                | -         |         |
-| size         | Size of the checkbox, options: `large`, `small`                                         | string                                                                                                                                             | `default` |         |
-| onChange     | Callback function when the value changes                                                | Function(checkedValue)                                                                                                                             | -         |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| multiple | Multiple selection | boolean | false |  |
+| bordered | Whether to display the border | boolean | true | 1.20.0 |
+| defaultValue | Default selected options | string \| string\[] | - |  |
+| disabled | Disable the entire group | boolean | false |  |
+| loading | When the card group content is still loading, you can use loading to show a placeholder | boolean | false |  |
+| options | Specify the options | string\[] \| Array<{ title: ReactNode, value: string, description?: ReactNode, avatar?: link or ReactNode, cover?:ReactNode, disabled?: boolean }> | \[] |  |
+| value | Specify the selected options | string \| string\[] | - |  |
+| size | Size of the checkbox, options: `large`, `small` | string | `default` |  |
+| onChange | Callback function when the value changes | Function(checkedValue) | - |  |

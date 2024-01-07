@@ -52,7 +52,7 @@
 
 `2023-11-14`
 
-- feat (utils): FieldLabel 的 VALUE\_MAX\_LENGTH 可以通过参数传入 (#7845) (#7846). [#7845](https://github.com/ant-design/pro-components/pull/#7845) [@Rabbit](https://github.com/Rabbit)
+- feat (utils): FieldLabel 的 VALUE_MAX_LENGTH 可以通过参数传入 (#7845) (#7846). [#7845](https://github.com/ant-design/pro-components/pull/#7845) [@Rabbit](https://github.com/Rabbit)
 - fix(layout): fix popupBg no work error. [ea20878](https://github.com/ant-design/pro-components/commit/ea20878)
 - fix(layout): \[antd: Drawer] `bodyStyle` is deprecated waring (#7864). [#7864](https://github.com/ant-design/pro-components/pull/#7864) [@OXXD](https://github.com/OXXD)
 - fix(layout): fix ProLayout did not match error. [cb330f9](https://github.com/ant-design/pro-components/commit/cb330f9)
@@ -302,7 +302,7 @@
 - fix(table): params change awaly reload fetch. [b147a16](https://github.com/ant-design/pro-components/commit/b147a16)
 - feat(table): ProTable support optionsRender. [8b56b6a](https://github.com/ant-design/pro-components/commit/8b56b6a)
 - fix(table): fix renderFormItem render twice render time. [c3b8ffd](https://github.com/ant-design/pro-components/commit/c3b8ffd)
-- fix(table): Protable support EXPAND\_COLUMN and SELECTION\_COLUMN. [3454347](https://github.com/ant-design/pro-components/commit/3454347)
+- fix(table): Protable support EXPAND_COLUMN and SELECTION_COLUMN. [3454347](https://github.com/ant-design/pro-components/commit/3454347)
 - fix(table): when checkable=false, no render all select boxs. [5421e41](https://github.com/ant-design/pro-components/commit/5421e41)
 - fix(table): Fix the columnsSetting styling issue in controlling column state when the table header is too long. [5b746b3](https://github.com/ant-design/pro-components/commit/5b746b3)
 - fix(table): Fix the issue where align="center" is not working. [db6fc65](https://github.com/ant-design/pro-components/commit/db6fc65)
@@ -746,7 +746,7 @@
 
 `2022-11-07`
 
-- fix(utils): do not use process?.env?.ANTD\_VERSION. [a295b3d](https://github.com/ant-design/pro-components/commit/a295b3d)
+- fix(utils): do not use process?.env?.ANTD_VERSION. [a295b3d](https://github.com/ant-design/pro-components/commit/a295b3d)
 - fix (table): 兼容 ellipsis 不想显示 Tooltip #6158 (#6160). [#6160](https://github.com/ant-design/pro-components/pull/#6160) [@DerrickTel](https://github.com/DerrickTel)
 
 ## @ant-design/pro-components\@2.3.28
