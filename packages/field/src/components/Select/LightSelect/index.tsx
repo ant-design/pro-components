@@ -112,7 +112,7 @@ const LightSelect: React.ForwardRefRenderFunction<
   // ProComponents文档中写到“与select相同，且fieldProps同antd组件中的props”描述方案不相符
   const mergeOpen = useMemo(() => {
     if (Reflect.has(restProps, 'open')) {
-      return restProps?.open
+      return restProps?.open;
     }
     return open;
   }, [open, restProps])
