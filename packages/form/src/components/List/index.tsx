@@ -160,6 +160,9 @@ function ProFormList<T>(props: ProFormListProps<T>) {
     isValidateList = false,
     emptyListMessage = '列表不能为空',
     className,
+    containerClassName,
+    containerStyle,
+    readonly,
     ...rest
   } = props;
 
@@ -244,7 +247,7 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                 <RowWrapper>
                   <ProFormListContainer
                     name={name}
-                    readonly={!!rest.readonly}
+                    readonly={!!readonly}
                     originName={rest.name}
                     copyIconProps={copyIconProps}
                     deleteIconProps={deleteIconProps}
@@ -280,8 +283,8 @@ function ProFormList<T>(props: ProFormListProps<T>) {
                       }
                       onAfterRemove?.(index, count);
                     }}
-                    containerClassName={props.containerClassName}
-                    containerStyle={props.containerStyle}
+                    containerClassName={containerClassName}
+                    containerStyle={containerStyle}
                   >
                     {children}
                   </ProFormListContainer>
