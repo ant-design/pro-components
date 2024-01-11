@@ -160,10 +160,6 @@ const CheckboxList: React.FC<{
               : config.disable?.checkbox,
           isLeaf: parentConfig ? true : undefined,
         };
-        if (item.title) {
-          const titleJsx = <>{item.title}</>
-          item.title  = <Typography.Text style={{ width: 80 }} ellipsis={{ tooltip: titleJsx }}>{titleJsx}</Typography.Text>
-        }
         
         if (children) {
           item.children = loopData(children, {
@@ -265,12 +261,15 @@ const CheckboxList: React.FC<{
       titleRender={(_node) => {
         const node = { ..._node, children: undefined };
         if (!node.title) return null;
+        const normalizedTitle = runFunction(node.title, node)
+        const wrappedTitle = <Typography.Text style={{ width: 80 }} ellipsis={{ tooltip: normalizedTitle }}>{normalizedTitle}</Typography.Text>
+
         return (
           <CheckboxListItem
             className={className}
             {...node}
             showListItemOption={showListItemOption}
-            title={runFunction(node.title, node)}
+            title={wrappedTitle}
             columnKey={node.key as string}
           />
         );
