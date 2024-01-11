@@ -6,7 +6,7 @@ import {
 } from '@ant-design/icons';
 import { ProProvider, useIntl } from '@ant-design/pro-provider';
 import { runFunction, useRefFunction } from '@ant-design/pro-utils';
-import type { TableColumnType } from 'antd';
+import { type TableColumnType, Typography } from 'antd';
 import { Checkbox, ConfigProvider, Popover, Space, Tooltip, Tree } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import type { DataNode } from 'antd/lib/tree';
@@ -160,6 +160,11 @@ const CheckboxList: React.FC<{
               : config.disable?.checkbox,
           isLeaf: parentConfig ? true : undefined,
         };
+        if (item.title) {
+          const titleJsx = <>{item.title}</>
+          item.title  = <Typography.Text style={{ width: 80 }} ellipsis={{ tooltip: titleJsx }}>{titleJsx}</Typography.Text>
+        }
+        
         if (children) {
           item.children = loopData(children, {
             ...config,
