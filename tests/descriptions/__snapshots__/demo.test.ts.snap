@@ -624,7 +624,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                         >
                           <div
                             class="ant-progress-bg"
-                            style="width: 100%; height: 6px; clip-path: inset(0 60% 0 0 round 100px);"
+                            style="width: 40%; height: 6px; --progress-percent: 0.4;"
                           />
                         </div>
                       </div>
@@ -1717,7 +1717,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                       </div>
                       <div
                         class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                        style="left: 0px; transform: translateX(-50%); width: 0px;"
+                        style="width: 0px; left: 0px; transform: translateX(-50%);"
                       />
                     </div>
                   </div>
@@ -1804,7 +1804,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                     class="ant-form-item-control-input-content"
                                   >
                                     <span
-                                      class="ant-input-affix-wrapper"
+                                      class="ant-input-affix-wrapper ant-input-outlined"
                                     >
                                       <input
                                         class="ant-input"
@@ -1887,7 +1887,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                             class="ant-form-item-control-input-content"
                                           >
                                             <div
-                                              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                              class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                               style="min-width: 100px;"
                                             >
                                               <div
@@ -2089,7 +2089,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                             class="ant-form-item-control-input-content"
                                           >
                                             <div
-                                              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                              class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                               style="min-width: 100px;"
                                             >
                                               <div
@@ -2291,7 +2291,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                             class="ant-form-item-control-input-content"
                                           >
                                             <div
-                                              class="ant-input-number ant-input-number-in-form-item pro-field pro-field-xs"
+                                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined pro-field pro-field-xs"
                                             >
                                               <div
                                                 class="ant-input-number-handler-wrap"

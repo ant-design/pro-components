@@ -222,7 +222,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     </div>
                     <div
                       class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                      style="left: 0px; transform: translateX(-50%); width: 0px;"
+                      style="width: 0px; left: 0px; transform: translateX(-50%);"
                     />
                   </div>
                 </div>
@@ -536,7 +536,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                           </div>
                           <div
                             class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                            style="left: 0px; transform: translateX(-50%); width: 0px;"
+                            style="width: 0px; left: 0px; transform: translateX(-50%);"
                           />
                         </div>
                       </div>
@@ -1747,7 +1747,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper"
+                            class="ant-input-affix-wrapper ant-input-outlined"
                           >
                             <input
                               class="ant-input"
@@ -9963,7 +9963,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                           </div>
                           <div
                             class="qixian-tabs-ink-bar qixian-tabs-ink-bar-animated"
-                            style="left: 0px; transform: translateX(-50%); width: 0px;"
+                            style="width: 0px; left: 0px; transform: translateX(-50%);"
                           />
                         </div>
                       </div>
@@ -13834,7 +13834,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                             </div>
                             <div
                               class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                              style="left: 0px; transform: translateX(-50%); width: 0px;"
+                              style="width: 0px; left: 0px; transform: translateX(-50%);"
                             />
                           </div>
                         </div>
@@ -17490,14 +17490,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                         class="ant-space-item"
                       >
                         <span
-                          class="ant-input-group-wrapper ant-input-search"
+                          class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                           style="width: 240px;"
                         >
                           <span
                             class="ant-input-wrapper ant-input-group"
                           >
                             <input
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               type="text"
                               value=""
                             />
