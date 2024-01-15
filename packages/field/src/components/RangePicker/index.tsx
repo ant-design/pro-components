@@ -70,6 +70,7 @@ const FieldRangePicker: ProFieldFC<
         style={{
           display: 'flex',
           flexWrap: 'wrap',
+          gap: 8,
           alignItems: 'center',
         }}
       >

@@ -699,7 +699,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     style="min-width: 0;"
                   >
                     <div
-                      style="display: flex; flex-wrap: wrap; align-items: center;"
+                      style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                     >
                       <div>
                         2016-11-21 15:22:44
@@ -3362,7 +3362,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
                     style="min-width: 0;"
                   >
                     <div
-                      style="display: flex; flex-wrap: wrap; align-items: center;"
+                      style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                     >
                       <div>
                         2016.11.21 15:22:44

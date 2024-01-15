@@ -6554,7 +6554,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            style="display: flex; flex-wrap: wrap; align-items: center;"
+                            style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                           >
                             <div>
                               2016-11-22
@@ -6599,7 +6599,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            style="display: flex; flex-wrap: wrap; align-items: center;"
+                            style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                           >
                             <div>
                               2016-11-22 15:22:44

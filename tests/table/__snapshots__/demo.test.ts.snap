@@ -49456,7 +49456,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; flex-wrap: wrap; align-items: center;"
+                                style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                               >
                                 <div>
                                   2016-11-22
@@ -49470,7 +49470,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; flex-wrap: wrap; align-items: center;"
+                                style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                               >
                                 <div>
                                   2016-11-22 15:22:42
@@ -49524,7 +49524,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; flex-wrap: wrap; align-items: center;"
+                                style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                               >
                                 <div>
                                   2016-11-22
@@ -49538,7 +49538,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; flex-wrap: wrap; align-items: center;"
+                                style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                               >
                                 <div>
                                   2016-11-22 15:22:42
