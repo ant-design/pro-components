@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.4...@ant-design/pro-field@2.14.5) (2024-01-15)
+
+
+### Bug Fixes
+
+* **form:** fix ProFormPage submit error ([2260b0d](https://github.com/ant-design/pro-components/commit/2260b0dae2f26c12e9d25a0a4f85c2fc8fc8e0be))
+
+
+
+
 
 ## [2.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.3...@ant-design/pro-field@2.14.4) (2024-01-15)
 
