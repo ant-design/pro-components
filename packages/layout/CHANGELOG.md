@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.18...@ant-design/pro-layout@7.17.19) (2024-01-15)
 
-
 ### Bug Fixes
 
-* **layout:** fix bgLayout no work error ([4a21fdf](https://github.com/ant-design/pro-components/commit/4a21fdf5ad56aa09a9c06b20063ea27203267913))
-
-
-
-
+- **layout:** fix bgLayout no work error ([4a21fdf](https://github.com/ant-design/pro-components/commit/4a21fdf5ad56aa09a9c06b20063ea27203267913))
 
 ## [7.17.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.17...@ant-design/pro-layout@7.17.18) (2024-01-15)
 

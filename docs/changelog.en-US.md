@@ -1,3 +1,10 @@
+## @ant-design/pro-components@2.6.46
+
+`2024-01-15`
+
+- fix(layout): fix bgLayout no work error. [4a21fdf](https://github.com/ant-design/pro-components/commit/4a21fdf)
+- fix(form): fix ProFormPage submit error. [2260b0d](https://github.com/ant-design/pro-components/commit/2260b0d)
+
 ## @ant-design/pro-components@2.6.45
 
 `2024-01-15`
