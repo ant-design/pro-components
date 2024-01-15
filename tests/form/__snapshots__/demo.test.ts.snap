@@ -49040,6 +49040,9 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >

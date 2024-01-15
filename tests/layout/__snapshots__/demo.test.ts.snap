@@ -4199,6 +4199,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout ant-layout-has-sider"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -4442,6 +4445,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/BreadcrumbsRepe
       <div
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
+        <div
+          class="ant-pro-layout-bg-list"
+        />
         <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
@@ -4745,6 +4751,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout ant-layout-has-sider"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -4988,6 +4997,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/IconFont.tsx co
       <div
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
+        <div
+          class="ant-pro-layout-bg-list"
+        />
         <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
@@ -5233,6 +5245,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MenuGroup.tsx c
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -5476,6 +5491,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MultipleMenuOne
       <div
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
+        <div
+          class="ant-pro-layout-bg-list"
+        />
         <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
@@ -5743,6 +5761,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-side"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout ant-layout-has-sider"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -5756,6 +5777,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
               <div
                 class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-is-children ant-pro-layout-side"
               >
+                <div
+                  class="ant-pro-layout-bg-list"
+                />
                 <div
                   class="ant-layout"
                   style="min-height: 100%; flex-direction: row; height: 400px;"
@@ -5956,6 +5980,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -6136,6 +6163,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
                 class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-is-children ant-pro-layout-fix-siderbar ant-pro-layout-side"
               >
                 <div
+                  class="ant-pro-layout-bg-list"
+                />
+                <div
                   class="ant-layout"
                   style="min-height: 100%; flex-direction: row;"
                 >
@@ -6284,6 +6314,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/antd@4MenuIconF
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 500px; flex-direction: row;"
@@ -6763,6 +6796,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/api.tsx correct
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
       >
@@ -7132,6 +7168,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/appList-group.t
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -7371,6 +7410,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/appList-group-s
       <div
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
       >
+        <div
+          class="ant-pro-layout-bg-list"
+        />
         <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
@@ -9052,6 +9094,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -9396,6 +9441,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
     <div
       class="ant-design-pro qixian-pro-layout screen-xs qixian-pro-layout-fix-siderbar qixian-pro-layout-side"
     >
+      <div
+        class="qixian-pro-layout-bg-list"
+      />
       <div
         class="qixian-layout"
         style="min-height: 100%; flex-direction: row; max-height: 100vh;"
@@ -10780,6 +10828,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -11118,6 +11169,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customizeMenu.t
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -11255,6 +11309,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
@@ -11640,6 +11697,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
@@ -13268,6 +13328,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -14326,6 +14389,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
       >
@@ -14645,6 +14711,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/error-boundarie
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
         <div
+          class="ant-pro-layout-bg-list"
+        />
+        <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
         >
@@ -14875,6 +14944,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer.tsx corr
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
@@ -15602,6 +15674,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/ghost.tsx corre
       <div
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
+        <div
+          class="ant-pro-layout-bg-list"
+        />
         <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
@@ -16790,6 +16865,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/hideMenu.tsx co
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
       >
@@ -17044,6 +17122,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
@@ -17410,6 +17491,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
@@ -17933,6 +18017,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
       <div
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
+        <div
+          class="ant-pro-layout-bg-list"
+        />
         <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
@@ -18961,6 +19048,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/morse_debug.tsx
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -19679,6 +19769,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/searchMenu.tsx 
       <div
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
       >
+        <div
+          class="ant-pro-layout-bg-list"
+        />
         <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
@@ -20622,6 +20715,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
       >
@@ -20811,6 +20907,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
       <div
+        class="ant-pro-layout-bg-list"
+      />
+      <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
       >
@@ -20827,6 +20926,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
@@ -20883,6 +20985,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
@@ -20965,6 +21070,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
@@ -21053,6 +21161,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
@@ -21148,6 +21259,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row; height: 100vh;"
@@ -21277,6 +21391,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
     <div
       class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
     >
+      <div
+        class="ant-pro-layout-bg-list"
+      />
       <div
         class="ant-layout"
         style="min-height: 100%; flex-direction: row;"
@@ -21665,6 +21782,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/top-breadcrumb.
       <div
         class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
       >
+        <div
+          class="ant-pro-layout-bg-list"
+        />
         <div
           class="ant-layout"
           style="min-height: 100%; flex-direction: row;"
