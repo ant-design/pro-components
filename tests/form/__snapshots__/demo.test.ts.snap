@@ -16674,11 +16674,12 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     </a>
                   </div>
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-primary ant-btn-lg"
+                    style="width: 100%;"
                     type="button"
                   >
                     <span>
-                      重 置
+                      登 录
                     </span>
                   </button>
                 </form>
