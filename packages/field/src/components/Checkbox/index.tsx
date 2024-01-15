@@ -116,6 +116,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
 
   if (mode === 'edit') {
     const dom = wrapSSR(
+      //@ts-ignore
       <Checkbox.Group
         {...rest.fieldProps}
         className={classNames(
