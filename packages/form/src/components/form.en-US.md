@@ -276,7 +276,7 @@ While we would prefer not to modify the submitter, it is a common requirement to
 | resetButtonProps | The props for the reset button | [ButtonProps](https://ant.design/components/button/) | - |
 | render | Rendering of custom actions | `false` \|`(props,dom:JSX[])=>ReactNode[]` | - |
 
-The second argument to > render is the default dom array, the first is the reset button and the second is the submit button.
+The second argument to > render is the default dom array, the first is the submit button and the second is the reset button.
 
 ```tsx | pure
 <ProForm
