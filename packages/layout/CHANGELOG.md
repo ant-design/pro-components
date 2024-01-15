@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.17.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.17...@ant-design/pro-layout@7.17.18) (2024-01-15)
 
-
 ### Bug Fixes
 
-* **layout:** if bgImgStyleList is null ,no render bg-list dom ([0b26161](https://github.com/ant-design/pro-components/commit/0b2616145aeae60f0bcb9f4d87b86c75e45fafcf))
-
-
-
-
+- **layout:** if bgImgStyleList is null ,no render bg-list dom ([0b26161](https://github.com/ant-design/pro-components/commit/0b2616145aeae60f0bcb9f4d87b86c75e45fafcf))
 
 ## [7.17.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.16...@ant-design/pro-layout@7.17.17) (2023-12-12)
 

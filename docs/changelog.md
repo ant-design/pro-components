@@ -1,3 +1,21 @@
+## @ant-design/pro-components@2.6.45
+
+`2024-01-15`
+
+- fix(layout): if bgImgStyleList is null ,no render bg-list dom. [0b26161](https://github.com/ant-design/pro-components/commit/0b26161)
+- feat(form): 添加 FormItemRender 组件 (#8012). [#8012](https://github.com/ant-design/pro-components/pull/#8012) [@hans000](https://github.com/hans000)
+- fix(form): fix ProFormDateRangePicker readonly no warp error. [b2276c3](https://github.com/ant-design/pro-components/commit/b2276c3)
+- fix(form): 修复 dateFormatter 使用 string 类型提示错误 (#8029). [#8029](https://github.com/ant-design/pro-components/pull/#8029) [@yjhtry](https://github.com/yjhtry)
+- fix(form): add playsInline props. [e1233d1](https://github.com/ant-design/pro-components/commit/e1233d1)
+- fix(form): 修复特殊情况（不使用 ProFormMoney 使用 FieldMoney）下格式化错误的问题 (#8024). [#8024](https://github.com/ant-design/pro-components/pull/#8024) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): 修复特殊情况下多出 moneySymbol 的问题 (#8004). [#8004](https://github.com/ant-design/pro-components/pull/#8004) [@ONLY-yours](https://github.com/ONLY-yours)
+- chore(form): adjust `submitter` dom order (#7988). [#7988](https://github.com/ant-design/pro-components/pull/#7988) [@kungege](https://github.com/kungege)
+- fix(form): remove extra `div` (#7987). [#7987](https://github.com/ant-design/pro-components/pull/#7987) [@kungege](https://github.com/kungege)
+- fix(form): no set maxHeight. [64dc9f7](https://github.com/ant-design/pro-components/commit/64dc9f7)
+- fix(list): 修复 ProFormList 透传部分属性到 FormItem 中导致的 react 警告 (#8051). [#8051](https://github.com/ant-design/pro-components/pull/#8051) [@SANmq](https://github.com/SANmq)
+- fix(table): Record Creator re-render when props change (#8018). [#8018](https://github.com/ant-design/pro-components/pull/#8018) [@bartelemi](https://github.com/bartelemi)
+- fix(table): 修复同时使用 defalutValue 和 Storage 存储的情况下，defalutValue 失效的问题 (#7979). [#7979](https://github.com/ant-design/pro-components/pull/#7979) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-components\@2.6.44
 
 `2023-12-12`

@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.15.3...@ant-design/pro-utils@2.15.4) (2024-01-15)
 
-
 ### Bug Fixes
 
-* **form:** 修复dateFormatter使用string类型提示错误 ([#8029](https://github.com/ant-design/pro-components/issues/8029)) ([6d764ad](https://github.com/ant-design/pro-components/commit/6d764ad498405ad59f4fda71db1b0c632d8150a1))
-
-
-
-
+- **form:** 修复 dateFormatter 使用 string 类型提示错误 ([#8029](https://github.com/ant-design/pro-components/issues/8029)) ([6d764ad](https://github.com/ant-design/pro-components/commit/6d764ad498405ad59f4fda71db1b0c632d8150a1))
 
 ## [2.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.15.2...@ant-design/pro-utils@2.15.3) (2023-12-12)
 

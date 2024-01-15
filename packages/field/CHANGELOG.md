@@ -1,21 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.3...@ant-design/pro-field@2.14.4) (2024-01-15)
 
-
 ### Bug Fixes
 
-* **form:** fix ProFormDateRangePicker readonly no warp error ([b2276c3](https://github.com/ant-design/pro-components/commit/b2276c35aee39fb7ee39254c3d5c48c9dea12881)), closes [#7913](https://github.com/ant-design/pro-components/issues/7913)
-* **form:** 修复特殊情况（不使用 ProFormMoney 使用 FieldMoney）下格式化错误的问题 ([#8024](https://github.com/ant-design/pro-components/issues/8024)) ([c321689](https://github.com/ant-design/pro-components/commit/c32168973008ddfe7d9c4bef79e1cbd46387b8d3))
-* **form:** 修复特殊情况下多出 moneySymbol 的问题 ([#8004](https://github.com/ant-design/pro-components/issues/8004)) ([f9f0a63](https://github.com/ant-design/pro-components/commit/f9f0a63e9f18950754f6ba6efaead3ab8dcfdb5d))
-* slove moneySymbol judge was error ([#8003](https://github.com/ant-design/pro-components/issues/8003)) ([75d5b55](https://github.com/ant-design/pro-components/commit/75d5b552986c5f86e6380cb28ed2f7d0541c6cc3))
-
-
-
-
+- **form:** fix ProFormDateRangePicker readonly no warp error ([b2276c3](https://github.com/ant-design/pro-components/commit/b2276c35aee39fb7ee39254c3d5c48c9dea12881)), closes [#7913](https://github.com/ant-design/pro-components/issues/7913)
+- **form:** 修复特殊情况（不使用 ProFormMoney 使用 FieldMoney）下格式化错误的问题 ([#8024](https://github.com/ant-design/pro-components/issues/8024)) ([c321689](https://github.com/ant-design/pro-components/commit/c32168973008ddfe7d9c4bef79e1cbd46387b8d3))
+- **form:** 修复特殊情况下多出 moneySymbol 的问题 ([#8004](https://github.com/ant-design/pro-components/issues/8004)) ([f9f0a63](https://github.com/ant-design/pro-components/commit/f9f0a63e9f18950754f6ba6efaead3ab8dcfdb5d))
+- slove moneySymbol judge was error ([#8003](https://github.com/ant-design/pro-components/issues/8003)) ([75d5b55](https://github.com/ant-design/pro-components/commit/75d5b552986c5f86e6380cb28ed2f7d0541c6cc3))
 
 ## [2.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.2...@ant-design/pro-field@2.14.3) (2023-12-12)
 
