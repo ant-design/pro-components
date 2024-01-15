@@ -1,6 +1,21 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.13.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.12...@ant-design/pro-table@3.13.13) (2024-01-15)
+
+
+### Bug Fixes
+
+* **form:** 修复dateFormatter使用string类型提示错误 ([#8029](https://github.com/ant-design/pro-components/issues/8029)) ([6d764ad](https://github.com/ant-design/pro-components/commit/6d764ad498405ad59f4fda71db1b0c632d8150a1))
+* **table:** Record Creator re-render when props change ([#8018](https://github.com/ant-design/pro-components/issues/8018)) ([c0187d2](https://github.com/ant-design/pro-components/commit/c0187d2160ca72413b4e645023a2849acd9fa725))
+* 删除log代码 ([#7995](https://github.com/ant-design/pro-components/issues/7995)) ([c867cd2](https://github.com/ant-design/pro-components/commit/c867cd214aa64cbfbe38326061338849850bb6b9))
+* **table:** 修复同时使用 defalutValue 和 Storage 存储的情况下，defalutValue失效的问题 ([#7979](https://github.com/ant-design/pro-components/issues/7979)) ([76bb081](https://github.com/ant-design/pro-components/commit/76bb0811fbc6e14287a05fd863d694d356e3322c))
+
+
+
+
 
 ## [3.13.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.11...@ant-design/pro-table@3.13.12) (2023-12-12)
 

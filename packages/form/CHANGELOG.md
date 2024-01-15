@@ -1,6 +1,29 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.23.2...@ant-design/pro-form@2.24.0) (2024-01-15)
+
+
+### Bug Fixes
+
+* **form:** add playsInline props ([e1233d1](https://github.com/ant-design/pro-components/commit/e1233d1eb9dde02a5fd74a176586dc2279fada81)), closes [#8011](https://github.com/ant-design/pro-components/issues/8011)
+* **form:** no set maxHeight ([64dc9f7](https://github.com/ant-design/pro-components/commit/64dc9f77e6ca6333b3dfc4f42ad74cc11a3df051))
+* **form:** remove extra `div` ([#7987](https://github.com/ant-design/pro-components/issues/7987)) ([d9bee22](https://github.com/ant-design/pro-components/commit/d9bee225021b9c50e7a25e5e657ed9432fef0f74))
+* **form:** 修复dateFormatter使用string类型提示错误 ([#8029](https://github.com/ant-design/pro-components/issues/8029)) ([6d764ad](https://github.com/ant-design/pro-components/commit/6d764ad498405ad59f4fda71db1b0c632d8150a1))
+* **form:** 修复特殊情况（不使用 ProFormMoney 使用 FieldMoney）下格式化错误的问题 ([#8024](https://github.com/ant-design/pro-components/issues/8024)) ([c321689](https://github.com/ant-design/pro-components/commit/c32168973008ddfe7d9c4bef79e1cbd46387b8d3))
+* **form:** 修复特殊情况下多出 moneySymbol 的问题 ([#8004](https://github.com/ant-design/pro-components/issues/8004)) ([f9f0a63](https://github.com/ant-design/pro-components/commit/f9f0a63e9f18950754f6ba6efaead3ab8dcfdb5d))
+* **list:** 修复ProFormList透传部分属性到FormItem中导致的react警告 ([#8051](https://github.com/ant-design/pro-components/issues/8051)) ([ebc08bf](https://github.com/ant-design/pro-components/commit/ebc08bf49248156788448cbf94754c67d5ee1ba0))
+
+
+### Features
+
+* **form:** 添加FormItemRender组件 ([#8012](https://github.com/ant-design/pro-components/issues/8012)) ([bfd905e](https://github.com/ant-design/pro-components/commit/bfd905ef97b948e4f79ab6afee4005c92ac61d14))
+
+
+
+
 
 ## [2.23.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.23.1...@ant-design/pro-form@2.23.2) (2023-12-12)
 
