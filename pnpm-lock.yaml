@@ -104,10 +104,10 @@ importers:
         specifier: ^14.18.63
         version: 14.18.63
       '@types/react':
-        specifier: ^18.2.47
+        specifier: ^18.0.38
         version: 18.2.47
       '@types/react-dom':
-        specifier: ^18.2.18
+        specifier: ^18.0.11
         version: 18.2.18
       '@types/react-helmet':
         specifier: ^6.1.11
@@ -372,23 +372,23 @@ importers:
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       classnames:
         specifier: ^2.3.2
-        version: 2.3.2
+        version: 2.5.1
       omit.js:
         specifier: ^2.0.2
         version: 2.0.2
       rc-resize-observer:
         specifier: ^1.0.0
-        version: 1.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 1.4.0(react-dom@18.2.0)(react@18.2.0)
       rc-util:
         specifier: ^5.4.0
-        version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+        version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/components:
     dependencies:
@@ -424,7 +424,7 @@ importers:
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.16.3
-        version: 7.18.0
+        version: 7.23.8
 
   packages/descriptions:
     dependencies:
@@ -442,17 +442,17 @@ importers:
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       rc-resize-observer:
         specifier: ^0.2.3
-        version: 0.2.3(react-dom@18.2.0)(react@18.2.0)
+        version: 0.2.6(react-dom@18.2.0)(react@18.2.0)
       rc-util:
         specifier: ^5.0.6
-        version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+        version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/field:
     dependencies:
@@ -467,13 +467,13 @@ importers:
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       '@chenshuai2144/sketch-color':
         specifier: ^1.0.8
-        version: 1.0.8(react@18.2.0)
+        version: 1.0.9(react@18.2.0)
       classnames:
         specifier: ^2.3.2
-        version: 2.3.2
+        version: 2.5.1
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -485,23 +485,23 @@ importers:
         version: 2.0.2
       rc-util:
         specifier: ^5.4.0
-        version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+        version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
       swr:
         specifier: ^2.0.0
-        version: 2.0.0(react@18.2.0)
+        version: 2.2.4(react@18.2.0)
     devDependencies:
       '@types/lodash.tonumber':
         specifier: ^4.0.6
-        version: 4.0.6
+        version: 4.0.9
       '@types/react-color':
         specifier: ^3.0.4
-        version: 3.0.4
+        version: 3.0.11
       rc-resize-observer:
         specifier: ^0.2.3
-        version: 0.2.3(react-dom@18.2.0)(react@18.2.0)
+        version: 0.2.6(react-dom@18.2.0)(react@18.2.0)
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/form:
     dependencies:
@@ -519,16 +519,16 @@ importers:
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       '@chenshuai2144/sketch-color':
         specifier: ^1.0.7
-        version: 1.0.8(react@18.2.0)
+        version: 1.0.9(react@18.2.0)
       '@umijs/use-params':
         specifier: ^1.0.9
         version: 1.0.9(react@18.2.0)
       classnames:
         specifier: ^2.3.2
-        version: 2.3.2
+        version: 2.5.1
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -540,17 +540,17 @@ importers:
         version: 2.0.2
       rc-resize-observer:
         specifier: ^1.1.0
-        version: 1.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 1.4.0(react-dom@18.2.0)(react@18.2.0)
       rc-util:
         specifier: ^5.0.6
-        version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+        version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@types/lodash.merge':
         specifier: ^4.6.7
-        version: 4.6.7
+        version: 4.6.9
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/layout:
     dependencies:
@@ -565,16 +565,16 @@ importers:
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       '@umijs/route-utils':
         specifier: ^4.0.0
-        version: 4.0.0
+        version: 4.0.1
       '@umijs/use-params':
         specifier: ^1.0.9
         version: 1.0.9(react@18.2.0)
       classnames:
         specifier: ^2.3.2
-        version: 2.3.2
+        version: 2.5.1
       lodash.merge:
         specifier: ^4.6.2
         version: 4.6.2
@@ -586,20 +586,20 @@ importers:
         version: 2.4.0
       rc-resize-observer:
         specifier: ^1.1.0
-        version: 1.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 1.4.0(react-dom@18.2.0)(react@18.2.0)
       rc-util:
         specifier: ^5.0.6
-        version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+        version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
       swr:
         specifier: ^2.0.0
-        version: 2.0.0(react@18.2.0)
+        version: 2.2.4(react@18.2.0)
       warning:
         specifier: ^4.0.3
         version: 4.0.3
     devDependencies:
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/list:
     dependencies:
@@ -620,55 +620,55 @@ importers:
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       classnames:
         specifier: ^2.3.2
-        version: 2.3.2
+        version: 2.5.1
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
       rc-resize-observer:
         specifier: ^1.0.0
-        version: 1.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 1.4.0(react-dom@18.2.0)(react@18.2.0)
       rc-util:
         specifier: ^4.19.0
-        version: 4.19.0(react-dom@18.2.0)(react@18.2.0)
+        version: 4.21.1
     devDependencies:
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/provider:
     dependencies:
       '@ant-design/cssinjs':
         specifier: ^1.11.1
-        version: 1.17.2(react-dom@18.2.0)(react@18.2.0)
+        version: 1.18.2(react-dom@18.2.0)(react@18.2.0)
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       '@ctrl/tinycolor':
         specifier: ^3.4.0
-        version: 3.4.0
+        version: 3.6.1
       rc-util:
         specifier: ^5.0.1
-        version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+        version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
       swr:
         specifier: ^2.0.0
-        version: 2.0.0(react@18.2.0)
+        version: 2.2.4(react@18.2.0)
     devDependencies:
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/skeleton:
     dependencies:
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
     devDependencies:
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/table:
     dependencies:
@@ -692,22 +692,22 @@ importers:
         version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       '@dnd-kit/core':
         specifier: ^6.0.8
-        version: 6.0.8(react-dom@18.2.0)(react@18.2.0)
+        version: 6.1.0(react-dom@18.2.0)(react@18.2.0)
       '@dnd-kit/modifiers':
         specifier: ^6.0.1
-        version: 6.0.1(@dnd-kit/core@6.0.8)(react@18.2.0)
+        version: 6.0.1(@dnd-kit/core@6.1.0)(react@18.2.0)
       '@dnd-kit/sortable':
         specifier: ^7.0.2
-        version: 7.0.2(@dnd-kit/core@6.0.8)(react@18.2.0)
+        version: 7.0.2(@dnd-kit/core@6.1.0)(react@18.2.0)
       '@dnd-kit/utilities':
         specifier: ^3.2.1
-        version: 3.2.1(react@18.2.0)
+        version: 3.2.2(react@18.2.0)
       classnames:
         specifier: ^2.3.2
-        version: 2.3.2
+        version: 2.5.1
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -719,17 +719,17 @@ importers:
         version: 2.0.2
       rc-resize-observer:
         specifier: ^1.0.0
-        version: 1.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 1.4.0(react-dom@18.2.0)(react@18.2.0)
       rc-util:
         specifier: ^5.0.1
-        version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+        version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@types/lodash.merge':
         specifier: ^4.6.7
         version: 4.6.9
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
   packages/utils:
     dependencies:
@@ -741,10 +741,10 @@ importers:
         version: link:../provider
       '@babel/runtime':
         specifier: ^7.18.0
-        version: 7.18.0
+        version: 7.23.8
       classnames:
         specifier: ^2.3.2
-        version: 2.3.2
+        version: 2.5.1
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -753,17 +753,17 @@ importers:
         version: 4.6.2
       rc-util:
         specifier: ^5.0.6
-        version: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+        version: 5.38.1(react-dom@18.2.0)(react@18.2.0)
       safe-stable-stringify:
         specifier: ^2.4.3
         version: 2.4.3
       swr:
         specifier: ^2.0.0
-        version: 2.0.0(react@18.2.0)
+        version: 2.2.4(react@18.2.0)
     devDependencies:
       typescript:
         specifier: ^5.0.4
-        version: 5.2.2
+        version: 5.3.3
 
 packages:
 
@@ -788,33 +788,10 @@ packages:
     resolution: {integrity: sha512-0vr5GCwM7xlAl6NxG1lPbABO+SYioNJL3HVy2FA8wTlsIMoZvQwcwsxTw6eLQCiN9V2UQ8kBtfz8DW8utVVE5w==}
     dev: true
 
-  /@ant-design/colors@7.0.0:
-    resolution: {integrity: sha512-iVm/9PfGCbC0dSMBrz7oiEXZaaGH7ceU40OJEfKmyuzR9R5CRimJYPlRiFtMQGQcbNMea/ePcoIebi4ASGYXtg==}
-    dependencies:
-      '@ctrl/tinycolor': 3.6.1
-
   /@ant-design/colors@7.0.2:
     resolution: {integrity: sha512-7KJkhTiPiLHSu+LmMJnehfJ6242OCxSlR3xHVBecYxnMW8MS/878NXct1GqYARyL59fyeFdKRxXTfvR9SnDgJg==}
     dependencies:
       '@ctrl/tinycolor': 3.6.1
-    dev: true
-
-  /@ant-design/cssinjs@1.17.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-vu7lnfEx4Mf8MPzZxn506Zen3Nt4fRr2uutwvdCuTCN5IiU0lDdQ0tiJ24/rmB8+pefwjluYsbyzbQSbgfJy+A==}
-    peerDependencies:
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-    dependencies:
-      '@babel/runtime': 7.18.0
-      '@emotion/hash': 0.8.0
-      '@emotion/unitless': 0.7.5
-      classnames: 2.3.2
-      csstype: 3.1.2
-      rc-util: 5.38.0(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      stylis: 4.3.0
-    dev: false
 
   /@ant-design/cssinjs@1.18.2(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-514V9rjLaFYb3v4s55/8bg2E6fb81b99s3crDZf4nSwtiDLLXs8axnIph+q2TVkY2hbJPZOn/cVsVcnLkzFy7w==}
@@ -831,7 +808,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       stylis: 4.3.1
-    dev: true
 
   /@ant-design/icons-svg@4.3.1:
     resolution: {integrity: sha512-4QBZg8ccyC6LPIRii7A0bZUk3+lEDCLnhB+FVsflGdcWPPmV+j3fire4AwwoqHV/BibgvBmR9ZIo4s867smv+g==}
@@ -843,11 +819,11 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
-      '@ant-design/colors': 7.0.0
+      '@ant-design/colors': 7.0.2
       '@ant-design/icons-svg': 4.3.1
-      '@babel/runtime': 7.18.0
-      classnames: 2.3.2
-      rc-util: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+      '@babel/runtime': 7.23.8
+      classnames: 2.5.1
+      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
@@ -2405,24 +2381,12 @@ packages:
     resolution: {integrity: sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==}
     dev: true
 
-  /@babel/runtime@7.18.0:
-    resolution: {integrity: sha512-YMQvx/6nKEaucl0MY56mwIG483xk8SDNdlUwb2Ts6FUpr7fm85DxEmsY18LXBNhcTz6tO6JwZV8w1W06v8UKeg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.13.11
-
   /@babel/runtime@7.18.6:
     resolution: {integrity: sha512-t9wi7/AW6XtKahAe20Yw0/mMljKq0B1r2fPdvaAdV/KPDZewFXdaaa6K7lxmZBZ8FBNpCiAT6iHPmd6QO9bKfQ==}
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
     dev: true
-
-  /@babel/runtime@7.23.2:
-    resolution: {integrity: sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      regenerator-runtime: 0.14.0
 
   /@babel/runtime@7.23.6:
     resolution: {integrity: sha512-zHd0eUrf5GZoOWVCXp6koAKQTfZV07eit6bGPmJgnZdnSAvvZee6zniW2XMF7Cmc4ISOOnPy3QaSiIJGJkVEDQ==}
@@ -2436,7 +2400,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
-    dev: true
 
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -2486,8 +2449,8 @@ packages:
     resolution: {integrity: sha512-h0OYmPR3A5Dfbetra/GzxBAzQk8sH7LhRkRUTdagX6nrtlUgJGYCTv4bBK33jsTQw9HDd8PE2x1Ma+iRKEDUsw==}
     dev: true
 
-  /@chenshuai2144/sketch-color@1.0.8(react@18.2.0):
-    resolution: {integrity: sha512-dPAzzWc+w7zyTAi71WXYZpiTYyIS80MxYyy2E/7jufhnJI1Z29wCPL35VvuJ/gs5zYpF2+w/B7BizWa2zKXpGw==}
+  /@chenshuai2144/sketch-color@1.0.9(react@18.2.0):
+    resolution: {integrity: sha512-obzSy26cb7Pm7OprWyVpgMpIlrZpZ0B7vbrU0RMbvRg0YAI890S5Xy02Aj1Nhl4+KTbi1lVYHt6HQP8Hm9s+1w==}
     peerDependencies:
       react: '>=16.12.0'
     dependencies:
@@ -2658,17 +2621,12 @@ packages:
       postcss-selector-parser: 6.0.15
     dev: true
 
-  /@ctrl/tinycolor@3.4.0:
-    resolution: {integrity: sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==}
-    engines: {node: '>=10'}
-    dev: false
-
   /@ctrl/tinycolor@3.6.1:
     resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
     engines: {node: '>=10'}
 
-  /@dnd-kit/accessibility@3.0.1(react@18.2.0):
-    resolution: {integrity: sha512-HXRrwS9YUYQO9lFRc/49uO/VICbM+O+ZRpFDe9Pd1rwVv2PCNkRiTZRdxrDgng/UkvdC3Re9r2vwPpXXrWeFzg==}
+  /@dnd-kit/accessibility@3.1.0(react@18.2.0):
+    resolution: {integrity: sha512-ea7IkhKvlJUv9iSHJOnxinBcoOI3ppGnnL+VDJ75O45Nss6HtZd8IdN8touXPDtASfeI2T2LImb8VOZcL47wjQ==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
@@ -2676,45 +2634,45 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@dnd-kit/core@6.0.8(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-lYaoP8yHTQSLlZe6Rr9qogouGUz9oRUj4AHhDQGQzq/hqaJRpFo65X+JKsdHf8oUFBzx5A+SJPUvxAwTF2OabA==}
+  /@dnd-kit/core@6.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-J3cQBClB4TVxwGo3KEjssGEXNJqGVWx17aRTZ1ob0FliR5IjYgTxl5YJbKTzA6IzrtelotH19v6y7uoIRUZPSg==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@dnd-kit/accessibility': 3.0.1(react@18.2.0)
-      '@dnd-kit/utilities': 3.2.1(react@18.2.0)
+      '@dnd-kit/accessibility': 3.1.0(react@18.2.0)
+      '@dnd-kit/utilities': 3.2.2(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
     dev: false
 
-  /@dnd-kit/modifiers@6.0.1(@dnd-kit/core@6.0.8)(react@18.2.0):
+  /@dnd-kit/modifiers@6.0.1(@dnd-kit/core@6.1.0)(react@18.2.0):
     resolution: {integrity: sha512-rbxcsg3HhzlcMHVHWDuh9LCjpOVAgqbV78wLGI8tziXY3+qcMQ61qVXIvNKQFuhj75dSfD+o+PYZQ/NUk2A23A==}
     peerDependencies:
       '@dnd-kit/core': ^6.0.6
       react: '>=16.8.0'
     dependencies:
-      '@dnd-kit/core': 6.0.8(react-dom@18.2.0)(react@18.2.0)
-      '@dnd-kit/utilities': 3.2.1(react@18.2.0)
+      '@dnd-kit/core': 6.1.0(react-dom@18.2.0)(react@18.2.0)
+      '@dnd-kit/utilities': 3.2.2(react@18.2.0)
       react: 18.2.0
       tslib: 2.6.2
     dev: false
 
-  /@dnd-kit/sortable@7.0.2(@dnd-kit/core@6.0.8)(react@18.2.0):
+  /@dnd-kit/sortable@7.0.2(@dnd-kit/core@6.1.0)(react@18.2.0):
     resolution: {integrity: sha512-wDkBHHf9iCi1veM834Gbk1429bd4lHX4RpAwT0y2cHLf246GAvU2sVw/oxWNpPKQNQRQaeGXhAVgrOl1IT+iyA==}
     peerDependencies:
       '@dnd-kit/core': ^6.0.7
       react: '>=16.8.0'
     dependencies:
-      '@dnd-kit/core': 6.0.8(react-dom@18.2.0)(react@18.2.0)
-      '@dnd-kit/utilities': 3.2.1(react@18.2.0)
+      '@dnd-kit/core': 6.1.0(react-dom@18.2.0)(react@18.2.0)
+      '@dnd-kit/utilities': 3.2.2(react@18.2.0)
       react: 18.2.0
       tslib: 2.6.2
     dev: false
 
-  /@dnd-kit/utilities@3.2.1(react@18.2.0):
-    resolution: {integrity: sha512-OOXqISfvBw/1REtkSK2N3Fi2EQiLMlWUlqnOK/UpOISqBZPWpE6TqL+jcPtMOkE8TqYGiURvRdPSI9hltNUjEA==}
+  /@dnd-kit/utilities@3.2.2(react@18.2.0):
+    resolution: {integrity: sha512-+MKAJEOfaBe5SmV6t34p80MMKhjvUz0vRrvVJbPT0WElzaOJ/1xs+D+KDv+tD/NE5ujfrChEcshd4fLn0wpiqg==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
@@ -6266,20 +6224,14 @@ packages:
       '@types/node': 14.18.63
     dev: true
 
-  /@types/lodash.merge@4.6.7:
-    resolution: {integrity: sha512-OwxUJ9E50gw3LnAefSHJPHaBLGEKmQBQ7CZe/xflHkyy/wH2zVyEIAKReHvVrrn7zKdF58p16We9kMfh7v0RRQ==}
-    dependencies:
-      '@types/lodash': 4.14.202
-    dev: true
-
   /@types/lodash.merge@4.6.9:
     resolution: {integrity: sha512-23sHDPmzd59kUgWyKGiOMO2Qb9YtqRO/x4IhkgNUiPQ1+5MUVqi6bCZeq9nBJ17msjIMbEIO5u+XW4Kz6aGUhQ==}
     dependencies:
       '@types/lodash': 4.14.202
     dev: true
 
-  /@types/lodash.tonumber@4.0.6:
-    resolution: {integrity: sha512-vshCv7o3sGBehvf1BWNA/QlnPw3cI51HLLKQZinKGn8YrHYq9Pp4nbqXBBqC1Wh1IKANQEQyDQKRtB7YSwqdKA==}
+  /@types/lodash.tonumber@4.0.9:
+    resolution: {integrity: sha512-53rIpKcaX3lrKLbdMLsQlyhRfNBjHivG3Fy3foCjmL+oG4f4oZgmow6UxSoDjxtxmzwMS4mDnEIr390ffN9t9Q==}
     dependencies:
       '@types/lodash': 4.14.202
     dev: true
@@ -6356,11 +6308,11 @@ packages:
       types-ramda: 0.29.6
     dev: true
 
-  /@types/react-color@3.0.4:
-    resolution: {integrity: sha512-EswbYJDF1kkrx93/YU+BbBtb46CCtDMvTiGmcOa/c5PETnwTiSWoseJ1oSWeRl/4rUXkhME9bVURvvPg0W5YQw==}
+  /@types/react-color@3.0.11:
+    resolution: {integrity: sha512-20m5GpzmdqwmSdnPeMs4UPPUuvkS4ESwakL6u2YN1hbo+ajWiiTwGYIMGhdcJFGeoLyAsr7TVonbZrMhU3+pdw==}
     dependencies:
       '@types/react': 18.2.47
-      '@types/reactcss': 1.2.8
+      '@types/reactcss': 1.2.11
     dev: true
 
   /@types/react-dom@18.2.18:
@@ -6389,8 +6341,8 @@ packages:
       csstype: 3.1.3
     dev: true
 
-  /@types/reactcss@1.2.8:
-    resolution: {integrity: sha512-IzxChTOxOFWZb1RhXoNZ7oEi3BtUdLQIFheoOurvu6iu0X9kwhoFe73DW9EVFxVFTKnd8bb8b1dKtO0tokM3eA==}
+  /@types/reactcss@1.2.11:
+    resolution: {integrity: sha512-0fFy0ubuPlhksId8r9V8nsLcxBAPQnn15g/ERAElgE9L6rOquMj2CapsxqfyBuHlkp0/ndEUVnkYI7MkTtkGpw==}
     dependencies:
       '@types/react': 18.2.47
     dev: true
@@ -7172,8 +7124,8 @@ packages:
       react-router-dom: 6.3.0(react-dom@18.2.0)(react@18.2.0)
     dev: true
 
-  /@umijs/route-utils@4.0.0:
-    resolution: {integrity: sha512-utH8GHRF+TQX54hL67Tfu78Zo0m2N15549gB5qVfHTSqrz6U3lYeokwPspmQfS/bGt6zI8SdI87urK3zylaZrw==}
+  /@umijs/route-utils@4.0.1:
+    resolution: {integrity: sha512-+1ixf1BTOLuH+ORb4x8vYMPeIt38n9q0fJDwhv9nSxrV46mxbLF0nmELIo9CKQB2gHfuC4+hww6xejJ6VYnBHQ==}
     dev: false
 
   /@umijs/server@4.1.0:
@@ -8075,15 +8027,15 @@ packages:
     hasBin: true
     requiresBuild: true
     dependencies:
-      aws-sdk: 2.1535.0
+      aws-sdk: 2.1536.0
       commander: 3.0.2
       js-yaml: 3.14.1
       watchpack: 2.4.0
     dev: true
     optional: true
 
-  /aws-sdk@2.1535.0:
-    resolution: {integrity: sha512-Ah9prS7ZX4rIMPBeXmBD1NV6tIHoJoryrCe1Zr/Zk4PdEM743jezpfIyM9bMhzKi/Z0CmBkqtHx54uPAghsp7A==}
+  /aws-sdk@2.1536.0:
+    resolution: {integrity: sha512-Kwl5xKti6qURwKkasZPA9d4q72tcNt0e3ZZ2ikjZvWbfWcIuuLN0GpUTarU8UpV4EiEw3W5z5G3jyHy8JLNyLw==}
     engines: {node: '>= 10.0.0'}
     requiresBuild: true
     dependencies:
@@ -8367,6 +8319,7 @@ packages:
     dependencies:
       core-js: 2.6.12
       regenerator-runtime: 0.11.1
+    dev: true
 
   /babel-types@6.26.0:
     resolution: {integrity: sha512-zhe3V/26rCWsEZK8kZN+HaQj5yQ1CilTObixFzKW1UWjqG7618Twz6YEsCnjfg5gBcJh02DrpCkS9h98ZqDY+g==}
@@ -8847,7 +8800,7 @@ packages:
     dependencies:
       function-bind: 1.1.2
       get-intrinsic: 1.2.2
-      set-function-length: 1.1.1
+      set-function-length: 1.2.0
     dev: true
 
   /call-me-maybe@1.0.2:
@@ -9131,10 +9084,10 @@ packages:
 
   /classnames@2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: true
 
   /classnames@2.5.1:
     resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
-    dev: true
 
   /clean-css@5.3.3:
     resolution: {integrity: sha512-D5J+kHaVb/wKSFcyyV75uCn8fiY4sV38XJoe4CUyGQ+mOU/fMVYUdH1hJC+CJQ5uY3EnW27SbJYS4X8BiLrAFg==}
@@ -9227,6 +9180,10 @@ packages:
       - '@types/react'
       - react-dom
     dev: true
+
+  /client-only@0.0.1:
+    resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
 
   /clipboardy@2.3.0:
     resolution: {integrity: sha512-mKhiIL2DrQIsuXMgBgnfEHOZOryC7kY7YO//TN6c63wlEm3NG5tz+YgY5rVi29KCmq/QQjKYvM7a19+MDOTHOQ==}
@@ -9721,6 +9678,7 @@ packages:
     resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
     deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
     requiresBuild: true
+    dev: true
 
   /core-js@3.34.0:
     resolution: {integrity: sha512-aDdvlDder8QmY91H88GzNi9EtQi2TjvQhpCX6B1v/dAZHU1AuLgHvRh54RiOerpEhEW46Tkf+vgAViB/CWC0ag==}
@@ -10074,13 +10032,8 @@ packages:
       cssom: 0.3.8
     dev: true
 
-  /csstype@3.1.2:
-    resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
-    dev: false
-
   /csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
-    dev: true
 
   /current-script-polyfill@1.0.0:
     resolution: {integrity: sha512-qv8s+G47V6Hq+g2kRE5th+ASzzrL7b6l+tap1DHKK25ZQJv3yIFhH96XaQ7NGL+zRW3t/RDbweJf/dJDe5Z5KA==}
@@ -20129,32 +20082,18 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /rc-resize-observer@0.2.3(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-dEPCGX15eRRnu+TNBIGyEghpzE24fTDW8pHdJPJS/kCR3lafFqBLqKzBgZW6pMUuM70/ZDyFQ0Kynx9kWsXRNw==}
-    peerDependencies:
-      react: ^16.0.0
-      react-dom: ^16.0.0
-    dependencies:
-      '@babel/runtime': 7.18.0
-      classnames: 2.3.2
-      rc-util: 5.38.0(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      resize-observer-polyfill: 1.5.1
-
-  /rc-resize-observer@1.3.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-iFUdt3NNhflbY3mwySv5CA1TC06zdJ+pfo0oc27xpf4PIOvfZwZGtD9Kz41wGYqC4SLio93RVAirSSpYlV/uYg==}
+  /rc-resize-observer@0.2.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-YX6nYnd6fk7zbuvT6oSDMKiZjyngjHoy+fz+vL3Tez38d/G5iGdaDJa2yE7345G6sc4Mm1IGRUIwclvltddhmA==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.23.2
-      classnames: 2.3.2
-      rc-util: 5.38.0(react-dom@18.2.0)(react@18.2.0)
+      '@babel/runtime': 7.23.8
+      classnames: 2.5.1
+      rc-util: 5.38.1(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resize-observer-polyfill: 1.5.1
-    dev: false
 
   /rc-resize-observer@1.4.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-PnMVyRid9JLxFavTjeDXEXo65HCRqbmLBw9xX9gfC4BZiSzbLXKzW3jPz+J0P71pLbD5tBMTT+mkstV5gD0c9Q==}
@@ -20168,7 +20107,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       resize-observer-polyfill: 1.5.1
-    dev: true
 
   /rc-segmented@2.2.2(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-Mq52M96QdHMsNdE/042ibT5vkcGcD5jxKp7HgPC2SRofpia99P5fkfHy1pEaajLMF/kj0+2Lkq1UZRvqzo9mSA==}
@@ -20368,31 +20306,15 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /rc-util@4.19.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-mptALlLwpeczS3nrv83DbwJNeupolbuvlIEjcvimSiWI8NUBjpF0HgG3kWp1RymiuiRCNm9yhaXqDz0a99dpgQ==}
-    peerDependencies:
-      react: ^15.0.0 || ^16.0.0
-      react-dom: ^15.0.0 || ^16.0.0
+  /rc-util@4.21.1:
+    resolution: {integrity: sha512-Z+vlkSQVc1l8O2UjR3WQ+XdWlhj5q9BMQNLk2iOBch75CqPfrJyGtcWMcnhRlNuDu0Ndtt4kLVO8JI8BrABobg==}
     dependencies:
       add-dom-event-listener: 1.1.0
-      babel-runtime: 6.26.0
       prop-types: 15.8.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react-is: 16.13.1
       react-lifecycles-compat: 3.0.4
       shallowequal: 1.1.0
     dev: false
-
-  /rc-util@5.38.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-yV/YBNdFn+edyBpBdCqkPE29Su0jWcHNgwx2dJbRqMrMfrUcMJUjCRV+ZPhcvWyKFJ63GzEerPrz9JIVo0zXmA==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.23.2
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-is: 18.2.0
 
   /rc-util@5.38.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-e4ZMs7q9XqwTuhIK7zBIVFltUtMSjphuPPQXHoHlzRzNdOwUxDejo0Zls5HYaJfRKNURcsS/ceKVULlhjBrxng==}
@@ -20404,7 +20326,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-is: 18.2.0
-    dev: true
 
   /rc-virtual-list@3.11.3(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-tu5UtrMk/AXonHwHxUogdXAWynaXsrx1i6dsgg+lOo/KJSF8oBAcprh1z5J3xgnPJD5hXxTL58F8s8onokdt0Q==}
@@ -20933,16 +20854,14 @@ packages:
 
   /regenerator-runtime@0.11.1:
     resolution: {integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==}
+    dev: true
 
   /regenerator-runtime@0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-
-  /regenerator-runtime@0.14.0:
-    resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
+    dev: true
 
   /regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
-    dev: true
 
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
@@ -21696,11 +21615,12 @@ packages:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
     dev: true
 
-  /set-function-length@1.1.1:
-    resolution: {integrity: sha512-VoaqjbBJKiWtg4yRcKBQ7g7wnGnLV3M8oLvVWwOk2PdYY6PEFegR1vezXR0tw6fZGF9csVakIRjrJiy2veSBFQ==}
+  /set-function-length@1.2.0:
+    resolution: {integrity: sha512-4DBHDoyHlM1IRPGYcoxexgh67y4ueR53FKV1yyxwFMY7aCqcN/38M1+SwZ/qJQ8iLv7+ck385ot4CcisOAPT9w==}
     engines: {node: '>= 0.4'}
     dependencies:
       define-data-property: 1.1.1
+      function-bind: 1.1.2
       get-intrinsic: 1.2.2
       gopd: 1.0.1
       has-property-descriptors: 1.0.1
@@ -22720,13 +22640,8 @@ packages:
     resolution: {integrity: sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==}
     dev: true
 
-  /stylis@4.3.0:
-    resolution: {integrity: sha512-E87pIogpwUsUwXw7dNyU4QDjdgVMy52m+XEOPEKUn161cCzWjjhPSQhByfd1CcNvrOLnXQ6OnnZDwnJrz/Z4YQ==}
-    dev: false
-
   /stylis@4.3.1:
     resolution: {integrity: sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==}
-    dev: true
 
   /sugarss@2.0.0:
     resolution: {integrity: sha512-WfxjozUk0UVA4jm+U1d736AUpzSrNsQcIbyOkoE364GrtWmIrFdk5lksEupgWMD4VaT/0kVx1dobpiDumSgmJQ==}
@@ -22842,12 +22757,12 @@ packages:
       xml-reader: 2.4.3
     dev: true
 
-  /swr@2.0.0(react@18.2.0):
-    resolution: {integrity: sha512-IhUx5yPkX+Fut3h0SqZycnaNLXLXsb2ECFq0Y29cxnK7d8r7auY2JWNbCW3IX+EqXUg3rwNJFlhrw5Ye/b6k7w==}
-    engines: {pnpm: '7'}
+  /swr@2.2.4(react@18.2.0):
+    resolution: {integrity: sha512-njiZ/4RiIhoOlAaLYDqwz5qH/KZXVilRLvomrx83HjzCWTfa+InyfAjv05PSFxnmLzZkNO9ZfvgoqzAaEI4sGQ==}
     peerDependencies:
       react: ^16.11.0 || ^17.0.0 || ^18.0.0
     dependencies:
+      client-only: 0.0.1
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
@@ -23501,12 +23416,6 @@ packages:
   /typescript@5.0.4:
     resolution: {integrity: sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==}
     engines: {node: '>=12.20'}
-    hasBin: true
-    dev: true
-
-  /typescript@5.2.2:
-    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
-    engines: {node: '>=14.17'}
     hasBin: true
     dev: true
 
