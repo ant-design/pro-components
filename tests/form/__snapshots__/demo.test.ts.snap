@@ -516,19 +516,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -1711,19 +1711,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -4356,19 +4356,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
               提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
             </span>
           </button>
         </div>
@@ -6838,19 +6838,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
               提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
             </span>
           </button>
         </div>
@@ -8623,19 +8623,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
               提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
             </span>
           </button>
         </div>
@@ -9283,19 +9283,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
               提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
             </span>
           </button>
         </div>
@@ -9719,19 +9719,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
               提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
             </span>
           </button>
         </div>
@@ -10018,19 +10018,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -10465,19 +10465,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ba
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -10693,19 +10693,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/co
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -11056,19 +11056,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                   style="display: flex; gap: 8px; align-items: center;"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
-                    type="button"
-                  >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                  <button
                     class="ant-btn ant-btn-primary"
                     type="button"
                   >
                     <span>
                       提 交
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn ant-btn-default"
+                    type="button"
+                  >
+                    <span>
+                      重 置
                     </span>
                   </button>
                 </div>
@@ -12706,19 +12706,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/de
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -13115,19 +13115,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ho
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -14168,19 +14168,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -14660,19 +14660,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
               提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
             </span>
           </button>
         </div>
@@ -15401,19 +15401,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -15828,19 +15828,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -21698,19 +21698,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -28269,19 +28269,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -28703,19 +28703,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -28842,19 +28842,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -29099,19 +29099,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -29529,19 +29529,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -30168,19 +30168,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -30674,19 +30674,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -32472,19 +32472,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -34166,19 +34166,19 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -42212,19 +42212,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -43762,19 +43762,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -44236,19 +44236,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -44890,19 +44890,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            Reset
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             Submit
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            Reset
           </span>
         </button>
       </div>
@@ -45359,19 +45359,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/dependency.tsx corr
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -46013,19 +46013,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-item-render.ts
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
               提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
             </span>
           </button>
         </div>
@@ -48054,19 +48054,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/labelInValue.tsx co
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -49007,19 +49007,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-primary"
             type="button"
           >
             <span>
               提 交
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              重 置
             </span>
           </button>
         </div>
@@ -52342,19 +52342,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
             style="display: flex; gap: 8px; align-items: center;"
           >
             <button
-              class="ant-btn ant-btn-default"
-              type="button"
-            >
-              <span>
-                重 置
-              </span>
-            </button>
-            <button
               class="ant-btn ant-btn-primary"
               type="button"
             >
               <span>
                 提 交
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                重 置
               </span>
             </button>
           </div>
@@ -53520,19 +53520,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -53667,19 +53667,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/params-formref.tsx 
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -54235,19 +54235,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -55188,19 +55188,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -55538,19 +55538,19 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/sync-to-url.tsx cor
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
