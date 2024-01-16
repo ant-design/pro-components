@@ -318,7 +318,7 @@ ProFormInstance 与 antd 的 form 相比增加了一些能力。
 | resetButtonProps | 重置按钮的 props | [ButtonProps](https://ant.design/components/button-cn/) | - |
 | render | 自定义操作的渲染 | `false`\|`(props,dom:JSX[])=>ReactNode[]` | - |
 
-> render 的第二个参数是默认的 dom 数组，第一个是重置按钮，第二个是提交按钮。
+> render 的第二个参数是默认的 dom 数组，第一个是提交按钮，第二个是重置按钮。
 
 ```tsx | pure
 <ProForm
