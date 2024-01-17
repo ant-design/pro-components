@@ -4295,19 +4295,19 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-primary"
           type="button"
         >
           <span>
             提 交
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            重 置
           </span>
         </button>
       </div>
@@ -5059,19 +5059,19 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
               style="display: flex; gap: 8px; align-items: center;"
             >
               <button
-                class="ant-btn ant-btn-default"
-                type="button"
-              >
-                <span>
-                  重 置
-                </span>
-              </button>
-              <button
                 class="ant-btn ant-btn-primary"
                 type="button"
               >
                 <span>
                   提 交
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default"
+                type="button"
+              >
+                <span>
+                  重 置
                 </span>
               </button>
             </div>
@@ -28118,19 +28118,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.t
               style="display: flex; gap: 8px; align-items: center;"
             >
               <button
-                class="ant-btn ant-btn-default"
-                type="button"
-              >
-                <span>
-                  重 置
-                </span>
-              </button>
-              <button
                 class="ant-btn ant-btn-primary"
                 type="button"
               >
                 <span>
                   提 交
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default"
+                type="button"
+              >
+                <span>
+                  重 置
                 </span>
               </button>
             </div>
