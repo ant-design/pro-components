@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.14...@ant-design/pro-table@3.14.0) (2024-01-18)
+
+### Features
+
+- **table:** column SettingTitle 内容太长时显示省略&弹出 tooltip ([#8070](https://github.com/ant-design/pro-components/issues/8070)) ([644967d](https://github.com/ant-design/pro-components/commit/644967d20a153b1908034273e9abe4ee6d764922))
+
 ## [3.13.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.13...@ant-design/pro-table@3.13.14) (2024-01-15)
 
 **Note:** Version bump only for package @ant-design/pro-table

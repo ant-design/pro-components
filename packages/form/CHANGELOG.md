@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.24.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.24.1...@ant-design/pro-form@2.24.2) (2024-01-18)
+
+### Bug Fixes
+
+- **form:** 修复默认情况下 sumbitter render 和 render 时候 dom 位置不一致的问题 ([#8096](https://github.com/ant-design/pro-components/issues/8096)) ([96d2658](https://github.com/ant-design/pro-components/commit/96d26580383a0a763027ad99b5f78f8dc60f2903))
+- **form:** fix DrawerForm and ModalForm button error ([7bf4b30](https://github.com/ant-design/pro-components/commit/7bf4b30938275278f546d740a3ef5076b97872be))
+
 ## [2.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.24.0...@ant-design/pro-form@2.24.1) (2024-01-15)
 
 ### Bug Fixes
