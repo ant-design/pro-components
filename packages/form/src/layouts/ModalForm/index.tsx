@@ -178,9 +178,6 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
             modalProps?.onCancel?.(e);
           },
         },
-        render: (_, dom) => {
-          return [...dom].reverse();
-        },
       } as SubmitterProps,
       rest.submitter,
     );

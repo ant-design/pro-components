@@ -219,19 +219,19 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-      <button
         class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
           重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
         </span>
       </button>
     </div>
@@ -253,19 +253,19 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-      <button
         class="ant-btn ant-btn-default test_button"
         type="button"
       >
         <span>
           重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
         </span>
       </button>
     </div>
@@ -287,19 +287,19 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-primary test_button"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-      <button
         class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
           重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary test_button"
+        type="button"
+      >
+        <span>
+          提 交
         </span>
       </button>
     </div>
@@ -405,19 +405,19 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-      <button
         class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
           重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
         </span>
       </button>
     </div>
@@ -548,19 +548,19 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-      <button
         class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
           重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
         </span>
       </button>
     </div>
@@ -740,19 +740,19 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-      <button
         class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
           重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
         </span>
       </button>
     </div>

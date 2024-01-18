@@ -286,19 +286,19 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
-                            >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
-                            <button
                               class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
                                 重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
+                            >
+                              <span>
+                                查 询
                               </span>
                             </button>
                           </div>

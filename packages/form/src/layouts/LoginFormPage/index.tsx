@@ -108,7 +108,7 @@ export function LoginFormPage<T = Record<string, any>>(
     searchConfig: {
       submitText: intl.getMessage('loginForm.submitText', '登录'),
     },
-    render: (_, dom) => dom.at(0),
+    render: (_, dom) => dom.pop(),
     ...proFormProps.submitter,
     submitButtonProps: genSubmitButtonProps(),
   } as ProFormProps['submitter'];
