@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.14.0...@ant-design/pro-table@3.14.1) (2024-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 # [3.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.14...@ant-design/pro-table@3.14.0) (2024-01-18)
 
 ### Features
