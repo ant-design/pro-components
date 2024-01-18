@@ -1,3 +1,12 @@
+## @ant-design/pro-components@2.6.47
+
+`2024-01-18`
+
+- fix(layout): fix bgLayout no work error. [4a21fdf](https://github.com/ant-design/pro-components/commit/4a21fdf)
+- fix(form): fix DrawerForm and ModalForm button error. [7bf4b30](https://github.com/ant-design/pro-components/commit/7bf4b30)
+- fix(form): 修复默认情况下 sumbitter render 和 render 时候 dom 位置不一致的问题 (#8096). [#8096](https://github.com/ant-design/pro-components/pull/#8096) [@Shinji-Li](https://github.com/Shinji-Li)
+- feat(table): column SettingTitle 内容太长时显示省略&弹出 tooltip (#8070). [#8070](https://github.com/ant-design/pro-components/pull/#8070) [@xlboy](https://github.com/xlboy)
+
 ## @ant-design/pro-components@2.6.46
 
 `2024-01-15`
