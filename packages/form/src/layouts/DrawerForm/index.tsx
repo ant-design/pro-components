@@ -228,9 +228,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             drawerProps?.onClose?.(e);
           },
         },
-        render: (_, dom) => {
-          return [...dom].reverse();
-        },
       } as SubmitterProps,
       rest.submitter,
     );
