@@ -16,6 +16,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
+import { SubmitterProps } from '../../components/Submitter';
 
 export type ModalFormProps<
   T = Record<string, any>,
@@ -177,7 +178,10 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
             modalProps?.onCancel?.(e);
           },
         },
-      },
+        render: (_, dom) => {
+          return [...dom].reverse();
+        },
+      } as SubmitterProps,
       rest.submitter,
     );
   }, [

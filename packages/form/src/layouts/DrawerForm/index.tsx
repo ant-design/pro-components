@@ -21,6 +21,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
+import { SubmitterProps } from '../../components/Submitter';
 import { useStyle } from './style';
 
 export type CustomizeResizeType = {
@@ -227,7 +228,10 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             drawerProps?.onClose?.(e);
           },
         },
-      },
+        render: (_, dom) => {
+          return [...dom].reverse();
+        },
+      } as SubmitterProps,
       rest.submitter,
     );
   }, [
