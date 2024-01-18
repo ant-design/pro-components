@@ -956,19 +956,19 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
             重 置
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
           </span>
         </button>
       </div>
@@ -5359,6 +5359,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                              <button
                                 class="ant-btn ant-btn-primary ant-btn-loading"
                                 type="button"
                               >
@@ -5387,14 +5395,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                                 </span>
                                 <span>
                                   查 询
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
                                 </span>
                               </button>
                             </div>
