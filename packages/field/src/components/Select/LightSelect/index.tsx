@@ -24,9 +24,9 @@ const getValueOrLabel = (
   valueMap: Record<string, string>,
   v:
     | {
-      label: string;
-      value: string;
-    }
+        label: string;
+        value: string;
+      }
     | string,
 ) => {
   if (typeof v !== 'object') {
@@ -115,7 +115,7 @@ const LightSelect: React.ForwardRefRenderFunction<
       return restProps?.open;
     }
     return open;
-  }, [open, restProps])
+  }, [open, restProps]);
 
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))
@@ -150,7 +150,7 @@ const LightSelect: React.ForwardRefRenderFunction<
            *  }
            * 冲突了，导致这段代码不生效
            */
-          // setOpen(true); 
+          // setOpen(true);
         }
       }}
     >
@@ -214,22 +214,22 @@ const LightSelect: React.ForwardRefRenderFunction<
           onSearch || !keyword
             ? options
             : options?.filter((o) => {
-              if (optionFilterProp) {
-                return toArray(o[optionFilterProp])
-                  .join('')
-                  .toLowerCase()
-                  .includes(keyword);
-              }
-              return (
-                String(o[labelPropsName])
-                  ?.toLowerCase()
-                  ?.includes(keyword?.toLowerCase()) ||
-                o[valuePropsName]
-                  ?.toString()
-                  ?.toLowerCase()
-                  ?.includes(keyword?.toLowerCase())
-              );
-            })
+                if (optionFilterProp) {
+                  return toArray(o[optionFilterProp])
+                    .join('')
+                    .toLowerCase()
+                    .includes(keyword);
+                }
+                return (
+                  String(o[labelPropsName])
+                    ?.toLowerCase()
+                    ?.includes(keyword?.toLowerCase()) ||
+                  o[valuePropsName]
+                    ?.toString()
+                    ?.toLowerCase()
+                    ?.includes(keyword?.toLowerCase())
+                );
+              })
         }
       />
       <FieldLabel
