@@ -53,23 +53,23 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 
 ### ProFormList API
 
-| 参数                  | 说明                                             | 类型                                                                       | 默认值                          |
-| ------------------- | ---------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------- |
-| itemRender          | 自定义 Item，可以用来将 action 放到别的地方                   | `(doms,listMeta)=> ReactNode`                                            | -                            |
-| creatorRecord       | 新建一行的默认值                                       | `Record<string, any> \| () => Record<string, any>`                       | -                            |
-| creatorButtonProps  | 新建一行按钮的配置                                      | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }`    | `{creatorButtonText:"新建一行"}` |
-| label               | 与 From.Item 相同                                 | `ReactNode`                                                              | -                            |
-| name                | list 在 form 中的值，必填项                            | `NamePath`                                                               | -                            |
-| alwaysShowItemLabel | Item 中总是展示 label                               | `boolean`                                                                | -                            |
-| actionRef           | 当前 List 的自带操作，可以增删改查列表项                        | `{add,remove,move,get}`                                                  | -                            |
-| actionGuard         | FormItem 的拦截器，包含删除和添加的拦截，可以用 actionRef 拿到当前行的值 | `{beforeAddRow:(index)=>boolean,beforeRemoveRow:(index)=>boolean}`       | -                            |
-| min                 | 最少条目，删除时如果当前数据条目少于该数则无法删除                      | `number`                                                                 | -                            |
-| max                 | 最多条目，新增或复制时如果当前数据条目多于该数则无法新增或复制                | `number`                                                                 | -                            |
-| copyIconProps       | 复制按钮的配置，false 可以取消                             | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`               | -                            |
-| deleteIconProps     | 删除按钮的配置，false 可以取消                             | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false`               | -                            |
-| actionRender        | 自定义操作按钮                                        | `(field,action,defaultActionDom,count)=>React.ReactNode[]`               | -                            |
-| onAfterAdd          | 新增数据后的钩子                                       | `(defaultValue: StoreValue, insertIndex: number, count: number) => void` | -                            |
-| onAfterRemove       | 删除数据后的钩子                                       | `(index: number, count: number) => void`                                 | -                            |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| itemRender | 自定义 Item，可以用来将 action 放到别的地方 | `(doms,listMeta)=> ReactNode` | - |
+| creatorRecord | 新建一行的默认值 | `Record<string, any> \| () => Record<string, any>` | - |
+| creatorButtonProps | 新建一行按钮的配置 | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"新建一行"}` |
+| label | 与 From.Item 相同 | `ReactNode` | - |
+| name | list 在 form 中的值，必填项 | `NamePath` | - |
+| alwaysShowItemLabel | Item 中总是展示 label | `boolean` | - |
+| actionRef | 当前 List 的自带操作，可以增删改查列表项 | `{add,remove,move,get}` | - |
+| actionGuard | FormItem 的拦截器，包含删除和添加的拦截，可以用 actionRef 拿到当前行的值 | `{beforeAddRow:(index)=>boolean,beforeRemoveRow:(index)=>boolean}` | - |
+| min | 最少条目，删除时如果当前数据条目少于该数则无法删除 | `number` | - |
+| max | 最多条目，新增或复制时如果当前数据条目多于该数则无法新增或复制 | `number` | - |
+| copyIconProps | 复制按钮的配置，false 可以取消 | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
+| deleteIconProps | 删除按钮的配置，false 可以取消 | `{ Icon?: React.FC<any>; tooltipText?: string; } \| false` | - |
+| actionRender | 自定义操作按钮 | `(field,action,defaultActionDom,count)=>React.ReactNode[]` | - |
+| onAfterAdd | 新增数据后的钩子 | `(defaultValue: StoreValue, insertIndex: number, count: number) => void` | - |
+| onAfterRemove | 删除数据后的钩子 | `(index: number, count: number) => void` | - |
 
 ### actionRef 操作项目实例
 

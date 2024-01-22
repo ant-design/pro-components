@@ -54,7 +54,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         id="name"
                         placeholder="请输入链接"
                         style="width: 100%;"
@@ -107,19 +107,19 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
-                            >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
-                            <button
                               class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
                                 重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
+                            >
+                              <span>
+                                查 询
                               </span>
                             </button>
                           </div>
@@ -471,7 +471,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                    class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"

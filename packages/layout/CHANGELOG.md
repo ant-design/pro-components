@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.17.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.18...@ant-design/pro-layout@7.17.19) (2024-01-15)
+
+### Bug Fixes
+
+- **layout:** fix bgLayout no work error ([4a21fdf](https://github.com/ant-design/pro-components/commit/4a21fdf5ad56aa09a9c06b20063ea27203267913))
+
+## [7.17.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.17...@ant-design/pro-layout@7.17.18) (2024-01-15)
+
+### Bug Fixes
+
+- **layout:** if bgImgStyleList is null ,no render bg-list dom ([0b26161](https://github.com/ant-design/pro-components/commit/0b2616145aeae60f0bcb9f4d87b86c75e45fafcf))
+
 ## [7.17.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.16...@ant-design/pro-layout@7.17.17) (2023-12-12)
 
 ### Bug Fixes
@@ -353,7 +365,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **provide:** unuse process.env.NODE\_ENV === 'TEST' ([0d9cba1](https://github.com/ant-design/pro-components/commit/0d9cba1a7fe74a87c6daf93a36f768801059f42d))
+- **provide:** unuse process.env.NODE_ENV === 'TEST' ([0d9cba1](https://github.com/ant-design/pro-components/commit/0d9cba1a7fe74a87c6daf93a36f768801059f42d))
 
 ## [7.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.12.0...@ant-design/pro-layout@7.12.1) (2023-04-25)
 

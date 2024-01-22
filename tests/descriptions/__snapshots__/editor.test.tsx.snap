@@ -47,7 +47,7 @@ exports[`Descriptions > 📝 columns support editable test 1`] = `
                                 class="ant-form-item-control-input-content"
                               >
                                 <span
-                                  class="ant-input-affix-wrapper"
+                                  class="ant-input-affix-wrapper ant-input-outlined"
                                 >
                                   <input
                                     class="ant-input"
@@ -213,7 +213,7 @@ exports[`Descriptions > 📝 renderFormItem run defaultRender 1`] = `
                                 class="ant-form-item-control-input-content"
                               >
                                 <span
-                                  class="ant-input-affix-wrapper"
+                                  class="ant-input-affix-wrapper ant-input-outlined"
                                 >
                                   <input
                                     class="ant-input"

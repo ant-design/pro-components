@@ -62,7 +62,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
+                        class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
                         style="width: 100%;"
                       >
                         <div
@@ -167,19 +167,19 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
-                            >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
-                            <button
                               class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
                                 重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
+                            >
+                              <span>
+                                查 询
                               </span>
                             </button>
                           </div>
@@ -454,7 +454,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                       class="qixian-form-item-control-input-content"
                     >
                       <span
-                        class="qixian-input-affix-wrapper"
+                        class="qixian-input-affix-wrapper qixian-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -541,19 +541,19 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="qixian-btn qixian-btn-primary"
-                              type="button"
-                            >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
-                            <button
                               class="qixian-btn qixian-btn-default"
                               type="button"
                             >
                               <span>
                                 重 置
+                              </span>
+                            </button>
+                            <button
+                              class="qixian-btn qixian-btn-primary"
+                              type="button"
+                            >
+                              <span>
+                                查 询
                               </span>
                             </button>
                           </div>
@@ -828,7 +828,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper"
+                        class="ant-input-affix-wrapper ant-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -915,19 +915,19 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
-                            >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
-                            <button
                               class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
                                 重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
+                            >
+                              <span>
+                                查 询
                               </span>
                             </button>
                           </div>

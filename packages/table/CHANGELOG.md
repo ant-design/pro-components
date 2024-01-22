@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.14.0...@ant-design/pro-table@3.14.1) (2024-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [3.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.14...@ant-design/pro-table@3.14.0) (2024-01-18)
+
+### Features
+
+- **table:** column SettingTitle 内容太长时显示省略&弹出 tooltip ([#8070](https://github.com/ant-design/pro-components/issues/8070)) ([644967d](https://github.com/ant-design/pro-components/commit/644967d20a153b1908034273e9abe4ee6d764922))
+
+## [3.13.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.13...@ant-design/pro-table@3.13.14) (2024-01-15)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.13.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.12...@ant-design/pro-table@3.13.13) (2024-01-15)
+
+### Bug Fixes
+
+- **form:** 修复 dateFormatter 使用 string 类型提示错误 ([#8029](https://github.com/ant-design/pro-components/issues/8029)) ([6d764ad](https://github.com/ant-design/pro-components/commit/6d764ad498405ad59f4fda71db1b0c632d8150a1))
+- **table:** Record Creator re-render when props change ([#8018](https://github.com/ant-design/pro-components/issues/8018)) ([c0187d2](https://github.com/ant-design/pro-components/commit/c0187d2160ca72413b4e645023a2849acd9fa725))
+- 删除 log 代码 ([#7995](https://github.com/ant-design/pro-components/issues/7995)) ([c867cd2](https://github.com/ant-design/pro-components/commit/c867cd214aa64cbfbe38326061338849850bb6b9))
+- **table:** 修复同时使用 defalutValue 和 Storage 存储的情况下，defalutValue 失效的问题 ([#7979](https://github.com/ant-design/pro-components/issues/7979)) ([76bb081](https://github.com/ant-design/pro-components/commit/76bb0811fbc6e14287a05fd863d694d356e3322c))
+
 ## [3.13.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.13.11...@ant-design/pro-table@3.13.12) (2023-12-12)
 
 ### Bug Fixes
@@ -203,7 +226,7 @@ All notable changes to this project will be documented in this file. See [Conven
 - **table:** Fix the issue of actionref not being synchronized ([2160fb8](https://github.com/ant-design/pro-components/commit/2160fb846bcfe41809a37dfe6e1cc3fce1d211e7))
 - **table:** Fix the issue where align="center" is not working ([db6fc65](https://github.com/ant-design/pro-components/commit/db6fc655b9994826238bb6b63588467ff8c6a6f8))
 - **table:** params change awaly reload fetch ([b147a16](https://github.com/ant-design/pro-components/commit/b147a16cd5d15bf6aad383683d9ffecdf1861e1d))
-- **table:** Protable support EXPAND\_COLUMN and SELECTION\_COLUMN ([3454347](https://github.com/ant-design/pro-components/commit/34543475aaf00f7a73b2bcd148021fc7eb13bba9))
+- **table:** Protable support EXPAND_COLUMN and SELECTION_COLUMN ([3454347](https://github.com/ant-design/pro-components/commit/34543475aaf00f7a73b2bcd148021fc7eb13bba9))
 - **table:** when checkable=false, no render all select boxs ([5421e41](https://github.com/ant-design/pro-components/commit/5421e41671afc084d6ba6cdb992e5320e72c2f8d))
 
 ### Features

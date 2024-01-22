@@ -5763,7 +5763,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 </div>
                 <div
                   class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  style="left: 0px; transform: translateX(-50%); width: 0px;"
+                  style="width: 0px; left: 0px; transform: translateX(-50%);"
                 />
               </div>
             </div>
@@ -6160,7 +6160,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 </div>
                 <div
                   class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  style="left: 0px; transform: translateX(-50%); width: 0px;"
+                  style="width: 0px; left: 0px; transform: translateX(-50%);"
                 />
               </div>
             </div>
@@ -10274,7 +10274,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
           class="ant-space-item"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -10402,7 +10402,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                   </div>
                   <div
                     class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                    style="left: 0px; transform: translateX(-50%); width: 0px;"
+                    style="width: 0px; left: 0px; transform: translateX(-50%);"
                   />
                 </div>
               </div>
@@ -10536,7 +10536,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
                 </div>
                 <div
                   class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  style="left: 0px; transform: translateX(-50%); width: 0px;"
+                  style="width: 0px; left: 0px; transform: translateX(-50%);"
                 />
               </div>
             </div>

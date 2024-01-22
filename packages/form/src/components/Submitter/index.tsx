@@ -77,6 +77,23 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
   /** 默认的操作的逻辑 */
   const dom = [];
 
+  if (resetButtonProps !== false) {
+    dom.push(
+      <Button
+        {...omit(resetButtonProps, ['preventDefault'] as any)}
+        key="rest"
+        onClick={(e) => {
+          if (!resetButtonProps?.preventDefault) reset();
+          resetButtonProps?.onClick?.(
+            e as React.MouseEvent<HTMLButtonElement, MouseEvent>,
+          );
+        }}
+      >
+        {resetText}
+      </Button>,
+    );
+  }
+
   if (submitButtonProps !== false) {
     dom.push(
       <Button
@@ -91,22 +108,6 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
         }}
       >
         {submitText}
-      </Button>,
-    );
-  }
-  if (resetButtonProps !== false) {
-    dom.push(
-      <Button
-        {...omit(resetButtonProps, ['preventDefault'] as any)}
-        key="rest"
-        onClick={(e) => {
-          if (!resetButtonProps?.preventDefault) reset();
-          resetButtonProps?.onClick?.(
-            e as React.MouseEvent<HTMLButtonElement, MouseEvent>,
-          );
-        }}
-      >
-        {resetText}
       </Button>,
     );
   }

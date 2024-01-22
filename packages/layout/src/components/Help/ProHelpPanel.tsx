@@ -254,7 +254,6 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
                     colorItemBg: 'transparent',
                     colorSubItemBg: 'transparent',
                     popupBg: token?.colorBgElevated,
-                    // @ts-expect-error
                     darkPopupBg: token?.colorBgElevated,
                   }),
                 },

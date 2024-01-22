@@ -6,6 +6,9 @@ exports[`mobile BasicLayout > 📱 base use 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
+      class="ant-pro-layout-bg-list"
+    />
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -196,6 +199,9 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
+      class="ant-pro-layout-bg-list"
+    />
+    <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -384,6 +390,9 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
+      class="ant-pro-layout-bg-list"
+    />
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -446,6 +455,9 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender 2`] = `
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
+    <div
+      class="ant-pro-layout-bg-list"
+    />
     <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
@@ -510,6 +522,9 @@ exports[`mobile BasicLayout > 📱 layout menuHeaderRender=false 1`] = `
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
     <div
+      class="ant-pro-layout-bg-list"
+    />
+    <div
       class="ant-layout"
       style="min-height: 100%; flex-direction: row;"
     >
@@ -571,6 +586,9 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
+    <div
+      class="ant-pro-layout-bg-list"
+    />
     <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"
@@ -763,6 +781,9 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
   <div
     class="ant-design-pro ant-pro-layout screen-xs ant-pro-layout-fix-siderbar ant-pro-layout-mix"
   >
+    <div
+      class="ant-pro-layout-bg-list"
+    />
     <div
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; flex-direction: row;"

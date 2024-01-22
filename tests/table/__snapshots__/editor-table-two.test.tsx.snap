@@ -91,7 +91,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                       class="ant-form-item-control-input-content"
                                     >
                                       <span
-                                        class="ant-input-affix-wrapper"
+                                        class="ant-input-affix-wrapper ant-input-outlined"
                                       >
                                         <input
                                           class="ant-input"
@@ -156,7 +156,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                       class="ant-form-item-control-input-content"
                                     >
                                       <span
-                                        class="ant-input-affix-wrapper"
+                                        class="ant-input-affix-wrapper ant-input-outlined"
                                       >
                                         <input
                                           class="ant-input"
@@ -221,7 +221,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                                       class="ant-form-item-control-input-content"
                                     >
                                       <span
-                                        class="ant-input-affix-wrapper"
+                                        class="ant-input-affix-wrapper ant-input-outlined"
                                       >
                                         <input
                                           class="ant-input"

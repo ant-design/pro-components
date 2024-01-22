@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.47](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.46...@ant-design/pro-list@2.5.47) (2024-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.5.46](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.45...@ant-design/pro-list@2.5.46) (2024-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.5.45](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.44...@ant-design/pro-list@2.5.45) (2024-01-15)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [2.5.44](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.43...@ant-design/pro-list@2.5.44) (2024-01-15)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 ## [2.5.43](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.42...@ant-design/pro-list@2.5.43) (2023-12-12)
 
 **Note:** Version bump only for package @ant-design/pro-list

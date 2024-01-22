@@ -26,7 +26,7 @@ exports[`💵 ProFormMoney > 💵 ProFormMoney value expect number 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-focused"
                 style="width: 100%;"
               >
                 <div
@@ -157,7 +157,7 @@ exports[`💵 ProFormMoney > 💵 can input negative 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success ant-input-number-focused"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-status-success ant-input-number-focused"
                 style="width: 100%;"
               >
                 <div
@@ -288,7 +288,7 @@ exports[`💵 ProFormMoney > 💵 can not input negative 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-focused"
                 style="width: 100%;"
               >
                 <div
@@ -419,7 +419,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom locale 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-focused"
                 style="width: 100%;"
               >
                 <div
@@ -550,7 +550,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with custom symbol 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-focused"
                 style="width: 100%;"
               >
                 <div
@@ -681,7 +681,7 @@ exports[`💵 ProFormMoney > 💵 moneySymbol with global locale 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-focused"
                 style="width: 100%;"
               >
                 <div
@@ -812,7 +812,7 @@ exports[`💵 ProFormMoney > 💵 update money precision when init 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-focused"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-focused"
                 style="width: 100%;"
               >
                 <div

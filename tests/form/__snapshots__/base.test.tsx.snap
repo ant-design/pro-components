@@ -133,7 +133,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-status-success"
                 style="width: 100%;"
               >
                 <div
@@ -253,19 +253,19 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-      <button
         class="ant-btn ant-btn-default test_button"
         type="button"
       >
         <span>
           重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
         </span>
       </button>
     </div>
@@ -287,19 +287,19 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-primary test_button"
-        type="button"
-      >
-        <span>
-          提 交
-        </span>
-      </button>
-      <button
         class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
           重 置
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary test_button"
+        type="button"
+      >
+        <span>
+          提 交
         </span>
       </button>
     </div>
@@ -333,7 +333,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-status-success ant-picker-focused"
+                class="ant-picker ant-picker-outlined ant-picker-status-success ant-picker-focused"
               >
                 <div
                   class="ant-picker-input"
@@ -462,7 +462,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-status-success"
                 style="width: 100%;"
               >
                 <div
@@ -594,7 +594,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-focused"
+                class="ant-picker ant-picker-outlined ant-picker-focused"
               >
                 <div
                   class="ant-picker-input"
@@ -689,7 +689,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker"
+                class="ant-picker ant-picker-outlined"
               >
                 <div
                   class="ant-picker-input"

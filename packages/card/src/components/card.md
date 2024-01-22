@@ -141,42 +141,42 @@ atomId: ProCard
 
 ## API
 
-| 参数                    | 说明                                                                                | 类型                                                           | 默认值     | 版本     |
-| --------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------- | ------ |
-| title                 | 标题                                                                                | `React.ReactNode`                                            | -       |        |
-| subTitle              | 副标题                                                                               | `React.ReactNode`                                            | -       |        |
-| tooltip               | 标题右侧图标 hover 提示信息                                                                 | `string`                                                     | -       |        |
-| headStyle             | 标题的 style 样式                                                                      | `CSSProperties`                                              | -       |        |
-| bodyStyle             | 内容区的 style 样式                                                                     | `CSSProperties`                                              | -       |        |
-| extra                 | 右上角自定义区域                                                                          | `React.ReactNode`                                            | -       |        |
-| layout                | 内容布局，支持垂直居中                                                                       | `default` \| `center`                                        | default |        |
-| loading               | 加载中，支持自定义 loading 样式                                                              | `boolean` \| `ReactNode`                                     | false   |        |
-| colSpan               | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比，支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}`, 仅在嵌套的子卡片上设置有效。 | `number` \| `string`                                         | 24      |        |
-| gutter                | 数字或使用数组形式同时设置 \[水平间距，垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}`                 | `number` \| `array`                                          | 0       |        |
-| split                 | 拆分卡片的方向                                                                           | `vertical` \| `horizontal`                                   | -       |        |
-| type                  | 卡片类型                                                                              | `inner` \| `default`                                         | -       |        |
-| size                  | 卡片尺寸                                                                              | `default` \| `small`                                         | -       |        |
-| actions               | 卡片操作组，位置在卡片底部                                                                     | `Array&lt;ReactNode>`                                        | -       |        |
-| direction             | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向                                                | `column`                                                     | -       |        |
-| wrap                  | 是否支持换行，仅在嵌套子卡片时有效                                                                 | false                                                        | -       | 1.12.0 |
-| bordered              | 是否有边框                                                                             | `boolean`                                                    | false   |        |
-| ghost                 | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。                                              | `boolean`                                                    | false   |        |
-| headerBordered        | 页头是否有分割线                                                                          | `boolean`                                                    | false   |        |
-| collapsed             | 受控属性，是否折叠                                                                         | `boolean`                                                    | false   |        |
-| collapsible           | 配置是否可折叠，受控时无效                                                                     | `boolean`                                                    | false   |        |
-| collapsibleIconRender | 替换默认折叠图标                                                                          | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | -       |        |
-| defaultCollapsed      | 默认折叠，受控时无效                                                                        | `boolean`                                                    | false   |        |
-| onCollapse            | 收起卡片的事件，受控时无效                                                                     | `(collapsed: boolean) => void`                               | -       |        |
-| tabs                  | 标签页配置                                                                             | 见下面 ProCardTabs                                              | -       |        |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| title | 标题 | `React.ReactNode` | - |  |
+| subTitle | 副标题 | `React.ReactNode` | - |  |
+| tooltip | 标题右侧图标 hover 提示信息 | `string` | - |  |
+| headStyle | 标题的 style 样式 | `CSSProperties` | - |  |
+| bodyStyle | 内容区的 style 样式 | `CSSProperties` | - |  |
+| extra | 右上角自定义区域 | `React.ReactNode` | - |  |
+| layout | 内容布局，支持垂直居中 | `default` \| `center` | default |  |
+| loading | 加载中，支持自定义 loading 样式 | `boolean` \| `ReactNode` | false |  |
+| colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比，支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}`, 仅在嵌套的子卡片上设置有效。 | `number` \| `string` | 24 |  |
+| gutter | 数字或使用数组形式同时设置 \[水平间距，垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |  |
+| split | 拆分卡片的方向 | `vertical` \| `horizontal` | - |  |
+| type | 卡片类型 | `inner` \| `default` | - |  |
+| size | 卡片尺寸 | `default` \| `small` | - |  |
+| actions | 卡片操作组，位置在卡片底部 | `Array&lt;ReactNode>` | - |  |
+| direction | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向 | `column` | - |  |
+| wrap | 是否支持换行，仅在嵌套子卡片时有效 | false | - | 1.12.0 |
+| bordered | 是否有边框 | `boolean` | false |  |
+| ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |  |
+| headerBordered | 页头是否有分割线 | `boolean` | false |  |
+| collapsed | 受控属性，是否折叠 | `boolean` | false |  |
+| collapsible | 配置是否可折叠，受控时无效 | `boolean` | false |  |
+| collapsibleIconRender | 替换默认折叠图标 | `({ collapsed }: { collapsed: boolean }) => React.ReactNode` | - |  |
+| defaultCollapsed | 默认折叠，受控时无效 | `boolean` | false |  |
+| onCollapse | 收起卡片的事件，受控时无效 | `(collapsed: boolean) => void` | - |  |
+| tabs | 标签页配置 | 见下面 ProCardTabs | - |  |
 
 ### ProCardTabs
 
-| 参数        | 说明                                          | 类型                             | 默认值    |
-| :-------- | :------------------------------------------ | :----------------------------- | :----- |
-| activeKey | 当前选中项                                       | string                         | -      |
-| type      | 页签的基本样式，可选 `line`、`card`、`editable-card` 类型 | string                         | inline |
-| onChange  | 回调                                          | `(activeKey: string) => void;` | -      |
-| items     | 基于 antd 拓展的页签的基本配置，必填                       | `ItemsProps`                   | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| activeKey | 当前选中项 | string | - |
+| type | 页签的基本样式，可选 `line`、`card`、`editable-card` 类型 | string | inline |
+| onChange | 回调 | `(activeKey: string) => void;` | - |
+| items | 基于 antd 拓展的页签的基本配置，必填 | `ItemsProps` | - |
 
 - 更多属性见 antd [Tab](https://ant.design/components/tabs-cn/#Tabs) API 描述。
 
@@ -184,28 +184,28 @@ atomId: ProCard
 
 支持 [Tabs](https://ant.design/components/tabs-cn/#Tabs.TabPane) 下页签的所有属性。
 
-| 参数        | 说明             | 类型        | 默认值 |
-| :-------- | :------------- | :-------- | :-- |
-| cardProps | ProCard 卡片属性透传 | `ProCard` | -   |
+| 参数      | 说明                 | 类型      | 默认值 |
+| :-------- | :------------------- | :-------- | :----- |
+| cardProps | ProCard 卡片属性透传 | `ProCard` | -      |
 
 ### ProCard.TabPane
 
 > 该参数即将被 Items 所平替，请及时更新使用 ItemsProps 配置新的内容
 
-| 参数        | 说明                                             | 类型          | 默认值   |
-| :-------- | :--------------------------------------------- | :---------- | :---- |
-| key       | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string`    | -     |
-| tab       | 选项卡头显示文字                                       | `ReactNode` | -     |
-| disabled  | 不可用                                            | `boolean`   | false |
-| cardProps | ProCard 卡片属性透传                                 | `ProCard`   | -     |
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| key | 对应 activeKey，用于标定是否选中和 dom 更新，一定不要重复，不然会造成表现异常 | `string` | - |
+| tab | 选项卡头显示文字 | `ReactNode` | - |
+| disabled | 不可用 | `boolean` | false |
+| cardProps | ProCard 卡片属性透传 | `ProCard` | - |
 
 ### ProCard.Divider
 
 用于在将内容进行分组时进行分隔。
 
-| 参数   | 说明   | 类型                       | 默认值 |
-| ---- | ---- | ------------------------ | --- |
-| type | 分隔类型 | `horizontal \| vertical` | -   |
+| 参数 | 说明     | 类型                     | 默认值 |
+| ---- | -------- | ------------------------ | ------ |
+| type | 分隔类型 | `horizontal \| vertical` | -      |
 
 ### ProCard.Group
 

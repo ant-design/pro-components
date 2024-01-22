@@ -64,7 +64,7 @@ export type CommonFormProps<
    * submitter={{resetButtonProps: { type: 'dashed'},submitButtonProps: { style: { display: 'none', }}}}
    *
    * @example 修改提交按钮和重置按钮的顺序
-   * submitter={{ render:(props,dom)=> [...dom.reverse()]}}
+   * submitter={{ render:(props,dom)=> [...dom]}}
    *
    * @example 修改提交和重置按钮文字
    * submitter={{ searchConfig: { submitText: '提交2',resetText: '重置2'}}}

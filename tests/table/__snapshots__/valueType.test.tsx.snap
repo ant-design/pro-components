@@ -54,7 +54,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper"
+                        class="ant-input-affix-wrapper ant-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -142,7 +142,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                           class="ant-spin-container"
                         >
                           <div
-                            class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
+                            class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
                             options="[object Object],[object Object]"
                             style="min-width: 60px; width: 100%;"
                           >
@@ -286,19 +286,19 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
-                            >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
-                            <button
                               class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
                                 重 置
+                              </span>
+                            </button>
+                            <button
+                              class="ant-btn ant-btn-primary"
+                              type="button"
+                            >
+                              <span>
+                                查 询
                               </span>
                             </button>
                           </div>
@@ -664,7 +664,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                    class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"

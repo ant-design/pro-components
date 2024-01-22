@@ -37,7 +37,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
               class="ant-form-item-control-input-content"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-affix-wrapper-focused"
+                class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-outlined"
                 style="width: 200px;"
               >
                 <input
@@ -110,7 +110,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                 style="min-width: 100px;"
               >
                 <div
@@ -229,7 +229,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                 style="min-width: 100px;"
               >
                 <div
@@ -320,7 +320,7 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker"
+                class="ant-picker ant-picker-outlined"
               >
                 <div
                   class="ant-picker-input"

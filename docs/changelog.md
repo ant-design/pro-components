@@ -1,3 +1,37 @@
+## @ant-design/pro-components@2.6.47
+
+`2024-01-18`
+
+- fix(layout): fix bgLayout no work error. [4a21fdf](https://github.com/ant-design/pro-components/commit/4a21fdf)
+- fix(form): fix DrawerForm and ModalForm button error. [7bf4b30](https://github.com/ant-design/pro-components/commit/7bf4b30)
+- fix(form): 修复默认情况下 sumbitter render 和 render 时候 dom 位置不一致的问题 (#8096). [#8096](https://github.com/ant-design/pro-components/pull/#8096) [@Shinji-Li](https://github.com/Shinji-Li)
+- feat(table): column SettingTitle 内容太长时显示省略&弹出 tooltip (#8070). [#8070](https://github.com/ant-design/pro-components/pull/#8070) [@xlboy](https://github.com/xlboy)
+
+## @ant-design/pro-components@2.6.46
+
+`2024-01-15`
+
+- fix(layout): fix bgLayout no work error. [4a21fdf](https://github.com/ant-design/pro-components/commit/4a21fdf)
+- fix(form): fix ProFormPage submit error. [2260b0d](https://github.com/ant-design/pro-components/commit/2260b0d)
+
+## @ant-design/pro-components@2.6.45
+
+`2024-01-15`
+
+- fix(layout): if bgImgStyleList is null ,no render bg-list dom. [0b26161](https://github.com/ant-design/pro-components/commit/0b26161)
+- feat(form): 添加 FormItemRender 组件 (#8012). [#8012](https://github.com/ant-design/pro-components/pull/#8012) [@hans000](https://github.com/hans000)
+- fix(form): fix ProFormDateRangePicker readonly no warp error. [b2276c3](https://github.com/ant-design/pro-components/commit/b2276c3)
+- fix(form): 修复 dateFormatter 使用 string 类型提示错误 (#8029). [#8029](https://github.com/ant-design/pro-components/pull/#8029) [@yjhtry](https://github.com/yjhtry)
+- fix(form): add playsInline props. [e1233d1](https://github.com/ant-design/pro-components/commit/e1233d1)
+- fix(form): 修复特殊情况（不使用 ProFormMoney 使用 FieldMoney）下格式化错误的问题 (#8024). [#8024](https://github.com/ant-design/pro-components/pull/#8024) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): 修复特殊情况下多出 moneySymbol 的问题 (#8004). [#8004](https://github.com/ant-design/pro-components/pull/#8004) [@ONLY-yours](https://github.com/ONLY-yours)
+- chore(form): adjust `submitter` dom order (#7988). [#7988](https://github.com/ant-design/pro-components/pull/#7988) [@kungege](https://github.com/kungege)
+- fix(form): remove extra `div` (#7987). [#7987](https://github.com/ant-design/pro-components/pull/#7987) [@kungege](https://github.com/kungege)
+- fix(form): no set maxHeight. [64dc9f7](https://github.com/ant-design/pro-components/commit/64dc9f7)
+- fix(list): 修复 ProFormList 透传部分属性到 FormItem 中导致的 react 警告 (#8051). [#8051](https://github.com/ant-design/pro-components/pull/#8051) [@SANmq](https://github.com/SANmq)
+- fix(table): Record Creator re-render when props change (#8018). [#8018](https://github.com/ant-design/pro-components/pull/#8018) [@bartelemi](https://github.com/bartelemi)
+- fix(table): 修复同时使用 defalutValue 和 Storage 存储的情况下，defalutValue 失效的问题 (#7979). [#7979](https://github.com/ant-design/pro-components/pull/#7979) [@ONLY-yours](https://github.com/ONLY-yours)
+
 ## @ant-design/pro-components\@2.6.44
 
 `2023-12-12`
@@ -52,7 +86,7 @@
 
 `2023-11-14`
 
-- feat (utils): FieldLabel 的 VALUE\_MAX\_LENGTH 可以通过参数传入 (#7845) (#7846). [#7845](https://github.com/ant-design/pro-components/pull/#7845) [@Rabbit](https://github.com/Rabbit)
+- feat (utils): FieldLabel 的 VALUE_MAX_LENGTH 可以通过参数传入 (#7845) (#7846). [#7845](https://github.com/ant-design/pro-components/pull/#7845) [@Rabbit](https://github.com/Rabbit)
 - fix(layout): fix popupBg no work error. [ea20878](https://github.com/ant-design/pro-components/commit/ea20878)
 - fix(layout): \[antd: Drawer] `bodyStyle` is deprecated waring (#7864). [#7864](https://github.com/ant-design/pro-components/pull/#7864) [@OXXD](https://github.com/OXXD)
 - fix(layout): fix ProLayout did not match error. [cb330f9](https://github.com/ant-design/pro-components/commit/cb330f9)
@@ -302,7 +336,7 @@
 - fix(table): params change awaly reload fetch. [b147a16](https://github.com/ant-design/pro-components/commit/b147a16)
 - feat(table): ProTable support optionsRender. [8b56b6a](https://github.com/ant-design/pro-components/commit/8b56b6a)
 - fix(table): fix renderFormItem render twice render time. [c3b8ffd](https://github.com/ant-design/pro-components/commit/c3b8ffd)
-- fix(table): Protable support EXPAND\_COLUMN and SELECTION\_COLUMN. [3454347](https://github.com/ant-design/pro-components/commit/3454347)
+- fix(table): Protable support EXPAND_COLUMN and SELECTION_COLUMN. [3454347](https://github.com/ant-design/pro-components/commit/3454347)
 - fix(table): when checkable=false, no render all select boxs. [5421e41](https://github.com/ant-design/pro-components/commit/5421e41)
 - fix(table): Fix the columnsSetting styling issue in controlling column state when the table header is too long. [5b746b3](https://github.com/ant-design/pro-components/commit/5b746b3)
 - fix(table): Fix the issue where align="center" is not working. [db6fc65](https://github.com/ant-design/pro-components/commit/db6fc65)
@@ -746,7 +780,7 @@
 
 `2022-11-07`
 
-- fix(utils): do not use process?.env?.ANTD\_VERSION. [a295b3d](https://github.com/ant-design/pro-components/commit/a295b3d)
+- fix(utils): do not use process?.env?.ANTD_VERSION. [a295b3d](https://github.com/ant-design/pro-components/commit/a295b3d)
 - fix (table): 兼容 ellipsis 不想显示 Tooltip #6158 (#6160). [#6160](https://github.com/ant-design/pro-components/pull/#6160) [@DerrickTel](https://github.com/DerrickTel)
 
 ## @ant-design/pro-components\@2.3.28

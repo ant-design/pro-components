@@ -86,7 +86,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
             ...proFormProps.submitter?.submitButtonProps,
           },
           render: (_, dom) => {
-            const loginButton = dom.at(0);
+            const loginButton = dom.pop();
             if (
               typeof (proFormProps?.submitter as SubmitterProps)?.render ===
               'function'

@@ -138,7 +138,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **provide:** unuse process.env.NODE\_ENV === 'TEST' ([0d9cba1](https://github.com/ant-design/pro-components/commit/0d9cba1a7fe74a87c6daf93a36f768801059f42d))
+- **provide:** unuse process.env.NODE_ENV === 'TEST' ([0d9cba1](https://github.com/ant-design/pro-components/commit/0d9cba1a7fe74a87c6daf93a36f768801059f42d))
 
 ## [2.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.8.0...@ant-design/pro-provider@2.8.1) (2023-04-25)
 
@@ -441,7 +441,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- 国际化基于 en\_US 全量补充 ([#5498](https://github.com/ant-design/pro-components/issues/5498)) ([3fab520](https://github.com/ant-design/pro-components/commit/3fab520c16880aaf4864285faff8d94f7c54e800))
+- 国际化基于 en_US 全量补充 ([#5498](https://github.com/ant-design/pro-components/issues/5498)) ([3fab520](https://github.com/ant-design/pro-components/commit/3fab520c16880aaf4864285faff8d94f7c54e800))
 
 ## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.8.0...@ant-design/pro-provider@1.8.1) (2022-07-06)
 
@@ -454,7 +454,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- add mn\_MN locale ([#5372](https://github.com/ant-design/pro-components/issues/5372)) ([e35d38d](https://github.com/ant-design/pro-components/commit/e35d38db2f3e24508769244b84289fc32bb75203))
+- add mn_MN locale ([#5372](https://github.com/ant-design/pro-components/issues/5372)) ([e35d38d](https://github.com/ant-design/pro-components/commit/e35d38db2f3e24508769244b84289fc32bb75203))
 
 ## [1.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.7.1...@ant-design/pro-provider@1.7.2) (2022-06-02)
 

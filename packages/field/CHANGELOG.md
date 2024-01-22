@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.4...@ant-design/pro-field@2.14.5) (2024-01-15)
+
+### Bug Fixes
+
+- **form:** fix ProFormPage submit error ([2260b0d](https://github.com/ant-design/pro-components/commit/2260b0dae2f26c12e9d25a0a4f85c2fc8fc8e0be))
+
+## [2.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.3...@ant-design/pro-field@2.14.4) (2024-01-15)
+
+### Bug Fixes
+
+- **form:** fix ProFormDateRangePicker readonly no warp error ([b2276c3](https://github.com/ant-design/pro-components/commit/b2276c35aee39fb7ee39254c3d5c48c9dea12881)), closes [#7913](https://github.com/ant-design/pro-components/issues/7913)
+- **form:** 修复特殊情况（不使用 ProFormMoney 使用 FieldMoney）下格式化错误的问题 ([#8024](https://github.com/ant-design/pro-components/issues/8024)) ([c321689](https://github.com/ant-design/pro-components/commit/c32168973008ddfe7d9c4bef79e1cbd46387b8d3))
+- **form:** 修复特殊情况下多出 moneySymbol 的问题 ([#8004](https://github.com/ant-design/pro-components/issues/8004)) ([f9f0a63](https://github.com/ant-design/pro-components/commit/f9f0a63e9f18950754f6ba6efaead3ab8dcfdb5d))
+- slove moneySymbol judge was error ([#8003](https://github.com/ant-design/pro-components/issues/8003)) ([75d5b55](https://github.com/ant-design/pro-components/commit/75d5b552986c5f86e6380cb28ed2f7d0541c6cc3))
+
 ## [2.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.2...@ant-design/pro-field@2.14.3) (2023-12-12)
 
 ### Bug Fixes
@@ -28,7 +43,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- **utils:** FieldLabel 的 VALUE\_MAX\_LENGTH 可以通过参数传入 ([#7845](https://github.com/ant-design/pro-components/issues/7845)) ([#7846](https://github.com/ant-design/pro-components/issues/7846)) ([8cba14f](https://github.com/ant-design/pro-components/commit/8cba14f24e4549d428432f0ffdf194f8474eddfb))
+- **utils:** FieldLabel 的 VALUE_MAX_LENGTH 可以通过参数传入 ([#7845](https://github.com/ant-design/pro-components/issues/7845)) ([#7846](https://github.com/ant-design/pro-components/issues/7846)) ([8cba14f](https://github.com/ant-design/pro-components/commit/8cba14f24e4549d428432f0ffdf194f8474eddfb))
 
 ## [2.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.4...@ant-design/pro-field@2.13.5) (2023-10-26)
 

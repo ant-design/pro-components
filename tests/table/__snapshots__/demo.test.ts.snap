@@ -60,7 +60,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -141,7 +141,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -218,7 +218,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper"
+                        class="ant-input-affix-wrapper ant-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -294,7 +294,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper"
+                        class="ant-input-affix-wrapper ant-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -380,19 +380,19 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -881,7 +881,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -962,7 +962,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -1039,7 +1039,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper"
+                        class="ant-input-affix-wrapper ant-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -1115,7 +1115,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                       class="ant-form-item-control-input-content"
                     >
                       <span
-                        class="ant-input-affix-wrapper"
+                        class="ant-input-affix-wrapper ant-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -1201,19 +1201,19 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -4383,7 +4383,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                             style="width: 100%;"
                           >
                             <div
@@ -4493,7 +4493,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item"
+                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                             style="width: 100%;"
                           >
                             <div
@@ -5267,7 +5267,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -5333,7 +5333,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -5446,7 +5446,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -5528,7 +5528,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -5594,7 +5594,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -5707,7 +5707,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -5789,7 +5789,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -5855,7 +5855,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -5968,7 +5968,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -6050,7 +6050,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -6116,7 +6116,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -6229,7 +6229,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -6311,7 +6311,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -6377,7 +6377,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -6490,7 +6490,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -6572,7 +6572,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -6638,7 +6638,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -6751,7 +6751,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -6833,7 +6833,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -6899,7 +6899,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -7012,7 +7012,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -7094,7 +7094,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -7160,7 +7160,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -7273,7 +7273,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -7355,7 +7355,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -7421,7 +7421,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -7534,7 +7534,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -7616,7 +7616,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -7682,7 +7682,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -7795,7 +7795,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -7877,7 +7877,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -7943,7 +7943,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -8056,7 +8056,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -8138,7 +8138,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -8204,7 +8204,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -8317,7 +8317,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -8399,7 +8399,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -8465,7 +8465,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -8578,7 +8578,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -8660,7 +8660,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -8726,7 +8726,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -8839,7 +8839,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -8921,7 +8921,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -8987,7 +8987,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -9100,7 +9100,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -9182,7 +9182,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -9248,7 +9248,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -9361,7 +9361,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -9443,7 +9443,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -9509,7 +9509,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -9622,7 +9622,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -9704,7 +9704,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -9770,7 +9770,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -9883,7 +9883,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -9965,7 +9965,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -10031,7 +10031,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -10144,7 +10144,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -10226,7 +10226,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           class="ant-form-item-control-input-content"
                                         >
                                           <span
-                                            class="ant-input-affix-wrapper"
+                                            class="ant-input-affix-wrapper ant-input-outlined"
                                           >
                                             <input
                                               class="ant-input"
@@ -10292,7 +10292,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <div
-                                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           style="min-width: 100px;"
                                         >
                                           <div
@@ -10405,7 +10405,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                         class="ant-form-item-control-input-content"
                                       >
                                         <span
-                                          class="ant-input-affix-wrapper"
+                                          class="ant-input-affix-wrapper ant-input-outlined"
                                         >
                                           <input
                                             class="ant-input"
@@ -10847,14 +10847,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                   class="ant-pro-table-list-toolbar-search"
                 >
                   <span
-                    class="ant-input-group-wrapper ant-input-search"
+                    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                     style="width: 200px;"
                   >
                     <span
                       class="ant-input-wrapper ant-input-group"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -11783,14 +11783,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                   class="ant-pro-table-list-toolbar-search"
                 >
                   <span
-                    class="ant-input-group-wrapper ant-input-search"
+                    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                     style="width: 200px;"
                   >
                     <span
                       class="ant-input-wrapper ant-input-group"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -12474,14 +12474,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                   class="ant-pro-table-list-toolbar-search"
                 >
                   <span
-                    class="ant-input-group-wrapper ant-input-search"
+                    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                     style="width: 200px;"
                   >
                     <span
                       class="ant-input-wrapper ant-input-group"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -13258,14 +13258,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                   class="ant-pro-table-list-toolbar-search"
                 >
                   <span
-                    class="ant-input-group-wrapper ant-input-search"
+                    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                     style="width: 200px;"
                   >
                     <span
                       class="ant-input-wrapper ant-input-group"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -15373,7 +15373,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -15554,7 +15554,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -15734,7 +15734,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -15914,7 +15914,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -16094,7 +16094,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -17079,14 +17079,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columns-setting-c
                   class="ant-pro-table-list-toolbar-search"
                 >
                   <span
-                    class="ant-input-group-wrapper ant-input-search"
+                    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                     style="width: 200px;"
                   >
                     <span
                       class="ant-input-wrapper ant-input-group"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -17362,14 +17362,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columnsStateMap.t
                   class="ant-pro-table-list-toolbar-search"
                 >
                   <span
-                    class="ant-input-group-wrapper ant-input-search"
+                    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                     style="width: 200px;"
                   >
                     <span
                       class="ant-input-wrapper ant-input-group"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -17818,7 +17818,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                         class="qixian-form-item-control-input-content"
                       >
                         <div
-                          class="qixian-select qixian-select-in-form-item qixian-pro-filed-search-select qixian-select-single qixian-select-allow-clear qixian-select-show-arrow"
+                          class="qixian-select qixian-select-outlined qixian-select-in-form-item qixian-pro-filed-search-select qixian-select-single qixian-select-allow-clear qixian-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -17945,7 +17945,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                         class="qixian-form-item-control-input-content"
                       >
                         <span
-                          class="qixian-input-affix-wrapper"
+                          class="qixian-input-affix-wrapper qixian-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -18032,6 +18032,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
+                                class="qixian-btn qixian-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                              <button
                                 class="qixian-btn qixian-btn-primary qixian-btn-loading"
                                 type="button"
                               >
@@ -18060,14 +18068,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                                 </span>
                                 <span>
                                   查 询
-                                </span>
-                              </button>
-                              <button
-                                class="qixian-btn qixian-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -18639,7 +18639,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                              class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                               style="width: 100%;"
                             >
                               <div
@@ -18766,7 +18766,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                              class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                               style="width: 100%;"
                             >
                               <div
@@ -18861,7 +18861,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper"
+                            class="ant-input-affix-wrapper ant-input-outlined"
                             style="width: 100%;"
                           >
                             <input
@@ -18947,6 +18947,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                   style="display: flex; gap: 8px; align-items: center;"
                                 >
                                   <button
+                                    class="ant-btn ant-btn-default"
+                                    type="button"
+                                  >
+                                    <span>
+                                      重 置
+                                    </span>
+                                  </button>
+                                  <button
                                     class="ant-btn ant-btn-primary ant-btn-loading"
                                     type="button"
                                   >
@@ -18975,14 +18983,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                     </span>
                                     <span>
                                       查 询
-                                    </span>
-                                  </button>
-                                  <button
-                                    class="ant-btn ant-btn-default"
-                                    type="button"
-                                  >
-                                    <span>
-                                      重 置
                                     </span>
                                   </button>
                                 </div>
@@ -19426,7 +19426,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                         class="ant-form-item-control-input-content"
                       >
                         <input
-                          class="ant-input"
+                          class="ant-input ant-input-outlined"
                           id="name"
                           placeholder="请输入链接"
                           style="width: 100%;"
@@ -19479,7 +19479,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                             class="ant-space-item"
                           >
                             <input
-                              class="ant-input ant-input-sm"
+                              class="ant-input ant-input-sm ant-input-outlined"
                               style="width: 78px;"
                               type="text"
                               value=""
@@ -19532,19 +19532,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -20087,7 +20087,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"
@@ -20213,7 +20213,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -20291,7 +20291,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -20387,7 +20387,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -20511,7 +20511,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -20598,19 +20598,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -21977,7 +21977,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -22058,7 +22058,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -22169,19 +22169,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -22371,7 +22371,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"
@@ -22489,7 +22489,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -22570,7 +22570,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -22681,19 +22681,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -22883,7 +22883,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"
@@ -23001,7 +23001,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -23082,7 +23082,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -23193,19 +23193,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -23395,7 +23395,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"
@@ -23521,7 +23521,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -23599,7 +23599,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -23780,7 +23780,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -23857,7 +23857,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -23944,19 +23944,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -25101,7 +25101,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                   class="ant-form-item-control-input-content"
                                 >
                                   <span
-                                    class="ant-input-affix-wrapper"
+                                    class="ant-input-affix-wrapper ant-input-outlined"
                                     style="width: 100%;"
                                   >
                                     <input
@@ -25178,7 +25178,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-picker"
+                                  class="ant-picker ant-picker-outlined"
                                   style="width: 100%;"
                                 >
                                   <div
@@ -25253,7 +25253,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                  class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="width: 100%;"
                                 >
                                   <div
@@ -25357,19 +25357,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         style="display: flex; gap: 8px; align-items: center;"
                                       >
                                         <button
-                                          class="ant-btn ant-btn-primary"
-                                          type="button"
-                                        >
-                                          <span>
-                                            查 询
-                                          </span>
-                                        </button>
-                                        <button
                                           class="ant-btn ant-btn-default"
                                           type="button"
                                         >
                                           <span>
                                             重 置
+                                          </span>
+                                        </button>
+                                        <button
+                                          class="ant-btn ant-btn-primary"
+                                          type="button"
+                                        >
+                                          <span>
+                                            查 询
                                           </span>
                                         </button>
                                       </div>
@@ -26327,7 +26327,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                             >
                               <div
                                 aria-label="页码"
-                                class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                                class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                               >
                                 <div
                                   class="ant-select-selector"
@@ -27329,7 +27329,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                             class="ant-form-item-control-input-content"
                                           >
                                             <span
-                                              class="ant-input-affix-wrapper ant-input-affix-wrapper-sm"
+                                              class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined"
                                             >
                                               <input
                                                 class="ant-input ant-input-sm"
@@ -27428,7 +27428,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                             class="ant-form-item-control-input-content"
                                           >
                                             <span
-                                              class="ant-input-affix-wrapper ant-input-affix-wrapper-sm"
+                                              class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined"
                                             >
                                               <input
                                                 class="ant-input ant-input-sm"
@@ -28934,7 +28934,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -29015,7 +29015,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -29101,19 +29101,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -29328,7 +29328,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"
@@ -29454,7 +29454,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-input-number ant-input-number-in-form-item"
+                          class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -29566,7 +29566,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -29653,19 +29653,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -30343,7 +30343,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/lightfilter.tsx c
                                           class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-bottomLeft"
                                         >
                                           <div
-                                            class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           >
                                             <div
                                               class="ant-select-selector"
@@ -30660,7 +30660,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -30741,7 +30741,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
                         >
                           <div
                             class="ant-select-selector"
@@ -30837,7 +30837,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -30970,19 +30970,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                               <button
@@ -32351,7 +32351,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -32432,7 +32432,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -32513,7 +32513,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -34739,7 +34739,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -34817,7 +34817,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -34922,19 +34922,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -35476,7 +35476,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -35554,7 +35554,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -35659,19 +35659,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -36205,7 +36205,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -36332,7 +36332,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-input-number ant-input-number-in-form-item"
+                          class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -36443,7 +36443,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker"
+                        class="ant-picker ant-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -36518,7 +36518,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker"
+                        class="ant-picker ant-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -36603,19 +36603,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -36943,7 +36943,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -37013,7 +37013,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -37129,7 +37129,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"
@@ -37258,7 +37258,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -37338,7 +37338,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-input-number ant-input-number-in-form-item"
+                          class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -37459,19 +37459,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -37970,7 +37970,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                          style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                         />
                                       </div>
                                     </div>
@@ -38019,7 +38019,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                          style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                         />
                                       </div>
                                     </div>
@@ -38125,7 +38125,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                       >
                         <div
                           aria-label="页码"
-                          class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                          class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                         >
                           <div
                             class="ant-select-selector"
@@ -38253,7 +38253,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-rtl ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-rtl ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -38377,7 +38377,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-affix-wrapper-rtl"
+                          class="ant-input-affix-wrapper ant-input-affix-wrapper-rtl ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -38464,6 +38464,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
+                                class="ant-btn ant-btn-default ant-btn-rtl"
+                                type="button"
+                              >
+                                <span>
+                                  إعادة تعيين
+                                </span>
+                              </button>
+                              <button
                                 class="ant-btn ant-btn-primary ant-btn-loading ant-btn-rtl"
                                 type="button"
                               >
@@ -38492,14 +38500,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                                 </span>
                                 <span>
                                   ابحث
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-default ant-btn-rtl"
-                                type="button"
-                              >
-                                <span>
-                                  إعادة تعيين
                                 </span>
                               </button>
                             </div>
@@ -38927,14 +38927,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search.tsx correc
                   class="ant-pro-table-list-toolbar-search"
                 >
                   <span
-                    class="ant-input-group-wrapper ant-input-search"
+                    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                     style="width: 200px;"
                   >
                     <span
                       class="ant-input-wrapper ant-input-group"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -39274,7 +39274,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -39352,7 +39352,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-input-number ant-input-number-in-form-item"
+                          class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -39473,19 +39473,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-primary"
                                 type="button"
                               >
                                 <span>
                                   查 询
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
                                 </span>
                               </button>
                               <button
@@ -39910,7 +39910,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -39988,7 +39988,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -40080,7 +40080,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker ant-picker-range"
+                        class="ant-picker ant-picker-range ant-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -40207,6 +40207,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
+                                class="ant-btn ant-btn-default"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                              <button
                                 class="ant-btn ant-btn-primary ant-btn-loading"
                                 type="button"
                               >
@@ -40235,14 +40243,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                 </span>
                                 <span>
                                   查 询
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-default"
-                                type="button"
-                              >
-                                <span>
-                                  重 置
                                 </span>
                               </button>
                             </div>
@@ -40792,7 +40792,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     class="canvas-form-item-control-input-content"
                   >
                     <div
-                      class="canvas-select canvas-select-in-form-item canvas-pro-filed-search-select canvas-select-single canvas-select-allow-clear canvas-select-show-arrow"
+                      class="canvas-select canvas-select-outlined canvas-select-in-form-item canvas-pro-filed-search-select canvas-select-single canvas-select-allow-clear canvas-select-show-arrow"
                       style="min-width: 100px;"
                     >
                       <div
@@ -40885,7 +40885,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
             </div>
           </div>
           <input
-            class="canvas-input"
+            class="canvas-input canvas-input-outlined"
             type="text"
             value=""
           />
@@ -40916,7 +40916,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     class="canvas-form-item-control-input-content"
                   >
                     <div
-                      class="canvas-picker"
+                      class="canvas-picker canvas-picker-outlined"
                     >
                       <div
                         class="canvas-picker-input"
@@ -40987,7 +40987,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     class="canvas-form-item-control-input-content"
                   >
                     <span
-                      class="canvas-input-affix-wrapper"
+                      class="canvas-input-affix-wrapper canvas-input-outlined"
                     >
                       <input
                         class="canvas-input"
@@ -41033,7 +41033,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
             </div>
           </div>
           <span
-            class="canvas-input-affix-wrapper"
+            class="canvas-input-affix-wrapper canvas-input-outlined"
           >
             <input
               class="canvas-input"
@@ -41076,19 +41076,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
             style="display: flex; gap: 8px; align-items: center;"
           >
             <button
-              class="canvas-btn canvas-btn-primary"
-              type="button"
-            >
-              <span>
-                提 交
-              </span>
-            </button>
-            <button
               class="canvas-btn canvas-btn-default"
               type="button"
             >
               <span>
                 重 置
+              </span>
+            </button>
+            <button
+              class="canvas-btn canvas-btn-primary"
+              type="button"
+            >
+              <span>
+                提 交
               </span>
             </button>
           </div>
@@ -41147,7 +41147,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         class="canvas-form-item-control-input-content"
                       >
                         <span
-                          class="canvas-input-affix-wrapper"
+                          class="canvas-input-affix-wrapper canvas-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -41228,7 +41228,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         class="canvas-form-item-control-input-content"
                       >
                         <span
-                          class="canvas-input-affix-wrapper"
+                          class="canvas-input-affix-wrapper canvas-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -41315,19 +41315,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="canvas-btn canvas-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="canvas-btn canvas-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="canvas-btn canvas-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -41658,7 +41658,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         class="canvas-form-item-control-input-content"
                       >
                         <div
-                          class="canvas-select canvas-select-in-form-item canvas-pro-filed-search-select canvas-select-single canvas-select-allow-clear canvas-select-show-arrow"
+                          class="canvas-select canvas-select-outlined canvas-select-in-form-item canvas-pro-filed-search-select canvas-select-single canvas-select-allow-clear canvas-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -41808,7 +41808,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         class="canvas-form-item-control-input-content"
                       >
                         <span
-                          class="canvas-input-affix-wrapper"
+                          class="canvas-input-affix-wrapper canvas-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -41856,7 +41856,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
               </div>
             </div>
             <input
-              class="canvas-input"
+              class="canvas-input canvas-input-outlined"
               formitemprops="[object Object]"
               hidden=""
               type="text"
@@ -41892,7 +41892,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                       class="canvas-form-item-control-input-content"
                     >
                       <div
-                        class="canvas-picker"
+                        class="canvas-picker canvas-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -41967,7 +41967,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                       class="canvas-form-item-control-input-content"
                     >
                       <span
-                        class="canvas-input-affix-wrapper"
+                        class="canvas-input-affix-wrapper canvas-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -42043,7 +42043,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                       class="canvas-form-item-control-input-content"
                     >
                       <span
-                        class="canvas-input-affix-wrapper"
+                        class="canvas-input-affix-wrapper canvas-input-outlined"
                         style="width: 100%;"
                       >
                         <input
@@ -42128,19 +42128,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="canvas-btn canvas-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="canvas-btn canvas-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="canvas-btn canvas-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -43622,14 +43622,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                             class="ant-pro-table-list-toolbar-search"
                           >
                             <span
-                              class="ant-input-group-wrapper ant-input-search"
+                              class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                               style="width: 200px;"
                             >
                               <span
                                 class="ant-input-wrapper ant-input-group"
                               >
                                 <input
-                                  class="ant-input"
+                                  class="ant-input ant-input-outlined"
                                   placeholder="请输入"
                                   type="text"
                                   value=""
@@ -45118,7 +45118,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                           class="ant-form-item-control-input-content"
                         >
                           <span
-                            class="ant-input-affix-wrapper"
+                            class="ant-input-affix-wrapper ant-input-outlined"
                             style="width: 100%;"
                           >
                             <input
@@ -45196,7 +45196,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="width: 100%;"
                           >
                             <div
@@ -45288,7 +45288,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker ant-picker-range"
+                          class="ant-picker ant-picker-range ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -45415,6 +45415,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                 style="display: flex; gap: 4px; align-items: center;"
                               >
                                 <button
+                                  class="ant-btn ant-btn-default"
+                                  type="button"
+                                >
+                                  <span>
+                                    重 置
+                                  </span>
+                                </button>
+                                <button
                                   class="ant-btn ant-btn-primary ant-btn-loading"
                                   type="button"
                                 >
@@ -45443,14 +45451,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                   </span>
                                   <span>
                                     查 询
-                                  </span>
-                                </button>
-                                <button
-                                  class="ant-btn ant-btn-default"
-                                  type="button"
-                                >
-                                  <span>
-                                    重 置
                                   </span>
                                 </button>
                               </div>
@@ -46012,7 +46012,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -46093,7 +46093,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -46170,7 +46170,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                       class="ant-form-item-control-input-content"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         id="image"
                         placeholder="请输入"
                         style="width: 100%;"
@@ -46222,19 +46222,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -46898,7 +46898,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"
@@ -47024,7 +47024,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -47501,7 +47501,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-cascader ant-select-in-form-item ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -47603,7 +47603,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             class="ant-spin-container"
                           >
                             <div
-                              class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                               options="[object Object],[object Object]"
                               style="min-width: 60px; width: 100%;"
                             >
@@ -47718,7 +47718,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker ant-picker-range"
+                          class="ant-picker ant-picker-range ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -47845,19 +47845,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -48527,7 +48527,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -48607,7 +48607,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-picker ant-picker-range"
+                          class="ant-picker ant-picker-range ant-picker-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -48725,7 +48725,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker ant-picker-range"
+                        class="ant-picker ant-picker-range ant-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -48841,7 +48841,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker ant-picker-range"
+                        class="ant-picker ant-picker-range ant-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -48958,7 +48958,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker"
+                        class="ant-picker ant-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -49033,7 +49033,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker"
+                        class="ant-picker ant-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -49108,7 +49108,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker"
+                        class="ant-picker ant-picker-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -49196,19 +49196,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -49456,7 +49456,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; flex-wrap: wrap; align-items: center;"
+                                style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                               >
                                 <div>
                                   2016-11-22
@@ -49470,7 +49470,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; flex-wrap: wrap; align-items: center;"
+                                style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                               >
                                 <div>
                                   2016-11-22 15:22:42
@@ -49524,7 +49524,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; flex-wrap: wrap; align-items: center;"
+                                style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                               >
                                 <div>
                                   2016-11-22
@@ -49538,7 +49538,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               class="ant-table-cell"
                             >
                               <div
-                                style="display: flex; flex-wrap: wrap; align-items: center;"
+                                style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
                               >
                                 <div>
                                   2016-11-22 15:22:42
@@ -49765,7 +49765,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"
@@ -49894,7 +49894,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-input-number ant-input-number-in-form-item"
+                          class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -50009,7 +50009,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-input-number ant-input-number-in-form-item"
+                          class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                           style="width: 100%;"
                         >
                           <div
@@ -50120,7 +50120,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-input-number ant-input-number-in-form-item"
+                        class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -50231,7 +50231,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-input-number ant-input-number-in-form-item"
+                        class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -50342,7 +50342,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-input-number ant-input-number-in-form-item"
+                        class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                         style="width: 100%;"
                       >
                         <div
@@ -50462,19 +50462,19 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
-                                type="button"
-                              >
-                                <span>
-                                  查 询
-                                </span>
-                              </button>
-                              <button
                                 class="ant-btn ant-btn-default"
                                 type="button"
                               >
                                 <span>
                                   重 置
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
                                 </span>
                               </button>
                             </div>
@@ -50734,7 +50734,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -50808,7 +50808,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                                   >
                                     <div
                                       class="ant-progress-bg"
-                                      style="width: 100%; height: 6px; clip-path: inset(0 14% 0 0 round 100px);"
+                                      style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
                                 </div>
@@ -51046,7 +51046,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                   >
                     <div
                       aria-label="页码"
-                      class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                      class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                     >
                       <div
                         class="ant-select-selector"

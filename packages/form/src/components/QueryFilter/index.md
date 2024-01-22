@@ -42,18 +42,18 @@ atomId: QueryFilter,LightFilter
 
 QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
-| 参数                    | 说明                                                      | 类型                   | 默认值  |
-| --------------------- | ------------------------------------------------------- | -------------------- | ---- |
-| collapsed             | 是否折叠超出的表单项，用于受控模式                                       | `boolean`            | -    |
-| defaultCollapsed      | 默认状态下是否折叠超出的表单项                                         | `boolean`            | true |
-| onCollapse            | 切换表单折叠状态时的回调                                            | `(collapsed)=>void`  | -    |
-| hideRequiredMark      | 隐藏所有表单项的必选标记，**默认隐藏**                                   | `boolean`            | true |
-| submitterColSpanProps | 提交按钮所在 col 的 props                                      | ColProps             | -    |
-| defaultColsNumber     | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件；数量大于等于控件数量则隐藏展开按钮 | `number`             | -    |
-| labelWidth            | label 宽度                                                | `number` \| `'auto'` | `80` |
-| span                  | 表单项宽度                                                   | `number[0 - 24]`     | -    |
-| split                 | 每一行是否有分割线                                               | `boolean`            | -    |
-| preserve              | 是否能够查询收起的数据，如果设置为 false，收起后的表单数据将会丢失                    | `boolean`            | true |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| collapsed | 是否折叠超出的表单项，用于受控模式 | `boolean` | - |
+| defaultCollapsed | 默认状态下是否折叠超出的表单项 | `boolean` | true |
+| onCollapse | 切换表单折叠状态时的回调 | `(collapsed)=>void` | - |
+| hideRequiredMark | 隐藏所有表单项的必选标记，**默认隐藏** | `boolean` | true |
+| submitterColSpanProps | 提交按钮所在 col 的 props | ColProps | - |
+| defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件；数量大于等于控件数量则隐藏展开按钮 | `number` | - |
+| labelWidth | label 宽度 | `number` \| `'auto'` | `80` |
+| span | 表单项宽度 | `number[0 - 24]` | - |
+| split | 每一行是否有分割线 | `boolean` | - |
+| preserve | 是否能够查询收起的数据，如果设置为 false，收起后的表单数据将会丢失 | `boolean` | true |
 
 #### 响应式断点规则
 
@@ -61,30 +61,30 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 ##### 默认布局时的规则
 
-| 容器宽度断点                | 单行展示表单列数（包含操作区域） | 默认布局         |
-| --------------------- | ---------------- | ------------ |
-| `≧ 1352px`            | 4 列              | `horizontal` |
-| `≧ 1062px`            | 3 列              | `horizontal` |
-| `≧ 701px && < 1063px` | 3 列              | `horizontal` |
-| `≧ 513px && < 701px`  | 2 列              | `vertical`   |
-| `< 513px`             | 1 列              | `vertical`   |
+| 容器宽度断点          | 单行展示表单列数（包含操作区域） | 默认布局     |
+| --------------------- | -------------------------------- | ------------ |
+| `≧ 1352px`            | 4 列                             | `horizontal` |
+| `≧ 1062px`            | 3 列                             | `horizontal` |
+| `≧ 701px && < 1063px` | 3 列                             | `horizontal` |
+| `≧ 513px && < 701px`  | 2 列                             | `vertical`   |
+| `< 513px`             | 1 列                             | `vertical`   |
 
 ##### 强制上下布局时的规则
 
-| 容器宽度断点                | 单行展示表单列数（包含操作区域） |
-| --------------------- | ---------------- |
-| `≧ 1057px`            | 4 列              |
-| `≧ 785px && < 1057px` | 3 列              |
-| `≧ 513px && < 785px`  | 2 列              |
-| `< 513px`             | 1 列              |
+| 容器宽度断点          | 单行展示表单列数（包含操作区域） |
+| --------------------- | -------------------------------- |
+| `≧ 1057px`            | 4 列                             |
+| `≧ 785px && < 1057px` | 3 列                             |
+| `≧ 513px && < 785px`  | 2 列                             |
+| `< 513px`             | 1 列                             |
 
 ### LightFilter
 
 LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
-| 参数            | 说明                                                        | 类型                                                                                | 默认值                    |
-| ------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------- |
-| collapse      | 是否默认折叠全部字段                                                | `boolean`                                                                         | `false`                |
-| collapseLabel | 折叠区域的标签                                                   | `ReactNode`                                                                       | `更多筛选 <DownOutlined/>` |
-| footerRender  | 底部内容，当不需要默认底部按钮时，可以设为 footer={false}                      | `(onClear?: () => void, onConfirm: () => void) => JSX.Element \| false)`\|`false` | -                      |
-| placement     | 选择框弹出的位置 ：`bottomLeft` `bottomRight` `topLeft` `topRight` | string                                                                            | bottomLeft             |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| collapse | 是否默认折叠全部字段 | `boolean` | `false` |
+| collapseLabel | 折叠区域的标签 | `ReactNode` | `更多筛选 <DownOutlined/>` |
+| footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => JSX.Element \| false)`\|`false` | - |
+| placement | 选择框弹出的位置 ：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | bottomLeft |
