@@ -1992,4 +1992,54 @@ describe('Field', () => {
       ).toEqual(1);
     });
   });
+
+  it(`🐴 light select open true`, async () => {
+    const html = render(
+      <Field
+        text="default"
+        valueType="select"
+        mode="edit"
+        light
+        open={true}
+        options={[
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+      />,
+    );
+    await waitForWaitTime(100);
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('.ant-select-dropdown').length,
+      ).toEqual(1);
+    });
+  });
+
+  it(`🐴 light select open false`, async () => {
+    const html = render(
+      <Field
+        text="default"
+        valueType="select"
+        mode="edit"
+        light
+        open={false}
+        options={[
+          { label: '全部', value: 'all' },
+          { label: '未解决', value: 'open' },
+          { label: '已解决', value: 'closed' },
+          { label: '解决中', value: 'processing' },
+        ]}
+      />,
+    );
+    await waitForWaitTime(100);
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('.ant-select-dropdown').length,
+      ).toEqual(0);
+    });
+  });
 });
