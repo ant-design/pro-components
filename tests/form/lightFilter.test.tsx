@@ -418,6 +418,66 @@ describe('LightFilter', () => {
     });
   });
 
+  it(' 🪕 select open true', async () => {
+    const html = render(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormSelect
+          showSearch
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+          fieldProps={{
+            open: true,
+          }}
+        />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('.ant-select-dropdown').length,
+      ).toEqual(1);
+    });
+  });
+
+  it(' 🪕 select open false', async () => {
+    const html = render(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormSelect
+          showSearch
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+          fieldProps={{
+            open: false,
+          }}
+        />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('.ant-select-dropdown').length,
+      ).toEqual(0);
+    });
+  });
+
   it(' 🪕 multiple select showSearch', async () => {
     vi.useFakeTimers();
     const { container } = render(
