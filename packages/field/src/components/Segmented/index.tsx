@@ -23,7 +23,7 @@ const FieldSegmented: ProFieldFC<
   props,
   ref,
 ) => {
-  const { mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest } = props
+  const { mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest } = props;
 
   const inputRef = useRef<HTMLInputElement>();
 
