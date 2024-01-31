@@ -96,14 +96,14 @@ function extractTableFromMd(mdContent, filePath) {
     tableData.push({
       title:
         'Pro' +
-        capitalizeFirstLetter(filePath.split('/').at(1)) +
+        capitalizeFirstLetter(filePath.split(path.sep).at(1)) +
         ' - ' +
         tableTitle?.replace(/\n/g, '').trim(),
       table: tableRows,
     });
   });
   return {
-    packageName: 'Pro' + capitalizeFirstLetter(filePath.split('/').at(1)),
+    packageName: 'Pro' + capitalizeFirstLetter(filePath.split(path.sep).at(1)),
     tableData,
   };
 }
