@@ -86,7 +86,7 @@ const PassWordStrength: React.FC<
             overlayStyle={{
               width: 240,
             }}
-            placement="right"
+            placement="rightTop"
             {...props.popoverProps}
             open={open}
           >
@@ -117,31 +117,33 @@ const Password: React.FC<
         open={open}
         onOpenChange={setOpen}
       >
-        <ProField
-          valueType="password"
-          fieldProps={{
-            ...omit(fieldProps, [
-              'statusRender',
-              'popoverProps',
-              'strengthText',
-            ]),
-            onBlur: (e: any) => {
-              fieldProps?.onBlur?.(e);
-              setOpen(false);
-            },
-            onClick: (e: any) => {
-              fieldProps?.onClick?.(e);
-              setOpen(true);
-            },
-          }}
-          proFieldProps={proFieldProps}
-          filedConfig={
-            {
-              valueType,
-            } as const
-          }
-          {...rest}
-        />
+        <div>
+          <ProField
+            valueType="password"
+            fieldProps={{
+              ...omit(fieldProps, [
+                'statusRender',
+                'popoverProps',
+                'strengthText',
+              ]),
+              onBlur: (e: any) => {
+                fieldProps?.onBlur?.(e);
+                setOpen(false);
+              },
+              onClick: (e: any) => {
+                fieldProps?.onClick?.(e);
+                setOpen(true);
+              },
+            }}
+            proFieldProps={proFieldProps}
+            filedConfig={
+              {
+                valueType,
+              } as const
+            }
+            {...rest}
+          />
+        </div>
       </PassWordStrength>
     );
   }

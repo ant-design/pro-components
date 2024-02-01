@@ -1589,10 +1589,11 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-outlined"
+                      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-disabled"
+                        disabled=""
                         placeholder="请输入"
                         type="text"
                         value=""
