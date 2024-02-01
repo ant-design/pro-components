@@ -64,7 +64,7 @@ export default () => {
                   />
                 }
                 placeholder="搜索方案"
-                bordered={false}
+                variant="borderless"
                 onPressEnter={(e) => {
                   setKeyWord((e.target as HTMLInputElement).value);
                 }}

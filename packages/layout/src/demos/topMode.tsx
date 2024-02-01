@@ -284,7 +284,7 @@ export default () => {
                     />
                   }
                   placeholder="搜索方案"
-                  bordered={false}
+                  variant="borderless"
                 />
                 <PlusCircleFilled
                   style={{

@@ -1,5 +1,9 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { FieldLabel, parseValueToDay } from '@ant-design/pro-utils';
+import {
+  FieldLabel,
+  compatibleBorder,
+  parseValueToDay,
+} from '@ant-design/pro-utils';
 import type { DatePickerProps } from 'antd';
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
@@ -105,7 +109,7 @@ const FieldDatePicker: ProFieldFC<
                   setOpen(isOpen);
                   fieldProps?.onOpenChange?.(isOpen);
                 }}
-                bordered={false}
+                {...compatibleBorder(false)}
                 open={open}
               />
             ) : undefined
@@ -123,7 +127,7 @@ const FieldDatePicker: ProFieldFC<
           showTime={showTime}
           format={format}
           placeholder={placeholder}
-          bordered={plain === undefined ? true : !plain}
+          {...compatibleBorder(plain === undefined ? true : !plain)}
           ref={ref}
           {...fieldProps}
           value={dayValue}

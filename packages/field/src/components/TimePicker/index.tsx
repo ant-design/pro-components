@@ -1,5 +1,9 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { FieldLabel, parseValueToDay } from '@ant-design/pro-utils';
+import {
+  FieldLabel,
+  compatibleBorder,
+  parseValueToDay,
+} from '@ant-design/pro-utils';
 import { DatePicker, TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
@@ -59,6 +63,7 @@ const FieldTimePicker: ProFieldFC<
     let dom;
     const { disabled, value } = fieldProps;
     const dayValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs;
+
     if (light) {
       dom = (
         <FieldLabel
@@ -78,7 +83,7 @@ const FieldTimePicker: ProFieldFC<
           value={
             dayValue || open ? (
               <TimePicker
-                bordered={false}
+                {...compatibleBorder(false)}
                 format={format}
                 ref={ref}
                 {...fieldProps}
@@ -211,7 +216,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
           value={
             dayValue || open ? (
               <TimePicker.RangePicker
-                bordered={false}
+                {...compatibleBorder(false)}
                 format={format}
                 ref={ref}
                 {...fieldProps}
@@ -235,7 +240,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
         <TimePicker.RangePicker
           ref={ref}
           format={format}
-          bordered={plain === undefined ? true : !plain}
+          {...compatibleBorder(plain === undefined ? true : !plain)}
           {...fieldProps}
           value={dayValue}
         />

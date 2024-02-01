@@ -1,6 +1,6 @@
 ﻿import { SearchOutlined } from '@ant-design/icons';
 import { ProProvider, useStyle } from '@ant-design/pro-provider';
-import { useDebounceFn } from '@ant-design/pro-utils';
+import { compatibleBorder, useDebounceFn } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
 import classNames from 'classnames';
@@ -126,7 +126,7 @@ export const ProHelpSelect: React.FC<
         }>
           placeholder="please input search text"
           showSearch
-          bordered={false}
+          {...compatibleBorder(false)}
           onBlur={() => {
             setOpen(false);
           }}

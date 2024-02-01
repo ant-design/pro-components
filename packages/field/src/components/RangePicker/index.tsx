@@ -1,5 +1,9 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { FieldLabel, parseValueToDay } from '@ant-design/pro-utils';
+import {
+  FieldLabel,
+  compatibleBorder,
+  parseValueToDay,
+} from '@ant-design/pro-utils';
 import type { DatePickerProps } from 'antd';
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
@@ -110,7 +114,7 @@ const FieldRangePicker: ProFieldFC<
                 picker={picker}
                 showTime={showTime}
                 format={format}
-                bordered={false}
+                {...compatibleBorder(false)}
                 {...fieldProps}
                 placeholder={
                   fieldProps.placeholder ?? [
@@ -146,7 +150,7 @@ const FieldRangePicker: ProFieldFC<
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
           ]}
-          bordered={plain === undefined ? true : false}
+          {...compatibleBorder(plain === undefined ? true : false)}
           {...fieldProps}
           value={dayValue}
         />

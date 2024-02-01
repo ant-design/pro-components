@@ -59,6 +59,9 @@ import { objectToMap, proFieldParsingText } from './proFieldParsingText';
 import { runFunction } from './runFunction';
 import stringify from './stringify';
 import { transformKeySubmitValue } from './transformKeySubmitValue';
+
+export { compatibleBorder } from './compatible/compatibleBorder';
+
 import type {
   RowEditableConfig,
   RowEditableType,
