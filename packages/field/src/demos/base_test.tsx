@@ -36,6 +36,9 @@ export default () => {
         <Descriptions.Item label="文本">
           <ProField
             text="这是一段文本"
+            fieldProps={{
+              disabled: true,
+            }}
             valueType="text"
             mode={state}
             plain={plain}

@@ -150,7 +150,7 @@ const FieldRangePicker: ProFieldFC<
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
             intl.getMessage('tableForm.selectPlaceholder', '请选择'),
           ]}
-          {...compatibleBorder(plain === undefined ? true : false)}
+          {...compatibleBorder(plain === undefined ? true : !plain)}
           {...fieldProps}
           value={dayValue}
         />

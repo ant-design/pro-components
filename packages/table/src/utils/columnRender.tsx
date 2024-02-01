@@ -42,12 +42,14 @@ export const renderColumnsTitle = (item: ProColumns<any>) => {
     return title(
       item,
       'table',
+      //@ts-expect-error
       <LabelIconTip label={null} tooltip={item.tooltip || item.tip} />,
     );
   }
   return (
     <LabelIconTip
       label={title}
+      //@ts-expect-error
       tooltip={item.tooltip || item.tip}
       ellipsis={ellipsis}
     />

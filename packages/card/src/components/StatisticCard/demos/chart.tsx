@@ -5,7 +5,7 @@ export default () => {
   return (
     <StatisticCard
       title="大盘趋势"
-      tip="大盘说明"
+      tooltip="大盘说明"
       style={{ maxWidth: 480 }}
       extra={<EllipsisOutlined />}
       chart={

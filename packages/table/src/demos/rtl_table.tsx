@@ -33,7 +33,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    tip: 'سيتم تقليص العنوان في حال كان طويل جدًا',
+    tooltip: 'سيتم تقليص العنوان في حال كان طويل جدًا',
     formItemProps: {
       rules: [
         {

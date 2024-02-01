@@ -34,14 +34,14 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps, InputRef>> = ({
 
 export type PasswordStatus = 'ok' | 'pass' | 'poor' | undefined;
 
-export type PasssWordStrengthProps = {
+export type PassWordStrengthProps = {
   statusRender?: (value?: string) => React.ReactNode;
   popoverProps?: PopoverProps;
   strengthText?: React.ReactNode;
 };
 
-const PasssWordStrength: React.FC<
-  PasssWordStrengthProps & {
+const PassWordStrength: React.FC<
+  PassWordStrengthProps & {
     name?: string[];
     open?: boolean;
     onOpenChange?: (open: boolean) => void;
@@ -99,17 +99,17 @@ const PasssWordStrength: React.FC<
 };
 
 const Password: React.FC<
-  ProFormFieldItemProps<PasswordProps & PasssWordStrengthProps, InputRef>
+  ProFormFieldItemProps<PasswordProps & PassWordStrengthProps, InputRef>
 > = ({
   fieldProps,
   proFieldProps,
   ...rest
-}: ProFormFieldItemProps<PasswordProps & PasssWordStrengthProps, InputRef>) => {
+}: ProFormFieldItemProps<PasswordProps & PassWordStrengthProps, InputRef>) => {
   const [open, setOpen] = useState<boolean>(false);
 
   if (fieldProps?.statusRender && rest.name) {
     return (
-      <PasssWordStrength
+      <PassWordStrength
         name={rest.name}
         statusRender={fieldProps?.statusRender}
         popoverProps={fieldProps?.popoverProps}
@@ -142,7 +142,7 @@ const Password: React.FC<
           }
           {...rest}
         />
-      </PasssWordStrength>
+      </PassWordStrength>
     );
   }
 

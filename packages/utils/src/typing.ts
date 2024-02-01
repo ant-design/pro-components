@@ -586,9 +586,6 @@ export type ProSchema<
   /** @name 展示一个 icon，hover 是展示一些提示信息 */
   tooltip?: LabelTooltipType | string;
 
-  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
-  tip?: string;
-
   /**
    * 支持 object 和Map，Map 是支持其他基础类型作为 key
    *

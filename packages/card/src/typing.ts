@@ -19,8 +19,6 @@ type CardPropsBase = {
   subTitle?: React.ReactNode;
   /** 标题说明 */
   tooltip?: string | LabelTooltipType;
-  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
-  tip?: string;
   /** 右上角自定义区域 */
   extra?: React.ReactNode;
   /** 布局，center 代表垂直居中 */

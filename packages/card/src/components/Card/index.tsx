@@ -1,7 +1,8 @@
 import { RightOutlined } from '@ant-design/icons';
 import { LabelIconTip } from '@ant-design/pro-utils';
-import { ConfigProvider, Grid, Tabs } from 'antd';
+import { ConfigProvider, Tabs } from 'antd';
 
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -23,7 +24,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     title,
     subTitle,
     extra,
-    tip,
     wrap = false,
     layout,
     loading,
@@ -52,7 +52,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-  const screens = Grid.useBreakpoint() || {
+  const screens = useBreakpoint() || {
     lg: true,
     md: true,
     sm: true,
@@ -255,11 +255,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         >
           <div className={`${prefixCls}-title ${hashId}`.trim()}>
             {collapsibleButton}
-            <LabelIconTip
-              label={title}
-              tooltip={tooltip || tip}
-              subTitle={subTitle}
-            />
+            <LabelIconTip label={title} tooltip={tooltip} subTitle={subTitle} />
           </div>
           {extra && (
             <div

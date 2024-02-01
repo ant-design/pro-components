@@ -393,13 +393,10 @@ const schemaToDescriptionsItem = (
           ? ({
               ...restItem,
               key: restItem.key || restItem.label?.toString() || index,
-              label: (title ||
-                restItem.label ||
-                restItem.tooltip ||
-                restItem.tip) && (
+              label: (title || restItem.label || restItem.tooltip) && (
                 <LabelIconTip
                   label={title || restItem.label}
-                  tooltip={restItem.tooltip || restItem.tip}
+                  tooltip={restItem.tooltip}
                   ellipsis={item.ellipsis}
                 />
               ),
@@ -432,13 +429,10 @@ const schemaToDescriptionsItem = (
                 {...restItem}
                 key={restItem.key || restItem.label?.toString() || index}
                 label={
-                  (title ||
-                    restItem.label ||
-                    restItem.tooltip ||
-                    restItem.tip) && (
+                  (title || restItem.label || restItem.tooltip) && (
                     <LabelIconTip
                       label={title || restItem.label}
-                      tooltip={restItem.tooltip || restItem.tip}
+                      tooltip={restItem.tooltip}
                       ellipsis={item.ellipsis}
                     />
                   )

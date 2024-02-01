@@ -104,6 +104,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             'form',
             <LabelIconTip
               label={originItem.title as string}
+              //@ts-expect-error
               tooltip={originItem.tooltip || originItem.tip}
             />,
           );
@@ -125,6 +126,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
             colProps: originItem.colProps,
             rowProps: originItem.rowProps,
             className: originItem.className,
+            //@ts-expect-error
             tooltip: originItem.tooltip || originItem.tip,
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,

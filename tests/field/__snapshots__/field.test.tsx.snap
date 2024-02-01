@@ -215,7 +215,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"
@@ -908,7 +908,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"
@@ -1007,7 +1007,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"

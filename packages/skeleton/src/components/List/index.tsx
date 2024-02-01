@@ -1,4 +1,5 @@
-import { Card, Divider, Grid, Skeleton, Space } from 'antd';
+import { Card, Divider, Skeleton, Space } from 'antd';
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 import React, { useMemo } from 'react';
 
 /** 一条分割线 */
@@ -36,7 +37,7 @@ const StatisticSkeleton: React.FC<{
     }),
     [],
   );
-  const col = Grid.useBreakpoint() || defaultCol;
+  const col = useBreakpoint() || defaultCol;
 
   const colSize =
     Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';

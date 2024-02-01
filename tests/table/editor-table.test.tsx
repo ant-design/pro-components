@@ -98,7 +98,7 @@ const columns: ProColumns<DataSourceType>[] = [
       onChange: () => null,
     },
     ellipsis: true,
-    tip: '标题过长会自动收缩',
+    tooltip: '标题过长会自动收缩',
     formItemProps: {
       rules: [
         {
