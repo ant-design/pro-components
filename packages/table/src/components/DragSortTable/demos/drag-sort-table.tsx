@@ -10,21 +10,18 @@ const data = [
     name: 'John Brown',
     age: 32,
     address: 'New York No. 1 Lake Park',
-    index: 0,
   },
   {
     key: 'key2',
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    index: 1,
   },
   {
     key: 'key3',
     name: 'Joe Black',
     age: 32,
     address: 'Sidney No. 1 Lake Park',
-    index: 2,
   },
 ];
 const wait = async (delay = 1000) =>
@@ -142,7 +139,7 @@ export default () => {
       <DragSortTable
         headerTitle="拖拽排序(自定义把手)"
         columns={columns2}
-        rowKey="index"
+        rowKey="key"
         search={false}
         pagination={false}
         dataSource={dataSource2}
@@ -154,7 +151,7 @@ export default () => {
         actionRef={actionRef}
         headerTitle="使用 request 获取数据源"
         columns={columns2}
-        rowKey="index"
+        rowKey="key"
         search={false}
         pagination={false}
         request={request}
