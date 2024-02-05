@@ -90,17 +90,29 @@ export default () => {
   const actionRef = useRef<ActionType>();
   const [dataSource1, setDatasource1] = useState(data);
   const [dataSource2, setDatasource2] = useState(data);
-  const handleDragSortEnd1 = (newDataSource: any) => {
+  const handleDragSortEnd1 = (
+    beforeIndex: number,
+    afterIndex: number,
+    newDataSource: any,
+  ) => {
     console.log('排序后的数据', newDataSource);
     setDatasource1(newDataSource);
     message.success('修改列表排序成功');
   };
-  const handleDragSortEnd2 = (newDataSource: any) => {
+  const handleDragSortEnd2 = (
+    beforeIndex: number,
+    afterIndex: number,
+    newDataSource: any,
+  ) => {
     console.log('排序后的数据', newDataSource);
     setDatasource2(newDataSource);
     message.success('修改列表排序成功');
   };
-  const handleDragSortEnd3 = (newDataSource: any) => {
+  const handleDragSortEnd3 = (
+    beforeIndex: number,
+    afterIndex: number,
+    newDataSource: any,
+  ) => {
     console.log('排序后的数据', newDataSource);
     // 模拟将排序后数据发送到服务器的场景
     remoteData = newDataSource;
