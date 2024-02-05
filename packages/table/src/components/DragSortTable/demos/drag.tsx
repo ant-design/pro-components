@@ -64,6 +64,7 @@ export default () => {
       headerTitle="拖拽排序(默认把手)"
       columns={columns}
       rowKey="key"
+      search={false}
       pagination={false}
       dataSource={dataSource}
       dragSortKey="sort"
