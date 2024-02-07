@@ -1,5 +1,5 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { FieldLabel, useStyle } from '@ant-design/pro-utils';
+import { FieldLabel, compatibleBorder, useStyle } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
 
@@ -170,7 +170,7 @@ const LightSelect: React.ForwardRefRenderFunction<
             setOpen(false);
           }
         }}
-        bordered={bordered}
+        {...compatibleBorder(bordered)}
         showSearch={showSearch}
         onSearch={onSearch}
         style={style}
