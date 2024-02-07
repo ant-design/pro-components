@@ -5839,7 +5839,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                                   <div>
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-icon"
-                                      style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                                      style="width: 28px; height: 28px; font-size: 14px;"
                                     >
                                       <span
                                         aria-label="user"
@@ -6989,7 +6989,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/api.tsx correct
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4"
@@ -7365,7 +7365,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/appList-group.t
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -7608,7 +7608,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/appList-group-s
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -8094,7 +8094,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/background-cont
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -8432,7 +8432,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                           >
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -8873,7 +8873,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -9287,7 +9287,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -9635,7 +9635,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                         <div>
                           <span
                             class="qixian-avatar qixian-avatar-circle qixian-avatar-icon"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                            style="width: 28px; height: 28px; font-size: 14px;"
                           >
                             <span
                               aria-label="user"
@@ -11503,7 +11503,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -11895,7 +11895,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -12304,7 +12304,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -12739,7 +12739,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designSiderMenu
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -13521,7 +13521,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-icon"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                              style="width: 28px; height: 28px; font-size: 14px;"
                             >
                               <span
                                 aria-label="user"
@@ -15523,7 +15523,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -18289,7 +18289,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-icon"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 14px;"
+                              style="width: 28px; height: 28px; font-size: 14px;"
                             >
                               <span
                                 aria-label="user"
@@ -18928,7 +18928,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/mixMode.tsx cor
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -19241,7 +19241,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/morse_debug.tsx
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -19610,7 +19610,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/pageSimplify.ts
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -20260,7 +20260,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siderMode.tsx c
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -20594,7 +20594,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siteMenu.tsx co
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -21047,7 +21047,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -21136,7 +21136,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -21234,7 +21234,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -21585,7 +21585,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
                         <div>
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                            style="width: 28px; height: 28px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -22315,7 +22315,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/topMode.tsx cor
                           <div>
                             <span
                               class="ant-avatar ant-avatar-circle ant-avatar-image"
-                              style="width: 28px; height: 28px; line-height: 28px; font-size: 18px;"
+                              style="width: 28px; height: 28px; font-size: 18px;"
                             >
                               <img
                                 src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"

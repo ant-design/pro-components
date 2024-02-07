@@ -6947,17 +6947,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-picker ant-picker-outlined ant-picker-focused"
+                            class="ant-picker ant-picker-focused ant-picker-outlined"
                           >
                             <div
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="date"
                                 placeholder="请选择"
                                 size="12"
-                                title="2016-11-22"
                                 value="2016-11-22"
                               />
                               <span
@@ -7052,12 +7052,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="date"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
-                                title="16-11"
                                 value="16-11"
                               />
                               <span
@@ -7152,12 +7151,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="time"
                                 placeholder="请选择时间"
-                                readonly=""
                                 size="10"
-                                title="00:01:05"
                                 value="00:01:05"
                               />
                               <span
@@ -7252,13 +7250,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-picker ant-picker-range ant-picker-outlined"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="timeRange"
                                 placeholder="开始时间"
-                                readonly=""
                                 size="10"
                                 value="05:00:00"
                               />
@@ -7295,16 +7294,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="结束时间"
-                                readonly=""
                                 size="10"
                                 value="11:00:00"
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7400,12 +7400,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="dateWeek"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
-                                title="2016-47周"
                                 value="2016-47周"
                               />
                               <span
@@ -7497,13 +7496,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-picker ant-picker-range ant-picker-outlined"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="dateWeekRange"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
@@ -7540,16 +7540,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7617,12 +7618,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="dateMonth"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
-                                title="2016-11"
                                 value="2016-11"
                               />
                               <span
@@ -7714,13 +7714,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-picker ant-picker-range ant-picker-outlined"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="dateMonthRange"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
@@ -7757,16 +7758,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7834,12 +7836,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="dateQuarter"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
-                                title="2016-Q4"
                                 value="2016-Q4"
                               />
                               <span
@@ -7931,13 +7932,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-picker ant-picker-range ant-picker-outlined"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="dateQuarterRange"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
@@ -7974,16 +7976,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -8051,12 +8054,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="dateYear"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
-                                title="2016"
                                 value="2016"
                               />
                               <span
@@ -8148,13 +8150,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-picker ant-picker-range ant-picker-outlined"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="dateYearRange"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
@@ -8191,16 +8194,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -8268,12 +8272,12 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="dateTime"
                                 placeholder="请选择"
                                 readonly=""
                                 size="12"
-                                title="2016-11-22"
                                 value="2016-11-22"
                               />
                               <span
@@ -8365,15 +8369,16 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-picker ant-picker-range ant-picker-outlined"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="dateRange"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
-                                value="2016-11-21"
+                                value="2016-11-22"
                               />
                             </div>
                             <div
@@ -8408,16 +8413,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
-                                value="2016-11-22"
+                                value="2016-11-21"
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -8507,15 +8513,16 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-picker ant-picker-range ant-picker-outlined"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="dateTimeRange"
                                 placeholder="请选择"
-                                readonly=""
                                 size="21"
-                                value="2016-11-21 15:22:44"
+                                value="2016-11-22 15:22:44"
                               />
                             </div>
                             <div
@@ -8550,16 +8557,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="21"
-                                value="2016-11-22 15:22:44"
+                                value="2016-11-21 15:22:44"
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -13826,12 +13834,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                                               class="ant-picker-input"
                                             >
                                               <input
+                                                aria-invalid="false"
                                                 autocomplete="off"
                                                 id="users_0_birth"
                                                 placeholder="请选择"
-                                                readonly=""
                                                 size="12"
-                                                title="2021-02-18"
                                                 value="2021-02-18"
                                               />
                                               <span
@@ -18436,12 +18443,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
                                     id="name3"
                                     placeholder="请选择日期"
-                                    readonly=""
                                     size="12"
-                                    title="2020-08-19"
                                     value="2020-08-19"
                                   />
                                   <span
@@ -18611,13 +18617,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                 class="ant-picker ant-picker-range ant-picker-middle ant-picker-borderless"
                               >
                                 <div
-                                  class="ant-picker-input ant-picker-input-active"
+                                  class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="start"
                                     id="datetimeRanger"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="21"
                                     value="2019-11-15 12:50:26"
                                   />
@@ -18654,16 +18661,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="end"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="21"
                                     value="2019-11-16 12:50:26"
                                   />
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="left: 0px; width: 0px; position: absolute;"
+                                  style="position: absolute; width: 0px; left: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -18808,13 +18816,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                 class="ant-picker ant-picker-range ant-picker-middle ant-picker-borderless"
                               >
                                 <div
-                                  class="ant-picker-input ant-picker-input-active"
+                                  class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="start"
                                     id="timeRanger"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="10"
                                     value="12:50:26"
                                   />
@@ -18851,16 +18860,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="end"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="10"
                                     value="12:50:26"
                                   />
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="left: 0px; width: 0px; position: absolute;"
+                                  style="position: absolute; width: 0px; left: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -19150,7 +19160,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </div>
                           <span
-                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
+                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                           >
                             <span
                               style="display: inline-flex; align-items: center;"
@@ -21566,18 +21576,18 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-picker ant-picker-outlined ant-picker-focused"
+                              class="ant-picker ant-picker-focused ant-picker-outlined"
                               style="width: 100%;"
                             >
                               <div
                                 class="ant-picker-input"
                               >
                                 <input
+                                  aria-invalid="false"
                                   autocomplete="off"
                                   id="orderTime"
                                   placeholder="请选择"
                                   size="21"
-                                  title=""
                                   value=""
                                 />
                                 <span
@@ -21861,12 +21871,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           id="createDate"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
-                          title=""
                           value=""
                         />
                         <span
@@ -22013,12 +22022,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="replyDate"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -22088,12 +22096,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startDate"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -22163,12 +22170,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="endDate"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -22442,12 +22448,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           id="createDate"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
-                          title=""
                           value=""
                         />
                         <span
@@ -22603,12 +22608,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           id="replyDate"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
-                          title=""
                           value=""
                         />
                         <span
@@ -22679,12 +22683,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startDate"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -22754,12 +22757,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="endDate"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -22952,11 +22954,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           id="test"
                           placeholder="请选择"
                           size="12"
-                          title=""
                           value=""
                         />
                         <span
@@ -23027,12 +23029,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate1"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23102,12 +23103,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate2"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23177,12 +23177,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate3"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23252,12 +23251,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate4"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23327,12 +23325,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate5"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23402,12 +23399,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate6"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23477,12 +23473,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate7"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23552,12 +23547,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate8"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23627,12 +23621,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate9"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -23702,12 +23695,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         id="startdate10"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -26958,12 +26950,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           id="birth"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
-                          title=""
                           value=""
                         />
                         <span
@@ -27807,12 +27798,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
                                     id="birth"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
-                                    title=""
                                     value=""
                                   />
                                   <span
@@ -28657,12 +28647,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
                       id="showTime"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
-                      title=""
                       value=""
                     />
                     <span
@@ -29487,12 +29476,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
                       id="showTime"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
-                      title=""
                       value=""
                     />
                     <span
@@ -29939,12 +29927,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
                       id="showTime"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
-                      title=""
                       value=""
                     />
                     <span
@@ -30628,12 +30615,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
                       id="showTime"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
-                      title=""
                       value=""
                     />
                     <span
@@ -31205,13 +31191,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                       class="ant-picker ant-picker-range ant-picker-outlined pro-field pro-field-md"
                     >
                       <div
-                        class="ant-picker-input ant-picker-input-active"
+                        class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="start"
                           id="showTime"
                           placeholder="开始日期"
-                          readonly=""
                           size="12"
                           value="2016-11-22"
                         />
@@ -31248,16 +31235,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="end"
                           placeholder="结束日期"
-                          readonly=""
                           size="12"
                           value="2016-11-22"
                         />
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="left: 0px; width: 0px; position: absolute;"
+                        style="position: absolute; width: 0px; left: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -31348,13 +31336,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                       class="ant-picker ant-picker-range ant-picker-outlined pro-field pro-field-md"
                     >
                       <div
-                        class="ant-picker-input ant-picker-input-active"
+                        class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="start"
                           id="updateName"
                           placeholder="开始日期"
-                          readonly=""
                           size="12"
                           value="2016-11-22"
                         />
@@ -31391,16 +31380,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="end"
                           placeholder="结束日期"
-                          readonly=""
                           size="12"
                           value="2016-11-22"
                         />
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="left: 0px; width: 0px; position: absolute;"
+                        style="position: absolute; width: 0px; left: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -31943,12 +31933,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                               class="ant-picker-input"
                                             >
                                               <input
+                                                aria-invalid="false"
                                                 autocomplete="off"
                                                 id="list_0_currentTime"
                                                 placeholder="请选择"
-                                                readonly=""
                                                 size="21"
-                                                title="2016-11-22 15:22:44"
                                                 value="2016-11-22 15:22:44"
                                               />
                                               <span
@@ -32383,13 +32372,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                       class="ant-picker ant-picker-range ant-picker-outlined pro-field pro-field-md"
                     >
                       <div
-                        class="ant-picker-input ant-picker-input-active"
+                        class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="start"
                           id="created_at"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
                           value=""
                         />
@@ -32426,16 +32416,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="end"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
                           value=""
                         />
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="left: 0px; width: 0px; position: absolute;"
+                        style="position: absolute; width: 0px; left: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -32915,12 +32906,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
                                 id="1_showTime"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
-                                title=""
                                 value=""
                               />
                               <span
@@ -33767,13 +33757,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                             class="ant-picker ant-picker-range ant-picker-outlined"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="2_created_at"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
@@ -33810,16 +33801,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -34533,10 +34525,12 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                             class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-success"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="step2_syncTableInfo_timeRange"
                                 placeholder="请选择"
                                 size="12"
@@ -34575,16 +34569,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value="2016-11-22"
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -35012,12 +35007,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
                                     id="base_date"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
-                                    title=""
                                     value=""
                                   />
                                   <span
@@ -35080,13 +35074,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                 class="ant-picker ant-picker-range ant-picker-outlined"
                               >
                                 <div
-                                  class="ant-picker-input ant-picker-input-active"
+                                  class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="start"
                                     id="base_dateTime"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
                                     value=""
                                   />
@@ -35123,16 +35118,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="end"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
                                     value=""
                                   />
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="left: 0px; width: 0px; position: absolute;"
+                                  style="position: absolute; width: 0px; left: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -35446,12 +35442,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                           class="ant-picker-input"
                                         >
                                           <input
+                                            aria-invalid="false"
                                             autocomplete="off"
                                             id="checkbox_datetime"
                                             placeholder="请选择"
-                                            readonly=""
                                             size="12"
-                                            title=""
                                             value=""
                                           />
                                           <span
@@ -36729,13 +36724,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                 class="ant-picker ant-picker-range ant-picker-outlined"
                               >
                                 <div
-                                  class="ant-picker-input ant-picker-input-active"
+                                  class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="start"
                                     id="base_m"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
                                     value=""
                                   />
@@ -36772,16 +36768,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="end"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
                                     value=""
                                   />
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="left: 0px; width: 0px; position: absolute;"
+                                  style="position: absolute; width: 0px; left: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -37277,12 +37274,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                           class="ant-picker-input"
                                         >
                                           <input
+                                            aria-invalid="false"
                                             autocomplete="off"
                                             id="checkbox_datetime"
                                             placeholder="请选择"
-                                            readonly=""
                                             size="12"
-                                            title=""
                                             value=""
                                           />
                                           <span
@@ -38081,12 +38077,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                     class="ant-picker-input"
                                   >
                                     <input
+                                      aria-invalid="false"
                                       autocomplete="off"
                                       id="base_date"
                                       placeholder="请选择"
-                                      readonly=""
                                       size="12"
-                                      title=""
                                       value=""
                                     />
                                     <span
@@ -38149,13 +38144,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                   class="ant-picker ant-picker-range ant-picker-outlined"
                                 >
                                   <div
-                                    class="ant-picker-input ant-picker-input-active"
+                                    class="ant-picker-input"
                                   >
                                     <input
+                                      aria-invalid="false"
                                       autocomplete="off"
+                                      date-range="start"
                                       id="base_dateTime"
                                       placeholder="请选择"
-                                      readonly=""
                                       size="12"
                                       value=""
                                     />
@@ -38192,16 +38188,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                     class="ant-picker-input"
                                   >
                                     <input
+                                      aria-invalid="false"
                                       autocomplete="off"
+                                      date-range="end"
                                       placeholder="请选择"
-                                      readonly=""
                                       size="12"
                                       value=""
                                     />
                                   </div>
                                   <div
                                     class="ant-picker-active-bar"
-                                    style="left: 0px; width: 0px; position: absolute;"
+                                    style="position: absolute; width: 0px; left: 0px;"
                                   />
                                   <span
                                     class="ant-picker-suffix"
@@ -38572,12 +38569,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                             class="ant-picker-input"
                                           >
                                             <input
+                                              aria-invalid="false"
                                               autocomplete="off"
                                               id="checkbox_datetime"
                                               placeholder="请选择"
-                                              readonly=""
                                               size="12"
-                                              title=""
                                               value=""
                                             />
                                             <span
@@ -38957,12 +38953,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                             class="ant-picker-input"
                                           >
                                             <input
+                                              aria-invalid="false"
                                               autocomplete="off"
                                               id="step3_datetime"
                                               placeholder="请选择"
-                                              readonly=""
                                               size="12"
-                                              title=""
                                               value=""
                                             />
                                             <span
@@ -39410,12 +39405,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
                                     id="base_date"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
-                                    title=""
                                     value=""
                                   />
                                   <span
@@ -39478,13 +39472,14 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                 class="ant-picker ant-picker-range ant-picker-outlined"
                               >
                                 <div
-                                  class="ant-picker-input ant-picker-input-active"
+                                  class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="start"
                                     id="base_dateTime"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
                                     value=""
                                   />
@@ -39521,16 +39516,17 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="end"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
                                     value=""
                                   />
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="left: 0px; width: 0px; position: absolute;"
+                                  style="position: absolute; width: 0px; left: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -39844,12 +39840,11 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                           class="ant-picker-input"
                                         >
                                           <input
+                                            aria-invalid="false"
                                             autocomplete="off"
                                             id="checkbox_datetime"
                                             placeholder="请选择"
-                                            readonly=""
                                             size="12"
-                                            title=""
                                             value=""
                                           />
                                           <span
@@ -41261,13 +41256,14 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                           class="ant-picker ant-picker-range ant-picker-outlined pro-field pro-field-md"
                         >
                           <div
-                            class="ant-picker-input ant-picker-input-active"
+                            class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="start"
                               id="contract_createTime"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
                               value=""
                             />
@@ -41304,16 +41300,17 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="end"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
                               value=""
                             />
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="left: 0px; width: 0px; position: absolute;"
+                            style="position: absolute; width: 0px; left: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -42108,12 +42105,11 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
                       id="date"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
-                      title=""
                       value=""
                     />
                     <span
@@ -42692,13 +42688,14 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                           class="ant-picker ant-picker-range ant-picker-outlined pro-field pro-field-md"
                         >
                           <div
-                            class="ant-picker-input ant-picker-input-active"
+                            class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="start"
                               id="contract_createTime"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
                               value=""
                             />
@@ -42735,16 +42732,17 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="end"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
                               value=""
                             />
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="left: 0px; width: 0px; position: absolute;"
+                            style="position: absolute; width: 0px; left: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -43502,12 +43500,11 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
                       id="date"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
-                      title=""
                       value=""
                     />
                     <span
@@ -43592,12 +43589,11 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                                       class="ant-picker-input"
                                     >
                                       <input
+                                        aria-invalid="false"
                                         autocomplete="off"
                                         id="datas_0_date"
                                         placeholder="请选择"
-                                        readonly=""
                                         size="12"
-                                        title="2022-10-12"
                                         value="2022-10-12"
                                       />
                                       <span
@@ -47043,12 +47039,11 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           id="date"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
-                          title=""
                           value=""
                         />
                         <span
@@ -47116,13 +47111,14 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                       class="ant-picker ant-picker-range ant-picker-outlined"
                     >
                       <div
-                        class="ant-picker-input ant-picker-input-active"
+                        class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="start"
                           id="dateRange"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
                           value=""
                         />
@@ -47159,16 +47155,17 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="end"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
                           value=""
                         />
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="left: 0px; width: 0px; position: absolute;"
+                        style="position: absolute; width: 0px; left: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -47544,12 +47541,11 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/formRef.tsx correct
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
                       id="date"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
-                      title="2021-08-09"
                       value="2021-08-09"
                     />
                     <span
@@ -48556,13 +48552,14 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                             class="ant-picker ant-picker-range ant-picker-outlined pro-field pro-field-md"
                           >
                             <div
-                              class="ant-picker-input ant-picker-input-active"
+                              class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="start"
                                 id="contract_createTime"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
@@ -48599,16 +48596,17 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                               class="ant-picker-input"
                             >
                               <input
+                                aria-invalid="false"
                                 autocomplete="off"
+                                date-range="end"
                                 placeholder="请选择"
-                                readonly=""
                                 size="12"
                                 value=""
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="left: 0px; width: 0px; position: absolute;"
+                              style="position: absolute; width: 0px; left: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -49593,13 +49591,14 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                               class="ant-picker ant-picker-range ant-picker-outlined"
                                             >
                                               <div
-                                                class="ant-picker-input ant-picker-input-active"
+                                                class="ant-picker-input"
                                               >
                                                 <input
+                                                  aria-invalid="false"
                                                   autocomplete="off"
+                                                  date-range="start"
                                                   id="contract_createTime"
                                                   placeholder="请选择"
-                                                  readonly=""
                                                   size="12"
                                                   value=""
                                                 />
@@ -49636,16 +49635,17 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                                 class="ant-picker-input"
                                               >
                                                 <input
+                                                  aria-invalid="false"
                                                   autocomplete="off"
+                                                  date-range="end"
                                                   placeholder="请选择"
-                                                  readonly=""
                                                   size="12"
                                                   value=""
                                                 />
                                               </div>
                                               <div
                                                 class="ant-picker-active-bar"
-                                                style="left: 0px; width: 0px; position: absolute;"
+                                                style="position: absolute; width: 0px; left: 0px;"
                                               />
                                               <span
                                                 class="ant-picker-suffix"
@@ -51005,12 +51005,11 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
                                     id="base_date"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
-                                    title=""
                                     value=""
                                   />
                                   <span
@@ -51073,13 +51072,14 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                 class="ant-picker ant-picker-range ant-picker-outlined"
                               >
                                 <div
-                                  class="ant-picker-input ant-picker-input-active"
+                                  class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="start"
                                     id="base_dateTime"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
                                     value=""
                                   />
@@ -51116,16 +51116,17 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                   class="ant-picker-input"
                                 >
                                   <input
+                                    aria-invalid="false"
                                     autocomplete="off"
+                                    date-range="end"
                                     placeholder="请选择"
-                                    readonly=""
                                     size="12"
                                     value=""
                                   />
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="left: 0px; width: 0px; position: absolute;"
+                                  style="position: absolute; width: 0px; left: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -51439,12 +51440,11 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                           class="ant-picker-input"
                                         >
                                           <input
+                                            aria-invalid="false"
                                             autocomplete="off"
                                             id="checkbox_datetime"
                                             placeholder="请选择"
-                                            readonly=""
                                             size="12"
-                                            title=""
                                             value=""
                                           />
                                           <span
@@ -55380,13 +55380,14 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/sync-to-url.tsx cor
                   class="ant-picker ant-picker-range ant-picker-outlined pro-field pro-field-md"
                 >
                   <div
-                    class="ant-picker-input ant-picker-input-active"
+                    class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
+                      date-range="start"
                       id="createTimeRanger"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
                       value=""
                     />
@@ -55423,16 +55424,17 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/sync-to-url.tsx cor
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
+                      date-range="end"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
                       value=""
                     />
                   </div>
                   <div
                     class="ant-picker-active-bar"
-                    style="left: 0px; width: 0px; position: absolute;"
+                    style="position: absolute; width: 0px; left: 0px;"
                   />
                   <span
                     class="ant-picker-suffix"
@@ -55496,12 +55498,11 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/sync-to-url.tsx cor
                     class="ant-picker-input"
                   >
                     <input
+                      aria-invalid="false"
                       autocomplete="off"
                       id="expirationTime"
                       placeholder="请选择"
-                      readonly=""
                       size="12"
-                      title=""
                       value=""
                     />
                     <span

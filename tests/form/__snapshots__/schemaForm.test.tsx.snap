@@ -326,12 +326,11 @@ exports[`SchemaForm > 😊 SchemaForm support columns 1`] = `
                   class="ant-picker-input"
                 >
                   <input
+                    aria-invalid="false"
                     autocomplete="off"
                     id="since"
                     placeholder="请选择"
-                    readonly=""
                     size="21"
-                    title=""
                     value=""
                   />
                   <span

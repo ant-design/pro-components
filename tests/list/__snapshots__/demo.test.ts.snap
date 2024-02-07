@@ -1178,7 +1178,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1296,7 +1296,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1414,7 +1414,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1532,7 +1532,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1650,7 +1650,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1768,7 +1768,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1886,7 +1886,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -2004,7 +2004,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -2259,7 +2259,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2354,7 +2354,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2449,7 +2449,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2544,7 +2544,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2738,7 +2738,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2844,7 +2844,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2950,7 +2950,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -3056,7 +3056,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -4287,7 +4287,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4421,7 +4421,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4555,7 +4555,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4689,7 +4689,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4823,7 +4823,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -5685,7 +5685,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -5814,7 +5814,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -5943,7 +5943,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6072,7 +6072,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6424,7 +6424,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6526,7 +6526,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6628,7 +6628,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6730,7 +6730,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6907,7 +6907,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -7044,7 +7044,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -7181,7 +7181,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -7318,7 +7318,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -7490,7 +7490,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                         >
                           <span
                             class="qixian-avatar qixian-avatar-circle qixian-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"

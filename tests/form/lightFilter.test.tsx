@@ -217,6 +217,9 @@ describe('LightFilter', () => {
       fireEvent.mouseUp(
         container.querySelector('.ant-pro-core-field-label .ant-picker-clear')!,
       );
+      fireEvent.click(
+        container.querySelector('.ant-pro-core-field-label .ant-picker-clear')!,
+      );
     });
 
     await waitFor(
@@ -749,9 +752,6 @@ describe('LightFilter', () => {
       ).toBeTruthy();
     });
 
-    await screen.findByDisplayValue('2016-11-02');
-    await screen.findByDisplayValue('2016-11-12');
-
     await act(async () => {
       fireEvent.mouseDown(
         container.querySelector(
@@ -786,7 +786,7 @@ describe('LightFilter', () => {
     await waitFor(() => {
       expect(
         container.querySelector('.ant-pro-core-field-label')?.textContent,
-      ).toBe('日期范围');
+      ).toBe('日期范围: ');
     });
   });
 

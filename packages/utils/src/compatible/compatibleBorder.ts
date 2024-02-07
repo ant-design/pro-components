@@ -11,7 +11,7 @@ export const compatibleBorder = (bordered?: boolean) => {
   if (bordered === undefined) {
     return {};
   }
-  return compareVersions(version, '5.13.0') >= 0
+  return compareVersions(version, '5.13.0') <= 0
     ? { bordered }
     : ({
         variant: bordered ? undefined : 'borderless',

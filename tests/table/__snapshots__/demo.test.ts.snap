@@ -22065,12 +22065,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               id="createdAt"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
-                              title="2022-08-10"
                               value="2022-08-10"
                             />
                             <span
@@ -22577,12 +22576,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               id="createdAt"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
-                              title="2022-08-10"
                               value="2022-08-10"
                             />
                             <span
@@ -23089,12 +23087,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               id="createdAt"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
-                              title="2022-08-10"
                               value="2022-08-10"
                             />
                             <span
@@ -23787,12 +23784,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               id="since"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
-                              title=""
                               value=""
                             />
                             <span
@@ -25185,12 +25181,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                     class="ant-picker-input"
                                   >
                                     <input
+                                      aria-invalid="false"
                                       autocomplete="off"
                                       id="time"
                                       placeholder="请选择"
-                                      readonly=""
                                       size="12"
-                                      title=""
                                       value=""
                                     />
                                     <span
@@ -29022,12 +29017,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               id="since"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
-                              title=""
                               value=""
                             />
                             <span
@@ -33365,7 +33359,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                               <span>
                                 <span
                                   class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  style="width: 22px; height: 22px; font-size: 18px;"
                                 >
                                   <img
                                     src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
@@ -33449,7 +33443,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                               <span>
                                 <span
                                   class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  style="width: 22px; height: 22px; font-size: 18px;"
                                 >
                                   <img
                                     src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
@@ -33533,7 +33527,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                               <span>
                                 <span
                                   class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  style="width: 22px; height: 22px; font-size: 18px;"
                                 >
                                   <img
                                     src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
@@ -33617,7 +33611,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                               <span>
                                 <span
                                   class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  style="width: 22px; height: 22px; font-size: 18px;"
                                 >
                                   <img
                                     src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
@@ -33701,7 +33695,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-title.tsx corr
                               <span>
                                 <span
                                   class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                  style="width: 22px; height: 22px; font-size: 18px;"
                                 >
                                   <img
                                     src="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
@@ -36450,12 +36444,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                           class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
                             id="since2"
                             placeholder="请选择"
-                            readonly=""
                             size="12"
-                            title=""
                             value=""
                           />
                           <span
@@ -36525,12 +36518,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                           class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
                             id="since3"
                             placeholder="请选择"
-                            readonly=""
                             size="12"
-                            title=""
                             value=""
                           />
                           <span
@@ -37265,12 +37257,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               id="since2"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
-                              title=""
                               value=""
                             />
                             <span
@@ -40084,13 +40075,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                         style="width: 100%;"
                       >
                         <div
-                          class="ant-picker-input ant-picker-input-active"
+                          class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
+                            date-range="start"
                             id="created_at"
                             placeholder="请选择"
-                            readonly=""
                             size="12"
                             value=""
                           />
@@ -40127,16 +40119,17 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                           class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
+                            date-range="end"
                             placeholder="请选择"
-                            readonly=""
                             size="12"
                             value=""
                           />
                         </div>
                         <div
                           class="ant-picker-active-bar"
-                          style="left: 0px; width: 0px; position: absolute;"
+                          style="position: absolute; width: 0px; left: 0px;"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -40922,12 +40915,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         class="canvas-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           id="since"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
-                          title=""
                           value=""
                         />
                         <span
@@ -41899,12 +41891,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                           class="canvas-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
                             id="since"
                             placeholder="请选择"
-                            readonly=""
                             size="12"
-                            title=""
                             value=""
                           />
                           <span
@@ -45292,13 +45283,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                           style="width: 100%;"
                         >
                           <div
-                            class="ant-picker-input ant-picker-input-active"
+                            class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="start"
                               id="created_at"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
                               value=""
                             />
@@ -45335,16 +45327,17 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="end"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
                               value=""
                             />
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="left: 0px; width: 0px; position: absolute;"
+                            style="position: absolute; width: 0px; left: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -46514,7 +46507,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                                   <span>
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -46637,7 +46630,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                                   <span>
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -47722,12 +47715,13 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                           style="width: 100%;"
                         >
                           <div
-                            class="ant-picker-input ant-picker-input-active"
+                            class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="start"
                               placeholder="请选择"
-                              readonly=""
                               size="21"
                               value=""
                             />
@@ -47764,16 +47758,17 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="end"
                               placeholder="请选择"
-                              readonly=""
                               size="21"
                               value=""
                             />
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="left: 0px; width: 0px; position: absolute;"
+                            style="position: absolute; width: 0px; left: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -48534,12 +48529,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               id="since"
                               placeholder="请选择"
-                              readonly=""
                               size="21"
-                              title=""
                               value=""
                             />
                             <span
@@ -48611,13 +48605,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                           style="width: 100%;"
                         >
                           <div
-                            class="ant-picker-input ant-picker-input-active"
+                            class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="start"
                               id="dateRange"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
                               value=""
                             />
@@ -48654,16 +48649,17 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
+                              date-range="end"
                               placeholder="请选择"
-                              readonly=""
                               size="12"
                               value=""
                             />
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="left: 0px; width: 0px; position: absolute;"
+                            style="position: absolute; width: 0px; left: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -48729,12 +48725,13 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                         style="width: 100%;"
                       >
                         <div
-                          class="ant-picker-input ant-picker-input-active"
+                          class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
+                            date-range="start"
                             placeholder="请选择"
-                            readonly=""
                             size="21"
                             value=""
                           />
@@ -48771,16 +48768,17 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                           class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
+                            date-range="end"
                             placeholder="请选择"
-                            readonly=""
                             size="21"
                             value=""
                           />
                         </div>
                         <div
                           class="ant-picker-active-bar"
-                          style="left: 0px; width: 0px; position: absolute;"
+                          style="position: absolute; width: 0px; left: 0px;"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -48845,13 +48843,14 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                         style="width: 100%;"
                       >
                         <div
-                          class="ant-picker-input ant-picker-input-active"
+                          class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
+                            date-range="start"
                             id="dateTimeRange"
                             placeholder="请选择"
-                            readonly=""
                             size="21"
                             value=""
                           />
@@ -48888,16 +48887,17 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                           class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
+                            date-range="end"
                             placeholder="请选择"
-                            readonly=""
                             size="21"
                             value=""
                           />
                         </div>
                         <div
                           class="ant-picker-active-bar"
-                          style="left: 0px; width: 0px; position: absolute;"
+                          style="position: absolute; width: 0px; left: 0px;"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -48965,12 +48965,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                           class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
                             id="since2"
                             placeholder="请选择"
-                            readonly=""
                             size="12"
-                            title=""
                             value=""
                           />
                           <span
@@ -49040,12 +49039,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                           class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
                             id="since4"
                             placeholder="请选择"
-                            readonly=""
                             size="21"
-                            title=""
                             value=""
                           />
                           <span
@@ -49115,12 +49113,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                           class="ant-picker-input"
                         >
                           <input
+                            aria-invalid="false"
                             autocomplete="off"
                             id="since3"
                             placeholder="请选择时间"
-                            readonly=""
                             size="10"
-                            title=""
                             value=""
                           />
                           <span

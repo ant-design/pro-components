@@ -167,7 +167,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                 >
                   <span
                     class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                    style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
                       src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -218,12 +218,13 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         value=""
                       />
@@ -260,16 +261,17 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -796,11 +798,10 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
-                        title=""
                         value=""
                       />
                       <span
@@ -853,11 +854,10 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -911,12 +911,13 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
@@ -953,16 +954,17 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -1010,12 +1012,13 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
@@ -1052,16 +1055,17 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -1116,11 +1120,10 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="Select time"
-                        readonly=""
                         size="10"
-                        title=""
                         value=""
                       />
                       <span
@@ -1380,7 +1383,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                 >
                   <span
                     class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                    style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
                       src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -1431,12 +1434,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         value=""
                       />
@@ -1473,16 +1477,17 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -2009,11 +2014,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
-                        title=""
                         value=""
                       />
                       <span
@@ -2066,11 +2070,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -2124,12 +2127,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
@@ -2166,16 +2170,17 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -2223,12 +2228,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
@@ -2265,16 +2271,17 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -2329,11 +2336,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="Select time"
-                        readonly=""
                         size="10"
-                        title=""
                         value=""
                       />
                       <span
@@ -3159,7 +3165,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                 >
                   <span
                     class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                    style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
                       src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -3744,7 +3750,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 >
                   <span
                     class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                    style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
                       src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
