@@ -4,7 +4,6 @@ import {
   compatibleBorder,
   parseValueToDay,
 } from '@ant-design/pro-utils';
-import type { DatePickerProps } from 'antd';
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
@@ -39,7 +38,7 @@ const FieldDatePicker: ProFieldFC<
     format: string;
     showTime?: boolean;
     bordered?: boolean;
-    picker?: DatePickerProps['picker'];
+    picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
   } & ProFieldLightProps
 > = (
   {
