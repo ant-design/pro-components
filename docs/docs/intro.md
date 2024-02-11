@@ -118,7 +118,7 @@ Ant Design 定义了基础的设计规范，对应也提供了大量的基础组
 
 ### 一些约定
 
-ProComponents 基于 antd 之上来开发，为了与 antd 的生态保持兼容性，我们要求覆盖 antd 的样式必须要使用 `${token.antCls}` 变量来生成类名，在 js 中使用如下代码来配置实现。
+ProComponents 基于 Ant Design 来开发，为了与 Ant Design 的生态保持兼容性，我们要求覆盖 Ant Design 的样式必须要使用 `${token.antCls}` 变量来生成类名，在 js 中使用如下代码来配置实现。
 
 ```tsx | pure
 const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
