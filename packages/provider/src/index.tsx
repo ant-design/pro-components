@@ -204,7 +204,7 @@ const ConfigProviderContainer: React.FC<{
   hashed?: boolean;
   dark?: boolean;
   prefixCls?: string;
-  intl?: IntlType
+  intl?: IntlType;
 }> = (props) => {
   const {
     children,
@@ -249,9 +249,10 @@ const ConfigProviderContainer: React.FC<{
     const key = findIntlKeyByAntdLocaleKey(localeName);
     // antd 的 key 存在的时候以 antd 的为主
     const resolvedIntl =
-      intl ?? localeName && proProvide.intl?.locale === 'default'
+      intl ??
+      (localeName && proProvide.intl?.locale === 'default'
         ? intlMap[key! as 'zh-CN']
-        : proProvide.intl || intlMap[key! as 'zh-CN'];
+        : proProvide.intl || intlMap[key! as 'zh-CN']);
 
     return {
       ...proProvide,
@@ -377,7 +378,7 @@ export const ProConfigProvider: React.FC<{
   dark?: boolean;
   hashed?: boolean;
   prefixCls?: string;
-  intl?: IntlType
+  intl?: IntlType;
 }> = (props) => {
   const { needDeps, dark, token } = props;
   const proProvide = useContext(ProConfigContext);
