@@ -52,7 +52,7 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 <code src="./demos/components-other-readonly.tsx" debug></code>
 
-## API
+## ProForm.Item
 
 ProForm comes with Filed , which basically corresponds to the valueType one by one.
 

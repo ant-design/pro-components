@@ -34,7 +34,7 @@ StepsForm 通过 Provider 来管理子表单的数据，每个子表单都是完
 
 <code src="./demos/add-or-edit-step-form.tsx" title="自定义分步表单按钮"></code>
 
-## API
+## StepsForm
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

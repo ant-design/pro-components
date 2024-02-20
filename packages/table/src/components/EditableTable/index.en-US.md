@@ -27,7 +27,7 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 <code src="./demos/real-time-editing.tsx"  background="var(--main-bg-color)" oldtitle="Real-time saved editing form"></code>
 
-## API
+## EditableProTable
 
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |

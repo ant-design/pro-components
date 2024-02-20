@@ -62,7 +62,7 @@ We have added a footer attribute to make it easier to do things like forms, so y
 
 <code src="./demos/loading.tsx"></code>
 
-## API
+## PageContainer
 
 PageContainer wraps ant design's PageHeader component, adding tabList and content. It relies on Layout's route property to fill in the title and breadcrumb based on the current route. Of course you can pass in parameters to override the default values. PageContainer supports all of [Tabs](https://ant.design/components/tabs/) and [PageHeader](https://ant.design/components/page-header/)'s attributes of [Tabs]() and [PageHeader]().
 

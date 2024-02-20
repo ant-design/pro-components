@@ -45,9 +45,7 @@ atomId: WaterMark
 
 <code src="./demos/custom.tsx" background="var(--main-bg-color)"></code>
 
-## API
-
-### 基础参数
+## WaterMark
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -59,11 +57,6 @@ atomId: WaterMark
 | content | 水印文字内容 | `string` \| `string[]` | - | 2.2.0 |
 | fontColor | 水印文字颜色 | `string` | `rgba(0,0,0,.15)` | 2.2.0 |
 | fontSize | 文字大小 | `string` \| `number` | 16 | 2.2.0 |
-
-### 高级参数
-
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
 | markStyle | 水印层的样式 | React.CSSProperties | - | 2.3.0 |
 | markClassName | 水印层的类名 | string | - | 2.3.0 |
 | gapX | 水印之间的水平间距 | number | 212 | 2.4.0 |

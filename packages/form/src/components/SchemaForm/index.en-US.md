@@ -12,7 +12,7 @@ SchemaForm is a tool for generating forms based on JSON Schema. SchemaForm will 
 
 > **Tips**： If you encounter a stuck problem or have higher performance requirements, you can [reference example](#high-performance-code-examples).
 
-## API
+## SchemaForm
 
 SchemaForm provides the same API as [ProForm](/components/form#proform), and adds some APIs, the following SchemaForm new APIs.
 

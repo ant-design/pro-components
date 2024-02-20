@@ -33,7 +33,7 @@ atomId: EditableProTable
 
 <code src="./demos/real-time-editing.tsx"  background="var(--main-bg-color)" title="实时保存的编辑表格"></code>
 
-## API
+## EditableProTable
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ atomId: EditableProTable
   setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
 ```
 
-### editable 编辑行配置
+### TableRowEditable
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -126,7 +126,7 @@ atomId: EditableProTable
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
 | onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
 
-### recordCreatorProps 新建按钮配置
+### RecordCreatorProps
 
 为了使用，我们预设了一个新建的功能，大多数情况下已经可以满足大部分新建的需求，但是很多时候需求总是千奇百怪。我们也准备了 `recordCreatorProps` 来控制生成按钮。与 Pro 系列组件的 API 相同，`recordCreatorProps={false}`就可以关掉按钮，同时使用 `actionRef.current?.addEditRecord(row)` 来控制新建行。
 

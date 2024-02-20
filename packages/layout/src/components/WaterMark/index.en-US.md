@@ -45,9 +45,7 @@ Here are some common configuration options. If you need further customization, p
 
 <code src="./demos/custom.tsx" background="var(--main-bg-color)"></code>
 
-## API
-
-### Basic Parameters
+## WaterMark
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -59,11 +57,6 @@ Here are some common configuration options. If you need further customization, p
 | content | Text content of the watermark | `string` \| `string[]` | - | 2.2.0 |
 | fontColor | Text color of the watermark | `string` | `rgba(0,0,0,.15)` | 2.2.0 |
 | fontSize | Font size | `string` \| `number` | 16 | 2.2.0 |
-
-### Advanced Parameters
-
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
 | markStyle | Style of the watermark layer | React.CSSProperties | - | 2.3.0 |
 | markClassName | Class name of the watermark layer | string | - | 2.3.0 |
 | gapX | Horizontal spacing between watermarks | number | 212 | 2.4.0 |

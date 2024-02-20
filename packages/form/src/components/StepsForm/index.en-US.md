@@ -28,7 +28,7 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 
 <code src="./demos/add-or-edit-step-form.tsx" oldtitle="自定义分步表单按钮"></code>
 
-## API
+## StepsForm
 
 | Parameters | Description | Type | Default |
 | --- | --- | --- | --- |
