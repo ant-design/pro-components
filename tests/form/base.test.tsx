@@ -2813,49 +2813,7 @@ describe('ProForm', () => {
     });
     expect(onFinish).toBeCalledWith('#f5222d');
   });
-  it('📦 ColorPicker support rgba old', async () => {
-    const onFinish = vi.fn();
-    const wrapper = render(
-      <ProForm
-        onValuesChange={async (values) => {
-          onFinish(values?.color);
-        }}
-      >
-        <ProFormColorPicker name="color" old label="颜色选择" />
-      </ProForm>,
-    );
 
-    act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0]
-        .click();
-    });
-
-    // 选中第一个
-    act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.flexbox-fix')[2]
-        .querySelectorAll<HTMLDivElement>('div span div')[2]
-        .click();
-    });
-
-    expect(onFinish).toBeCalledWith('#5b8ff9');
-
-    act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          '#rc-editable-input-5',
-        )[0],
-        {
-          target: {
-            value: 2,
-          },
-        },
-      );
-    });
-
-    expect(onFinish).toBeCalledWith('rgba(91, 143, 249, 0.02)');
-  });
   it('📦 validateFieldsReturnFormatValue', async () => {
     const fn1 = vi.fn();
     const fn2 = vi.fn();

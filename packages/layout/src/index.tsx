@@ -1,23 +1,3 @@
-// 兼容代码-----------
-import 'antd/lib/anchor/style';
-import 'antd/lib/avatar/style';
-import 'antd/lib/breadcrumb/style';
-import 'antd/lib/divider/style';
-import 'antd/lib/drawer/style';
-import 'antd/lib/layout/style';
-import 'antd/lib/list/style';
-import 'antd/lib/menu/style';
-import 'antd/lib/message/style';
-import 'antd/lib/popover/style';
-import 'antd/lib/select/style';
-import 'antd/lib/space/style';
-import 'antd/lib/spin/style';
-import 'antd/lib/switch/style';
-import 'antd/lib/tabs/style';
-import 'antd/lib/tooltip/style';
-import 'antd/lib/typography/style';
-//----------------------
-
 import type {
   AppItemProps,
   AppListProps,

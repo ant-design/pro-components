@@ -3,10 +3,6 @@ import { Image, Input } from 'antd';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 
-// 兼容代码-----------
-import 'antd/lib/image/style';
-//----------------------
-
 export type FieldImageProps = {
   text: string;
   width?: number;

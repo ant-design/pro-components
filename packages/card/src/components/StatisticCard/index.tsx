@@ -9,9 +9,6 @@ import type { StatisticProps } from '../Statistic';
 import Statistic from '../Statistic';
 import { useStyle } from './style';
 
-import 'antd/lib/divider/style';
-import 'antd/lib/statistic/style';
-
 export type StatisticCardProps = {
   /** 图表配置 */
   chart?: React.ReactNode;

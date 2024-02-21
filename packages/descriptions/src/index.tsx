@@ -13,14 +13,13 @@ import {
   ErrorBoundary,
   InlineErrorFormItem,
   LabelIconTip,
-  compareVersions,
   genCopyable,
   getFieldPropsOrFormItemProps,
   stringify,
   useEditableMap,
 } from '@ant-design/pro-utils';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
-import { ConfigProvider, Descriptions, Space, version } from 'antd';
+import { ConfigProvider, Descriptions, Space } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import toArray from 'rc-util/lib/Children/toArray';
 import get from 'rc-util/lib/utils/get';
@@ -28,12 +27,9 @@ import React, { useContext, useEffect } from 'react';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
-// 兼容代码-----------
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
 import { proTheme } from '@ant-design/pro-provider';
 import type { DescriptionsItemType } from 'antd/es/descriptions';
-import 'antd/lib/descriptions/style';
-//----------------------
 
 // todo remove it
 export interface DescriptionsItemProps {
@@ -328,16 +324,13 @@ const schemaToDescriptionsItem = (
   emptyText?: React.ReactNode,
 ) => {
   const options: JSX.Element[] = [];
-  const isBigger58 = compareVersions(version, '5.8.0') >= 0;
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
   const children = items
     ?.map?.((item, index) => {
       if (React.isValidElement(item)) {
-        return isBigger58
-          ? {
-              children: item,
-            }
-          : item;
+        return {
+          children: item,
+        };
       }
       const {
         valueEnum,
@@ -389,7 +382,7 @@ const schemaToDescriptionsItem = (
         fieldMode === 'edit' ? text : genCopyable(text, item, text);
 
       const field: DescriptionsItemType | JSX.Element =
-        isBigger58 && valueType !== 'option'
+        valueType !== 'option'
           ? ({
               ...restItem,
               key: restItem.key || restItem.label?.toString() || index,
@@ -623,7 +616,6 @@ const ProDescriptions = <
   }
 
   const className = context.getPrefixCls('pro-descriptions');
-  const isBigger58 = compareVersions(version, '5.8.0') >= 0;
   return (
     <ErrorBoundary>
       <FormComponent
@@ -651,10 +643,8 @@ const ProDescriptions = <
             )
           }
           title={title}
-          items={isBigger58 ? (children as DescriptionsItemType[]) : undefined}
-        >
-          {isBigger58 ? null : (children as JSX.Element[])}
-        </Descriptions>
+          items={children as DescriptionsItemType[]}
+        />
       </FormComponent>
     </ErrorBoundary>
   );

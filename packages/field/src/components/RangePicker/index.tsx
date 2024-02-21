@@ -9,10 +9,6 @@ import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
-// 兼容代码-----------
-import 'antd/lib/date-picker/style';
-//------------
-
 /**
  * 日期范围选择组件
  *

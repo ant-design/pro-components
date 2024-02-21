@@ -6,8 +6,6 @@ import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 
 import { objectToMap, proFieldParsingText } from '@ant-design/pro-utils';
-import 'antd/lib/segmented/style';
-import 'antd/lib/spin/style';
 
 /**
  * Segmented https://ant.design/components/segmented-cn/
@@ -19,11 +17,15 @@ const FieldSegmented: ProFieldFC<
     text: string;
     emptyText?: React.ReactNode;
   } & FieldSelectProps
-> = (
-  props,
-  ref,
-) => {
-  const { mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest } = props;
+> = (props, ref) => {
+  const {
+    mode,
+    render,
+    renderFormItem,
+    fieldProps,
+    emptyText = '-',
+    ...rest
+  } = props;
 
   const inputRef = useRef<HTMLInputElement>();
 

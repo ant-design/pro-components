@@ -1,11 +1,8 @@
 ﻿import { ComponentToken } from 'antd/es/menu/style';
-import { compareVersions } from './index';
-import { getVersion } from './openVisibleCompatible';
 
 export function coverToNewToken(
   token: Partial<ComponentToken>,
 ): Partial<ComponentToken> {
-  if (compareVersions(getVersion(), '5.6.0') < 0) return token;
   const deprecatedTokens = {
     colorGroupTitle: 'groupTitleColor',
     radiusItem: 'itemBorderRadius',

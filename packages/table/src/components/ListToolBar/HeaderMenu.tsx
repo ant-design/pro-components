@@ -1,7 +1,6 @@
 import { DownOutlined } from '@ant-design/icons';
 import { ProProvider } from '@ant-design/pro-provider';
-import { compareVersions, menuOverlayCompatible } from '@ant-design/pro-utils';
-import { Dropdown, Space, Tabs, version } from 'antd';
+import { Dropdown, Space, Tabs } from 'antd';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useContext } from 'react';
@@ -87,39 +86,28 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
         }))}
         activeKey={activeItem.key as string}
         onTabClick={(key) => setActiveKey(key)}
-      >
-        {compareVersions(version, '4.23.0') < 0
-          ? items?.map((item, index) => {
-              /* 如果版本低于 4.23.0，不支持 items */
-              return (
-                <Tabs.TabPane
-                  {...item}
-                  key={item.key || index}
-                  tab={item.label}
-                />
-              );
-            })
-          : null}
-      </Tabs>
+      />
     );
   }
-  const dropdownProps = menuOverlayCompatible({
-    selectedKeys: [activeItem.key as string],
-    onClick: (item) => {
-      setActiveKey(item.key);
-    },
-    items: items.map((item, index) => ({
-      key: item.key || index,
-      disabled: item.disabled,
-      label: item.label,
-    })),
-  });
 
   return (
     <div
       className={classNames(`${prefixCls}-menu`, `${prefixCls}-dropdownmenu`)}
     >
-      <Dropdown trigger={['click']} {...dropdownProps}>
+      <Dropdown
+        trigger={['click']}
+        menu={{
+          selectedKeys: [activeItem.key as string],
+          onClick: (item) => {
+            setActiveKey(item.key);
+          },
+          items: items.map((item, index) => ({
+            key: item.key || index,
+            disabled: item.disabled,
+            label: item.label,
+          })),
+        }}
+      >
         <Space className={`${prefixCls}-dropdownmenu-label`}>
           {activeItem.label}
           <DownOutlined />

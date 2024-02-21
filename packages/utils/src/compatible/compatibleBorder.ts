@@ -1,6 +1,4 @@
-﻿import { version } from 'antd';
-import { Variant } from 'antd/es/form/hooks/useVariants';
-import { compareVersions } from '../compareVersions';
+﻿import { Variant } from 'antd/es/form/hooks/useVariants';
 
 /**
  * 兼容 antd 5.13.0 以下版本的 bordered 属性
@@ -11,11 +9,9 @@ export const compatibleBorder = (bordered?: boolean) => {
   if (bordered === undefined) {
     return {};
   }
-  return compareVersions(version, '5.13.0') <= 0
-    ? { bordered }
-    : ({
-        variant: bordered ? undefined : 'borderless',
-      } as {
-        variant?: Variant;
-      });
+  return {
+    variant: bordered ? undefined : 'borderless',
+  } as {
+    variant?: Variant;
+  };
 };

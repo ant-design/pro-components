@@ -1,11 +1,9 @@
-﻿import { compareVersions } from '@ant-design/pro-utils';
-import type { ColorPickerProps } from 'antd';
-import { ColorPicker as ColorPickerV5, ConfigProvider, version } from 'antd';
+﻿import type { ColorPickerProps } from 'antd';
+import { ColorPicker, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext } from 'react';
 import type { ProFieldFC } from '../../index';
-import { ColorPicker as ColorPickerV4 } from './old';
-// https://ant.design/components/color-picker-cn 示例颜色
+
 const DEFAULT_PRESETS = {
   label: 'Recommended',
   colors: [
@@ -31,25 +29,7 @@ const DEFAULT_PRESETS = {
     '#EB2F964D',
   ],
 };
-/**
- * 判断是否是 5.5.0 以上的版本
- * @returns
- */
-function IsIt_Render_V5() {
-  return compareVersions(version, '5.5.0') > -1;
-}
-/**
- * 获取颜色组件
- * @param {boolean} [old=false] 是否使用旧版本
- * @return {*}
- */
-function getColorPicker(old: boolean = false) {
-  if ((typeof old === 'undefined' || old === false) && IsIt_Render_V5()) {
-    return ColorPickerV5;
-  }
-  return ColorPickerV4;
-}
-// const ColorPicker = getColorPicker();
+
 /**
  * 颜色组件
  * Antd > 5.5.0 的版本 使用 antd 的 ColorPicker
@@ -60,28 +40,16 @@ function getColorPicker(old: boolean = false) {
 const FieldColorPicker: ProFieldFC<
   {
     text: string;
-    /** 是否使用旧版本 */
-    old?: boolean;
   } & Partial<ColorPickerProps>
-> = (
-  { text, mode: type, render, renderFormItem, fieldProps, old },
-  ref: any,
-) => {
+> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const ColorPicker = React.useMemo(() => getColorPicker(old), [old]);
   const prefixCls = getPrefixCls('pro-field-color-picker');
-  // 5.5.0 以上版本追加 className
-  const className = useMemo(() => {
-    if (old) return '';
-    return classNames({ [prefixCls]: IsIt_Render_V5() });
-  }, [prefixCls, old]);
+
   if (type === 'read') {
     const dom = (
       <ColorPicker
         value={text}
-        mode="read"
-        ref={ref}
-        className={className}
+        className={classNames({ [prefixCls]: true })}
         // 设置无法 open
         open={false}
       />
@@ -100,7 +68,7 @@ const FieldColorPicker: ProFieldFC<
         presets={[DEFAULT_PRESETS]}
         {...fieldProps}
         style={style}
-        className={className}
+        className={classNames({ [prefixCls]: true })}
       />
     );
     if (renderFormItem) {

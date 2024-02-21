@@ -5,7 +5,6 @@ import { ConfigProvider, Form, Popover } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect, useState } from 'react';
-import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import { useStyle } from './style';
 
 interface InlineErrorFormItemProps extends FormItemProps {
@@ -47,22 +46,18 @@ const InlineErrorFormItemPopover: React.FC<{
     }
   }, [inputProps.errors, inputProps.validateStatus]);
 
-  const popoverOpenProps = openVisibleCompatible(
-    errorStringList.length < 1 ? false : open,
-    (changeOpen: boolean) => {
-      if (changeOpen === open) return;
-      setOpen(changeOpen);
-    },
-  );
-
   const loading = inputProps.validateStatus === 'validating';
 
   return (
     <Popover
       key="popover"
+      open={errorStringList.length < 1 ? false : open}
+      onOpenChange={(changeOpen: boolean) => {
+        if (changeOpen === open) return;
+        setOpen(changeOpen);
+      }}
       trigger={popoverProps?.trigger || ['click']}
       placement={popoverProps?.placement || 'topLeft'}
-      {...popoverOpenProps}
       getPopupContainer={popoverProps?.getPopupContainer}
       getTooltipContainer={popoverProps?.getTooltipContainer}
       content={wrapSSR(

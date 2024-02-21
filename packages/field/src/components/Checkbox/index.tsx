@@ -1,4 +1,5 @@
-﻿import {
+﻿import { useToken } from '@ant-design/pro-provider';
+import {
   objectToMap,
   proFieldParsingText,
   useStyle,
@@ -15,10 +16,6 @@ export type GroupProps = {
   options?: CheckboxGroupProps['options'];
 } & FieldSelectProps;
 
-// 兼容代码-----------
-import { useToken } from '@ant-design/pro-provider';
-import 'antd/lib/checkbox/style';
-//----------------------
 /**
  * 多选组件
  *

@@ -1,16 +1,6 @@
-import { ProForm } from './layouts';
-// 兼容代码-----------
-import 'antd/lib/drawer/style';
-import 'antd/lib/form/style';
-import 'antd/lib/modal/style';
-import 'antd/lib/rate/style';
-import 'antd/lib/row/style';
-import 'antd/lib/steps/style';
-import 'antd/lib/tabs/style';
-import 'antd/lib/upload/style';
 import { GridContext } from './helpers';
+import { ProForm } from './layouts';
 import type { ProFormGroupProps } from './typing';
-//----------------------
 export { ProFormContext } from '@ant-design/pro-utils';
 export type {
   FormInstance,

@@ -1,4 +1,3 @@
-import { compareVersions } from '@ant-design/pro-utils';
 import type { BreadcrumbProps } from 'antd';
 import { version } from 'antd';
 import type {
@@ -184,13 +183,8 @@ export const getBreadcrumbProps = (
     items = undefined;
   }
   // 如果当前 ant design 包的版本大于等于5.3.0，则返回一个对象{items,itemRender},否则返回一个对象{routes:item,itemRender}
-  return compareVersions(getVersion(), '5.3.0') > -1
-    ? ({
-        items,
-        itemRender,
-      } as BreadcrumbListReturn)
-    : ({
-        routes: items,
-        itemRender,
-      } as unknown as BreadcrumbListReturn);
+  return {
+    items,
+    itemRender,
+  } as BreadcrumbListReturn;
 };

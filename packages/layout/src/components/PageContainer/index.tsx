@@ -6,14 +6,7 @@ import type {
   TabPaneProps,
   TabsProps,
 } from 'antd';
-import {
-  Affix,
-  Breadcrumb,
-  ConfigProvider,
-  SpinProps,
-  Tabs,
-  version,
-} from 'antd';
+import { Affix, Breadcrumb, ConfigProvider, SpinProps, Tabs } from 'antd';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
@@ -30,10 +23,6 @@ import { WaterMark } from '../WaterMark';
 import type { PageContainerToken, pageContainerToken } from './style';
 import { useStyle } from './style';
 import { useStylish } from './style/stylish';
-
-import { compareVersions } from '@ant-design/pro-utils';
-
-import 'antd/lib/breadcrumb/style';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -164,20 +153,7 @@ const renderFooter: React.FC<
           key: item.key?.toString() || index?.toString(),
         }))}
         {...tabProps}
-      >
-        {/* 如果版本低于 4.23.0，不支持 items */}
-        {compareVersions(version, '4.23.0') < 0
-          ? tabList?.map((item, index) => {
-              return (
-                <Tabs.TabPane
-                  key={item.key || index}
-                  tab={item.tab}
-                  {...item}
-                />
-              );
-            })
-          : null}
-      </Tabs>
+      />
     );
   }
   return null;

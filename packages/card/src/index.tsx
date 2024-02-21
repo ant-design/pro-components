@@ -14,8 +14,6 @@ import type { ProCardProps } from './ProCard';
 import ProCard from './ProCard';
 import type { ProCardTabsProps } from './typing';
 
-import 'antd/lib/card/style';
-
 export { CheckCard, ProCard, Statistic, StatisticCard };
 export type {
   CheckCardGroupProps,

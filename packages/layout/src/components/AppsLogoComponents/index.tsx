@@ -1,5 +1,4 @@
-﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
-import { Popover } from 'antd';
+﻿import { Popover } from 'antd';
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
@@ -91,11 +90,6 @@ export const AppsLogoComponents: React.FC<{
     ? appListRender(props?.appList, defaultDomContent)
     : defaultDomContent;
 
-  const popoverOpenProps = openVisibleCompatible(
-    undefined,
-    (openChange: boolean) => setOpen(openChange),
-  );
-
   return wrapSSR(
     <>
       <div
@@ -110,7 +104,7 @@ export const AppsLogoComponents: React.FC<{
         trigger={['click']}
         zIndex={9999}
         arrow={false}
-        {...popoverOpenProps}
+        onOpenChange={(openChange: boolean) => setOpen(openChange)}
         overlayClassName={`${baseClassName}-popover ${hashId}`.trim()}
         content={popoverContent}
         getPopupContainer={() => ref.current || document.body}

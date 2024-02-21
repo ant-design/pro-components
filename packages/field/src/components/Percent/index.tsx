@@ -10,10 +10,6 @@ import {
   getSymbolByRealValue,
 } from './util';
 
-// 兼容代码-----------
-import 'antd/lib/input-number/style';
-//------------
-
 export type PercentPropInt = {
   prefix?: ReactNode;
   suffix?: ReactNode;

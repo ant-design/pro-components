@@ -267,7 +267,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <div
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
-                      mode="read"
                     >
                       <div
                         class="ant-color-picker-color-block"
@@ -1687,7 +1686,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     </div>
                     <div
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
-                      mode="read"
                     >
                       <div
                         class="ant-color-picker-color-block"

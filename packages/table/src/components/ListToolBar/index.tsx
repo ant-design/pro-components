@@ -1,13 +1,6 @@
 import { proTheme, useIntl } from '@ant-design/pro-provider';
-import { LabelIconTip, compareVersions } from '@ant-design/pro-utils';
-import {
-  ConfigProvider,
-  Input,
-  TabPaneProps,
-  Tabs,
-  Tooltip,
-  version,
-} from 'antd';
+import { LabelIconTip } from '@ant-design/pro-utils';
+import { ConfigProvider, Input, TabPaneProps, Tabs, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SearchProps } from 'antd/lib/input';
 import classNames from 'classnames';
@@ -130,13 +123,7 @@ const ListToolBarTabBar: React.FC<{
           }))}
           onChange={tabs.onChange}
           tabBarExtraContent={filtersNode}
-        >
-          {tabs.items?.map((item, index) => {
-            return compareVersions(version, '4.23.0') < 0 ? (
-              <Tabs.TabPane {...item} key={item.key || index} tab={item.tab} />
-            ) : null;
-          })}
-        </Tabs>
+        />
       ) : (
         filtersNode
       )}

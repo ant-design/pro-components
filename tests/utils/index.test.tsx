@@ -11,10 +11,8 @@ import {
   isUrl,
   LabelIconTip,
   lighten,
-  menuOverlayCompatible,
   merge,
   nanoid,
-  openVisibleCompatible,
   parseValueToDay,
   pickProProps,
   setAlpha,
@@ -58,20 +56,6 @@ describe('utils', () => {
     expect(compareVersions('1.0.0', '2.0.0')).toBe(-1);
     expect(compareVersions('1.0.0', '1.0.0')).toBe(0);
     expect(compareVersions('1.0.0', '1.0.0-beta.6')).toBe(1);
-  });
-
-  it('openVisibleCompatible', () => {
-    expect(openVisibleCompatible(true).open).toBeTruthy();
-    expect(openVisibleCompatible(true).visible === undefined).toBeTruthy();
-    process.env.ANTD_VERSION = '4.20.0';
-    expect(openVisibleCompatible(true).visible).toBeTruthy();
-    expect(openVisibleCompatible(true).open === undefined).toBeTruthy();
-  });
-
-  it('menuOverlayCompatible', () => {
-    expect(menuOverlayCompatible({ items: [] }).menu).toBeTruthy();
-    process.env.ANTD_VERSION = '4.20.0';
-    expect(menuOverlayCompatible({ items: [] }).overlay).toBeTruthy();
   });
 
   it('setAlpha', () => {

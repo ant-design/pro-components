@@ -1,5 +1,4 @@
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
-import { menuOverlayCompatible } from '@ant-design/pro-utils';
 import type { MenuItemProps } from 'antd';
 import { Button, ConfigProvider, Dropdown } from 'antd';
 import classnames from 'classnames';
@@ -35,17 +34,15 @@ const DropdownButton: React.FC<DropdownProps> = ({
 
   const tempClassName = getPrefixCls('pro-table-dropdown');
 
-  const dropdownProps = menuOverlayCompatible({
-    onClick: (params) => onSelect && onSelect(params.key as string),
-    items: menus?.map((item) => ({
-      label: item.name,
-      key: item.key,
-    })),
-  });
-
   return (
     <Dropdown
-      {...dropdownProps}
+      menu={{
+        onClick: (params) => onSelect && onSelect(params.key as string),
+        items: menus?.map((item) => ({
+          label: item.name,
+          key: item.key,
+        })),
+      }}
       className={classnames(tempClassName, className)}
     >
       <Button style={style}>
@@ -60,20 +57,19 @@ const TableDropdown: React.FC<DropdownProps> & {
 } = ({ className: propsClassName, style, onSelect, menus = [], children }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
-  const dropdownProps = menuOverlayCompatible({
-    onClick: (params) => {
-      onSelect?.(params.key as string);
-    },
-    items: menus.map(({ key, name, ...rest }) => ({
-      key,
-      ...rest,
-      title: rest.title as string,
-      label: name,
-    })),
-  });
   return (
     <Dropdown
-      {...dropdownProps}
+      menu={{
+        onClick: (params) => {
+          onSelect?.(params.key as string);
+        },
+        items: menus.map(({ key, name, ...rest }) => ({
+          key,
+          ...rest,
+          title: rest.title as string,
+          label: name,
+        })),
+      }}
       className={classnames(className, propsClassName)}
     >
       <a style={style}>{children || <EllipsisOutlined />}</a>
