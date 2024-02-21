@@ -169,7 +169,7 @@ describe('SchemaForm', () => {
     await waitFor(() => {
       expect(fieldPropsFn).toHaveBeenCalledTimes(1);
       expect(formItemPropsFn).toHaveBeenCalledTimes(1);
-      expect(renderFormItemFn).toHaveBeenCalled(4);
+      expect(renderFormItemFn).toHaveBeenCalledTimes(4);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -179,7 +179,7 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toHaveBeenCalled(5);
+      expect(renderFormItemFn).toHaveBeenCalledTimes(5);
       expect(fieldPropsFn).toHaveBeenCalledTimes(1);
       expect(formItemPropsFn).toHaveBeenCalledTimes(1);
       expect(onValuesChangeFn).toHaveBeenCalled();
@@ -251,7 +251,7 @@ describe('SchemaForm', () => {
     });
     // Although shouldUpdate returns false, but using dependencies will still update
     await waitFor(() => {
-      expect(renderFormItemFn).toHaveBeenCalled(5);
+      expect(renderFormItemFn).toHaveBeenCalledTimes(5);
       expect(formItemPropsFn).toHaveBeenCalledTimes(2);
       expect(fieldPropsFn).toHaveBeenCalledTimes(2);
       expect(shouldUpdateFn).toHaveBeenCalledTimes(1);
@@ -264,7 +264,7 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toHaveBeenCalled(6);
+      expect(renderFormItemFn).toHaveBeenCalledTimes(6);
       expect(formItemPropsFn).toHaveBeenCalledTimes(3);
       expect(fieldPropsFn).toHaveBeenCalledTimes(3);
       expect(shouldUpdateFn).toHaveBeenCalledTimes(2);
@@ -308,7 +308,7 @@ describe('SchemaForm', () => {
     await waitFor(() => {
       expect(fieldPropsFn).toHaveBeenCalledTimes(1);
       expect(formItemPropsFn).toHaveBeenCalledTimes(1);
-      expect(renderFormItemFn).toHaveBeenCalled(4);
+      expect(renderFormItemFn).toHaveBeenCalledTimes(4);
     });
 
     fireEvent.change(container.querySelector('input#title')!, {
@@ -318,7 +318,7 @@ describe('SchemaForm', () => {
     });
 
     await waitFor(() => {
-      expect(renderFormItemFn).toHaveBeenCalled(5);
+      expect(renderFormItemFn).toHaveBeenCalledTimes(5);
       expect(formItemPropsFn).toHaveBeenCalledTimes(1);
       expect(fieldPropsFn).toHaveBeenCalledTimes(1);
     });

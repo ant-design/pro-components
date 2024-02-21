@@ -215,7 +215,7 @@ describe('utils', () => {
     await html.findByText('test');
 
     await act(() => {
-      expect(fn).toHaveBeenCalled(4);
+      expect(fn).toHaveBeenCalledTimes(4);
     });
 
     act(() => {
@@ -227,7 +227,7 @@ describe('utils', () => {
     });
 
     await act(() => {
-      expect(fn).toHaveBeenCalled(6);
+      expect(fn).toHaveBeenCalledTimes(6);
     });
 
     // wait === 100 but callback is cancelled
@@ -246,7 +246,7 @@ describe('utils', () => {
 
     html.unmount();
 
-    expect(fn).toHaveBeenCalled(7);
+    expect(fn).toHaveBeenCalledTimes(7);
 
     vi.useRealTimers();
   });
