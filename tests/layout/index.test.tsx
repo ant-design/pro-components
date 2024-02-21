@@ -23,12 +23,6 @@ afterEach(() => {
 });
 
 describe('BasicLayout', () => {
-  beforeEach(() => {
-    delete process.env.ANTD_VERSION;
-  });
-  afterEach(() => {
-    delete process.env.ANTD_VERSION;
-  });
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
     const matchMediaSpy = vi.spyOn(window, 'matchMedia');
@@ -46,14 +40,6 @@ describe('BasicLayout', () => {
   it('🥩 base use', async () => {
     const html = render(<ProLayout />);
     expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
-  });
-
-  it('🥩 compatibleStyle', async () => {
-    process.env.ANTD_VERSION = '4.0.0';
-    const html = render(<ProLayout>{process.env.ANTD_VERSION}</ProLayout>);
-    expect(html.asFragment()).toMatchSnapshot();
-    delete process.env.ANTD_VERSION;
     html.unmount();
   });
 

@@ -39,13 +39,6 @@ afterEach(() => {
 });
 
 describe('utils', () => {
-  beforeEach(() => {
-    delete process.env.ANTD_VERSION;
-  });
-  afterEach(() => {
-    delete process.env.ANTD_VERSION;
-  });
-
   it('lighten', () => {
     const color = lighten('#000', 50);
     expect(color).toBe('#808080');

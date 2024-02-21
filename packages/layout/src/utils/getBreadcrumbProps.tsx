@@ -1,5 +1,4 @@
 import type { BreadcrumbProps } from 'antd';
-import { version } from 'antd';
 import type {
   BreadcrumbItemType,
   ItemType,
@@ -10,11 +9,6 @@ import type { ProLayoutProps } from '../ProLayout';
 import type { ProSettings } from '../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typing';
 import { urlToList } from './pathTools';
-
-export const getVersion = () => {
-  if (typeof process === 'undefined') return version;
-  return process?.env?.ANTD_VERSION || version;
-};
 
 export type BreadcrumbProLayoutProps = {
   breadcrumbList?: { title: string; href: string }[];
