@@ -31,21 +31,18 @@ const data = [
     name: 'John Brown',
     age: 32,
     address: 'New York No. 1 Lake Park',
-    index: 0,
   },
   {
     key: '2',
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    index: 1,
   },
   {
     key: '3',
     name: 'Joe Black',
     age: 32,
     address: 'Sidney No. 1 Lake Park',
-    index: 2,
   },
 ];
 
@@ -67,6 +64,7 @@ export default () => {
       headerTitle="拖拽排序(默认把手)"
       columns={columns}
       rowKey="key"
+      search={false}
       pagination={false}
       dataSource={dataSource}
       dragSortKey="sort"
