@@ -12,7 +12,7 @@ import {
   useMountMergeState,
 } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
-import type { BreadcrumbProps } from 'antd';
+import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
 import type { AnyObject } from 'antd/es/_util/type';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
@@ -38,7 +38,6 @@ import { PageLoading } from './components/PageLoading';
 import { SiderMenu } from './components/SiderMenu';
 import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
 import type { SiderMenuToken } from './components/SiderMenu/style';
-import type { WaterMarkProps } from './components/WaterMark';
 import { RouteContext } from './context/RouteContext';
 import type { ProSettings } from './defaultSettings';
 import { defaultSettings } from './defaultSettings';
@@ -238,7 +237,7 @@ export type ProLayoutProps = GlobalTypes & {
   breadcrumbProps?: Omit<BreadcrumbProps, 'itemRender'> & LayoutBreadcrumbProps;
 
   /** @name 水印的相关配置 */
-  waterMarkProps?: WaterMarkProps;
+  waterMarkProps?: WatermarkProps;
 
   /**
    * @name 操作菜单重新刷新

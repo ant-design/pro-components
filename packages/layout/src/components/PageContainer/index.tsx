@@ -6,7 +6,15 @@ import type {
   TabPaneProps,
   TabsProps,
 } from 'antd';
-import { Affix, Breadcrumb, ConfigProvider, SpinProps, Tabs } from 'antd';
+import {
+  Affix,
+  Breadcrumb,
+  ConfigProvider,
+  SpinProps,
+  Tabs,
+  Watermark,
+  WatermarkProps,
+} from 'antd';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
@@ -18,8 +26,6 @@ import { GridContent } from '../GridContent';
 import type { PageHeaderProps } from '../PageHeader';
 import { PageHeader } from '../PageHeader';
 import { PageLoading } from '../PageLoading';
-import type { WaterMarkProps } from '../WaterMark';
-import { WaterMark } from '../WaterMark';
 import type { PageContainerToken, pageContainerToken } from './style';
 import { useStyle } from './style';
 import { useStylish } from './style/stylish';
@@ -95,7 +101,7 @@ export type PageContainerProps = {
   breadcrumbRender?: PageHeaderProps['breadcrumbRender'] | false;
 
   /** @name WaterMarkProps 水印的配置 */
-  waterMarkProps?: WaterMarkProps;
+  waterMarkProps?: WatermarkProps;
 
   /** @name BreadcrumbProps 配置面包屑 */
   breadcrumb?: BreadcrumbProps;
@@ -411,7 +417,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
         ...value.waterMarkProps,
         ...props.waterMarkProps,
       };
-      return <WaterMark {...waterMarkProps}>{dom}</WaterMark>;
+      return <Watermark {...waterMarkProps}>{dom}</Watermark>;
     }
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);
