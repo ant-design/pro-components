@@ -284,14 +284,14 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(onChange).toBeCalled();
+        expect(onChange).toHaveBeenCalled();
       },
       {
         timeout: 1000,
       },
     );
     await waitFor(() => {
-      expect(onChange).toBeCalledWith({
+      expect(onChange).toHaveBeenCalledWith({
         id: '624748504',
         title: '🐛 [BUG]yarn install命令',
         labels: [{ name: 'bug', color: 'error' }],
@@ -374,7 +374,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(onChange).toBeCalled();
+        expect(onChange).toHaveBeenCalled();
       },
       {
         timeout: 1000,
@@ -382,7 +382,7 @@ describe('EditorProTable 2', () => {
     );
 
     await waitFor(() => {
-      expect(onChange).toBeCalledWith({
+      expect(onChange).toHaveBeenCalledWith({
         id: '624748504',
         title: '🐛 [BUG]yarn install命令',
         labels: [{ name: 'bug', color: 'error' }],
@@ -462,10 +462,10 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(onChange).toBeCalled();
+      expect(onChange).toHaveBeenCalled();
     });
     await waitFor(() => {
-      expect(onChange).toBeCalledWith({
+      expect(onChange).toHaveBeenCalledWith({
         id: '624748504',
         title: 'yarn install命令',
         labels: [{ name: 'bug', color: 'error' }],
@@ -523,11 +523,11 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(onChange).toBeCalled();
+      expect(onChange).toHaveBeenCalled();
     });
 
     await waitFor(() => {
-      expect(onChange).toBeCalledWith(
+      expect(onChange).toHaveBeenCalledWith(
         JSON.stringify([
           {
             id: '624748504',
@@ -681,9 +681,9 @@ describe('EditorProTable 2', () => {
     );
 
     await waitFor(() => {
-      expect(formItemPropsFn).toBeCalled();
-      expect(fieldPropsFn).toBeCalled();
-      expect(errorSpy).not.toBeCalled();
+      expect(formItemPropsFn).toHaveBeenCalled();
+      expect(fieldPropsFn).toHaveBeenCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
     });
 
     errorSpy.mockRestore();
@@ -754,7 +754,7 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       expect(answerTitle).toMatch(resultTitle);
 
-      expect(errorSpy).not.toBeCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
     });
     errorSpy.mockRestore();
   });
@@ -792,7 +792,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith([624748504]);
+      expect(fn).toHaveBeenCalledWith([624748504]);
     });
 
     wrapper.unmount();
@@ -846,7 +846,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(fn).toBeCalledWith(624748504);
+        expect(fn).toHaveBeenCalledWith(624748504);
       },
       {
         timeout: 1000,
@@ -922,7 +922,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(fn).toBeCalledWith('命令');
+        expect(fn).toHaveBeenCalledWith('命令');
       },
       {
         timeout: 1000,
@@ -971,7 +971,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(fn).toBeCalledWith('02');
+        expect(fn).toHaveBeenCalledWith('02');
       },
       {
         timeout: 1000,
@@ -1008,7 +1008,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(fn).toBeCalledWith(4);
+        expect(fn).toHaveBeenCalledWith(4);
       },
       {
         timeout: 1000,
@@ -1088,7 +1088,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(onValueChangeFn).toBeCalledWith('1223');
+      expect(onValueChangeFn).toHaveBeenCalledWith('1223');
     });
     wrapper.unmount();
   });
@@ -1171,7 +1171,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(onValueChangeFn).toBeCalledWith(624748504);
+      expect(onValueChangeFn).toHaveBeenCalledWith(624748504);
     });
 
     act(() => {
@@ -1256,7 +1256,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(fn).toBeCalledWith(newLineId);
+        expect(fn).toHaveBeenCalledWith(newLineId);
       },
       {
         timeout: 2000,
@@ -1492,7 +1492,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(
       () => {
-        expect(fn).not.toBeCalled();
+        expect(fn).not.toHaveBeenCalled();
       },
       {
         timeout: 1000,
@@ -1541,7 +1541,7 @@ describe('EditorProTable 2', () => {
           .querySelectorAll('input').length > 0,
       ).toBeFalsy();
 
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
     wrapper.unmount();
   });
@@ -1564,7 +1564,7 @@ describe('EditorProTable 2', () => {
         .click();
     });
     await waitFor(() => {
-      expect(fn).toBeCalledWith([624748504, 624691229]);
+      expect(fn).toHaveBeenCalledWith([624748504, 624691229]);
     });
 
     wrapper.unmount();
@@ -1607,11 +1607,11 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(fn).not.toBeCalled();
+      expect(fn).not.toHaveBeenCalled();
     });
     await waitFor(
       () => {
-        expect(fn).toBeCalledWith(624691229);
+        expect(fn).toHaveBeenCalledWith(624691229);
       },
       {
         timeout: 2000,
@@ -1659,7 +1659,7 @@ describe('EditorProTable 2', () => {
     await act(async () => vi.runOnlyPendingTimers());
 
     await waitFor(() => {
-      expect(fn).not.toBeCalled();
+      expect(fn).not.toHaveBeenCalled();
     });
 
     act(() => {
@@ -1669,7 +1669,7 @@ describe('EditorProTable 2', () => {
     await act(async () => vi.runOnlyPendingTimers());
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith(624691229);
+      expect(fn).toHaveBeenCalledWith(624691229);
     });
     wrapper.unmount();
     vi.useRealTimers();
@@ -1721,11 +1721,11 @@ describe('EditorProTable 2', () => {
     await act(async () => vi.runOnlyPendingTimers());
 
     await waitFor(() => {
-      expect(onSave).toBeCalledWith(624691229);
+      expect(onSave).toHaveBeenCalledWith(624691229);
     });
 
     await waitFor(() => {
-      expect(onDataSourceChange).toBeCalledWith(3);
+      expect(onDataSourceChange).toHaveBeenCalledWith(3);
     });
 
     vi.useRealTimers();
@@ -1871,7 +1871,7 @@ describe('EditorProTable 2', () => {
       );
     });
     await waitFor(() => {
-      expect(onSaveFn).toBeCalledWith(624691229);
+      expect(onSaveFn).toHaveBeenCalledWith(624691229);
     });
     wrapper.unmount();
   });
@@ -1902,7 +1902,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith(624691229);
+      expect(fn).toHaveBeenCalledWith(624691229);
     });
   });
 
@@ -1945,7 +1945,7 @@ describe('EditorProTable 2', () => {
       );
     });
     await waitFor(() => {
-      expect(fn).toBeCalledWith(624691229);
+      expect(fn).toHaveBeenCalledWith(624691229);
     });
     wrapper.unmount();
   });
@@ -2025,7 +2025,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith(624691229);
+      expect(fn).toHaveBeenCalledWith(624691229);
       expect(wrapper.queryAllByText('删除').length > 0).toBeFalsy();
     });
   });
@@ -2063,7 +2063,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith(624691229);
+      expect(fn).toHaveBeenCalledWith(624691229);
     });
   });
 
@@ -2107,7 +2107,7 @@ describe('EditorProTable 2', () => {
 
     await waitFor(() => {
       // 没有通过验证，不触发 onSave
-      expect(fn).not.toBeCalled();
+      expect(fn).not.toHaveBeenCalled();
     });
 
     act(() => {
@@ -2128,7 +2128,7 @@ describe('EditorProTable 2', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('qixian');
+      expect(fn).toHaveBeenCalledWith('qixian');
     });
     wrapper.unmount();
   });
@@ -2192,7 +2192,7 @@ describe('EditorProTable 2', () => {
         ?.click();
     });
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
   });
 
@@ -2317,7 +2317,7 @@ describe('EditorProTable 2', () => {
       );
     });
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
   });
 

@@ -187,14 +187,14 @@ describe('utils', () => {
 
     await html.findByText('test');
 
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
 
     // wait === undefined
     act(() => {
       html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
-    expect(fn).toBeCalledTimes(3);
+    expect(fn).toHaveBeenCalledTimes(3);
 
     act(() => {
       html.rerender(<App wait={80} />);
@@ -215,7 +215,7 @@ describe('utils', () => {
     await html.findByText('test');
 
     await act(() => {
-      expect(fn).toBeCalledTimes(4);
+      expect(fn).toHaveBeenCalled(4);
     });
 
     act(() => {
@@ -227,7 +227,7 @@ describe('utils', () => {
     });
 
     await act(() => {
-      expect(fn).toBeCalledTimes(6);
+      expect(fn).toHaveBeenCalled(6);
     });
 
     // wait === 100 but callback is cancelled
@@ -246,7 +246,7 @@ describe('utils', () => {
 
     html.unmount();
 
-    expect(fn).toBeCalledTimes(7);
+    expect(fn).toHaveBeenCalled(7);
 
     vi.useRealTimers();
   });
@@ -277,7 +277,7 @@ describe('utils', () => {
     render(<App />);
 
     await waitFor(() => {
-      expect(catchFn).toBeCalledWith(error);
+      expect(catchFn).toHaveBeenCalledWith(error);
     });
 
     vi.useRealTimers();
@@ -1087,7 +1087,7 @@ describe('utils', () => {
 
     nanoid();
 
-    expect(cryptoSpy).toBeCalled();
+    expect(cryptoSpy).toHaveBeenCalled();
   });
 
   it('🪓 stringify', () => {

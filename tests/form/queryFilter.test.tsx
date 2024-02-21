@@ -210,7 +210,7 @@ describe('QueryFilter', () => {
     fireEvent.click(await findByText('重置'));
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
   });
 

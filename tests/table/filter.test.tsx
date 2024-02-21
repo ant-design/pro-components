@@ -262,7 +262,7 @@ describe('BasicTable Search', () => {
       container.querySelectorAll('span.ant-table-column-sorter-down')[1],
     );
 
-    expect(fn).toBeCalledTimes(4);
+    expect(fn).toHaveBeenCalled(4);
   });
 
   it('🎏 order test', async () => {

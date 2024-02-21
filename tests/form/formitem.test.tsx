@@ -28,8 +28,8 @@ describe('ProForm.Item', () => {
     fireEvent.focus(container.querySelector('input#navTheme')!);
     fireEvent.blur(container.querySelector('input#navTheme')!);
 
-    expect(onBlur).toBeCalledWith('dark');
-    expect(onBlur).toBeCalledTimes(1);
+    expect(onBlur).toHaveBeenCalledWith('dark');
+    expect(onBlur).toHaveBeenCalledTimes(1);
   });
 
   it('📦 ProForm.Item supports onChange', async () => {
@@ -54,9 +54,9 @@ describe('ProForm.Item', () => {
       },
     });
 
-    expect(onChange).toBeCalledWith('1212');
-    expect(onChange).toBeCalledTimes(1);
-    expect(onValuesChange).toBeCalledWith('1212');
-    expect(onValuesChange).toBeCalledTimes(1);
+    expect(onChange).toHaveBeenCalledWith('1212');
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onValuesChange).toHaveBeenCalledWith('1212');
+    expect(onValuesChange).toHaveBeenCalledTimes(1);
   });
 });

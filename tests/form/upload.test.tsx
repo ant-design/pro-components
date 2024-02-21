@@ -74,8 +74,8 @@ describe('ProFormUpload', () => {
       );
     });
     await waitForWaitTime(1000);
-    expect(fn).toBeCalled();
-    expect(onChangeFn).toBeCalledTimes(3);
+    expect(fn).toHaveBeenCalled();
+    expect(onChangeFn).toHaveBeenCalledTimes(3);
   });
 
   it('🏐 ProFormUploadButton support beforeUpload', async () => {
@@ -214,8 +214,8 @@ describe('ProFormUpload', () => {
       );
     });
     await waitForWaitTime(200);
-    expect(fn).toBeCalled();
-    expect(onChangeFn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
+    expect(onChangeFn).toHaveBeenCalled();
   });
 
   it('🏐 ProFormUploadDragger hide when max', async () => {

@@ -202,7 +202,7 @@ describe('Field', () => {
       });
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
 
     act(() => {
       fireEvent.blur(html.baseElement.querySelector('input')!, {
@@ -210,7 +210,7 @@ describe('Field', () => {
       });
     });
 
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(2);
 
     html.unmount();
   });
@@ -350,7 +350,7 @@ describe('Field', () => {
 
       await html.findAllByText('default');
 
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
 
       act(() => {
         ref.current?.fetchData?.('test');
@@ -360,7 +360,7 @@ describe('Field', () => {
         vi.runOnlyPendingTimers();
       });
 
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
       html.unmount();
       vi.useRealTimers();
     });
@@ -627,7 +627,7 @@ describe('Field', () => {
       });
 
       await waitFor(() => {
-        expect(fn).toBeCalledWith(true);
+        expect(fn).toHaveBeenCalledWith(true);
       });
 
       act(() => {
@@ -637,7 +637,7 @@ describe('Field', () => {
       });
 
       await waitFor(() => {
-        expect(fn).toBeCalledWith(false);
+        expect(fn).toHaveBeenCalledWith(false);
       });
     });
   });
@@ -907,7 +907,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(1);
+      expect(requestFn).toHaveBeenCalledTimes(1);
     });
 
     await html.findAllByText('Node2');
@@ -955,7 +955,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(onSearchFn).toBeCalled();
+      expect(onSearchFn).toHaveBeenCalled();
     });
 
     act(() => {
@@ -1011,7 +1011,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(onClearFn).toBeCalled();
+      expect(onClearFn).toHaveBeenCalled();
       expect(html.baseElement.textContent).toContain('');
     });
 
@@ -1024,7 +1024,7 @@ describe('Field', () => {
       );
     });
 
-    expect(onBlurFn).toBeCalledTimes(1);
+    expect(onBlurFn).toHaveBeenCalledTimes(1);
     html.unmount();
     vi.useRealTimers();
   });
@@ -1505,7 +1505,7 @@ describe('Field', () => {
       expect(
         !!html.baseElement.querySelector('span.anticon-eye-invisible'),
       ).toBeFalsy();
-      expect(fn).toBeCalledWith(false);
+      expect(fn).toHaveBeenCalledWith(false);
     });
 
     html.unmount();
@@ -1532,7 +1532,7 @@ describe('Field', () => {
       expect(
         !!html.baseElement.querySelector('span.anticon-eye-invisible'),
       ).toBeFalsy();
-      expect(fn).toBeCalledWith(false);
+      expect(fn).toHaveBeenCalledWith(false);
     });
     html.unmount();
   });
@@ -1710,7 +1710,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(change).toBeCalledWith('1.00000000000007');
+      expect(change).toHaveBeenCalledWith('1.00000000000007');
     });
   });
 
@@ -1919,7 +1919,7 @@ describe('Field', () => {
       />,
     );
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(1);
+      expect(requestFn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -1929,7 +1929,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(2);
+      expect(requestFn).toHaveBeenCalledTimes(2);
     });
   });
 

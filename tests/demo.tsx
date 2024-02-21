@@ -125,12 +125,12 @@ function demoTest(component: string, options?: Options) {
         });
 
         await waitFor(() => {
-          expect(fn).toBeCalled();
+          expect(fn).toHaveBeenCalled();
         });
+
         await waitFor(() => {
           expect(wrapper.asFragment()).toMatchSnapshot();
         });
-
         wrapper.unmount();
         vi.useRealTimers();
         cleanup();

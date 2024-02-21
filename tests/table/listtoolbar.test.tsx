@@ -89,7 +89,7 @@ describe('Table valueEnum', () => {
     });
 
     await waitForWaitTime(100);
-    expect(onSearch).toBeCalledWith('1111111');
+    expect(onSearch).toHaveBeenCalledWith('1111111');
   });
 
   it('ListToolBar action no array', async () => {
