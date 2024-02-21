@@ -211,7 +211,7 @@ class MenuUtil {
     const designToken = this.props.token;
 
     const name = this.getIntlName(item);
-    const children = item?.children || item?.routes;
+    const children = item?.children;
 
     const menuType = isGroup && level === 0 ? ('group' as const) : undefined;
 

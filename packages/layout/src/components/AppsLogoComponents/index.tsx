@@ -43,12 +43,7 @@ export const AppsLogoComponents: React.FC<{
   ) => void;
   prefixCls?: string;
 }> = (props) => {
-  const {
-    appList,
-    appListRender,
-    prefixCls = 'ant-pro',
-    onItemClick: itemClick,
-  } = props;
+  const { appList, appListRender, prefixCls, onItemClick: itemClick } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
@@ -92,13 +87,7 @@ export const AppsLogoComponents: React.FC<{
 
   return wrapSSR(
     <>
-      <div
-        ref={ref}
-        onClick={(e) => {
-          e.stopPropagation();
-          e.preventDefault();
-        }}
-      />
+      <div ref={ref} />
       <Popover
         placement="bottomRight"
         trigger={['click']}

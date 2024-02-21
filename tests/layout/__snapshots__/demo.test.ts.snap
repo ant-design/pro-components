@@ -5675,30 +5675,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MultipleMenuOne
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
                 >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          配置中心
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          产品模板管理
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
                   <div
                     class="ant-page-header-content"
                   >
@@ -5876,44 +5854,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                         class="ant-pro-page-container"
                       >
                         <div
-                          class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                          class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
                         >
-                          <nav
-                            class="ant-breadcrumb ant-page-header-breadcrumb"
-                          >
-                            <ol>
-                              <li>
-                                <span>
-                                  首页
-                                </span>
-                              </li>
-                              <li
-                                aria-hidden="true"
-                                class="ant-breadcrumb-separator"
-                              >
-                                /
-                              </li>
-                              <li>
-                                <span>
-                                  概述
-                                </span>
-                              </li>
-                            </ol>
-                          </nav>
-                          <div
-                            class="ant-page-header-heading "
-                          >
-                            <div
-                              class="ant-page-header-heading-left"
-                            >
-                              <span
-                                class="ant-page-header-heading-title"
-                                title="概述"
-                              >
-                                概述
-                              </span>
-                            </div>
-                          </div>
                           <div
                             class="ant-page-header-content"
                           >
@@ -6214,44 +6156,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
                         class="ant-pro-page-container"
                       >
                         <div
-                          class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                          class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
                         >
-                          <nav
-                            class="ant-breadcrumb ant-page-header-breadcrumb"
-                          >
-                            <ol>
-                              <li>
-                                <span>
-                                  首页
-                                </span>
-                              </li>
-                              <li
-                                aria-hidden="true"
-                                class="ant-breadcrumb-separator"
-                              >
-                                /
-                              </li>
-                              <li>
-                                <span>
-                                  概述
-                                </span>
-                              </li>
-                            </ol>
-                          </nav>
-                          <div
-                            class="ant-page-header-heading "
-                          >
-                            <div
-                              class="ant-page-header-heading-left"
-                            >
-                              <span
-                                class="ant-page-header-heading-title"
-                                title="概述"
-                              >
-                                概述
-                              </span>
-                            </div>
-                          </div>
                           <div
                             class="ant-page-header-content"
                           >
@@ -7013,20 +6919,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/api.tsx correct
                 class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
-                  class="ant-page-header-heading "
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="欢迎"
-                    >
-                      欢迎
-                    </span>
-                  </div>
-                </div>
-                <div
                   class="ant-page-header-content"
                 >
                   <div
@@ -7172,7 +7064,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/appList-group.t
         />
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -7415,7 +7307,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/appList-group-s
         />
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -7905,7 +7797,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/background-cont
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -8122,56 +8014,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/background-cont
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >
@@ -8237,7 +8081,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="my-prefix-layout-container"
@@ -8458,53 +8302,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
                 class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
                 >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
                   <div
                     class="ant-page-header-heading "
                   >
                     <div
                       class="ant-page-header-heading-left"
                     >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
                       <span
                         class="ant-page-header-heading-sub-title"
                         title="简单的描述"
@@ -8583,7 +8388,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/base.tsx correc
               </div>
               <div
                 class="ant-pro-footer-bar"
-                style="width: 100%;"
               >
                 <div
                   class="ant-pro-footer-bar-left"
@@ -8680,7 +8484,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -8940,12 +8744,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
                           </span>
                         </div>
                       </div>
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
                     </div>
                     <span
                       class="ant-page-header-heading-extra"
@@ -9018,7 +8816,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/classicMode.tsx
               </div>
               <div
                 class="ant-pro-footer-bar"
-                style="width: 100%;"
               >
                 <div
                   class="ant-pro-footer-bar-left"
@@ -9679,14 +9476,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                 >
                   <div
                     class="qixian-page-header-heading-left"
-                  >
-                    <span
-                      class="qixian-page-header-heading-title"
-                      title="欢迎"
-                    >
-                      欢迎
-                    </span>
-                  </div>
+                  />
                   <span
                     class="qixian-page-header-heading-extra"
                   >
@@ -10709,56 +10499,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customSider.tsx
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >
@@ -11039,23 +10781,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
-              >
-                <div
-                  class="ant-page-header-heading "
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="欢迎"
-                    >
-                      欢迎
-                    </span>
-                  </div>
-                </div>
-              </div>
+                class="ant-page-header-no-children"
+              />
               <div
                 class="ant-pro-grid-content"
               >
@@ -11247,9 +10974,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customizeMenu.t
                     >
                       <span
                         class="ant-page-header-heading-title"
-                        title="欢迎"
+                        title="Remax"
                       >
-                        欢迎
+                        Remax
                       </span>
                     </div>
                   </div>
@@ -11314,7 +11041,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
       />
       <div
         class="ant-layout"
-        style="min-height: 100%; flex-direction: row;"
+        style="min-height: 100%;"
       >
         <div
           class="ant-pro-layout-container"
@@ -11529,54 +11256,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
-                <nav
-                  class="ant-breadcrumb ant-page-header-breadcrumb"
-                >
-                  <ol>
-                    <li>
-                      <span>
-                        列表页
-                      </span>
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </li>
-                    <li>
-                      <span>
-                        列表页面
-                      </span>
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </li>
-                    <li>
-                      <span>
-                        一一级列表页面
-                      </span>
-                    </li>
-                  </ol>
-                </nav>
                 <div
                   class="ant-page-header-heading "
                 >
                   <div
                     class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="一一级列表页面"
-                    >
-                      一一级列表页面
-                    </span>
-                  </div>
+                  />
                   <span
                     class="ant-page-header-heading-extra"
                   >
@@ -11648,7 +11335,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dark.tsx correc
             </div>
             <div
               class="ant-pro-footer-bar"
-              style="width: 100%;"
             >
               <div
                 class="ant-pro-footer-bar-left"
@@ -11702,7 +11388,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
       />
       <div
         class="ant-layout"
-        style="min-height: 100%; flex-direction: row;"
+        style="min-height: 100%;"
       >
         <div
           class="ant-pro-layout-container"
@@ -11921,54 +11607,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
-                <nav
-                  class="ant-breadcrumb ant-page-header-breadcrumb"
-                >
-                  <ol>
-                    <li>
-                      <span>
-                        列表页
-                      </span>
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </li>
-                    <li>
-                      <span>
-                        列表页面
-                      </span>
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </li>
-                    <li>
-                      <span>
-                        一一级列表页面
-                      </span>
-                    </li>
-                  </ol>
-                </nav>
                 <div
                   class="ant-page-header-heading "
                 >
                   <div
                     class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="一一级列表页面"
-                    >
-                      一一级列表页面
-                    </span>
-                  </div>
+                  />
                   <span
                     class="ant-page-header-heading-extra"
                   >
@@ -12040,7 +11686,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/debug-demo.tsx 
             </div>
             <div
               class="ant-pro-footer-bar"
-              style="width: 100%;"
             >
               <div
                 class="ant-pro-footer-bar-left"
@@ -12111,7 +11756,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -12334,54 +11979,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
                 class="ant-pro-page-container ant-pro-page-container-with-footer"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
                 >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
                   <div
                     class="ant-page-header-heading "
                   >
                     <div
                       class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
+                    />
                     <span
                       class="ant-page-header-heading-extra"
                     >
@@ -12453,7 +12058,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designMenuCss.t
               </div>
               <div
                 class="ant-pro-footer-bar"
-                style="width: 100%;"
               >
                 <div
                   class="ant-pro-footer-bar-left"
@@ -12765,56 +12369,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/designSiderMenu
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >
@@ -13565,14 +13121,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                   >
                     <div
                       class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="欢迎"
-                      >
-                        欢迎
-                      </span>
-                    </div>
+                    />
                     <span
                       class="ant-page-header-heading-extra"
                     >
@@ -15131,20 +14680,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer.tsx corr
                 class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
-                  class="ant-page-header-heading "
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="欢迎"
-                    >
-                      欢迎
-                    </span>
-                  </div>
-                </div>
-                <div
                   class="ant-page-header-content"
                 >
                   <div
@@ -15276,7 +14811,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -15549,56 +15084,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/footer-global-t
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >
@@ -15869,20 +15356,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/ghost.tsx corre
                       <div
                         class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
                       >
-                        <div
-                          class="ant-page-header-heading "
-                        >
-                          <div
-                            class="ant-page-header-heading-left"
-                          >
-                            <span
-                              class="ant-page-header-heading-title"
-                              title="欢迎"
-                            >
-                              欢迎
-                            </span>
-                          </div>
-                        </div>
                         <div
                           class="ant-page-header-content"
                         >
@@ -17054,20 +16527,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/hideMenu.tsx co
                 class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
                 <div
-                  class="ant-page-header-heading "
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="欢迎"
-                    >
-                      欢迎
-                    </span>
-                  </div>
-                </div>
-                <div
                   class="ant-page-header-content"
                 >
                   <div
@@ -17548,12 +17007,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                         </span>
                       </div>
                     </div>
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="欢迎"
-                    >
-                      欢迎
-                    </span>
                     <span
                       class="ant-page-header-heading-tags"
                     >
@@ -18735,7 +18188,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/mixMode.tsx cor
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -18954,56 +18407,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/mixMode.tsx cor
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >
@@ -19417,7 +18822,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/pageSimplify.ts
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -19638,56 +19043,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/pageSimplify.ts
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >
@@ -20286,56 +19643,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siderMode.tsx c
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >
@@ -20401,7 +19710,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siteMenu.tsx co
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -20620,56 +19929,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/siteMenu.tsx co
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >
@@ -20719,7 +19980,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
       />
       <div
         class="ant-layout"
-        style="min-height: 100%; flex-direction: row;"
+        style="min-height: 100%;"
       >
         <div
           class="ant-pro-layout-container"
@@ -20911,7 +20172,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
       />
       <div
         class="ant-layout"
-        style="min-height: 100%; flex-direction: row; height: 100vh;"
+        style="min-height: 100%; height: 100vh;"
       >
         <div
           class="ant-pro-layout-container"
@@ -20931,7 +20192,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
       />
       <div
         class="ant-layout"
-        style="min-height: 100%; flex-direction: row; height: 100vh;"
+        style="min-height: 100%; height: 100vh;"
       >
         <div
           class="ant-pro-layout-container"
@@ -21075,7 +20336,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
       />
       <div
         class="ant-layout"
-        style="min-height: 100%; flex-direction: row; height: 100vh;"
+        style="min-height: 100%; height: 100vh;"
       >
         <div
           class="ant-pro-layout-container"
@@ -21315,23 +20576,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/splitMenus.tsx 
               class="ant-pro-page-container"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
-              >
-                <div
-                  class="ant-page-header-heading "
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="欢迎"
-                    >
-                      欢迎
-                    </span>
-                  </div>
-                </div>
-              </div>
+                class="ant-page-header-no-children"
+              />
               <div
                 class="ant-pro-grid-content"
               >
@@ -21396,7 +20642,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
       />
       <div
         class="ant-layout"
-        style="min-height: 100%; flex-direction: row;"
+        style="min-height: 100%;"
       >
         <div
           class="ant-pro-layout-container"
@@ -21611,54 +20857,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
               class="ant-pro-page-container ant-pro-page-container-with-footer"
             >
               <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
               >
-                <nav
-                  class="ant-breadcrumb ant-page-header-breadcrumb"
-                >
-                  <ol>
-                    <li>
-                      <span>
-                        列表页
-                      </span>
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </li>
-                    <li>
-                      <span>
-                        列表页面
-                      </span>
-                    </li>
-                    <li
-                      aria-hidden="true"
-                      class="ant-breadcrumb-separator"
-                    >
-                      /
-                    </li>
-                    <li>
-                      <span>
-                        一一级列表页面
-                      </span>
-                    </li>
-                  </ol>
-                </nav>
                 <div
                   class="ant-page-header-heading "
                 >
                   <div
                     class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="一一级列表页面"
-                    >
-                      一一级列表页面
-                    </span>
-                  </div>
+                  />
                   <span
                     class="ant-page-header-heading-extra"
                   >
@@ -21730,7 +20936,6 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/theme.tsx corre
             </div>
             <div
               class="ant-pro-footer-bar"
-              style="width: 100%;"
             >
               <div
                 class="ant-pro-footer-bar-left"
@@ -22126,7 +21331,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/topMode.tsx cor
         </div>
         <div
           class="ant-layout"
-          style="min-height: 100%; flex-direction: row;"
+          style="min-height: 100%;"
         >
           <div
             class="ant-pro-layout-container"
@@ -22341,56 +21546,8 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/topMode.tsx cor
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
-                >
-                  <nav
-                    class="ant-breadcrumb ant-page-header-breadcrumb"
-                  >
-                    <ol>
-                      <li>
-                        <span>
-                          列表页
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          列表页面
-                        </span>
-                      </li>
-                      <li
-                        aria-hidden="true"
-                        class="ant-breadcrumb-separator"
-                      >
-                        /
-                      </li>
-                      <li>
-                        <span>
-                          一一级列表页面
-                        </span>
-                      </li>
-                    </ol>
-                  </nav>
-                  <div
-                    class="ant-page-header-heading "
-                  >
-                    <div
-                      class="ant-page-header-heading-left"
-                    >
-                      <span
-                        class="ant-page-header-heading-title"
-                        title="一一级列表页面"
-                      >
-                        一一级列表页面
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                  class="ant-page-header-no-children"
+                />
                 <div
                   class="ant-pro-grid-content"
                 >

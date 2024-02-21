@@ -492,7 +492,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       setMenuLoading(true);
       const menuDataItems = await menu?.request?.(
         params || {},
-        route?.children || route?.routes || [],
+        route?.children || [],
       );
       setMenuLoading(false);
       return menuDataItems;
@@ -524,12 +524,12 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }>(
     () =>
       getMenuData(
-        data || route?.children || route?.routes || [],
+        data || route?.children || [],
         menu,
         formatMessage,
         menuDataRender,
       ),
-    [formatMessage, menu, menuDataRender, data, route?.children, route?.routes],
+    [formatMessage, menu, menuDataRender, data, route?.children],
   );
 
   const { breadcrumb, breadcrumbMap, menuData = [] } = menuInfoData || {};

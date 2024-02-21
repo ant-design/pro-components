@@ -5,9 +5,9 @@ export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
     if (item.key) {
       pre.push(item.key);
     }
-    if (item.children || item.routes) {
+    if (item.children) {
       const newArray: string[] = pre.concat(
-        getOpenKeysFromMenuData(item.children || item.routes) || [],
+        getOpenKeysFromMenuData(item.children) || [],
       );
       return newArray;
     }
@@ -40,9 +40,6 @@ export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
     .map((item) => {
       const children: MenuDataItem[] = item.children || [];
       const finalItem = { ...item };
-      if (!finalItem.children && finalItem.routes) {
-        finalItem.children = finalItem.routes;
-      }
       if (!finalItem.name || finalItem.hideInMenu) {
         return null;
       }
@@ -59,7 +56,6 @@ export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
         // children 为空就直接删掉
         delete finalItem.children;
       }
-      delete finalItem.routes;
       return finalItem;
     })
     .filter((item) => item) as MenuDataItem[];

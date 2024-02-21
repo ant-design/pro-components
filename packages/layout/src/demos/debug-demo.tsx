@@ -36,7 +36,7 @@ export default () => {
         header: {
           colorBgMenuItemSelected: 'rgba(82, 196, 26, 1)',
           colorTextMenuSelected: 'rgba(114, 46, 209, 1)',
-          colorBgHeader: 'rgba(255, 255, 255, 0.6)',
+          colorBgHeader: 'rgba(250, 173, 20, 1)',
           colorHeaderTitle: 'rgba(47, 84, 235, 1)',
           colorTextMenuActive: 'rgba(255, 255, 255, 1)',
           colorTextMenu: 'rgba(250, 84, 28, 1)',
