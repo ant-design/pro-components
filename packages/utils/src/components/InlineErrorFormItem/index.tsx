@@ -1,7 +1,6 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
-import { useToken } from '@ant-design/pro-provider';
 import type { FormItemProps, PopoverProps } from 'antd';
-import { ConfigProvider, Form, Popover } from 'antd';
+import { ConfigProvider, Form, Popover, theme } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import get from 'rc-util/lib/utils/get';
 import React, { useContext, useEffect, useState } from 'react';
@@ -38,7 +37,7 @@ const InlineErrorFormItemPopover: React.FC<{
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls();
 
-  const token = useToken();
+  const token = theme.useToken();
   const { wrapSSR, hashId } = useStyle(`${prefixCls}-form-item-with-help`);
   useEffect(() => {
     if (inputProps.validateStatus !== 'validating') {

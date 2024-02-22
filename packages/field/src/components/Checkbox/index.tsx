@@ -1,10 +1,9 @@
-﻿import { useToken } from '@ant-design/pro-provider';
-import {
+﻿import {
   objectToMap,
   proFieldParsingText,
   useStyle,
 } from '@ant-design/pro-utils';
-import { Checkbox, ConfigProvider, Form, Spin } from 'antd';
+import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
@@ -65,7 +64,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     };
   });
 
-  const { token } = useToken?.();
+  const { token } = theme.useToken?.();
   const checkBoxRef = useRef();
   useImperativeHandle(
     ref,

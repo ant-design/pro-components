@@ -1,5 +1,6 @@
 ﻿import { Alert } from 'antd';
 
+// @ts-ignore
 export function rootContainer(container) {
   return (
     <div>

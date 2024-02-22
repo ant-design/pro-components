@@ -1,7 +1,7 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { omitUndefined } from '@ant-design/pro-utils';
-import { ConfigProvider as AntdConfigProvider } from 'antd';
+import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 
 import zh_CN from 'antd/lib/locale/zh_CN';
 import React, { useContext, useEffect, useMemo } from 'react';
@@ -13,8 +13,6 @@ import dayjs from 'dayjs';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
-import { proTheme } from './useStyle';
-import { defaultToken, emptyTheme } from './useStyle/token';
 import { merge } from './utils/merge';
 
 import 'dayjs/locale/zh-cn';
@@ -154,7 +152,6 @@ export type ConfigContextPropsType = {
   hashId?: string;
   hashed?: boolean;
   dark?: boolean;
-  theme?: Theme<any, any>;
 };
 
 /* Creating a context object with the default values. */
@@ -164,10 +161,14 @@ const ProConfigContext = React.createContext<ConfigContextPropsType>({
     locale: 'default',
   },
   valueTypeMap: {},
-  theme: emptyTheme,
   hashed: true,
   dark: false,
-  token: defaultToken as ProAliasToken,
+  token: {
+    ...antdTheme.getDesignToken(),
+    proComponentsCls: '.ant-pro',
+    antCls: '.ant',
+    themeId: 0,
+  },
 });
 
 export const { Consumer: ConfigConsumer } = ProConfigContext;
@@ -216,7 +217,7 @@ const ConfigProviderContainer: React.FC<{
   const { locale, getPrefixCls, ...restConfig } = useContext(
     AntdConfigProvider.ConfigContext,
   );
-  const tokenContext = proTheme.useToken?.();
+  const tokenContext = antdTheme.useToken?.();
   const proProvide = useContext(ProConfigContext);
 
   /**
@@ -236,10 +237,7 @@ const ConfigProviderContainer: React.FC<{
    * 合并一下token，不然导致嵌套 token 失效
    */
   const proLayoutTokenMerge = useMemo(() => {
-    return getLayoutDesignToken(
-      propsToken || {},
-      tokenContext.token || defaultToken,
-    );
+    return getLayoutDesignToken(propsToken || {}, tokenContext.token);
   }, [propsToken, tokenContext.token]);
 
   const proProvideValue = useMemo(() => {
@@ -327,7 +325,6 @@ const ConfigProviderContainer: React.FC<{
             ...proProvideValue!,
             valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
             token,
-            theme: tokenContext.theme as unknown as Theme<any, any>,
             hashed,
             hashId,
           }}
@@ -392,10 +389,10 @@ export const ProConfigProvider: React.FC<{
   const mergeAlgorithm = () => {
     const isDark = dark ?? proProvide.dark;
     if (isDark && !Array.isArray(theme?.algorithm)) {
-      return [proTheme.darkAlgorithm, theme?.algorithm].filter(Boolean);
+      return [antdTheme.darkAlgorithm, theme?.algorithm].filter(Boolean);
     }
     if (isDark && Array.isArray(theme?.algorithm)) {
-      return [proTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(
+      return [antdTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(
         Boolean,
       );
     }
