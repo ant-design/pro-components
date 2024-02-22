@@ -19,7 +19,7 @@ export type BaseLayoutDesignToken = {
   /**
    * layout 的背景颜色
    */
-  bgLayout: string;
+  bgLayout: string | null;
 
   /**
    * 侧边side的 token 配置

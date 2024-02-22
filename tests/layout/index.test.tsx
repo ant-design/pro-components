@@ -804,6 +804,26 @@ describe('BasicLayout', () => {
     });
   });
 
+  it('🥩 do not render bgListDom', async () => {
+    const wrapper = render(
+      <ProLayout
+        token={{
+          bgLayout: null,
+        }}
+        menuExtraRender={() => <div>menuExtraRender</div>}
+        menuHeaderRender={false}
+      />,
+    );
+    await waitForWaitTime(100);
+    const dom = wrapper.baseElement.querySelector<HTMLDivElement>(
+      '.ant-pro-layout-bg-list',
+    );
+    expect(!!dom).toBeFalsy();
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
   it('🥩 customize render menu header', async () => {
     const wrapper = render(
       <ProLayout
