@@ -381,18 +381,20 @@ const schemaToDescriptionsItem = (
       const contentDom: React.ReactNode =
         fieldMode === 'edit' ? text : genCopyable(text, item, text);
 
+      const key = restItem.key || restItem.label?.toString() || index;
+      const label = (title || restItem.label || restItem.tooltip) && (
+        <LabelIconTip
+          label={title || restItem.label}
+          tooltip={restItem.tooltip}
+          ellipsis={item.ellipsis}
+        />
+      );
       const field: DescriptionsItemType | JSX.Element =
         valueType !== 'option'
           ? ({
               ...restItem,
-              key: restItem.key || restItem.label?.toString() || index,
-              label: (title || restItem.label || restItem.tooltip) && (
-                <LabelIconTip
-                  label={title || restItem.label}
-                  tooltip={restItem.tooltip}
-                  ellipsis={item.ellipsis}
-                />
-              ),
+              key,
+              label,
               children: (
                 <Component>
                   <FieldRender
@@ -418,19 +420,7 @@ const schemaToDescriptionsItem = (
               ),
             } as DescriptionsItemType)
           : ((
-              <Descriptions.Item
-                {...restItem}
-                key={restItem.key || restItem.label?.toString() || index}
-                label={
-                  (title || restItem.label || restItem.tooltip) && (
-                    <LabelIconTip
-                      label={title || restItem.label}
-                      tooltip={restItem.tooltip}
-                      ellipsis={item.ellipsis}
-                    />
-                  )
-                }
-              >
+              <Descriptions.Item {...restItem} key={key} label={label}>
                 <Component>
                   <FieldRender
                     {...item}
@@ -443,13 +433,6 @@ const schemaToDescriptionsItem = (
                     action={action}
                     editableUtils={editableUtils}
                   />
-                  {showEditIcon && valueType !== 'option' && (
-                    <EditOutlined
-                      onClick={() => {
-                        editableUtils?.startEditable(dataIndex || index);
-                      }}
-                    />
-                  )}
                 </Component>
               </Descriptions.Item>
             ) as JSX.Element);
