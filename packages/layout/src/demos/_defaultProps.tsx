@@ -8,7 +8,7 @@ import {
 export default {
   route: {
     path: '/',
-    routes: [
+    children: [
       {
         path: '/welcome',
         name: '欢迎',
@@ -21,7 +21,7 @@ export default {
         icon: <CrownFilled />,
         access: 'canAdmin',
         component: './Admin',
-        routes: [
+        children: [
           {
             path: '/admin/sub-page1',
             name: '一级页面',
@@ -47,12 +47,12 @@ export default {
         icon: <TabletFilled />,
         path: '/list',
         component: './ListTableList',
-        routes: [
+        children: [
           {
             path: '/list/sub-page',
             name: '列表页面',
             icon: <CrownFilled />,
-            routes: [
+            children: [
               {
                 path: 'sub-sub-page1',
                 name: '一一级列表页面',

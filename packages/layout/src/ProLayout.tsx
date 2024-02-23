@@ -326,6 +326,7 @@ const renderSiderMenu = (
   }
   // 这里走了可以少一次循环
   const clearMenuData = clearMenuItem(menuData || []);
+
   if (
     clearMenuData &&
     clearMenuData?.length < 1 &&
