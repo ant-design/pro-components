@@ -6,7 +6,7 @@ const valueEnum = {
   all: { text: '全部', status: 'Default' },
   open: {
     text: '未解决',
-    status: 'Error',
+    status: 'Warning',
   },
   closed: {
     text: '已解决',
