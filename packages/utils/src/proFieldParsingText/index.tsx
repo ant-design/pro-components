@@ -120,6 +120,7 @@ export const proFieldParsingText = (
   const { status, color } = domText;
 
   const Status = TableStatus[status || 'Init'];
+
   // 如果类型存在优先使用类型
   if (Status) {
     return <Status key={key}>{domText.text}</Status>;
