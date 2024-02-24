@@ -1,6 +1,6 @@
-﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
+﻿import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
-
 export interface ProLayoutToken extends ProAliasToken {
   componentCls: string;
 }
@@ -51,7 +51,7 @@ const genProLayoutStyle: GenerateStyle<ProLayoutToken> = (token) => {
         background: token.layout?.bgLayout,
       },
     },
-  };
+  } as CSSInterpolation;
 };
 
 export function useStyle(prefixCls: string) {
