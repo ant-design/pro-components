@@ -1848,6 +1848,42 @@ describe('Field', () => {
     html.unmount();
   });
 
+  ['Success', 'Processing', 'Default', 'Error', 'Warning', 'ni_s'].forEach(
+    (item) => {
+      it(`🐴 select status`, async () => {
+        const text = 'status';
+        const html = render(
+          <>
+            <Field
+              text={text}
+              valueType="select"
+              mode="read"
+              valueEnum={{
+                [text]: {
+                  status: item.toLocaleLowerCase(),
+                  text: '未解决',
+                  color: '#1890ff',
+                },
+              }}
+            />
+            <Field
+              text={text}
+              valueType="select"
+              mode="read"
+              valueEnum={{
+                [text]: {
+                  status: item,
+                  text: '未解决',
+                },
+              }}
+            />
+          </>,
+        );
+        expect(html.asFragment()).toMatchSnapshot();
+        html.unmount();
+      });
+    },
+  );
   it(`🐴 text render null`, async () => {
     const html = render(
       <Field

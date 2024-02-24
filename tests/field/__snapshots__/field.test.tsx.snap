@@ -4254,3 +4254,167 @@ Done in 9.70s.
   </div>
 </DocumentFragment>
 `;
+
+exports[`Field > 🐴 select status 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-success"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-success"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 select status 2`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-processing"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-processing"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 select status 3`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-default"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-default"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 select status 4`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-error"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-error"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 select status 5`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-warning"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-warning"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 select status 6`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot"
+      style="color: rgb(24, 144, 255); background: rgb(24, 144, 255);"
+    />
+    <span
+      class="ant-badge-status-text"
+    >
+      未解决
+    </span>
+  </span>
+  未解决
+</DocumentFragment>
+`;

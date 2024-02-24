@@ -143,7 +143,7 @@ export default () => {
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {
                 text: '未解决',
-                status: 'Error',
+                status: 'error',
               },
               closed: {
                 text: '已解决',
@@ -165,15 +165,15 @@ export default () => {
               all: { text: '全部', disabled: true, status: 'Default' },
               open: {
                 text: '未解决',
-                status: 'Error',
+                status: 'success',
               },
               closed: {
                 text: '已解决',
-                status: 'Success',
+                status: 'processing',
               },
               processing: {
                 text: '解决中',
-                status: 'Processing',
+                status: 'Error',
               },
             }}
           />
