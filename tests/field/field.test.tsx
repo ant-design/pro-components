@@ -1,4 +1,4 @@
-import Field from '@ant-design/pro-field';
+import Field, { FieldStatus, ProFieldBadgeColor } from '@ant-design/pro-field';
 import {
   act,
   cleanup,
@@ -1848,42 +1848,21 @@ describe('Field', () => {
     html.unmount();
   });
 
-  ['Success', 'Processing', 'Default', 'Error', 'Warning', 'ni_s'].forEach(
-    (item) => {
-      it(`🐴 select status`, async () => {
-        const text = 'status';
-        const html = render(
-          <>
-            <Field
-              text={text}
-              valueType="select"
-              mode="read"
-              valueEnum={{
-                [text]: {
-                  status: item.toLocaleLowerCase(),
-                  text: '未解决',
-                  color: '#1890ff',
-                },
-              }}
-            />
-            <Field
-              text={text}
-              valueType="select"
-              mode="read"
-              valueEnum={{
-                [text]: {
-                  status: item,
-                  text: '未解决',
-                },
-              }}
-            />
-          </>,
-        );
-        expect(html.asFragment()).toMatchSnapshot();
-        html.unmount();
-      });
-    },
-  );
+  ['Success', 'Processing', 'Default', 'Error', 'Warning'].forEach((item) => {
+    it(`🐴 FieldStatus status`, async () => {
+      const Components = FieldStatus[item as keyof typeof FieldStatus];
+      const html = render(<Components />);
+      expect(html.asFragment()).toMatchSnapshot();
+      html.unmount();
+    });
+  });
+
+  it(`🐴 ProFieldBadgeColor status`, async () => {
+    const html = render(<ProFieldBadgeColor color="#1890ff" />);
+    expect(html.asFragment()).toMatchSnapshot();
+    html.unmount();
+  });
+
   it(`🐴 text render null`, async () => {
     const html = render(
       <Field
