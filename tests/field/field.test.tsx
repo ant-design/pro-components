@@ -1877,6 +1877,22 @@ describe('Field', () => {
     html.unmount();
   });
 
+  it(`🐴 FieldDigitRange support placeholder`, async () => {
+    const html = render(
+      <Field
+        text={[dayjs(), dayjs().add(1, 'day')]}
+        valueType="dateRange"
+        emptyText="-"
+        mode="edit"
+        placeholder="test"
+      />,
+    );
+    await waitFor(() => {
+      return html.findAllByPlaceholderText('test');
+    });
+    html.unmount();
+  });
+
   it(`🐴 readonly and mode is edit use fieldProps.value`, async () => {
     const html = render(
       <Field
