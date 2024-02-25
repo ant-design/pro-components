@@ -1902,11 +1902,27 @@ describe('Field', () => {
     html.unmount();
   });
 
-  it(`🐴 FieldDigitRange support placeholder`, async () => {
+  it(`🐴 dateRange support placeholder`, async () => {
     const html = render(
       <Field
         text={[dayjs(), dayjs().add(1, 'day')]}
         valueType="dateRange"
+        emptyText="-"
+        mode="edit"
+        placeholder="test"
+      />,
+    );
+    await waitFor(() => {
+      return html.findAllByPlaceholderText('test');
+    });
+    html.unmount();
+  });
+
+  it(`🐴 digitRange support placeholder`, async () => {
+    const html = render(
+      <Field
+        text={[10000, 20000]}
+        valueType="digitRange"
         emptyText="-"
         mode="edit"
         placeholder="test"
