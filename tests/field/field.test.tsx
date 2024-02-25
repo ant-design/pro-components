@@ -1,4 +1,5 @@
 import Field, {
+  FieldSelect,
   FieldStatus,
   FieldTimePicker,
   ProFieldBadgeColor,
@@ -2046,5 +2047,41 @@ describe('Field', () => {
         ).length,
       ).toEqual(1);
     });
+  });
+
+  it(`🐴 FieldSelect support clear`, async () => {
+    const onchange = vi.fn();
+    const html = render(
+      <FieldSelect
+        light
+        mode="edit"
+        valueEnum={{
+          clear: '清空',
+          all: '全部',
+          open: '未解决',
+        }}
+        fieldProps={{
+          value: 'open',
+          onChange: onchange,
+        }}
+        text="open"
+      />,
+    );
+    await waitFor(() => {
+      return html.findAllByText('未解决');
+    });
+
+    act(() => {
+      (
+        html.baseElement.querySelector(
+          '.ant-pro-core-field-label-close',
+        ) as HTMLDivElement
+      )?.click?.();
+    });
+
+    await waitFor(() => {
+      expect(onchange).toHaveBeenCalled();
+    });
+    html.unmount();
   });
 });
