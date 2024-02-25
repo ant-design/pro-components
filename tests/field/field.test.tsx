@@ -1,4 +1,8 @@
-import Field, { FieldStatus, ProFieldBadgeColor } from '@ant-design/pro-field';
+import Field, {
+  FieldStatus,
+  FieldTimePicker,
+  ProFieldBadgeColor,
+} from '@ant-design/pro-field';
 import {
   act,
   cleanup,
@@ -1849,12 +1853,32 @@ describe('Field', () => {
   });
 
   ['Success', 'Processing', 'Default', 'Error', 'Warning'].forEach((item) => {
-    it(`🐴 FieldStatus status`, async () => {
+    it(`🐴 FieldStatus status ${item}`, async () => {
       const Components = FieldStatus[item as keyof typeof FieldStatus];
       const html = render(<Components />);
       expect(html.asFragment()).toMatchSnapshot();
       html.unmount();
     });
+  });
+
+  ['success', 'processing', 'default', 'error', 'warning'].forEach((item) => {
+    it(`🐴 FieldStatus status  ${item}`, async () => {
+      const Components = FieldStatus[item as keyof typeof FieldStatus];
+      const html = render(<Components />);
+      expect(html.asFragment()).toMatchSnapshot();
+      html.unmount();
+    });
+  });
+
+  it(`🐴 FieldTimePicker text support is null`, async () => {
+    const html = render(
+      <FieldTimePicker
+        mode="read"
+        //@ts-ignore
+        text={null}
+      />,
+    );
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it(`🐴 ProFieldBadgeColor status`, async () => {
