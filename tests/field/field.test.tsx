@@ -1919,6 +1919,7 @@ describe('Field', () => {
   });
 
   it(`🐴 digitRange support placeholder`, async () => {
+    const onchangeFn = vi.fn();
     const html = render(
       <Field
         text={[10000, 20000]}
@@ -1926,11 +1927,27 @@ describe('Field', () => {
         emptyText="-"
         mode="edit"
         placeholder="test"
+        fieldProps={{
+          value: [30000, 20000],
+        }}
+        onChange={onchangeFn}
       />,
     );
     await waitFor(() => {
       return html.findAllByPlaceholderText('test');
     });
+
+    act(() => {
+      fireEvent.blur(html.baseElement.querySelector('.ant-space-compact')!);
+      fireEvent.blur(
+        html.baseElement.querySelector('.ant-input-number-input')!,
+      );
+    });
+
+    await waitFor(() => {
+      expect(onchangeFn).toHaveBeenCalled();
+    });
+
     html.unmount();
   });
 

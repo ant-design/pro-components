@@ -73,7 +73,10 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           value0 > value1
         ) {
           setValuePair([value1, value0]);
-        } else if (value0 === undefined && value1 === undefined) {
+          return;
+        }
+
+        if (value0 === undefined && value1 === undefined) {
           // 当两个值均为undefined时将值变为undefined，方便required处理
           setValuePair(undefined);
         }
