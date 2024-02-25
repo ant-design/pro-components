@@ -3323,7 +3323,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctl
                                             </span>
                                           </div>
                                           <span
-                                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                                           >
                                             状态
                                             <span
