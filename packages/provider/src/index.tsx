@@ -313,25 +313,36 @@ const ConfigProviderContainer: React.FC<{
     dayjs.locale(locale?.locale || 'zh-cn');
   }, [locale?.locale]);
 
-  const configProviderDom = useMemo(() => {
-    const themeConfig = {
+  const themeConfig = useMemo(() => {
+    return {
       ...restConfig.theme,
       hashId: hashId,
       hashed: hashed && isNeedOpenHash(),
     };
+  }, [restConfig.theme, hashId, hashed, isNeedOpenHash()]);
 
+  const proConfigContextValue = useMemo(() => {
+    return {
+      ...proProvideValue!,
+      valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
+      token,
+      theme: tokenContext.theme as unknown as Theme<any, any>,
+      hashed,
+      hashId,
+    };
+  }, [
+    proProvideValue,
+    valueTypeMap,
+    token,
+    tokenContext.theme,
+    hashed,
+    hashId,
+  ]);
+
+  const configProviderDom = useMemo(() => {
     return (
-      <AntdConfigProvider {...restConfig} theme={{ ...themeConfig }}>
-        <ProConfigContext.Provider
-          value={{
-            ...proProvideValue!,
-            valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
-            token,
-            theme: tokenContext.theme as unknown as Theme<any, any>,
-            hashed,
-            hashId,
-          }}
-        >
+      <AntdConfigProvider {...restConfig} theme={themeConfig}>
+        <ProConfigContext.Provider value={proConfigContextValue}>
           <>
             {autoClearCache && <CacheClean />}
             {children}
@@ -342,13 +353,11 @@ const ConfigProviderContainer: React.FC<{
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
+    restConfig,
+    themeConfig,
+    proConfigContextValue,
     autoClearCache,
     children,
-    getPrefixCls,
-    hashId,
-    locale,
-    proProvideValue,
-    token,
   ]);
 
   if (!autoClearCache) return configProviderDom;
