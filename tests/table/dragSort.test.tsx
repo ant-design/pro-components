@@ -147,10 +147,6 @@ describe('dragSort', () => {
       return dragAndDrop(dragHandle);
     });
 
-    // await waitFor(() => {
-    //   expect(onDragSortEndFn).toBeCalled();
-    // });
-
     expect(container.querySelector('.dragSortDefaultHandle')).toMatchSnapshot();
   });
 
@@ -199,8 +195,8 @@ describe('dragSort', () => {
     );
 
     expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
-    expect(callback).toBeCalled();
-    expect(callback).toBeCalledWith('kiner', 0);
+    expect(callback).toHaveBeenCalled();
+    expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
 
   it('🔥 [dragSort] custom render function', async () => {
@@ -264,7 +260,7 @@ describe('dragSort', () => {
 
     expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
     expect(container.querySelector('.customRender')).toMatchSnapshot();
-    expect(callback).toBeCalled();
-    expect(callback).toBeCalledWith('kiner', 0);
+    expect(callback).toHaveBeenCalled();
+    expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
 });

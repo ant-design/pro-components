@@ -1,5 +1,146 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Field > 🐴 FieldStatus status  default 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-default"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status  error 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-error"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status  processing 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-processing"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status  success 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-success"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status  warning 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-warning"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Default 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-default"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Error 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-error"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Processing 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-processing"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Success 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-success"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldStatus status Warning 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot ant-badge-status-warning"
+    />
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 FieldTimePicker text support is null 1`] = `
+<DocumentFragment>
+  <span>
+    -
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Field > 🐴 ProFieldBadgeColor status 1`] = `
+<DocumentFragment>
+  <span
+    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  >
+    <span
+      class="ant-badge-status-dot"
+      style="color: rgb(24, 144, 255); background: rgb(24, 144, 255);"
+    />
+  </span>
+</DocumentFragment>
+`;
+
 exports[`Field > 🐴 base use 1`] = `
 <DocumentFragment>
   <div

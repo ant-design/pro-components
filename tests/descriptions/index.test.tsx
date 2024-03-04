@@ -63,7 +63,7 @@ describe('descriptions', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
   });
 
@@ -190,7 +190,7 @@ describe('descriptions', () => {
 
     await html.findAllByText('这是一段文本');
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
     act(() => {
       html.queryByText('刷新')?.click();
@@ -204,7 +204,7 @@ describe('descriptions', () => {
 
     await waitFor(() => {
       // 因为有 loading 的控制，所有只会触发两次
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
 
     vi.useRealTimers();
@@ -246,7 +246,7 @@ describe('descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -289,7 +289,7 @@ describe('descriptions', () => {
     await html.findAllByText('这是一段文本');
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
 
     vi.useRealTimers();
@@ -322,7 +322,7 @@ describe('descriptions', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
   });
 

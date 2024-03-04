@@ -80,7 +80,7 @@ describe('BasicTable Search', () => {
         ?.click();
     });
     await waitForWaitTime(200);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('✔️ selected rows support row is function', async () => {
@@ -140,7 +140,7 @@ describe('BasicTable Search', () => {
     render(<DemoTable />);
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('张三,李四');
+      expect(fn).toHaveBeenCalledWith('张三,李四');
     });
   });
 });

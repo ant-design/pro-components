@@ -138,17 +138,19 @@ describe('StepsForm', () => {
 
     await waitForWaitTime(100);
 
-    expect(fn).toBeCalled();
-    expect(currentFn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
+    expect(currentFn).toHaveBeenCalled();
 
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
     await waitForWaitTime(100);
 
-    expect(onFinish).toBeCalled();
-    expect(fn).toBeCalled();
-    expect(currentFn).toBeCalled();
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalled();
+    });
+    expect(fn).toHaveBeenCalled();
+    expect(currentFn).toHaveBeenCalled();
 
     await waitForWaitTime(100);
     html.unmount();
@@ -183,10 +185,10 @@ describe('StepsForm', () => {
       screen.findAllByText('邮箱');
     });
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
     await waitFor(() => {
-      expect(currentFn).toBeCalled();
+      expect(currentFn).toHaveBeenCalled();
     });
     unmount();
   });
@@ -217,8 +219,8 @@ describe('StepsForm', () => {
     userEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
-      expect(currentFn).toBeCalledWith(0);
+      expect(fn).toHaveBeenCalled();
+      expect(currentFn).toHaveBeenCalledWith(0);
     });
     unmount();
   });
@@ -247,7 +249,7 @@ describe('StepsForm', () => {
     await userEvent.click(await screen.findByText('提 交'));
 
     await waitFor(() => {
-      expect(currentFn).not.toBeCalledWith(0);
+      expect(currentFn).not.toHaveBeenCalledWith(0);
     });
     unmount();
   });
@@ -302,7 +304,7 @@ describe('StepsForm', () => {
 
     fireEvent.click(await screen.getByText('rest'));
 
-    expect(fn).toBeCalledWith(0);
+    expect(fn).toHaveBeenCalledWith(0);
     unmount();
   });
 
@@ -339,8 +341,9 @@ describe('StepsForm', () => {
 
     /** 因为上一步有限制，所以应该不触发 */
     fireEvent.click(await screen.getByTestId('rest'));
-
-    expect(fn).toBeCalledTimes(0);
+    await waitFor(() => {
+      expect(fn).not.toHaveBeenCalled();
+    });
     unmount();
   });
 
@@ -377,8 +380,9 @@ describe('StepsForm', () => {
 
     /** 因为上一步有限制，所以应该不触发 */
     fireEvent.click(await screen.getByTestId('rest'));
-
-    expect(fn).toBeCalledTimes(0);
+    await waitFor(() => {
+      expect(fn).not.toHaveBeenCalled();
+    });
     unmount();
   });
 
@@ -507,7 +511,7 @@ describe('StepsForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(submit).toBeCalledWith({
+    expect(submit).toHaveBeenCalledWith({
       info: {
         name: 'chenshuai',
         age: '22',

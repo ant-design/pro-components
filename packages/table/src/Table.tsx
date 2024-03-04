@@ -1,8 +1,3 @@
-// 兼容代码-----------
-import 'antd/lib/table/style';
-import 'antd/lib/typography/style';
-//----------------------
-
 import ProCard from '@ant-design/pro-card';
 import ProForm, { GridContext } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';

@@ -3,7 +3,7 @@
   proFieldParsingText,
   useStyle,
 } from '@ant-design/pro-utils';
-import { Checkbox, ConfigProvider, Form, Spin } from 'antd';
+import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
@@ -15,10 +15,6 @@ export type GroupProps = {
   options?: CheckboxGroupProps['options'];
 } & FieldSelectProps;
 
-// 兼容代码-----------
-import { useToken } from '@ant-design/pro-provider';
-import 'antd/lib/checkbox/style';
-//----------------------
 /**
  * 多选组件
  *
@@ -68,7 +64,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     };
   });
 
-  const { token } = useToken?.();
+  const { token } = theme.useToken?.();
   const checkBoxRef = useRef();
   useImperativeHandle(
     ref,

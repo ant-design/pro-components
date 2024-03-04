@@ -254,7 +254,7 @@ describe('ProForm', () => {
     });
     const dom = await (await wrapper.findByText('提 交')).parentElement;
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     wrapper.unmount();
     vi.useRealTimers();
   });
@@ -284,7 +284,7 @@ describe('ProForm', () => {
       dom = await (await wrapper.findByText('提 交')).parentElement;
     });
     expect(dom?.className.includes('ant-btn-loading')).toBe(true);
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
 
     act(() => {
       vi.runOnlyPendingTimers();
@@ -451,7 +451,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       name: {
         test: 'test',
       },
@@ -479,7 +479,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     wrapper.unmount();
   });
 
@@ -551,7 +551,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     wrapper.unmount();
   });
 
@@ -580,7 +580,7 @@ describe('ProForm', () => {
         .querySelectorAll<HTMLElement>('button.test_button')[0]
         .click();
     });
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     wrapper.unmount();
   });
 
@@ -612,7 +612,10 @@ describe('ProForm', () => {
       (await wrapper.findByText('提交并发布')).click();
     });
 
-    expect(onFinish).toBeCalled();
+    await waitFor(() => {
+      expect(onFinish).toHaveBeenCalled();
+    });
+
     wrapper.unmount();
   });
 
@@ -702,7 +705,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(onFinish).toBeCalledWith('test');
+    expect(onFinish).toHaveBeenCalledWith('test');
     wrapper.unmount();
   });
 
@@ -814,7 +817,7 @@ describe('ProForm', () => {
       (await wrapper.findByText('获取验证码'))?.click();
     });
 
-    expect(fn).not.toBeCalled();
+    expect(fn).not.toHaveBeenCalled();
 
     act(() => {
       fireEvent.change(
@@ -831,7 +834,7 @@ describe('ProForm', () => {
       captcha.click();
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     wrapper.unmount();
   });
 
@@ -934,7 +937,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toBeCalledWith(true);
+    expect(fn).toHaveBeenCalledWith(true);
 
     act(() => {
       wrapper.baseElement
@@ -942,7 +945,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
     wrapper.unmount();
   });
 
@@ -968,7 +971,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
 
     act(() => {
       wrapper.baseElement
@@ -976,7 +979,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(fn).toBeCalledWith(true);
+    expect(fn).toHaveBeenCalledWith(true);
     wrapper.unmount();
   });
 
@@ -1000,7 +1003,7 @@ describe('ProForm', () => {
       wrapper.baseElement.querySelectorAll<HTMLElement>('#click')[0].click();
     });
 
-    expect(fn).not.toBeCalled();
+    expect(fn).not.toHaveBeenCalled();
     wrapper.unmount();
   });
 
@@ -1048,7 +1051,7 @@ describe('ProForm', () => {
         },
       );
     });
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     wrapper.unmount();
   });
 
@@ -1080,7 +1083,7 @@ describe('ProForm', () => {
         },
       );
     });
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     wrapper.unmount();
   });
 
@@ -1158,7 +1161,7 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onSearch).toBeCalledWith('全');
+    expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
       fireEvent.mouseDown(
@@ -1218,7 +1221,7 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onSearch).toBeCalledWith('全');
+    expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
       fireEvent.mouseDown(
@@ -1284,7 +1287,7 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onSearch).toBeCalledWith('全');
+    expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
       fireEvent.mouseDown(
@@ -1304,7 +1307,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(onValuesChange).toBeCalledWith('全部');
+    expect(onValuesChange).toHaveBeenCalledWith('全部');
     wrapper.unmount();
   });
 
@@ -1353,7 +1356,7 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onSearch).toBeCalledWith('全');
+    expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
       fireEvent.mouseDown(
@@ -1440,7 +1443,7 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onSearch).toBeCalledWith('全');
+    expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
       fireEvent.mouseDown(
@@ -1542,7 +1545,7 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onSearch).toBeCalledWith('全');
+    expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
       fireEvent.mouseDown(
@@ -1628,7 +1631,7 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onSearch).toBeCalledWith('全');
+    expect(onSearch).toHaveBeenCalledWith('全');
 
     act(() => {
       fireEvent.mouseDown(
@@ -1844,7 +1847,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(onFinish).toBeCalledWith(2);
+    expect(onFinish).toHaveBeenCalledWith(2);
     wrapper.unmount();
   });
 
@@ -1926,7 +1929,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(onValuesChange).toBeCalledWith('门店小程序');
+    expect(onValuesChange).toHaveBeenCalledWith('门店小程序');
 
     act(() => {
       fireEvent.mouseDown(
@@ -2039,7 +2042,7 @@ describe('ProForm', () => {
         .click();
     });
 
-    expect(onValuesChange).toBeCalledWith('门店小程序');
+    expect(onValuesChange).toHaveBeenCalledWith('门店小程序');
 
     wrapper.unmount();
   });
@@ -2188,7 +2191,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(onFinish).toBeCalledWith(2);
+    expect(onFinish).toHaveBeenCalledWith(2);
     wrapper.unmount();
   });
 
@@ -2254,7 +2257,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(onFinish).toBeCalledWith('open');
+    expect(onFinish).toHaveBeenCalledWith('open');
   });
 
   it('📦 ProFormSelect support filterOption', async () => {
@@ -2437,7 +2440,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(onFinish).toBeCalledWith('open');
+    expect(onFinish).toHaveBeenCalledWith('open');
   });
   it('📦 Select support multiple unnamed async options', async () => {
     const wrapper = render(
@@ -2635,7 +2638,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(onFinish).toBeCalledWith(2);
+    expect(onFinish).toHaveBeenCalledWith(2);
   });
 
   it('📦 Select support multiple and autoClearSearchValue: true', async () => {
@@ -2784,7 +2787,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(onFinish).toBeCalledWith(1);
+    expect(onFinish).toHaveBeenCalledWith(1);
   });
 
   it('📦 ColorPicker support rgba new', async () => {
@@ -2811,51 +2814,9 @@ describe('ProForm', () => {
         .querySelectorAll<HTMLElement>('.ant-color-picker-presets-color')[0]
         .click();
     });
-    expect(onFinish).toBeCalledWith('#f5222d');
+    expect(onFinish).toHaveBeenCalledWith('#f5222d');
   });
-  it('📦 ColorPicker support rgba old', async () => {
-    const onFinish = vi.fn();
-    const wrapper = render(
-      <ProForm
-        onValuesChange={async (values) => {
-          onFinish(values?.color);
-        }}
-      >
-        <ProFormColorPicker name="color" old label="颜色选择" />
-      </ProForm>,
-    );
 
-    act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.ant-pro-field-color-picker')[0]
-        .click();
-    });
-
-    // 选中第一个
-    act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('.flexbox-fix')[2]
-        .querySelectorAll<HTMLDivElement>('div span div')[2]
-        .click();
-    });
-
-    expect(onFinish).toBeCalledWith('#5b8ff9');
-
-    act(() => {
-      fireEvent.change(
-        wrapper.baseElement.querySelectorAll<HTMLElement>(
-          '#rc-editable-input-5',
-        )[0],
-        {
-          target: {
-            value: 2,
-          },
-        },
-      );
-    });
-
-    expect(onFinish).toBeCalledWith('rgba(91, 143, 249, 0.02)');
-  });
   it('📦 validateFieldsReturnFormatValue', async () => {
     const fn1 = vi.fn();
     const fn2 = vi.fn();
@@ -2948,7 +2909,7 @@ describe('ProForm', () => {
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
     });
-    expect(onFinish).toBeCalledWith([1, 2]);
+    expect(onFinish).toHaveBeenCalledWith([1, 2]);
 
     // 测试清空两个值
     act(() => {
@@ -2985,7 +2946,7 @@ describe('ProForm', () => {
       await (await wrapper.findByText('提 交')).click();
     });
 
-    expect(onFinish).toBeCalledWith(undefined);
+    expect(onFinish).toHaveBeenCalledWith(undefined);
   });
 
   it('📦 when dateFormatter is a Function', async () => {
@@ -3016,7 +2977,7 @@ describe('ProForm', () => {
 
     const wrapper = render(<App />);
 
-    expect(fn1).toBeCalledWith('2021/08/09 12:12:12', 'dateTime');
+    expect(fn1).toHaveBeenCalledWith('2021/08/09 12:12:12', 'dateTime');
 
     await act(async () => {
       await (await wrapper.findByText('提 交')).click();
@@ -3138,7 +3099,7 @@ describe('ProForm', () => {
       );
     });
 
-    expect(onChange).toBeCalledWith(undefined);
+    expect(onChange).toHaveBeenCalledWith(undefined);
     wrapper.unmount();
   });
 
@@ -3181,7 +3142,7 @@ describe('ProForm', () => {
       await (await html.findByText('提 交')).click();
     });
 
-    expect(fn).toBeCalledWith(22);
+    expect(fn).toHaveBeenCalledWith(22);
     expect(html.asFragment()).toMatchSnapshot();
   });
 
@@ -3214,7 +3175,7 @@ describe('ProForm', () => {
     await waitForWaitTime(300);
 
     expect(dom.value).toBe('22');
-    expect(fn).toBeCalledWith(22);
+    expect(fn).toHaveBeenCalledWith(22);
     expect(html.asFragment()).toMatchSnapshot();
   });
 

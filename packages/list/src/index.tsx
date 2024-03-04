@@ -15,9 +15,6 @@ import type { ItemProps } from './Item';
 import ListView from './ListView';
 import { useStyle } from './style/index';
 
-// 兼容性代码
-import 'antd/lib/list/style';
-
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
 export type ProListMeta<T> = Pick<

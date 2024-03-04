@@ -1,5 +1,5 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { FieldLabel, compatibleBorder, useStyle } from '@ant-design/pro-utils';
+import { FieldLabel, useStyle } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
 
@@ -35,7 +35,7 @@ const getValueOrLabel = (
   return valueMap[v?.value] || v.label;
 };
 
-const LightSelect: React.ForwardRefRenderFunction<
+export const LightSelect: React.ForwardRefRenderFunction<
   any,
   SelectProps<any> & LightSelectProps
 > = (props, ref) => {
@@ -52,7 +52,6 @@ const LightSelect: React.ForwardRefRenderFunction<
     disabled,
     style,
     className,
-    bordered,
     options,
     onSearch,
     allowClear,
@@ -170,7 +169,6 @@ const LightSelect: React.ForwardRefRenderFunction<
             setOpen(false);
           }
         }}
-        {...compatibleBorder(bordered)}
         showSearch={showSearch}
         onSearch={onSearch}
         style={style}
@@ -238,10 +236,11 @@ const LightSelect: React.ForwardRefRenderFunction<
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        bordered={bordered}
+        bordered={restProps.variant !== 'borderless'}
         allowClear={!!allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {
+          console.log('onClear');
           onChange?.(undefined, undefined as any);
         }}
         ref={lightLabel}

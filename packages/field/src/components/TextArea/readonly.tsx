@@ -4,10 +4,6 @@ import classNames from 'classnames';
 import React, { useContext } from 'react';
 import type { ProFieldFC } from '../../index';
 
-// 兼容代码-----------
-import 'antd/lib/input/style';
-//------------
-
 /**
  * Input.TextArea 只读模式时渲染的组件
  *

@@ -17327,7 +17327,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               </span>
                             </div>
                             <span
-                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
+                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered"
                             >
                               <span
                                 style="display: inline-flex; align-items: center;"
@@ -17618,7 +17618,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               </span>
                             </div>
                             <span
-                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
+                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                             >
                               <span
                                 style="display: inline-flex; align-items: center;"
@@ -19162,7 +19162,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </div>
                           <span
-                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
+                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                           >
                             <span
                               style="display: inline-flex; align-items: center;"
@@ -20098,7 +20098,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               </span>
                             </div>
                             <span
-                              class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered"
                             >
                               性别
                               <span
@@ -20227,7 +20227,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               </span>
                             </div>
                             <span
-                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                             >
                               地区
                               <span
@@ -21010,7 +21010,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               </span>
                             </div>
                             <span
-                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
+                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered"
                             >
                               <span
                                 style="display: inline-flex; align-items: center;"
@@ -21153,7 +21153,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                               </span>
                             </div>
                             <span
-                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                              class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                             >
                               地区
                               <span

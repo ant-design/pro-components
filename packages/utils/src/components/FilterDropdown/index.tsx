@@ -3,10 +3,8 @@ import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
 
-import 'antd/lib/dropdown/style';
 import type { TooltipPlacement } from 'antd/lib/tooltip';
 import classNames from 'classnames';
-import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
 import { useStyle } from './style';
 
 export type FooterRender =
@@ -22,14 +20,7 @@ export type DropdownProps = {
   footerRender?: FooterRender;
   padding?: number;
   disabled?: boolean;
-  /**
-   * @deprecated use onOpenChange replace
-   */
-  onVisibleChange?: (visible: boolean) => void;
-  /**
-   * @deprecated use open replace
-   */
-  visible?: boolean;
+
   onOpenChange?: (visible: boolean) => void;
   open?: boolean;
   placement?: TooltipPlacement;
@@ -43,8 +34,6 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     open,
     onOpenChange,
     disabled,
-    onVisibleChange,
-    visible,
     footerRender,
     placement,
   } = props;
@@ -52,16 +41,13 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
-  const dropdownOpenProps = openVisibleCompatible(
-    open || visible || false,
-    onOpenChange || onVisibleChange,
-  );
   const htmlRef = useRef<HTMLDivElement>(null);
   return wrapSSR(
     <Popover
       placement={placement}
       trigger={['click']}
-      {...dropdownOpenProps}
+      open={open || false}
+      onOpenChange={onOpenChange}
       overlayInnerStyle={{
         padding: 0,
       }}

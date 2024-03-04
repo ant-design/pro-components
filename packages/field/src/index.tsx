@@ -41,7 +41,7 @@ import FieldSelect, {
   proFieldParsingValueEnumToArray,
 } from './components/Select';
 import FieldSlider from './components/Slider';
-import FieldStatus from './components/Status';
+import FieldStatus, { ProFieldBadgeColor } from './components/Status';
 import FieldSwitch from './components/Switch';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
@@ -583,8 +583,10 @@ export {
   FieldStatus,
   FieldText,
   FieldTimePicker,
+  ProFieldBadgeColor,
   proFieldParsingValueEnumToArray,
 };
+
 export type { FieldMoneyProps, ProFieldValueType };
 
 /** ProField 的类型 */

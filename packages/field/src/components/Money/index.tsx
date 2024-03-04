@@ -6,13 +6,6 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useCallback, useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
-// 兼容代码-----------
-import 'antd/lib/input-number/style';
-import 'antd/lib/popover/style';
-//----------------------
-
-import { openVisibleCompatible } from '@ant-design/pro-utils';
-
 export type FieldMoneyProps = {
   text: number;
   moneySymbol?: boolean;
@@ -252,12 +245,10 @@ const InputNumberPopover = React.forwardRef<
       value,
     });
 
-    const props = openVisibleCompatible(dom ? open : false);
-
     return (
       <Popover
         placement="topLeft"
-        {...props}
+        open={dom ? open : false}
         trigger={['focus', 'click']}
         content={dom}
         getPopupContainer={(triggerNode) => {

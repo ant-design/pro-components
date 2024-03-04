@@ -76,8 +76,8 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
-      expect(paramsFn).toBeCalledWith(1, 20);
+      expect(fn).toHaveBeenCalledTimes(1);
+      expect(paramsFn).toHaveBeenCalledWith(1, 20);
     });
   });
 
@@ -111,7 +111,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     const dom = await (await html.findAllByText('重 置')).at(0);
@@ -121,8 +121,8 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-      expect(resetFn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(2);
+      expect(resetFn).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -168,8 +168,8 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-      expect(resetFn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(2);
+      expect(resetFn).toHaveBeenCalledTimes(1);
     });
     vi.useRealTimers();
   });
@@ -217,7 +217,7 @@ describe('BasicTable Search', () => {
     await html.findAllByText('暂无数据');
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
@@ -266,7 +266,9 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('姓名');
 
-    expect(fn).toBeCalledTimes(0);
+    await waitFor(() => {
+      expect(fn).not.toHaveBeenCalled();
+    });
 
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
 
@@ -306,7 +308,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(0);
+      expect(requestFn).not.toHaveBeenCalled();
     });
 
     act(() => {
@@ -319,7 +321,7 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('¥12,000.00');
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(1);
+      expect(requestFn).toHaveBeenCalledTimes(1);
     });
 
     vi.useRealTimers();
@@ -416,7 +418,7 @@ describe('BasicTable Search', () => {
       expect(formValues.status).toBe('state');
       expect(formValues.startTime).toBe('2020-09-11');
       expect(formValues.endTime).toBe('2020-09-22');
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     html.unmount();
@@ -471,8 +473,8 @@ describe('BasicTable Search', () => {
       );
     });
     await waitFor(() => {
-      expect(onChangeFn).toBeCalledWith('12');
-      expect(fn).toBeCalledWith('12');
+      expect(onChangeFn).toHaveBeenCalledWith('12');
+      expect(fn).toHaveBeenCalledWith('12');
     });
 
     html.unmount();
@@ -726,7 +728,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn2).toBeCalledWith('2020-09-11 00:00:00');
+      expect(fn2).toHaveBeenCalledWith('2020-09-11 00:00:00');
     });
   });
 
@@ -777,7 +779,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(onSubmitFn).toBeCalledWith('2020-09-11');
+      expect(onSubmitFn).toHaveBeenCalledWith('2020-09-11');
     });
 
     expect(formRef.current?.getFieldFormatValue?.().since).toBe('2020-09-11');

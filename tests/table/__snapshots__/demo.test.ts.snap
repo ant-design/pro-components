@@ -29546,7 +29546,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/lightfilter.tsx c
                                             </span>
                                           </div>
                                           <span
-                                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                                           >
                                             创建者
                                             <span

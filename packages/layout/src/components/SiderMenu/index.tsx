@@ -1,5 +1,4 @@
 import { ProProvider } from '@ant-design/pro-provider';
-import { openVisibleCompatible } from '@ant-design/pro-utils';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
@@ -45,16 +44,15 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     return null;
   }
 
-  const drawerOpenProps = openVisibleCompatible(!collapsed, () =>
-    onCollapse?.(true),
-  );
-
   return wrapSSR(
     isMobile ? (
       <Drawer
         placement={direction === 'rtl' ? 'right' : 'left'}
         className={classNames(`${prefixCls}-drawer-sider`, className)}
-        {...drawerOpenProps}
+        open={!collapsed}
+        afterOpenChange={() => {
+          onCollapse?.(true);
+        }}
         style={{
           padding: 0,
           height: '100vh',

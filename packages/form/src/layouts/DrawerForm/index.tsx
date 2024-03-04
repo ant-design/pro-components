@@ -1,8 +1,4 @@
-﻿import {
-  omitUndefined,
-  openVisibleCompatible,
-  useRefFunction,
-} from '@ant-design/pro-utils';
+﻿import { omitUndefined, useRefFunction } from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
@@ -274,8 +270,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     return result;
   });
 
-  const drawerOpenProps = openVisibleCompatible(open, onVisibleChange);
-
   const cbHandleMouseMove = useCallback(
     (e: MouseEvent) => {
       const offsetRight: number | string = ((document.body.offsetWidth ||
@@ -309,10 +303,11 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
         title={title}
         width={drawerWidth}
         {...drawerProps}
-        {...drawerOpenProps}
+        open={open}
         afterOpenChange={(e) => {
           if (!e) resetFields();
           drawerProps?.afterOpenChange?.(e);
+          onVisibleChange?.(e);
         }}
         onClose={(e) => {
           // 提交表单loading时，阻止弹框关闭

@@ -121,7 +121,7 @@ describe('ProTable test', () => {
       />,
     );
     await waitForWaitTime(1200);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
     act(() => {
       html.rerender(
         <ProTable

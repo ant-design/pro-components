@@ -54,7 +54,7 @@
   },
   "peerDependencies": {
     "@types/lodash.merge": "^4.6.7",
-    "antd": "^4.24.15 || ^5.11.2",
+    "antd": "^5.11.2",
     "rc-field-form": "^1.22.0",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"

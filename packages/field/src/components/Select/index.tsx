@@ -31,10 +31,6 @@ import type { ProFieldFC, ProFieldLightProps } from '../../index';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
 
-// 兼容代码-----------
-import 'antd/lib/select/style';
-//------------
-
 type SelectOptionType = Partial<RequestOptionsType>[];
 
 export type FieldSelectProps<FieldProps = any> = {

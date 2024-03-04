@@ -33,7 +33,7 @@ describe('CheckCard', () => {
      */
     await waitFor(() => {
       // 断言 onChange 回调函数已被调用，并且传入参数为 true。
-      expect(onChange).toBeCalledWith(true);
+      expect(onChange).toHaveBeenCalledWith(true);
       // 断言 onClick 回调函数已被调用。
       expect(onClick).toHaveBeenCalled();
     });

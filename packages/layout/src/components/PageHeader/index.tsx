@@ -2,7 +2,6 @@ import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
-import 'antd/lib/breadcrumb/style';
 import type { DirectionType } from 'antd/lib/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
@@ -186,15 +185,6 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const getDefaultBreadcrumbDom = () => {
-    if (
-      breadcrumb &&
-      !(breadcrumb as BreadcrumbProps)?.items &&
-      (breadcrumb as unknown as BreadcrumbProps)?.routes
-    ) {
-      // @ts-ignore
-      breadcrumb.items = breadcrumb.routes;
-    }
-
     if ((breadcrumb as BreadcrumbProps)?.items) {
       return renderBreadcrumb(breadcrumb as BreadcrumbProps, prefixCls);
     }

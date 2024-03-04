@@ -4,24 +4,9 @@ import {
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import {
-  compareVersions,
-  isBrowser,
-  merge,
-  openVisibleCompatible,
-} from '@ant-design/pro-utils';
+import { isBrowser, merge } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
-import {
-  Alert,
-  ConfigProvider as AntConfigProvider,
-  Button,
-  Divider,
-  Drawer,
-  List,
-  Switch,
-  message,
-  version,
-} from 'antd';
+import { Alert, Button, Divider, Drawer, List, Switch, message } from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useEffect, useRef, useState } from 'react';
@@ -270,15 +255,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    if (compareVersions(version, '5.0.0') < 0) {
-      AntConfigProvider.config({
-        theme: {
-          primaryColor: settingState.colorPrimary,
-        },
-      });
-    }
-  }, [settingState.colorPrimary, settingState.navTheme]);
   /**
    * 修改设置
    *
@@ -348,8 +324,6 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const baseClassName = `${prefixCls}-setting-drawer`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
-  const drawerOpenProps = openVisibleCompatible(open);
-
   return wrapSSR(
     <>
       <div
@@ -377,7 +351,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         )}
       </div>
       <Drawer
-        {...drawerOpenProps}
+        open={open}
         width={300}
         onClose={() => setOpen(false)}
         closable={false}

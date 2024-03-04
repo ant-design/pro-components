@@ -20,7 +20,7 @@ const _SafetyWarningProvider: FC<{ children: ReactNode }> = React.memo(
   (props) => {
     if (process.env.NODE_ENV !== 'production') {
       console.warn(
-        `[pro-layout] SiderMenu required antd@^4.24.15 || antd@^5.11.2 for access the menu context, please upgrade your antd version (current ${version}).`,
+        `[pro-layout] SiderMenu required antd@^5.11.2 for access the menu context, please upgrade your antd version (current ${version}).`,
       );
     }
 

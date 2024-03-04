@@ -20,10 +20,6 @@ import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 
-// 兼容代码-----------
-import 'antd/lib/cascader/style';
-//----------------------
-
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';

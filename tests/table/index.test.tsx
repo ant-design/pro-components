@@ -95,7 +95,7 @@ describe('BasicTable', () => {
 
     await waitFor(
       () => {
-        expect(pageSizeOnchange).toBeCalledWith(10);
+        expect(pageSizeOnchange).toHaveBeenCalledWith(10);
       },
       {
         timeout: 1000,
@@ -215,7 +215,7 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     await waitFor(() => {
-      expect(requestFfn).toBeCalledTimes(1);
+      expect(requestFfn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -226,7 +226,7 @@ describe('BasicTable', () => {
     addEventListenerSpy.mockRestore();
 
     await waitFor(() => {
-      expect(requestFfn).toBeCalledTimes(2);
+      expect(requestFfn).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -288,7 +288,7 @@ describe('BasicTable', () => {
 
     await html.findByText('序号');
     await waitFor(() => {
-      expect(loadingChangerFn).toBeCalledWith(true, false);
+      expect(loadingChangerFn).toHaveBeenCalledWith(true, false);
     });
 
     act(() => {
@@ -298,7 +298,7 @@ describe('BasicTable', () => {
       return html.findByText('序号');
     });
     await waitFor(() => {
-      expect(loadingChangerFn).toBeCalledWith(false, true);
+      expect(loadingChangerFn).toHaveBeenCalledWith(false, true);
     });
 
     vi.useRealTimers();
@@ -661,7 +661,7 @@ describe('BasicTable', () => {
     );
     await html.findByText('查 询');
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
   });
 
@@ -702,7 +702,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
 
     vi.useFakeTimers();
@@ -765,7 +765,7 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -782,7 +782,7 @@ describe('BasicTable', () => {
 
     await waitFor(() => {
       // 因为有 loading 的控制，所有只会触发两次
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
 
     act(() => {
@@ -792,7 +792,7 @@ describe('BasicTable', () => {
       vi.runOnlyPendingTimers();
     });
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(3);
+      expect(fn).toHaveBeenCalledTimes(3);
     });
 
     vi.useRealTimers();
@@ -820,7 +820,7 @@ describe('BasicTable', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
   });
 
@@ -858,10 +858,10 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
     await waitFor(() => {
-      expect(onChangeFn).toBeCalled();
+      expect(onChangeFn).toHaveBeenCalled();
     });
   });
 
@@ -900,7 +900,7 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -912,7 +912,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -1003,7 +1003,7 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -1015,7 +1015,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -1064,7 +1064,7 @@ describe('BasicTable', () => {
         ?.click();
     });
 
-    expect(fn).toBeCalledWith('large');
+    expect(fn).toHaveBeenCalledWith('large');
   });
 
   it('🎏 request load array', async () => {
@@ -1101,7 +1101,7 @@ describe('BasicTable', () => {
       vi.runOnlyPendingTimers();
     });
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -1117,7 +1117,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
     vi.useRealTimers();
   });
@@ -1147,7 +1147,7 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     await waitFor(() => {
-      expect(postFn).toBeCalled();
+      expect(postFn).toHaveBeenCalled();
     });
   });
 
@@ -1185,7 +1185,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -1225,7 +1225,7 @@ describe('BasicTable', () => {
     await html.findByText('查 询');
 
     await waitFor(() => {
-      expect(fn).not.toBeCalled();
+      expect(fn).not.toHaveBeenCalled();
     });
   });
 
@@ -1320,7 +1320,7 @@ describe('BasicTable', () => {
       expect(!!document.fullscreenElement).toBeFalsy();
     });
     await waitFor(() => {
-      expect(exitFullscreen).toBeCalled();
+      expect(exitFullscreen).toHaveBeenCalled();
     });
   });
 
@@ -1364,7 +1364,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('middle');
+      expect(fn).toHaveBeenCalledWith('middle');
     });
   });
 
@@ -1475,7 +1475,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('name');
+      expect(fn).toHaveBeenCalledWith('name');
     });
   });
 
@@ -1528,7 +1528,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('name');
+      expect(fn).toHaveBeenCalledWith('name');
     });
   });
 
@@ -1583,7 +1583,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('');
+      expect(fn).toHaveBeenCalledWith('');
     });
 
     act(() => {
@@ -1611,7 +1611,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('name1');
+      expect(fn).toHaveBeenCalledWith('name1');
     });
   });
 
@@ -1703,7 +1703,7 @@ describe('BasicTable', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(0);
+      expect(fn).toHaveBeenCalled();
     });
 
     act(() => {
@@ -1715,7 +1715,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -1735,7 +1735,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
 
     await html.findByText('暂无数据');

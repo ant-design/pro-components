@@ -11,10 +11,8 @@ import {
   isUrl,
   LabelIconTip,
   lighten,
-  menuOverlayCompatible,
   merge,
   nanoid,
-  openVisibleCompatible,
   parseValueToDay,
   pickProProps,
   setAlpha,
@@ -41,13 +39,6 @@ afterEach(() => {
 });
 
 describe('utils', () => {
-  beforeEach(() => {
-    delete process.env.ANTD_VERSION;
-  });
-  afterEach(() => {
-    delete process.env.ANTD_VERSION;
-  });
-
   it('lighten', () => {
     const color = lighten('#000', 50);
     expect(color).toBe('#808080');
@@ -58,20 +49,6 @@ describe('utils', () => {
     expect(compareVersions('1.0.0', '2.0.0')).toBe(-1);
     expect(compareVersions('1.0.0', '1.0.0')).toBe(0);
     expect(compareVersions('1.0.0', '1.0.0-beta.6')).toBe(1);
-  });
-
-  it('openVisibleCompatible', () => {
-    expect(openVisibleCompatible(true).open).toBeTruthy();
-    expect(openVisibleCompatible(true).visible === undefined).toBeTruthy();
-    process.env.ANTD_VERSION = '4.20.0';
-    expect(openVisibleCompatible(true).visible).toBeTruthy();
-    expect(openVisibleCompatible(true).open === undefined).toBeTruthy();
-  });
-
-  it('menuOverlayCompatible', () => {
-    expect(menuOverlayCompatible({ items: [] }).menu).toBeTruthy();
-    process.env.ANTD_VERSION = '4.20.0';
-    expect(menuOverlayCompatible({ items: [] }).overlay).toBeTruthy();
   });
 
   it('setAlpha', () => {
@@ -210,14 +187,14 @@ describe('utils', () => {
 
     await html.findByText('test');
 
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
 
     // wait === undefined
     act(() => {
       html.baseElement.querySelector<HTMLDivElement>('#test')?.click();
     });
 
-    expect(fn).toBeCalledTimes(3);
+    expect(fn).toHaveBeenCalledTimes(3);
 
     act(() => {
       html.rerender(<App wait={80} />);
@@ -238,7 +215,7 @@ describe('utils', () => {
     await html.findByText('test');
 
     await act(() => {
-      expect(fn).toBeCalledTimes(4);
+      expect(fn).toHaveBeenCalledTimes(4);
     });
 
     act(() => {
@@ -250,7 +227,7 @@ describe('utils', () => {
     });
 
     await act(() => {
-      expect(fn).toBeCalledTimes(6);
+      expect(fn).toHaveBeenCalledTimes(6);
     });
 
     // wait === 100 but callback is cancelled
@@ -269,7 +246,7 @@ describe('utils', () => {
 
     html.unmount();
 
-    expect(fn).toBeCalledTimes(7);
+    expect(fn).toHaveBeenCalledTimes(7);
 
     vi.useRealTimers();
   });
@@ -300,7 +277,7 @@ describe('utils', () => {
     render(<App />);
 
     await waitFor(() => {
-      expect(catchFn).toBeCalledWith(error);
+      expect(catchFn).toHaveBeenCalledWith(error);
     });
 
     vi.useRealTimers();
@@ -1110,7 +1087,7 @@ describe('utils', () => {
 
     nanoid();
 
-    expect(cryptoSpy).toBeCalled();
+    expect(cryptoSpy).toHaveBeenCalled();
   });
 
   it('🪓 stringify', () => {

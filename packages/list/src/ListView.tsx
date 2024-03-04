@@ -7,7 +7,7 @@ import type {
   TablePaginationConfig,
   TableProps,
 } from 'antd';
-import { ConfigProvider, List, version } from 'antd';
+import { ConfigProvider, List } from 'antd';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import usePagination from 'antd/lib/table/hooks/usePagination';
 import useSelection from 'antd/lib/table/hooks/useSelection';
@@ -20,7 +20,6 @@ import ProListItem from './Item';
 import { PRO_LIST_KEYS_MAP } from './constants';
 import type { GetComponentProps } from './index';
 
-import { compareVersions } from '@ant-design/pro-utils';
 import type { AnyObject } from 'antd/es/_util/type';
 import type { PaginationConfig } from 'antd/lib/pagination';
 
@@ -105,8 +104,7 @@ function ListView<RecordType extends AnyObject>(
     onChange: (current: number, pageSize: number) => void,
     pagination?: TablePaginationConfig | false,
   ];
-  // 兼容 5.2.0 以下的版本
-  if (compareVersions(version, '5.3.0') < 0) usePaginationArgs.reverse();
+
   // 合并分页的的配置，这里是为了兼容 antd 的分页
   const [mergedPagination] = usePagination(
     dataSource.length,
@@ -148,8 +146,6 @@ function ListView<RecordType extends AnyObject>(
     // 这个 API 用的不好，先 any 一下
   ] as [any, TableRowSelection<RecordType>];
 
-  // 兼容 5.2.0 以下的版本
-  if (compareVersions(version, '5.3.0') < 0) useSelectionArgs.reverse();
   const [selectItemRender, selectedKeySet] = useSelection(...useSelectionArgs);
 
   // 提供和 Table 一样的 expand 支持
