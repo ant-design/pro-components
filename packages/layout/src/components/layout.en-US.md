@@ -364,6 +364,9 @@ Sider Token is the color value of the side menu, which is different from the top
 | colorTextMenu | font color of menuItem | `colorText` |
 | colorTextMenuSecondary | Secondary font color for menu, such as footer and action icons | `colorText` |
 | colorTextMenuSelected | selected font color of menuItem | `rgb(0,0,0)` |
+| colorTextMenuActive | active font color of menuItem | `rgba(0, 0, 0, 0.85)` |
+| colorTextMenuItemHover | hover font color of menuItem | `rgba(255,255,255,0.75)` |
+| colorBgMenuItemActive | background color of menuItem while clicking | `rgba(0, 0, 0, 0.15)` |
 | colorBgMenuItemHover | hover background color of menuItem | `rgba(90, 75, 75, 0.03)` |
 | colorBgMenuItemSelected | selected background color of menuItem | `rgba(0, 0, 0, 0.04)` |
 | colorBgMenuItemCollapsedElevated | The popup menu background color of the collapsed menuItem | `transparent` |
