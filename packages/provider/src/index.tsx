@@ -204,6 +204,7 @@ const ConfigProviderContainer: React.FC<{
   hashed?: boolean;
   dark?: boolean;
   prefixCls?: string;
+  intl?: IntlType;
 }> = (props) => {
   const {
     children,
@@ -212,6 +213,7 @@ const ConfigProviderContainer: React.FC<{
     autoClearCache = false,
     token: propsToken,
     prefixCls,
+    intl,
   } = props;
   const { locale, getPrefixCls, ...restConfig } = useContext(
     AntdConfigProvider.ConfigContext,
@@ -246,10 +248,11 @@ const ConfigProviderContainer: React.FC<{
     const localeName = locale?.locale;
     const key = findIntlKeyByAntdLocaleKey(localeName);
     // antd 的 key 存在的时候以 antd 的为主
-    const intl =
-      localeName && proProvide.intl?.locale === 'default'
+    const resolvedIntl =
+      intl ??
+      (localeName && proProvide.intl?.locale === 'default'
         ? intlMap[key! as 'zh-CN']
-        : proProvide.intl || intlMap[key! as 'zh-CN'];
+        : proProvide.intl || intlMap[key! as 'zh-CN']);
 
     return {
       ...proProvide,
@@ -260,7 +263,7 @@ const ConfigProviderContainer: React.FC<{
         themeId: tokenContext.theme.id,
         layout: proLayoutTokenMerge,
       }),
-      intl: intl || zhCNIntl,
+      intl: resolvedIntl || zhCNIntl,
     };
   }, [
     locale?.locale,
@@ -271,6 +274,7 @@ const ConfigProviderContainer: React.FC<{
     proComponentsCls,
     antCls,
     proLayoutTokenMerge,
+    intl,
   ]);
 
   const finalToken = {
@@ -383,6 +387,7 @@ export const ProConfigProvider: React.FC<{
   dark?: boolean;
   hashed?: boolean;
   prefixCls?: string;
+  intl?: IntlType;
 }> = (props) => {
   const { needDeps, dark, token } = props;
   const proProvide = useContext(ProConfigContext);
