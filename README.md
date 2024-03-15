@@ -198,7 +198,6 @@ Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdi
 [pr-welcome-link]: https://github.com/ant-design/pro-components/pulls
 [pr-welcome-shield]: https://img.shields.io/badge/%E2%9D%A4%EF%B8%8F%20PR%20WELCOME-%E2%86%92-1677FF?labelColor=black&style=for-the-badge
 
-
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=ant-design/pro-components&type=Date)](https://star-history.com/#ant-design/pro-components&Date)

@@ -1,3 +1,13 @@
+## @ant-design/pro-components@2.6.50
+
+`2024-03-15`
+
+- fix(components): remove deprecated tip props. [85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2)
+- fix(components): compatible 5.13.0 border. [ddf0c82](https://github.com/ant-design/pro-components/commit/ddf0c82)
+- fix(form): PasswordStrength support morse options. [3ab9f11](https://github.com/ant-design/pro-components/commit/3ab9f11)
+- fix(list): support add string line. [9ec366d](https://github.com/ant-design/pro-components/commit/9ec366d)
+- feat(table): add click event for icon element (#8167). [#8167](https://github.com/ant-design/pro-components/pull/#8167) [@Been101](https://github.com/Been101)
+
 ## @ant-design/pro-components@2.6.49
 
 `2024-01-31`

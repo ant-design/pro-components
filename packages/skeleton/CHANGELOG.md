@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.1.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.1.10...@ant-design/pro-skeleton@2.1.11) (2024-03-15)
 
-
 ### Bug Fixes
 
-* **components:** remove deprecated tip props ([85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2bad41a21254719ff7f1df5328e42fd0fb))
-
-
-
-
+- **components:** remove deprecated tip props ([85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2bad41a21254719ff7f1df5328e42fd0fb))
 
 ## [2.1.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.1.9...@ant-design/pro-skeleton@2.1.10) (2023-11-22)
 

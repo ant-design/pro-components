@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.13.5...@ant-design/pro-provider@2.14.0) (2024-03-15)
 
-
 ### Features
 
-* allow custom translations ([#8175](https://github.com/ant-design/pro-components/issues/8175)) ([7971294](https://github.com/ant-design/pro-components/commit/797129468d1813bafd44ecc1924ca1f9a3ca6950))
-
+- allow custom translations ([#8175](https://github.com/ant-design/pro-components/issues/8175)) ([7971294](https://github.com/ant-design/pro-components/commit/797129468d1813bafd44ecc1924ca1f9a3ca6950))
 
 ### Performance Improvements
 
-* 优化 config provider context 频繁触发渲染问题 ([#8196](https://github.com/ant-design/pro-components/issues/8196)) ([7644209](https://github.com/ant-design/pro-components/commit/764420929d21d333bf35bd60e4709237cec1ed52))
-
-
-
-
+- 优化 config provider context 频繁触发渲染问题 ([#8196](https://github.com/ant-design/pro-components/issues/8196)) ([7644209](https://github.com/ant-design/pro-components/commit/764420929d21d333bf35bd60e4709237cec1ed52))
 
 ## [2.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.13.4...@ant-design/pro-provider@2.13.5) (2023-11-22)
 

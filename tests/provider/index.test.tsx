@@ -1,4 +1,10 @@
-import { ProConfigProvider, ProForm, ProFormMoney, createIntl, useStyle } from '@ant-design/pro-components';
+import {
+  ProConfigProvider,
+  ProForm,
+  ProFormMoney,
+  createIntl,
+  useStyle,
+} from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 
@@ -36,19 +42,16 @@ describe('ProConfigProvider', () => {
       </ConfigProvider>,
     );
   });
-  
+
   it('custom translations should be respected', () => {
     const { container } = render(
-      <ConfigProvider
-      >
-        <ProConfigProvider intl={createIntl(
-          'en',
-          {
-            moneySymbol: '!?'
-          }
-        )}>
-          <ProForm
-          >
+      <ConfigProvider>
+        <ProConfigProvider
+          intl={createIntl('en', {
+            moneySymbol: '!?',
+          })}
+        >
+          <ProForm>
             <ProFormMoney name="amount" initialValue={44.33} />
           </ProForm>
         </ProConfigProvider>
