@@ -29,7 +29,12 @@ export type RenderExpandIconProps<RecordType> = {
 
 export function renderExpandIcon<RecordType>({
   prefixCls,
-  expandIcon = <RightOutlined />,
+  expandIcon = (
+    <RightOutlined
+      onPointerEnterCapture={undefined}
+      onPointerLeaveCapture={undefined}
+    />
+  ),
   onExpand,
   expanded,
   record,

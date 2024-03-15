@@ -9830,7 +9830,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           </svg>
                         </span>
                         <span>
-                          单击上传
+                          上传按钮的文本变啦
                         </span>
                       </button>
                     </span>
