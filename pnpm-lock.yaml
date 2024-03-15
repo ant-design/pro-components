@@ -20,8 +20,8 @@ importers:
         specifier: ^1.18.4
         version: 1.18.4(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/icons':
-        specifier: ^5.3.1
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.3.2
+        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@babel/core':
         specifier: ^7.24.0
         version: 7.24.0
@@ -92,7 +92,7 @@ importers:
         specifier: ^4.7.11
         version: 4.7.11
       '@types/lodash':
-        specifier: ^4.14.202
+        specifier: ^4.17.0
         version: 4.17.0
       '@types/lodash.merge':
         specifier: ^4.6.9
@@ -149,7 +149,7 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
       antd:
-        specifier: ^5.15.0
+        specifier: ^5.15.2
         version: 5.15.2(moment@2.30.1)(react-dom@18.2.0)(react@18.2.0)
       antd-style:
         specifier: ^3.6.1
@@ -180,7 +180,7 @@ importers:
         version: 2.2.17(@babel/core@7.24.0)(@types/node@14.18.63)(@types/react@18.2.66)(eslint@8.57.0)(prettier@2.8.8)(react-dom@18.2.0)(react@18.2.0)(stylelint@13.13.1)(typescript@5.4.2)
       dumi-theme-antd-style:
         specifier: 0.25.1
-        version: 0.25.1(@ant-design/icons@5.3.1)(@types/react@18.2.66)(antd@5.15.2)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0)
+        version: 0.25.1(@ant-design/icons@5.3.2)(@types/react@18.2.66)(antd@5.15.2)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0)
       esbuild:
         specifier: ^0.15.18
         version: 0.15.18
@@ -278,7 +278,7 @@ importers:
         specifier: ^6.14.1
         version: 6.14.1
       rc-field-form:
-        specifier: ^1.42.1
+        specifier: ^1.43.0
         version: 1.43.0(react-dom@18.2.0)(react@18.2.0)
       rc-footer:
         specifier: ^0.6.8
@@ -293,7 +293,7 @@ importers:
         specifier: ^7.42.0
         version: 7.42.0(react-dom@18.2.0)(react@18.2.0)
       rc-util:
-        specifier: ^5.38.2
+        specifier: ^5.39.1
         version: 5.39.1(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -344,7 +344,7 @@ importers:
         specifier: ^10.9.2
         version: 10.9.2(@types/node@14.18.63)(typescript@5.4.2)
       typescript:
-        specifier: ^5.3.3
+        specifier: ^5.4.2
         version: 5.4.2
       umi:
         specifier: ^4.1.2
@@ -378,7 +378,7 @@ importers:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.0.0
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
         specifier: 2.13.5
         version: link:../provider
@@ -473,7 +473,7 @@ importers:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.0.0
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
         specifier: 2.13.5
         version: link:../provider
@@ -522,7 +522,7 @@ importers:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.0.0
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-field':
         specifier: 2.14.6
         version: link:../field
@@ -571,7 +571,7 @@ importers:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.0.0
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
         specifier: 2.13.5
         version: link:../provider
@@ -620,7 +620,7 @@ importers:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.0.0
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
         specifier: 2.5.29
         version: link:../card
@@ -689,7 +689,7 @@ importers:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.0.0
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-card':
         specifier: 2.5.29
         version: link:../card
@@ -750,7 +750,7 @@ importers:
     dependencies:
       '@ant-design/icons':
         specifier: ^5.0.0
-        version: 5.3.1(react-dom@18.2.0)(react@18.2.0)
+        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-provider':
         specifier: 2.13.5
         version: link:../provider
@@ -827,8 +827,8 @@ packages:
   /@ant-design/icons-svg@4.4.2:
     resolution: {integrity: sha512-vHbT+zJEVzllwP+CM+ul7reTEfBR0vgxFe7+lREAsAA7YGsYpboiq2sQNeQeRvh09GfQgs/GyFEvZpJ9cLXpXA==}
 
-  /@ant-design/icons@5.3.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-85zROTJCCApQn0Ee6L9561+Vd7yVKtSWNm2TpmOsYMrumchbzaRK83x1WWHv2VG+Y1ZAaKkDwcnnSPS/eSwNHA==}
+  /@ant-design/icons@5.3.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-+07UzOrzMJGl62K1nMiS2IpJu7uRIlO05fHVZidhkiE10szJofKrBymAEYhDMsKaRKfpbgbGgpAnb3T4uFzwVw==}
     engines: {node: '>=8'}
     peerDependencies:
       react: '>=16.0.0'
@@ -7653,7 +7653,7 @@ packages:
     dependencies:
       '@ant-design/colors': 7.0.2
       '@ant-design/cssinjs': 1.18.4(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/icons': 5.3.1(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/react-slick': 1.0.2(react@18.2.0)
       '@babel/runtime': 7.24.0
       '@ctrl/tinycolor': 3.6.1
@@ -10743,7 +10743,7 @@ packages:
     resolution: {integrity: sha512-a/Y5lf0G6gwsEQ9hop/n03CcjmHsGBk384Cz/AEX6mRYrfSpUx/lQvP9HLoXkCzScl9PL1sSmLPnMkgaXDCZLA==}
     dev: true
 
-  /dumi-theme-antd-style@0.25.1(@ant-design/icons@5.3.1)(@types/react@18.2.66)(antd@5.15.2)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0):
+  /dumi-theme-antd-style@0.25.1(@ant-design/icons@5.3.2)(@types/react@18.2.66)(antd@5.15.2)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-L9QFflPNkwm8Fm13UapGlViRUutukEANOSkZme75rjzkfqroFNs7Yaur0dXanARkC0VYLfSfhAmh94xdd02vCw==}
     peerDependencies:
       '@ant-design/icons': '>=4'
@@ -10752,7 +10752,7 @@ packages:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@ant-design/icons': 5.3.1(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@babel/runtime': 7.24.0
       '@emotion/css': 11.11.2
       '@emotion/server': 11.11.0(@emotion/css@11.11.2)
