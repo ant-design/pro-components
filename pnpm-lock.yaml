@@ -20,8 +20,8 @@ importers:
         specifier: ^1.18.4
         version: 1.18.4(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/icons':
-        specifier: ^5.3.2
-        version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^5.3.3
+        version: 5.3.3(react-dom@18.2.0)(react@18.2.0)
       '@babel/core':
         specifier: ^7.24.0
         version: 7.24.0
@@ -104,10 +104,10 @@ importers:
         specifier: ^14.18.63
         version: 14.18.63
       '@types/react':
-        specifier: ^18.0.38
+        specifier: ^18.2.66
         version: 18.2.66
       '@types/react-dom':
-        specifier: ^18.0.11
+        specifier: ^18.2.22
         version: 18.2.22
       '@types/react-helmet':
         specifier: ^6.1.11
@@ -180,7 +180,7 @@ importers:
         version: 2.2.17(@babel/core@7.24.0)(@types/node@14.18.63)(@types/react@18.2.66)(eslint@8.57.0)(prettier@2.8.8)(react-dom@18.2.0)(react@18.2.0)(stylelint@13.13.1)(typescript@5.4.2)
       dumi-theme-antd-style:
         specifier: 0.25.1
-        version: 0.25.1(@ant-design/icons@5.3.2)(@types/react@18.2.66)(antd@5.15.2)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0)
+        version: 0.25.1(@ant-design/icons@5.3.3)(@types/react@18.2.66)(antd@5.15.2)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0)
       esbuild:
         specifier: ^0.15.18
         version: 0.15.18
@@ -841,6 +841,23 @@ packages:
       rc-util: 5.39.1(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /@ant-design/icons@5.3.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Zfci1s4f4+vfpVD6ksmmPuBv00SB/slpUAQlsBlMeRJdSleVVkgTUdlBM4j/vGzqYfMh2hF8/Poa1VSh542w0Q==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      react: '>=16.0.0'
+      react-dom: '>=16.0.0'
+    dependencies:
+      '@ant-design/colors': 7.0.2
+      '@ant-design/icons-svg': 4.4.2
+      '@babel/runtime': 7.24.0
+      classnames: 2.5.1
+      rc-util: 5.39.1(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: true
 
   /@ant-design/react-slick@1.0.2(react@18.2.0):
     resolution: {integrity: sha512-Wj8onxL/T8KQLFFiCA4t8eIRGpRR+UPgOdac2sYzonv+i0n3kXHmvHLLiOYL655DQx2Umii9Y9nNgL7ssu5haQ==}
@@ -7653,7 +7670,7 @@ packages:
     dependencies:
       '@ant-design/colors': 7.0.2
       '@ant-design/cssinjs': 1.18.4(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/icons': 5.3.2(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.3(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/react-slick': 1.0.2(react@18.2.0)
       '@babel/runtime': 7.24.0
       '@ctrl/tinycolor': 3.6.1
@@ -10743,7 +10760,7 @@ packages:
     resolution: {integrity: sha512-a/Y5lf0G6gwsEQ9hop/n03CcjmHsGBk384Cz/AEX6mRYrfSpUx/lQvP9HLoXkCzScl9PL1sSmLPnMkgaXDCZLA==}
     dev: true
 
-  /dumi-theme-antd-style@0.25.1(@ant-design/icons@5.3.2)(@types/react@18.2.66)(antd@5.15.2)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0):
+  /dumi-theme-antd-style@0.25.1(@ant-design/icons@5.3.3)(@types/react@18.2.66)(antd@5.15.2)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-L9QFflPNkwm8Fm13UapGlViRUutukEANOSkZme75rjzkfqroFNs7Yaur0dXanARkC0VYLfSfhAmh94xdd02vCw==}
     peerDependencies:
       '@ant-design/icons': '>=4'
@@ -10752,7 +10769,7 @@ packages:
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@ant-design/icons': 5.3.2(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/icons': 5.3.3(react-dom@18.2.0)(react@18.2.0)
       '@babel/runtime': 7.24.0
       '@emotion/css': 11.11.2
       '@emotion/server': 11.11.0(@emotion/css@11.11.2)

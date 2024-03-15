@@ -47,7 +47,7 @@
   "devDependencies": {
     "@ant-design/antd-theme-variable": "^1.0.0",
     "@ant-design/cssinjs": "^1.18.4",
-    "@ant-design/icons": "^5.3.2",
+    "@ant-design/icons": "^5.3.3",
     "@babel/core": "^7.24.0",
     "@babel/eslint-plugin": "^7.23.5",
     "@babel/parser": "^7.24.0",
