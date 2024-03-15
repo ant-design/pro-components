@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.6...@ant-design/pro-field@2.14.7) (2024-03-15)
+
+
+### Bug Fixes
+
+* **components:** compatible 5.13.0 border ([ddf0c82](https://github.com/ant-design/pro-components/commit/ddf0c82b5a9e55546c1b864e76972621b501769b))
+* **components:** remove deprecated tip props ([85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2bad41a21254719ff7f1df5328e42fd0fb))
+
+
+
+
+
 ## [2.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.5...@ant-design/pro-field@2.14.6) (2024-01-31)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.14.2...@ant-design/pro-table@3.15.0) (2024-03-15)
+
+
+### Bug Fixes
+
+* **components:** compatible 5.13.0 border ([ddf0c82](https://github.com/ant-design/pro-components/commit/ddf0c82b5a9e55546c1b864e76972621b501769b))
+* **components:** remove deprecated tip props ([85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2bad41a21254719ff7f1df5328e42fd0fb))
+* **DragSortTable:** demo 拖动排序后报错 ([#8158](https://github.com/ant-design/pro-components/issues/8158)) ([3920e86](https://github.com/ant-design/pro-components/commit/3920e8631191a0d1e66366abc7cdfd6dcb4a64cf))
+
+
+### Features
+
+* **table:** add click event for icon element ([#8167](https://github.com/ant-design/pro-components/issues/8167)) ([c89d4b1](https://github.com/ant-design/pro-components/commit/c89d4b19ce9ce3bda5151cd662c86c9d0a050fce))
+
+
+
+
+
 ## [3.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.14.1...@ant-design/pro-table@3.14.2) (2024-01-31)
 
 **Note:** Version bump only for package @ant-design/pro-table
