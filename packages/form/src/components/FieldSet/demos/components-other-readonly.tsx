@@ -103,6 +103,7 @@ const Demo = () => (
         name: '蚂蚁金服有限公司',
         radio: 'a',
         list: ['1', '2', '3'],
+        list2: ['1', '2', '5', '5'],
         select: 'china',
         'radio-button': 'a',
         dragger: [
@@ -338,6 +339,26 @@ const Demo = () => (
         <ProFormText width="md" />
         -
         <ProFormText width="md" />
+      </ProFormFieldSet>
+
+      <ProFormFieldSet
+        name="list2"
+        label="组件列表自动增加"
+        transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
+      >
+        {(value) => {
+          return value?.map((e, index) => {
+            return (
+              <ProFormText
+                key={index}
+                width="md"
+                fieldProps={{
+                  value: e,
+                }}
+              />
+            );
+          });
+        }}
       </ProFormFieldSet>
       <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
 

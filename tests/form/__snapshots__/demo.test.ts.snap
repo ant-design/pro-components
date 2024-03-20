@@ -5874,6 +5874,62 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
             >
               <label
                 class=""
+                for="validate_other_list2"
+                title="组件列表自动增加"
+              >
+                组件列表自动增加
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-start ant-space-gap-row-small ant-space-gap-col-small"
+                    style="flex-wrap: wrap;"
+                  >
+                    <div
+                      class="ant-space-item"
+                    >
+                      1
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      2
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      5
+                    </div>
+                    <div
+                      class="ant-space-item"
+                    >
+                      5
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item"
+        >
+          <div
+            class="ant-row ant-form-item-row"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
                 for="validate_other_dragger"
                 title="Dragger"
               >
