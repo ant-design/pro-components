@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.24.5...@ant-design/pro-form@2.25.0) (2024-03-20)
+
+
+### Features
+
+* **form:** ProFormFieldSet support funtion ([efbdab6](https://github.com/ant-design/pro-components/commit/efbdab6bb564a1bde4679b2069acdf3041f96a5c))
+
+
+
+
 
 ## [2.24.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.24.4...@ant-design/pro-form@2.24.5) (2024-03-15)
 
