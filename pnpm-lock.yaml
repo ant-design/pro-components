@@ -104,10 +104,10 @@ importers:
         specifier: ^14.18.63
         version: 14.18.63
       '@types/react':
-        specifier: ^18.2.66
+        specifier: ^18.0.38
         version: 18.2.66
       '@types/react-dom':
-        specifier: ^18.2.22
+        specifier: ^18.0.11
         version: 18.2.22
       '@types/react-helmet':
         specifier: ^6.1.11
@@ -411,19 +411,19 @@ importers:
         specifier: 2.5.30
         version: link:../card
       '@ant-design/pro-descriptions':
-        specifier: 2.5.34
+        specifier: 2.5.35
         version: link:../descriptions
       '@ant-design/pro-field':
-        specifier: 2.14.7
+        specifier: 2.14.8
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.24.5
+        specifier: 2.25.0
         version: link:../form
       '@ant-design/pro-layout':
         specifier: 7.17.20
         version: link:../layout
       '@ant-design/pro-list':
-        specifier: 2.5.49
+        specifier: 2.5.50
         version: link:../list
       '@ant-design/pro-provider':
         specifier: 2.14.0
@@ -432,7 +432,7 @@ importers:
         specifier: 2.1.11
         version: link:../skeleton
       '@ant-design/pro-table':
-        specifier: 3.15.0
+        specifier: 3.15.1
         version: link:../table
       '@ant-design/pro-utils':
         specifier: 2.15.5
@@ -444,10 +444,10 @@ importers:
   packages/descriptions:
     dependencies:
       '@ant-design/pro-field':
-        specifier: 2.14.7
+        specifier: 2.14.8
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.24.5
+        specifier: 2.25.0
         version: link:../form
       '@ant-design/pro-skeleton':
         specifier: 2.1.11
@@ -524,7 +524,7 @@ importers:
         specifier: ^5.0.0
         version: 5.3.2(react-dom@18.2.0)(react@18.2.0)
       '@ant-design/pro-field':
-        specifier: 2.14.7
+        specifier: 2.14.8
         version: link:../field
       '@ant-design/pro-provider':
         specifier: 2.14.0
@@ -625,10 +625,10 @@ importers:
         specifier: 2.5.30
         version: link:../card
       '@ant-design/pro-field':
-        specifier: 2.14.7
+        specifier: 2.14.8
         version: link:../field
       '@ant-design/pro-table':
-        specifier: 3.15.0
+        specifier: 3.15.1
         version: link:../table
       '@ant-design/pro-utils':
         specifier: 2.15.5
@@ -694,10 +694,10 @@ importers:
         specifier: 2.5.30
         version: link:../card
       '@ant-design/pro-field':
-        specifier: 2.14.7
+        specifier: 2.14.8
         version: link:../field
       '@ant-design/pro-form':
-        specifier: 2.24.5
+        specifier: 2.25.0
         version: link:../form
       '@ant-design/pro-provider':
         specifier: 2.14.0
