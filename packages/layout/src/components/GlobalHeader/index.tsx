@@ -64,7 +64,9 @@ export type GlobalHeaderProps = {
 
   splitMenus?: boolean;
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
-  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
+  actionsRender?: WithFalse<
+    (props: HeaderViewProps) => React.ReactNode[] | React.ReactNode
+  >;
 
   /** 头像的设置 */
   avatarProps?: WithFalse<
