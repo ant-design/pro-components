@@ -51,26 +51,25 @@ const { yParser } = require('@umijs/utils');
           access: 'public',
         },
       };
-      if (pkgJSONExists) {
-        const pkg = require(pkgJSONPath);
-        [
-          'dependencies',
-          'devDependencies',
-          'peerDependencies',
-          'bin',
-          'version',
-          'files',
-          'authors',
-          'types',
-          'sideEffects',
-          'main',
-          'module',
-          'description',
-        ].forEach((key) => {
-          if (pkg[key]) json[key] = pkg[key];
-        });
-      }
       writeFileSync(pkgJSONPath, `${JSON.stringify(json, null, 2)}\n`);
+    } else if (pkgJSONExists) {
+      const pkg = require(pkgJSONPath);
+      [
+        'dependencies',
+        'devDependencies',
+        'peerDependencies',
+        'bin',
+        'version',
+        'files',
+        'authors',
+        'types',
+        'sideEffects',
+        'main',
+        'module',
+        'description',
+      ].forEach((key) => {
+        if (pkg[key]) json[key] = pkg[key];
+      });
     }
 
     const readmePath = join(
