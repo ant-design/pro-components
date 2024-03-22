@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.20...@ant-design/pro-layout@7.18.0) (2024-03-22)
+
+
+### Features
+
+* ActionsContent support one dom ([8558d0e](https://github.com/ant-design/pro-components/commit/8558d0ee280595cf1bb39da383bcd3b10da7103b))
+
+
+
+
 
 ## [7.17.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.19...@ant-design/pro-layout@7.17.20) (2024-03-15)
 
