@@ -1,3 +1,9 @@
+## @ant-design/pro-components@2.6.52
+
+`2024-03-22`
+
+- feat(form): ProFormFieldSet support funtion. [efbdab6](https://github.com/ant-design/pro-components/commit/efbdab6)
+
 ## @ant-design/pro-components@2.6.51
 
 `2024-03-20`
