@@ -42,6 +42,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     collapsed: controlCollapsed,
     collapsible = false,
     collapsibleIconRender,
+    colStyle,
     defaultCollapsed = false,
     onCollapse,
     checked,
@@ -170,6 +171,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               paddingBlockStart: verticalGutter / 2,
               paddingBlockEnd: verticalGutter / 2,
             }),
+            ...colStyle,
           }}
           className={columnClassName}
         >
