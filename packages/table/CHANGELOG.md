@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.1...@ant-design/pro-table@3.15.2) (2024-03-27)
+
+
+### Bug Fixes
+
+* **table:** densityLarger中文简体和繁体国际化，文案问题修改 ([#8241](https://github.com/ant-design/pro-components/issues/8241)) ([058e087](https://github.com/ant-design/pro-components/commit/058e0876fa532dad85405b21a84787ddfa4ec80d))
+
+
+
+
 
 ## [3.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.0...@ant-design/pro-table@3.15.1) (2024-03-20)
 

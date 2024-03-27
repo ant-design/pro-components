@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.6.52...@ant-design/pro-components@2.7.0) (2024-03-27)
+
+
+### Features
+
+* **card:** ProCard support colStyle ([bfcf8aa](https://github.com/ant-design/pro-components/commit/bfcf8aa8cd3899337a0a6a085f4afedeab558b96))
+
+
+
+
 
 ## [2.6.52](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.6.51...@ant-design/pro-components@2.6.52) (2024-03-22)
 
