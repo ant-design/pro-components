@@ -1,3 +1,11 @@
+## @ant-design/pro-components@2.7.0
+
+`2024-03-27`
+
+- fix(form): DrawerForm ssr 错误 : window is not defined (#8244). [#8244](https://github.com/ant-design/pro-components/pull/#8244) [@edram](https://github.com/edram)
+- fix(table): densityLarger 中文简体和繁体国际化，文案问题修改 (#8241). [#8241](https://github.com/ant-design/pro-components/pull/#8241) [@lk0606](https://github.com/lk0606)
+- feat(card): ProCard support colStyle. [bfcf8aa](https://github.com/ant-design/pro-components/commit/bfcf8aa)
+
 ## @ant-design/pro-components@2.6.52
 
 `2024-03-22`

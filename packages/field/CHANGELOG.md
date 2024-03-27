@@ -1,15 +1,10 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.14.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.8...@ant-design/pro-field@2.14.9) (2024-03-27)
 
 **Note:** Version bump only for package @ant-design/pro-field
-
-
-
-
 
 ## [2.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.7...@ant-design/pro-field@2.14.8) (2024-03-20)
 
