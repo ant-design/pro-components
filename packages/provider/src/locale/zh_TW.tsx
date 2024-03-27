@@ -46,7 +46,7 @@ export default {
     reload: '刷新',
     density: '密度',
     densityDefault: '正常',
-    densityLarger: '默認',
+    densityLarger: '寬鬆',
     densityMiddle: '中等',
     densitySmall: '緊湊',
   },

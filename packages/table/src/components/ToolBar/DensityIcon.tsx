@@ -22,7 +22,7 @@ const DensityIcon = (props: { icon?: React.ReactNode }) => {
     items: [
       {
         key: 'large',
-        label: intl.getMessage('tableToolBar.densityLarger', '默认'),
+        label: intl.getMessage('tableToolBar.densityLarger', '宽松'),
       },
       {
         key: 'middle',
