@@ -15,7 +15,7 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
-          version: 8.10.0
+          version: 8.12.1
       - name: build
         env:
           TEST_UI: 'preview'
