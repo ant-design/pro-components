@@ -30,7 +30,6 @@
   },
   "include": [
     "./tests/setupTests.ts",
-    ".dumi/**/*",
     "jest.config.ts",
     ".dumirc.ts",
     "typings.d.ts",
