@@ -81,7 +81,7 @@ export type CommonFormProps<
    *
    * @example onFinish={async (values) => { await save(values); return true }}
    */
-  onFinish?: (formData: T) => Promise<boolean | void>;
+  onFinish?: (formData: T) => Promise<boolean | void> | void;
   /**
    * @name 表单按钮的 loading 状态
    */
@@ -671,10 +671,13 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     if (!propRest.onFinish) return;
     // 防止重复提交
     if (loading) return;
-    setLoading(true);
     try {
       const finalValues = formRef?.current?.getFieldsFormatValue?.();
-      await propRest.onFinish(finalValues);
+      const response = propRest.onFinish(finalValues);
+      if (response instanceof Promise) {
+        setLoading(true);
+      }
+      await response;
       if (syncToUrl) {
         // 把没有的值设置为未定义可以删掉 url 的参数
         const syncToUrlParams = Object.keys(
