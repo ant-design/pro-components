@@ -1,5 +1,9 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { EditableProTable, ProCard, ProFormField } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+} from '@ant-design/pro-components';
 import { Button } from 'antd';
 import React, { useState } from 'react';
 
@@ -8,7 +12,7 @@ type DataSourceType = {
   title?: string;
   decs?: string;
   state?: string;
-  created_at?: string;
+  created_at?: number;
   children?: DataSourceType[];
 };
 
@@ -18,7 +22,7 @@ const defaultData: DataSourceType[] = new Array(20).fill(1).map((_, index) => {
     title: `活动名称${index}`,
     decs: '这个活动真好玩',
     state: 'open',
-    created_at: '1590486176000',
+    created_at: 1590486176000,
   };
 });
 
@@ -26,7 +30,9 @@ export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
     defaultData.map((item) => item.id),
   );
-  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(() => defaultData);
+  const [dataSource, setDataSource] = useState<readonly DataSourceType[]>(
+    () => defaultData,
+  );
 
   const columns: ProColumns<DataSourceType>[] = [
     {

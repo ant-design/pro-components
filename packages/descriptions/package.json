@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-descriptions",
-  "version": "2.0.47",
+  "version": "2.5.36",
   "description": "@ant-design/pro-descriptions",
   "keywords": [
     "antd",
@@ -34,20 +34,20 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "2.2.8",
-    "@ant-design/pro-form": "2.5.7",
-    "@ant-design/pro-skeleton": "2.0.8",
-    "@ant-design/pro-utils": "2.5.7",
+    "@ant-design/pro-field": "2.14.9",
+    "@ant-design/pro-form": "2.25.1",
+    "@ant-design/pro-skeleton": "2.1.11",
+    "@ant-design/pro-utils": "2.15.6",
     "@babel/runtime": "^7.18.0",
-    "rc-util": "^5.0.6",
-    "use-json-comparison": "^1.0.5"
+    "rc-resize-observer": "^0.2.3",
+    "rc-util": "^5.0.6"
   },
   "devDependencies": {
-    "rc-resize-observer": "^0.2.3"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0",
-    "react": ">=16.9.0"
+    "antd": "^4.24.15 || ^5.11.2",
+    "react": ">=17.0.0"
   },
   "publishConfig": {
     "access": "public"

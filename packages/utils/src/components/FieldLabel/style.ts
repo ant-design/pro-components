@@ -9,7 +9,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
   return {
     [token.componentCls]: {
       display: 'inline-flex',
-      gap: '4px',
+      gap: token.marginXXS,
       alignItems: 'center',
       height: '30px',
       paddingBlock: 0,
@@ -21,42 +21,45 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&:hover': {
         backgroundColor: token.colorBgTextHover,
       },
-      '*': {
-        boxSizing: 'border-box',
-      },
       '&-active': {
         paddingBlock: 0,
-        paddingInline: 12,
+        paddingInline: 8,
         backgroundColor: token.colorBgTextHover,
-        [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]: {
-          [`${token.componentCls}-arrow`]: {
-            display: 'none',
+        [`&${token.componentCls}-allow-clear:hover:not(${token.componentCls}-disabled)`]:
+          {
+            [`${token.componentCls}-arrow`]: {
+              display: 'none',
+            },
+            [`${token.componentCls}-close`]: {
+              display: 'inline-flex',
+            },
           },
-          [`${token.componentCls}-close`]: {
-            display: 'inline-flex',
-          },
+      },
+      [`${token.antCls}-select`]: {
+        [`${token.antCls}-select-clear`]: {
+          borderRadius: '50%',
+        },
+      },
+      [`${token.antCls}-picker`]: {
+        [`${token.antCls}-picker-clear`]: {
+          borderRadius: '50%',
         },
       },
       '&-icon': {
-        height: '12px',
-        paddingBlock: 1,
-        paddingInline: 1,
         color: token.colorIcon,
-        fontSize: '12px',
+        transition: 'color 0.3s',
+        fontSize: 12,
         verticalAlign: 'middle',
         [`&${token.componentCls}-close`]: {
           display: 'none',
-          height: 14,
+          fontSize: 12,
           alignItems: 'center',
           justifyContent: 'center',
-          width: 14,
-          color: token.colorBgContainer,
-          fontSize: 8,
-          backgroundColor: token.colorTextPlaceholder,
+          color: token.colorTextPlaceholder,
           borderRadius: '50%',
-          '&:hover': {
-            color: token.colorIcon,
-          },
+        },
+        '&:hover': {
+          color: token.colorIconHover,
         },
       },
       '&-disabled': {
@@ -72,7 +75,10 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         paddingInline: 4,
         fontSize: token.fontSizeSM,
         lineHeight: '24px',
-        [`&${token.componentCls}-active`]: { paddingBlock: 0, paddingInline: 8 },
+        [`&${token.componentCls}-active`]: {
+          paddingBlock: 0,
+          paddingInline: 8,
+        },
         [`${token.componentCls}-icon`]: {
           paddingBlock: 0,
           paddingInline: 0,
@@ -87,11 +93,15 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
       '&-bordered': {
         height: '32px',
         paddingBlock: 0,
-        paddingInline: 12,
+        paddingInline: 8,
         border: `${token.lineWidth}px solid ${token.colorBorder}`,
         borderRadius: '@border-radius-base',
       },
-      '&-bordered&-small': { height: '24px', paddingBlock: 0, paddingInline: 8 },
+      '&-bordered&-small': {
+        height: '24px',
+        paddingBlock: 0,
+        paddingInline: 8,
+      },
       '&-bordered&-active': {
         backgroundColor: token.colorBgContainer,
       },

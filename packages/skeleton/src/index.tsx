@@ -1,4 +1,4 @@
-import 'antd/es/skeleton/style';
+import 'antd/lib/skeleton/style';
 import React from 'react';
 import type { DescriptionsPageSkeletonProps } from './components/Descriptions';
 import DescriptionsPageSkeleton, {
@@ -34,15 +34,15 @@ const ProSkeleton: React.FC<
 };
 
 export {
-  ProSkeleton,
+  DescriptionsSkeleton,
   ListPageSkeleton,
   ListSkeleton,
   ListSkeletonItem,
-  PageHeaderSkeleton,
   ListToolbarSkeleton,
-  DescriptionsSkeleton,
-  TableSkeleton,
+  PageHeaderSkeleton,
+  ProSkeleton,
   TableItemSkeleton,
+  TableSkeleton,
 };
 
 export default ProSkeleton;

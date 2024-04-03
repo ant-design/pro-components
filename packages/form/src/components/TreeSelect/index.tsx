@@ -1,8 +1,24 @@
 ﻿import type { TreeSelectProps } from 'antd';
-import type { RefSelectProps } from 'antd/es/select';
+import type { RefSelectProps } from 'antd/lib/select';
 import React from 'react';
-import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../typing';
+import type {
+  ProFormFieldItemProps,
+  ProFormFieldRemoteProps,
+} from '../../typing';
 import ProFormField from '../Field';
+
+export type ProFormTreeSelectProps<T = any> = ProFormFieldItemProps<
+  TreeSelectProps<T> & {
+    /**
+     * 当搜索关键词发生变化时是否请求远程数据
+     *
+     * @default true
+     */
+    fetchDataOnSearch?: boolean;
+  },
+  RefSelectProps
+> &
+  ProFormFieldRemoteProps;
 
 /**
  * 级联选择框
@@ -11,7 +27,7 @@ import ProFormField from '../Field';
  */
 const ProFormTreeSelect: React.ForwardRefRenderFunction<
   any,
-  ProFormFieldItemProps<TreeSelectProps<any>, RefSelectProps> & ProFormFieldRemoteProps
+  ProFormTreeSelectProps<any>
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
     <ProFormField
@@ -27,8 +43,7 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
   );
 };
 
-const WarpProFormTreeSelect: React.FC<
-  ProFormFieldItemProps<TreeSelectProps<any>, RefSelectProps> & ProFormFieldRemoteProps
-> = React.forwardRef(ProFormTreeSelect);
+const WarpProFormTreeSelect: React.FC<ProFormTreeSelectProps> =
+  React.forwardRef(ProFormTreeSelect);
 
 export default WarpProFormTreeSelect;

@@ -9,19 +9,21 @@ type ColorPickerProps = SketchPickerProps & {
   onChange?: (color: string) => void;
 };
 
-export type ProFormColorPickerProps = ProFormFieldItemProps<ColorPickerProps> & {
-  popoverProps?: PopoverProps;
-  colors?: string[];
-};
+export type ProFormColorPickerProps =
+  ProFormFieldItemProps<ColorPickerProps> & {
+    popoverProps?: PopoverProps;
+    colors?: string[];
+    old?: boolean;
+  };
 /**
  * 数组选择组件
  *
  * @param
  */
-const ProFormColorPicker: React.ForwardRefRenderFunction<any, ProFormColorPickerProps> = (
-  { fieldProps, popoverProps, proFieldProps, colors, ...rest },
-  ref,
-) => {
+const ProFormColorPicker: React.ForwardRefRenderFunction<
+  any,
+  ProFormColorPickerProps
+> = ({ fieldProps, popoverProps, proFieldProps, colors, ...rest }, ref) => {
   return (
     <ProFromField
       valueType="color"

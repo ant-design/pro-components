@@ -32,7 +32,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    tip: '标题过长会自动收缩',
+    tooltip: '标题过长会自动收缩',
     formItemProps: {
       rules: [
         {
@@ -117,7 +117,7 @@ export default () => {
           showQuickJumper: true,
         }}
         actionRef={actionRef}
-        request={async (params = {}) =>
+        request={async (params = {} as Record<string, any>) =>
           request<{
             data: GithubIssueItem[];
           }>('https://proapi.azurewebsites.net/github/issues', {

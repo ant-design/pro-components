@@ -1,5 +1,5 @@
 import type { TabPaneProps, TabsProps } from 'antd';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { ReactNode } from 'react';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
@@ -19,8 +19,6 @@ type CardPropsBase = {
   subTitle?: React.ReactNode;
   /** 标题说明 */
   tooltip?: string | LabelTooltipType;
-  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
-  tip?: string;
   /** 右上角自定义区域 */
   extra?: React.ReactNode;
   /** 布局，center 代表垂直居中 */
@@ -37,6 +35,7 @@ type CardPropsBase = {
   loading?: boolean | ReactNode;
   /** 栅格布局宽度，24 栅格，支持指定宽度或百分，需要支持响应式 colSpan={{ xs: 12, sm: 6 }} */
   colSpan?: ColSpanType | Partial<Record<Breakpoint, ColSpanType>>;
+  colStyle?: React.CSSProperties;
   /** 栅格间距 */
   gutter?: Gutter | Gutter[];
   /** 操作按钮 */
@@ -58,7 +57,11 @@ type CardPropsBase = {
   /** 受控 collapsed 属性 */
   collapsed?: boolean;
   /** 折叠按钮自定义节点 */
-  collapsibleIconRender?: ({ collapsed }: { collapsed: boolean }) => React.ReactNode;
+  collapsibleIconRender?: ({
+    collapsed,
+  }: {
+    collapsed: boolean;
+  }) => React.ReactNode;
   /** 配置默认是否折叠 */
   defaultCollapsed?: boolean;
   /** 收起卡片的事件 */

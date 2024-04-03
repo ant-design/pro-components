@@ -1,6 +1,6 @@
-import { useIntl } from '@ant-design/pro-provider';
+import { proTheme, useIntl } from '@ant-design/pro-provider';
 import type { ButtonProps } from 'antd';
-import { Button, Form, Space } from 'antd';
+import { Button, Form } from 'antd';
 import omit from 'omit.js';
 import React from 'react';
 
@@ -55,8 +55,11 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     onReset,
     searchConfig = {},
     submitButtonProps,
-    resetButtonProps = {},
+    resetButtonProps,
   } = props;
+
+  const { token } = proTheme.useToken();
+
   const submit = () => {
     form.submit();
     onSubmit?.();
@@ -77,17 +80,20 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
   if (resetButtonProps !== false) {
     dom.push(
       <Button
-        {...omit(resetButtonProps, ['preventDefault'])}
+        {...omit(resetButtonProps, ['preventDefault'] as any)}
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();
-          resetButtonProps?.onClick?.(e as React.MouseEvent<HTMLButtonElement, MouseEvent>);
+          resetButtonProps?.onClick?.(
+            e as React.MouseEvent<HTMLButtonElement, MouseEvent>,
+          );
         }}
       >
         {resetText}
       </Button>,
     );
   }
+
   if (submitButtonProps !== false) {
     dom.push(
       <Button
@@ -96,7 +102,9 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
         key="submit"
         onClick={(e) => {
           if (!submitButtonProps?.preventDefault) submit();
-          submitButtonProps?.onClick?.(e as React.MouseEvent<HTMLButtonElement, MouseEvent>);
+          submitButtonProps?.onClick?.(
+            e as React.MouseEvent<HTMLButtonElement, MouseEvent>,
+          );
         }}
       >
         {submitText}
@@ -104,10 +112,13 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     );
   }
 
-  const renderDom = render ? render({ ...props, form, submit, reset }, dom) : dom;
+  const renderDom = render
+    ? render({ ...props, form, submit, reset }, dom)
+    : dom;
   if (!renderDom) {
     return null;
   }
+
   if (Array.isArray(renderDom)) {
     if (renderDom?.length < 1) {
       return null;
@@ -115,7 +126,17 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
     if (renderDom?.length === 1) {
       return renderDom[0] as JSX.Element;
     }
-    return <Space wrap>{renderDom}</Space>;
+    return (
+      <div
+        style={{
+          display: 'flex',
+          gap: token.marginXS,
+          alignItems: 'center',
+        }}
+      >
+        {renderDom}
+      </div>
+    );
   }
   return renderDom as JSX.Element;
 };

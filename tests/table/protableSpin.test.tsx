@@ -1,11 +1,10 @@
 // import { LoadingOutlined, ReloadOutlined } from '@ant-design/icons';
 import type { ProColumns, ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
+import { act, cleanup, render } from '@testing-library/react';
 import { Button } from 'antd';
 import { useRef, useState } from 'react';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { waitForWaitTime } from '../util';
 
 export type TableListItem = {
   key: number;
@@ -82,7 +81,7 @@ const ProTableSpinDemo = () => {
           提交
         </Button>,
       ]}
-      postData={(data) => {
+      postData={(data: any) => {
         setTimeout(() => {
           setLoading({
             ...loading,
@@ -100,9 +99,13 @@ const ProTableSpinDemo = () => {
 
 export default ProTableSpinDemo;
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('ProTable test', () => {
   it('loading and polling props', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const html = render(
       <ProTable
         loading={{ spinning: true, delay: 1000 }}
@@ -117,7 +120,7 @@ describe('ProTable test', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForWaitTime(1200);
     expect(fn).toBeCalledTimes(1);
     act(() => {
       html.rerender(
@@ -139,7 +142,7 @@ describe('ProTable test', () => {
 
   it('boolean loading and polling props', async () => {
     const html = render(<ProTable loading={true} polling={2000} />);
-    await waitForComponentToPaint(html, 1200);
+    await waitForWaitTime(1200);
     act(() => {
       html.rerender(
         <ProTable

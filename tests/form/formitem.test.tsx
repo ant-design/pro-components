@@ -1,10 +1,14 @@
 import ProForm, { ProFormText } from '@ant-design/pro-form';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
-import { fireEvent, render } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('ProForm.Item', () => {
   it('📦 ProForm support fieldProps.onBlur', async () => {
-    const onBlur = jest.fn();
+    const onBlur = vi.fn();
     const { container } = render(
       <ProForm
         initialValues={{
@@ -29,8 +33,8 @@ describe('ProForm.Item', () => {
   });
 
   it('📦 ProForm.Item supports onChange', async () => {
-    const onChange = jest.fn();
-    const onValuesChange = jest.fn();
+    const onChange = vi.fn();
+    const onValuesChange = vi.fn();
     const { container } = render(
       <ProForm
         initialValues={{

@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ProProvider } from '@ant-design/pro-provider';
 import type { GenerateStyle } from '@ant-design/pro-provider';
 import { isBrowser } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
@@ -38,9 +37,11 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     renderContent,
     ...restProps
   } = props;
-  const { getPrefixCls, getTargetContainer } = useContext(ConfigProvider.ConfigContext);
-  const { containerDomRef } = useContext(ProProvider);
+  const { getPrefixCls, getTargetContainer } = useContext(
+    ConfigProvider.ConfigContext,
+  );
   const prefixCls = props.prefixCls || getPrefixCls('pro');
+
   const baseClassName = `${prefixCls}-footer-bar`;
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
@@ -59,18 +60,21 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   }, [value.collapsed, value.hasSiderMenu, value.isMobile, value.siderWidth]);
 
   const containerDom = useMemo(() => {
+    if (typeof window === undefined || typeof document === undefined)
+      return null;
     // 只读取一次就行了，不然总是的渲染
-    return getTargetContainer?.() || containerDomRef?.current || document.body;
+    return getTargetContainer?.() || document.body;
   }, []);
 
   const stylish = useStylish(`${baseClassName}.${baseClassName}-stylish`, {
     stylish: props.stylish,
   });
-
   const dom = (
     <>
-      <div className={`${baseClassName}-left ${hashId}`}>{extra}</div>
-      <div className={`${baseClassName}-right ${hashId}`}>{children}</div>
+      <div className={`${baseClassName}-left ${hashId}`.trim()}>{extra}</div>
+      <div className={`${baseClassName}-right ${hashId}`.trim()}>
+        {children}
+      </div>
     </>
   );
 
@@ -107,9 +111,13 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     </div>
   );
   const ssrDom =
-    !isBrowser() || !portalDom ? renderDom : createPortal(renderDom, containerDom, baseClassName);
+    !isBrowser() || !portalDom || !containerDom
+      ? renderDom
+      : createPortal(renderDom, containerDom, baseClassName);
 
-  return stylish.wrapSSR(wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>));
+  return stylish.wrapSSR(
+    wrapSSR(<React.Fragment key={baseClassName}>{ssrDom}</React.Fragment>),
+  );
 };
 
 export { FooterToolbar };

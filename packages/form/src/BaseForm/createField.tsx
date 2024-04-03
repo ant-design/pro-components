@@ -1,19 +1,23 @@
 ﻿import {
-  isDeepEqualReact,
   omitUndefined,
   pickProFormItemProps,
-  usePrevious,
+  stringify,
+  useDeepCompareMemo,
+  useRefFunction,
 } from '@ant-design/pro-utils';
 import type { FormItemProps } from 'antd';
 import classnames from 'classnames';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
 import { noteOnce } from 'rc-util/lib/warning';
-import React, { useCallback, useContext, useMemo, useState } from 'react';
-import { stringify } from 'use-json-comparison';
-import { ProFormDependency, ProFormItem } from '../components';
+import React, { useContext, useMemo, useState } from 'react';
 import FieldContext from '../FieldContext';
+import { ProFormDependency, ProFormItem } from '../components';
 import { useGridHelpers } from '../helpers';
-import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../typing';
+import type {
+  ExtendsProps,
+  ProFormFieldItemProps,
+  ProFormItemCreateConfig,
+} from '../typing';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -61,7 +65,9 @@ function createField<P extends ProFormFieldItemProps = any>(
   // eslint-disable-next-line no-param-reassign
   Field.displayName = 'ProFormComponent';
 
-  const FieldWithContext: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
+  const FieldWithContext: React.FC<P & ExtendsProps & FunctionFieldProps> = (
+    props,
+  ) => {
     const {
       valueType: tmpValueType,
       customLightMode,
@@ -112,7 +118,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     /**
      * dependenciesValues change to trigger re-execute of getFieldProps and getFormItemProps
      */
-    const changedProps = useMemo(
+    const changedProps = useDeepCompareMemo(
       () => {
         return {
           formItemProps: getFormItemProps?.(),
@@ -124,7 +130,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       [getFieldProps, getFormItemProps, rest.dependenciesValues, onlyChange],
     );
 
-    const fieldProps: Record<string, any> = useMemo(() => {
+    const fieldProps: Record<string, any> = useDeepCompareMemo(() => {
       const newFieldProps: any = {
         ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
         placeholder,
@@ -151,7 +157,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
 
-    const formItemProps: FormItemProps = useMemo(
+    const formItemProps: FormItemProps = useDeepCompareMemo(
       () => ({
         ...contextValue.formItemProps,
         ...restFormItemProps,
@@ -168,7 +174,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       ],
     );
 
-    const otherProps = useMemo(
+    const otherProps = useDeepCompareMemo(
       () => ({
         messageVariables,
         ...defaultFormItemProps,
@@ -184,33 +190,35 @@ function createField<P extends ProFormFieldItemProps = any>(
     );
 
     const { prefixName } = useContext(RcFieldContext);
-    const proFieldKey = useMemo(() => {
+
+    const proFieldKey = useDeepCompareMemo(() => {
       let name = otherProps?.name;
       if (Array.isArray(name)) name = name.join('_');
-      if (Array.isArray(prefixName) && name) name = `${prefixName.join('.')}.${name}`;
+      if (Array.isArray(prefixName) && name)
+        name = `${prefixName.join('.')}.${name}`;
       const key = name && `form-${contextValue.formKey ?? ''}-field-${name}`;
       return key;
 
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stringify(otherProps?.name), prefixName, contextValue.formKey]);
 
-    const prefRest = usePrevious(rest);
+    const onChange = useRefFunction((...restParams: any[]) => {
+      if (getFormItemProps || getFieldProps) {
+        forceUpdateByOnChange([]);
+      } else if (rest.renderFormItem) {
+        forceUpdate([]);
+      }
+      fieldProps?.onChange?.(...restParams);
+    });
 
-    const onChange = useCallback(
-      (...restParams: any[]) => {
-        if (getFormItemProps || getFieldProps) {
-          forceUpdateByOnChange([]);
-        } else if (rest.renderFormItem) {
-          forceUpdate([]);
-        }
-        fieldProps?.onChange?.(...restParams);
-      },
-      [getFieldProps, getFormItemProps, fieldProps, rest.renderFormItem],
-    );
-
-    const style = useMemo(() => {
+    const style = useDeepCompareMemo(() => {
       const newStyle = {
-        width: width && !WIDTH_SIZE_ENUM[width] ? width : contextValue.grid ? '100%' : undefined,
+        width:
+          width && !WIDTH_SIZE_ENUM[width as 'xs']
+            ? width
+            : contextValue.grid
+            ? '100%'
+            : undefined,
         ...fieldProps?.style,
       };
 
@@ -220,8 +228,8 @@ function createField<P extends ProFormFieldItemProps = any>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stringify(fieldProps?.style), contextValue.grid, isIgnoreWidth, width]);
 
-    const className = useMemo(() => {
-      const isSizeEnum = width && WIDTH_SIZE_ENUM[width];
+    const className = useDeepCompareMemo(() => {
+      const isSizeEnum = width && WIDTH_SIZE_ENUM[width as 'xs'];
       return (
         classnames(fieldProps?.className, {
           'pro-field': isSizeEnum,
@@ -230,8 +238,9 @@ function createField<P extends ProFormFieldItemProps = any>(
       );
     }, [width, fieldProps?.className, isIgnoreWidth]);
 
-    const fieldProFieldProps = useMemo(() => {
+    const fieldProFieldProps = useDeepCompareMemo(() => {
       return omitUndefined({
+        ...contextValue.proFieldProps,
         mode: rest?.mode,
         readonly,
         params: rest.params,
@@ -239,9 +248,17 @@ function createField<P extends ProFormFieldItemProps = any>(
         cacheForSwr,
         ...proFieldProps,
       });
-    }, [rest?.mode, rest.params, readonly, proFieldKey, cacheForSwr, proFieldProps]);
+    }, [
+      contextValue.proFieldProps,
+      rest?.mode,
+      rest.params,
+      readonly,
+      proFieldKey,
+      cacheForSwr,
+      proFieldProps,
+    ]);
 
-    const fieldFieldProps = useMemo(() => {
+    const fieldFieldProps = useDeepCompareMemo(() => {
       return {
         onChange,
         allowClear,
@@ -250,7 +267,8 @@ function createField<P extends ProFormFieldItemProps = any>(
         className,
       };
     }, [allowClear, className, onChange, fieldProps, style]);
-    const field = useMemo(() => {
+
+    const field = useDeepCompareMemo(() => {
       return (
         <Field
           // @ts-ignore
@@ -264,17 +282,10 @@ function createField<P extends ProFormFieldItemProps = any>(
         />
       );
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [
-      fieldProFieldProps,
-      fieldFieldProps,
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      isDeepEqualReact(prefRest, rest, ['onChange', 'onBlur', 'onFocus', 'record'])
-        ? undefined
-        : {},
-    ]);
+    }, [fieldProFieldProps, fieldFieldProps, rest]);
 
     // 使用useMemo包裹避免不必要的re-render
-    const formItem = useMemo(() => {
+    const formItem = useDeepCompareMemo(() => {
       return (
         <ProFormItem
           // 全局的提供一个 tip 功能，可以减少代码量
@@ -339,13 +350,26 @@ function createField<P extends ProFormFieldItemProps = any>(
     return <ColWrapper>{formItem}</ColWrapper>;
   };
 
-  const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
+  const DependencyWrapper: React.FC<
+    P &
+      ExtendsProps &
+      FunctionFieldProps & {
+        originDependencies?: string[];
+      }
+  > = (props) => {
     const { dependencies } = props;
     return dependencies ? (
-      <ProFormDependency name={dependencies}>
+      <ProFormDependency
+        name={dependencies}
+        originDependencies={props?.originDependencies}
+      >
         {(values) => {
           return (
-            <FieldWithContext dependenciesValues={values} dependencies={dependencies} {...props} />
+            <FieldWithContext
+              dependenciesValues={values}
+              dependencies={dependencies}
+              {...props}
+            />
           );
         }}
       </ProFormDependency>

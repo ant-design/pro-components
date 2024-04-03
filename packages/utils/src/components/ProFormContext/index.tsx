@@ -1,5 +1,5 @@
 ﻿import type { FormInstance } from 'antd';
-import type { NamePath } from 'antd/es/form/interface';
+import type { NamePath } from 'antd/lib/form/interface';
 import React from 'react';
 
 export type ProFormInstanceType<T> = {
@@ -25,7 +25,7 @@ export type ProFormInstanceType<T> = {
    * @param nameList (string|number)[]
    * @returns T
    *
-   * @example  {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+   * @example {a:{b:value}}->getFieldFormatValueObject(['a','b'])->{a:{b:value}}
    */
   getFieldFormatValueObject?: (nameList?: NamePath) => T;
   /**

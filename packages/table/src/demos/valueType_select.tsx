@@ -49,7 +49,7 @@ const tableListDataSource: TableListItem[] = [];
 for (let i = 0; i < 2; i += 1) {
   tableListDataSource.push({
     key: i,
-    status: valueEnumMap[Math.floor(Math.random() * 10) % 3],
+    status: valueEnumMap[((Math.floor(Math.random() * 10) % 3) + '') as '0'],
     cascader: ['fe', 'js'],
     treeSelect: ['fe', 'js'],
   });

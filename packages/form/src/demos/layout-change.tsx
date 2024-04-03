@@ -19,7 +19,7 @@ import {
   QueryFilter,
   StepsForm,
 } from '@ant-design/pro-components';
-import { Button, message, Space } from 'antd';
+import { Button, Space, message } from 'antd';
 import { useState } from 'react';
 
 const iconStyles = {
@@ -39,7 +39,6 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const [type, setType] = useState('ProForm');
   const Components = {
     ProForm,
     ModalForm,
@@ -49,6 +48,7 @@ export default () => {
     StepsForm,
     LoginForm,
   };
+  const [type, setType] = useState<keyof typeof Components>('ProForm');
 
   if (type === 'StepsForm') {
     return (
@@ -158,12 +158,11 @@ export default () => {
     );
   }
 
-  const FormComponents = Components[type];
+  const FormComponents = Components[type as 'LoginForm'];
 
   if (type === 'LoginForm') {
     return (
       <>
-        {' '}
         <ProFormRadio.Group
           style={{
             margin: 16,
@@ -255,6 +254,7 @@ export default () => {
         }}
       >
         <FormComponents
+          // @ts-ignore
           labelWidth="auto"
           trigger={
             <Button type="primary">
@@ -280,7 +280,12 @@ export default () => {
               tooltip="最长为 24 位"
               placeholder="请输入名称"
             />
-            <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+            <ProFormText
+              width="md"
+              name="company"
+              label="我方公司名称"
+              placeholder="请输入名称"
+            />
           </ProForm.Group>
           <ProForm.Group>
             <ProFormText
@@ -328,7 +333,13 @@ export default () => {
             label="项目名称"
             initialValue="xxxx项目"
           />
-          <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
+          <ProFormText
+            width="xs"
+            name="mangerName"
+            disabled
+            label="商务经理"
+            initialValue="启途"
+          />
         </FormComponents>
       </div>
     </>

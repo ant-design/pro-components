@@ -24,7 +24,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，主
 | :-- | :-- | :-- | :-- |
 | rowSelection | 与 antd 相同的[配置](https://ant.design/components/table-cn/#rowSelection) | object \|boolean | false |
 | expandable | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable) | object \| false | - |
-| showActions | 何时展示 actions | 'hover' \| 'always' | always |
+| showActions | 何时展示 actions，CardList 模式下不生效 | 'hover' \| 'always' | always |
 | rowKey | 行的 key，一般是行 id | string \| (row,index)=>string | "id" |
 | renderItem | 现在的 renderItem 需要返回 ProList.Item 的 props，而不是 dom | ItemProps | - |
 | listRenderItem | 这是 antd 的 renderItem 的别名 | (row,index)=> Node | - |
@@ -41,8 +41,8 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，主
 | checkbox | 列表的选择框 | React.ReactNode | - |
 | loading | 列表项是否在加载中 | React.ReactNode | - |
 | avatar | 列表项的头像 | AvatarProps \| string | - |
-| actions | 操作列表项 | React.ReactNode[] | - |
-| description | 列表项的描述，与 title 不在一行 | React.ReactNode[] | - |
+| actions | 操作列表项 | React.ReactNode\[] | - |
+| description | 列表项的描述，与 title 不在一行 | React.ReactNode\[] | - |
 | expandedRowClassName | 额外展开的 css | string | - |
 | expand | 列表项是否展开 | boolean | - |
 | onExpand | 列表项展开收起的回调 | (expand: boolean) => void | - |

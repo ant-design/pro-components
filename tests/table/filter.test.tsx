@@ -1,11 +1,15 @@
 import ProTable from '@ant-design/pro-table';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getFetchData } from './demo';
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('BasicTable Search', () => {
   it('🎏 filter test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable
         size="small"
@@ -45,7 +49,9 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
+    await userEvent.click(
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
     fireEvent.click(screen.getAllByText('关闭')[1], {
       target: {
         checked: true,
@@ -57,7 +63,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 filter test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable
         size="small"
@@ -98,7 +104,9 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
+    await userEvent.click(
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
     fireEvent.click(screen.getByText('关闭'), {
       target: {
         checked: true,
@@ -110,7 +118,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 filter test by namePath is array', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable
         size="small"
@@ -163,9 +171,13 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
     await userEvent.click(
-      container.querySelectorAll('.ant-table-filter-dropdown .ant-dropdown-menu-item')[0],
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
+    await userEvent.click(
+      container.querySelectorAll(
+        '.ant-table-filter-dropdown .ant-dropdown-menu-item',
+      )[0],
     );
     await userEvent.click(
       container.querySelector(
@@ -174,9 +186,13 @@ describe('BasicTable Search', () => {
     );
 
     expect(fn).toHaveBeenCalled();
-    await userEvent.click(container.querySelector('span.ant-table-filter-trigger')!);
     await userEvent.click(
-      container.querySelectorAll('.ant-table-filter-dropdown .ant-dropdown-menu-item')[0],
+      container.querySelector('span.ant-table-filter-trigger')!,
+    );
+    await userEvent.click(
+      container.querySelectorAll(
+        '.ant-table-filter-dropdown .ant-dropdown-menu-item',
+      )[0],
     );
     await userEvent.click(
       container.querySelector(
@@ -188,7 +204,7 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 order multiple test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable<{ money: number }>
         size="small"
@@ -233,16 +249,24 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-up')[1]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[1]);
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-up')[1],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[1],
+    );
 
     expect(fn).toBeCalledTimes(4);
   });
 
   it('🎏 order test', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container } = render(
       <ProTable<{ money: number }>
         size="small"
@@ -280,10 +304,18 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-up')[1]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[0]);
-    await userEvent.click(container.querySelectorAll('span.ant-table-column-sorter-down')[1]);
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-up')[1],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[0],
+    );
+    await userEvent.click(
+      container.querySelectorAll('span.ant-table-column-sorter-down')[1],
+    );
 
     expect(fn).toHaveBeenCalledTimes(4);
   });

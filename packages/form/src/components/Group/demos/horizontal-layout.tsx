@@ -1,4 +1,9 @@
-import { ProCard, ProForm, ProFormList, ProFormText } from '@ant-design/pro-components';
+import {
+  ProCard,
+  ProForm,
+  ProFormList,
+  ProFormText,
+} from '@ant-design/pro-components';
 
 const Demo = () => {
   return (
@@ -23,9 +28,16 @@ const Demo = () => {
           </ProCard>
         )}
         creatorRecord={{ name: '', items: [{ name: '' }] }}
-        initialValue={[{ name: '颜色', items: [{ name: '红' }, { name: '黄' }] }]}
+        initialValue={[
+          { name: '颜色', items: [{ name: '红' }, { name: '黄' }] },
+        ]}
       >
-        <ProFormText style={{ padding: 0 }} width="md" name="name" label="规格名" />
+        <ProFormText
+          style={{ padding: 0 }}
+          width="md"
+          name="name"
+          label="规格名"
+        />
         <ProForm.Item isListField style={{ marginBlockEnd: 0 }} label="规格值">
           <ProFormList
             name="items"

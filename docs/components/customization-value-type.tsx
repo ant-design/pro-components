@@ -1,6 +1,11 @@
 import type { ProFormColumnsType } from '@ant-design/pro-components';
-import { ProConfigProvider } from '@ant-design/pro-components';
-import { BetaSchemaForm, ProCard, ProDescriptions, ProTable } from '@ant-design/pro-components';
+import {
+  BetaSchemaForm,
+  ProCard,
+  ProConfigProvider,
+  ProDescriptions,
+  ProTable,
+} from '@ant-design/pro-components';
 import type { InputRef } from 'antd';
 import { Input, Space, Tag } from 'antd';
 import React, { useRef, useState } from 'react';
@@ -48,8 +53,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -134,11 +145,11 @@ const initialValue = {
   status: [
     {
       value: Math.floor(Math.random() * 10),
-      label: valueEnum[Math.floor(Math.random() * 10) % 4],
+      label: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     },
     {
       value: Math.floor(Math.random() * 10),
-      label: valueEnum[Math.floor(Math.random() * 10) % 4],
+      label: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     },
   ],
 };
@@ -163,7 +174,9 @@ export default () => {
               </>
             );
           },
-          renderFormItem: (text, props) => <TagList {...props} {...props?.fieldProps} />,
+          renderFormItem: (text, props) => (
+            <TagList {...props} {...props?.fieldProps} />
+          ),
         },
       }}
       hashed={false}

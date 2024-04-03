@@ -1,6 +1,6 @@
 import { ProList } from '@ant-design/pro-components';
 import { ConfigProvider, Progress } from 'antd';
-import type { ReactText } from 'react';
+import type { Key } from 'react';
 import { useState } from 'react';
 
 const dataSource = [
@@ -12,14 +12,14 @@ const dataSource = [
 ];
 
 export default () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
   const rowSelection = {
     selectedRowKeys,
-    onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
+    onChange: (keys: Key[]) => setSelectedRowKeys(keys),
   };
 
   return (
-    <ConfigProvider prefixCls="qixian-pro">
+    <ConfigProvider prefixCls="qixian">
       <ProList<{ title: string }>
         metas={{
           title: {},

@@ -1,12 +1,13 @@
 ---
 title: PageContainer - 页容器
+atomId: PageContainer
 ---
 
 # PageContainer - 页容器
 
 PageContainer 是为了减少繁杂的面包屑配置和标题，很多页面都需要面包屑和标题的配置。当然也可以关掉自动生成的，而使用自己的配置。
 
-PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 Tabs 和 PageHeader 的所有属性。
+PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来覆写默认值。 PageContainer 支持 Tabs 和 PageHeader 的所有属性。
 
 为了方便进行表单等操作我们增加了一个 footer 属性，可以获得一个一直悬浮在底部的操作栏。如果觉得不方便也可以直接使用 FooterToolbar 来承载操作，两者表现基本相同，但是 FooterToolbar 拥有更多自定义的配置。
 
@@ -45,23 +46,27 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 基本使用
 
-<code src="./demos/basic.tsx" title="基本使用" desc="基本使用"></code>
+<code src="./demos/basic.tsx" title="基本使用" iframe="650px" desc="基本使用"></code>
 
 ### 固定表头
 
-<code src="./demos/fixHeader.tsx" title="固定表头" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"></code>
+<code src="./demos/fixHeader.tsx" title="固定表头" iframe="650px" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。"></code>
 
 ### 隐藏面包屑
 
-<code src="./demos/hideBreadMenu.tsx" title="隐藏面包屑" desc="不配置 `header` 属性中的 `breadcrumb` 即可。"></code>
+<code src="./demos/hideBreadMenu.tsx" title="隐藏面包屑" iframe="650px" desc="不配置 `header` 属性中的 `breadcrumb` 即可。"></code>
 
 ### 页面加载中
 
-<code src="./demos/loading.tsx" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"></code>
+<code src="./demos/loading.tsx" title="页面加载中" iframe="650px" desc="通过 `loading` 属性配置页面加载。"></code>
 
-## API
+### 修改 Token
 
-PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来复写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。
+<code src="./demos/token.tsx" title="token" iframe="650px" desc="通过 `token` 调整间距。"></code>
+
+## PageContainer
+
+PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和 content。 根据当前的路由填入 title 和 breadcrumb。它依赖 Layout 的 route 属性。当然你可以传入参数来覆写默认值。 PageContainer 支持 [Tabs](https://ant.design/components/tabs-cn/) 和 [PageHeader](https://4x.ant.design/components/page-header-cn/) 的所有属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -83,10 +88,10 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 
 ### FooterToolbar
 
-| 参数     | 说明                            | 类型                       | 默认值 |
-| -------- | ------------------------------- | -------------------------- | ------ |
-| extra    | 额外内容区，位于 content 的右侧 | `ReactNode`                | -      |
-| children | 内容区域                        | `ReactNode`\|`ReactNode[]` | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| extra | 额外内容区，位于 content 的右侧 | `ReactNode` | - |
+| children | 内容区域 | `ReactNode`\|`ReactNode[]` | - |
 
 FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控制浮动，使其不会挡住菜单。如果你没有使用 ProLayout 需要通过 style 来自定义宽度和浮动。
 

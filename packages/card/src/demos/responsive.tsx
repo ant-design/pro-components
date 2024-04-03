@@ -4,13 +4,25 @@ export default () => {
   return (
     <>
       <ProCard style={{ marginBlockStart: 8 }} gutter={8} title="24栅格">
-        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center" bordered>
+        <ProCard
+          colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }}
+          layout="center"
+          bordered
+        >
           Col
         </ProCard>
-        <ProCard colSpan={{ xs: 20, sm: 16, md: 12, lg: 8, xl: 4 }} layout="center" bordered>
+        <ProCard
+          colSpan={{ xs: 20, sm: 16, md: 12, lg: 8, xl: 4 }}
+          layout="center"
+          bordered
+        >
           Col
         </ProCard>
-        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }} layout="center" bordered>
+        <ProCard
+          colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10 }}
+          layout="center"
+          bordered
+        >
           Col
         </ProCard>
       </ProCard>
@@ -33,7 +45,11 @@ export default () => {
         </ProCard>
       </ProCard>
 
-      <ProCard style={{ marginBlockStart: 8 }} gutter={8} title="指定宽度百分比">
+      <ProCard
+        style={{ marginBlockStart: 8 }}
+        gutter={8}
+        title="指定宽度百分比"
+      >
         <ProCard layout="center" bordered>
           Auto
         </ProCard>

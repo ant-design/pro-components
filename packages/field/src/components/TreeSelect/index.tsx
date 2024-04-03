@@ -1,17 +1,27 @@
-import { FieldLabel } from '@ant-design/pro-utils';
+import { useIntl } from '@ant-design/pro-provider';
+import {
+  FieldLabel,
+  objectToMap,
+  proFieldParsingText,
+} from '@ant-design/pro-utils';
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import React, {
+  useContext,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
-import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select';
 
 // 兼容代码-----------
-import 'antd/es/spin/style';
-import 'antd/es/tree-select/style';
-import { useIntl } from '@ant-design/pro-provider';
+import 'antd/lib/spin/style';
+import 'antd/lib/tree-select/style';
 //----------------------
 
 export type GroupProps = {
@@ -19,6 +29,14 @@ export type GroupProps = {
   radioType?: 'button' | 'radio';
 } & FieldSelectProps;
 
+export type TreeSelectFieldProps = TreeSelectProps<any> & {
+  /**
+   * 当搜索关键词发生变化时是否请求远程数据
+   *
+   * @default true
+   */
+  fetchDataOnSearch?: boolean;
+};
 /**
  * Tree select
  * A function that returns a React component.
@@ -41,10 +59,11 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     showSearch,
     autoClearSearchValue,
     treeData,
+    fetchDataOnSearch,
     searchValue: propsSearchValue,
     ...fieldProps
-  } = (rest.fieldProps as TreeSelectProps<any>) || {};
-  const size = useContext(ConfigProvider.SizeContext);
+  } = rest.fieldProps as TreeSelectFieldProps;
+
   const intl = useIntl();
 
   const [loading, options, fetchData] = useFieldFetchData({
@@ -52,14 +71,17 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     defaultKeyWords: propsSearchValue,
   });
 
-  const [searchValue, setSearchValue] = useMergedState<string | undefined>(undefined, {
-    onChange: onSearch as any,
-    value: propsSearchValue,
-  });
+  const [searchValue, setSearchValue] = useMergedState<string | undefined>(
+    undefined,
+    {
+      onChange: onSearch as any,
+      value: propsSearchValue,
+    },
+  );
 
   useImperativeHandle(ref, () => ({
     ...(treeSelectRef.current || {}),
-    fetchData: () => fetchData(),
+    fetchData: (keyWord: string) => fetchData(keyWord),
   }));
 
   const optionsValueEnum = useMemo(() => {
@@ -94,7 +116,11 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     return traverseOptions(options);
   }, [fieldProps?.fieldNames, mode, options]);
 
-  const onChange: TreeSelectProps<any>['onChange'] = (value, optionList, extra) => {
+  const onChange: TreeSelectProps<any>['onChange'] = (
+    value,
+    optionList,
+    extra,
+  ) => {
     // 将搜索框置空 和 antd 行为保持一致
     if (showSearch && autoClearSearchValue) {
       fetchData(undefined);
@@ -104,22 +130,34 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   };
 
   if (mode === 'read') {
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          objectToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
-      return render(rest.text, { mode, ...(fieldProps as any) }, dom) || null;
+      return render(rest.text, { mode, ...(fieldProps as any) }, dom) ?? null;
     }
     return dom;
   }
   if (mode === 'edit') {
-    const valuesLength = Array.isArray(fieldProps?.value) ? fieldProps?.value?.length : 0;
+    const valuesLength = Array.isArray(fieldProps?.value)
+      ? fieldProps?.value?.length
+      : 0;
     let dom = (
       <Spin spinning={loading}>
         <TreeSelect<string | undefined>
           open={open}
-          onDropdownVisibleChange={setOpen}
+          onDropdownVisibleChange={(isOpen) => {
+            fieldProps?.onDropdownVisibleChange?.(isOpen);
+            setOpen(isOpen);
+          }}
           ref={treeSelectRef}
-          dropdownMatchSelectWidth={!light}
+          popupMatchSelectWidth={!light}
           placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
           tagRender={
             light
@@ -139,14 +177,15 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                 }
               : undefined
           }
-          {...fieldProps}
           bordered={!light}
+          {...fieldProps}
           treeData={options as TreeSelectProps['treeData']}
           showSearch={showSearch}
           style={{
             minWidth: 60,
             ...fieldProps.style,
           }}
+          allowClear={fieldProps.allowClear !== false}
           searchValue={searchValue as string}
           autoClearSearchValue={autoClearSearchValue}
           onClear={() => {
@@ -158,7 +197,10 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
           }}
           onChange={onChange}
           onSearch={(value) => {
-            fetchData(value);
+            // fix 不支持请求的情况下不刷新options
+            if (fetchDataOnSearch && rest?.request) {
+              fetchData(value);
+            }
             setSearchValue(value);
           }}
           onBlur={(event) => {
@@ -172,22 +214,38 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     );
 
     if (renderFormItem) {
-      dom = renderFormItem(rest.text, { mode, ...(fieldProps as any) }, dom) || null;
+      dom =
+        renderFormItem(
+          rest.text,
+          { mode, ...(fieldProps as any), options, loading },
+          dom,
+        ) ?? null;
     }
 
     if (light) {
-      const { disabled, allowClear, placeholder } = fieldProps;
+      const { disabled, placeholder } = fieldProps;
+      const notEmpty = !!fieldProps.value && fieldProps.value?.length !== 0;
+
       return (
         <FieldLabel
           label={label}
           disabled={disabled}
           placeholder={placeholder}
-          size={size}
-          onLabelClick={() => setOpen(!open)}
-          allowClear={allowClear}
+          onClick={() => {
+            setOpen(true);
+            fieldProps?.onDropdownVisibleChange?.(true);
+          }}
           bordered={rest.bordered}
-          value={dom}
-          onClear={() => propsOnChange?.(undefined, [], {} as any)}
+          value={notEmpty || open ? dom : null}
+          style={
+            notEmpty
+              ? {
+                  paddingInlineEnd: 0,
+                }
+              : undefined
+          }
+          allowClear={false}
+          downIcon={false}
         />
       );
     }

@@ -1,6 +1,6 @@
 import { Card, Divider, Skeleton, Space } from 'antd';
-import React from 'react';
-import useMediaQuery from 'use-media-antd-query';
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
+import React, { useMemo } from 'react';
 
 /** 一条分割线 */
 export const Line = ({ padding }: { padding?: string | number }) => (
@@ -26,8 +26,24 @@ const StatisticSkeleton: React.FC<{
   size?: number;
   active?: boolean;
 }> = ({ size, active }) => {
-  const colSize = useMediaQuery();
-  const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 6 : size;
+  const defaultCol = useMemo(
+    () => ({
+      lg: true,
+      md: true,
+      sm: false,
+      xl: false,
+      xs: false,
+      xxl: false,
+    }),
+    [],
+  );
+  const col = useBreakpoint() || defaultCol;
+
+  const colSize =
+    Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';
+
+  const arraySize =
+    size === undefined ? MediaQueryKeyEnum[colSize as 'md'] || 6 : size;
   const firstWidth = (index: number) => {
     if (index === 0) {
       return 0;
@@ -58,7 +74,9 @@ const StatisticSkeleton: React.FC<{
             key={index}
             style={{
               borderInlineStart:
-                arraySize > 2 && index === 1 ? '1px solid rgba(0,0,0,0.06)' : undefined,
+                arraySize > 2 && index === 1
+                  ? '1px solid rgba(0,0,0,0.06)'
+                  : undefined,
               paddingInlineStart: firstWidth(index),
               flex: 1,
               marginInlineEnd: index === 0 ? 16 : 0,
@@ -94,8 +112,10 @@ export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
       style={{
         borderRadius: 0,
       }}
-      bodyStyle={{
-        padding: 24,
+      styles={{
+        body: {
+          padding: 24,
+        },
       }}
     >
       <div
@@ -147,8 +167,10 @@ export const ListSkeleton: React.FC<{
 }> = ({ size, active = true, actionButton }) => (
   <Card
     bordered={false}
-    bodyStyle={{
-      padding: 0,
+    styles={{
+      body: {
+        padding: 0,
+      },
     }}
   >
     {new Array(size).fill(null).map((_, index) => (
@@ -163,10 +185,12 @@ export const ListSkeleton: React.FC<{
           borderStartEndRadius: 0,
           borderTopLeftRadius: 0,
         }}
-        bodyStyle={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+        styles={{
+          body: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
         }}
       >
         <Skeleton.Button
@@ -223,8 +247,10 @@ export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
       borderBottomRightRadius: 0,
       borderBottomLeftRadius: 0,
     }}
-    bodyStyle={{
-      paddingBlockEnd: 8,
+    styles={{
+      body: {
+        paddingBlockEnd: 8,
+      },
     }}
   >
     <Space
@@ -256,17 +282,25 @@ const ListPageSkeleton: React.FC<ListPageSkeletonProps> = ({
     }}
   >
     {pageHeader !== false && <PageHeaderSkeleton active={active} />}
-    {statistic !== false && <StatisticSkeleton size={statistic as number} active={active} />}
+    {statistic !== false && (
+      <StatisticSkeleton size={statistic as number} active={active} />
+    )}
     {(toolbar !== false || list !== false) && (
       <Card
         bordered={false}
-        bodyStyle={{
-          padding: 0,
+        styles={{
+          body: {
+            padding: 0,
+          },
         }}
       >
         {toolbar !== false && <ListToolbarSkeleton active={active} />}
         {list !== false && (
-          <ListSkeleton size={list as number} active={active} actionButton={actionButton} />
+          <ListSkeleton
+            size={list as number}
+            active={active}
+            actionButton={actionButton}
+          />
         )}
       </Card>
     )}

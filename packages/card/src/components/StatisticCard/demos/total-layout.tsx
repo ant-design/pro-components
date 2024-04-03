@@ -32,9 +32,21 @@ export default () => {
           }
           footer={
             <>
-              <Statistic value="70.98%" title="财年业绩完成率" layout="horizontal" />
-              <Statistic value="86.98%" title="去年同期业绩完成率" layout="horizontal" />
-              <Statistic value="88.98%" title="前年同期业绩完成率" layout="horizontal" />
+              <Statistic
+                value="70.98%"
+                title="财年业绩完成率"
+                layout="horizontal"
+              />
+              <Statistic
+                value="86.98%"
+                title="去年同期业绩完成率"
+                layout="horizontal"
+              />
+              <Statistic
+                value="88.98%"
+                title="前年同期业绩完成率"
+                layout="horizontal"
+              />
             </>
           }
         />
@@ -46,7 +58,9 @@ export default () => {
             statistic={{
               title: '财年总收入',
               value: 601987768,
-              description: <Statistic title="日同比" value="6.15%" trend="up" />,
+              description: (
+                <Statistic title="日同比" value="6.15%" trend="up" />
+              ),
             }}
             chart={
               <img
@@ -60,14 +74,18 @@ export default () => {
               title="大盘总收入"
               value={1982312}
               layout="vertical"
-              description={<Statistic title="日同比" value="6.15%" trend="down" />}
+              description={
+                <Statistic title="日同比" value="6.15%" trend="down" />
+              }
             />
           </StatisticCard>
           <StatisticCard
             statistic={{
               title: '当日排名',
               value: 6,
-              description: <Statistic title="日同比" value="3.85%" trend="down" />,
+              description: (
+                <Statistic title="日同比" value="3.85%" trend="down" />
+              ),
             }}
             chart={
               <img
@@ -81,14 +99,18 @@ export default () => {
               title="近7日收入"
               value={17458}
               layout="vertical"
-              description={<Statistic title="日同比" value="6.47%" trend="up" />}
+              description={
+                <Statistic title="日同比" value="6.47%" trend="up" />
+              }
             />
           </StatisticCard>
           <StatisticCard
             statistic={{
               title: '财年业绩收入排名',
               value: 2,
-              description: <Statistic title="日同比" value="6.47%" trend="up" />,
+              description: (
+                <Statistic title="日同比" value="6.47%" trend="up" />
+              ),
             }}
             chart={
               <img
@@ -102,7 +124,9 @@ export default () => {
               title="月付费个数"
               value={601}
               layout="vertical"
-              description={<Statistic title="日同比" value="6.47%" trend="down" />}
+              description={
+                <Statistic title="日同比" value="6.47%" trend="down" />
+              }
             />
           </StatisticCard>
         </StatisticCard.Group>

@@ -1,17 +1,17 @@
-import { InputNumber } from 'antd';
 import { isNil } from '@ant-design/pro-utils';
-import React, { useCallback } from 'react';
+import { InputNumber } from 'antd';
 import omit from 'omit.js';
+import React, { useCallback } from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/input-number/style';
 import { useIntl } from '@ant-design/pro-provider';
+import 'antd/lib/input-number/style';
 //----------------------
 
 export type FieldDigitProps = {
   text: number;
-  placeholder?: any;
+  placeholder?: string;
 };
 
 /**
@@ -26,23 +26,28 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   ref,
 ) => {
   const intl = useIntl();
-  const placeholderValue = placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
+  const placeholderValue =
+    placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入');
   const proxyChange = useCallback(
     (value: number | string | null) => {
       let val = value ?? undefined;
 
-      if (typeof val === 'string') {
+      if (!fieldProps.stringMode && typeof val === 'string') {
         val = Number(val);
       }
-      if (typeof val === 'number' && !isNil(val) && !isNil(fieldProps.precision)) {
+      if (
+        typeof val === 'number' &&
+        !isNil(val) &&
+        !isNil(fieldProps.precision)
+      ) {
         val = Number(val.toFixed(fieldProps.precision));
       }
-      return fieldProps?.onChange?.(val);
+      return val;
     },
     [fieldProps],
   );
   if (type === 'read') {
-    let fractionDigits = {} as any;
+    let fractionDigits = {} as Record<string, any> as any;
     if (fieldProps?.precision) {
       fractionDigits = {
         minimumFractionDigits: Number(fieldProps.precision),
@@ -53,7 +58,9 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
       ...fractionDigits,
       ...(fieldProps?.intlProps || {}),
     }).format(Number(text) as number);
-    const dom = <span ref={ref}>{fieldProps?.formatter?.(digit) || digit}</span>;
+    const dom = (
+      <span ref={ref}>{fieldProps?.formatter?.(digit) || digit}</span>
+    );
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
@@ -65,8 +72,9 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         ref={ref}
         min={0}
         placeholder={placeholderValue}
-        {...omit(fieldProps, ['onChange'])}
-        onChange={proxyChange}
+        {...omit(fieldProps, ['onChange', 'onBlur'])}
+        onChange={(e) => fieldProps?.onChange?.(proxyChange(e))}
+        onBlur={(e) => fieldProps?.onBlur?.(proxyChange(e.target.value))}
       />
     );
     if (renderFormItem) {

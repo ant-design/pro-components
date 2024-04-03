@@ -44,18 +44,28 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
-        gap: 8,
+        gap: token.marginXS,
         justifyContent: 'flex-start',
         maxWidth: 'calc(100% - 200px)',
+        flex: 1,
         [`${token.antCls}-tabs`]: {
           width: '100%',
         },
+        '&-has-tabs': {
+          overflow: 'hidden',
+        },
       },
-      '&-right': { display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', gap: 8 },
+      '&-right': {
+        flex: 1,
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-end',
+        gap: token.marginXS,
+      },
       '&-extra-line': { marginBlockEnd: token.margin },
       '&-setting-items': {
         display: 'flex',
-        gap: 8,
+        gap: token.marginXS,
         lineHeight: '32px',
         alignItems: 'center',
       },
@@ -63,7 +73,7 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
         '&:not(:last-child)': { marginInlineEnd: token.margin },
         display: 'flex',
         alignItems: 'center',
-        [`div.$${token.antCls}-pro-table-search`]: {
+        [`div$${token.antCls}-pro-table-search`]: {
           marginBlock: 0,
           marginInline: 0,
           paddingBlock: 0,
@@ -95,7 +105,11 @@ const genProListStyle: GenerateStyle<ProListToken> = (token) => {
       },
       '@media (max-width: 768px)': {
         [token.componentCls]: {
-          '&-container': { display: 'flex', flexWrap: 'wrap', flexDirection: 'column' },
+          '&-container': {
+            display: 'flex',
+            flexWrap: 'wrap',
+            flexDirection: 'column',
+          },
           '&-left': { marginBlockEnd: '16px', maxWidth: '100%' },
         },
       },

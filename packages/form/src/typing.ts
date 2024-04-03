@@ -1,11 +1,11 @@
 import type {
   ProFieldProps,
   ProFieldValueType,
+  ProFormBaseGroupProps,
   ProSchema,
   SearchConvertKeyFn,
 } from '@ant-design/pro-utils';
-import type { ColProps, FormItemProps, RowProps, SpaceProps } from 'antd';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { ColProps, FormItemProps, RowProps } from 'antd';
 import type React from 'react';
 import type { ProFormInstance } from './BaseForm';
 import type { ProFormItemProps } from './components';
@@ -57,7 +57,9 @@ export type ExtendsProps = {
    *
    * @name 网络请求用的输出，会触发reload
    */
-  params?: ((form: ProFormInstance) => Record<string, any>) | Record<string, any>;
+  params?:
+    | ((form: ProFormInstance) => Record<string, any>)
+    | Record<string, any>;
 
   /** @name 需要放在formItem 时使用 */
   ignoreFormItem?: boolean;
@@ -87,87 +89,7 @@ export type ExtendsProps = {
   fieldRef?: React.Ref<CaptFieldRef | null | undefined>;
 };
 
-export type GroupProps = {
-  /**
-   * @name 分组的标题
-   */
-  title?: React.ReactNode;
-  /**
-   * @name 分组的标题
-   * @deprecated 尽量用 title
-   */
-  label?: React.ReactNode;
-  /**
-   * @name 标题旁边的？号提示展示的信息
-   *
-   * @example 自定义提示信息
-   * <ProForm.Group title="标题"  tooltip="自定义提示信息">
-   *  @example 自定义Icon
-   * <ProForm.Group title="标题"  tooltip={{icon:<Info/>,title:自定义提示信息}}>
-   */
-  tooltip?: LabelTooltipType | string;
-  /**
-   * @name 额外的内容配置,在标题的另外一边
-   *
-   * @example 额外的内容配置
-   * <ProForm.Group title="标题" extra={<ProFormSwitch name="open"/>} />
-   */
-  extra?: React.ReactNode;
-  /**
-   * @name 组件之前的间隔
-   */
-  size?: SpaceProps['size'];
-  /**
-   * @name 自定义样式
-   */
-  style?: React.CSSProperties;
-  /**
-   * @name 自定义 title 样式
-   * @example 增加背景颜色
-   * <ProForm.Group titleStyle={{ backgroundColor: '#f0f0f0' }} />
-   */
-  titleStyle?: React.CSSProperties;
-  /**
-   * @name 自定义title
-   * @example 自定义标题
-   * <ProForm.Group title={(_,props)=><span>自定义标题</span>}>
-   */
-  titleRender?: (title: React.ReactNode, props: GroupProps) => React.ReactNode;
-  /** 子项的对齐方式 */
-  align?: SpaceProps['align'];
-  spaceProps?: SpaceProps;
-  /**
-   * @name 子项的排列方式
-   */
-  direction?: SpaceProps['direction'];
-  /**
-   * @name 布局方式，键值对模式和两行模式
-   * @default inline
-   */
-  labelLayout?: 'inline' | 'twoLine';
-  /**
-   * @name 是否折叠
-   */
-  collapsed?: boolean;
-  /**
-   * @name 是否可折叠
-   */
-  collapsible?: boolean;
-  /**
-   * @name 默认的折叠状态
-   *  */
-  defaultCollapsed?: boolean;
-  /**
-   * @name 折叠修改的事件
-   *  */
-  onCollapse?: (collapsed: boolean) => void;
-  /**
-   * @name 自定选中一个input，只能有一个生效
-   */
-  autoFocus?: boolean;
-
-  children?: React.ReactNode;
-} & ProFormGridConfig;
+export type ProFormGroupProps = ProFormBaseGroupProps & ProFormGridConfig;
 
 export type FieldProps<K> = {
   style?: React.CSSProperties;
@@ -197,7 +119,7 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
    * @example 设置select 多选
    * <ProFormText fieldProps={{placeholder:"请输入！"}} />
    */
-  fieldProps?: FieldProps<K> & T;
+  fieldProps?: Partial<FieldProps<K> & T>;
   /**
    * @name 输入的描述，没有值的时候展示
    */
@@ -238,7 +160,7 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
    */
   footerRender?: LightFilterFooterRender;
 
-  children?: React.ReactNode;
+  children?: any;
 } & Omit<ProFormItemProps, 'valueType'> &
   Pick<ProFormGridConfig, 'colProps'> &
   ExtendsProps;

@@ -1,9 +1,20 @@
 ﻿import { ProFormText, StepsForm } from '@ant-design/pro-form';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
 import React from 'react';
-import { waitForComponentToPaint } from '../util';
+import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('StepsForm', () => {
   it('🐲 basic use', async () => {
@@ -22,9 +33,15 @@ describe('StepsForm', () => {
     );
 
     expect(container.querySelectorAll('span.ant-steps-icon')).toHaveLength(3);
-    expect(container.querySelectorAll('div.ant-steps-item-title')[0]).toHaveTextContent('表单1');
-    expect(container.querySelectorAll('div.ant-steps-item-title')[1]).toHaveTextContent('表单2');
-    expect(container.querySelectorAll('div.ant-steps-item-title')[2]).toHaveTextContent('表单3');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[0],
+    ).toHaveTextContent('表单1');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[1],
+    ).toHaveTextContent('表单2');
+    expect(
+      container.querySelectorAll('div.ant-steps-item-title')[2],
+    ).toHaveTextContent('表单3');
     unmount();
   });
 
@@ -65,7 +82,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 pre button ', async () => {
-    const onCurrentChange = jest.fn();
+    const onCurrentChange = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -92,9 +109,9 @@ describe('StepsForm', () => {
   });
 
   it('🐲 async onFinish', async () => {
-    const fn = jest.fn();
-    const currentFn = jest.fn();
-    const onFinish = jest.fn();
+    const fn = vi.fn();
+    const currentFn = vi.fn();
+    const onFinish = vi.fn();
 
     const html = render(
       <StepsForm onCurrentChange={currentFn} onFinish={onFinish}>
@@ -113,13 +130,13 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForComponentToPaint(html);
+    await waitForWaitTime(100);
 
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitForWaitTime(100);
 
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
@@ -127,19 +144,19 @@ describe('StepsForm', () => {
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
-    await waitForComponentToPaint(html);
+    await waitForWaitTime(100);
 
     expect(onFinish).toBeCalled();
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
 
-    await waitForComponentToPaint(html, 100);
+    await waitForWaitTime(100);
     html.unmount();
   });
 
   it('🐲 submit when onFinish is null', async () => {
-    const fn = jest.fn();
-    const currentFn = jest.fn();
+    const fn = vi.fn();
+    const currentFn = vi.fn();
 
     const { unmount } = render(
       <StepsForm onCurrentChange={currentFn}>
@@ -154,23 +171,29 @@ describe('StepsForm', () => {
           <ProFormText name="姓名" />
         </StepsForm.StepForm>
         <StepsForm.StepForm name="moreInfo" title="表单2">
-          <ProFormText name="邮箱" />
+          <ProFormText label="邮箱" name="邮箱" />
         </StepsForm.StepForm>
       </StepsForm>,
     );
 
-    userEvent.click(await screen.findByText('下一步'));
-
+    await act(async () => {
+      userEvent.click(await screen.findByText('下一步'));
+    });
+    await waitFor(() => {
+      screen.findAllByText('邮箱');
+    });
     await waitFor(() => {
       expect(fn).toBeCalled();
+    });
+    await waitFor(() => {
       expect(currentFn).toBeCalled();
     });
     unmount();
   });
 
   it('🐲 onFinish return true', async () => {
-    const fn = jest.fn();
-    const currentFn = jest.fn();
+    const fn = vi.fn();
+    const currentFn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -201,7 +224,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 onFinish throw error', async () => {
-    const currentFn = jest.fn();
+    const currentFn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -245,11 +268,13 @@ describe('StepsForm', () => {
       </StepsForm>,
     );
 
-    expect(!!container.querySelectorAll('button.ant-btn.ant-btn-primary').length).toBeFalsy();
+    expect(
+      !!container.querySelectorAll('button.ant-btn.ant-btn-primary').length,
+    ).toBeFalsy();
   });
 
   it('🐲 submitter render props', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -282,7 +307,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 current min=0', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={0}
@@ -292,7 +317,11 @@ describe('StepsForm', () => {
         submitter={{
           render: (props) => {
             return (
-              <button type="button" data-testid="rest" onClick={() => props?.onReset?.()}>
+              <button
+                type="button"
+                data-testid="rest"
+                onClick={() => props?.onReset?.()}
+              >
                 rest
               </button>
             );
@@ -316,7 +345,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 current max=1', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { unmount } = render(
       <StepsForm
         current={1}
@@ -326,7 +355,11 @@ describe('StepsForm', () => {
         submitter={{
           render: (props) => {
             return (
-              <button type="button" data-testid="rest" onClick={() => props?.onSubmit?.()}>
+              <button
+                type="button"
+                data-testid="rest"
+                onClick={() => props?.onSubmit?.()}
+              >
                 rest
               </button>
             );
@@ -362,7 +395,9 @@ describe('StepsForm', () => {
     );
 
     expect(
-      !!container.querySelector('.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary'),
+      !!container.querySelector(
+        '.ant-pro-steps-form-step-active button.ant-btn.ant-btn-primary',
+      ),
     ).toBeFalsy();
     unmount();
   });
@@ -444,7 +479,7 @@ describe('StepsForm', () => {
   });
 
   it('🐲 support deepmerge form value', async () => {
-    const submit = jest.fn(() => Promise.resolve());
+    const submit = vi.fn(() => Promise.resolve());
     const html = render(
       <StepsForm
         stepFormRender={(dom) => {
@@ -460,18 +495,18 @@ describe('StepsForm', () => {
         </StepsForm.StepForm>
       </StepsForm>,
     );
-    await waitForComponentToPaint(html, 200);
+    await waitForWaitTime(200);
     await act(async () => {
       (await html.findByText('下一步')).click();
     });
 
-    await waitForComponentToPaint(html, 200);
+    await waitForWaitTime(200);
 
     await act(async () => {
       (await html.findByText('提 交')).click();
     });
 
-    await waitForComponentToPaint(html);
+    await waitForWaitTime(100);
     expect(submit).toBeCalledWith({
       info: {
         name: 'chenshuai',
@@ -503,7 +538,7 @@ describe('StepsForm', () => {
       );
     };
     const html = render(<Forms />);
-    await waitForComponentToPaint(html);
+    await waitForWaitTime(100);
     expect(html.container.querySelectorAll('.ant-steps-item')).toHaveLength(3);
     await act(async () => {
       (await html.findByText('隐藏表单3')).click();

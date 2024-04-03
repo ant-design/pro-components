@@ -1,7 +1,8 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { FieldLabel, useStyle } from '@ant-design/pro-utils';
+import { FieldLabel, compatibleBorder, useStyle } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
+
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import React, { useContext, useMemo, useState } from 'react';
@@ -10,6 +11,7 @@ import type { ProFieldLightProps } from '../../../index';
 export type LightSelectProps = {
   label?: string;
   placeholder?: any;
+  valueMaxLength?: number;
 } & ProFieldLightProps;
 
 /**
@@ -33,10 +35,10 @@ const getValueOrLabel = (
   return valueMap[v?.value] || v.label;
 };
 
-const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightSelectProps> = (
-  props,
-  ref,
-) => {
+const LightSelect: React.ForwardRefRenderFunction<
+  any,
+  SelectProps<any> & LightSelectProps
+> = (props, ref) => {
   const {
     label,
     prefixCls: customizePrefixCls,
@@ -59,10 +61,13 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
     lightLabel,
     labelTrigger,
     optionFilterProp,
+    optionLabelProp = '',
+    valueMaxLength = 41,
     ...restProps
   } = props;
   const { placeholder = label } = props;
-  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } = fieldNames || {};
+  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } =
+    fieldNames || {};
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-select-light-select');
   const [open, setOpen] = useState<boolean>(false);
@@ -95,14 +100,23 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   });
 
   const valueMap: Record<string, string> = useMemo(() => {
-    const values = {};
+    const values = {} as Record<string, any>;
     options?.forEach((item) => {
-      const optionLabel = item[labelPropsName];
+      const optionLabel = item[optionLabelProp] || item[labelPropsName];
       const optionValue = item[valuePropsName];
       values[optionValue!] = optionLabel || optionValue;
     });
     return values;
-  }, [labelPropsName, options, valuePropsName]);
+  }, [labelPropsName, options, valuePropsName, optionLabelProp]);
+
+  // 修复用户在使用ProFormSelect组件时，在fieldProps中使用open属性，不生效。
+  // ProComponents文档中写到“与select相同，且fieldProps同antd组件中的props”描述方案不相符
+  const mergeOpen = useMemo(() => {
+    if (Reflect.has(restProps, 'open')) {
+      return restProps?.open;
+    }
+    return open;
+  }, [open, restProps]);
 
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))
@@ -116,7 +130,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         {
           [`${prefixCls}-searchable`]: showSearch,
         },
-        `${prefixCls}-container-${restProps.placement}`,
+        `${prefixCls}-container-${restProps.placement || 'bottomLeft'}`,
         className,
       )}
       style={style}
@@ -129,11 +143,20 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         if (isLabelClick) {
           setOpen(!open);
         } else {
-          setOpen(true);
+          // 这里注释掉
+          /**
+           * 因为这里与代码
+           *  if (mode !== 'multiple') {
+           *   setOpen(false);
+           *  }
+           * 冲突了，导致这段代码不生效
+           */
+          // setOpen(true);
         }
       }}
     >
       <Select
+        popupMatchSelectWidth={false}
         {...restProps}
         allowClear={allowClear}
         value={value}
@@ -147,7 +170,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
             setOpen(false);
           }
         }}
-        bordered={bordered}
+        {...compatibleBorder(bordered)}
         showSearch={showSearch}
         onSearch={onSearch}
         style={style}
@@ -158,9 +181,9 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
                 <div style={{ margin: '4px 8px' }}>
                   <Input
                     value={keyword}
-                    allowClear={allowClear}
+                    allowClear={!!allowClear}
                     onChange={(e) => {
-                      setKeyword(e.target.value.toLowerCase());
+                      setKeyword(e.target.value);
                       onSearch?.(e.target.value);
                     }}
                     onKeyDown={(e) => {
@@ -176,7 +199,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
             </div>
           );
         }}
-        open={open}
+        open={mergeOpen}
         onDropdownVisibleChange={(isOpen) => {
           if (!isOpen) {
             //  测试环境下直接跑
@@ -185,6 +208,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
           if (!labelTrigger) {
             setOpen(isOpen);
           }
+          restProps?.onDropdownVisibleChange?.(isOpen);
         }}
         prefixCls={customizePrefixCls}
         options={
@@ -192,29 +216,36 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
             ? options
             : options?.filter((o) => {
                 if (optionFilterProp) {
-                  return toArray(o[optionFilterProp]).join('').toLowerCase().includes(keyword);
+                  return toArray(o[optionFilterProp])
+                    .join('')
+                    .toLowerCase()
+                    .includes(keyword);
                 }
                 return (
-                  String(o[labelPropsName])?.toLowerCase()?.includes(keyword) ||
-                  o[valuePropsName]?.toString()?.toLowerCase()?.includes(keyword)
+                  String(o[labelPropsName])
+                    ?.toLowerCase()
+                    ?.includes(keyword?.toLowerCase()) ||
+                  o[valuePropsName]
+                    ?.toString()
+                    ?.toLowerCase()
+                    ?.includes(keyword?.toLowerCase())
                 );
               })
         }
       />
       <FieldLabel
         ellipsis
-        size={size}
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        expanded={open}
         bordered={bordered}
-        allowClear={allowClear}
+        allowClear={!!allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {
           onChange?.(undefined, undefined as any);
         }}
         ref={lightLabel}
+        valueMaxLength={valueMaxLength}
       />
     </div>,
   );

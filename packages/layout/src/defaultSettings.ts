@@ -12,7 +12,7 @@ export type PureSettings = {
   /**
    * @name theme for nav menu
    *
-   * @type  "light" | "dark" | "realDark"
+   * @type  'realDark' | 'light' | undefined
    */
   navTheme?: 'realDark' | 'light' | undefined;
 
@@ -118,6 +118,10 @@ export type PureSettings = {
    * @name 切割菜单
    */
   splitMenus?: boolean;
+  /**
+   * @name 在菜单为空时隐藏Sider
+   */
+  suppressSiderWhenMenuEmpty?: boolean;
   /**
    * 侧边菜单模式
    */

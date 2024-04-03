@@ -1,5 +1,9 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { LightFilter, ProFormDatePicker, ProTable } from '@ant-design/pro-components';
+import {
+  LightFilter,
+  ProFormDatePicker,
+  ProTable,
+} from '@ant-design/pro-components';
 import { Badge, Button } from 'antd';
 import React, { useState } from 'react';
 
@@ -28,7 +32,7 @@ for (let i = 0; i < 5; i += 1) {
     key: i,
     name: 'AppName',
     containers: Math.floor(Math.random() * 20),
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     creator: creators[Math.floor(Math.random() * creators.length)],
   });
@@ -79,7 +83,9 @@ const columns: ProColumns<TableListItem>[] = [
     valueType: 'option',
     render: (_, record) => [
       record.status === 'close' && <a key="link">发布</a>,
-      (record.status === 'running' || record.status === 'online') && <a key="warn">停用</a>,
+      (record.status === 'running' || record.status === 'online') && (
+        <a key="warn">停用</a>
+      ),
       record.status === 'error' && <a key="republish">重新发布</a>,
       <a
         key="monitor"

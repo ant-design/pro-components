@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`utils 🪓 LabelIconTip 1`] = `
+exports[`utils > 🪓 LabelIconTip 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-core-label-tip"
@@ -11,12 +11,12 @@ exports[`utils 🪓 LabelIconTip 1`] = `
       xxx
     </div>
     <div
-      class="ant-pro-core-label-tip-subtitle "
+      class="ant-pro-core-label-tip-subtitle"
     >
       xxx
     </div>
     <span
-      class="ant-pro-core-label-tip-icon "
+      class="ant-pro-core-label-tip-icon"
     >
       <span
         aria-label="code"

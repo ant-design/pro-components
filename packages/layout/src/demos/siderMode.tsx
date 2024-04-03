@@ -1,14 +1,13 @@
-import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-design/icons';
-import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProLayout, SettingDrawer, ProCard } from '@ant-design/pro-components';
+import {
+  GithubFilled,
+  InfoCircleFilled,
+  QuestionCircleFilled,
+} from '@ant-design/icons';
+import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
-    layout: 'side',
-  });
-
   const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
 
   return (
@@ -66,7 +65,6 @@ export default () => {
             {dom}
           </div>
         )}
-        {...settings}
       >
         <PageContainer>
           <ProCard
@@ -79,16 +77,6 @@ export default () => {
           </ProCard>
         </PageContainer>
       </ProLayout>
-      <SettingDrawer
-        pathname={pathname}
-        enableDarkTheme
-        getContainer={() => document.getElementById('test-pro-layout')}
-        settings={settings}
-        onSettingChange={(changeSetting) => {
-          setSetting(changeSetting);
-        }}
-        disableUrlParams={false}
-      />
     </div>
   );
 };

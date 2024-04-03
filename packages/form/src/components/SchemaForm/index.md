@@ -1,6 +1,7 @@
 ---
 title: Schema Form - JSON 表单
 order: 1
+atomId: BetaSchemaForm
 ---
 
 # Schema Form - JSON 表单
@@ -38,7 +39,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 | 字段名称 | 类型 | 说明 |
 | --- | --- | --- |
-| `key` | `React.key` | 确定这个列的唯一值,一般用于 dataIndex 重复的情况 |
+| `key` | `React.key` | 确定这个列的唯一值，一般用于 dataIndex 重复的情况 |
 | `dataIndex` | `React.key` \| `React.key[]` | 与实体映射的 key，数组会被转化 `[a,b] => Entity.a.b` |
 | `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你也可以自定义 valueType |
 | `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | 标题的内容，在 form 中是 label |
@@ -50,9 +51,9 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `proFieldProps` | `proFieldProps` | 设置到 `ProField` 上面的 `props`，内部属性 |
 | `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | 修改的数据是会被 valueType 定义的渲染组件消费 |
 | `render` | `(dom,entity,index, action, schema) => React.ReactNode` | 自定义只读模式的 dom,`render` 方法只管理的只读模式，编辑模式需要使用 `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式,返回一个 ReactNode，会自动包裹 value 和 onChange。~~如返回 false,null,undefined 将不展示表单项~~ 请使用 dependency 组件控制是否渲染列 |
+| `renderFormItem` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式，返回一个 ReactNode，会自动包裹 value 和 onChange。~~如返回 false,null,undefined 将不展示表单项~~ 请使用 dependency 组件控制是否渲染列 |
 | `request` | `(params,props) => Promise<{label,value}[]>` | 从远程请求网络数据，一般用于选择类组件 |
-| `params` | `Record<string, any>` | 额外传递给 `request` 的参数，组件不做处理,但是变化会引起`request` 重新请求数据 |
+| `params` | `Record<string, any>` | 额外传递给 `request` 的参数，组件不做处理，但是变化会引起`request` 重新请求数据 |
 | `dependencies` | `string \| number \| (string \| number)[]` | 所依赖的 values 变化后，触发 renderFormItem，fieldProps，formItemProps 重新执行，并把 values 注入到 params 里 [示例](#使用-dependencies-触发-fieldpropsformitempropsrenderformitem-更新) |
 | `hideInDescriptions` | `boolean` | 在 descriptions 中隐藏 |
 | `hideInForm` | `boolean` | 在 Form 中隐藏 |
@@ -64,32 +65,20 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 ## 代码示例
 
-### JSON 来生成表单
-
 <code src="./demos/schema.tsx" title="schema 表单"></code>
 
-### JSON 来生成分步表单
+<code src="./demos/ModalAndDrawerForm.tsx" title="浮层窗口"></code>
 
-<code src="./demos/steps-form.tsx" title="schema 表单"></code>
+<code src="./demos/steps-form.tsx" title="JSON 来生成分步表单"></code>
 
-### 嵌入到 ProForm 中
+<code src="./demos/embed.tsx" title="嵌入到 ProForm 中"></code>
 
-<code src="./demos/embed.tsx" title="schema 表单"></code>
-
-### 使用 ProFormDependency
-
-<code src="./demos/dependency.tsx" title="schema 表单"></code>
+<code src="./demos/dependency.tsx" title="使用 ProFormDependency"></code>
 
 ## 高性能代码示例
 
-### 结合 shouldUpdate=false 和 dependencies 触发更新
+<code src="./demos/dependencies.tsx" title="结合 shouldUpdate=false 和 dependencies 触发更新"></code>
 
-<code src="./demos/dependencies.tsx" title="schema dependencies"></code>
+<code src="./demos/dynamic-rerender.tsx" title="动态控制是否重渲染"></code>
 
-### 动态控制是否重渲染
-
-<code src="./demos/dynamic-rerender.tsx" title="dynamic rerender"></code>
-
-### form-list-required
-
-<code src="./demos/form-list-required.tsx" title="required" debug></code>
+<code src="./demos/form-list-required.tsx" title="required" debug  title="form-list-required"></code>

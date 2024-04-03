@@ -1,11 +1,13 @@
 import { useMountMergeState } from '@ant-design/pro-utils';
 import { Avatar, ConfigProvider } from 'antd';
+
 import classNames from 'classnames';
+import type { MouseEventHandler } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
+import ProCardActions from '../Actions';
 import type { CheckCardGroupProps } from './Group';
 import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
 import { useStyle } from './style';
-
 interface CheckCardProps {
   /**
    * 自定义前缀
@@ -16,11 +18,11 @@ interface CheckCardProps {
   /** Change 回调 */
   onChange?: (checked: boolean) => void;
   /** Click 回调 */
-  onClick?: (e: Event) => void;
+  onClick?: (event: MouseEventHandler<HTMLDivElement> | undefined) => void;
   /** 鼠标进入时的回调 */
-  onMouseEnter?: (event: MouseEvent) => void;
+  onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   /** 鼠标出来时的回调 */
-  onMouseLeave?: (event: MouseEvent) => void;
+  onMouseLeave?: (event: MouseEventHandler<HTMLDivElement> | undefined) => void;
   /**
    * 默认是否勾选
    *
@@ -67,6 +69,12 @@ interface CheckCardProps {
    */
   title?: React.ReactNode;
   /**
+   * 二级标题展示
+   *
+   * @title 二级标题
+   */
+  subTitle?: React.ReactNode;
+  /**
    * 描述展示
    *
    * @title 描述
@@ -97,7 +105,7 @@ interface CheckCardProps {
    * @default default
    * @title 选择框大小
    */
-  size?: 'large' | 'default' | 'small' | undefined;
+  size?: 'large' | 'default' | 'small';
   /**
    * 是否显示边框
    *
@@ -111,6 +119,18 @@ interface CheckCardProps {
    * @title 操作栏
    */
   extra?: React.ReactNode;
+
+  children?: React.ReactNode;
+  /**
+   * 内容区域的样式设计
+   */
+  bodyStyle?: React.CSSProperties;
+  /**
+   * 右下角的操作区
+   */
+  actions?: React.ReactNode[];
+
+  ghost?: boolean;
 }
 
 export interface CheckCardState {
@@ -127,26 +147,26 @@ const CheckCard: React.FC<CheckCardProps> & {
       onChange: props.onChange,
     },
   );
-  const checkcardGroup = useContext(CheckCardGroupConnext);
+  const checkCardGroup = useContext(CheckCardGroupConnext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const handleClick = (e: any) => {
     props?.onClick?.(e);
     const newChecked = !stateChecked;
-    checkcardGroup?.toggleOption?.({ value: props.value });
+    checkCardGroup?.toggleOption?.({ value: props.value });
     setStateChecked?.(newChecked);
   };
 
   // small => sm large => lg
-  const getSizeCls = (size: string | undefined) => {
+  const getSizeCls = (size?: string) => {
     if (size === 'large') return 'lg';
     if (size === 'small') return 'sm';
     return '';
   };
 
   useEffect(() => {
-    checkcardGroup?.registerValue?.(props.value);
-    return () => checkcardGroup?.cancelValue?.(props.value);
+    checkCardGroup?.registerValue?.(props.value);
+    return () => checkCardGroup?.cancelValue?.(props.value);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.value]);
 
@@ -160,7 +180,11 @@ const CheckCard: React.FC<CheckCardProps> & {
   const renderCover = (prefixCls: string, cover: string | React.ReactNode) => {
     return (
       <div className={`${prefixCls}-cover`}>
-        {typeof cover === 'string' ? <img src={cover} alt="checkcard" /> : cover}
+        {typeof cover === 'string' ? (
+          <img src={cover} alt="checkcard" />
+        ) : (
+          cover
+        )}
       </div>
     );
   };
@@ -186,24 +210,30 @@ const CheckCard: React.FC<CheckCardProps> & {
 
   let multiple = false;
 
-  if (checkcardGroup) {
+  if (checkCardGroup) {
     // 受组控制模式
-    checkCardProps.disabled = props.disabled || checkcardGroup.disabled;
-    checkCardProps.loading = props.loading || checkcardGroup.loading;
-    checkCardProps.bordered = props.bordered || checkcardGroup.bordered;
+    checkCardProps.disabled = props.disabled || checkCardGroup.disabled;
+    checkCardProps.loading = props.loading || checkCardGroup.loading;
+    checkCardProps.bordered = props.bordered || checkCardGroup.bordered;
 
-    multiple = checkcardGroup.multiple;
+    multiple = checkCardGroup.multiple;
 
-    const isChecked = checkcardGroup.multiple
-      ? checkcardGroup.value?.includes(props.value)
-      : checkcardGroup.value === props.value;
+    const isChecked = checkCardGroup.multiple
+      ? checkCardGroup.value?.includes(props.value)
+      : checkCardGroup.value === props.value;
 
     // loading时check为false
     checkCardProps.checked = checkCardProps.loading ? false : isChecked;
-    checkCardProps.size = props.size || checkcardGroup.size;
+    checkCardProps.size = props.size || checkCardGroup.size;
   }
 
-  const { disabled = false, size, loading: cardLoading, bordered = true, checked } = checkCardProps;
+  const {
+    disabled = false,
+    size,
+    loading: cardLoading,
+    bordered = true,
+    checked,
+  } = checkCardProps;
   const sizeCls = getSizeCls(size);
 
   const classString = classNames(prefixCls, className, hashId, {
@@ -213,6 +243,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     [`${prefixCls}-multiple`]: multiple,
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-bordered`]: bordered,
+    [`${prefixCls}-ghost`]: props.ghost,
   });
 
   const metaDom = useMemo(() => {
@@ -225,20 +256,35 @@ const CheckCard: React.FC<CheckCardProps> & {
     }
 
     const avatarDom = avatar ? (
-      <div className={`${prefixCls}-avatar ${hashId}`}>
-        {typeof avatar === 'string' ? <Avatar size={48} shape="square" src={avatar} /> : avatar}
+      <div className={`${prefixCls}-avatar ${hashId}`.trim()}>
+        {typeof avatar === 'string' ? (
+          <Avatar size={48} shape="square" src={avatar} />
+        ) : (
+          avatar
+        )}
       </div>
     ) : null;
 
-    const headerDom = (title || extra) && (
-      <div className={`${prefixCls}-header ${hashId}`}>
-        <div className={`${prefixCls}-title ${hashId}`}>{title}</div>
-        {extra && <div className={`${prefixCls}-extra ${hashId}`}>{extra}</div>}
+    const headerDom = (title ?? extra) != null && (
+      <div className={`${prefixCls}-header ${hashId}`.trim()}>
+        <div className={`${prefixCls}-header-left ${hashId}`.trim()}>
+          <div className={`${prefixCls}-title ${hashId}`.trim()}>{title}</div>
+          {props.subTitle ? (
+            <div className={`${prefixCls}-subTitle ${hashId}`.trim()}>
+              {props.subTitle}
+            </div>
+          ) : null}
+        </div>
+        {extra && (
+          <div className={`${prefixCls}-extra ${hashId}`.trim()}>{extra}</div>
+        )}
       </div>
     );
 
     const descriptionDom = description ? (
-      <div className={`${prefixCls}-description ${hashId}`}>{description}</div>
+      <div className={`${prefixCls}-description ${hashId}`.trim()}>
+        {description}
+      </div>
     ) : null;
 
     const metaClass = classNames(`${prefixCls}-content`, hashId, {
@@ -249,14 +295,24 @@ const CheckCard: React.FC<CheckCardProps> & {
       <div className={metaClass}>
         {avatarDom}
         {headerDom || descriptionDom ? (
-          <div className={`${prefixCls}-detail ${hashId}`}>
+          <div className={`${prefixCls}-detail ${hashId}`.trim()}>
             {headerDom}
             {descriptionDom}
           </div>
         ) : null}
       </div>
     );
-  }, [avatar, cardLoading, cover, description, extra, hashId, prefixCls, title]);
+  }, [
+    avatar,
+    cardLoading,
+    cover,
+    description,
+    extra,
+    hashId,
+    prefixCls,
+    props.subTitle,
+    title,
+  ]);
 
   return wrapSSR(
     <div
@@ -267,8 +323,20 @@ const CheckCard: React.FC<CheckCardProps> & {
           handleClick(e);
         }
       }}
+      onMouseEnter={props.onMouseEnter}
     >
       {metaDom}
+      {props.children ? (
+        <div
+          className={classNames(`${prefixCls}-body`)}
+          style={props.bodyStyle}
+        >
+          {props.children}
+        </div>
+      ) : null}
+      {props.actions ? (
+        <ProCardActions actions={props.actions} prefixCls={prefixCls} />
+      ) : null}
     </div>,
   );
 };

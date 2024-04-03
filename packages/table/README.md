@@ -45,75 +45,99 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 ### ProTable
 
-| Properties | Description | Type | Default |
+| Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| request | Method to get `dataSource` | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
-| params | redundant parameters for `request` queries, triggering a reload if they change | `object` | - |
-| postData | Processes the data obtained by `request` | `(data: T[]) => T[]` | - |
-| defaultData | The default data | `T[]` | - |
-| actionRef | A reference to the Table action for custom triggering | `MutableRefObject<FormInstance>` | - |
-| formRef | A reference to the form instance of the query form, for some flexible configuration | `MutableRefObject<ActionType>` | - |
-| toolBarRender | Renders the toolbar, supports returning a dom array, and will automatically add margin-right | `(action) => ReactNode[]` | - |
-| onLoad | Triggered when data is loaded, will be triggered multiple times | `(dataSource: T[]) => void` | - |
-| onLoadingChange | triggered when loading is modified, usually caused by network requests | `(loading:boolean)=> void` | - |
+| request | How to get `dataSource` | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
+| params | Additional parameters used for `request` query, once changed will trigger reloading | `object` | - |
+| postData | Process the data obtained through `request` | `(data: T[]) => T[]` | - |
+| defaultData | Default data | `T[]` | - |
+| dataSource | Table data, protable recommends using request to load | `T[]` | - |
+| onDataSourceChange | Triggered when Table data changes | `(dataSource: T[]) => void` | - |
+| actionRef | Reference to Table action for custom triggering | `MutableRefObject<ActionType>` | - |
+| formRef | The form instance of the query form can be obtained for some flexible configuration | `MutableRefObject<FormInstance>` | - |
+| toolBarRender | Render toolbar, support returning a dom array, will automatically increase margin-right | `(action) => ReactNode[]` | - |
+| onLoad | Triggered after the data is loaded, it will be triggered multiple times | `(dataSource: T[]) => void` | - |
+| onLoadingChange | Triggered when loading is modified, usually caused by network requests | `(loading:boolean)=>void` | - |
 | onRequestError | Triggered when data loading fails | `(error) => void` | - |
-| className of the encapsulated table | string | - |
-| tableStyle | The style of the wrapped table | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table toolbar, not shown when set to false | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true }}` | `{ fullScreen: true, reload:true, setting: true}`` |
-| search | Whether to display the search form, pass in the object for the search form configuration | `false`\| [SearchConfig](#search-search-form) | true |
-| dateFormatter | Converts moment format data to a specific type, false does not convert | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \| `false` | `"string"` |
-| beforeSearchSubmit | make some changes before searching | `(params:T)=>T` | - |
-| onSizeChange | table size changed | `(size: 'default' \| 'middle' \| 'small') => void` | - |
+| tableClassName | className of the encapsulated table | `string` | - |
+| tableStyle | style of the encapsulated table | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
+| options | table toolbar, not displayed when set to false | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#menu-bar-options-configuration) `}}` | `{ fullScreen: false, reload :true, density: true, setting: true}` |
+| search | Whether to display the search form, when the object is passed in, it is the configuration of the search form | `false` \| [SearchConfig](#search-search-form) | - |
+| dateFormatter | Convert moment format data to a specific type, false will not be converted | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \|`false` | `"string"` |
+| defaultSize | Default size | SizeType | - |
+| beforeSearchSubmit | Make some changes before searching | `(params:T)=>T` | - |
+| onSizeChange | The table size has changed | `(size:'default' \|'middle' \|'small') => void` | - |
 | type | pro-table type | `"form"` | - |
-| form | configuration of antd form | [FormProps](https://ant.design/components/form-cn/#API) | - |
+| form | antd form configuration | [FormProps](https://ant.design/components/form-cn/#API) | - |
 | onSubmit | Triggered when the form is submitted | `(params: U) => void` | - |
-| onReset | Triggered when resetting the form | `() => void` | - |
-| columnEmptyText | display when empty, display when not set `-`, false to disable this function | `string` \| `false` | false |
+| onReset | Triggered when the form is reset | `() => void` | - |
+| columnEmptyText | Display when it is empty, display `-` when it is not set, false can turn off this function | `string` \| `false` | false |
 | tableRender | Custom rendering table function | `(props,dom,domList:{ toolbar,alert,table}) => ReactNode` | - |
-| toolbar | pass through `ListToolBar` configuration items | [ListToolBarProps](#listtoolbarprops) | - |
-| tableExtraRender | Custom table body functions | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
-| manualRequest | Whether or not the first request needs to be triggered manually, with `true` not hiding the search form | `boolean` | false |
-| editable | Configuration for editable tables | [TableRowEditable<T>](#editable) | - |
-| cardBordered | Borders for Table and Search outer Card components | `boolean \| {search?: boolean, table?: boolean}` | false |
+| toolbar | Transparent transmission of `ListToolBar` configuration items | [ListToolBarProps](#listtoolbarprops) | - |
+| tableExtraRender | The main function of the custom table | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
+| manualRequest | Do you need to manually trigger the first request? When configured as `true`, the search form cannot be hidden | `boolean` | false |
+| editable | Related configuration of editable table | [TableRowEditable](/en-US/components/editable-table#editable-edit-line-configuration) | - |
+| cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
+| ghost | Ghost mode, that is, whether to cancel the padding of the table content area. | `boolean` | false |
+| debounceTime | Debounce time | `number` | 10 |
+| revalidateOnFocus | Automatically re-request when the window is focused | `boolean` | `false` |
+| columnsState | Column Status Control, you can operate the display hide | `ColumnStateType` | - |
 
 #### RecordCreator
 
-| property | description | type | default |
+| Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| record | The row to be added, generally containing a unique key | `T` | `{}` |
-| position | where the row should be added, at the beginning or at the end | `top` \| `bottom` | `bottom` |
-| (... .buttonProps) | antd's [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | - |
+| record | The row data to be added, generally contains a unique key | `T` | `{}` |
+| position | Where does the line increase, start or end | `top` \| `bottom` | `bottom` |
+| (...buttonProps) | [ButtonProps](https://ant.design/components/button-cn/#API) of antd | ButtonProps | — |
+
+#### ColumnStateType
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| defaultValue | The default value of the column status, only for the first time. Used for resetting value | `Record <string, ColumnsState>;` |  |
+| value | Column status, support controlled mode | `Record <string, ColumnsState>;` |  |
+| onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |  |
+| PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |  |
+| PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localStorage \| sessionStorage` |  |
 
 #### Search Search form
 
-| Properties | Description | Type | Default |
+| Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| filterType | filterFormType | `'query'` \| `'light'` | `'query'` |
-| searchText | the text of the query button | `string` | query |
-| resetText | The text of the reset button | `string` | reset |
-| submitText | the text of the submit button | `string` | submit |
-| labelWidth | The width of the label | `'number'` \| `'auto'` | 80 |
+| filterType | Filter form type | `'query'` \| `'light'` | `'query'` |
+| searchText | Search button text | `string` | Search |
+| resetText | reset button text | `string` | reset |
+| submitText | The text of the submit button | `string` | Submit |
+| labelWidth | Label width | `'number'` \| `'auto'` | 80 |
 | span | Configure the number of columns in the query form | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
-| collapseRender | render of the collapse button | `(collapsed: boolean,showCollapseButton?: boolean,) => ReactNode` | - |
-| defaultCollapsed | whether to collapse by default | `boolean` | true |
-| collapsed | collapsed or not | `boolean` | - |
-| onCollapse | The event of the collapsed button | `(collapsed: boolean) => void;` | - |
-| optionRender | Custom action bar | `((searchConfig,formProps,dom) => ReactNode[])\|`false` | - |
+| className | Encapsulated search Form className | `string` | - |
+| collapseRender | Collapse button render | `((collapsed: boolean,showCollapseButton?: boolean) => ReactNode)`\|`false` | - |
+| defaultCollapsed | Whether to collapse by default | `boolean` | true |
+| collapsed | collapsed | `boolean` | - |
+| onCollapse | Collapse button event | `(collapsed: boolean) => void;` | - |
+| optionRender | Custom action bar | `((searchConfig,formProps,dom) => ReactNode[])`\|`false` | - |
+| showHiddenNum | Whether to show the number of hidden items after storing | `boolean` | `false` |
 
 ### editable edit line configuration
 
-| property | description | type | default |
+| Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| type | The type of editable form, single or multiple | `single` \| `multiple` | - |
-| editableKeys | The row being edited, a controlled property. The default `key` will use the `rowKey` configuration, if not configured it will use `index`, it is recommended to use rowKey | `Key[]` | - |
-| onChange | triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | Triggered when a row is savedd | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<boolean>` | - |
-| onDelete | Triggered when a line is deleted | `(key: Key, row: T) => Promise<boolean>` | - |
-| onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
-| actionRender | Customize the action bar for edit mode | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
-| deletePopconfirmMessage | popup confirmation message when deleting | `ReactNode` | `Delete this row?` |
-| onlyOneLineEditorAlertMessage | Message that only one line can be edited | `ReactNode` | `Only one line can be edited at a time` |
-| onlyAddOneLineAlertMessage | A prompt that can only add one line at a time | `ReactNode` | `Can only add one line at a time` |
+| type | Type of editable table, single or multiple | `single` \| `multiple` | - |
+| form | Form instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
+| formProps | form properties can be configured, but onFinish is not supported | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
+| editableKeys | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]` | - |
+| onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
+| onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| saveText | Text for saving a row | `React.ReactNode` | `Save` |
+| onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
+| deleteText | Text for deleting a row | `React.ReactNode` | `Delete` |
+| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| cancelText | Text for canceling the editing of a row | `React.ReactNode` | `Cancel` |
+| actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
+| deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line?` |
+| onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |
+| onlyAddOneLineAlertMessage | Only one line can be added at the same time | `ReactNode` | `Only add one line` |
 
 #### ColConfig
 

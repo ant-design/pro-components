@@ -4,14 +4,18 @@
   ProFormText,
   ProFormTextArea,
 } from '@ant-design/pro-form';
-import { Input } from 'antd';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Input } from 'antd';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('ProFormFieldSet', () => {
   it('😊 ProFormFieldSet onChange', async () => {
-    const fn = jest.fn();
-    const valueFn = jest.fn();
+    const fn = vi.fn();
+    const valueFn = vi.fn();
     const { container, unmount } = render(
       <ProForm
         onFinish={(values) => fn(values.list)}
@@ -65,8 +69,8 @@ describe('ProFormFieldSet', () => {
   });
 
   it('😊 ProFormFieldSet support Input onChange', async () => {
-    const fn = jest.fn();
-    const valueFn = jest.fn();
+    const fn = vi.fn();
+    const valueFn = vi.fn();
     const { container, unmount } = render(
       <ProForm
         onFinish={(values) => fn(values.list)}
@@ -113,8 +117,8 @@ describe('ProFormFieldSet', () => {
   });
 
   it('😊 ProFormFieldSet transform', async () => {
-    const fn = jest.fn();
-    const valueFn = jest.fn();
+    const fn = vi.fn();
+    const valueFn = vi.fn();
     const { container, unmount } = render(
       <ProForm
         onFinish={async (values) => {
@@ -172,8 +176,8 @@ describe('ProFormFieldSet', () => {
   });
 
   it('😊 ProFormFieldSet convertValue', async () => {
-    const fn = jest.fn();
-    const valueFn = jest.fn();
+    const fn = vi.fn();
+    const valueFn = vi.fn();
     const { container, unmount } = render(
       <ProForm
         onFinish={async (values) => {

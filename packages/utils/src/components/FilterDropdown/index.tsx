@@ -1,13 +1,13 @@
 import { ConfigProvider, Popover } from 'antd';
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
 
-import { useStyle } from './style';
-
-import 'antd/es/dropdown/style';
+import 'antd/lib/dropdown/style';
+import type { TooltipPlacement } from 'antd/lib/tooltip';
+import classNames from 'classnames';
 import { openVisibleCompatible } from '../../compareVersions/openVisibleCompatible';
-import type { TooltipPlacement } from 'antd/es/tooltip';
+import { useStyle } from './style';
 
 export type FooterRender =
   | ((
@@ -56,7 +56,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
     open || visible || false,
     onOpenChange || onVisibleChange,
   );
-
+  const htmlRef = useRef<HTMLDivElement>(null);
   return wrapSSR(
     <Popover
       placement={placement}
@@ -66,13 +66,33 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
         padding: 0,
       }}
       content={
-        <div className={`${prefixCls}-overlay ${prefixCls}-overlay-${placement} ${hashId}`}>
-          <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
-          {footer && <DropdownFooter disabled={disabled} footerRender={footerRender} {...footer} />}
+        <div
+          ref={htmlRef}
+          className={classNames(`${prefixCls}-overlay`, {
+            [`${prefixCls}-overlay-${placement}`]: placement,
+            hashId,
+          })}
+        >
+          <ConfigProvider
+            getPopupContainer={() => {
+              return htmlRef.current || document.body;
+            }}
+          >
+            <div className={`${prefixCls}-content ${hashId}`.trim()}>
+              {children}
+            </div>
+          </ConfigProvider>
+          {footer && (
+            <DropdownFooter
+              disabled={disabled}
+              footerRender={footerRender}
+              {...footer}
+            />
+          )}
         </div>
       }
     >
-      <span className={`${prefixCls}-label ${hashId}`}>{label}</span>
+      <span className={`${prefixCls}-label ${hashId}`.trim()}>{label}</span>
     </Popover>,
   );
 };

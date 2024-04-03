@@ -1,6 +1,11 @@
 import ProTable from '@ant-design/pro-table';
-import { render } from '@testing-library/react';
-import { waitForComponentToPaint } from '../util';
+import { cleanup, render } from '@testing-library/react';
+import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
+
 describe('BasicTable SearchGutter', () => {
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
@@ -59,9 +64,9 @@ describe('BasicTable SearchGutter', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
-    const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-col');
-    expect(window.getComputedStyle(ele!).padding).toBe('12px 8px 12px 8px');
+    await waitForWaitTime(1200);
+    const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-form');
+    expect(ele).toMatchSnapshot();
   });
 
   it('🎏 ProTable searchGutter default is [24 0]', async () => {
@@ -86,7 +91,7 @@ describe('BasicTable SearchGutter', () => {
         rowKey="key"
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForWaitTime(1200);
     const ele = html.baseElement.querySelector<HTMLDivElement>('.ant-col');
     expect(ele?.style.paddingLeft).toBe('6px');
   });

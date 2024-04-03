@@ -61,9 +61,9 @@ export default function App() {
             label: 'l',
             options: 'options',
           },
-          showArrow: false,
+          suffixIcon: null,
           showSearch: true, // 使单选模式可搜索
-          dropdownMatchSelectWidth: false,
+          popupMatchSelectWidth: false,
           optionFilterProp: 'label', // 搜索时过滤对应的 option 属性
           optionLabelProp: 'label', // 回填到选择框的 Option 的属性值
           searchValue,

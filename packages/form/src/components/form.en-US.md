@@ -1,5 +1,6 @@
 ---
 title: ProForm
+atomId: ProForm
 order: 1
 
 nav:
@@ -15,8 +16,11 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
 - If you want to set default values, please use `initialValues`, any direct use of component `value` and `onChange` may cause value binding failure.
 
 - If you want to link forms or do some dependencies, you can use render props mode, ProFormDependency is definitely the best choice
+
 - ProForm's onFinish, unlike antd's Form, is a Promise that will automatically set the button to load for you if you return normally.
+
 - If you want to listen to a value, it is recommended to use `onValuesChange`. Keeping a unidirectional data flow is a great benefit for both developers and maintainers
+
 - ProForm has no black technology, it's just a wrapper for antd's Form, if you want to use a custom component you can wrap it with Form.
 
 ```tsx | pure
@@ -56,8 +60,8 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
 <ProForm
   <ProForm.Item name="switch" label="Switch" valuePropName="checked">
     <Switch />
-  </ProForm.Item
-</ProForm
+  </ProForm.Item>
+</ProForm>
 ```
 
 ## Data conversion
@@ -69,7 +73,7 @@ Many times there is no exact match between the data required by the component an
 convertValue occurs before the component obtains data, usually the data directly sent from the backend to the frontend, and sometimes needs to be refined.
 
 ```tsx | pure
-   export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
+   export type SearchConvertKeyFn = (value: any, field: NamePath) => string | boolean | Record<string, any>;
   /**
    * @name Converts the value when getting it, generally used to format the data into the format received by the component
    * @param value field value
@@ -77,11 +81,16 @@ convertValue occurs before the component obtains data, usually the data directly
    * @returns the new value of the field
    *
    *
-   * @example a,b => [a,b] convertValue: (value,namePath)=> value.split(",")
-   * @example string => json convertValue: (value,namePath)=> JSON.parse(value)
-   * @example number => date convertValue: (value,namePath)=> Moment(value)
-   * @example YYYY-MM-DD => date convertValue: (value,namePath)=> Moment(value,"YYYY-MM-DD")
-   * @example string => object convertValue: (value,namePath)=> { return {value,label:value} }
+   * @example a,b => [a,b]
+   * convertValue: (value,namePath)=> value.split(",")
+   * @example string => json
+   * convertValue: (value,namePath)=> JSON.parse(value)
+   * @example number => date
+   * convertValue: (value,namePath)=> Moment(value)
+   * @example YYYY-MM-DD => date
+   * convertValue: (value,namePath)=> Moment(value,"YYYY-MM-DD")
+   * @example string => object
+   * convertValue: (value,namePath)=> { return {value,label:value} }
    */
   convertValue?: SearchConvertKeyFn;
 ```
@@ -169,7 +178,7 @@ supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
 
 ### Fixed footer
 
-<code src="../demos/layout-footer.tsx" iframe="580px"></code>
+<code src="../demos/layout-footer.tsx" iframe="580"></code>
 
 ### Money
 
@@ -195,7 +204,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | dateFormatter | AutoFormat data, mainly moment forms, supports string and number modes. you also can use formatter function to format date | `string\| number \| ((value: Moment, valueType: string) => string \| number) \|false` | string |
 | syncToUrl | sync parameters to url,url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `true` \| `(values,type)=>values` | - |
 | omitNil | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature | `boolean` | true |
-| formRef | Get the form used by the form | `React.MutableRefObject<ProFormInstance<T>>` | - |
+| formRef | Get the form used by the form | `MutableRefObject<Instance<T>>` | - |
 | params | Parameters for initiating network requests, used in conjunction with request | `Record` | - |
 | request | The parameters of the initiating network request, the return value will be overwritten to initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | Whether to use carriage return to submit | `boolean` | - |
@@ -232,7 +241,8 @@ ProFormInstance adds some capabilities compared to antd's form.
    * @param nameList (string|number)[]
    * @returns T
    *
-   * @example {a:{b:value}} -> getFieldFormatValueObject(['a', 'b']) -> {a:{b:value}}
+   * @example
+   * {a:{b:value}}->getFieldFormatValueObject(['a', 'b'])->{a:{b:value}}
    */
   /** Get the single data after formatting */
   getFieldFormatValueObject?: (nameList?: NamePath) => T;
@@ -266,7 +276,7 @@ While we would prefer not to modify the submitter, it is a common requirement to
 | resetButtonProps | The props for the reset button | [ButtonProps](https://ant.design/components/button/) | - |
 | render | Rendering of custom actions | `false` \|`(props,dom:JSX[])=>ReactNode[]` | - |
 
-The second argument to > render is the default dom array, the first is the reset button and the second is the submit button.
+The second argument to > render is the default dom array, the first is the submit button and the second is the reset button.
 
 ```tsx | pure
 <ProForm
@@ -289,10 +299,18 @@ The second argument to > render is the default dom array, the first is the reset
     render: (props, doms) => {
       console.log(props);
       return [
-        <button type="button" key="rest" onClick={() => props.form?.resetFields()}>
+        <button
+          type="button"
+          key="rest"
+          onClick={() => props.form?.resetFields()}
+        >
           Reset
         </button>,
-        <button type="button" key="submit" onClick={() => props.form?.submit?.()}>
+        <button
+          type="button"
+          key="submit"
+          onClick={() => props.form?.submit?.()}
+        >
           Submit
         </button>,
       ];

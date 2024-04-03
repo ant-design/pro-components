@@ -25,7 +25,11 @@ const Demo = () => {
           console.log(f, index, action);
           return (
             <>
-              <ProFormText initialValue={index} name="rowKey" label={`第 ${index} 配置`} />
+              <ProFormText
+                initialValue={index}
+                name="rowKey"
+                label={`第 ${index} 配置`}
+              />
               <ProFormText name="name" label="姓名" />
               <ProFormDependency name={['name']}>
                 {({ name }) => {

@@ -1,13 +1,17 @@
-import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
+import { ReloadOutlined } from '@ant-design/icons';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, omitUndefined } from '@ant-design/pro-utils';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { TableContext } from '../../Store/Provide';
-import type { ActionType, OptionSearchProps, ProTableProps } from '../../typing';
+import type {
+  ActionType,
+  OptionSearchProps,
+  ProTableProps,
+} from '../../typing';
 import ColumnSetting from '../ColumnSetting';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
@@ -17,10 +21,12 @@ import FullScreenIcon from './FullscreenIcon';
 export type SettingOptionType = {
   draggable?: boolean;
   checkable?: boolean;
+  showListItemOption?: boolean;
   checkedReset?: boolean;
   listsHeight?: number;
   extra?: React.ReactNode;
   children?: React.ReactNode;
+  settingIcon?: React.ReactNode;
 };
 export type OptionConfig = {
   density?: boolean;
@@ -28,6 +34,8 @@ export type OptionConfig = {
   reload?: OptionsType;
   setting?: boolean | SettingOptionType;
   search?: (OptionSearchProps & { name?: string }) | boolean;
+  reloadIcon?: React.ReactNode;
+  densityIcon?: React.ReactNode;
 };
 
 export type OptionsFunctionType = (
@@ -52,6 +60,7 @@ export type ToolBarProps<T = unknown> = {
   ) => React.ReactNode[];
   action: React.MutableRefObject<ActionType | undefined>;
   options?: OptionConfig | false;
+  optionsRender?: ToolbarRenderProps<T>['optionsRender'];
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
   className?: string;
@@ -59,23 +68,22 @@ export type ToolBarProps<T = unknown> = {
   columns: TableColumnType<T>[];
 };
 
-function getButtonText({
-  intl,
-}: OptionConfig & {
-  intl: IntlType;
-}) {
+function getButtonText(
+  {
+    intl,
+  }: OptionConfig & {
+    intl: IntlType;
+  },
+  options: OptionConfig,
+) {
   return {
     reload: {
       text: intl.getMessage('tableToolBar.reload', '刷新'),
-      icon: <ReloadOutlined />,
+      icon: options.reloadIcon ?? <ReloadOutlined />,
     },
     density: {
       text: intl.getMessage('tableToolBar.density', '表格密度'),
-      icon: <DensityIcon />,
-    },
-    setting: {
-      text: intl.getMessage('tableToolBar.columnSetting', '列设置'),
-      icon: <SettingOutlined />,
+      icon: <DensityIcon icon={options.densityIcon} />,
     },
     fullScreen: {
       text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
@@ -101,13 +109,17 @@ function renderDefaultOption<T>(
   return Object.keys(options)
     .filter((item) => item)
     .map((key) => {
-      const value = options[key];
+      const value = options[key as 'fullScreen'];
       if (!value) {
         return null;
       }
 
-      let onClick: OptionsFunctionType =
-        value === true ? defaultOptions[key] : (event) => value?.(event, actions.current);
+      let onClick =
+        value === true
+          ? defaultOptions[key as keyof OptionConfig]
+          : (event: any) => {
+              value?.(event, actions.current);
+            };
 
       if (typeof onClick !== 'function') {
         onClick = () => {};
@@ -115,7 +127,11 @@ function renderDefaultOption<T>(
 
       if (key === 'setting') {
         return (
-          <ColumnSetting {...(options[key] as SettingOptionType)} columns={columns} key={key} />
+          <ColumnSetting
+            {...(options[key] as SettingOptionType)}
+            columns={columns}
+            key={key}
+          />
         );
       }
       if (key === 'fullScreen') {
@@ -125,7 +141,9 @@ function renderDefaultOption<T>(
           </span>
         );
       }
-      const optionItem = getButtonText(defaultOptions)[key];
+      const optionItem = getButtonText(defaultOptions, options)[
+        key as 'fullScreen'
+      ];
       if (optionItem) {
         return (
           <span key={key} onClick={onClick}>
@@ -149,6 +167,7 @@ function ToolBar<T>({
   toolbar,
   onSearch,
   columns,
+  optionsRender,
   ...rest
 }: ToolBarProps<T>) {
   const counter = useContext(TableContext);
@@ -172,7 +191,7 @@ function ToolBar<T>({
       ...propsOptions,
     };
 
-    return renderDefaultOption<T>(
+    const settings = renderDefaultOption<T>(
       options,
       {
         ...defaultOptions,
@@ -181,7 +200,41 @@ function ToolBar<T>({
       action,
       columns,
     );
-  }, [action, columns, intl, propsOptions]);
+    if (optionsRender) {
+      return optionsRender(
+        {
+          headerTitle,
+          tooltip,
+          toolBarRender,
+          action,
+          options: propsOptions,
+          selectedRowKeys,
+          selectedRows,
+          toolbar,
+          onSearch,
+          columns,
+          optionsRender,
+          ...rest,
+        },
+        settings,
+      );
+    }
+    return settings;
+  }, [
+    action,
+    columns,
+    headerTitle,
+    intl,
+    onSearch,
+    optionsRender,
+    propsOptions,
+    rest,
+    selectedRowKeys,
+    selectedRows,
+    toolBarRender,
+    toolbar,
+    tooltip,
+  ]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
@@ -196,7 +249,8 @@ function ToolBar<T>({
     /** 受控的value 和 onChange */
     const defaultSearchConfig = {
       value: counter.keyWords,
-      onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
+      onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+        counter.setKeyWords(e.target.value),
     };
 
     if (propsOptions.search === true) return defaultSearchConfig;
@@ -233,10 +287,14 @@ export type ToolbarRenderProps<T> = {
   tableColumn: any[];
   tooltip?: string | LabelTooltipType;
   selectedRows: T[];
-  selectedRowKeys: React.Key[];
+  selectedRowKeys: React.Key[] | (string | number)[];
   headerTitle: React.ReactNode;
   toolbar: ProTableProps<T, any, any>['toolbar'];
   options: ProTableProps<T, any, any>['options'];
+  optionsRender?: (
+    props: ToolBarProps<T>,
+    defaultDom: React.ReactNode[],
+  ) => React.ReactNode[];
   toolBarRender?: ToolBarProps<T>['toolBarRender'];
   actionRef: React.MutableRefObject<ActionType | undefined>;
 };
@@ -330,6 +388,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
       headerTitle,
       actionRef,
       toolBarRender,
+      optionsRender,
     } = this.props;
 
     // 不展示 toolbar
@@ -345,12 +404,13 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
         action={actionRef}
         onSearch={this.onSearch}
         selectedRows={selectedRows}
-        selectedRowKeys={selectedRowKeys}
+        selectedRowKeys={selectedRowKeys as (string | number)[]}
         toolBarRender={toolBarRender}
         toolbar={{
           filter: searchNode,
           ...toolbar,
         }}
+        optionsRender={optionsRender}
       />
     );
   };

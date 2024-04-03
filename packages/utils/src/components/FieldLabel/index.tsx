@@ -1,7 +1,7 @@
-import { CloseOutlined, DownOutlined } from '@ant-design/icons';
+import { CloseCircleFilled, DownOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import { useStyle } from './style';
@@ -14,24 +14,28 @@ export type FieldLabelProps = {
   size?: SizeType;
   ellipsis?: boolean;
   placeholder?: React.ReactNode;
-  expanded?: boolean;
   className?: string;
   formatter?: (value: any) => React.ReactNode;
   style?: React.CSSProperties;
   bordered?: boolean;
   allowClear?: boolean;
+  downIcon?: React.ReactNode | false;
+  onClick?: () => void;
+  valueMaxLength?: number;
   /**
    * 点击标签的事件，用来唤醒 down menu 状态
    */
   onLabelClick?: () => void;
 };
 
-const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> = (props, ref) => {
+const FieldLabelFunction: React.ForwardRefRenderFunction<
+  any,
+  FieldLabelProps
+> = (props, ref) => {
   const {
     label,
     onClear,
     value,
-    size = 'middle',
     disabled,
     onLabelClick,
     ellipsis,
@@ -39,8 +43,15 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
     className,
     formatter,
     bordered,
+    style,
+    downIcon,
     allowClear = true,
+    valueMaxLength = 41,
   } = props;
+  const { componentSize } = ConfigProvider?.useConfig?.() || {
+    componentSize: 'middle',
+  };
+  const size = componentSize;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-label');
   const { wrapSSR, hashId } = useStyle(prefixCls);
@@ -53,11 +64,35 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
     clearRef,
   }));
 
+  const wrapElements = (
+    array: (string | JSX.Element)[],
+  ): JSX.Element[] | string => {
+    if (array.every((item) => typeof item === 'string')) return array.join(',');
+
+    return array.map((item, index) => {
+      const comma = index === array.length - 1 ? '' : ',';
+      if (typeof item === 'string') {
+        return (
+          <span key={index}>
+            {item}
+            {comma}
+          </span>
+        );
+      }
+      return (
+        <span key={index} style={{ display: 'flex' }}>
+          {item}
+          {comma}
+        </span>
+      );
+    });
+  };
+
   const formatterText = (aValue: any) => {
     if (formatter) {
       return formatter(aValue);
     }
-    return Array.isArray(aValue) ? aValue.join(',') : aValue;
+    return Array.isArray(aValue) ? wrapElements(aValue) : aValue;
   };
 
   const getTextByValue = (
@@ -71,7 +106,12 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
       (!Array.isArray(aValue) || aValue.length)
     ) {
       const prefix = aLabel ? (
-        <span onClick={onLabelClick} className={`${prefixCls}-text`}>
+        <span
+          onClick={() => {
+            onLabelClick?.();
+          }}
+          className={`${prefixCls}-text`}
+        >
           {aLabel}
           {': '}
         </span>
@@ -92,12 +132,14 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
           </span>
         );
       }
-      // 普通表单值最大长度41，如2022-06-21 20:11:25 ~ 2022-06-22 20:11:25
-      const VALUE_MAX_LENGTH = 41;
       const getText = () => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
-        if (typeof str === 'string' && str.length > VALUE_MAX_LENGTH && isArrayValue) {
+        if (
+          typeof str === 'string' &&
+          str.length > valueMaxLength &&
+          isArrayValue
+        ) {
           return `...${aValue.length}${unitText}`;
         }
         return '';
@@ -113,8 +155,10 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
           }}
         >
           {prefix}
-          <span style={{ paddingInlineStart: 4 }}>
-            {typeof str === 'string' ? str?.toString()?.substr?.(0, VALUE_MAX_LENGTH) : str}
+          <span style={{ paddingInlineStart: 4, display: 'flex' }}>
+            {typeof str === 'string'
+              ? str?.toString()?.substr?.(0, valueMaxLength)
+              : str}
           </span>
           {tail}
         </span>
@@ -127,7 +171,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
       className={classNames(
         prefixCls,
         hashId,
-        `${prefixCls}-${size}`,
+        `${prefixCls}-${props.size ?? size ?? 'middle'}`,
         {
           [`${prefixCls}-active`]: !!value || value === 0,
           [`${prefixCls}-disabled`]: disabled,
@@ -136,24 +180,40 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<any, FieldLabelProps> =
         },
         className,
       )}
+      style={style}
       ref={labelRef}
+      onClick={() => {
+        props?.onClick?.();
+      }}
     >
       {getTextByValue(label, value)}
       {(value || value === 0) && allowClear && (
-        <CloseOutlined
+        <CloseCircleFilled
           role="button"
           title={intl.getMessage('form.lightFilter.clear', '清除')}
-          className={classNames(`${prefixCls}-icon`, hashId, `${prefixCls}-close`)}
+          className={classNames(
+            `${prefixCls}-icon`,
+            hashId,
+            `${prefixCls}-close`,
+          )}
           onClick={(e) => {
-            if (onClear && !disabled) {
-              onClear();
-            }
+            if (!disabled) onClear?.();
             e.stopPropagation();
           }}
           ref={clearRef}
         />
       )}
-      <DownOutlined className={classNames(`${prefixCls}-icon`, `${prefixCls}-arrow`)} />
+      {downIcon !== false
+        ? downIcon ?? (
+            <DownOutlined
+              className={classNames(
+                `${prefixCls}-icon`,
+                hashId,
+                `${prefixCls}-arrow`,
+              )}
+            />
+          )
+        : null}
     </span>,
   );
 };

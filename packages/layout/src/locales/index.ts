@@ -23,9 +23,11 @@ export const getLanguage = (): string => {
   // support ssr
   if (!isBrowser()) return 'zh-CN';
   const lang = window.localStorage.getItem('umi_locale');
-  return lang || (window as unknown as GLocaleWindow).g_locale || navigator.language;
+  return (
+    lang || (window as unknown as GLocaleWindow).g_locale || navigator.language
+  );
 };
 export const gLocaleObject = (): Record<string, string> => {
   const gLocale = getLanguage();
-  return locales[gLocale] || locales['zh-CN'];
+  return locales[gLocale as 'zh-CN'] || locales['zh-CN'];
 };

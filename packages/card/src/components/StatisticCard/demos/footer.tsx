@@ -22,8 +22,18 @@ export default () => {
       }
       footer={
         <>
-          <Statistic value={15.1} title="累计注册数" suffix="万" layout="horizontal" />
-          <Statistic value={15.1} title="本月注册数" suffix="万" layout="horizontal" />
+          <Statistic
+            value={15.1}
+            title="累计注册数"
+            suffix="万"
+            layout="horizontal"
+          />
+          <Statistic
+            value={15.1}
+            title="本月注册数"
+            suffix="万"
+            layout="horizontal"
+          />
         </>
       }
       style={{ width: 250 }}

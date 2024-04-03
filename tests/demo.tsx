@@ -1,15 +1,21 @@
-import { act, cleanup, render as reactRender } from '@testing-library/react';
+import {
+  cleanup,
+  render as reactRender,
+  waitFor,
+} from '@testing-library/react';
+import { App } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { waitTime } from './util';
+import { useEffect } from 'react';
+import { act } from 'react-dom/test-utils';
 type Options = {
   skip?: boolean;
 };
 
-function demoTest(component: string, options: Options = {}) {
+function demoTest(component: string, options?: Options) {
   const LINE_STR_COUNT = 20;
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-  const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+  const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
 
   // Mock offsetHeight
   // @ts-expect-error
@@ -54,22 +60,79 @@ function demoTest(component: string, options: Options = {}) {
   const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
   files.push(...glob.sync(`./${component}/**/**/[!_]*.tsx`));
 
+  const TestApp = (props: { children: any; onInit: () => void }) => {
+    useEffect(() => {
+      setTimeout(() => {
+        props.onInit?.();
+      }, 1000);
+    }, []);
+    return (
+      <App>
+        <div>test</div>
+        {props.children}
+      </App>
+    );
+  };
+
+  const matchMediaSpy = vi.spyOn(window, 'matchMedia');
+  matchMediaSpy.mockImplementation(
+    (query) =>
+      ({
+        addListener: (cb: (e: { matches: boolean }) => void) => {
+          cb({ matches: query === '(max-width: 575px)' });
+        },
+        removeListener: vi.fn(),
+        matches: query === '(max-width: 575px)',
+      } as any),
+  );
+
   describe(`${component} demos`, () => {
     files.forEach((file) => {
-      let testMethod = options.skip === true ? test.skip : test;
-      if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
+      let testMethod = options?.skip === true ? test.skip : test;
+      if (
+        Array.isArray(options?.skip) &&
+        options?.skip.some((c) => file.includes(c))
+      ) {
         testMethod = test.skip;
       }
       testMethod(`📸 renders ${file} correctly`, async () => {
-        const Demo = require(`.${file}`).default;
-        const wrapper = reactRender(<Demo />);
+        vi.useFakeTimers().setSystemTime(new Date('2016-11-22 15:22:44'));
 
-        await act(async () => {
-          await waitTime(300);
+        const fn = vi.fn();
+        Math.random = () => 0.8404419276253765;
+
+        const Demo = (await import(`.${file}`)).default;
+        const wrapper = reactRender(
+          <TestApp onInit={fn}>
+            <Demo />
+          </TestApp>,
+        );
+
+        act(() => {
+          vi.runAllTimers();
         });
-        expect(wrapper.asFragment()).toMatchSnapshot();
+
+        await waitFor(() => {
+          return wrapper.findAllByText('test');
+        });
+
+        act(() => {
+          vi.runAllTimers();
+        });
+
+        await waitFor(() => {
+          return wrapper.findAllByText('test');
+        });
+
+        await waitFor(() => {
+          expect(fn).toBeCalled();
+        });
+        await waitFor(() => {
+          expect(wrapper.asFragment()).toMatchSnapshot();
+        });
 
         wrapper.unmount();
+        vi.useRealTimers();
         cleanup();
       });
     });

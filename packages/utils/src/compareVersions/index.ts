@@ -36,7 +36,10 @@ const compareStrings = (a: string, b: string): number => {
  * @param  {string|RegExpMatchArray} b
  * @returns number
  */
-const compareSegments = (a: string | RegExpMatchArray, b: string | RegExpMatchArray): number => {
+const compareSegments = (
+  a: string | RegExpMatchArray,
+  b: string | RegExpMatchArray,
+): number => {
   for (let i = 0; i < Math.max(a.length, b.length); i++) {
     const r = compareStrings(a[i] || '0', b[i] || '0');
     if (r !== 0) return r;

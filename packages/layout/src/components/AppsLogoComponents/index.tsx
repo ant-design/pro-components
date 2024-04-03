@@ -6,7 +6,7 @@ import { AppsLogo } from './AppsLogo';
 import { DefaultContent } from './DefaultContent';
 import { SimpleContent } from './SimpleContent';
 import { useStyle } from './style/index';
-import type { AppListProps, AppItemProps } from './types';
+import type { AppItemProps, AppListProps } from './types';
 
 /**
  * 默认渲染logo的方式，如果是个string，用img。否则直接返回
@@ -34,10 +34,22 @@ export const defaultRenderLogo = (
  */
 export const AppsLogoComponents: React.FC<{
   appList?: AppListProps;
-  itemClick?: (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => void;
+  appListRender?: (
+    props: AppListProps,
+    defaultDom: React.ReactNode,
+  ) => React.ReactNode;
+  onItemClick?: (
+    item: AppItemProps,
+    popoverRef?: React.RefObject<HTMLSpanElement>,
+  ) => void;
   prefixCls?: string;
 }> = (props) => {
-  const { appList, prefixCls = 'ant-pro', itemClick } = props;
+  const {
+    appList,
+    appListRender,
+    prefixCls = 'ant-pro',
+    onItemClick: itemClick,
+  } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
@@ -49,7 +61,7 @@ export const AppsLogoComponents: React.FC<{
     itemClick?.(app, popoverRef);
   };
 
-  const popoverContent = useMemo(() => {
+  const defaultDomContent = useMemo(() => {
     const isSimple = appList?.some((app) => {
       return !app?.desc;
     });
@@ -75,8 +87,13 @@ export const AppsLogoComponents: React.FC<{
 
   if (!props?.appList?.length) return null;
 
-  const popoverOpenProps = openVisibleCompatible(undefined, (openChange: boolean) =>
-    setOpen(openChange),
+  const popoverContent = appListRender
+    ? appListRender(props?.appList, defaultDomContent)
+    : defaultDomContent;
+
+  const popoverOpenProps = openVisibleCompatible(
+    undefined,
+    (openChange: boolean) => setOpen(openChange),
   );
 
   return wrapSSR(
@@ -92,9 +109,9 @@ export const AppsLogoComponents: React.FC<{
         placement="bottomRight"
         trigger={['click']}
         zIndex={9999}
-        arrowPointAtCenter
+        arrow={false}
         {...popoverOpenProps}
-        overlayClassName={`${baseClassName}-popover ${hashId}`}
+        overlayClassName={`${baseClassName}-popover ${hashId}`.trim()}
         content={popoverContent}
         getPopupContainer={() => ref.current || document.body}
       >

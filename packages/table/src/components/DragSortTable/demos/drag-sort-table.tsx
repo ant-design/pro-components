@@ -10,27 +10,27 @@ const data = [
     name: 'John Brown',
     age: 32,
     address: 'New York No. 1 Lake Park',
-    index: 0,
   },
   {
     key: 'key2',
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    index: 1,
   },
   {
     key: 'key3',
     name: 'Joe Black',
     age: 32,
     address: 'Sidney No. 1 Lake Park',
-    index: 2,
   },
 ];
 const wait = async (delay = 1000) =>
   new Promise((resolve) => setTimeout(() => resolve(void 0), delay));
 
-let remoteData = data.map((item) => ({ ...item, name: `[remote data] ${item.name}` }));
+let remoteData = data.map((item) => ({
+  ...item,
+  name: `[remote data] ${item.name}`,
+}));
 const request = async () => {
   await wait(3000);
   return {
@@ -46,7 +46,9 @@ export default () => {
       title: '排序',
       dataIndex: 'sort',
       render: (dom, rowData, index) => {
-        return <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>;
+        return (
+          <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>
+        );
       },
     },
     {
@@ -85,17 +87,29 @@ export default () => {
   const actionRef = useRef<ActionType>();
   const [dataSource1, setDatasource1] = useState(data);
   const [dataSource2, setDatasource2] = useState(data);
-  const handleDragSortEnd1 = (newDataSource: any) => {
+  const handleDragSortEnd1 = (
+    beforeIndex: number,
+    afterIndex: number,
+    newDataSource: any,
+  ) => {
     console.log('排序后的数据', newDataSource);
     setDatasource1(newDataSource);
     message.success('修改列表排序成功');
   };
-  const handleDragSortEnd2 = (newDataSource: any) => {
+  const handleDragSortEnd2 = (
+    beforeIndex: number,
+    afterIndex: number,
+    newDataSource: any,
+  ) => {
     console.log('排序后的数据', newDataSource);
     setDatasource2(newDataSource);
     message.success('修改列表排序成功');
   };
-  const handleDragSortEnd3 = (newDataSource: any) => {
+  const handleDragSortEnd3 = (
+    beforeIndex: number,
+    afterIndex: number,
+    newDataSource: any,
+  ) => {
     console.log('排序后的数据', newDataSource);
     // 模拟将排序后数据发送到服务器的场景
     remoteData = newDataSource;
@@ -117,6 +131,7 @@ export default () => {
         headerTitle="拖拽排序(默认把手)"
         columns={columns}
         rowKey="key"
+        search={false}
         pagination={false}
         dataSource={dataSource1}
         dragSortKey="sort"
@@ -125,7 +140,7 @@ export default () => {
       <DragSortTable
         headerTitle="拖拽排序(自定义把手)"
         columns={columns2}
-        rowKey="index"
+        rowKey="key"
         search={false}
         pagination={false}
         dataSource={dataSource2}
@@ -137,7 +152,7 @@ export default () => {
         actionRef={actionRef}
         headerTitle="使用 request 获取数据源"
         columns={columns2}
-        rowKey="index"
+        rowKey="key"
         search={false}
         pagination={false}
         request={request}

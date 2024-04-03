@@ -2,7 +2,7 @@
 title: ProTable
 order: 0
 legacy: /table
-
+atomId: ProTable
 nav:
   title: Components
 ---
@@ -19,197 +19,6 @@ Thanks to ProForm's capabilities, ProForm can take many forms, switch between qu
 ## When to Use
 
 When your forms need to interact with the server or need multiple cell styles, ProTable is the right choice.
-
-## Code Demo
-
-### Querying a table
-
-<code src="../demos/single.tsx" background="hsl(220,23%,97%)" ></code>
-
-<code src="../demos/dataSource.tsx" background="hsl(220,23%,97%)" debug></code>
-
-### Downgrade to a normal table
-
-<code src="../demos/normal.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Lightweight filter replacement query form
-
-<code src="../demos/lightfilter.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Forms without ToolBar
-
-<code src="../demos/no-title.tsx" ></code>
-
-### Nested tables
-
-<code src="../demos/table-nested.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Left and right structure
-
-<code src="../demos/split.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Batch manipulation of tables
-
-<code src="../demos/batchOption.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Manipulating query forms with formRef
-
-<code src="../demos/form.tsx" background="hsl(220,23%,97%)" ></code>
-
-### RTL (النسخة العربية)
-
-RTL means right-to-left.
-
-<code src="../demos/rtl_table.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Controlled table settings columns
-
-You can hide some columns by default, but in the action column you can select
-
-<code src="../demos/columnsStateMap.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Tables polling network data
-
-<code src="../demos/pollinga.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Search form customization
-
-When the built-in form items don't meet our basic needs, we need to customize the default components, which we can use with `fieldProps` and `renderFormItem`.
-
-`fieldProps` can pass the props through and set the select style and multi-select issues.
-
-`renderFormItem` does the rewriting logic, passing in item and props for rendering, but note that we have to assign `value` and `onChange` to the props, otherwise the form won't get the parameters.
-
-```tsx | pure
-renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, . .rest }, form) => {
-  if (type === 'form') {
-    return null;
-  }
-  const status = form.getFieldValue('state');
-  if (status ! == 'open') {
-    return <Input {... .fieldProps} placeholder="Please enter test" />;
-  }
-  return defaultRender(_);
-};
-```
-
-The definition of `renderFormItem`, the exact value of which can be seen by opening the console.
-
-```tsx | pure
- renderFormItem?: (
-    item: ProColumns<T>,
-    config: {
-      value?: any;
-      onChange?: (value: any) => void;
-      onSelect?: (value: any) => void;
-      type: ProTableTypes;
-      defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
-    },
-    form: FormInstance,
-  ) => JSX.Element | false | null;
-```
-
-<code src="../demos/linkage_form.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Form action customization
-
-<code src="../demos/search_option.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Toolbar Customization
-
-Configure toolbar rendering using the `toolbar` property extension.
-
-<code src="../demos/listToolBar.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Required Inquiry Form
-
-Try to use initialValue to solve the problem, required fields are more frustrating
-
-<code src="../demos/open-rules.tsx" ></code>
-
-### Form body customization
-
-<code src="../demos/renderTable.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Internationalization-related configuration
-
-ProTable has built-in support for internationalization, and as a component with a relatively small amount of text, we can implement internationalization ourselves at a low cost.
-
-Here is the full amount of text
-
-```typescript | pure
-const enLocale = {
-  tableForm: {
-    search: 'Query',
-    reset: 'Reset',
-    submit: 'Submit',
-    collapsed: 'Expand',
-    expand: 'Collapse',
-    inputPlaceholder: 'Please enter',
-    selectPlaceholder: 'Please select',
-  },
-  alert: {
-    clear: 'Clear',
-  },
-  tableToolBar: {
-    leftPin: 'Pin to left',
-    rightPin: 'Pin to right',
-    noPin: 'Unpinned',
-    leftFixedTitle: 'Fixed the left',
-    rightFixedTitle: 'Fixed the right',
-    noFixedTitle: 'Not Fixed',
-    reset: 'Reset',
-    columnDisplay: 'Column Display',
-    columnSetting: 'Settings',
-    fullScreen: 'Full Screen',
-    exitFullScreen: 'Exit Full Screen',
-    reload: 'Refresh',
-    density: 'Density',
-    densityDefault: 'Default',
-    densityLarger: 'Larger',
-    densityMiddle: 'Middle',
-    densitySmall: 'Compact',
-  },
-};
-
-// Generate the intl object
-const enUSIntl = createIntl('en_US', enUS);
-import { ConfigProvider } from '@ant-design/pro-provide';
-// use
-<ConfigProvider
-  value={{
-    intl: enUSIntl,
-  }}
->
-  <ProTable />
-</ConfigProvider>;
-```
-
-<code src="../demos/intl.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Table using self-contained keyWords search
-
-<code src="../demos/search.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Value type examples
-
-#### valueType - Date class
-
-<code src="../demos/valueTypeDate.tsx" background="hsl(220,23%,97%)" ></code>
-
-#### valueType - numeric class
-
-<code src="../demos/valueTypeNumber.tsx" background="hsl(220,23%,97%)" ></code>
-
-#### valueType - Style Classes
-
-<code src="../demos/valueType.tsx" background="hsl(220,23%,97%)" ></code>
-
-#### valueType - Selection Classes
-
-<code src="../demos/valueType_select.tsx" background="hsl(220,23%,97%)" ></code>
-
-<code src="../demos/config-provider.tsx" debug background="hsl(220,23%,97%)" ></code>
 
 ## API
 
@@ -270,7 +79,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | onRequestError | Triggered when data loading fails | `(error) => void` | - |
 | tableClassName | className of the encapsulated table | `string` | - |
 | tableStyle | style of the encapsulated table | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table toolbar, not displayed when set to false | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload :true, setting: true}` |
+| options | table toolbar, not displayed when set to false | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#menu-bar-options-configuration) `}}` | `{ fullScreen: false, reload :true, density: true, setting: true}` |
 | search | Whether to display the search form, when the object is passed in, it is the configuration of the search form | `false` \| [SearchConfig](#search-search-form) | - |
 | dateFormatter | Convert moment format data to a specific type, false will not be converted | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \|`false` | `"string"` |
 | defaultSize | Default size | SizeType | - |
@@ -285,11 +94,12 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | toolbar | Transparent transmission of `ListToolBar` configuration items | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | The main function of the custom table | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
 | manualRequest | Do you need to manually trigger the first request? When configured as `true`, the search form cannot be hidden | `boolean` | false |
-| editable | Related configuration of editable table | [TableRowEditable](/components/editable-table#editable-Editable row configuration) | - |
+| editable | Related configuration of editable table | [TableRowEditable](/en-US/components/editable-table#editable-edit-line-configuration) | - |
 | cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
+| ghost | Ghost mode, that is, whether to cancel the padding of the table content area. | `boolean` | false |
 | debounceTime | Debounce time | `number` | 10 |
 | revalidateOnFocus | Automatically re-request when the window is focused | `boolean` | `false` |
-| columnsState | Column Status Control, you can operate the display hide | `ColumnsStateType` | - |
+| columnsState | Column Status Control, you can operate the display hide | `ColumnStateType` | - |
 
 #### RecordCreator
 
@@ -303,11 +113,11 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| defaultValue | The default value of the column status, only for the first time | `Record <string, ColumnsState>;` |
-| value | Column status, support controlled mode | `Record <string, ColumnsState>;` |
-| onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |
-| PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |
-| PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localstorage \| sessionStorage` |
+| defaultValue | The default value of the column status, only for the first time. Used for resetting value | `Record <string, ColumnsState>;` |  |
+| value | Column status, support controlled mode | `Record <string, ColumnsState>;` |  |
+| onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |  |
+| PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |  |
+| PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localStorage \| sessionStorage` |  |
 
 #### Search Search form
 
@@ -320,11 +130,12 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | labelWidth | Label width | `'number'` \| `'auto'` | 80 |
 | span | Configure the number of columns in the query form | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | className | Encapsulated search Form className | `string` | - |
-| collapseRender | Collapse button render | `(collapsed: boolean,showCollapseButton?: boolean,) => ReactNode` | - |
+| collapseRender | Collapse button render | `((collapsed: boolean,showCollapseButton?: boolean) => ReactNode)`\|`false` | - |
 | defaultCollapsed | Whether to collapse by default | `boolean` | true |
 | collapsed | collapsed | `boolean` | - |
 | onCollapse | Collapse button event | `(collapsed: boolean) => void;` | - |
 | optionRender | Custom action bar | `((searchConfig,formProps,dom) => ReactNode[])`\|`false` | - |
+| showHiddenNum | Whether to show the number of hidden items after storing | `boolean` | `false` |
 
 #### ColConfig
 
@@ -352,6 +163,19 @@ export type OptionConfig = {
   reload?: OptionsType;
   setting?: boolean;
   search?: (SearchProps & { name?: string }) | boolean;
+  reloadIcon?: React.ReactNode;
+  densityIcon?: React.ReactNode;
+};
+
+export type SettingOptionType = {
+  draggable?: boolean;
+  checkable?: boolean;
+  showListItemOption?: boolean;
+  checkedReset?: boolean;
+  listsHeight?: number;
+  extra?: React.ReactNode;
+  children?: React.ReactNode;
+  settingIcon?: React.ReactNode;
 };
 ```
 
@@ -455,18 +279,6 @@ Form's columns are generated with different types based on [`valueType`](/compon
 
 Toolbar section for customizing forms.
 
-#### Code Demo
-
-<code src="../demos/ListToolBar/basic.tsx" background="#f7f8fa"></code>
-
-<code src="../demos/ListToolBar/no-title.tsx" background="#f7f8fa"></code>
-
-<code src="../demos/ListToolBar/multipleLine.tsx" background="#f7f8fa"></code>
-
-<code src="../demos/ListToolBar/tabs.tsx" background="#f7f8fa"></code>
-
-<code src="../demos/ListToolBar/menu.tsx" background="#f7f8fa"></code>
-
 #### ListToolBarProps
 
 Toolbar configuration properties for lists and tables
@@ -475,7 +287,7 @@ Toolbar configuration properties for lists and tables
 | --- | --- | --- | --- |
 | title | title | `ReactNode` | - |
 | subTitle | subTitle | `ReactNode` | - |
-| description | description | `ReactNode` | - |
+| tooltip | tooltip Description | `string` | - |
 | search | query area | `ReactNode` \| `SearchProps` | - |
 | actions | actions area | `ReactNode[]` | - |
 | settings | settings area | `(ReactNode \| Setting)[]` | - |
@@ -497,17 +309,25 @@ SearchProps is a property of antd's [Input.Search](https://ant.design/components
 
 #### ListToolBarMenu
 
-| parameters | description                  | type                                  | default    |
-| ---------- | ---------------------------- | ------------------------------------- | ---------- |
-| type       | type                         | `inline` \| `dropdown` \| `tab`       | `dropdown` |
-| activeKey  | current value                | `string`                              | -          |
-| items      | menu items                   | `{ key: string; label: ReactNode }[]` | -          |
-| onChange   | Callback for switching menus | `(activeKey)=>void`                   | -          |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| type | type | `inline` \| `dropdown` \| `tab` | `dropdown` |
+| activeKey | current value | `string` | - |
+| items | menu items | `{ key: string; label: ReactNode }[]` | - |
+| onChange | Callback for switching menus | `(activeKey)=>void` | - |
 
 #### ListToolBarTabs
 
-| parameters | description                      | type                                | default |
-| ---------- | -------------------------------- | ----------------------------------- | ------- |
-| activeKey  | currently selected item          | `string`                            | -       |
-| items      | menu items                       | `{ key: string; tab: ReactNode }[]` | -       |
-| onChange   | Callback for toggling menu items | `(activeKey)=>void`                 | -       |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| activeKey | currently selected item | `string` | - |
+| items | menu items | `{ key: string; tab: ReactNode }[]` | - |
+| onChange | Callback for toggling menu items | `(activeKey)=>void` | - |
+
+#### TableDropdown
+
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| key | Unique identifier | `string` | - |
+| name | Content | `ReactNode` | - |
+| (...Menu.Item) | [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) from Ant Design | Menu.Item | - |

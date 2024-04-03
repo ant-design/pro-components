@@ -8,13 +8,16 @@ import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typing';
 import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
+import type { AppItemProps, AppListProps } from '../AppsLogoComponents/types';
 import type { HeaderViewProps } from '../Header';
-import type { PrivateSiderMenuProps, SiderMenuProps } from '../SiderMenu/SiderMenu';
+import type {
+  PrivateSiderMenuProps,
+  SiderMenuProps,
+} from '../SiderMenu/SiderMenu';
 import { renderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import { TopNavHeader } from '../TopNavHeader';
-import { ActionsContent as ActionsContent } from './ActionsContent';
+import { ActionsContent } from './ActionsContent';
 import { useStyle } from './style';
-import type { AppListProps, AppItemProps } from '../AppsLogoComponents/types';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -27,7 +30,9 @@ export type GlobalHeaderProps = {
    * @example 收起时完成不展示菜单 menuRender={(props,defaultDom)=> props.collapsed ? null : defaultDom}
    * @example 不展示菜单 menuRender={false}
    */
-  menuRender?: WithFalse<(props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode>;
+  menuRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
   /**
    * @deprecated
    * 使用 actionsRender 和 avatarProps 代替
@@ -38,7 +43,10 @@ export type GlobalHeaderProps = {
   /** 相关品牌的列表 */
   appList?: AppListProps;
   /** 相关品牌的列表项 点击事件，当事件存在时，appList 内配置的 url 不在自动跳转 */
-  itemClick?: (item: AppItemProps, popoverRef?: React.RefObject<HTMLSpanElement>) => void;
+  itemClick?: (
+    item: AppItemProps,
+    popoverRef?: React.RefObject<HTMLSpanElement>,
+  ) => void;
   menuData?: MenuDataItem[];
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   style?: React.CSSProperties;
@@ -56,13 +64,19 @@ export type GlobalHeaderProps = {
 
   splitMenus?: boolean;
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
-  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
+  actionsRender?: WithFalse<
+    (props: HeaderViewProps) => React.ReactNode[] | React.ReactNode
+  >;
 
   /** 头像的设置 */
   avatarProps?: WithFalse<
     AvatarProps & {
       title?: React.ReactNode;
-      render?: (props: AvatarProps, defaultDom: React.ReactNode) => React.ReactNode;
+      render?: (
+        props: AvatarProps,
+        defaultDom: React.ReactNode,
+        siderProps: SiderMenuProps,
+      ) => React.ReactNode;
     }
   >;
   children?: React.ReactNode;
@@ -81,7 +95,9 @@ const renderLogo = (
   return logoDom;
 };
 
-const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props) => {
+const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (
+  props,
+) => {
   const {
     isMobile,
     logo,
@@ -98,8 +114,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     menuData,
     prefixCls,
   } = props;
-  const { direction } = useContext(ConfigProvider.ConfigContext);
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const { getPrefixCls, direction } = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls || getPrefixCls('pro')}-global-header`;
 
   const { wrapSSR, hashId } = useStyle(baseClassName);
@@ -114,7 +129,12 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     }));
     const clearMenuData = clearMenuItem(noChildrenMenuData);
     return (
-      <TopNavHeader mode="horizontal" {...props} splitMenus={false} menuData={clearMenuData} />
+      <TopNavHeader
+        mode="horizontal"
+        {...props}
+        splitMenus={false}
+        menuData={clearMenuData}
+      />
     );
   }
 
@@ -133,7 +153,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     <div className={className} style={{ ...style }}>
       {isMobile && (
         <span
-          className={`${baseClassName}-collapsed-button ${hashId}`}
+          className={`${baseClassName}-collapsed-button ${hashId}`.trim()}
           onClick={() => {
             onCollapse?.(!collapsed);
           }}
@@ -146,7 +166,10 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
         <>
           <AppsLogoComponents {...props} />
           <div className={logoClassNames} onClick={onMenuHeaderClick}>
-            {renderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
+            {renderLogoAndTitle(
+              { ...props, collapsed: false },
+              'headerTitleRender',
+            )}
           </div>
         </>
       )}

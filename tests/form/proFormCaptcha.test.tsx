@@ -1,15 +1,20 @@
 import ProForm, { ProFormCaptcha } from '@ant-design/pro-form';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { Button, message } from 'antd';
-import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('ProFormCaptcha', () => {
   it('😊 ProFormCaptcha Manual open', async () => {
     const captchaRef = React.createRef<any>();
-    const fn = jest.fn();
-    jest.useFakeTimers();
+    const fn = vi.fn();
+    vi.useFakeTimers();
     const TimingText = '获取验证码';
-    const { container } = render(
+
+    const html = render(
       <ProForm
         title="新建表单"
         submitter={{
@@ -34,7 +39,7 @@ describe('ProFormCaptcha', () => {
                   // @ts-ignore
                   captchaRef.current?.endTiming();
                 }}
-                key="edit"
+                key="end"
               >
                 手动结束计数
               </Button>,
@@ -50,7 +55,7 @@ describe('ProFormCaptcha', () => {
           onGetCaptcha={() => {
             return new Promise((resolve, reject) => {
               fn(TimingText);
-              reject();
+              reject(new Error('模拟报错'));
             });
           }}
           captchaProps={{
@@ -62,23 +67,41 @@ describe('ProFormCaptcha', () => {
       </ProForm>,
     );
 
-    fireEvent.click(container.querySelector('button#captchaButton')!);
+    await act(async () => {
+      const dom = await html.findByText('获取验证码');
+      fireEvent.click(dom);
+    });
 
     expect(fn).toHaveBeenCalledWith(TimingText);
 
-    fireEvent.click(container.querySelector('button#start')!);
+    await act(async () => {
+      const dom = await html.findByText('手动开始计数');
+      fireEvent.click(dom);
+    });
 
-    expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('60 秒后重新获取');
+    expect(
+      html.container.querySelectorAll('#captchaButton')[0],
+    ).toHaveTextContent('60 秒后重新获取');
 
-    fireEvent.click(container.querySelector('button#end')!);
+    await act(async () => {
+      const dom = await html.findByText('手动结束计数');
+      fireEvent.click(dom);
+    });
 
-    expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('获取验证码');
+    expect(
+      html.container.querySelectorAll('#captchaButton')[0],
+    ).toHaveTextContent('获取验证码');
 
     expect(captchaRef.current).toBeTruthy();
 
-    jest.advanceTimersByTime(60000);
-    expect(container.querySelectorAll('#captchaButton')[0]).toHaveTextContent('获取验证码');
+    act(() => {
+      vi.runOnlyPendingTimers();
+    });
 
-    jest.useRealTimers();
+    expect(
+      html.container.querySelectorAll('#captchaButton')[0],
+    ).toHaveTextContent('获取验证码');
+
+    vi.useRealTimers();
   });
 });

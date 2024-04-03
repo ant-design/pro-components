@@ -1,13 +1,17 @@
 import ProTable from '@ant-design/pro-table';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
-import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { RequestOptionsType } from 'packages/utils/src/typing';
 import { request } from './demo';
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     render(
       <ProTable
         size="small"
@@ -31,7 +35,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 query should parse by valueType', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     render(
       <ProTable
         size="small"
@@ -92,7 +96,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 render text', async () => {
-    const callBack = jest.fn();
+    const callBack = vi.fn();
     render(
       <ProTable
         size="small"
@@ -288,11 +292,14 @@ describe('Table ColumnSetting', () => {
 
     expect(container).toMatchSnapshot();
 
-    fireEvent.change(container.querySelector('.ant-select-selection-search-input')!, {
-      target: {
-        value: '1',
+    fireEvent.change(
+      container.querySelector('.ant-select-selection-search-input')!,
+      {
+        target: {
+          value: '1',
+        },
       },
-    });
+    );
     expect(container.querySelectorAll('.ant-select-item')).toHaveLength(0);
 
     setTimeout(() => {

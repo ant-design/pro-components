@@ -1,12 +1,19 @@
 import ProField from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
-import { isDeepEqualReact, runFunction } from '@ant-design/pro-utils';
+import {
+  isDeepEqualReact,
+  runFunction,
+  useRefFunction,
+} from '@ant-design/pro-utils';
 import React, { memo, useContext, useMemo } from 'react';
-import { createField } from '../../BaseForm/createField';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
+import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../typing';
 
-export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSchema<
+export type ProFormFieldProps<
+  T = any,
+  FiledProps = Record<string, any>,
+> = ProSchema<
   T,
   ProFormFieldItemProps<FiledProps> & {
     mode?: 'edit' | 'read' | 'update';
@@ -21,6 +28,7 @@ export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSc
      * dependencies value
      */
     dependenciesValues?: Record<string, any>;
+    originDependencies?: Record<string, any>;
   },
   any,
   any
@@ -67,6 +75,22 @@ const BaseProFormField: React.FC<
       : params;
   }, [dependenciesValues, params, restProps.request]);
 
+  const memoUnChange = useRefFunction((...restParams: any) => {
+    if (fieldProps?.onChange) {
+      (fieldProps?.onChange as any)?.(...restParams);
+      return;
+    }
+  });
+
+  const memoFieldProps = useMemo(
+    () => ({
+      autoFocus,
+      ...fieldProps,
+      onChange: memoUnChange,
+    }),
+    [autoFocus, fieldProps, memoUnChange],
+  );
+
   const childrenRender = useMemo(() => {
     // 防止 formItem 的值被吃掉
     if (children) {
@@ -80,7 +104,7 @@ const BaseProFormField: React.FC<
             }
             onChange?.(...restParams);
           },
-          ...children.props,
+          ...((children?.props as any) || {}),
         });
       }
       return <>{children}</>;
@@ -91,6 +115,7 @@ const BaseProFormField: React.FC<
   if (childrenRender) {
     return childrenRender;
   }
+
   return (
     <ProField
       text={fieldProps?.[valuePropName]}
@@ -98,16 +123,7 @@ const BaseProFormField: React.FC<
       renderFormItem={renderFormItem as any}
       valueType={(valueType as 'text') || 'text'}
       cacheForSwr={cacheForSwr}
-      fieldProps={{
-        autoFocus,
-        ...fieldProps,
-        onChange: (...restParams: any) => {
-          if (fieldProps?.onChange) {
-            (fieldProps?.onChange as any)?.(...restParams);
-            return;
-          }
-        },
-      }}
+      fieldProps={memoFieldProps}
       valueEnum={runFunction(valueEnum)}
       {...proFieldProps}
       {...restProps}

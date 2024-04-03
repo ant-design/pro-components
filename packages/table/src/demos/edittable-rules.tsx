@@ -36,7 +36,9 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            const tableDataSource = formRef.current?.getFieldValue('table') as DataSourceType[];
+            const tableDataSource = formRef.current?.getFieldValue(
+              'table',
+            ) as DataSourceType[];
             formRef.current?.setFieldsValue({
               table: tableDataSource.filter((item) => item.id !== row?.id),
             });

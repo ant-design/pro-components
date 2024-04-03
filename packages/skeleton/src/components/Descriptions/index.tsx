@@ -1,6 +1,6 @@
 import { Card, Skeleton } from 'antd';
-import React from 'react';
-import useMediaQuery from 'use-media-antd-query';
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
+import React, { useMemo } from 'react';
 import { Line, PageHeaderSkeleton } from '../List';
 
 export type DescriptionsPageSkeletonProps = {
@@ -26,7 +26,11 @@ const DescriptionsLargeItemSkeleton: React.FC<{
       marginBlockStart: 32,
     }}
   >
-    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
+    <Skeleton.Button
+      active={active}
+      size="small"
+      style={{ width: 100, marginBlockEnd: 16 }}
+    />
     <div
       style={{
         width: '100%',
@@ -100,8 +104,24 @@ const DescriptionsItemSkeleton: React.FC<{
   size?: number;
   active?: boolean;
 }> = ({ size, active }) => {
-  const colSize = useMediaQuery();
-  const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 3 : size;
+  const defaultCol = useMemo(
+    () => ({
+      lg: true,
+      md: true,
+      sm: false,
+      xl: false,
+      xs: false,
+      xxl: false,
+    }),
+    [],
+  );
+  const col = useBreakpoint() || defaultCol;
+
+  const colSize =
+    Object.keys(col).filter((key) => col[key as 'lg'] === true)[0] || 'md';
+
+  const arraySize =
+    size === undefined ? MediaQueryKeyEnum[colSize as 'md'] || 3 : size;
   return (
     <div
       style={{
@@ -159,8 +179,23 @@ export const TableItemSkeleton = ({
   active: boolean;
   header?: boolean;
 }) => {
-  const colSize = useMediaQuery();
-  const arraySize = MediaQueryKeyEnum[colSize] || 3;
+  const defaultCol = useMemo(
+    () => ({
+      lg: true,
+      md: true,
+      sm: false,
+      xl: false,
+      xs: false,
+      xxl: false,
+    }),
+    [],
+  );
+  const col = useBreakpoint() || defaultCol;
+
+  const colSize =
+    Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';
+
+  const arraySize = MediaQueryKeyEnum[colSize as 'md'] || 3;
   return (
     <>
       <div
@@ -223,7 +258,11 @@ export const TableSkeleton: React.FC<{
   size?: number;
 }> = ({ active, size = 4 }) => (
   <Card bordered={false}>
-    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
+    <Skeleton.Button
+      active={active}
+      size="small"
+      style={{ width: 100, marginBlockEnd: 16 }}
+    />
     <TableItemSkeleton header active={active} />
     {new Array(size).fill(null).map((_, index) => (
       // eslint-disable-next-line react/no-array-index-key
@@ -259,7 +298,11 @@ export const DescriptionsSkeleton = ({ active }: { active: boolean }) => (
       borderTopLeftRadius: 0,
     }}
   >
-    <Skeleton.Button active={active} size="small" style={{ width: 100, marginBlockEnd: 16 }} />
+    <Skeleton.Button
+      active={active}
+      size="small"
+      style={{ width: 100, marginBlockEnd: 16 }}
+    />
     <DescriptionsItemSkeleton active={active} />
     <DescriptionsLargeItemSkeleton active={active} />
   </Card>

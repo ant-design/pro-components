@@ -1,7 +1,9 @@
 ﻿import type { GenerateStyle } from '@ant-design/pro-provider';
 import { resetComponent } from '@ant-design/pro-utils';
 import type { AppsLogoComponentsToken } from './index';
-const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsToken> = (token) => {
+const genAppsLogoComponentsDefaultListStyle: GenerateStyle<
+  AppsLogoComponentsToken
+> = (token) => {
   return {
     '&-content': {
       maxHeight: 'calc(100vh - 48px)',
@@ -14,8 +16,6 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
         paddingBlock: 0,
         paddingInline: 0,
         listStyle: 'none',
-        '> *': { boxSizing: 'border-box', fontFamily: token.fontFamily },
-
         '&-item': {
           position: 'relative',
           display: 'inline-block',
@@ -45,7 +45,6 @@ const genAppsLogoComponentsDefaultListStyle: GenerateStyle<AppsLogoComponentsTok
           '&:hover': {
             backgroundColor: token.colorBgTextHover,
           },
-          '*': { boxSizing: 'border-box', fontFamily: token.fontFamily },
           '* div': resetComponent?.(token),
           a: {
             display: 'flex',

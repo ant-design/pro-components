@@ -1,11 +1,13 @@
 ﻿import arEG from './locale/ar_EG';
 import caES from './locale/ca_ES';
+import csCZ from './locale/cs_CZ';
 import deDE from './locale/de_DE';
 import enGB from './locale/en_GB';
 import enUS from './locale/en_US';
 import esES from './locale/es_ES';
 import faIR from './locale/fa_IR';
 import frFR from './locale/fr_FR';
+import heIL from './locale/he_IL';
 import hrHR from './locale/hr_HR';
 import idID from './locale/id_ID';
 import itIT from './locale/it_IT';
@@ -16,9 +18,11 @@ import msMY from './locale/ms_MY';
 import plPL from './locale/pl_PL';
 import ptBR from './locale/pt_BR';
 import ruRU from './locale/ru_RU';
+import skSK from './locale/sk_SK';
 import srRS from './locale/sr_RS';
 import thTH from './locale/th_TH';
 import trTR from './locale/tr_TR';
+import ukUA from './locale/uk_UA';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
@@ -61,7 +65,10 @@ export type IntlType = {
  * @param locale
  * @param localeMap
  */
-export const createIntl = (locale: string, localeMap: Record<string, any>): IntlType => ({
+export const createIntl = (
+  locale: string,
+  localeMap: Record<string, any>,
+): IntlType => ({
   getMessage: (id: string, defaultMessage: string) =>
     get(localeMap, id, defaultMessage) || defaultMessage,
   locale,
@@ -91,6 +98,10 @@ const trTRIntl = createIntl('tr_TR', trTR);
 const plPLIntl = createIntl('pl_PL', plPL);
 const hrHRIntl = createIntl('hr_', hrHR);
 const thTHIntl = createIntl('th_TH', thTH);
+const csCZIntl = createIntl('cs_cz', csCZ);
+const skSKIntl = createIntl('sk_SK', skSK);
+const heILIntl = createIntl('he_IL', heIL);
+const ukUAIntl = createIntl('uk_UA', ukUA);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -117,6 +128,10 @@ const intlMap = {
   'pl-PL': plPLIntl,
   'hr-HR': hrHRIntl,
   'th-TH': thTHIntl,
+  'cs-CZ': csCZIntl,
+  'sk-SK': skSKIntl,
+  'he-IL': heILIntl,
+  'uk-UA': ukUAIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -126,11 +141,8 @@ const intlMapKeys = Object.keys(intlMap);
  *
  * @param localeKey
  */
-export const findIntlKeyByAntdLocaleKey = <T extends string | undefined>(localeKey: T) => {
-  if (!localeKey) {
-    return 'zh-CN' as T;
-  }
-  const localeName = localeKey.toLocaleLowerCase();
+export const findIntlKeyByAntdLocaleKey = <T extends string>(localeKey?: T) => {
+  const localeName = (localeKey || 'zh-CN').toLocaleLowerCase();
   return intlMapKeys.find((intlKey) => {
     const LowerCaseKey = intlKey.toLocaleLowerCase();
     return LowerCaseKey.includes(localeName);
@@ -138,30 +150,34 @@ export const findIntlKeyByAntdLocaleKey = <T extends string | undefined>(localeK
 };
 
 export {
-  mnMNIntl,
   arEGIntl,
-  enUSIntl,
-  enGBIntl,
-  zhCNIntl,
-  viVNIntl,
-  itITIntl,
-  jaJPIntl,
-  esESIntl,
   caESIntl,
-  ruRUIntl,
-  srRSIntl,
-  msMYIntl,
-  zhTWIntl,
-  frFRIntl,
-  ptBRIntl,
-  koKRIntl,
-  idIDIntl,
+  csCZIntl,
   deDEIntl,
+  enGBIntl,
+  enUSIntl,
+  esESIntl,
   faIRIntl,
-  trTRIntl,
-  plPLIntl,
+  frFRIntl,
+  heILIntl,
   hrHRIntl,
-  thTHIntl,
+  idIDIntl,
   intlMap,
   intlMapKeys,
+  itITIntl,
+  jaJPIntl,
+  koKRIntl,
+  mnMNIntl,
+  msMYIntl,
+  plPLIntl,
+  ptBRIntl,
+  ruRUIntl,
+  skSKIntl,
+  srRSIntl,
+  thTHIntl,
+  trTRIntl,
+  ukUAIntl,
+  viVNIntl,
+  zhCNIntl,
+  zhTWIntl,
 };

@@ -2,13 +2,13 @@ import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
-import type { DirectionType } from 'antd/es/config-provider';
+import 'antd/lib/breadcrumb/style';
+import type { DirectionType } from 'antd/lib/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import * as React from 'react';
-import useStyle from './style/index';
 import type { ContentWidth } from '../../defaultSettings';
-import 'antd/es/breadcrumb/style';
+import useStyle from './style/index';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -17,8 +17,11 @@ export interface PageHeaderProps {
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
   childrenContentStyle?: React.CSSProperties;
-  breadcrumb?: BreadcrumbProps | React.ReactElement<typeof Breadcrumb>;
-  breadcrumbRender?: (props: PageHeaderProps, defaultDom: React.ReactNode) => React.ReactNode;
+  breadcrumb?: Partial<BreadcrumbProps> | React.ReactElement<typeof Breadcrumb>;
+  breadcrumbRender?: (
+    props: PageHeaderProps,
+    defaultDom: React.ReactNode,
+  ) => React.ReactNode;
   tags?: React.ReactElement<TagType> | React.ReactElement<TagType>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
@@ -26,6 +29,7 @@ export interface PageHeaderProps {
   onBack?: (e?: React.MouseEvent<HTMLElement>) => void;
   className?: string;
   contentWidth?: ContentWidth;
+  layout?: string;
   ghost?: boolean;
   children?: React.ReactNode;
 }
@@ -40,13 +44,13 @@ const renderBack = (
     return null;
   }
   return (
-    <div className={`${prefixCls}-back ${hashId}`}>
+    <div className={`${prefixCls}-back ${hashId}`.trim()}>
       <div
         role="button"
         onClick={(e) => {
           onBack?.(e);
         }}
-        className={`${prefixCls}-back-button ${hashId}`}
+        className={`${prefixCls}-back-button ${hashId}`.trim()}
         aria-label="back"
       >
         {backIcon}
@@ -56,7 +60,7 @@ const renderBack = (
 };
 
 const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
-  if (!breadcrumb.routes?.length) return null;
+  if (!breadcrumb.items?.length) return null;
   return (
     <Breadcrumb
       {...breadcrumb}
@@ -65,7 +69,10 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps, prefixCls: string) => {
   );
 };
 
-const getBackIcon = (props: PageHeaderProps, direction: DirectionType = 'ltr') => {
+const getBackIcon = (
+  props: PageHeaderProps,
+  direction: DirectionType = 'ltr',
+) => {
   if (props.backIcon !== undefined) {
     return props.backIcon;
   }
@@ -91,17 +98,21 @@ const renderTitle = (
   return (
     <div className={headingPrefixCls + ' ' + hashId}>
       {hasTitle && (
-        <div className={`${headingPrefixCls}-left ${hashId}`}>
+        <div className={`${headingPrefixCls}-left ${hashId}`.trim()}>
           {backIconDom}
           {avatar && (
             <Avatar
-              className={classNames(`${headingPrefixCls}-avatar`, hashId, avatar.className)}
+              className={classNames(
+                `${headingPrefixCls}-avatar`,
+                hashId,
+                avatar.className,
+              )}
               {...avatar}
             />
           )}
           {title && (
             <span
-              className={`${headingPrefixCls}-title ${hashId}`}
+              className={`${headingPrefixCls}-title ${hashId}`.trim()}
               title={typeof title === 'string' ? title : undefined}
             >
               {title}
@@ -109,17 +120,21 @@ const renderTitle = (
           )}
           {subTitle && (
             <span
-              className={`${headingPrefixCls}-sub-title ${hashId}`}
+              className={`${headingPrefixCls}-sub-title ${hashId}`.trim()}
               title={typeof subTitle === 'string' ? subTitle : undefined}
             >
               {subTitle}
             </span>
           )}
-          {tags && <span className={`${headingPrefixCls}-tags ${hashId}`}>{tags}</span>}
+          {tags && (
+            <span className={`${headingPrefixCls}-tags ${hashId}`.trim()}>
+              {tags}
+            </span>
+          )}
         </div>
       )}
       {extra && (
-        <span className={`${headingPrefixCls}-extra ${hashId}`}>
+        <span className={`${headingPrefixCls}-extra ${hashId}`.trim()}>
           <Space>{extra}</Space>
         </span>
       )}
@@ -127,24 +142,33 @@ const renderTitle = (
   );
 };
 
-const renderFooter = (prefixCls: string, footer: React.ReactNode, hashId: string) => {
+const renderFooter = (
+  prefixCls: string,
+  footer: React.ReactNode,
+  hashId: string,
+) => {
   if (footer) {
-    return <div className={`${prefixCls}-footer ${hashId}`}>{footer}</div>;
+    return (
+      <div className={`${prefixCls}-footer ${hashId}`.trim()}>{footer}</div>
+    );
   }
   return null;
 };
 
-const renderChildren = (prefixCls: string, children: React.ReactNode, hashId: string) => (
-  <div className={`${prefixCls}-content ${hashId}`}>{children}</div>
-);
+const renderChildren = (
+  prefixCls: string,
+  children: React.ReactNode,
+  hashId: string,
+) => <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>;
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState<boolean>(false);
-  const onResize = ({ width }: { width: number }) => {
-    updateCompact(width < 768);
-  };
 
-  const { getPrefixCls, direction } = React.useContext(ConfigProvider.ConfigContext);
+  const onResize = ({ width }: { width: number }) => updateCompact(width < 768);
+
+  const { getPrefixCls, direction } = React.useContext(
+    ConfigProvider.ConfigContext,
+  );
 
   const {
     prefixCls: customizePrefixCls,
@@ -155,13 +179,23 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     breadcrumbRender,
     className: customizeClassName,
     contentWidth,
+    layout,
   } = props;
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const getDefaultBreadcrumbDom = () => {
-    if ((breadcrumb as BreadcrumbProps)?.routes) {
+    if (
+      breadcrumb &&
+      !(breadcrumb as BreadcrumbProps)?.items &&
+      (breadcrumb as unknown as BreadcrumbProps)?.routes
+    ) {
+      // @ts-ignore
+      breadcrumb.items = breadcrumb.routes;
+    }
+
+    if ((breadcrumb as BreadcrumbProps)?.items) {
       return renderBreadcrumb(breadcrumb as BreadcrumbProps, prefixCls);
     }
     return null;
@@ -170,18 +204,22 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const defaultBreadcrumbDom = getDefaultBreadcrumbDom();
 
   const isBreadcrumbComponent = breadcrumb && 'props' in breadcrumb;
+
   // support breadcrumbRender function
   const breadcrumbRenderDomFromProps =
-    breadcrumbRender?.({ ...props, prefixCls }, defaultBreadcrumbDom) ?? defaultBreadcrumbDom;
+    breadcrumbRender?.({ ...props, prefixCls }, defaultBreadcrumbDom) ??
+    defaultBreadcrumbDom;
 
-  const breadcrumbDom = isBreadcrumbComponent ? breadcrumb : breadcrumbRenderDomFromProps;
+  const breadcrumbDom = isBreadcrumbComponent
+    ? breadcrumb
+    : breadcrumbRenderDomFromProps;
 
   const className = classNames(prefixCls, hashId, customizeClassName, {
     [`${prefixCls}-has-breadcrumb`]: !!breadcrumbDom,
     [`${prefixCls}-has-footer`]: !!footer,
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
-    [`${prefixCls}-wide`]: contentWidth === 'Fixed',
+    [`${prefixCls}-wide`]: contentWidth === 'Fixed' && layout == 'top',
     [`${prefixCls}-ghost`]: true,
   });
   const title = renderTitle(prefixCls, props, direction, hashId);
@@ -189,7 +227,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const footerDom = renderFooter(prefixCls, footer, hashId);
 
   if (!breadcrumbDom && !title && !footerDom && !childDom) {
-    return null;
+    return <div className={classNames(hashId, [`${prefixCls}-no-children`])} />;
   }
 
   return wrapSSR(

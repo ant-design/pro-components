@@ -8,11 +8,12 @@ import {
 } from '@ant-design/icons';
 import {
   LoginFormPage,
+  ProConfigProvider,
   ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Button, Divider, message, Space, Tabs } from 'antd';
+import { Button, Divider, Space, Tabs, message, theme } from 'antd';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
 
@@ -25,21 +26,33 @@ const iconStyles: CSSProperties = {
   cursor: 'pointer',
 };
 
-export default () => {
+const Page = () => {
   const [loginType, setLoginType] = useState<LoginType>('phone');
+  const { token } = theme.useToken();
   return (
-    <div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 }}>
+    <div
+      style={{
+        backgroundColor: 'white',
+        height: '100vh',
+      }}
+    >
       <LoginFormPage
-        backgroundImageUrl="https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png"
+        backgroundImageUrl="https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*y0ZTS6WLwvgAAAAAAAAAAAAADml6AQ/fmt.webp"
         logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
+        backgroundVideoUrl="https://gw.alipayobjects.com/v/huamei_gcee1x/afts/video/jXRBRK_VAwoAAAAAAAAAAAAAK4eUAQBr"
         title="Github"
+        containerStyle={{
+          backgroundColor: 'rgba(0, 0, 0,0.65)',
+          backdropFilter: 'blur(4px)',
+        }}
         subTitle="全球最大的代码托管平台"
         activityConfig={{
           style: {
             boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)',
-            color: '#fff',
+            color: token.colorTextHeading,
             borderRadius: 8,
-            backgroundColor: '#1677FF',
+            backgroundColor: 'rgba(255,255,255,0.25)',
+            backdropFilter: 'blur(4px)',
           },
           title: '活动标题，可配置图片',
           subTitle: '活动介绍说明文字',
@@ -48,8 +61,8 @@ export default () => {
               size="large"
               style={{
                 borderRadius: 20,
-                background: '#fff',
-                color: '#1677FF',
+                background: token.colorBgElevated,
+                color: token.colorPrimary,
                 width: 120,
               }}
             >
@@ -67,7 +80,13 @@ export default () => {
             }}
           >
             <Divider plain>
-              <span style={{ color: '#CCC', fontWeight: 'normal', fontSize: 14 }}>
+              <span
+                style={{
+                  color: token.colorTextPlaceholder,
+                  fontWeight: 'normal',
+                  fontSize: 14,
+                }}
+              >
                 其他登录方式
               </span>
             </Divider>
@@ -80,7 +99,7 @@ export default () => {
                   flexDirection: 'column',
                   height: 40,
                   width: 40,
-                  border: '1px solid #D4D8DD',
+                  border: '1px solid ' + token.colorPrimaryBorder,
                   borderRadius: '50%',
                 }}
               >
@@ -94,7 +113,7 @@ export default () => {
                   flexDirection: 'column',
                   height: 40,
                   width: 40,
-                  border: '1px solid #D4D8DD',
+                  border: '1px solid ' + token.colorPrimaryBorder,
                   borderRadius: '50%',
                 }}
               >
@@ -108,11 +127,11 @@ export default () => {
                   flexDirection: 'column',
                   height: 40,
                   width: 40,
-                  border: '1px solid #D4D8DD',
+                  border: '1px solid ' + token.colorPrimaryBorder,
                   borderRadius: '50%',
                 }}
               >
-                <WeiboOutlined style={{ ...iconStyles, color: '#333333' }} />
+                <WeiboOutlined style={{ ...iconStyles, color: '#1890ff' }} />
               </div>
             </Space>
           </div>
@@ -132,7 +151,14 @@ export default () => {
               name="username"
               fieldProps={{
                 size: 'large',
-                prefix: <UserOutlined className={'prefixIcon'} />,
+                prefix: (
+                  <UserOutlined
+                    style={{
+                      color: token.colorText,
+                    }}
+                    className={'prefixIcon'}
+                  />
+                ),
               }}
               placeholder={'用户名: admin or user'}
               rules={[
@@ -146,7 +172,14 @@ export default () => {
               name="password"
               fieldProps={{
                 size: 'large',
-                prefix: <LockOutlined className={'prefixIcon'} />,
+                prefix: (
+                  <LockOutlined
+                    style={{
+                      color: token.colorText,
+                    }}
+                    className={'prefixIcon'}
+                  />
+                ),
               }}
               placeholder={'密码: ant.design'}
               rules={[
@@ -163,7 +196,14 @@ export default () => {
             <ProFormText
               fieldProps={{
                 size: 'large',
-                prefix: <MobileOutlined className={'prefixIcon'} />,
+                prefix: (
+                  <MobileOutlined
+                    style={{
+                      color: token.colorText,
+                    }}
+                    className={'prefixIcon'}
+                  />
+                ),
               }}
               name="mobile"
               placeholder={'手机号'}
@@ -181,7 +221,14 @@ export default () => {
             <ProFormCaptcha
               fieldProps={{
                 size: 'large',
-                prefix: <LockOutlined className={'prefixIcon'} />,
+                prefix: (
+                  <LockOutlined
+                    style={{
+                      color: token.colorText,
+                    }}
+                    className={'prefixIcon'}
+                  />
+                ),
               }}
               captchaProps={{
                 size: 'large',
@@ -224,5 +271,13 @@ export default () => {
         </div>
       </LoginFormPage>
     </div>
+  );
+};
+
+export default () => {
+  return (
+    <ProConfigProvider dark>
+      <Page />
+    </ProConfigProvider>
   );
 };

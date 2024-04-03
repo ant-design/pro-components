@@ -1,9 +1,13 @@
 import { ProFormGroup, ProFormText, QueryFilter } from '@ant-design/pro-form';
-import { fireEvent, render, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('QueryFilter', () => {
   it('🕵️‍♀️ basic use', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <QueryFilter
         onFinish={onFinish}
@@ -28,7 +32,7 @@ describe('QueryFilter', () => {
   });
 
   it('🕵️‍♀️ keep all field value when collapsed', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <QueryFilter
         defaultCollapsed
@@ -48,7 +52,9 @@ describe('QueryFilter', () => {
     fireEvent.submit(container.querySelector('.ant-btn-primary')!);
 
     expect(container.querySelectorAll('.ant-input').length).toEqual(3);
-    expect(container.querySelectorAll('.ant-row .ant-form-item-hidden').length).toEqual(1);
+    expect(
+      container.querySelectorAll('.ant-row .ant-form-item-hidden').length,
+    ).toEqual(1);
 
     await waitFor(() => {
       expect(onFinish).toHaveBeenCalledWith({
@@ -60,7 +66,7 @@ describe('QueryFilter', () => {
   });
 
   it('🕵️‍♀️ no keep collapsed field value', async () => {
-    const onFinish = jest.fn();
+    const onFinish = vi.fn();
     const { container } = render(
       <QueryFilter
         defaultCollapsed
@@ -82,7 +88,9 @@ describe('QueryFilter', () => {
     fireEvent.submit(container.querySelector('.ant-btn-primary')!);
 
     expect(container.querySelectorAll('.ant-input')).toHaveLength(2);
-    expect(container.querySelectorAll('.ant-row .ant-form-item-hidden')).toHaveLength(0);
+    expect(
+      container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(0);
     expect(container.querySelectorAll('.anticon-down')).toHaveLength(1);
 
     await waitFor(() => {
@@ -105,9 +113,9 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    expect(container.querySelectorAll('.ant-col.ant-form-item-label')[0]).toHaveStyle(
-      'flex: 0 0 70px',
-    );
+    expect(
+      container.querySelectorAll('.ant-col.ant-form-item-label')[0],
+    ).toHaveStyle('flex: 0 0 70px');
   });
 
   it('🕵️‍♀️ responsive 512', async () => {
@@ -118,7 +126,9 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    expect(container.querySelectorAll('.ant-row .ant-form-item-hidden')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(1);
   });
 
   it('🕵️‍♀️ responsive 1064', async () => {
@@ -131,7 +141,9 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    expect(container.querySelectorAll('.ant-row .ant-form-item-hidden')).toHaveLength(2);
+    expect(
+      container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(2);
   });
 
   it('🕵️‍♀️ responsive 1064 with vertical', async () => {
@@ -144,11 +156,13 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    expect(container.querySelectorAll('.ant-row .ant-form-item-hidden')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(1);
   });
 
   it('🕵️‍♀️ submitter support render', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const { container, findByText } = render(
       <QueryFilter
         style={{ width: 1064 }}
@@ -189,7 +203,9 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    fireEvent.click(container.querySelector('.ant-pro-query-filter-collapse-button')!);
+    fireEvent.click(
+      container.querySelector('.ant-pro-query-filter-collapse-button')!,
+    );
     fireEvent.click(await findByText('提交'));
     fireEvent.click(await findByText('重置'));
 
@@ -214,9 +230,9 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(container.querySelector('a.ant-pro-query-filter-collapse-button')).toHaveTextContent(
-      'open',
-    );
+    expect(
+      container.querySelector('a.ant-pro-query-filter-collapse-button'),
+    ).toHaveTextContent('open');
 
     rerender(
       <QueryFilter
@@ -234,9 +250,9 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(container.querySelector('a.ant-pro-query-filter-collapse-button')).toHaveTextContent(
-      'close',
-    );
+    expect(
+      container.querySelector('a.ant-pro-query-filter-collapse-button'),
+    ).toHaveTextContent('close');
   });
 
   it('🕵️‍♀️ defaultColsNumber should work', async () => {
@@ -250,24 +266,38 @@ describe('QueryFilter', () => {
         <ProFormText label="f" name="f" />
       </QueryFilter>,
     );
-    expect(container.querySelectorAll('.ant-row .ant-form-item-hidden')).toHaveLength(3);
+    expect(
+      container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(3);
   });
 
   it('🕵️‍♀️ colSize不全都是1，collapseRender应该存在', async () => {
     const { container } = render(
       <QueryFilter defaultColsNumber={4} defaultCollapsed={false}>
-        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} colSize={4} />
+        <ProFormText
+          name="name"
+          label="应用名称"
+          rules={[{ required: true }]}
+          colSize={4}
+        />
         <ProFormText name="creater" label="创建人" colSize={3} />
       </QueryFilter>,
     );
 
-    expect(container.querySelectorAll('a.ant-pro-query-filter-collapse-button')).toHaveLength(1);
+    expect(
+      container.querySelectorAll('a.ant-pro-query-filter-collapse-button'),
+    ).toHaveLength(1);
   });
 
   it('🕵️‍♀️ 表单首项独占一行，收起时应该只展示一项就行了', async () => {
     const { container } = render(
       <QueryFilter defaultCollapsed defaultColsNumber={4}>
-        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} colSize={4} />
+        <ProFormText
+          name="name"
+          label="应用名称"
+          rules={[{ required: true }]}
+          colSize={4}
+        />
         <ProFormText name="creater" label="创建人" />
         <ProFormText name="creater" label="创建人" />
         <ProFormText name="creater" label="创建人" />
@@ -278,7 +308,9 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
 
-    expect(container.querySelectorAll('.ant-row .ant-form-item-hidden')).toHaveLength(7);
+    expect(
+      container.querySelectorAll('.ant-row .ant-form-item-hidden'),
+    ).toHaveLength(7);
   });
 
   it('🕵️‍♀️ QueryFilter support ProForm.Group', async () => {
@@ -308,7 +340,9 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
     expect(
-      wrapper0.container.querySelectorAll('.ant-pro-query-filter-collapse-button'),
+      wrapper0.container.querySelectorAll(
+        '.ant-pro-query-filter-collapse-button',
+      ),
     ).toHaveLength(1);
     const wrapper1 = render(
       <QueryFilter defaultColsNumber={6}>
@@ -321,7 +355,9 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
     expect(
-      wrapper1.container.querySelectorAll('.ant-pro-query-filter-collapse-button'),
+      wrapper1.container.querySelectorAll(
+        '.ant-pro-query-filter-collapse-button',
+      ),
     ).toHaveLength(1);
     const wrapper2 = render(
       <QueryFilter defaultColsNumber={7}>
@@ -334,7 +370,9 @@ describe('QueryFilter', () => {
       </QueryFilter>,
     );
     expect(
-      wrapper2.container.querySelectorAll('.ant-pro-query-filter-collapse-button'),
+      wrapper2.container.querySelectorAll(
+        '.ant-pro-query-filter-collapse-button',
+      ),
     ).toHaveLength(0);
   });
 });

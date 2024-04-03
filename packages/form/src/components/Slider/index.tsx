@@ -1,5 +1,5 @@
 import type { SliderSingleProps } from 'antd';
-import type { SliderBaseProps, SliderRangeProps } from 'antd/es/slider';
+import type { SliderBaseProps, SliderRangeProps } from 'antd/lib/slider';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
@@ -21,7 +21,20 @@ export type ProFormSliderProps = ProFormFieldItemProps<
  * @param
  */
 const ProFormSlider = React.forwardRef<any, ProFormSliderProps>(
-  ({ fieldProps, proFieldProps, min, max, step, marks, vertical, range, ...rest }, ref) => {
+  (
+    {
+      fieldProps,
+      proFieldProps,
+      min,
+      max,
+      step,
+      marks,
+      vertical,
+      range,
+      ...rest
+    },
+    ref,
+  ) => {
     return (
       <ProField
         valueType="slider"
@@ -33,10 +46,7 @@ const ProFormSlider = React.forwardRef<any, ProFormSliderProps>(
           marks,
           vertical,
           range,
-          style: {
-            minWidth: 120,
-            ...fieldProps?.style,
-          },
+          style: fieldProps?.style,
         }}
         ref={ref}
         proFieldProps={proFieldProps}

@@ -1,13 +1,15 @@
 import { ProLayout } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
-import { _el, _rs } from 'rc-resize-observer/lib/utils/observerUtil';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { cleanup, render } from '@testing-library/react';
+import { waitForWaitTime } from '../util';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('settings.test', () => {
   it('set title', async () => {
     const wrapper = render(<ProLayout title="test-title" />);
-    await waitForComponentToPaint(wrapper, 160);
+    await waitForWaitTime(160);
     expect(wrapper.getAllByText('test-title')).toBeTruthy();
 
     wrapper.rerender(<ProLayout title="test-title-2" />);
@@ -40,7 +42,7 @@ describe('settings.test', () => {
   //     />,
   //   );
 
-  //   await waitTime(1000);
+  //   await waitForWaitTime(1000);
 
   //   const dom = html.container.querySelector('#resize');
 
@@ -73,7 +75,7 @@ describe('settings.test', () => {
   //     ]);
   //   });
 
-  //   await waitTime(1000);
+  //   await waitForWaitTime(1000);
 
   //   expect(html.container.querySelector('#resize')?.textContent).toBe('200');
 
@@ -106,7 +108,7 @@ describe('settings.test', () => {
   //     ]);
   //   });
 
-  //   await waitTime(1000);
+  //   await waitForWaitTime(1000);
   //   expect(html.container.querySelector('#resize')?.textContent).toBe('100');
   // });
 });

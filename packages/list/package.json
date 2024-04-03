@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-list",
-  "version": "2.1.0",
+  "version": "2.5.51",
   "description": "🏆 Use Ant Design List like a Pro!",
   "keywords": [
     "antd",
@@ -32,21 +32,24 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-card": "2.1.13",
-    "@ant-design/pro-field": "2.2.8",
-    "@ant-design/pro-table": "3.3.0",
+    "@ant-design/icons": "^5.0.0",
+    "@ant-design/pro-card": "2.6.0",
+    "@ant-design/pro-field": "2.14.9",
+    "@ant-design/pro-table": "3.15.2",
+    "@ant-design/pro-utils": "2.15.6",
     "@babel/runtime": "^7.18.0",
-    "classnames": "^2.2.6",
-    "dayjs": "^1.11.4",
+    "classnames": "^2.3.2",
+    "dayjs": "^1.11.10",
     "rc-resize-observer": "^1.0.0",
-    "rc-util": "^4.19.0",
-    "use-media-antd-query": "^1.1.0"
+    "rc-util": "^4.19.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
+    "antd": "^4.24.15 || ^5.11.2",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "publishConfig": {
     "access": "public"

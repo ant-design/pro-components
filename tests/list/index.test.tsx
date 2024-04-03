@@ -1,10 +1,17 @@
 import ProList, { BaseProList } from '@ant-design/pro-list';
-import { act, fireEvent, render as reactRender, screen, waitFor } from '@testing-library/react';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render as reactRender,
+  screen,
+  waitFor,
+} from '@testing-library/react';
 import { Tag } from 'antd';
-import type { ReactText } from 'react';
+import type { Key } from 'react';
 import { useState } from 'react';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
-import { waitForComponentToPaint } from '../util';
+import { waitForWaitTime } from '../util';
 
 type DataSourceType = {
   name: string;
@@ -12,6 +19,10 @@ type DataSourceType = {
     text: string;
   };
 };
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('List', () => {
   it('🚏 base use', async () => {
@@ -35,10 +46,12 @@ describe('List', () => {
         }}
       />,
     );
-    expect(container.querySelector('.ant-pro-list-row-title')!.innerHTML).toEqual('我是名称');
-    expect(container.querySelector('.ant-pro-list-row-description')!.innerHTML).toEqual(
-      'desc text',
-    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('我是名称');
+    expect(
+      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+    ).toEqual('desc text');
   });
 
   it('🚏 BaseList', async () => {
@@ -59,13 +72,21 @@ describe('List', () => {
           description: {
             dataIndex: ['desc', 'text'],
           },
+          xxx: {
+            dataIndex: ['desc', 'text'],
+          },
+          subTitle: {
+            title: 'desc text',
+          },
         }}
       />,
     );
-    expect(container.querySelector('.ant-pro-list-row-title')!.innerHTML).toEqual('我是名称');
-    expect(container.querySelector('.ant-pro-list-row-description')!.innerHTML).toEqual(
-      'desc text',
-    );
+    expect(
+      container.querySelector('.ant-pro-list-row-title')!.innerHTML,
+    ).toEqual('我是名称');
+    expect(
+      container.querySelector('.ant-pro-list-row-description')!.innerHTML,
+    ).toEqual('desc text');
     expect(container.querySelectorAll('.ant-pro-card')!.length).toBe(0);
   });
 
@@ -160,13 +181,17 @@ describe('List', () => {
         }}
       />,
     );
-    expect(container.querySelector('.ant-empty-description')!.innerHTML).toEqual('暂无数据');
+    expect(
+      container.querySelector('.ant-empty-description')!.innerHTML,
+    ).toEqual('暂无数据');
   });
 
   it('🚏 expandable', async () => {
-    const onExpand = jest.fn();
+    const onExpand = vi.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
       return (
         <ProList
           dataSource={[
@@ -186,18 +211,27 @@ describe('List', () => {
       );
     };
     const { container } = reactRender(<Wrapper />);
-    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
-    await fireEvent.click(container.querySelector('.ant-pro-list-row-expand-icon')!);
-    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual(
-      '<div>我是内容</div>',
+    expect(
+      container.querySelectorAll('.ant-pro-list-row-description').length,
+    ).toEqual(0);
+    await fireEvent.click(
+      container.querySelector('.ant-pro-list-row-expand-icon')!,
     );
-    expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
+    expect(
+      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+    ).toEqual('<div>我是内容</div>');
+    expect(onExpand).toHaveBeenCalledWith(
+      true,
+      expect.objectContaining({ name: '我是名称' }),
+    );
   });
 
   it('🚏 expandable support expandRowByClick', async () => {
-    const onExpand = jest.fn();
+    const onExpand = vi.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
       return (
         <ProList
           dataSource={[
@@ -212,17 +246,27 @@ describe('List', () => {
             },
             content: {},
           }}
-          expandable={{ expandedRowKeys, onExpandedRowsChange, onExpand, expandRowByClick: true }}
+          expandable={{
+            expandedRowKeys,
+            onExpandedRowsChange,
+            onExpand,
+            expandRowByClick: true,
+          }}
         />
       );
     };
     const { container } = reactRender(<Wrapper />);
-    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
+    expect(
+      container.querySelectorAll('.ant-pro-list-row-description').length,
+    ).toEqual(0);
     await fireEvent.click(container.querySelector('.ant-list-item')!);
-    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual(
-      '<div>我是内容</div>',
+    expect(
+      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+    ).toEqual('<div>我是内容</div>');
+    expect(onExpand).toHaveBeenCalledWith(
+      true,
+      expect.objectContaining({ name: '我是名称' }),
     );
-    expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
 
   it('🚏 expandable with defaultExpandedRowKeys', async () => {
@@ -255,14 +299,16 @@ describe('List', () => {
       );
     };
     const { container } = reactRender(<Wrapper />);
-    expect(container.querySelector('.ant-pro-list-row-content')!.innerHTML).toEqual(
-      '<div>我是内容b</div>',
-    );
+    expect(
+      container.querySelector('.ant-pro-list-row-content')!.innerHTML,
+    ).toEqual('<div>我是内容b</div>');
   });
 
   it('🚏 expandable with expandedRowRender', async () => {
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly Key[]>(
+        [],
+      );
       return (
         <ProList
           dataSource={[
@@ -294,16 +340,22 @@ describe('List', () => {
       );
     };
     const { container } = reactRender(<Wrapper />);
-    expect(container.querySelectorAll('.ant-pro-list-row-description').length).toEqual(0);
-    // html.find('.ant-pro-list-row-expand-icon').simulate('click');
-    await fireEvent.click(container.querySelector('.ant-pro-list-row-expand-icon')!);
     expect(
-      container.querySelector('.ant-pro-list-row-content .test-custom-class-name')!.innerHTML,
+      container.querySelectorAll('.ant-pro-list-row-description').length,
+    ).toEqual(0);
+    // html.find('.ant-pro-list-row-expand-icon').simulate('click');
+    await fireEvent.click(
+      container.querySelector('.ant-pro-list-row-expand-icon')!,
+    );
+    expect(
+      container.querySelector(
+        '.ant-pro-list-row-content .test-custom-class-name',
+      )!.innerHTML,
     ).toEqual('<div>expand:0</div>');
   });
 
   it('🚏 expandable with expandIcon', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const Wrapper = () => {
       return (
         <ProList
@@ -321,7 +373,11 @@ describe('List', () => {
           }}
           expandable={{
             expandIcon: ({ record }) => (
-              <div id="test_click" onClick={() => fn(record.name)} className="expand-icon" />
+              <div
+                id="test_click"
+                onClick={() => fn(record.name)}
+                className="expand-icon"
+              />
             ),
           }}
           rowKey={(item) => {
@@ -388,7 +444,9 @@ describe('List', () => {
     };
     const { container } = reactRender(<Wrapper />);
 
-    expect(container.querySelectorAll('.ant-checkbox-input')!.length).toEqual(2);
+    expect(container.querySelectorAll('.ant-checkbox-input')!.length).toEqual(
+      2,
+    );
 
     fireEvent.change(container.querySelectorAll('.ant-checkbox-input')[0], {
       target: {
@@ -397,7 +455,9 @@ describe('List', () => {
     });
 
     expect(container.querySelectorAll('.ant-checkbox-input')[0]).toBeChecked();
-    expect(container.querySelectorAll('.ant-checkbox-input')[1]).not.toBeChecked();
+    expect(
+      container.querySelectorAll('.ant-checkbox-input')[1],
+    ).not.toBeChecked();
   });
 
   it('🚏 support pagination', async () => {
@@ -416,7 +476,7 @@ describe('List', () => {
   });
 
   it('🚏 filter and request', async () => {
-    const onRequest = jest.fn();
+    const onRequest = vi.fn();
     const { container, findByText, baseElement } = reactRender(
       <ProList<any, { title: string }>
         metas={{
@@ -451,7 +511,9 @@ describe('List', () => {
     );
 
     await waitFor(async () => {
-      expect(container.querySelectorAll('.ant-pro-list-row-title').length).toEqual(2);
+      expect(
+        container.querySelectorAll('.ant-pro-list-row-title').length,
+      ).toEqual(2);
     });
 
     fireEvent.click(container.querySelector('.ant-pro-core-field-label')!);
@@ -481,8 +543,8 @@ describe('List', () => {
   });
 
   it('🚏 ProList support onRow', async () => {
-    const onClick = jest.fn();
-    const onMouseEnter = jest.fn();
+    const onClick = vi.fn();
+    const onMouseEnter = vi.fn();
     const { container } = reactRender(
       <ProList<DataSourceType>
         dataSource={[
@@ -547,7 +609,9 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelector('li.ant-pro-list-row')!).toHaveClass(customizedRowClassName);
+    expect(container.querySelector('li.ant-pro-list-row')!).toHaveClass(
+      customizedRowClassName,
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -582,8 +646,12 @@ describe('List', () => {
       />,
     );
 
-    expect(container.querySelectorAll('li.ant-pro-list-row')[0]).toHaveClass('even');
-    expect(container.querySelectorAll('li.ant-pro-list-row')[1]).toHaveClass('odd');
+    expect(container.querySelectorAll('li.ant-pro-list-row')[0]).toHaveClass(
+      'even',
+    );
+    expect(container.querySelectorAll('li.ant-pro-list-row')[1]).toHaveClass(
+      'odd',
+    );
     expect(container).toMatchSnapshot();
   });
 
@@ -610,8 +678,10 @@ describe('List', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
-    expect(html.baseElement.textContent?.includes('qixian:我是名称')).toBeTruthy();
+    await waitForWaitTime(1200);
+    expect(
+      html.baseElement.textContent?.includes('qixian:我是名称'),
+    ).toBeTruthy();
   });
 
   it('🚏 ProList support itemTitleRender', async () => {
@@ -637,9 +707,11 @@ describe('List', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await waitForWaitTime(1200);
 
-    expect(html.baseElement.textContent?.includes('qixian:我是名称')).toBeTruthy();
+    expect(
+      html.baseElement.textContent?.includes('qixian:我是名称'),
+    ).toBeTruthy();
   });
 
   it('🚏 list support actions render to extra props', async () => {
@@ -671,13 +743,15 @@ describe('List', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await waitForWaitTime(1200);
     // 触发click，执行一下 stopPropagation 的代码
     await act(async () => {
       (await html.findByText('修复'))?.click();
     });
     expect(html.baseElement.textContent?.includes('修复')).toBeTruthy();
-    expect(!!html.baseElement.querySelector('.ant-pro-card-actions')).toBeFalsy();
+    expect(
+      !!html.baseElement.querySelector('.ant-pro-card-actions'),
+    ).toBeFalsy();
   });
 
   it('🚏 list support actions render to actions props', async () => {
@@ -711,7 +785,7 @@ describe('List', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForWaitTime(1000);
 
     expect(!!html.baseElement.querySelector('.ant-pro-card-extra')).toBeFalsy();
 
@@ -719,9 +793,10 @@ describe('List', () => {
       html.queryByText('修复')?.click();
     });
   });
+
   it('🚏 trigger list item event when has grid prop', async () => {
-    const fn1 = jest.fn();
-    const fn2 = jest.fn();
+    const fn1 = vi.fn();
+    const fn2 = vi.fn();
     const html = reactRender(
       <ProList
         grid={{ gutter: 16, column: 2 }}
@@ -762,16 +837,26 @@ describe('List', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForWaitTime(1000);
 
     act(() => {
       fireEvent.mouseEnter(
-        html.baseElement.querySelector('.ant-pro-list-row-card .ant-pro-card')!,
+        html.baseElement.querySelector(
+          '.ant-pro-list-row-card .ant-pro-checkcard',
+        )!,
         {},
       );
-      fireEvent.click(html.baseElement.querySelector('.ant-pro-list-row-card .ant-pro-card')!, {});
+      fireEvent.click(
+        html.baseElement.querySelector(
+          '.ant-pro-list-row-card .ant-pro-checkcard',
+        )!,
+        {},
+      );
     });
-    expect(fn1).toBeCalledWith('我是名称');
-    expect(fn2).toBeCalledWith('我是名称');
+
+    await waitFor(() => {
+      expect(fn1).toBeCalledWith('我是名称');
+      expect(fn2).toBeCalledWith('我是名称');
+    });
   });
 });

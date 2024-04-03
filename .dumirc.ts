@@ -1,8 +1,7 @@
 import chalk from 'chalk';
+import { defineConfig } from 'dumi';
 import { readdirSync } from 'fs';
 import { join } from 'path';
-import { defineConfig } from 'dumi';
-const theme = require('@ant-design/antd-theme-variable');
 
 const headPkgList: string[] = [];
 // utils must build before core
@@ -16,11 +15,11 @@ const alias = pkgList.reduce((pre, pkg) => {
   return {
     ...pre,
   };
-}, {});
+}, {} as Record<string, string>);
 
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
-const tailPkgList = pkgList.map((path) => `packages/${path}/src`);
+const tailPkgList = pkgList.map((path) => `packages/${path}/src/components`);
 
 export default defineConfig({
   sitemap: { hostname: 'https://procomponents.ant.design' },
@@ -63,42 +62,76 @@ export default defineConfig({
       content: '9LDp--DeEC-xOggsHl_t1MlR_1_2O972JpSUu8NZKMU',
     },
   ],
-  styles: [
-    `
-    .dumi-default-sidebar {
-      min-width: 260px;
-    }
-    .dumi-default-previewer-demo {
-      min-height: 580px;
-      max-height: 580px;
-      display: flex;
-      overflow: auto;
-      flex-direction: column;
-    }
-    .dumi-default-previewer-demo > iframe {
-      height: 100%!important;
-      flex:1;
-    }
-    .dumi-default-header:not([data-static]){
-      border-bottom: 1px solid #ddd;
-    }
-    .dumi-default-header-left {
-      min-width: 230px;
-      margin-right: 32px;
-  }
-  `,
+  analytics: {
+    ga_v2: 'G-RMBLDHGL1N',
+  },
+  favicons: [
+    'https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png',
   ],
-  favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
   alias,
   resolve: {
-    docDirs: ['docs', ...tailPkgList],
+    docDirs: ['docs'],
+    atomDirs: tailPkgList.map((dir) => ({ type: 'component', dir })),
   },
+  styles: [`.markdown table{table-layout: fixed;}`],
   locales: [
     { id: 'zh-CN', name: '中文' },
     { id: 'en-US', name: 'English' },
   ],
-  ...(process.env.NODE_ENV === 'development' ? undefined : { ssr: {} }),
+  // ssr: {},
   themeConfig: {
+    lastUpdated: true,
+    hero: {
+      title: 'ProComponents',
+      description: '🏆 让中后台开发更简单',
+      actions: {
+        text: '🏮🏮 快速开始 →',
+        link: '/docs/intro',
+      },
+    },
+    features: [
+      {
+        image:
+          'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/q48YQ5X4ytAAAAAAAAAAAAAAFl94AQBr',
+        title: '简单易用',
+        description: '在 Ant Design 上进行了自己的封装，更加易用',
+      },
+      {
+        image:
+          'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+        title: 'Ant Design',
+        description: '与 Ant Design 设计体系一脉相承，无缝对接 Ant Design 项目',
+      },
+      {
+        image:
+          'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/UKqDTIp55HYAAAAAAAAAAAAAFl94AQBr',
+        title: '国际化',
+        description: '提供完备的国际化，与 Ant Design 体系打通，无需多余配置',
+      },
+
+      {
+        image:
+          'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/Y_NMQKxw7OgAAAAAAAAAAAAAFl94AQBr',
+        title: '预设样式',
+        description:
+          '样式风格与 Ant Design 一脉相承，无需魔改，浑然天成。默认好用的主题系统',
+      },
+      {
+        image:
+          'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/U3XjS5IA1tUAAAAAAAAAAAAAFl94AQBr',
+        title: '预设行为',
+        description: '更少的代码，更少的 Bug，更多的功能',
+      },
+
+      {
+        image:
+          'https://gw.alipayobjects.com/zos/antfincdn/Eb8IHpb9jE/Typescript_logo_2020.svg',
+        title: 'TypeScript',
+        description:
+          '使用 TypeScript 开发，提供完整的类型定义文件，无需频繁打开官网',
+      },
+    ],
+    siteToken: { demoInheritSiteTheme: true },
     name: 'ProComponents',
     logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     socialLinks: {
@@ -110,6 +143,10 @@ export default defineConfig({
         { title: '组件', link: '/components' },
         { title: 'Changelog', link: '/changelog' },
         { title: 'Playground', link: '/playground' },
+        {
+          title: '国内镜像',
+          link: 'https://pro-components.antdigital.dev',
+        },
       ],
       'en-US': [
         { title: 'Docs', link: '/en-US/docs' },
@@ -248,7 +285,7 @@ export default defineConfig({
           children: [
             {
               title: 'Components - 组件设计',
-              link: 'components',
+              link: '/components',
             },
             {
               title: 'Schema - 通用配置',
@@ -382,27 +419,13 @@ export default defineConfig({
         },
       ],
     },
+    apiHeader: {
+      // 组件库包名，可以从 package.json 中引入名称
+      pkg: '@ant-design/pro-components',
+      // 匹配路由，默认为 /api 或 /components
+      match: ['/api', '/components'],
+    },
   },
   hash: true,
-  theme: {
-    '@s-content-width': '1600px',
-    '@s-site-menu-width': '258px',
-    '@ant-prefix': 'ant',
-    '@root-entry-name': 'variable',
-    ...theme,
-    '@primary-color': '#1677FF',
-    '@warning-color': '#faad14',
-    '@heading-color': 'rgba(0, 0, 0, 0.85)',
-    '@text-color': 'rgba(0, 0, 0, 0.65)',
-    '@text-color-secondary': 'rgba(0, 0, 0, 0.45)',
-    '@border-color-base': '#d9d9d9',
-    '@border-color-split': 'rgba(0, 0, 0, 0.06)',
-    '@border-radius-base': '4px',
-    '@card-radius': '6px',
-    '@table-border-radius-base': '6px',
-    '@box-shadow-base':
-      '0 2px 8px -2px rgba(0,0,0,0.05), 0 1px 4px -1px rgba(25,15,15,0.07), 0 0 1px 0 rgba(0,0,0,0.08)',
-  },
-  extraBabelPlugins: ['@emotion'],
   ignoreMomentLocale: true,
 });

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table valueEnum ListToolBar action is empty array 1`] = `
+exports[`Table valueEnum > ListToolBar action is empty array 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-table-list-toolbar"
@@ -9,10 +9,10 @@ exports[`Table valueEnum ListToolBar action is empty array 1`] = `
       class="ant-pro-table-list-toolbar-container"
     >
       <div
-        class="ant-pro-table-list-toolbar-left "
+        class="ant-pro-table-list-toolbar-left"
       />
       <div
-        class="ant-pro-table-list-toolbar-right "
+        class="ant-pro-table-list-toolbar-right"
         style="align-items: center;"
       />
     </div>
@@ -20,7 +20,7 @@ exports[`Table valueEnum ListToolBar action is empty array 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Table valueEnum ListToolBar action no array 1`] = `
+exports[`Table valueEnum > ListToolBar action no array 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-table-list-toolbar"
@@ -29,10 +29,10 @@ exports[`Table valueEnum ListToolBar action no array 1`] = `
       class="ant-pro-table-list-toolbar-container"
     >
       <div
-        class="ant-pro-table-list-toolbar-left "
+        class="ant-pro-table-list-toolbar-left"
       />
       <div
-        class="ant-pro-table-list-toolbar-right "
+        class="ant-pro-table-list-toolbar-right"
         style="align-items: center;"
       >
         <button
@@ -49,7 +49,7 @@ exports[`Table valueEnum ListToolBar action no array 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Table valueEnum ListToolBar action no jsx 1`] = `
+exports[`Table valueEnum > ListToolBar action no jsx 1`] = `
 <DocumentFragment>
   <div
     class="ant-pro-table-list-toolbar"
@@ -58,10 +58,10 @@ exports[`Table valueEnum ListToolBar action no jsx 1`] = `
       class="ant-pro-table-list-toolbar-container"
     >
       <div
-        class="ant-pro-table-list-toolbar-left "
+        class="ant-pro-table-list-toolbar-left"
       />
       <div
-        class="ant-pro-table-list-toolbar-right "
+        class="ant-pro-table-list-toolbar-right"
         style="align-items: center;"
       >
         <div

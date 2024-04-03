@@ -1,6 +1,9 @@
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { ConfigProvider, Tooltip } from 'antd';
-import type { LabelTooltipType, WrapperTooltipProps } from 'antd/es/form/FormItemLabel';
+import type {
+  LabelTooltipType,
+  WrapperTooltipProps,
+} from 'antd/lib/form/FormItemLabel';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from './style';
@@ -45,10 +48,14 @@ export const LabelIconTip: React.FC<{
       >
         {label}
       </div>
-      {subTitle && <div className={`${className}-subtitle ${hashId}`}>{subTitle}</div>}
+      {subTitle && (
+        <div className={`${className}-subtitle ${hashId}`.trim()}>
+          {subTitle}
+        </div>
+      )}
       {tooltip && (
         <Tooltip {...tooltipProps}>
-          <span className={`${className}-icon ${hashId}`}>{icon}</span>
+          <span className={`${className}-icon ${hashId}`.trim()}>{icon}</span>
         </Tooltip>
       )}
     </div>,

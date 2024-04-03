@@ -1,7 +1,7 @@
 export default {
-  moneySymbol: '￥',
-  deleteThisLine: '删除此行',
-  copyThisLine: '复制此行',
+  moneySymbol: '¥',
+  deleteThisLine: '删除此项',
+  copyThisLine: '复制此项',
   form: {
     lightFilter: {
       more: '更多筛选',
@@ -46,7 +46,7 @@ export default {
     reload: '刷新',
     density: '密度',
     densityDefault: '正常',
-    densityLarger: '默认',
+    densityLarger: '宽松',
     densityMiddle: '中等',
     densitySmall: '紧凑',
   },

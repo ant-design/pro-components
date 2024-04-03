@@ -1,14 +1,22 @@
-﻿import ProForm, { ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-form';
-import { fireEvent, render } from '@testing-library/react';
-import type { UploadFile } from 'antd/es/upload/interface';
-import { act } from 'react-dom/test-utils';
+﻿import ProForm, {
+  ProFormUploadButton,
+  ProFormUploadDragger,
+} from '@ant-design/pro-form';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { Form } from 'antd';
+import type { UploadFile } from 'antd/lib/upload/interface';
 import mock from 'xhr-mock';
-import { waitForComponentToPaint, waitTime } from '../util';
+import { waitForWaitTime } from '../util';
 
 const mockFile = new File(['foo'], 'foo.png', {
   type: 'image/png',
 }) as unknown as UploadFile;
-
+const mockFile1 = new File(['foo1'], 'foo1.png', {
+  type: 'image/png',
+}) as unknown as UploadFile;
+const mockFile2 = new File(['foo2'], 'foo2.png', {
+  type: 'image/png',
+}) as unknown as UploadFile;
 export function setup() {
   mock.setup();
   // @ts-ignore
@@ -23,8 +31,12 @@ export function setup() {
 
 export const teardown = mock.teardown.bind(mock);
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('ProFormUpload', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeEach(() => setup());
   afterEach(() => {
@@ -33,7 +45,8 @@ describe('ProFormUpload', () => {
   });
 
   it('🏐 ProFormUploadButton support onChange', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
+    const onChangeFn = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
@@ -43,6 +56,7 @@ describe('ProFormUpload', () => {
         <ProFormUploadButton
           action="http://upload.com"
           listType="text"
+          onChange={() => onChangeFn()}
           label="upload"
           name="files"
         />
@@ -50,18 +64,22 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
-        target: {
-          files: [mockFile],
+      fireEvent.change(
+        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
+        {
+          target: {
+            files: [mockFile],
+          },
         },
-      });
+      );
     });
-    await waitTime(1000);
+    await waitForWaitTime(1000);
     expect(fn).toBeCalled();
+    expect(onChangeFn).toBeCalledTimes(3);
   });
 
   it('🏐 ProFormUploadButton support beforeUpload', async () => {
-    const fn = jest.fn();
+    const fn = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
@@ -83,13 +101,16 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
-        target: {
-          files: [mockFile],
+      fireEvent.change(
+        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
+        {
+          target: {
+            files: [mockFile],
+          },
         },
-      });
+      );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
 
     act(() => {
       expect(
@@ -102,33 +123,38 @@ describe('ProFormUpload', () => {
 
   it('🏐 ProFormUploadButton support disable', async () => {
     const wrapper = render(
-      <ProFormUploadButton
-        disabled
-        action="http://upload.com"
-        listType="text"
-        label="upload"
-        name="files"
-      />,
-    );
-    expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')?.innerHTML,
-    ).toMatchSnapshot();
-    act(() => {
-      wrapper.rerender(
+      <Form>
         <ProFormUploadButton
           disabled
           action="http://upload.com"
           listType="text"
           label="upload"
           name="files"
-          buttonProps={{
-            disabled: true,
-            type: 'dashed',
-          }}
-        />,
+        />
+      </Form>,
+    );
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload')
+        ?.innerHTML,
+    ).toMatchSnapshot();
+    act(() => {
+      wrapper.rerender(
+        <Form>
+          <ProFormUploadButton
+            disabled
+            action="http://upload.com"
+            listType="text"
+            label="upload"
+            name="files"
+            buttonProps={{
+              disabled: true,
+              type: 'dashed',
+            }}
+          />
+        </Form>,
       );
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForWaitTime(100);
     expect(
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.ant-upload')
@@ -136,20 +162,22 @@ describe('ProFormUpload', () => {
     ).toBeTruthy();
     act(() => {
       wrapper.rerender(
-        <ProFormUploadButton
-          disabled={false}
-          action="http://upload.com"
-          listType="text"
-          label="upload"
-          name="files"
-          buttonProps={{}}
-          fieldProps={{
-            disabled: true,
-          }}
-        />,
+        <Form>
+          <ProFormUploadButton
+            disabled={false}
+            action="http://upload.com"
+            listType="text"
+            label="upload"
+            name="files"
+            buttonProps={{}}
+            fieldProps={{
+              disabled: true,
+            }}
+          />
+        </Form>,
       );
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForWaitTime(100);
     expect(
       wrapper.baseElement
         .querySelector<HTMLDivElement>('.ant-upload')
@@ -158,8 +186,8 @@ describe('ProFormUpload', () => {
   });
 
   it('🏐 ProFormUploadDragger support onChange', async () => {
-    const fn = jest.fn();
-    const onChangeFn = jest.fn();
+    const fn = vi.fn();
+    const onChangeFn = vi.fn();
     const wrapper = render(
       <ProForm
         onValuesChange={(_, values) => {
@@ -176,33 +204,39 @@ describe('ProFormUpload', () => {
     );
 
     act(() => {
-      fireEvent.change(wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!, {
-        target: {
-          files: [mockFile],
+      fireEvent.change(
+        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload input')!,
+        {
+          target: {
+            files: [mockFile],
+          },
         },
-      });
+      );
     });
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(fn).toBeCalled();
     expect(onChangeFn).toBeCalled();
   });
 
   it('🏐 ProFormUploadDragger hide when max', async () => {
     const wrapper = render(
-      // @ts-ignore
-      <ProFormUploadDragger
-        max={2}
-        value={[mockFile, mockFile, mockFile]}
-        action="http://upload.com"
-        label="upload"
-        name="files"
-      />,
+      <Form>
+        <ProFormUploadDragger
+          max={2}
+          value={[mockFile, mockFile1, mockFile2]}
+          action="http://upload.com"
+          label="upload"
+          name="files"
+        />
+      </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
       getComputedStyle(
-        wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload.ant-upload-drag')!,
+        wrapper.baseElement.querySelector<HTMLDivElement>(
+          '.ant-upload.ant-upload-drag',
+        )!,
       )?.display,
     ).toBe('none');
   });
@@ -210,39 +244,44 @@ describe('ProFormUpload', () => {
   it('🏐 ProFormUploadDragger support children', async () => {
     const extra = 'extra';
     const wrapper = render(
-      // @ts-ignore
-      <ProFormUploadDragger
-        value={[mockFile, mockFile, mockFile]}
-        action="http://upload.com"
-        label="upload"
-        name="files"
-      >
-        {extra}
-      </ProFormUploadDragger>,
+      <Form>
+        <ProFormUploadDragger
+          value={[mockFile, mockFile1, mockFile2]}
+          action="http://upload.com"
+          label="upload"
+          name="files"
+        >
+          {extra}
+        </ProFormUploadDragger>
+      </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-upload-drag .ant-upload-extra')
-        ?.textContent,
+      wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-upload-drag .ant-upload-extra',
+      )?.textContent,
     ).toBe(extra);
   });
 
   it('🏐 ProFormUploadButton hide when max', async () => {
     const wrapper = render(
-      // @ts-ignore
-      <ProFormUploadButton
-        max={2}
-        value={[mockFile, mockFile, mockFile]}
-        action="http://upload.com"
-        label="upload"
-        name="files"
-      />,
+      <Form>
+        <ProFormUploadButton
+          max={2}
+          value={[mockFile, mockFile1, mockFile2]}
+          action="http://upload.com"
+          label="upload"
+          name="files"
+        />
+      </Form>,
     );
 
-    await waitTime(200);
+    await waitForWaitTime(200);
     expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('.anticon.anticon-upload'),
+      wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.anticon.anticon-upload',
+      ),
     ).toBeFalsy();
   });
 });

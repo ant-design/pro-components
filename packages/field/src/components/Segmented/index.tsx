@@ -1,12 +1,13 @@
 import { Segmented, Spin } from 'antd';
+import omit from 'omit.js';
 import React, { useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
-import omit from 'omit.js';
 import type { FieldSelectProps } from '../Select';
-import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select';
 
-import 'antd/es/segmented/style';
-import 'antd/es/spin/style';
+import { objectToMap, proFieldParsingText } from '@ant-design/pro-utils';
+import 'antd/lib/segmented/style';
+import 'antd/lib/spin/style';
 
 /**
  * Segmented https://ant.design/components/segmented-cn/
@@ -18,15 +19,28 @@ const FieldSegmented: ProFieldFC<
     text: string;
     emptyText?: React.ReactNode;
   } & FieldSelectProps
-> = ({ mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest }, ref) => {
+> = (props, ref) => {
+  const {
+    mode,
+    render,
+    renderFormItem,
+    fieldProps,
+    emptyText = '-',
+    ...rest
+  } = props;
+
   const inputRef = useRef<HTMLInputElement>();
 
-  const [loading, options, fetchData] = useFieldFetchData(rest);
+  const [loading, options, fetchData] = useFieldFetchData(props);
 
-  useImperativeHandle(ref, () => ({
-    ...(inputRef.current || {}),
-    fetchData: () => fetchData(),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(inputRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   if (loading) {
     return <Spin size="small" />;
@@ -35,14 +49,23 @@ const FieldSegmented: ProFieldFC<
   if (mode === 'read') {
     const optionsValueEnum = options?.length
       ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value ?? '']: cur.label };
+          return { ...pre, [(cur.value as any) ?? '']: cur.label };
         }, {})
       : undefined;
 
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          objectToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
-      return render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText;
+      return (
+        render(rest.text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText
+      );
     }
     return dom;
   }
@@ -56,7 +79,11 @@ const FieldSegmented: ProFieldFC<
     );
 
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...fieldProps, options }, dom);
+      return renderFormItem(
+        rest.text,
+        { mode, ...fieldProps, options, loading },
+        dom,
+      );
     }
     return dom;
   }

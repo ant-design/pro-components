@@ -1,6 +1,6 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ModalForm, ProFormText } from '@ant-design/pro-components';
-import { Button, message, Space } from 'antd';
+import { Button, Space, message } from 'antd';
 import { useRef, useState } from 'react';
 
 const waitTime = (time: number = 100) => {
@@ -59,7 +59,12 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ModalForm>
       <ModalForm
         title="新建表单"
@@ -95,7 +100,12 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ModalForm>
     </Space>
   );

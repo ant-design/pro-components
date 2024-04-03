@@ -1,7 +1,21 @@
-﻿import { LabelIconTip, omitUndefined, runFunction, useLatest } from '@ant-design/pro-utils';
+﻿import {
+  LabelIconTip,
+  omitUndefined,
+  runFunction,
+  stringify,
+  useDeepCompareMemo,
+  useLatest,
+  useReactiveRef,
+  useRefFunction,
+} from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
 import { Form } from 'antd';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
@@ -29,6 +43,7 @@ const FormLayoutType = {
   StepsForm: StepsForm,
   ModalForm,
   Embed,
+  Form: ProForm,
 };
 
 /**
@@ -37,40 +52,41 @@ const FormLayoutType = {
  * @see 此组件仍为 beta 版本，api 可能发生变化
  */
 
-function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
+function BetaSchemaForm<T, ValueType = 'text'>(
+  props: FormSchema<T, ValueType>,
+) {
   const {
     columns,
     layoutType = 'Form',
     type = 'form',
     action,
-    shouldUpdate = true,
+    shouldUpdate = (pre, next) => stringify(pre) !== stringify(next),
     formRef: propsFormRef,
     ...restProps
   } = props;
 
-  const FormRenderComponents = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
+  const FormRenderComponents = (FormLayoutType[layoutType as 'Form'] ||
+    ProForm) as React.FC<ProFormProps<T>>;
+
   const [form] = Form.useForm();
   const formInstance = Form.useFormInstance();
 
   const [, forceUpdate] = useState<[]>([]);
-  const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
+  const [formDomsDeps, updatedFormDoms] = useState<[]>(() => []);
 
-  const formRef = useRef<ProFormInstance | undefined>(props.form || formInstance || form);
+  const formRef = useReactiveRef<ProFormInstance | undefined>(
+    props.form || formInstance || form,
+  );
   const oldValuesRef = useRef<T>();
   const propsRef = useLatest(props);
-
-  if (propsFormRef) {
-    (propsFormRef as React.MutableRefObject<ProFormInstance<any> | undefined | null>).current =
-      formRef.current;
-  }
 
   /**
    * 生成子项，方便被 table 接入
    *
    * @param items
    */
-  const genItems: ProFormRenderValueTypeHelpers<T, ValueType>['genItems'] = useCallback(
-    (items: ProFormColumnsType<T, ValueType>[]) => {
+  const genItems: ProFormRenderValueTypeHelpers<T, ValueType>['genItems'] =
+    useRefFunction((items: ProFormColumnsType<T, ValueType>[]) => {
       return items
         .filter((originItem) => {
           return !(originItem.hideInForm && type === 'form');
@@ -88,6 +104,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             'form',
             <LabelIconTip
               label={originItem.title as string}
+              //@ts-expect-error
               tooltip={originItem.tooltip || originItem.tip}
             />,
           );
@@ -109,15 +126,26 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             colProps: originItem.colProps,
             rowProps: originItem.rowProps,
             className: originItem.className,
+            //@ts-expect-error
             tooltip: originItem.tooltip || originItem.tip,
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,
             ignoreFormItem: originItem.ignoreFormItem,
             getFieldProps: originItem.fieldProps
-              ? () => runFunction(originItem.fieldProps, formRef.current, originItem)
+              ? () =>
+                  runFunction(
+                    originItem.fieldProps,
+                    formRef.current,
+                    originItem,
+                  )
               : undefined,
             getFormItemProps: originItem.formItemProps
-              ? () => runFunction(originItem.formItemProps, formRef.current, originItem)
+              ? () =>
+                  runFunction(
+                    originItem.formItemProps,
+                    formRef.current,
+                    originItem,
+                  )
               : undefined,
             render: originItem.render,
             renderFormItem: originItem.renderFormItem,
@@ -127,6 +155,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             transform: originItem.transform,
             convertValue: originItem.convertValue,
             debounceTime: originItem.debounceTime,
+            defaultKeyWords: originItem.defaultKeyWords,
           }) as ItemType<any, any>;
 
           return renderValueType(item, {
@@ -140,16 +169,15 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
         .filter((field) => {
           return Boolean(field);
         });
-    },
-    [action, formRef, type],
-  );
+    });
 
   const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
     (changedValues: any, values: T) => {
       const { onValuesChange: propsOnValuesChange } = propsRef.current;
       if (
         shouldUpdate === true ||
-        (typeof shouldUpdate === 'function' && shouldUpdate(values, oldValuesRef.current))
+        (typeof shouldUpdate === 'function' &&
+          shouldUpdate(values, oldValuesRef.current))
       ) {
         updatedFormDoms([]);
       }
@@ -159,19 +187,18 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     [propsRef, shouldUpdate],
   );
 
-  const formChildrenDoms = useMemo(() => {
+  const formChildrenDoms = useDeepCompareMemo(() => {
     if (!formRef.current) return;
     // like StepsForm's columns but not only for StepsForm
     if (columns.length && Array.isArray(columns[0])) return;
-
     return genItems(columns as ProFormColumnsType<T, ValueType>[]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [columns, genItems, formDomsDeps]);
+  }, [columns, restProps?.open, action, type, formDomsDeps, !!formRef.current]);
 
   /**
    * Append layoutType component specific props
    */
-  const specificProps = useMemo(() => {
+  const specificProps = useDeepCompareMemo(() => {
     if (layoutType === 'StepsForm') {
       return {
         forceUpdate: forceUpdate,
@@ -182,10 +209,26 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     return {};
   }, [columns, layoutType]);
 
+  useImperativeHandle(
+    propsFormRef,
+    () => {
+      return formRef.current;
+    },
+    [formRef.current],
+  );
+
   return (
     <FormRenderComponents
       {...specificProps}
       {...restProps}
+      onInit={(_, initForm) => {
+        if (propsFormRef) {
+          (propsFormRef as React.MutableRefObject<ProFormInstance<T>>).current =
+            initForm;
+        }
+        restProps?.onInit?.(_, initForm);
+        formRef.current = initForm;
+      }}
       form={props.form || form}
       formRef={formRef}
       onValuesChange={onValuesChange}

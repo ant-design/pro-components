@@ -24,7 +24,8 @@ export default {
   'app.setting.fixedsidebar': 'Menu laterale fisso',
   'app.setting.fixedsidebar.hint': 'Solo se selezionato Menu laterale',
   'app.setting.hideheader': 'Nascondi testata durante lo scorrimento',
-  'app.setting.hideheader.hint': 'Solo se abilitato Nascondi testata durante lo scorrimento',
+  'app.setting.hideheader.hint':
+    'Solo se abilitato Nascondi testata durante lo scorrimento',
   'app.setting.othersettings': 'Altre impostazioni',
   'app.setting.weakmode': 'Inverti colori',
   'app.setting.copy': 'Copia impostazioni',

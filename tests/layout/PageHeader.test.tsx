@@ -1,9 +1,8 @@
 ﻿import { PageHeader } from '@ant-design/pro-components';
-import { act, fireEvent, render } from '@testing-library/react';
-import { Breadcrumb } from 'antd';
-import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
+import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { Breadcrumb, ConfigProvider } from 'antd';
 import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
-import { waitTime } from '../util';
+import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 
 export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
@@ -18,6 +17,10 @@ export const triggerResize = (target: Element) => {
   target.getBoundingClientRect = originGetBoundingClientRect;
 };
 
+afterEach(() => {
+  cleanup();
+});
+
 describe('PageContainer', () => {
   it('💄 base use', async () => {
     const wrapper = render(<PageHeader title="期贤" />);
@@ -30,13 +33,17 @@ describe('PageContainer', () => {
       { path: 'first', breadcrumbName: 'Second-level Menu' },
       { path: 'second', breadcrumbName: 'Third-level Menu' },
     ];
-    const { container } = render(<PageHeader title="Page Title" breadcrumb={{ routes }} />);
+    const { container } = render(
+      <PageHeader title="Page Title" breadcrumb={{ routes }} />,
+    );
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(0);
   });
 
   it('pageHeader should have breadcrumb', () => {
-    const routes = [{ path: 'index', breadcrumbName: 'First-level Menu' }];
-    const { container } = render(<PageHeader title="Page Title" breadcrumb={{ routes }} />);
+    const items = [{ path: 'index', title: 'First-level Menu' }];
+    const { container } = render(
+      <PageHeader title="Page Title" breadcrumb={{ items }} />,
+    );
     expect(container.querySelectorAll('.ant-breadcrumb')).toHaveLength(1);
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(0);
   });
@@ -44,7 +51,10 @@ describe('PageContainer', () => {
   it('pageHeader should have breadcrumb (component)', () => {
     const routes = [{ path: 'index', breadcrumbName: 'First-level Menu' }];
     const { container } = render(
-      <PageHeader title="Page Title" breadcrumb={<Breadcrumb routes={routes} />} />,
+      <PageHeader
+        title="Page Title"
+        breadcrumb={<Breadcrumb items={routes} />}
+      />,
     );
     expect(container.querySelectorAll('.ant-breadcrumb')).toHaveLength(1);
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(0);
@@ -52,39 +62,60 @@ describe('PageContainer', () => {
 
   it('pageHeader support breadcrumbRender', () => {
     const { container } = render(
-      <PageHeader title="Page Title" breadcrumbRender={() => <div id="test">test</div>} />,
+      <PageHeader
+        title="Page Title"
+        avatar={{
+          src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4',
+          alt: 'avatar',
+        }}
+        breadcrumbRender={() => <div id="test">test</div>}
+      />,
     );
     expect(container.querySelectorAll('#test')).toHaveLength(1);
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(0);
   });
 
   it('pageHeader support breadcrumbRender return false', () => {
-    const { container } = render(<PageHeader title="Page Title" breadcrumbRender={() => false} />);
+    const { container } = render(
+      <PageHeader title="Page Title" breadcrumbRender={() => false} />,
+    );
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(0);
   });
 
   it('pageHeader do not has title', () => {
-    const routes = [{ path: 'index', breadcrumbName: 'First-level Menu' }];
-    const { container } = render(<PageHeader breadcrumb={{ routes }}>test</PageHeader>);
+    const items = [{ path: 'index', title: 'First-level Menu' }];
+    const { container } = render(
+      <PageHeader breadcrumb={{ items }}>test</PageHeader>,
+    );
     expect(container.querySelector('.ant-page-header-heading-lef')).toBeFalsy();
     expect(container.querySelector('.ant-page-header-heading')).toBeFalsy();
   });
 
   it('pageHeader should no contain back', () => {
-    const { container } = render(<PageHeader title="Page Title" backIcon={false} />);
+    const { container } = render(
+      <PageHeader title="Page Title" backIcon={false} />,
+    );
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(0);
   });
 
   it('pageHeader should contain back it back', () => {
-    const callback = jest.fn(() => true);
-    const { container } = render(<PageHeader title="Page Title" onBack={callback} />);
+    const callback = vi.fn(() => true);
+    const { container } = render(
+      <ConfigProvider direction="rtl">
+        <PageHeader title="Page Title" onBack={callback} />
+      </ConfigProvider>,
+    );
     expect(container.querySelectorAll('.ant-page-header-back')).toHaveLength(1);
   });
 
   it('pageHeader onBack transfer', () => {
-    const callback = jest.fn(() => true);
-    const { container } = render(<PageHeader title="Page Title" onBack={callback} />);
-    fireEvent.click(container.querySelector('div.ant-page-header-back-button')!);
+    const callback = vi.fn(() => true);
+    const { container } = render(
+      <PageHeader title="Page Title" onBack={callback} />,
+    );
+    fireEvent.click(
+      container.querySelector('div.ant-page-header-back-button')!,
+    );
     expect(callback).toHaveBeenCalled();
   });
 
@@ -101,14 +132,18 @@ describe('PageContainer', () => {
   });
 
   it('breadcrumbs and back icon can coexist', () => {
-    const routes = [
-      { path: 'index', breadcrumbName: 'First-level Menu' },
-      { path: 'first', breadcrumbName: 'Second-level Menu' },
-      { path: 'second', breadcrumbName: 'Third-level Menu' },
+    const items = [
+      { path: 'index', title: 'First-level Menu' },
+      { path: 'first', title: 'Second-level Menu' },
+      { path: 'second', title: 'Third-level Menu' },
     ];
-    const { container, rerender } = render(<PageHeader title="Title" breadcrumb={{ routes }} />);
+    const { container, rerender } = render(
+      <PageHeader title="Title" breadcrumb={{ items }} />,
+    );
     expect(container.querySelectorAll('.ant-breadcrumb')).toHaveLength(1);
-    rerender(<PageHeader title="Title" breadcrumb={{ routes }} onBack={() => {}} />);
+    rerender(
+      <PageHeader title="Title" breadcrumb={{ items }} onBack={() => {}} />,
+    );
     expect(container.querySelectorAll('.ant-breadcrumb')).toHaveLength(1);
   });
 
@@ -120,7 +155,7 @@ describe('PageContainer', () => {
   // it('change container width', async () => {
   //   const { container } = render(<PageHeader title="Page Title" extra="extra" />);
   //   triggerResize(container.firstChild as HTMLDivElement);
-  //   await waitTime(1000);
+  //   await waitForWaitTime(1000);
   //   expect(
   //     container.querySelector('div.ant-page-header')?.className.includes('ant-page-header-compact'),
   //   ).toBeTruthy();

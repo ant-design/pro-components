@@ -1,17 +1,17 @@
 import {
+  CaretDownFilled,
+  DoubleRightOutlined,
   GithubFilled,
   InfoCircleFilled,
   PlusCircleFilled,
   QuestionCircleFilled,
   SearchOutlined,
-  CaretDownFilled,
-  DoubleRightOutlined,
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProLayout, ProCard } from '@ant-design/pro-components';
-import { Input, Divider, Popover, theme } from 'antd';
-import { useState } from 'react';
+import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { css } from '@emotion/css';
+import { Divider, Input, Popover, theme } from 'antd';
+import { useState } from 'react';
 
 import defaultProps from './_defaultProps';
 
@@ -43,7 +43,9 @@ const Item: React.FC<{ children: React.ReactNode }> = (props) => {
   );
 };
 
-const List: React.FC<{ title: string; style?: React.CSSProperties }> = (props) => {
+const List: React.FC<{ title: string; style?: React.CSSProperties }> = (
+  props,
+) => {
   const { token } = theme.useToken();
 
   return (
@@ -282,7 +284,7 @@ export default () => {
                     />
                   }
                   placeholder="搜索方案"
-                  bordered={false}
+                  variant="borderless"
                 />
                 <PlusCircleFilled
                   style={{
@@ -317,7 +319,10 @@ export default () => {
               {title}
             </a>
           );
-          if (document.body.clientWidth < 1400) {
+          if (
+            typeof document === 'undefined' ||
+            document.body.clientWidth < 1400
+          ) {
             return defaultDom;
           }
           if (_.isMobile) return defaultDom;

@@ -7,10 +7,10 @@ import ProField from '../Field';
  *
  * @param
  */
-const ProFormRate: React.ForwardRefRenderFunction<any, ProFormFieldItemProps<RateProps>> = (
-  { fieldProps, proFieldProps, ...rest },
-  ref,
-) => {
+const ProFormRate: React.ForwardRefRenderFunction<
+  any,
+  ProFormFieldItemProps<RateProps>
+> = ({ fieldProps, proFieldProps, ...rest }, ref) => {
   return (
     <ProField
       valueType="rate"

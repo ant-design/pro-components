@@ -16,17 +16,15 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         height: '32px',
       },
       '&-overlay': {
-        '*': {
-          fontFamily: token.fontFamily,
-          boxSizing: 'border-box',
-        },
         [`${token.antCls}-popover-inner-content`]: {
           width: '200px',
           paddingBlock: 0,
           paddingInline: 0,
           paddingBlockEnd: 8,
         },
-        [`${token.antCls}-tree-node-content-wrapper:hover`]: { backgroundColor: 'transparent' },
+        [`${token.antCls}-tree-node-content-wrapper:hover`]: {
+          backgroundColor: 'transparent',
+        },
         [`${token.antCls}-tree-draggable-icon`]: { cursor: 'grab' },
         [`${token.antCls}-tree-treenode`]: {
           alignItems: 'center',
@@ -44,6 +42,9 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         },
       },
     },
+    [`${token.componentCls}-action-rest-button`]: {
+      color: token.colorPrimary,
+    },
     [`${token.componentCls}-list`]: {
       display: 'flex',
       flexDirection: 'column',
@@ -59,11 +60,19 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         color: token.colorTextSecondary,
         fontSize: '12px',
       },
+
       '&-item': {
         display: 'flex',
         alignItems: 'center',
+        maxHeight: 24,
+        justifyContent: 'space-between',
         '&-title': {
           flex: 1,
+          maxWidth: 80,
+          textOverflow: 'ellipsis',
+          overflow: 'hidden',
+          wordBreak: 'break-all',
+          whiteSpace: 'nowrap',
         },
         '&-option': {
           display: 'none',
@@ -75,7 +84,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
             },
           },
           '> span + span': {
-            marginInlineStart: 8,
+            marginInlineStart: 4,
           },
         },
       },

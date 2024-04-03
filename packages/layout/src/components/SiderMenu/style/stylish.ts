@@ -1,4 +1,4 @@
-﻿import type { ProAliasToken, GenerateStyle } from '@ant-design/pro-provider';
+﻿import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
 export interface SiderMenuToken extends ProAliasToken {
   componentCls: string;
@@ -24,10 +24,8 @@ export function useStylish(
     if (!stylish) return [];
     return [
       {
-        [token.proComponentsCls]: {
-          [`${token.proComponentsCls}-layout`]: {
-            [`${siderMenuToken.componentCls}`]: stylish?.(siderMenuToken),
-          },
+        [`div${token.proComponentsCls}-layout`]: {
+          [`${siderMenuToken.componentCls}`]: stylish?.(siderMenuToken),
         },
       },
     ];

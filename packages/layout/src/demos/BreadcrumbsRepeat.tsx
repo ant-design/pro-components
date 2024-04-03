@@ -13,7 +13,7 @@ export default () => (
       breadcrumbRender={(routes) => [
         {
           path: '/',
-          breadcrumbName: '主页',
+          title: '主页',
         },
         ...(routes || []),
       ]}

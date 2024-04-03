@@ -1,23 +1,23 @@
 import { PlusCircleFilled, SearchOutlined } from '@ant-design/icons';
 import type { MenuDataItem } from '@ant-design/pro-components';
-import { ProLayout, PageContainer } from '@ant-design/pro-components';
+import { PageContainer, ProLayout } from '@ant-design/pro-components';
 import { Input, Space } from 'antd';
 import { useState } from 'react';
 import complexMenu from './complexMenu';
 
-const filterByMenuData = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>
+const filterByMenuData = (
+  data: MenuDataItem[],
+  keyWord: string,
+): MenuDataItem[] =>
   data
     .map((item) => {
-      if (
-        (item.name && item.name.includes(keyWord)) ||
-        filterByMenuData(item.children || [], keyWord).length > 0
-      ) {
-        return {
-          ...item,
-          children: filterByMenuData(item.children || [], keyWord),
-        };
+      if (item.name?.includes(keyWord)) {
+        return { ...item };
       }
-
+      const children = filterByMenuData(item.children || [], keyWord);
+      if (children.length > 0) {
+        return { ...item, children };
+      }
       return undefined;
     })
     .filter((item) => item) as MenuDataItem[];
@@ -64,7 +64,7 @@ export default () => {
                   />
                 }
                 placeholder="搜索方案"
-                bordered={false}
+                variant="borderless"
                 onPressEnter={(e) => {
                   setKeyWord((e.target as HTMLInputElement).value);
                 }}
@@ -79,10 +79,7 @@ export default () => {
           )
         }
         menuDataRender={() => loopMenuItem(complexMenu)}
-        postMenuData={(menus) => {
-          console.log(menus);
-          return filterByMenuData(menus || [], keyWord);
-        }}
+        postMenuData={(menus) => filterByMenuData(menus || [], keyWord)}
       >
         <PageContainer content="欢迎使用">
           <div>Hello World</div>

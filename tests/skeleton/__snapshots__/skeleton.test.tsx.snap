@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`skeleton 🥩 descriptions api use 1`] = `
+exports[`skeleton > 🥩 descriptions api use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -1126,7 +1126,7 @@ exports[`skeleton 🥩 descriptions api use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 descriptions api use 2`] = `
+exports[`skeleton > 🥩 descriptions api use 2`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -1867,7 +1867,7 @@ exports[`skeleton 🥩 descriptions api use 2`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 descriptions base use 1`] = `
+exports[`skeleton > 🥩 descriptions base use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -2554,7 +2554,7 @@ exports[`skeleton 🥩 descriptions base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 list api use 1`] = `
+exports[`skeleton > 🥩 list api use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -3216,7 +3216,7 @@ exports[`skeleton 🥩 list api use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 list api use 2`] = `
+exports[`skeleton > 🥩 list api use 2`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -3224,7 +3224,7 @@ exports[`skeleton 🥩 list api use 2`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 list base use 1`] = `
+exports[`skeleton > 🥩 list base use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -3377,12 +3377,11 @@ exports[`skeleton 🥩 list base use 1`] = `
             style="padding-block-end: 8px;"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
               style="width: 100%; justify-content: space-between;"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <div
                   class="ant-skeleton ant-skeleton-element ant-skeleton-active"
@@ -3397,11 +3396,10 @@ exports[`skeleton 🥩 list base use 1`] = `
                 class="ant-space-item"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right: 8px;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-element ant-skeleton-active"
@@ -3737,7 +3735,7 @@ exports[`skeleton 🥩 list base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 result base use 1`] = `
+exports[`skeleton > 🥩 result base use 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"
@@ -3799,12 +3797,11 @@ exports[`skeleton 🥩 result base use 1`] = `
             />
           </div>
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             style="margin-block-start: 24px;"
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
             >
               <div
                 class="ant-skeleton ant-skeleton-element ant-skeleton-active"
@@ -3835,7 +3832,7 @@ exports[`skeleton 🥩 result base use 1`] = `
 </DocumentFragment>
 `;
 
-exports[`skeleton 🥩 statistic=1,span=16 1`] = `
+exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
 <DocumentFragment>
   <div
     style="width: 100%;"

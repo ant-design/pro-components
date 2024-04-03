@@ -1,7 +1,7 @@
 ---
 title: ProDescriptions - 定义列表
-
-  order: 1
+atomId: ProDescriptions
+order: 1
 ---
 
 # ProDescriptions - 高级定义列表
@@ -35,7 +35,7 @@ const keyWords = "Ant Design"
 (params: U) => RequestData;
 ```
 
-对与请求回来的结果的 ProDescriptions 也有一些约定，类型如下：
+对于请求回来的结果，ProDescriptions 也有一些约定，类型如下：
 
 ```tsx | pure
 interface RequestData {
@@ -100,7 +100,7 @@ API 与 ProTable 相同
 | extra | 描述列表的操作区域，显示在右上方 | `string` \| `ReactNode` | - |
 | bordered | 是否展示边框 | boolean | false |
 | column | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}` | number | 3 |
-| size | 设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效） | `default` \| `middle` \| `small` | - |
+| size | 设置列表的大小。可以设置为 `middle` 、`small`，或不填（只有设置 `bordered={true}` 生效） | `default` \| `middle` \| `small` | - |
 | layout | 描述布局 | `horizontal` \| `vertical` | `horizontal` |
 | colon | 配置 `ProDescriptions.Item` 的 `colon` 的默认值 | boolean | true |
 | request | 请求数据，不设置 columns 时 ProDescriptions.Item 需设置对应的 dataIndex | - | - |
@@ -123,7 +123,7 @@ API 与 ProTable 相同
 | onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | cancelText | 取消编辑一行的文字 | `React.ReactNode` | `取消` |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig,defaultDom) => ReactNode[]` | - |
-| deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
+| deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此项？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
 | onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
 
@@ -165,7 +165,7 @@ useEffect(() => {
 <ProDescriptions actionRef={(ref) => (this.ref = ref)} />;
 ```
 
-`ActionRef` 还支持了一些别的行为,某些时候会减少的你的编码成本，但是 ref 会脱离 react 的生命周期，所以这些 action 都是不受控的。
+`ActionRef` 还支持了一些别的行为，某些时候会减少的你的编码成本，但是 ref 会脱离 react 的生命周期，所以这些 action 都是不受控的。
 
 ```tsx | pure
 // 刷新

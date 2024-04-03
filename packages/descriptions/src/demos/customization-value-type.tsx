@@ -24,11 +24,11 @@ const tableListDataSource: TableListItem = {
   status: [
     {
       value: Math.floor(Math.random() * 10),
-      label: valueEnum[Math.floor(Math.random() * 10) % 4],
+      label: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     },
     {
       value: Math.floor(Math.random() * 10),
-      label: valueEnum[Math.floor(Math.random() * 10) % 4],
+      label: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     },
   ],
 };
@@ -60,8 +60,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -110,7 +116,9 @@ export default () => {
                 </>
               );
             },
-            renderFormItem: (text, props) => <TagList {...props} {...props?.fieldProps} />,
+            renderFormItem: (text, props) => (
+              <TagList {...props} {...props?.fieldProps} />
+            ),
           },
         },
       }}

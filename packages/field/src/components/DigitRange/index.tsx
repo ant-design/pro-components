@@ -1,11 +1,11 @@
-import { Input, InputNumber } from 'antd';
+import { proTheme, useIntl } from '@ant-design/pro-provider';
+import { Input, InputNumber, Space } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/input-number/style';
-import { useIntl } from '@ant-design/pro-provider';
+import 'antd/lib/input-number/style';
 //----------------------
 
 export type Value = string | number | undefined | null;
@@ -40,6 +40,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
   const { value, defaultValue, onChange, id } = fieldProps;
   const intl = useIntl();
 
+  const { token } = proTheme.useToken();
   const [valuePair, setValuePair] = useMergedState(() => defaultValue, {
     value: value,
     onChange: onChange,
@@ -70,7 +71,11 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
       if (Array.isArray(valuePair)) {
         //   仅在两个值均为数字时才做比较并转换
         const [value0, value1] = valuePair;
-        if (typeof value0 === 'number' && typeof value1 === 'number' && value0 > value1) {
+        if (
+          typeof value0 === 'number' &&
+          typeof value1 === 'number' &&
+          value0 > value1
+        ) {
           setValuePair([value1, value0]);
         } else if (value0 === undefined && value1 === undefined) {
           // 当两个值均为undefined时将值变为undefined，方便required处理
@@ -90,11 +95,18 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         intl.getMessage('tableForm.inputPlaceholder', '请输入'),
       ];
 
+    const getInputNumberPlaceholder = (index: number) =>
+      Array.isArray(placeholderValue)
+        ? placeholderValue[index]
+        : placeholderValue;
+
+    const Compact = Space.Compact || Input.Group;
+    const compactProps = !!Space.Compact ? {} : { compact: true };
     const dom = (
-      <Input.Group compact onBlur={handleGroupBlur}>
+      <Compact {...compactProps} onBlur={handleGroupBlur}>
         <InputNumber<number>
           {...fieldProps}
-          placeholder={Array.isArray(placeholderValue) ? placeholderValue[0] : placeholderValue}
+          placeholder={getInputNumberPlaceholder(0)}
           id={id ?? `${id}-0`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)` }}
           value={valuePair?.[0]}
@@ -108,21 +120,24 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
             borderInlineStart: 0,
             borderInlineEnd: 0,
             pointerEvents: 'none',
-            backgroundColor: '#FFF',
+            backgroundColor: token?.colorBgContainer,
           }}
           placeholder={separator}
           disabled
         />
         <InputNumber<number>
           {...fieldProps}
-          placeholder={Array.isArray(placeholderValue) ? placeholderValue[1] : placeholderValue}
+          placeholder={getInputNumberPlaceholder(1)}
           id={id ?? `${id}-1`}
-          style={{ width: `calc((100% - ${separatorWidth}px) / 2)`, borderInlineStart: 0 }}
+          style={{
+            width: `calc((100% - ${separatorWidth}px) / 2)`,
+            borderInlineStart: 0,
+          }}
           value={valuePair?.[1]}
           defaultValue={defaultValue?.[1]}
           onChange={(changedValue) => handleChange(1, changedValue)}
         />
-      </Input.Group>
+      </Compact>
     );
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);

@@ -1,9 +1,14 @@
-﻿import { ProForm, ProFormUploadButton, ProFormUploadDragger } from '@ant-design/pro-components';
+﻿import {
+  ProForm,
+  ProFormUploadButton,
+  ProFormUploadDragger,
+} from '@ant-design/pro-components';
 
 export default () => {
   return (
     <ProForm>
       <ProFormUploadButton
+        title="上传按钮的文本变啦"
         name="upload"
         label="Upload"
         max={2}

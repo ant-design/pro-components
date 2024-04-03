@@ -1,9 +1,12 @@
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import { ProForm, ProFormDatePicker, ProFormText, QueryFilter } from '@ant-design/pro-components';
-import { Card, Input, Tabs } from 'antd';
+import {
+  ProForm,
+  ProFormDatePicker,
+  ProFormText,
+  QueryFilter,
+} from '@ant-design/pro-components';
+import { Input, Tabs } from 'antd';
 import React, { useState } from 'react';
-
-const { TabPane } = Tabs;
 
 type AdvancedSearchProps = {
   onFilterChange?: (allValues: any) => void;
@@ -13,17 +16,31 @@ type AdvancedSearchProps = {
 };
 
 const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
-  const { onSearch, onTypeChange, defaultType = 'articles', onFilterChange } = props;
+  const {
+    onSearch,
+    onTypeChange,
+    defaultType = 'articles',
+    onFilterChange,
+  } = props;
   const [searchText, setSearchText] = useState<string>();
   const [showFilter, setShowFilter] = useState<boolean>(true);
   const quickSearch = ['小程序开发', '入驻', 'ISV 权限'];
   return (
-    <Card bodyStyle={{ paddingBlockEnd: 0 }} bordered={false}>
-      <div>
+    <div
+      style={{
+        padding: 24,
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 8,
+        }}
+      >
         <Input.Search
           placeholder="请输入"
           enterButton="搜索"
-          size="large"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -31,9 +48,14 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
           onSearch={onSearch}
           style={{ maxWidth: 522, width: '100%' }}
         />
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            gap: 12,
+          }}
+        >
           {quickSearch.map((text) => (
-            <span
+            <a
               key={text}
               onClick={() => {
                 setSearchText(text);
@@ -43,7 +65,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
               }}
             >
               {text}
-            </span>
+            </a>
           ))}
         </div>
       </div>
@@ -64,22 +86,40 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = (props) => {
             高级筛选 {showFilter ? <UpOutlined /> : <DownOutlined />}
           </a>
         }
-      >
-        <TabPane tab="文章" key="articles" />
-        <TabPane tab="项目" key="projects" />
-        <TabPane tab="应用" key="applications" />
-      </Tabs>
+        items={[
+          {
+            key: 'articles',
+            label: '文章',
+          },
+          {
+            key: 'projects',
+            label: '项目',
+          },
+          {
+            key: 'applications',
+            label: '应用',
+          },
+        ]}
+      />
 
-      <QueryFilter submitter={false} span={24} labelWidth="auto" split onChange={onFilterChange}>
-        <ProForm.Group title="姓名">
-          <ProFormText name="name" />
-        </ProForm.Group>
-        <ProForm.Group title="详情">
-          <ProFormText name="age" label="年龄" />
-          <ProFormDatePicker name="birth" label="生日" />
-        </ProForm.Group>
-      </QueryFilter>
-    </Card>
+      {showFilter ? (
+        <QueryFilter
+          submitter={false}
+          span={24}
+          labelWidth="auto"
+          split
+          onChange={onFilterChange}
+        >
+          <ProForm.Group title="姓名">
+            <ProFormText name="name" />
+          </ProForm.Group>
+          <ProForm.Group title="详情">
+            <ProFormText name="age" label="年龄" />
+            <ProFormDatePicker name="birth" label="生日" />
+          </ProForm.Group>
+        </QueryFilter>
+      ) : null}
+    </div>
   );
 };
 

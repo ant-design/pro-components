@@ -1,7 +1,7 @@
 ---
 title: ProList
 order: 12
-
+atomId: ProList
 nav:
   title: Components
 ---
@@ -16,49 +16,49 @@ Based on ProTable implementation, it can be considered as a special case of ProT
 
 ### Basic usage
 
-<code src="../demos/base.tsx" background="hsl(220,23%,97%)" oldtitle="Basic usage"></code>
+<code src="../demos/base.tsx"  background="var(--main-bg-color)" oldtitle="Basic usage"></code>
 
 ### Edit list
 
-<code src="../demos/editable.tsx" background="hsl(220,23%,97%)" oldtitle="Edit list"></code>
+<code src="../demos/editable.tsx"  background="var(--main-bg-color)" oldtitle="Edit list"></code>
 
 ### Support for expanded lists
 
-<code src="../demos/expand.tsx" background="hsl(220,23%,97%)" oldtitle="Expandable list"></code>
+<code src="../demos/expand.tsx"  background="var(--main-bg-color)" oldtitle="Expandable list"></code>
 
 ### Supports checked list
 
-<code src="../demos/selectedRow.tsx" background="hsl(220,23%,97%)" oldtitle="Support selected list"></code>
+<code src="../demos/selectedRow.tsx"  background="var(--main-bg-color)" oldtitle="Support selected list"></code>
 
 ### Query list
 
-<code src="../demos/search.tsx" background="hsl(220,23%,97%)" oldtitle="Search list"></code>
+<code src="../demos/search.tsx"  background="var(--main-bg-color)" oldtitle="Search list"></code>
 
 ### List with filters and asynchronous requests
 
-<code src="../demos/filter.tsx" background="hsl(220,23%,97%)" oldtitle="List with filtering and asynchronous requests"></code>
+<code src="../demos/filter.tsx"  background="var(--main-bg-color)" oldtitle="List with filtering and asynchronous requests"></code>
 
 ### Size and dividing line
 
-<code src="../demos/size.tsx" background="hsl(220,23%,97%)" oldtitle="Size and divider"></code>
+<code src="../demos/size.tsx"  background="var(--main-bg-color)" oldtitle="Size and divider"></code>
 
 ### Vertical style
 
-<code src="../demos/layout.tsx" background="hsl(220,23%,97%)" oldtitle="vertical style"></code>
+<code src="../demos/layout.tsx"  background="var(--main-bg-color)" oldtitle="vertical style"></code>
 
 ### some preset modes
 
-<code src="../demos/special.tsx" background="hsl(220,23%,97%)" oldtitle="Some preset modes"></code>
+<code src="../demos/special.tsx"  background="var(--main-bg-color)" oldtitle="Some preset modes"></code>
 
 ### page turn
 
-<code src="../demos/pagination.tsx" background="hsl(220,23%,97%)" oldtitle="Pagination"></code>
+<code src="../demos/pagination.tsx"  background="var(--main-bg-color)" oldtitle="Pagination"></code>
 
 ### Card List
 
-<code src="../demos/card-list.tsx" background="hsl(220,23%,97%)" oldtitle="Card list"></code>
+<code src="../demos/card-list.tsx"  background="var(--main-bg-color)" oldtitle="Card list"></code>
 
-##API
+\##API
 
 ### ProList API
 
@@ -75,7 +75,7 @@ Compared with antd's [List](https://ant.design/components/list-cn/), ProList's A
 | split | whether to have a split line | `boolean` | `false` |
 | rowSelection | same [configuration](https://ant.design/components/table-cn/#rowSelection) as antd | `object` \|`boolean` | false |
 | expandable | same [configuration](https://ant.design/components/table-cn/#expandable) as antd | `object` \| `false` | - |
-| showActions | When to show actions | `'hover'` \| `'always'` | `'always'` |
+| showActions | When to show actions, no support CardList | `'hover'` \| `'always'` | `'always'` |
 | showExtra | When to show extra | `'hover'` \| `'always'` | `'always'` |
 | onRow | The same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd , when the user passes in the `grid` property , the list will be rendered in card mode, this event will not fire, please use `onItem` | `function(record, index)` | - |
 | onItem | The same [configuration](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) as antd , clicking on an item in all types will trigger this event. | `function(record, index)` | - |
@@ -85,9 +85,9 @@ Compared with antd's [List](https://ant.design/components/list-cn/), ProList's A
 
 ### Batch operations
 
-Same [configuration] as ProTable (https://procomponents.ant.design/components/table/#%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C).
+Same \[configuration] as ProTable (<https://procomponents.ant.design/components/table/#%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C>).
 
-### Metas.[Meta] Generic API
+### Metas.\[Meta] Generic API
 
 | parameter | description | type | default value |
 | :-- | :-- | :-- | :-- |
@@ -97,7 +97,7 @@ Same [configuration] as ProTable (https://procomponents.ant.design/components/ta
 
 ### Metas.type
 
-The field type corresponding to dataSource is `'new'` \| `'top'` \| `'inline'`.
+The field type corresponding to dataSource is `'new'` | `'top'` | `'inline'`.
 
 | parameter | description | type | default value |
 | :-------- | :---------- | :--- | :------------ |
@@ -129,9 +129,9 @@ The field type corresponding to dataSource is `'new'` \| `'top'` \| `'inline'`.
 
 ### Metas.actions
 
-| parameter       | description                             | type    | default value          |
-| :-------------- | :-------------------------------------- | :------ | :--------------------- |
-| dataIndex       | -                                       | -       | `'actions'`            |
+| parameter | description | type | default value |
+| :-- | :-- | :-- | :-- |
+| dataIndex | - | - | `'actions'` |
 | cardActionProps | Set where the card list renders actions | `extra` | `'actions' \| 'extra'` |
 
 ### Metas.content

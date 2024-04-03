@@ -2,6 +2,7 @@
 title: ProTable - 高级表格
 order: 0
 legacy: /table
+atomId: ProTable
 ---
 
 # ProTable - 高级表格
@@ -19,230 +20,13 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 当你的表格需要与服务端进行交互或者需要多种单元格样式时，ProTable 是不二选择。
 
-## 代码演示
-
-### 查询表格
-
-<code src="../demos/single.tsx" background="hsl(220,23%,97%)" title="查询表格"></code>
-
-<code src="../demos/theme.tsx" background="hsl(218,22%,7%)" iframe title="黑色主紧凑主题"></code>
-
-<code src="../demos/single-test.tsx" debug background="hsl(220,23%,97%)" ></code>
-
-<code src="../demos/no-option.tsx" background="hsl(220,23%,97%)" title="查询（无按钮）表格"></code>
-
-<code src="../demos/dataSource.tsx" background="hsl(220,23%,97%)" title="使用 DataSource" ></code>
-
-<code src="../demos/normal.tsx" background="hsl(220,23%,97%)" title="无查询表单"></code>
-
-<code src="../demos/lightfilter.tsx" background="hsl(220,23%,97%)" title="轻量筛选替换查询表单"></code>
-
-<code src="../demos/no-title.tsx" background="hsl(220,23%,97%)" title="无 ToolBar 的表格"></code>
-
-### 必填的查询表单
-
-尽量使用 initialValue 来解决问题，必填项挫败感比较强
-
-<code src="../demos/open-rules.tsx" background="hsl(220,23%,97%)" ></code>
-
-<code src="../demos/table-nested.tsx" background="hsl(220,23%,97%)" title="嵌套表格"></code>
-
-<code src="../demos/split.tsx" background="hsl(220,23%,97%)" title="左右结构"></code>
-
-<code src="../demos/batchOption.tsx" background="hsl(220,23%,97%)" title="表格批量操作"></code>
-
-<code src="../demos/form.tsx" background="hsl(220,23%,97%)" title="通过 formRef 来操作查询表单"></code>
-
-### RTL (النسخة العربية)
-
-RTL means right-to-left.
-
-<code src="../demos/rtl_table.tsx" background="hsl(220,23%,97%)" ></code>
-
-### 受控的表格设置栏
-
-可以默认隐藏某些栏，但是在操作栏中可以选择
-
-<code src="../demos/columnsStateMap.tsx" background="hsl(220,23%,97%)" ></code>
-
-<code src="../demos/pollinga.tsx" background="hsl(220,23%,97%)" title="表格轮询"></code>
-
-<code src="../demos/dateFormatter.tsx" background="hsl(220,23%,97%)" title="dateFormatter-日期格式化"></code>
-
-### 搜索表单自定义
-
-当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
-
-`fieldProps` 可以把 props 透传，可以设置 select 的样式和多选等问题。
-
-`renderFormItem` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。如果你需要自定义需要先了解 antd 表单的[工作原理](https://ant.design/components/form-cn/#Form.Item)。
-
-```tsx | pure
-renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest }, form) => {
-  if (type === 'form') {
-    return null;
-  }
-  const status = form.getFieldValue('state');
-  if (status !== 'open') {
-    return (
-      // value 和 onchange 会通过 form 自动注入。
-      <Input
-        // 组件的配置
-        {...fieldProps}
-        // 自定义配置
-        placeholder="请输入test"
-      />
-    );
-  }
-  return defaultRender(_);
-};
-```
-
-`renderFormItem` 的定义, 具体的值可以打开控制台查看。
-
-```tsx | pure
- renderFormItem?: (
-    item: ProColumns<T>,
-    config: {
-      value?: any;
-      onSelect?: (value: any) => void;
-      type: ProTableTypes;
-      defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
-    },
-    form: FormInstance,
-  ) => JSX.Element | false | null;
-```
-
-<code src="../demos/linkage_form.tsx" background="hsl(220,23%,97%)" ></code>
-
-#### FAQ
-
-#### 为什么不能自己设置 value 和 onchange
-
-被 ProTable 包装的控件，表单控件会自动添加 value（或 valuePropName 指定的其他属性） onChange（或 trigger 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
-
-- 你不再需要也不应该用 onChange 来做数据收集同步（你可以使用 Form 的 onValuesChange），但还是可以继续监听 onChange 事件。
-
-- 你不能用控件的 value 或 defaultValue 等属性来设置表单域的值，默认值可以用 Form 里的 initialValues 来设置。注意 initialValues 不能被 setState 动态更新，你需要用 setFieldsValue 来更新。
-
-- 你不应该用 setState，可以使用 form.setFieldsValue 来动态改变表单值。
-
-##### 为什么设置 defaultValue 不生效？#
-
-因为 ProTable 子组件会转为受控模式。因而 defaultValue 不会生效。你需要在 Form 上通过 initialValues 设置默认值。
-
-<code src="../demos/search_option.tsx" background="hsl(220,23%,97%)" ></code>
-
-### Toolbar 自定义
-
-使用 `toolbar`属性扩展配置工具栏渲染。
-
-<code src="../demos/listToolBar.tsx" background="hsl(220,23%,97%)" ></code>
-
-<code src="../demos/renderTable.tsx" background="hsl(220,23%,97%)" title="表格主体自定义"></code>
-
-### 卡片表格
-
-有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现。如通过 `cardProps` 配置卡片属性，通过 `headTitle` 配置行动点在左侧。
-
-<code src="../demos/card-title.tsx" background="#f7f8fa" title="卡片表格" desc="使用卡片标题，行动点在左侧。"></code>
-
-### 国际化相关的配置
-
-ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
-
-这里是全量的文本
-
-```typescript | pure
-const enLocale = {
-  tableForm: {
-    search: 'Query',
-    reset: 'Reset',
-    submit: 'Submit',
-    collapsed: 'Expand',
-    expand: 'Collapse',
-    inputPlaceholder: 'Please enter',
-    selectPlaceholder: 'Please select',
-  },
-  alert: {
-    clear: 'Clear',
-  },
-  tableToolBar: {
-    leftPin: 'Pin to left',
-    rightPin: 'Pin to right',
-    noPin: 'Unpinned',
-    leftFixedTitle: 'Fixed the left',
-    rightFixedTitle: 'Fixed the right',
-    noFixedTitle: 'Not Fixed',
-    reset: 'Reset',
-    columnDisplay: 'Column Display',
-    columnSetting: 'Settings',
-    fullScreen: 'Full Screen',
-    exitFullScreen: 'Exit Full Screen',
-    reload: 'Refresh',
-    density: 'Density',
-    densityDefault: 'Default',
-    densityLarger: 'Larger',
-    densityMiddle: 'Middle',
-    densitySmall: 'Compact',
-  },
-};
-
-// 生成 intl 对象
-const enUSIntl = createIntl('en_US', enUS);
-import { ConfigProvider } from '@ant-design/pro-provide';
-
-// 使用
-<ConfigProvider
-  value={{
-    intl: enUSIntl,
-  }}
->
-  <ProTable />
-</ConfigProvider>;
-```
-
-<code src="../demos/intl.tsx" background="hsl(220,23%,97%)" title="国际化相关的配置"></code>
-
-<code src="../demos/search.tsx" background="hsl(220,23%,97%)" title="使用自带 keyWords 搜索的 table"></code>
-
-### 值类型示例
-
-#### valueType - 日期类
-
-<code src="../demos/valueTypeDate.tsx" background="hsl(220,23%,97%)" ></code>
-
-#### valueType - 数字类
-
-<code src="../demos/valueTypeNumber.tsx" background="hsl(220,23%,97%)" ></code>
-
-#### valueType - 样式类
-
-<code src="../demos/valueType.tsx" background="hsl(220,23%,97%)" ></code>
-
-#### valueType - 选择类
-
-<code src="../demos/valueType_select.tsx" background="hsl(220,23%,97%)" ></code>
-
-#### 自定义 valueType
-
-<code src="../demos/customization-value-type.tsx" background="hsl(220,23%,97%)" ></code>
-
-### 自定义错误边界
-
-<code src="../demos/error-boundaries.tsx" background="hsl(220,23%,97%)" iframe="572px"></code>
-
-<code src="../demos/error-boundaries-false.tsx" title="取消自定义错误边界" iframe="462px"></code>
-
-<code src="../demos/config-provider.tsx" debug background="hsl(220,23%,97%)" ></code>
-
 ## API
 
-ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 api。
+ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 API。
 
 ### request
 
-`request` 是 ProTable 最重要的 API，`request` 会接收一个对象。对象中必须要有 `data` 和 `success`，如果需要手动分页 `total` 也是必需的。`request` 会接管 `loading` 的设置，同时在查询表单查询和 `params` 参数发生修改时重新执行。同时 查询表单的值和 `params` 参数也会带入。以下是一个例子：
+`request` 是 ProTable 最重要的 API，`request` 会接收一个对象。对象中必须要有 `data` 和 `success`，如果需要手动分页 `total` 也是必需的。`request` 会接管 `loading` 的设置，同时在查询表单查询时和 `params` 参数发生修改时重新执行。同时查询表单的值和 `params` 参数也会带入。以下是一个例子：
 
 ```tsx | pure
 <ProTable<DataType, Params>
@@ -277,7 +61,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 />
 ```
 
-列配置中也支持 request，但是只有几种 [valueType](/components/schema#valuetype) 支持。
+列配置中也支持 `request`，但是只有几种 [valueType](/components/schema#valuetype) 支持。
 
 ### ProTable
 
@@ -287,17 +71,17 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | params | 用于 `request` 查询的额外参数，一旦变化会触发重新加载 | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
-| dataSource | Table 的数据，protable 推荐使用 request 来加载 | `T[]` | - |
+| dataSource | Table 的数据，ProTable 推荐使用 `request` 来加载 | `T[]` | - |
 | onDataSourceChange | Table 的数据发生改变时触发 | `(dataSource: T[]) => void` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<ActionType>` | - |
 | formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `MutableRefObject<FormInstance>` | - |
 | toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => ReactNode[]` | - |
-| onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
+| onLoad | 数据加载完成后触发，会多次触发 | `(dataSource: T[]) => void` | - |
 | onLoadingChange | loading 被修改时触发，一般是网络请求导致的 | `(loading:boolean)=>void` | - |
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
 | tableClassName | 封装的 table 的 className | `string` | - |
 | tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
-| options | table 工具栏，设为 false 时不显示.传入 function 会点击时触发 | `{{ density?: boolean, fullScreen: boolean \| function, reload: boolean \| function, setting: boolean \|` [SettingOptionType](#菜单栏-options-配置) `}}` | `{ fullScreen: false, reload: true, setting: true }` |
+| options | table 工具栏，设为 false 时不显示，传入 function 会点击时触发 | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#菜单栏-options-配置) `}}` | `{ fullScreen: false, reload: true, density: true, setting: true }` |
 | search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `false` \| [SearchConfig](#search-搜索表单) | - |
 | defaultSize | 默认的 size | SizeType | - |
 | dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \| `false` | `"string"` |
@@ -311,12 +95,13 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | tableRender | 自定义渲染表格函数 | `(props,dom,domList:{ toolbar,alert,table}) => ReactNode` | - |
 | toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
-| manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
+| manualRequest | 是否需要手动触发首次请求，配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
+| ghost | 幽灵模式，即是否取消表格区域的 padding | `boolean` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
-| revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `true` |
-| columnsState | 受控的列状态，可以操作显示隐藏 | `columnsStateType` | - |
+| revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `false` |
+| columnsState | 受控的列状态，可以操作显示隐藏 | `ColumnStateType` | - |
 | ErrorBoundary | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode` | 内置 ErrorBoundary |
 
 #### RecordCreator
@@ -327,15 +112,15 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | position | 行增加在哪里，开始或者末尾 | `top` \| `bottom` | `bottom` |
 | (...buttonProps) | antd 的 [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | — |
 
-#### ColumnsStateType
+#### ColumnStateType
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| defaultValue | 列状态的默认值，只有初次生效 | `Record<string, ColumnsState>;` | - |
+| defaultValue | 列状态的默认值，只有初次生效，并用于重置使用 | `Record<string, ColumnsState>;` | - |
 | value | 列状态的值，支持受控模式 | `Record<string, ColumnsState>;` | - |
 | onChange | 列状态的值发生改变之后触发 | `(value:Record<string, ColumnsState>)=>void` | - |
 | persistenceKey | 持久化列的 key，用于判断是否是同一个 table | `string \| number` | - |
-| persistenceType | 持久化列的类类型， localStorage 设置在关闭浏览器后也是存在的，sessionStorage 关闭浏览器后会丢失 | `localStorage \| sessionStorage` | - |
+| persistenceType | 持久化列的类型，localStorage 设置在关闭浏览器后也是存在的，sessionStorage 关闭浏览器后会丢失 | `localStorage \| sessionStorage` | - |
 
 #### Search 搜索表单
 
@@ -348,7 +133,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | labelWidth | 标签的宽度 | `'number'` \| `'auto'` | 80 |
 | span | 配置查询表单的列数 | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
 | className | 封装的搜索 Form 的 className | `string` | - |
-| collapseRender | 收起按钮的 render | `(collapsed: boolean,showCollapseButton?: boolean,) => ReactNode` | - |
+| collapseRender | 收起按钮的 render | `((collapsed: boolean,showCollapseButton?: boolean) => ReactNode)`\|`false` | - |
 | defaultCollapsed | 默认是否收起 | `boolean` | `true` |
 | collapsed | 是否收起 | `boolean` | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
@@ -381,21 +166,25 @@ export type OptionConfig = {
   reload?: OptionsType;
   setting?: boolean | SettingOptionType;
   search?: (OptionSearchProps & { name?: string }) | boolean;
+  reloadIcon?: React.ReactNode;
+  densityIcon?: React.ReactNode;
 };
 
 export type SettingOptionType = {
   draggable?: boolean;
   checkable?: boolean;
+  showListItemOption?: boolean;
   checkedReset?: boolean;
   listsHeight?: number;
   extra?: React.ReactNode;
   children?: React.ReactNode;
+  settingIcon?: React.ReactNode;
 };
 ```
 
 #### ActionRef 手动触发
 
-有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef，可编辑表格也提供了一些操作来帮助我们更快的实现需求。
+有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef，可编辑表格也提供了一些操作来帮助我们更快地实现需求。
 
 ```tsx | pure
 interface ActionType {
@@ -441,17 +230,17 @@ ref.current.cancelEditable(rowKey);
 | ellipsis | 是否自动缩略 | `boolean` \| `{showTitle?: boolean}` | - |
 | copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](/components/schema#valueenum) | - |
-| valueType | 值的类型,会生成不同的渲染器 | [`valueType`](/components/schema#valuetype) | `text` |
+| valueType | 值的类型，会生成不同的渲染器 | [`valueType`](/components/schema#valuetype) | `text` |
 | order | 查询表单中的权重，权重大排序靠前 | `number` | - |
-| fieldProps | 查询表单的 props，会透传给表单项,如果渲染出来是 Input,就支持 input 的所有 props，同理如果是 select，也支持 select 的所有 props。也支持方法传入 | `(form,config)=>Record \| Record` | - |
-| `formItemProps` | 传递给 Form.Item 的配置,可以配置 rules，但是默认的查询表单 rules 是不生效的。需要配置 `ignoreRules` | `(form,config)=>formItemProps` \| `formItemProps` | - |
+| fieldProps | 查询表单的 props，会透传给表单项，如果渲染出来是 Input，就支持 Input 的所有 props，同理如果是 select，也支持 select 的所有 props。也支持方法传入 | `(form,config)=>Record \| Record` | - |
+| `formItemProps` | 传递给 Form.Item 的配置，可以配置 rules，但是默认的查询表单 rules 是不生效的。需要配置 `ignoreRules` | `(form,config)=>formItemProps` \| `formItemProps` | - |
 | renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](/components/schema#valueenum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string` | - |
-| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
+| render | 类似 table 的 render，第一个参数变成了 dom，增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于时间区间的转化 | `(value: any) => any` | - |
 | [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
-| colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
+| colSize | 一个表单项占用的格子数量，`占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 | hideInSearch | 在查询表单中不展示此项 | `boolean` | - |
 | hideInTable | 在 Table 中不展示此列 | `boolean` | - |
 | hideInForm | 在 Form 中不展示此列 | `boolean` | - |
@@ -473,38 +262,26 @@ ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，�
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | alwaysShowAlert | 总是展示 alert，默认无选择不展示（`rowSelection`内置属性） | `boolean` | - |
-| tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | - |
-| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | - |
+| tableAlertRender | 自定义批量操作工具栏左侧信息区域，false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | - |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域，false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | - |
 
 ### 搜索表单
 
 ProTable 会根据列来生成一个 Form，用于筛选列表数据，最后的值会根据通过 `request` 的第一个参数返回，看起来就像。
 
 ```jsx | pure
-<ProTable request={(params,sort,filter)=>{ all params}}>
+<ProTable request={(params,sort,filter)=>{all params}}>
 ```
 
-按照规范，table 的表单不需要任何的必选参数，所有点击搜索和重置都会触发 `request`来发起一次查询。
+按照规范，table 的表单不需要任何的必选参数，所有点击搜索和重置都会触发 `request` 来发起一次查询。
 
-Form 的列是根据 `valueType` 来生成不同的类型,详细的值类型请查看[通用配置](/components/schema#valuetype)。
+Form 的列是根据 `valueType` 来生成不同的类型，详细的值类型请查看[通用配置](/components/schema#valuetype)。
 
-> valueType 为 index indexBorder option 和没有 dataIndex 和 key 的列将会忽略。
+> valueType 为 index, indexBorder, option 或者没有 dataIndex 和 key 的列将会被忽略。
 
 ### 列表工具栏
 
 用于自定义表格的工具栏部分。
-
-#### 代码演示
-
-<code src="../demos/ListToolBar/basic.tsx" background="#f7f8fa" title="列表工具栏-基本使用"></code>
-
-<code src="../demos/ListToolBar/no-title.tsx" background="#f7f8fa" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。"></code>
-
-<code src="../demos/ListToolBar/multipleLine.tsx" background="#f7f8fa" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。"></code>
-
-<code src="../demos/ListToolBar/tabs.tsx" background="#f7f8fa" title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。"></code>
-
-<code src="../demos/ListToolBar/menu.tsx" background="#f7f8fa" title="列表工具栏-标题下拉菜单"></code>
 
 #### ListToolBarProps
 
@@ -514,7 +291,7 @@ Form 的列是根据 `valueType` 来生成不同的类型,详细的值类型请�
 | --- | --- | --- | --- |
 | title | 标题 | `ReactNode` | - |
 | subTitle | 子标题 | `ReactNode` | - |
-| description | 描述 | `ReactNode` | - |
+| tooltip | tooltip 描述 | `string` | - |
 | search | 查询区 | `ReactNode` \| `SearchProps` | - |
 | actions | 操作区 | `ReactNode[]` | - |
 | settings | 设置区 | `(ReactNode \| Setting)[]` | - |
@@ -536,12 +313,12 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 
 #### ListToolBarMenu
 
-| 参数      | 说明           | 类型                                  | 默认值   |
-| --------- | -------------- | ------------------------------------- | -------- |
-| type      | 类型           | `inline` \| `dropdown` \| `tab`       | `inline` |
-| activeKey | 当前值         | `string`                              | -        |
-| items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -        |
-| onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -        |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| type | 类型 | `inline` \| `dropdown` \| `tab` | `inline` |
+| activeKey | 当前值 | `string` | - |
+| items | 菜单项 | `{ key: string; label: ReactNode }[]` | - |
+| onChange | 切换菜单的回调 | `(activeKey)=>void` | - |
 
 #### ListToolBarTabs
 
@@ -557,6 +334,4 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | --- | --- | --- | --- |
 | key | 唯一标志 | `string` | - |
 | name | 内容 | `ReactNode` | - |
-| (...Menu.Item) | antd 的 [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) | Menu.Item | - |
-
-<code src="../demos/edittable-rules.tsx" background="#f7f8fa" title="列表工具栏-标题下拉菜单" debug></code>
+| (...Menu.Item) | antd 的 [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) | `Menu.Item` | - |

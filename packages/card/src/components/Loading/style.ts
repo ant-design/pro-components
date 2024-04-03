@@ -34,7 +34,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
         backgroundSize: '600% 600%',
         borderRadius: token.borderRadius,
-        animationName: cardLoading,
+        animationName: cardLoading as unknown as string,
         animationDuration: '1.4s',
         animationTimingFunction: 'ease',
         animationIterationCount: 'infinite',

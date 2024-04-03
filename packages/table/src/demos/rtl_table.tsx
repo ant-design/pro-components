@@ -2,7 +2,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, ConfigProvider, Space, Tag } from 'antd';
-import arEGIntl from 'antd/es/locale/ar_EG';
+import arEGIntl from 'antd/lib/locale/ar_EG';
 import { useRef } from 'react';
 import request from 'umi-request';
 
@@ -33,7 +33,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    tip: 'سيتم تقليص العنوان في حال كان طويل جدًا',
+    tooltip: 'سيتم تقليص العنوان في حال كان طويل جدًا',
     formItemProps: {
       rules: [
         {
@@ -110,7 +110,7 @@ export default () => {
       <ProTable<GithubIssueItem>
         columns={columns}
         actionRef={actionRef}
-        request={async (params = {}) =>
+        request={async (params = {} as Record<string, any>) =>
           request<{
             data: GithubIssueItem[];
           }>('https://proapi.azurewebsites.net/github/issues', {

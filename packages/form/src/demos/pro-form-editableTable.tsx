@@ -1,5 +1,9 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { EditableProTable, ProForm, ProFormText } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProForm,
+  ProFormText,
+} from '@ant-design/pro-components';
 import { Input, message } from 'antd';
 import React, { useState } from 'react';
 
@@ -16,7 +20,7 @@ type DataSourceType = {
   title?: string;
   decs?: string;
   state?: string;
-  created_at?: string;
+  created_at?: number;
   children?: DataSourceType[];
 };
 
@@ -26,14 +30,14 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     decs: '这个活动真好玩',
     state: 'open',
-    created_at: '1590486176000',
+    created_at: 1590486176000,
   },
   {
     id: 624691229,
     title: '活动名称二',
     decs: '这个活动真好玩',
     state: 'closed',
-    created_at: '1590481162000',
+    created_at: 1590481162000,
   },
 ];
 
@@ -83,6 +87,7 @@ export default () => {
       name: string;
       company: string;
     }>
+      grid
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
@@ -101,7 +106,12 @@ export default () => {
           tooltip="最长为 24 位"
           placeholder="请输入名称"
         />
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ProForm.Group>
       <ProFormText width="sm" name="id" label="主合同编号" />
       <ProForm.Item

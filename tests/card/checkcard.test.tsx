@@ -1,12 +1,14 @@
 import { CheckCard } from '@ant-design/pro-components';
-import { render } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
-import { waitForComponentToPaint } from '../util';
+import { act, cleanup, render, waitFor } from '@testing-library/react';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('CheckCard', () => {
   it('should invoke onChange and onClick function when click option', async () => {
-    const onChange = jest.fn();
-    const onClick = jest.fn();
+    const onChange = vi.fn();
+    const onClick = vi.fn();
     const wrapper = render(
       <CheckCard
         title="示例一"
@@ -16,23 +18,29 @@ describe('CheckCard', () => {
         onClick={onClick}
       />,
     );
-
+    /**
+     * 执行 React Testing Library 中的 act 方法。
+     */
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
+      // 从组件渲染后生成的容器中选择 `.ant-pro-checkcard` 元素，并模拟点击事件。
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-checkcard')
+        ?.click();
     });
 
-    await waitForComponentToPaint(wrapper);
-
-    expect(onChange).toBeCalledWith(true);
-    expect(onClick).toHaveBeenCalled();
-
-    act(() => {
-      wrapper.unmount();
+    /**
+     * 等待直到满足条件，然后执行一系列断言。
+     */
+    await waitFor(() => {
+      // 断言 onChange 回调函数已被调用，并且传入参数为 true。
+      expect(onChange).toBeCalledWith(true);
+      // 断言 onClick 回调函数已被调用。
+      expect(onClick).toHaveBeenCalled();
     });
   });
 
   it('should invoke onChange function when group click option', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group
         onChange={(e) => onChange(e)}
@@ -45,25 +53,30 @@ describe('CheckCard', () => {
       />,
     );
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-checkcard')
+        ?.click();
     });
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenLastCalledWith('Apple');
+    await waitFor(() => {
+      expect(onChange).toHaveBeenLastCalledWith('Apple');
+    });
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-checkcard')
+        ?.click();
     });
-    await waitForComponentToPaint(wrapper);
 
-    expect(onChange).toHaveBeenLastCalledWith(undefined);
-    act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]?.click();
+    await waitFor(() => {
+      expect(onChange).toHaveBeenLastCalledWith(undefined);
     });
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenLastCalledWith('Pear');
-
     act(() => {
-      wrapper.unmount();
+      wrapper.baseElement
+        .querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]
+        ?.click();
+    });
+    await waitFor(() => {
+      expect(onChange).toHaveBeenLastCalledWith('Pear');
     });
   });
 
@@ -79,7 +92,9 @@ describe('CheckCard', () => {
     );
 
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard-checked').length,
+      wrapper.baseElement.querySelectorAll<HTMLDivElement>(
+        '.ant-pro-checkcard-checked',
+      ).length,
     ).toBe(0);
     act(() => {
       wrapper.rerender(
@@ -94,14 +109,16 @@ describe('CheckCard', () => {
       );
     });
     expect(
-      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard-checked').length,
+      wrapper.baseElement.querySelectorAll<HTMLDivElement>(
+        '.ant-pro-checkcard-checked',
+      ).length,
     ).toBe(0);
 
     wrapper.unmount();
   });
 
   it('should invoke onChange function when group click option in multiple mode', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group
         onChange={(e) => onChange(e)}
@@ -111,28 +128,35 @@ describe('CheckCard', () => {
       />,
     );
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-checkcard')
+        ?.click();
     });
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenLastCalledWith(['Apple']);
+    await waitFor(() => {
+      expect(onChange).toHaveBeenLastCalledWith(['Apple']);
+    });
+    act(() => {
+      wrapper.baseElement
+        .querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]
+        ?.click();
+    });
+    await waitFor(() => {
+      expect(onChange).toHaveBeenLastCalledWith(['Apple', 'Pear']);
+    });
 
     act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]?.click();
+      wrapper.baseElement
+        .querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]
+        ?.click();
     });
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenLastCalledWith(['Apple', 'Pear']);
-    act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]?.click();
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenLastCalledWith(['Apple']);
-    act(() => {
-      wrapper.unmount();
+
+    await waitFor(() => {
+      expect(onChange).toHaveBeenLastCalledWith(['Apple']);
     });
   });
 
   it('should support defaultValue', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group onChange={(e) => onChange(e)} defaultValue="A">
         <CheckCard title="Card A" description="选项一" value="A" />
@@ -147,24 +171,33 @@ describe('CheckCard', () => {
     ).toBeTruthy();
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-checkcard')
+        ?.click();
     });
 
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenCalledWith(undefined);
-
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith(undefined);
+    });
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-checkcard')
+        ?.click();
     });
 
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenCalledWith('A');
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith('A');
+    });
   });
 
   it('should support defaultValue in multiple mode', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
-      <CheckCard.Group onChange={(e) => onChange(e)} defaultValue={['A']} multiple>
+      <CheckCard.Group
+        onChange={(e) => onChange(e)}
+        defaultValue={['A']}
+        multiple
+      >
         <CheckCard title="Card A" description="选项一" value="A" />
         <CheckCard title="Card B" description="选项二" value="B" />
       </CheckCard.Group>,
@@ -176,24 +209,25 @@ describe('CheckCard', () => {
     ).toBeTruthy();
 
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-checkcard')
+        ?.click();
     });
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenCalledWith([]);
-
-    act(() => {
-      wrapper.baseElement.querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]?.click();
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith([]);
     });
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).toHaveBeenCalledWith(['B']);
-
     act(() => {
-      wrapper.unmount();
+      wrapper.baseElement
+        .querySelectorAll<HTMLDivElement>('.ant-pro-checkcard')[1]
+        ?.click();
+    });
+    await waitFor(() => {
+      expect(onChange).toHaveBeenCalledWith(['B']);
     });
   });
 
   it('should disabled onChange when group disabled', async () => {
-    const onChange = jest.fn();
+    const onChange = vi.fn();
     const wrapper = render(
       <CheckCard.Group onChange={(e) => onChange(e)} disabled defaultValue="A">
         <CheckCard title="Card A" description="选项一" value="A" />
@@ -201,12 +235,23 @@ describe('CheckCard', () => {
       </CheckCard.Group>,
     );
     act(() => {
-      wrapper.baseElement.querySelector<HTMLDivElement>('.ant-pro-checkcard')?.click();
+      wrapper.baseElement
+        .querySelector<HTMLDivElement>('.ant-pro-checkcard')
+        ?.click();
     });
-    await waitForComponentToPaint(wrapper);
-    expect(onChange).not.toHaveBeenCalled();
-    act(() => {
-      wrapper.unmount();
+
+    await waitFor(() => {
+      expect(onChange).not.toHaveBeenCalled();
     });
+  });
+
+  it('should display when title is number zero', async () => {
+    const wrapper = render(<CheckCard title={0} />);
+
+    expect(
+      wrapper.baseElement.querySelector<HTMLDivElement>(
+        '.ant-pro-checkcard-title',
+      )?.innerHTML,
+    ).toBe('0');
   });
 });

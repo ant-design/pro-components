@@ -1,4 +1,9 @@
-import { ProForm, ProFormText, QueryFilter, ProFormDatePicker } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormDatePicker,
+  ProFormText,
+  QueryFilter,
+} from '@ant-design/pro-components';
 import { Input } from 'antd';
 
 export default () => {
@@ -16,7 +21,11 @@ export default () => {
             label="test"
           />
           {[...Array(10).keys()].map((i) => (
-            <ProFormDatePicker key={i} name={`startdate${i + 1}`} label={`Date${i + 1}`} />
+            <ProFormDatePicker
+              key={i}
+              name={`startdate${i + 1}`}
+              label={`Date${i + 1}`}
+            />
           ))}
         </QueryFilter>
         <pre>{JSON.stringify(formProps, null, 2)}</pre>
@@ -34,7 +43,11 @@ export default () => {
         <ProForm.Item name="name" label="test">
           <Input />
         </ProForm.Item>
-        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
+        <ProFormText
+          name="name"
+          label="应用名称"
+          rules={[{ required: true }]}
+        />
         <ProFormText name="sex" label="性别" />
       </QueryFilter>
       <QueryFilter<{
@@ -47,7 +60,11 @@ export default () => {
         span={6}
         defaultCollapsed={false}
       >
-        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
+        <ProFormText
+          name="name"
+          label="应用名称"
+          rules={[{ required: true }]}
+        />
         <ProFormText name="creater" label="创建人" />
         <ProFormText name="sex" label="性别" />
       </QueryFilter>
@@ -60,7 +77,11 @@ export default () => {
         }}
         defaultCollapsed={false}
       >
-        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
+        <ProFormText
+          name="name"
+          label="应用名称"
+          rules={[{ required: true }]}
+        />
         <ProFormText name="creater" label="创建人" />
         <ProFormText name="sex" label="性别" />
         <ProFormText name="status" label="应用状态" />
@@ -77,7 +98,11 @@ export default () => {
         span={12}
         defaultCollapsed={false}
       >
-        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
+        <ProFormText
+          name="name"
+          label="应用名称"
+          rules={[{ required: true }]}
+        />
         <ProFormText name="creater" label="创建人" />
         <ProFormText name="sex" label="性别" />
         <ProFormText name="status" label="应用状态" />
@@ -94,7 +119,11 @@ export default () => {
         span={8}
         defaultCollapsed={false}
       >
-        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
+        <ProFormText
+          name="name"
+          label="应用名称"
+          rules={[{ required: true }]}
+        />
         <ProFormText name="creater" label="创建人" />
         <ProFormText name="sex" label="性别" />
         <ProFormText name="status" label="应用状态" />
@@ -109,10 +138,15 @@ export default () => {
           console.log(values.name);
         }}
         span={4}
+        submitterColSpanProps={{ span: 12 }}
         defaultColsNumber={1}
         defaultCollapsed={false}
       >
-        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
+        <ProFormText
+          name="name"
+          label="应用名称"
+          rules={[{ required: true }]}
+        />
         <ProFormText name="creater" label="创建人" />
         <ProFormText name="sex" label="性别" />
         <ProFormText name="status" label="应用状态" />

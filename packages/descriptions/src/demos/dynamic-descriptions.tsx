@@ -122,7 +122,7 @@ export default () => {
       split="vertical"
       headerBordered
       style={{
-        height: 500,
+        minHeight: 500,
       }}
     >
       <ProCard colSpan="calc(100% - 580px)">
@@ -179,7 +179,11 @@ export default () => {
                           },
                         ]}
                       />
-                      <ProFormSwitch label="加载中" tooltip="loading" name="loading" />
+                      <ProFormSwitch
+                        label="加载中"
+                        tooltip="loading"
+                        name="loading"
+                      />
                       <ProFormSelect
                         name="size"
                         label="尺寸"
@@ -200,7 +204,11 @@ export default () => {
                         ]}
                       />
 
-                      <ProFormSwitch label="边框" tooltip="bordered" name="bordered" />
+                      <ProFormSwitch
+                        label="边框"
+                        tooltip="bordered"
+                        name="bordered"
+                      />
                       <ProFormDigit width="xs" label="列数" name="column" />
                     </ProForm.Group>
                   </>
@@ -241,7 +249,12 @@ export default () => {
                   >
                     <ProForm.Group size={16} key="Group">
                       <ProFormText label="标题" name="title" />
-                      <ProFormDigit width="xs" initialValue={1} label="占据列数" name="span" />
+                      <ProFormDigit
+                        width="xs"
+                        initialValue={1}
+                        label="占据列数"
+                        name="span"
+                      />
                       <ProFormSelect
                         width="xs"
                         label="值类型"
@@ -264,7 +277,10 @@ export default () => {
                         }}
                       />
                     </ProForm.Group>
-                    <ProFormDependency key="valueType" name={['valueType', 'valueEnum']}>
+                    <ProFormDependency
+                      key="valueType"
+                      name={['valueType', 'valueEnum']}
+                    >
                       {({ valueType, valueEnum }) => {
                         if (valueType !== 'select') {
                           return null;

@@ -1,5 +1,5 @@
 ﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
-import { Button, message, Space } from 'antd';
+import { Button, Space, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -45,7 +45,12 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ModalForm>
       <ModalForm
         title="新建表单"
@@ -71,7 +76,12 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ModalForm>
       <ModalForm
         title="新建表单"
@@ -101,7 +111,12 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ModalForm>
       <ModalForm
         title="隐藏footer"
@@ -116,7 +131,12 @@ export default () => {
           placeholder="请输入名称"
         />
 
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          width="md"
+          name="company"
+          label="我方公司名称"
+          placeholder="请输入名称"
+        />
       </ModalForm>
     </Space>
   );

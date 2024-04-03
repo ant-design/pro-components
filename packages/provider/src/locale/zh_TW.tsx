@@ -1,7 +1,7 @@
 export default {
   moneySymbol: 'NT$',
-  deleteThisLine: '刪除此行',
-  copyThisLine: '複製此行',
+  deleteThisLine: '刪除此项',
+  copyThisLine: '複製此项',
   form: {
     lightFilter: {
       more: '更多篩選',
@@ -46,7 +46,7 @@ export default {
     reload: '刷新',
     density: '密度',
     densityDefault: '正常',
-    densityLarger: '默認',
+    densityLarger: '寬鬆',
     densityMiddle: '中等',
     densitySmall: '緊湊',
   },

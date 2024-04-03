@@ -1,6 +1,6 @@
 import React from 'react';
 import { defaultRenderLogo } from './index';
-import type { AppListProps, AppItemProps } from './types';
+import type { AppItemProps, AppListProps } from './types';
 
 export const DefaultContent: React.FC<{
   appList?: AppListProps;
@@ -10,13 +10,19 @@ export const DefaultContent: React.FC<{
 }> = (props) => {
   const { appList, baseClassName, hashId, itemClick } = props;
   return (
-    <div className={`${baseClassName}-content ${hashId}`}>
-      <ul className={`${baseClassName}-content-list ${hashId}`}>
+    <div className={`${baseClassName}-content ${hashId}`.trim()}>
+      <ul className={`${baseClassName}-content-list ${hashId}`.trim()}>
         {appList?.map((app, index) => {
           if (app?.children?.length) {
             return (
-              <div className={`${baseClassName}-content-list-item-group ${hashId}`}>
-                <div className={`${baseClassName}-content-list-item-group-title ${hashId}`}>
+              <div
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                className={`${baseClassName}-content-list-item-group ${hashId}`.trim()}
+              >
+                <div
+                  className={`${baseClassName}-content-list-item-group-title ${hashId}`.trim()}
+                >
                   {app.title}
                 </div>
                 <DefaultContent
@@ -32,11 +38,14 @@ export const DefaultContent: React.FC<{
             <li
               // eslint-disable-next-line react/no-array-index-key
               key={index}
-              className={`${baseClassName}-content-list-item ${hashId}`}
+              className={`${baseClassName}-content-list-item ${hashId}`.trim()}
+              onClick={(e) => {
+                e.stopPropagation();
+                itemClick?.(app);
+              }}
             >
               <a
-                href={itemClick ? 'javascript:;' : app.url}
-                onClick={() => itemClick?.(app)}
+                href={itemClick ? undefined : app.url}
                 target={app.target}
                 rel="noreferrer"
               >

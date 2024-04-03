@@ -15,7 +15,11 @@ export default () => {
         setResponsive(offset.width < 596);
       }}
     >
-      <ProCard split={responsive ? 'horizontal' : 'vertical'} bordered style={{ height: 320 }}>
+      <ProCard
+        split={responsive ? 'horizontal' : 'vertical'}
+        bordered
+        style={{ height: 320 }}
+      >
         <ProCard colSpan={responsive ? 24 : 6}>
           <Steps
             direction={responsive ? 'horizontal' : 'vertical'}
@@ -40,7 +44,11 @@ export default () => {
             >
               下一步
             </Button>
-            <Button key="pre" onClick={() => setCurrent(current - 1)} disabled={current === 0}>
+            <Button
+              key="pre"
+              onClick={() => setCurrent(current - 1)}
+              disabled={current === 0}
+            >
               上一步
             </Button>
           </Space>

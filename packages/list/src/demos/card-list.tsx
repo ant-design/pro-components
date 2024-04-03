@@ -1,4 +1,8 @@
-import { ProFormRadio, ProFormSwitch, ProList } from '@ant-design/pro-components';
+import {
+  ProFormRadio,
+  ProFormSwitch,
+  ProList,
+} from '@ant-design/pro-components';
 import { Progress, Tag } from 'antd';
 import { useState } from 'react';
 
@@ -15,7 +19,8 @@ const data = [
   title: item,
   subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
   actions: [<a key="run">邀请</a>, <a key="delete">删除</a>],
-  avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
+  avatar:
+    'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
     <div
       style={{
@@ -35,7 +40,9 @@ const data = [
 }));
 
 export default () => {
-  const [cardActionProps, setCardActionProps] = useState<'actions' | 'extra'>('extra');
+  const [cardActionProps, setCardActionProps] = useState<'actions' | 'extra'>(
+    'extra',
+  );
 
   const [ghost, setGhost] = useState<boolean>(false);
   return (

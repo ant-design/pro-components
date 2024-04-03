@@ -1,8 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageContainer pageHeader should not render blank dom 1`] = `null`;
+exports[`PageContainer > pageHeader should not render blank dom 1`] = `
+<div
+  class="ant-page-header-no-children"
+/>
+`;
 
-exports[`PageContainer pageHeader should render correctly int RTL direction 1`] = `
+exports[`PageContainer > pageHeader should render correctly int RTL direction 1`] = `
 <div
   class="ant-page-header ant-page-header-ghost"
 >
@@ -10,10 +14,10 @@ exports[`PageContainer pageHeader should render correctly int RTL direction 1`] 
     class="ant-page-header-heading "
   >
     <div
-      class="ant-page-header-heading-left "
+      class="ant-page-header-heading-left"
     >
       <span
-        class="ant-page-header-heading-title "
+        class="ant-page-header-heading-title"
         title="Page Title"
       >
         Page Title
@@ -23,7 +27,7 @@ exports[`PageContainer pageHeader should render correctly int RTL direction 1`] 
 </div>
 `;
 
-exports[`PageContainer pageHeader should support className 1`] = `
+exports[`PageContainer > pageHeader should support className 1`] = `
 <div
   class="ant-page-header not-works ant-page-header-ghost"
 >
@@ -31,10 +35,10 @@ exports[`PageContainer pageHeader should support className 1`] = `
     class="ant-page-header-heading "
   >
     <div
-      class="ant-page-header-heading-left "
+      class="ant-page-header-heading-left"
     >
       <span
-        class="ant-page-header-heading-title "
+        class="ant-page-header-heading-title"
         title="Page Title"
       >
         Page Title
@@ -44,7 +48,7 @@ exports[`PageContainer pageHeader should support className 1`] = `
 </div>
 `;
 
-exports[`PageContainer 💄 base use 1`] = `
+exports[`PageContainer > 💄 base use 1`] = `
 <DocumentFragment>
   <div
     class="ant-page-header ant-page-header-ghost"
@@ -53,10 +57,10 @@ exports[`PageContainer 💄 base use 1`] = `
       class="ant-page-header-heading "
     >
       <div
-        class="ant-page-header-heading-left "
+        class="ant-page-header-heading-left"
       >
         <span
-          class="ant-page-header-heading-title "
+          class="ant-page-header-heading-title"
           title="期贤"
         >
           期贤

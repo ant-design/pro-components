@@ -1,7 +1,7 @@
 ---
 title: ProFormFields
 order: 1
-
+atomId: ProFormText
 nav:
   title: Components
 ---
@@ -52,7 +52,7 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 <code src="./demos/components-other-readonly.tsx" debug></code>
 
-## API
+## ProForm.Item
 
 ProForm comes with Filed , which basically corresponds to the valueType one by one.
 
@@ -84,7 +84,12 @@ In some cases, we need to adapt the input box according to the page display, exc
 Same as [Input](https://ant.design/components/input/).
 
 ```tsx | pure
-<ProFormText name="text" label="Name" placeholder="Please enter a name" fieldProps={inputProps} />
+<ProFormText
+  name="text"
+  label="Name"
+  placeholder="Please enter a name"
+  fieldProps={inputProps}
+/>
 ```
 
 ### ProFormCaptcha
@@ -114,7 +119,9 @@ ProFormCaptcha is a component developed to support common CAPTCHA functionality 
   // throw new Error("Error getting captcha")
   onGetCaptcha={async (phone) => {
     await waitTime(1000);
-    message.success(`phone number ${phone} Verification code sent successfully! `);
+    message.success(
+      `phone number ${phone} Verification code sent successfully! `,
+    );
   }}
 />
 ```
@@ -189,13 +196,13 @@ Same as [Input.TextArea](https://ant.design/components/input/#Input.TextArea).
 
 ### ProFormCheckbox
 
-> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+> Requesting remote data is more complicated, see \[here]\(/components/field#remote data) for details.
 
 Same as [checkbox](https://ant.design/components/checkbox/), but supports `options` and `layout`.
 
 | parameters | description | type | default |
-| --- | --- | --- | --- | --- |
-| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| --- | --- | --- | --- |
+| options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
 | layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
 
 ```tsx | pure
@@ -209,13 +216,14 @@ Same as [checkbox](https://ant.design/components/checkbox/), but supports `optio
 
 ### ProFormRadio.Group
 
-> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+> Requesting remote data is more complicated, see \[here]\(/components/field#remote data) for details.
 
 Same as [radio](https://ant.design/components/radio/) but with support for `options`.
 
 | parameters | description | type | default |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |  | radioType | Set whether button mode or radio mode | `default` \| `button` | `default` |
+| --- | --- | --- | --- |
+| options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| radioType | Set whether button mode or radio mode | `default` \| `button` | `default` |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -277,11 +285,11 @@ Same as [slider](https://ant.design/components/slider/).
 
 Same as [upload](https://ant.design/components/upload/). Dragger style is preset, otherwise it is the same as Upload.
 
-| Parameters  | Description               | Type            | Default                          |
-| ----------- | ------------------------- | --------------- | -------------------------------- | -------------------------------------------- |
-| icon        | The chart of the Dragger. | `ReactNode`     | InboxOutlined                    |
-| title       | Title                     | Dragger's title | `ReactNode`                      | 'Click or drag files to this area to upload' |
-| description | Dragger's description     | `ReactNode`     | 'Support single or bulk uploads' |
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- |
+| icon | The chart of the Dragger. | `ReactNode` | InboxOutlined |
+| title | Dragger's title | `ReactNode` | 'Click or drag files to this area to upload' |
+| description | Dragger's description | `ReactNode` | 'Support single or bulk uploads' |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
@@ -304,7 +312,7 @@ Same as [upload](https://ant.design/components/upload/). The Button style is pre
 
 Same as [select](https://ant.design/components/select/). Both request and valueEnum are supported to generate options.
 
-> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+> Requesting remote data is more complicated, see \[here]\(/components/field#remote data) for details.
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
 
@@ -367,7 +375,7 @@ Customize options：
 
 Same as [tree-select](https://ant.design/components/tree-select/). Both request and valueEnum are supported to generate options.
 
-> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+> Requesting remote data is more complicated, see \[here]\(/components/field#remote data) for details.
 
 > Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
 
@@ -417,10 +425,10 @@ Same as [tree-select](https://ant.design/components/tree-select/). Both request 
   }}
   // tree-select args
   fieldProps={{
-    showArrow: false,
+    suffixIcon: null,
     filterTreeNode: true,
     showSearch: true,
-    dropdownMatchSelectWidth: false,
+    popupMatchSelectWidth: false,
     labelInValue: true,
     autoClearSearchValue: true,
     multiple: true,

@@ -5,5 +5,11 @@ export default defineConfig({
   umd: {
     name: 'ProComponents',
     output: 'dist',
+    externals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+      '^/antd/.*': 'antd',
+      '^/dayjs/.*': 'dayjs',
+    },
   },
 });

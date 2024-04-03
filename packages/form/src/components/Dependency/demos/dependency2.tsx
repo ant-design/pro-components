@@ -6,7 +6,7 @@
   ProFormText,
 } from '@ant-design/pro-components';
 import { Form } from 'antd';
-import type { NamePath } from 'antd/es/form/interface';
+import type { NamePath } from 'antd/lib/form/interface';
 
 const Demo = () => {
   const initialValues = {
@@ -87,7 +87,9 @@ const Demo = () => {
         </ProFormGroup>
       </ProFormGroup>
       <ProFormGroup
-        title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(depName1)}}>`}
+        title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(
+          depName1,
+        )}}>`}
       >
         <ProFormDependency name={depName1}>
           {(depValues) => (

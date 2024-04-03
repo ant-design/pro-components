@@ -14,4 +14,4 @@ const PRO_LIST_KEYS_MAP = PRO_LIST_KEYS.reduce((pre, next) => {
   return pre;
 }, new Map());
 
-export { PRO_LIST_KEYS_MAP, PRO_LIST_KEYS };
+export { PRO_LIST_KEYS, PRO_LIST_KEYS_MAP };

@@ -4,6 +4,17 @@ import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, Dropdown, Space, Tag } from 'antd';
 import { useRef } from 'react';
 import request from 'umi-request';
+export const waitTimePromise = async (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
+
+export const waitTime = async (time: number = 100) => {
+  await waitTimePromise(time);
+};
 
 type GithubIssueItem = {
   url: string;
@@ -32,7 +43,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    tip: '标题过长会自动收缩',
+    tooltip: '标题过长会自动收缩',
     formItemProps: {
       rules: [
         {
@@ -142,8 +153,9 @@ export default () => {
       columns={columns}
       actionRef={actionRef}
       cardBordered
-      request={async (params = {}, sort, filter) => {
+      request={async (params, sort, filter) => {
         console.log(sort, filter);
+        await waitTime(2000);
         return request<{
           data: GithubIssueItem[];
         }>('https://proapi.azurewebsites.net/github/issues', {
@@ -156,6 +168,9 @@ export default () => {
       columnsState={{
         persistenceKey: 'pro-table-singe-demos',
         persistenceType: 'localStorage',
+        defaultValue: {
+          option: { fixed: 'right', disable: true },
+        },
         onChange(value) {
           console.log('value: ', value);
         },
@@ -188,7 +203,14 @@ export default () => {
       dateFormatter="string"
       headerTitle="高级表格"
       toolBarRender={() => [
-        <Button key="button" icon={<PlusOutlined />} type="primary">
+        <Button
+          key="button"
+          icon={<PlusOutlined />}
+          onClick={() => {
+            actionRef.current?.reload();
+          }}
+          type="primary"
+        >
           新建
         </Button>,
         <Dropdown

@@ -7,10 +7,11 @@ import { TableContext } from '../../Store/Provide';
 
 export type DensitySize = 'middle' | 'small' | 'large' | undefined;
 
-const DensityIcon = () => {
+const DensityIcon = (props: { icon?: React.ReactNode }) => {
+  const { icon = <ColumnHeightOutlined /> } = props;
   const counter = useContext(TableContext);
   const intl = useIntl();
-  const props = menuOverlayCompatible({
+  const dropdownProps = menuOverlayCompatible({
     selectedKeys: [counter.tableSize as string],
     onClick: ({ key }) => {
       counter.setTableSize?.(key as DensitySize);
@@ -19,15 +20,25 @@ const DensityIcon = () => {
       width: 80,
     },
     items: [
-      { key: 'large', label: intl.getMessage('tableToolBar.densityLarger', '默认') },
-      { key: 'middle', label: intl.getMessage('tableToolBar.densityMiddle', '中等') },
-      { key: 'small', label: intl.getMessage('tableToolBar.densitySmall', '紧凑') },
+      {
+        key: 'large',
+        label: intl.getMessage('tableToolBar.densityLarger', '宽松'),
+      },
+      {
+        key: 'middle',
+        label: intl.getMessage('tableToolBar.densityMiddle', '中等'),
+      },
+      {
+        key: 'small',
+        label: intl.getMessage('tableToolBar.densitySmall', '紧凑'),
+      },
     ],
   });
+
   return (
-    <Dropdown {...props} trigger={['click']}>
+    <Dropdown {...dropdownProps} trigger={['click']}>
       <Tooltip title={intl.getMessage('tableToolBar.density', '表格密度')}>
-        <ColumnHeightOutlined />
+        {icon}
       </Tooltip>
     </Dropdown>
   );

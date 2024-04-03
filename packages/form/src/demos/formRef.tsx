@@ -1,5 +1,9 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
-import { ProForm, ProFormDatePicker, ProFormText } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormDatePicker,
+  ProFormText,
+} from '@ant-design/pro-components';
 import { Button, message } from 'antd';
 import dayjs from 'dayjs';
 import { useRef } from 'react';
@@ -26,7 +30,10 @@ export default () => {
   };
 
   const getFormatValues = () => {
-    console.log('格式化后的所有数据：', formRef.current?.getFieldsFormatValue?.());
+    console.log(
+      '格式化后的所有数据：',
+      formRef.current?.getFieldsFormatValue?.(),
+    );
   };
 
   const validateAndGetFormatValue = () => {
@@ -53,7 +60,11 @@ export default () => {
               <Button htmlType="button" onClick={getFormatValues} key="format">
                 获取格式化后的所有数据
               </Button>
-              <Button htmlType="button" onClick={validateAndGetFormatValue} key="format2">
+              <Button
+                htmlType="button"
+                onClick={validateAndGetFormatValue}
+                key="format2"
+              >
                 校验表单并返回格式化后的所有数据
               </Button>
             </Button.Group>,
@@ -75,7 +86,12 @@ export default () => {
         placeholder="请输入名称"
       />
 
-      <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+      <ProFormText
+        width="md"
+        name="company"
+        label="我方公司名称"
+        placeholder="请输入名称"
+      />
       <ProFormDatePicker name="date" initialValue={dayjs('2021-08-09')} />
     </ProForm>
   );

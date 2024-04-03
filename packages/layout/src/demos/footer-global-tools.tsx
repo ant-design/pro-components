@@ -6,7 +6,7 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProLayout, ProCard } from '@ant-design/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Alert, Button, Input, Space } from 'antd';
 import React, { useState } from 'react';
 import defaultProps from './_defaultProps';
@@ -42,8 +42,8 @@ export default () => {
                       color: 'white',
                     }}
                   >
-                    本网站提供的部分服务在你当前浏览器中无法使用，建议你更换为 Chrome
-                    浏览器查看本网站。
+                    本网站提供的部分服务在你当前浏览器中无法使用，建议你更换为
+                    Chrome 浏览器查看本网站。
                   </div>
                 }
                 icon={
@@ -155,7 +155,7 @@ export default () => {
                       />
                     }
                     placeholder="搜索方案"
-                    bordered={false}
+                    variant="borderless"
                   />
                   <PlusCircleFilled
                     style={{

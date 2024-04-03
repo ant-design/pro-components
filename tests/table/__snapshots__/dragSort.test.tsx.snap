@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`dragSort 🔥 [dragSort] custom render function 1`] = `
+exports[`dragSort > 🔥 [dragSort] custom render function 1`] = `
 <span
   aria-label="menu"
   class="anticon anticon-menu dragSortCustomHandle"
@@ -23,7 +23,7 @@ exports[`dragSort 🔥 [dragSort] custom render function 1`] = `
 </span>
 `;
 
-exports[`dragSort 🔥 [dragSort] custom render function 2`] = `
+exports[`dragSort > 🔥 [dragSort] custom render function 2`] = `
 <span
   class="customRender"
 >
@@ -31,7 +31,7 @@ exports[`dragSort 🔥 [dragSort] custom render function 2`] = `
 </span>
 `;
 
-exports[`dragSort 🔥 [dragSort] render drag sort custom handle by dragSortHandlerRender 1`] = `
+exports[`dragSort > 🔥 [dragSort] render drag sort custom handle by dragSortHandlerRender 1`] = `
 <span
   aria-label="menu"
   class="anticon anticon-menu dragSortCustomHandle"
@@ -54,4 +54,4 @@ exports[`dragSort 🔥 [dragSort] render drag sort custom handle by dragSortHand
 </span>
 `;
 
-exports[`dragSort 🔥 [dragSort] render drag sort default handle by dragSortKey 1`] = `null`;
+exports[`dragSort > 🔥 [dragSort] render drag sort default handle by dragSortKey 1`] = `null`;

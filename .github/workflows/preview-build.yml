@@ -15,12 +15,12 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.4
         with:
-          version: 6.0.2
+          version: 8.12.1
       - name: build
         env:
           TEST_UI: 'preview'
         run: |
-          pnpm i
+          pnpm install 
           pnpm run build
           pnpm run dumi
 

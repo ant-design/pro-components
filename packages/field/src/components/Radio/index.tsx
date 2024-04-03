@@ -1,14 +1,20 @@
-import { useStyle } from '@ant-design/pro-utils';
+import {
+  objectToMap,
+  proFieldParsingText,
+  useStyle,
+} from '@ant-design/pro-utils';
 import type { RadioGroupProps } from 'antd';
-import { ConfigProvider, Radio, Spin } from 'antd';
+import { ConfigProvider, Form, Radio, Spin } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
-import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select';
+
 // 兼容代码-----------
-import 'antd/es/radio/style';
+import 'antd/lib/radio/style';
 //------------
+
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: RadioGroupProps['optionType'];
@@ -28,18 +34,33 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   const layoutClassName = getPrefixCls('pro-field-radio');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const radioRef = useRef();
+  const status = Form.Item?.useStatus?.();
 
-  useImperativeHandle(ref, () => ({
-    ...(radioRef.current || {}),
-    fetchData: () => fetchData(),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(radioRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   // css
   const { wrapSSR, hashId } = useStyle('FieldRadioRadio', (token) => {
     return {
+      [`.${layoutClassName}-error`]: {
+        span: {
+          color: token.colorError,
+        },
+      },
+      [`.${layoutClassName}-warning`]: {
+        span: {
+          color: token.colorWarning,
+        },
+      },
       [`.${layoutClassName}-vertical`]: {
         [`${token.antCls}-radio-wrapper`]: {
-          display: 'block',
+          display: 'flex',
           marginInlineEnd: 0,
         },
       },
@@ -53,13 +74,20 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   if (mode === 'read') {
     const optionsValueEnum = options?.length
       ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value ?? '']: cur.label };
+          return { ...pre, [(cur.value as any) ?? '']: cur.label };
         }, {})
       : undefined;
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          objectToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
     return dom;
   }
@@ -72,6 +100,10 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         {...rest.fieldProps}
         className={classNames(
           rest.fieldProps?.className,
+          {
+            [`${layoutClassName}-error`]: status?.status === 'error',
+            [`${layoutClassName}-warning`]: status?.status === 'warning',
+          },
           hashId,
           `${layoutClassName}-${rest.fieldProps.layout || 'horizontal'}`,
         )}
@@ -79,7 +111,13 @@ const FieldRadio: ProFieldFC<GroupProps> = (
       />,
     );
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return (
+        renderFormItem(
+          rest.text,
+          { mode, ...rest.fieldProps, options, loading },
+          dom,
+        ) ?? null
+      );
     }
     return dom;
   }

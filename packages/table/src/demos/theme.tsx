@@ -32,7 +32,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    tip: '标题过长会自动收缩',
+    tooltip: '标题过长会自动收缩',
     formItemProps: {
       rules: [
         {
@@ -141,8 +141,6 @@ export default () => {
     token: {
       colorPrimary: 'red',
       borderRadius: 4,
-      // TODO 可以验证下是否透明也行
-      colorBgElevated: 'white',
     },
     algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
   };
@@ -150,7 +148,6 @@ export default () => {
     <div
       style={{
         backgroundColor: 'hsl(218,22%,7%)',
-        height: '100vh',
       }}
     >
       <ConfigProvider theme={themeConfig}>
@@ -158,7 +155,7 @@ export default () => {
           columns={columns}
           actionRef={actionRef}
           cardBordered
-          request={async (params = {}, sort, filter) => {
+          request={async (params, sort, filter) => {
             console.log(sort, filter);
             return request<{
               data: GithubIssueItem[];

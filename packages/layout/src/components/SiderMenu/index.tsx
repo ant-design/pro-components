@@ -1,13 +1,16 @@
+import { ProProvider } from '@ant-design/pro-provider';
 import { openVisibleCompatible } from '@ant-design/pro-utils';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
 import Omit from 'omit.js';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
 import { SiderMenu } from './SiderMenu';
 import { useStyle } from './style/index';
 
-const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
+const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
+  props,
+) => {
   const {
     isMobile,
     siderWidth,
@@ -16,9 +19,10 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
     style,
     className,
     hide,
-    getContainer,
     prefixCls,
   } = props;
+
+  const { token } = useContext(ProProvider);
 
   useEffect(() => {
     if (isMobile === true) {
@@ -41,7 +45,9 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
     return null;
   }
 
-  const drawerOpenProps = openVisibleCompatible(!collapsed, () => onCollapse?.(true));
+  const drawerOpenProps = openVisibleCompatible(!collapsed, () =>
+    onCollapse?.(true),
+  );
 
   return wrapSSR(
     isMobile ? (
@@ -54,11 +60,22 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
           height: '100vh',
           ...style,
         }}
+        onClose={() => {
+          onCollapse?.(true);
+        }}
         maskClosable
         closable={false}
         getContainer={getContainer || false}
         width={siderWidth}
-        bodyStyle={{ height: '100vh', padding: 0, display: 'flex', flexDirection: 'row' }}
+        styles={{
+          body: {
+            height: '100vh',
+            padding: 0,
+            display: 'flex',
+            flexDirection: 'row',
+            backgroundColor: token.layout?.sider?.colorMenuBackground,
+          },
+        }}
       >
         <SiderMenu
           {...omitProps}

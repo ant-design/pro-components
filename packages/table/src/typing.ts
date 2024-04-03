@@ -1,6 +1,10 @@
 ﻿import type { ProCardProps } from '@ant-design/pro-card';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
+import type {
+  LightWrapperProps,
+  ProFormProps,
+  QueryFilterProps,
+} from '@ant-design/pro-form';
 import type {
   ProCoreActionType,
   ProSchema,
@@ -10,20 +14,25 @@ import type {
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 import type { SpinProps, TableProps } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
-import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
-import type { NamePath } from 'antd/es/form/interface';
-import type { SearchProps } from 'antd/es/input';
-import type { ColumnFilterItem, ColumnType, CompareFn, SortOrder } from 'antd/es/table/interface';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { NamePath } from 'antd/lib/form/interface';
+import type { SearchProps } from 'antd/lib/input';
+import type {
+  ColumnFilterItem,
+  ColumnType,
+  CompareFn,
+  SortOrder,
+} from 'antd/lib/table/interface';
 import type dayjs from 'dayjs';
 import type React from 'react';
 import type { CSSProperties } from 'react';
+import type { ColumnsState, ContainerType } from './Store/Provide';
 import type { AlertRenderType } from './components/Alert';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
-import type { ColumnsState, ContainerType } from './Store/Provide';
 
 export type PageInfo = {
   pageSize: number;
@@ -80,6 +89,7 @@ export type ExtraProColumnType<T> = Omit<
 export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   T,
   ExtraProColumnType<T> & {
+    children?: ProColumns<T>[];
     index?: number;
     /**
      * 每个表单占据的格子大小
@@ -153,13 +163,10 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   }
 >;
 
-export type ProColumnGroupType<RecordType, ValueType> = {
-  children: ProColumns<RecordType>[];
-} & ProColumnType<RecordType, ValueType>;
-
-export type ProColumns<T = any, ValueType = 'text'> =
-  | ProColumnGroupType<T, ValueType>
-  | ProColumnType<T, ValueType>;
+export type ProColumns<T = any, ValueType = 'text'> = ProColumnType<
+  T,
+  ValueType
+>;
 
 export type BorderedType = 'search' | 'table';
 
@@ -170,7 +177,7 @@ export type Bordered =
       table?: boolean;
     };
 
-export type ColumnsStateType = {
+export type ColumnStateType = {
   /**
    * 持久化的类型，支持 localStorage 和 sessionStorage
    *
@@ -188,11 +195,11 @@ export type ColumnsStateType = {
 };
 
 /** ProTable 的类型定义 继承自 antd 的 Table */
-export type ProTableProps<T, U, ValueType = 'text'> = {
+export type ProTableProps<DataSource, U, ValueType = 'text'> = {
   /**
    * @name 列配置能力，支持一个数组
    */
-  columns?: ProColumns<T, ValueType>[];
+  columns?: ProColumns<DataSource, ValueType>[];
   /**
    * @name ListToolBar 的属性
    */
@@ -224,7 +231,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
 
   /** @name 列状态的配置，可以用来操作列功能 */
-  columnsState?: ColumnsStateType;
+  columnsState?: ColumnStateType;
 
   onSizeChange?: (size: DensitySize) => void;
 
@@ -237,7 +244,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    * @name 渲染 table
    */
   tableRender?: (
-    props: ProTableProps<T, U, ValueType>,
+    props: ProTableProps<DataSource, U, ValueType>,
     defaultDom: JSX.Element,
     /** 各个区域的 dom */
     domList: {
@@ -250,7 +257,10 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * @name 渲染 table 视图，用于定制 ProList，不推荐直接使用
    */
-  tableViewRender?: (props: TableProps<T>, defaultDom: JSX.Element) => JSX.Element | undefined;
+  tableViewRender?: (
+    props: TableProps<DataSource>,
+    defaultDom: JSX.Element,
+  ) => JSX.Element | undefined;
 
   /**
    * @name table 和搜索表单之间的 dom 渲染
@@ -259,7 +269,18 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    *
    * tableExtraRender={()=> <Statistic title="统计" value={10} />}
    */
-  tableExtraRender?: (props: ProTableProps<T, U, ValueType>, dataSource: T[]) => React.ReactNode;
+  tableExtraRender?: (
+    props: ProTableProps<DataSource, U, ValueType>,
+    dataSource: DataSource[],
+  ) => React.ReactNode;
+
+  /**
+   * @name 渲染搜索表单
+   */
+  searchFormRender?: (
+    props: ProTableProps<DataSource, U, ValueType>,
+    defaultDom: JSX.Element,
+  ) => React.ReactNode;
 
   /** @name 一个获得 dataSource 的方法 */
   request?: (
@@ -270,12 +291,12 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
     },
     sort: Record<string, SortOrder>,
     filter: Record<string, (string | number)[] | null>,
-  ) => Promise<Partial<RequestData<T>>>;
+  ) => Promise<Partial<RequestData<DataSource>>>;
 
   /** @name 对数据进行一些处理 */
-  postData?: (data: any[]) => any[];
+  postData?: any;
   /** @name 默认的数据 */
-  defaultData?: T[];
+  defaultData?: DataSource[];
 
   /**
    * @name 初始化的参数，可以操作 table
@@ -291,16 +312,18 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * @name 操作自带的 form
    */
-  formRef?: TableFormItem<T>['formRef'];
+  formRef?: TableFormItem<DataSource>['formRef'];
   /**
    * @name 渲染操作栏
    */
-  toolBarRender?: ToolBarProps<T>['toolBarRender'] | false;
+  toolBarRender?: ToolBarProps<DataSource>['toolBarRender'] | false;
+
+  optionsRender?: ToolBarProps<DataSource>['optionsRender'];
 
   /**
    * @name 数据加载完成后触发
    */
-  onLoad?: (dataSource: T[]) => void;
+  onLoad?: (dataSource: DataSource[]) => void;
 
   /**
    * @name loading 被修改时触发，一般是网络请求导致的
@@ -314,10 +337,10 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
 
   /**
    * 是否轮询 ProTable 它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()
-   *
+   * @property {number} polling 表示轮询的时间间隔，0 表示关闭轮询，大于 0 表示开启轮询，最小的轮询时间为 2000ms
    * @param dataSource 返回当前的表单数据，你可以用它判断要不要打开轮询
    */
-  polling?: number | ((dataSource: T[]) => number);
+  polling?: number | ((dataSource: DataSource[]) => number);
 
   /** @name 给封装的 table 的 className */
   tableClassName?: string;
@@ -352,6 +375,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    * @name 如何格式化日期
    */
   dateFormatter?:
+    | (string & {})
     | 'string'
     | 'number'
     | ((value: dayjs.Dayjs, valueType: string) => string | number)
@@ -363,17 +387,17 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    *
    * @name 自定义 table 的 alert
    */
-  tableAlertRender?: AlertRenderType<T>;
+  tableAlertRender?: AlertRenderType<DataSource>;
   /**
    * 设置或者返回false 即可关闭
    *
    * @name 自定义 table 的 alert 的操作
    */
-  tableAlertOptionRender?: AlertRenderType<T>;
+  tableAlertOptionRender?: AlertRenderType<DataSource>;
 
   /** @name 选择项配置 */
   rowSelection?:
-    | (TableProps<T>['rowSelection'] & {
+    | (TableProps<DataSource>['rowSelection'] & {
         alwaysShowAlert?: boolean;
       })
     | false;
@@ -403,12 +427,12 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
    * @example 保存的时候请求后端
    * editable={{ onSave:async (rows)=>{ await save(rows) } }}
    */
-  editable?: RowEditableConfig<T>;
+  editable?: RowEditableConfig<DataSource>;
 
   /**
    * @name 可编辑表格修改数据的改变
    */
-  onDataSourceChange?: (dataSource: T[]) => void;
+  onDataSourceChange?: (dataSource: DataSource[]) => void;
   /** @name 查询表单和 Table 的卡片 border 配置 */
   cardBordered?: Bordered;
   /** @name 去抖时间 */
@@ -416,7 +440,7 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * 只在request 存在的时候生效，可编辑表格也不会生效
    *
-   * @default true
+   * @default false
    * @name 窗口聚焦时自动重新请求
    */
   revalidateOnFocus?: boolean;
@@ -429,21 +453,78 @@ export type ProTableProps<T, U, ValueType = 'text'> = {
   /**
    * 错误边界自定义
    */
-  ErrorBoundary?: any;
-} & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
+  ErrorBoundary?: React.ComponentClass<any, any> | false;
+} & Omit<TableProps<DataSource>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
   setPageInfo?: (page: Partial<PageInfo>) => void;
 };
 
+/**
+ * 用于定义 useFetch 的参数类型
+ * @typedef {Object} UseFetchProps
+ * @property {any} [dataSource] - 数据源，可选参数
+ * @property {UseFetchDataAction['loading']} loading - 数据加载状态，必须参数
+ * @property {(loading: UseFetchDataAction['loading']) => void} [onLoadingChange] - 加载状态改变时的回调函数，可选参数
+ * @property {(dataSource: any[], extra: any) => void} [onLoad] - 数据加载完成时的回调函数，可选参数
+ * @property {(dataSource?: any) => void} [onDataSourceChange] - 数据源改变时的回调函数，可选参数
+ * @property {any} postData - 发送到后端的数据，必须参数
+ * @property {{current?: number; pageSize?: number; defaultCurrent?: number; defaultPageSize?: number;} | false} pageInfo - 分页信息，可选参数，false 表示不启用分页
+ * @property {(pageInfo: PageInfo) => void} [onPageInfoChange] - 分页信息改变时的回调函数，可选参数
+ * @property {any[]} [effects] - 依赖的其它 Hook 或其它变量，可选参数
+ * @property {(e: Error) => void} [onRequestError] - 请求出错时的回调函数，可选参数
+ * @property {boolean} manual - 是否手动触发请求，必须参数
+ * @property {number} [debounceTime] - 延迟时间，可选参数，单位为毫秒
+ * @property {number | ((dataSource: any[]) => number)} [polling] - 轮询时间，可选参数，单位为毫秒或一个返回时间的函数
+ * @property {boolean} [revalidateOnFocus] - 是否在焦点回到页面时重新验证数据，可选参数
+ */
 export type UseFetchProps = {
+  /**
+   * 数据源
+   * @type {any}
+   */
   dataSource?: any;
+
+  /**
+   * 是否处于加载状态
+   * @type {UseFetchDataAction['loading']}
+   */
   loading: UseFetchDataAction['loading'];
+
+  /**
+   * 加载状态改变时的回调函数
+   * @type {(loading: UseFetchDataAction['loading']) => void}
+   */
   onLoadingChange?: (loading: UseFetchDataAction['loading']) => void;
+
+  /**
+   * 数据加载完成后的回调函数
+   * @type {(dataSource: any[], extra: any) => void}
+   */
   onLoad?: (dataSource: any[], extra: any) => void;
+
+  /**
+   * 数据源变化时的回调函数
+   * @type {(dataSource?: any) => void}
+   */
   onDataSourceChange?: (dataSource?: any) => void;
-  postData: any;
+
+  /**
+   * 请求时附带的数据
+   * @type {any}
+   */
+  postData: (dataSource: any[]) => any[];
+
+  /**
+   * 分页信息
+   * @type {{
+   *   current?: number;
+   *   pageSize?: number;
+   *   defaultCurrent?: number;
+   *   defaultPageSize?: number;
+   * } | false}
+   */
   pageInfo:
     | {
         current?: number;
@@ -452,16 +533,53 @@ export type UseFetchProps = {
         defaultPageSize?: number;
       }
     | false;
+
+  /**
+   * 分页信息变化时的回调函数
+   * @type {(pageInfo: PageInfo) => void}
+   */
   onPageInfoChange?: (pageInfo: PageInfo) => void;
+
+  /**
+   * 请求相关的副作用
+   * @type {any[]}
+   */
   effects?: any[];
+
+  /**
+   * 请求出错时的回调函数
+   * @type {(e: Error) => void}
+   */
   onRequestError?: (e: Error) => void;
+
+  /**
+   * 是否手动触发请求
+   * @type {boolean}
+   */
   manual: boolean;
+
+  /**
+   * 请求防抖时间
+   * @type {number}
+   */
   debounceTime?: number;
+
+  /**
+   * 数据源轮询间隔时间或轮询触发条件
+   * @type {number | ((dataSource: any[]) => number)}
+   */
   polling?: number | ((dataSource: any[]) => number);
+
+  /**
+   * 是否在页面获得焦点时重新验证数据
+   * @type {Boolean}
+   */
   revalidateOnFocus?: boolean;
 };
 
 export type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
   /** 如果 onSearch 返回一个false，直接拦截请求 */
-  onSearch?: (keyword: string) => Promise<boolean | undefined> | boolean | undefined;
+  onSearch?: (
+    keyword: string,
+  ) => Promise<boolean | undefined> | boolean | undefined;
 };

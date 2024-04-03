@@ -1,7 +1,19 @@
 import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProConfigProvider, ProProvider } from '@ant-design/pro-provider';
-import type { AffixProps, BreadcrumbProps, SpinProps, TabPaneProps, TabsProps } from 'antd';
-import { Affix, Breadcrumb, ConfigProvider, Tabs } from 'antd';
+import type {
+  AffixProps,
+  BreadcrumbProps,
+  TabPaneProps,
+  TabsProps,
+} from 'antd';
+import {
+  Affix,
+  Breadcrumb,
+  ConfigProvider,
+  SpinProps,
+  Tabs,
+  version,
+} from 'antd';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo } from 'react';
@@ -19,7 +31,9 @@ import type { PageContainerToken, pageContainerToken } from './style';
 import { useStyle } from './style';
 import { useStylish } from './style/stylish';
 
-import 'antd/es/breadcrumb/style';
+import { compareVersions } from '@ant-design/pro-utils';
+
+import 'antd/lib/breadcrumb/style';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -136,7 +150,7 @@ const renderFooter: React.FC<
   if (Array.isArray(tabList) || tabBarExtraContent) {
     return (
       <Tabs
-        className={`${prefixedClassName}-tabs ${hashId}`}
+        className={`${prefixedClassName}-tabs ${hashId}`.trim()}
         activeKey={tabActiveKey}
         onChange={(key) => {
           if (onTabChange) {
@@ -144,7 +158,6 @@ const renderFooter: React.FC<
           }
         }}
         tabBarExtraContent={tabBarExtraContent}
-        // @ts-ignore
         items={tabList?.map((item, index) => ({
           label: item.tab,
           ...item,
@@ -152,9 +165,18 @@ const renderFooter: React.FC<
         }))}
         {...tabProps}
       >
-        {tabList?.map((item, index) => {
-          return <Tabs.TabPane key={item.key || index} tab={item.tab} {...item} />;
-        })}
+        {/* 如果版本低于 4.23.0，不支持 items */}
+        {compareVersions(version, '4.23.0') < 0
+          ? tabList?.map((item, index) => {
+              return (
+                <Tabs.TabPane
+                  key={item.key || index}
+                  tab={item.tab}
+                  {...item}
+                />
+              );
+            })
+          : null}
       </Tabs>
     );
   }
@@ -171,12 +193,20 @@ const renderPageHeader = (
     return null;
   }
   return (
-    <div className={`${prefixedClassName}-detail ${hashId}`}>
-      <div className={`${prefixedClassName}-main ${hashId}`}>
-        <div className={`${prefixedClassName}-row ${hashId}`}>
-          {content && <div className={`${prefixedClassName}-content ${hashId}`}>{content}</div>}
+    <div className={`${prefixedClassName}-detail ${hashId}`.trim()}>
+      <div className={`${prefixedClassName}-main ${hashId}`.trim()}>
+        <div className={`${prefixedClassName}-row ${hashId}`.trim()}>
+          {content && (
+            <div className={`${prefixedClassName}-content ${hashId}`.trim()}>
+              {content}
+            </div>
+          )}
           {extraContent && (
-            <div className={`${prefixedClassName}-extraContent ${hashId}`}>{extraContent}</div>
+            <div
+              className={`${prefixedClassName}-extraContent ${hashId}`.trim()}
+            >
+              {extraContent}
+            </div>
           )}
         </div>
       </div>
@@ -200,13 +230,21 @@ const ProBreadcrumb: React.FC<BreadcrumbProps> = (props) => {
         alignItems: 'center',
       }}
     >
-      <Breadcrumb {...value?.breadcrumb} {...value?.breadcrumbProps} {...props} />
+      <Breadcrumb
+        {...value?.breadcrumb}
+        {...value?.breadcrumbProps}
+        {...props}
+      />
     </div>
   );
 };
 
 const memoRenderPageHeader = (
-  props: PageContainerProps & { prefixedClassName: string; value: any; hashId: string },
+  props: PageContainerProps & {
+    prefixedClassName: string;
+    value: any;
+    hashId: string;
+  },
 ) => {
   const {
     title,
@@ -259,12 +297,19 @@ const memoRenderPageHeader = (
   };
 
   const noHasBreadCrumb =
-    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) && !breadcrumbRender;
+    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.items?.length)) &&
+    !breadcrumbRender;
 
   if (
-    ['title', 'subTitle', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
-      (item) => !pageHeaderProps[item],
-    ) &&
+    [
+      'title',
+      'subTitle',
+      'extra',
+      'tags',
+      'footer',
+      'avatar',
+      'backIcon',
+    ].every((item) => !pageHeaderProps[item as 'backIcon']) &&
     noHasBreadCrumb &&
     !content &&
     !extraContent
@@ -275,7 +320,7 @@ const memoRenderPageHeader = (
   return (
     <PageHeader
       {...pageHeaderProps}
-      className={`${prefixedClassName}-warp-page-header ${hashId}`}
+      className={`${prefixedClassName}-warp-page-header ${hashId}`.trim()}
       breadcrumb={
         breadcrumbRender === false
           ? undefined
@@ -284,7 +329,8 @@ const memoRenderPageHeader = (
       breadcrumbRender={getBreadcrumbRender()}
       prefixCls={prefixCls}
     >
-      {header?.children || renderPageHeader(content, extraContent, prefixedClassName, hashId)}
+      {header?.children ||
+        renderPageHeader(content, extraContent, prefixedClassName, hashId)}
     </PageHeader>
   );
 };
@@ -324,9 +370,12 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
 
   const { wrapSSR, hashId } = useStyle(basePageContainer, propsToken);
 
-  const stylish = useStylish(`${basePageContainer}.${basePageContainer}-stylish`, {
-    stylish: props.stylish,
-  });
+  const stylish = useStylish(
+    `${basePageContainer}.${basePageContainer}-stylish`,
+    {
+      stylish: props.stylish,
+    },
+  );
 
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;
@@ -362,7 +411,14 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     return children ? (
       <>
         <div
-          className={classNames(`${basePageContainer}-children-content ${hashId}`)}
+          className={classNames(
+            hashId,
+            `${basePageContainer}-children-container`,
+            {
+              [`${basePageContainer}-children-container-no-header`]:
+                !pageHeaderDom,
+            },
+          )}
           style={childrenContentStyle}
         >
           {children}
@@ -390,20 +446,24 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
     [`${basePageContainer}-stylish`]: !!restProps.stylish,
   });
 
-  return stylish.wrapSSR(
-    wrapSSR(
+  return wrapSSR(
+    stylish.wrapSSR(
       <>
         <div style={style} className={containerClassName}>
           {fixedHeader && pageHeaderDom ? (
             // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
             <Affix
               offsetTop={
-                value.hasHeader && value.fixedHeader ? token?.layout?.header?.heightLayoutHeader : 1
+                value.hasHeader && value.fixedHeader
+                  ? token.layout?.header?.heightLayoutHeader
+                  : 1
               }
               {...affixProps}
-              className={`${basePageContainer}-affix ${hashId}`}
+              className={`${basePageContainer}-affix ${hashId}`.trim()}
             >
-              <div className={`${basePageContainer}-warp ${hashId}`}>{pageHeaderDom}</div>
+              <div className={`${basePageContainer}-warp ${hashId}`.trim()}>
+                {pageHeaderDom}
+              </div>
             </Affix>
           ) : (
             pageHeaderDom
@@ -432,7 +492,9 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   );
 };
 
-const ProPageHeader = (props: PageContainerProps & { prefixedClassName: string }) => {
+const ProPageHeader = (
+  props: PageContainerProps & { prefixedClassName: string },
+) => {
   const value = useContext(RouteContext);
   return memoRenderPageHeader({
     ...props,
@@ -441,4 +503,4 @@ const ProPageHeader = (props: PageContainerProps & { prefixedClassName: string }
   });
 };
 
-export { ProPageHeader, PageContainer, ProBreadcrumb };
+export { PageContainer, ProBreadcrumb, ProPageHeader };

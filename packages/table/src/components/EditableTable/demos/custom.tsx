@@ -1,6 +1,10 @@
 import { PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
-import { EditableProTable, ProCard, ProFormField } from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProCard,
+  ProFormField,
+} from '@ant-design/pro-components';
 import type { InputRef } from 'antd';
 import { Button, Form, Input, Space, Tag } from 'antd';
 import React, { useRef, useState } from 'react';
@@ -40,8 +44,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -75,7 +85,7 @@ type DataSourceType = {
     label: string;
   }[];
   state?: string;
-  created_at?: string;
+  created_at?: number;
   children?: DataSourceType[];
 };
 
@@ -85,14 +95,14 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     labels: [{ key: 'woman', label: '川妹子' }],
     state: 'open',
-    created_at: '1590486176000',
+    created_at: 1590486176000,
   },
   {
     id: 624691229,
     title: '活动名称二',
     labels: [{ key: 'man', label: '西北汉子' }],
     state: 'closed',
-    created_at: '1590481162000',
+    created_at: 1590481162000,
   },
 ];
 
@@ -142,7 +152,8 @@ const columns: ProColumns<DataSourceType>[] = [
     renderFormItem: (_, { isEditable }) => {
       return isEditable ? <TagList /> : <Input />;
     },
-    render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
+    render: (_, row) =>
+      row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
   {
     title: '操作',
@@ -164,7 +175,7 @@ const columns: ProColumns<DataSourceType>[] = [
           id: (Math.random() * 1000000).toFixed(0),
         }}
       >
-        <a>复制此行到末尾</a>
+        <a>复制此项到末尾</a>
       </EditableProTable.RecordCreator>,
     ],
   },

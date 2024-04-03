@@ -50,7 +50,11 @@ export default () => {
                 <Button key="pre" onClick={() => props.onPre?.()}>
                   返回第一步
                 </Button>,
-                <Button type="primary" key="goToTree" onClick={() => props.onSubmit?.()}>
+                <Button
+                  type="primary"
+                  key="goToTree"
+                  onClick={() => props.onSubmit?.()}
+                >
                   去第三步 {'>'}
                 </Button>,
               ];
@@ -60,7 +64,11 @@ export default () => {
               <Button key="gotoTwo" onClick={() => props.onPre?.()}>
                 {'<'} 返回第二步
               </Button>,
-              <Button type="primary" key="goToTree" onClick={() => props.onSubmit?.()}>
+              <Button
+                type="primary"
+                key="goToTree"
+                onClick={() => props.onSubmit?.()}
+              >
                 提交 √
               </Button>,
             ];
@@ -88,7 +96,12 @@ export default () => {
           />
           <ProFormDatePicker name="date" label="日期" />
           <ProFormDateRangePicker name="dateTime" label="时间区间" />
-          <ProFormTextArea name="remark" label="备注" width="lg" placeholder="请输入备注" />
+          <ProFormTextArea
+            name="remark"
+            label="备注"
+            width="lg"
+            placeholder="请输入备注"
+          />
         </StepsForm.StepForm>
         <StepsForm.StepForm<{
           checkbox: string;
@@ -104,7 +117,11 @@ export default () => {
           />
           <ProForm.Group>
             <ProFormText name="dbname" label="业务 DB 用户名" />
-            <ProFormDatePicker name="datetime" label="记录保存时间" width="sm" />
+            <ProFormDatePicker
+              name="datetime"
+              label="记录保存时间"
+              width="sm"
+            />
             <ProFormCheckbox.Group
               name="checkbox"
               label="迁移类型"

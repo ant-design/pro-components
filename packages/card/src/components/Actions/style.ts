@@ -1,9 +1,5 @@
 import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
 import { useStyle as useAntdStyle } from '@ant-design/pro-provider';
-import { ConfigProvider } from 'antd';
-import { useContext } from 'react';
-
-const { ConfigContext } = ConfigProvider;
 
 interface ProCardActionsToken extends ProAliasToken {
   antCls: string;
@@ -22,7 +18,7 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
       paddingInline: 0,
       listStyle: 'none',
       display: 'flex',
-      gap: 8,
+      gap: token.marginXS,
       background: token.colorBgContainer,
       borderBlockStart: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       minHeight: 42,
@@ -94,14 +90,10 @@ const genActionsStyle: GenerateStyle<ProCardActionsToken> = (token) => {
 };
 
 export default function useStyle(prefixCls?: string) {
-  const { getPrefixCls } = useContext(ConfigContext);
-  const antCls = `.${getPrefixCls()}`;
-
   return useAntdStyle('ProCardActions', (token) => {
     const proCardActionsToken: ProCardActionsToken = {
       ...token,
       componentCls: `.${prefixCls}`,
-      antCls,
       cardActionIconSize: 16,
     };
 

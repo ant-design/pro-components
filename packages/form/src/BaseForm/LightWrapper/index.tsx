@@ -6,11 +6,11 @@ import {
   useMountMergeState,
 } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
+import type { TooltipPlacement } from 'antd/lib/tooltip';
 import classNames from 'classnames';
 import React, { useContext, useMemo, useState } from 'react';
 import type { LightFilterFooterRender } from '../../typing';
 import { useStyle } from './style';
-import type { TooltipPlacement } from 'antd/es/tooltip';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -43,7 +43,9 @@ export type LightWrapperProps = {
   placement?: TooltipPlacement;
 };
 
-const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
+const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
+  props,
+) => {
   const {
     label,
     size,
@@ -67,7 +69,9 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const { wrapSSR, hashId } = useStyle(prefixCls);
-  const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);
+  const [tempValue, setTempValue] = useState<string | undefined>(
+    (props as any)[valuePropName!],
+  );
   const [open, setOpen] = useMountMergeState<boolean>(false);
 
   const onChange = (...restParams: any[]) => {
@@ -75,17 +79,29 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     propsOnChange?.(...restParams);
   };
 
-  const labelValue = props[valuePropName!];
+  const labelValue = (props as any)[valuePropName!];
 
   /** DataRange的转化，dayjs 的 toString 有点不好用 */
-  const labelText = useMemo(() => {
+  const labelValueText = useMemo(() => {
+    if (!labelValue) return labelValue;
     if (
       valueType?.toLowerCase()?.endsWith('range') &&
       valueType !== 'digitRange' &&
       !labelFormatter
     ) {
-      return dateArrayFormatter(labelValue, dateFormatterMap[valueType] || 'YYYY-MM-DD');
+      return dateArrayFormatter(
+        labelValue,
+        (dateFormatterMap as any)[valueType] || 'YYYY-MM-DD',
+      );
     }
+    if (Array.isArray(labelValue))
+      return labelValue.map((item) => {
+        if (typeof item === 'object' && item.label && item.value) {
+          return item.label;
+        }
+        return item;
+      });
+
     return labelValue;
   }, [labelValue, valueType, labelFormatter]);
 
@@ -108,9 +124,8 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           className={className}
           label={label}
           placeholder={placeholder}
-          value={labelText}
+          value={labelValueText}
           disabled={disabled}
-          expanded={open}
           formatter={labelFormatter}
           allowClear={allowClear}
         />
@@ -124,7 +139,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       }}
       footerRender={footerRender}
     >
-      <div className={classNames(`${prefixCls}-container`, hashId, className)} style={style}>
+      <div
+        className={classNames(`${prefixCls}-container`, hashId, className)}
+        style={style}
+      >
         {React.cloneElement(children as JSX.Element, {
           ...rest,
           [valuePropName!]: tempValue,

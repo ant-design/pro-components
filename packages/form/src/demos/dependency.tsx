@@ -1,4 +1,9 @@
-import { ProForm, ProFormDependency, ProFormSelect, ProFormText } from '@ant-design/pro-components';
+import {
+  ProForm,
+  ProFormDependency,
+  ProFormSelect,
+  ProFormText,
+} from '@ant-design/pro-components';
 import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
@@ -50,7 +55,9 @@ export default () => {
               ]}
               width="md"
               name="useMode"
-              label={`与《${name || ''}》 与 《${name2?.text || ''}》合同约定生效方式`}
+              label={`与《${name || ''}》 与 《${
+                name2?.text || ''
+              }》合同约定生效方式`}
             />
           );
         }}

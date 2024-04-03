@@ -1,24 +1,44 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
+import { omitUndefined } from '@ant-design/pro-utils';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import zh_CN from 'antd/es/locale/zh_CN';
-import React, { useContext, useEffect, useMemo, useRef } from 'react';
+
+import zh_CN from 'antd/lib/locale/zh_CN';
+import React, { useContext, useEffect, useMemo } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import type { IntlType } from './intl';
-import { findIntlKeyByAntdLocaleKey } from './intl';
-import { intlMap, zhCNIntl } from './intl';
+import { findIntlKeyByAntdLocaleKey, intlMap, zhCNIntl } from './intl';
 
+import dayjs from 'dayjs';
 import type { DeepPartial, ProTokenType } from './typing/layoutToken';
 import { getLayoutDesignToken } from './typing/layoutToken';
 import type { ProAliasToken } from './useStyle';
 import { proTheme } from './useStyle';
-import { emptyTheme, defaultToken } from './useStyle/token';
+import { defaultToken, emptyTheme } from './useStyle/token';
 import { merge } from './utils/merge';
 
-export * from './useStyle';
-export * from './intl';
+import 'dayjs/locale/zh-cn';
 
+export * from './intl';
+export * from './useStyle';
 export { DeepPartial, ProTokenType };
+
+/**
+ * 用于判断当前是否需要开启哈希（Hash）模式。
+ * 首先也会判断当前是否处于测试环境中（通过 process.env.NODE_ENV === 'TEST' 判断），
+ * 如果是，则返回 false。否则，直接返回 true 表示需要打开。
+ * @returns
+ */
+export const isNeedOpenHash = () => {
+  if (
+    typeof process !== 'undefined' &&
+    (process.env.NODE_ENV?.toUpperCase() === 'TEST' ||
+      process.env.NODE_ENV?.toUpperCase() === 'DEV')
+  ) {
+    return false;
+  }
+  return true;
+};
 
 /**
  * 用于配置 ValueEnum 的通用配置
@@ -40,12 +60,18 @@ export type ProSchemaValueEnumType = {
  *
  * @name ValueEnum 的类型
  */
-type ProSchemaValueEnumMap = Map<string | number, ProSchemaValueEnumType | React.ReactNode>;
+type ProSchemaValueEnumMap = Map<
+  string | number | boolean,
+  ProSchemaValueEnumType | React.ReactNode
+>;
 
 /**
  * 支持 Map 和 Object
  */
-type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | React.ReactNode>;
+type ProSchemaValueEnumObj = Record<
+  string,
+  ProSchemaValueEnumType | React.ReactNode
+>;
 
 /**
  * BaseProFieldFC 的类型设置
@@ -108,7 +134,11 @@ export type ProRenderFieldPropsType = {
    * @return 返回一个用于编辑的dom
    */
   renderFormItem?:
-    | ((text: any, props: ProFieldFCRenderProps, dom: JSX.Element) => JSX.Element)
+    | ((
+        text: any,
+        props: ProFieldFCRenderProps,
+        dom: JSX.Element,
+      ) => JSX.Element)
     | undefined;
 };
 
@@ -120,12 +150,11 @@ export type ParamsType = Record<string, any>;
 export type ConfigContextPropsType = {
   intl?: IntlType;
   valueTypeMap?: Record<string, ProRenderFieldPropsType>;
-  token?: ProAliasToken;
+  token: ProAliasToken;
   hashId?: string;
   hashed?: boolean;
   dark?: boolean;
   theme?: Theme<any, any>;
-  containerDomRef?: React.RefObject<HTMLDivElement>;
 };
 
 /* Creating a context object with the default values. */
@@ -175,6 +204,7 @@ const ConfigProviderContainer: React.FC<{
   hashed?: boolean;
   dark?: boolean;
   prefixCls?: string;
+  intl?: IntlType;
 }> = (props) => {
   const {
     children,
@@ -183,10 +213,12 @@ const ConfigProviderContainer: React.FC<{
     autoClearCache = false,
     token: propsToken,
     prefixCls,
+    intl,
   } = props;
-  const { locale, getPrefixCls, ...restConfig } = useContext(AntdConfigProvider.ConfigContext);
+  const { locale, getPrefixCls, ...restConfig } = useContext(
+    AntdConfigProvider.ConfigContext,
+  );
   const tokenContext = proTheme.useToken?.();
-  const containerDomRef = useRef<HTMLDivElement>(null);
   const proProvide = useContext(ProConfigContext);
 
   /**
@@ -195,27 +227,32 @@ const ConfigProviderContainer: React.FC<{
    * @example .ant-pro
    */
 
-  const proComponentsCls = prefixCls ? `.${prefixCls}` : `.${getPrefixCls()}-pro`;
+  const proComponentsCls = prefixCls
+    ? `.${prefixCls}`
+    : `.${getPrefixCls()}-pro`;
 
   const antCls = '.' + getPrefixCls();
 
   const salt = `${proComponentsCls}`;
-
   /**
    * 合并一下token，不然导致嵌套 token 失效
    */
   const proLayoutTokenMerge = useMemo(() => {
-    return getLayoutDesignToken(propsToken || {}, tokenContext.token || defaultToken);
+    return getLayoutDesignToken(
+      propsToken || {},
+      tokenContext.token || defaultToken,
+    );
   }, [propsToken, tokenContext.token]);
 
   const proProvideValue = useMemo(() => {
     const localeName = locale?.locale;
     const key = findIntlKeyByAntdLocaleKey(localeName);
     // antd 的 key 存在的时候以 antd 的为主
-    const intl =
-      localeName && proProvide.intl?.locale === 'default'
-        ? intlMap[key!]
-        : proProvide.intl || intlMap[key!];
+    const resolvedIntl =
+      intl ??
+      (localeName && proProvide.intl?.locale === 'default'
+        ? intlMap[key! as 'zh-CN']
+        : proProvide.intl || intlMap[key! as 'zh-CN']);
 
     return {
       ...proProvide,
@@ -226,7 +263,7 @@ const ConfigProviderContainer: React.FC<{
         themeId: tokenContext.theme.id,
         layout: proLayoutTokenMerge,
       }),
-      intl: intl || zhCNIntl,
+      intl: resolvedIntl || zhCNIntl,
     };
   }, [
     locale?.locale,
@@ -237,6 +274,7 @@ const ConfigProviderContainer: React.FC<{
     proComponentsCls,
     antCls,
     proLayoutTokenMerge,
+    intl,
   ]);
 
   const finalToken = {
@@ -245,47 +283,70 @@ const ConfigProviderContainer: React.FC<{
   };
 
   const [token, nativeHashId] = useCacheToken<ProAliasToken>(
-    tokenContext.theme,
+    tokenContext.theme as unknown as Theme<any, any>,
     [tokenContext.token, finalToken ?? {}],
     {
       salt,
+      override: finalToken,
     },
   );
+
+  const hashed = useMemo(() => {
+    if (props.hashed === false) {
+      return false;
+    }
+    if (proProvide.hashed === false) return false;
+    return true;
+  }, [proProvide.hashed, props.hashed]);
 
   const hashId = useMemo(() => {
     if (props.hashed === false) {
       return '';
     }
     if (proProvide.hashed === false) return '';
-    if (typeof process !== 'undefined' && process.env.NODE_ENV?.toLowerCase() !== 'test')
+    //Fix issue with hashId code
+    if (isNeedOpenHash() === false) {
+      return '';
+    } else {
+      // 生产环境或其他环境
       return nativeHashId;
-    return '';
+    }
   }, [nativeHashId, proProvide.hashed, props.hashed]);
 
-  const configProviderDom = useMemo(() => {
-    const themeConfig = {
+  useEffect(() => {
+    dayjs.locale(locale?.locale || 'zh-cn');
+  }, [locale?.locale]);
+
+  const themeConfig = useMemo(() => {
+    return {
       ...restConfig.theme,
       hashId: hashId,
-      hashed:
-        typeof process !== 'undefined' &&
-        process.env.NODE_ENV?.toLowerCase() !== 'test' &&
-        props.hashed !== false &&
-        proProvide.hashed !== false,
+      hashed: hashed && isNeedOpenHash(),
     };
+  }, [restConfig.theme, hashId, hashed, isNeedOpenHash()]);
 
-    const provide = (
-      <AntdConfigProvider {...restConfig} theme={{ ...themeConfig }}>
-        <ProConfigContext.Provider
-          value={{
-            ...proProvideValue!,
-            valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
-            token,
-            containerDomRef,
-            theme: tokenContext.theme,
-            hashed: props.hashed,
-            hashId,
-          }}
-        >
+  const proConfigContextValue = useMemo(() => {
+    return {
+      ...proProvideValue!,
+      valueTypeMap: valueTypeMap || proProvideValue?.valueTypeMap,
+      token,
+      theme: tokenContext.theme as unknown as Theme<any, any>,
+      hashed,
+      hashId,
+    };
+  }, [
+    proProvideValue,
+    valueTypeMap,
+    token,
+    tokenContext.theme,
+    hashed,
+    hashId,
+  ]);
+
+  const configProviderDom = useMemo(() => {
+    return (
+      <AntdConfigProvider {...restConfig} theme={themeConfig}>
+        <ProConfigContext.Provider value={proConfigContextValue}>
           <>
             {autoClearCache && <CacheClean />}
             {children}
@@ -294,22 +355,22 @@ const ConfigProviderContainer: React.FC<{
       </AntdConfigProvider>
     );
 
-    return (
-      <div
-        ref={containerDomRef}
-        className={`${prefixCls || getPrefixCls?.('pro') || 'ant-pro'}${
-          hashId ? ' ' + hashId : ''
-        }`}
-      >
-        {provide}
-      </div>
-    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [autoClearCache, children, getPrefixCls, hashId, locale, proProvideValue, token]);
+  }, [
+    restConfig,
+    themeConfig,
+    proConfigContextValue,
+    autoClearCache,
+    children,
+  ]);
 
   if (!autoClearCache) return configProviderDom;
 
-  return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
+  return (
+    <SWRConfig value={{ provider: () => new Map() }}>
+      {configProviderDom}
+    </SWRConfig>
+  );
 };
 
 /**
@@ -326,10 +387,13 @@ export const ProConfigProvider: React.FC<{
   dark?: boolean;
   hashed?: boolean;
   prefixCls?: string;
+  intl?: IntlType;
 }> = (props) => {
   const { needDeps, dark, token } = props;
   const proProvide = useContext(ProConfigContext);
-  const { locale, theme, ...rest } = useContext(AntdConfigProvider.ConfigContext);
+  const { locale, theme, ...rest } = useContext(
+    AntdConfigProvider.ConfigContext,
+  );
 
   // 是不是不需要渲染 provide
   const isNullProvide =
@@ -345,7 +409,9 @@ export const ProConfigProvider: React.FC<{
       return [proTheme.darkAlgorithm, theme?.algorithm].filter(Boolean);
     }
     if (isDark && Array.isArray(theme?.algorithm)) {
-      return [proTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(Boolean);
+      return [proTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(
+        Boolean,
+      );
     }
     return theme?.algorithm;
   };
@@ -353,10 +419,10 @@ export const ProConfigProvider: React.FC<{
   const configProvider = {
     ...rest,
     locale: locale || zh_CN,
-    theme: {
+    theme: omitUndefined({
       ...theme,
       algorithm: mergeAlgorithm(),
-    },
+    }),
   } as typeof theme;
 
   return (
@@ -383,7 +449,9 @@ export function useIntl(): IntlType {
   }
 
   if (locale?.locale) {
-    return intlMap[findIntlKeyByAntdLocaleKey(locale.locale)] || zhCNIntl;
+    return (
+      intlMap[findIntlKeyByAntdLocaleKey(locale.locale) as 'zh-CN'] || zhCNIntl
+    );
   }
 
   return zhCNIntl;

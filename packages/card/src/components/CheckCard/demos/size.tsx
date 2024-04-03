@@ -13,7 +13,11 @@ export default () => {
           <Radio.Button value="small">Small</Radio.Button>
         </Radio.Group>
       </div>
-      <CheckCard title="Card title" description="This is the description" size={size} />
+      <CheckCard
+        title="Card title"
+        description="This is the description"
+        size={size}
+      />
     </>
   );
 };

@@ -66,10 +66,17 @@ export default () => {
         <ProFormText name="name1" label="名称" />
         <ProFormSwitch name="open" label="开关" secondary />
         <ProFormText name="name2" label="地址" secondary />
-        <ProFormDatePicker name="name3" label="不能清空的日期" allowClear={false} />
+        <ProFormDatePicker
+          name="name3"
+          label="不能清空的日期"
+          allowClear={false}
+        />
         <ProFormDateRangePicker name="date" label="日期范围" />
         <ProFormDateTimePicker name="datetime" label="日期时间" />
-        <ProFormDateTimeRangePicker name="datetimeRanger" label="日期时间范围" />
+        <ProFormDateTimeRangePicker
+          name="datetimeRanger"
+          label="日期时间范围"
+        />
         <ProFormTimePicker name="time" label="时间" />
         <ProFormTimePicker.RangePicker name="timeRanger" label="时间范围" />
         <ProFormFieldSet name="name" label="姓名">

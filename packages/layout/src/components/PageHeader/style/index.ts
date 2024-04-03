@@ -1,6 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
-import { operationUnit, resetComponent, useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import {
+  operationUnit,
+  resetComponent,
+  useStyle as useAntdStyle,
+} from '@ant-design/pro-utils';
 export interface PageHeaderToken extends ProAliasToken {
   componentCls: string;
   pageHeaderPadding: number;
@@ -27,6 +31,9 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
       backgroundColor: token.pageHeaderBgGhost,
       paddingBlock: token.pageHeaderPaddingVertical + 2,
       paddingInline: token.pageHeaderPadding,
+      '&-no-children': {
+        height: token.layout?.pageContainer?.paddingBlockPageContainerContent,
+      },
       '& &-has-breadcrumb': {
         paddingBlockStart: token.pageHeaderPaddingBreadCrumb,
       },
@@ -147,7 +154,7 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
         direction: 'rtl',
       },
     },
-  };
+  } as ReturnType<GenerateStyle<PageHeaderToken>>;
 };
 
 export default function useStyle(prefixCls: string) {

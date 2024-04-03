@@ -3,7 +3,7 @@ import React from 'react';
 import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/slider/style';
+import 'antd/lib/slider/style';
 //------------
 /**
  * 评分组件
@@ -21,7 +21,16 @@ const FieldSlider: ProFieldFC<{
     return <>{dom}</>;
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = <Slider ref={ref} {...fieldProps} />;
+    const dom = (
+      <Slider
+        ref={ref}
+        {...fieldProps}
+        style={{
+          minWidth: 120,
+          ...fieldProps?.style,
+        }}
+      />
+    );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }

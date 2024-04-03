@@ -1,4 +1,7 @@
-﻿import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-components';
+﻿import type {
+  ProFormColumnsType,
+  ProFormLayoutType,
+} from '@ant-design/pro-components';
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-components';
 import { Alert, DatePicker, Space } from 'antd';
 import dayjs from 'dayjs';
@@ -217,7 +220,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
         width: 'xs',
         title: '标题',
         dataIndex: 'groupTitle',
-        tip: '标题过长会自动收缩',
+        tooltip: '标题过长会自动收缩',
         formItemProps: {
           rules: [
             {

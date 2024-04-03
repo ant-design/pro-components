@@ -1,5 +1,6 @@
 ---
 title: ProFormList - 数据结构化
+atomId: ProFormList
 order: 1
 ---
 
@@ -203,7 +204,7 @@ return (
     action: FormListOperation,
     /**
      * 默认的操作dom
-     * [删除，复制，新增]
+     * [复制，删除]
      */
     defaultActionDom: ReactNode[],
     /**
@@ -294,7 +295,7 @@ type RenderActionParams = {
 
 ## ProFormFieldSet
 
-ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法,可以方便的组合多个输入框，并且格式化为想要的数据。
+ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法，可以方便的组合多个输入框，并且格式化为想要的数据。
 
 ```tsx | pure
 <ProFormFieldSet

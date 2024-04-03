@@ -1,64 +1,203 @@
-[English](./README.en-US.md) | 简体中文 | [Español](./README.es-PR.md)
+<div align="center">
 
-# ProComponents
+<img height="160" src="https://gw.alipayobjects.com/zos/kitchen/wzToJwlSw%24/logo.svg">
 
-这里放置了 pro 系列组件，用于支撑重型组件
+<h1>ProComponents</h1>
 
-![coverage CI](https://github.com/ant-design/pro-components/workflows/coverage%20CI/badge.svg) ![Node CI](https://github.com/ant-design/pro-components/workflows/Node%20CI/badge.svg) ![Deploy CI](https://github.com/ant-design/pro-components/workflows/Deploy%20CI/badge.svg) [![](https://codecov.io/gh/ant-design/pro-components/branch/master/graph/badge.svg)](https://codecov.io/gh/ant-design/pro-components) [![ docs by dumi](https://img.shields.io/badge/docs%20by-dumi-blue)](https://d.umijs.org/) [![Build With father](https://img.shields.io/badge/build%20with-father-028fe4.svg)](https://github.com/umijs/father/) [![](https://badgen.net/badge/icon/Ant%20Design?icon=https://gw.alipayobjects.com/zos/antfincdn/Pp4WPgVDB3/KDpgvguMpGfqaHPjicRK.svg&label)](https://ant.design) [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+专为企业级应用设计，像专家一样使用 Ant Design！
 
-ProComponents 是一个基于 React 的企业级 UI 组件库，它具有以下优点：
+[![][npm-release-shield]][npm-release-link] [![][npm-downloads-shield]][npm-downloads-link] [![][github-releasedate-shield]][github-releasedate-link] [![][github-action-build-shield]][github-action-build-link] [![][codecov-shield]][codecov-link] <br/> [![][github-contributors-shield]][github-contributors-link] [![][github-forks-shield]][github-forks-link] [![][github-stars-shield]][github-stars-link] [![][github-issues-shield]][github-issues-link] [![][github-license-shield]][github-license-link] <br/> [![][ant-design-shield]][ant-design-link] [![][devops-dumi-shield]][devops-dumi-link] [![][devops-father-shield]][devops-father-link]
 
-- 丰富的组件库：ProComponents 提供了大量的 UI 组件，包括表格、表单、图表、地图、树形控件等，能够满足大多数企业应用的需求。
+[English](./README.md) ・ 简体中文 ・ [报告错误][github-issues-link] · [请求功能][github-issues-link]
 
-- 功能强大：ProComponents 的组件不仅提供了基本的 UI 展示功能，还具备了复杂的数据操作和业务逻辑处理能力，能够快速构建出功能强大的企业应用。
+![](https://gw.alipayobjects.com/zos/kitchen/OsP5rUT6tc/pro-components.webp)
 
-- 易于使用：ProComponents 提供了简单易用的 API 和完善的文档，使得开发者能够快速上手并使用其中的组件。
+</div>
 
-- 支持可视化配置：ProComponents 提供了一些组件的可视化配置工具，能够使开发者更快速地完成一些简单的组件配置工作。
+<details>
+<summary><kbd>目录</kbd></summary>
 
-- 高度可定制：ProComponents 的组件支持多种配置和样式自定义，能够满足不同项目的需求。
+#### 目录
 
-总之，ProComponents 是一个功能丰富、易于使用、支持可视化配置和高度可定制的企业级 UI 组件库，适用于各种规模和类型的企业应用开发。
+- [📦 安装](#-安装)
+- [✨ 特性](#-特性)
+  - [ProComponents 的强大功能](#procomponents-的强大功能)
+  - [考虑因素和限制](#考虑因素和限制)
+- [🖥 浏览器兼容性](#-浏览器兼容性)
+- [⌨️ 本地开发](#️-本地开发)
+- [🤝 贡献](#-贡献)
+- [🛣️ 生态系统](#️-生态系统)
 
-## 缺点
+####
 
-ProComponents 是一个基于 React 和 Ant Design 的组件库，它提供了很多常用的 UI 组件和业务组件，可以方便地帮助开发者快速搭建前端页面。虽然 ProComponents 具有很多优点，但是也有以下一些缺点：
+</details>
 
-- 学习成本高：ProComponents 的组件库非常庞大，学习所有组件可能需要花费较长时间。因此，对于新手开发者来说，学习成本可能会比较高。
+## 📦 安装
 
-- 样式定制难度大：ProComponents 组件库提供了很多可定制的属性，但是如果需要修改样式的话，可能需要较高的 CSS 技能水平，因为 Ant Design 的样式风格非常复杂，需要深入了解其样式系统才能进行定制。
+安装 `@ant-design/pro-components`，请运行以下命令：
 
-- 依赖项过多：ProComponents 依赖了很多第三方库和组件，这可能会增加项目的体积和加载时间。
+```bash
+$ pnpm install @ant-design/pro-components
+```
 
-- 不支持 IE8 及以下浏览器：由于 ProComponents 采用了现代化的技术栈，所以不支持 IE8 及以下的浏览器，这可能会影响一些用户的体验。
+<br/>
 
-- 组件更新不够及时：虽然 ProComponents 提供了很多常用组件，但是一些新的 UI 组件可能不会及时添加到组件库中。
+## ✨ 特性
 
-总之，ProComponents 是一个非常优秀的组件库，但是也有一些缺点，开发者需要根据自己的具体情况权衡其利弊。
+Pro Series 组件经过精心设计，以增强企业级应用程序的健壮架构。
+
+[![](https://next.ossinsight.io/widgets/official/compose-activity-trends/thumbnail.png?repo_id=183895098&image_size=auto&color_scheme=dark)](https://next.ossinsight.io/widgets/official/compose-activity-trends?repo_id=183895098)
+
+<br/>
+
+### 丰富的高阶特性
+
+> \[!NOTE]
+>
+> ProComponents 是基于 React 的企业应用程序开发的灯塔。以下是它的特点：
+
+- 💡 **丰富的组件套件**：ProComponents 拥有全面的 UI 元素，从表格和表单到图表和树视图应有尽有。它能够精细地满足企业应用程序的多样化需求。
+- 🚀 **高级功能**：除了基本的 UI 元素外，ProComponents 还配备了复杂的数据处理和业务逻辑功能，使开发人员能够快速构建强大的企业解决方案。
+- 🎯 **直观的使用**：通过其简单的 API 和详细的文档，ProComponents 确保开发人员能够顺利上手，促进快速采用和部署。
+- 🎨 **可视化配置工具**：ProComponents 中的某些组件受益于可视化配置辅助工具，通过简化组件设置，为开发人员的设计过程提供便利。
+- 🛠️ **无与伦比的可定制性**：该库可以适应大量的配置和样式选项，确保 ProComponents 可以根据任何项目的独特需求进行定制。
+
+总的来说，ProComponents 是一个健壮、用户友好且多才多艺的 UI 组件库，旨在赋能各种规模和领域的应用程序。
+
+<br/>
+
+### 考虑因素和限制
+
+> \[!WARNING]
+>
+> 尽管 ProComponents 提供了丰富的好处，但权衡某些考虑因素也很重要：
+
+- **有限的定制化**：尽管其丰富的组件库，ProComponents 在深度个性化定制方面可能会带来挑战，潜在地阻碍了某些项目愿景的实现。
+- **学习曲线**：该库的全面 API 和广泛的文档，虽然详尽，但可能会初期让新手感到不知所措。掌握 ProComponents 可能需要专门的学习投入。
+- **浏览器兼容性**：ProComponents 利用尖端的浏览器技术，这些技术可能不受旧版浏览器支持，可能限制应用程序的可访问性，并需要额外的开发工作以实现更广泛的兼容性。
+- **代码库大小**：ProComponents 的庞大代码库可能会影响开发过程的灵活性，并使长期维护变得复杂。
+
+> \[!TIP]
+>
+> ProComponents 在企业应用程序 UI 库领域是一个强大的竞争者，但它也有一系列权衡，包括定制化限制、相当大的学习曲线、浏览器兼容性考虑和庞大的代码库。建议开发人员在将 ProComponents 集成到其工作流程之前，彻底评估其项目需求和限制。
+
+<br/>
 
 ## 🖥 浏览器兼容性
 
-- 现代浏览器
-- [Electron](https://www.electronjs.org/)
+> \[!NOTE]
+>
+> - 现代浏览器和 Internet Explorer 11（使用[兼容性填充](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11)）
+> - [Electron](https://www.electronjs.org/)
 
 | [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
 | --- | --- | --- | --- | --- |
-| Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+| Edge | 最近 2 个版本 | 最近 2 个版本 | 最近 2 个版本 | 最近 2 个版本 |
 
-## 参与贡献
+<br/>
 
-我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 😃 ：
+## ⌨️ 本地开发
 
-- 在你的公司或个人项目中使用 Ant Design Pro，umi 和 ProComponents。
-- 通过 [Issue](https://github.com/ant-design/pro-components/issues) 报告 bug 或进行咨询。
-- 提交 [Pull Request](https://github.com/ant-design/pro-components/pulls) 改进 ProComponents 的代码。
+您可以使用 Github Codespaces 进行在线开发：
 
-## 组件看板
+[![][github-codespace-shield]][github-codespace-link]
 
-| 组件 | 下载量 | 版本 |
-| --- | --- | --- |
-| pro-components | [![layout](https://img.shields.io/npm/dw/@ant-design/pro-components.svg)](https://www.npmjs.com/package/@ant-design/pro-layout) | [![npm package](https://img.shields.io/npm/v/@ant-design/pro-components.svg?style=flat-square?style=flat-square)](https://www.npmjs.com/package/@ant-design/pro-components) |
+或者将其克隆到本地进行开发：
 
-## LICENSE
+```bash
+$ git clone https://github.com/ant-design/pro-components.git
+$ cd pro-components
+$ pnpm install
+$ pnpm dev
+```
 
-MIT
+<br/>
+
+## 🤝 贡献
+
+> \[!IMPORTANT]
+>
+> 加入我们的协作生态系统。您的贡献是我们项目的心脏。以下是您如何成为我们充满活力的社区不可或缺的一部分：
+
+- **整合和创新**：将 Ant Design Pro、umi 和 ProComponents 整合到您的项目中。您的实际使用和反馈对我们非常宝贵。
+- **发表您的见解**：遇到了问题？有疑问？您的观点很重要。通过提交 [问题][github-issues-link] 来分享它们，帮助我们提升用户体验。
+- **塑造未来**：有代码增强或功能想法吗？我们邀请您提出 [拉取请求][pr-welcome-link] 并直接为我们的代码库发展做出贡献。
+
+每一个贡献，无论大小，都值得庆祝。加入我们的使命，完善和提升开源企业 UI 组件的世界。 😃
+
+[![][pr-welcome-shield]][pr-welcome-link]
+
+<a href="https://github.com/ant-design/pro-components/graphs/contributors" target="_blank">
+  <table>
+    <tr>
+      <th colspan="2">
+        <br><img src="https://contrib.rocks/image?repo=ant-design/pro-components"><br><br>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=183895098&image_size=2x3&color_scheme=dark">
+      </td>
+      <td rowspan="2">
+        <img src="https://next.ossinsight.io/widgets/official/compose-org-participants-growth/thumbnail.png?activity=active&period=past_28_days&owner_id=12101536&repo_ids=183895098&image_size=4x7&color_scheme=dark">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://next.ossinsight.io/widgets/official/compose-org-active-contributors/thumbnail.png?activity=new&period=past_28_days&owner_id=12101536&repo_ids=183895098&image_size=2x3&color_scheme=dark">
+      </td>
+    </tr>
+  </table>
+</a>
+
+## 🛣️ 生态系统
+
+- **[ProComponents](https://github.com/ant-design/pro-components)** - 专为企业级应用设计，像专业人士一样使用 Ant Design！
+- **[ProEditor](https://github.com/ant-design/pro-editor)** - 编辑器领域 UI 框架与前端组件解决方案。
+- **[ProFlow](https://github.com/ant-design/pro-flow)** - 基于 React-Flow 的流程编辑器框架。
+- **[ProChat](https://github.com/ant-design/pro-chat)** - 用于快速构建 LLM 聊天界面的组件库。
+
+<br/>
+
+---
+
+#### 📝 License
+
+Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdigital.com). <br/> This project is [MIT](./LICENSE) licensed.
+
+<!-- LINK GROUP -->
+
+[ant-design-link]: https://ant.design
+[ant-design-shield]: https://img.shields.io/badge/-Ant%20Design-1677FF?labelColor=black&logo=antdesign&style=flat-square
+[codecov-link]: https://codecov.io/gh/ant-design/pro-components
+[codecov-shield]: https://img.shields.io/codecov/c/github/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square&logo=codecov&logoColor=white
+[devops-dumi-link]: https://d.umijs.org/
+[devops-dumi-shield]: https://img.shields.io/badge/docs%20by-dumi-blue?color=1677FF&labelColor=black&style=flat-square
+[devops-father-link]: https://github.com/umijs/father
+[devops-father-shield]: https://img.shields.io/badge/build%20with-father-028fe4.svg?color=1677FF&labelColor=black&style=flat-square
+[github-action-build-link]: https://github.com/ant-design/pro-components/actions/workflows/build.yml
+[github-action-build-shield]: https://img.shields.io/github/actions/workflow/status/ant-design/pro-components/build.yml?color=1677FF&label=build&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
+[github-codespace-link]: https://codespaces.new/ant-design/pro-components
+[github-codespace-shield]: https://github.com/codespaces/badge.svg
+[github-contributors-link]: https://github.com/ant-design/pro-components/graphs/contributors
+[github-contributors-shield]: https://img.shields.io/github/contributors/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
+[github-forks-link]: https://github.com/ant-design/pro-components/network/members
+[github-forks-shield]: https://img.shields.io/github/forks/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
+[github-issues-link]: https://github.com/ant-design/pro-components/issues
+[github-issues-shield]: https://img.shields.io/github/issues/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
+[github-license-link]: https://github.com/ant-design/pro-components/blob/master/LICENSE
+[github-license-shield]: https://img.shields.io/github/license/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
+[github-releasedate-link]: https://github.com/ant-design/pro-components/releases
+[github-releasedate-shield]: https://img.shields.io/github/release-date/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
+[github-stars-link]: https://github.com/ant-design/pro-components/network/stargazers
+[github-stars-shield]: https://img.shields.io/github/stars/ant-design/pro-components?color=1677FF&labelColor=black&style=flat-square
+[npm-downloads-link]: https://www.npmjs.com/package/@ant-design/pro-components
+[npm-downloads-shield]: https://img.shields.io/npm/dt/@ant-design/pro-components?labelColor=black&style=flat-square&color=1677FF
+[npm-release-link]: https://www.npmjs.com/package/@ant-design/pro-components
+[npm-release-shield]: https://img.shields.io/npm/v/@ant-design/pro-components?color=1677FF&labelColor=black&logo=npm&logoColor=white&style=flat-square
+[pr-welcome-link]: https://github.com/ant-design/pro-components/pulls
+[pr-welcome-shield]: https://img.shields.io/badge/%E2%9D%A4%EF%B8%8F%20PR%20WELCOME-%E2%86%92-1677FF?labelColor=black&style=for-the-badge
+
+## Star 趋势
+
+[![Star History Chart](https://api.star-history.com/svg?repos=ant-design/pro-components&type=Date)](https://star-history.com/#ant-design/pro-components&Date)

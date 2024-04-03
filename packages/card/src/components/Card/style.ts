@@ -1,5 +1,8 @@
 import type { GenerateStyle, ProAliasToken } from '@ant-design/pro-provider';
-import { resetComponent, useStyle as useAntdStyle } from '@ant-design/pro-utils';
+import {
+  resetComponent,
+  useStyle as useAntdStyle,
+} from '@ant-design/pro-utils';
 
 interface ProCardToken extends ProAliasToken {
   componentCls: string;
@@ -26,12 +29,10 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       backgroundColor: token.colorBgContainer,
       borderRadius: token.borderRadius,
       ...resetComponent?.(token),
-      '*': {
-        boxSizing: 'border-box',
-        fontFamily: token.fontFamily,
-      },
+
       '&-box-shadow': {
-        boxShadow: '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
+        boxShadow:
+          '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
         borderColor: 'transparent',
       },
       '&-col': {
@@ -48,7 +49,8 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
         '&:hover': {
           borderColor: 'transparent',
-          boxShadow: '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
+          boxShadow:
+            '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
         },
 
         [`&${componentCls}-checked:hover`]: {
@@ -74,29 +76,6 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
 
       '&:focus': {
         ...genActiveStyle(token),
-      },
-
-      '&&-size-small': {
-        [componentCls]: {
-          '&-header': {
-            paddingInline: token.paddingSM,
-            paddingBlock: token.paddingXS,
-            paddingBlockEnd: 0,
-
-            '&-border': {
-              paddingBlockEnd: token.paddingXS,
-            },
-          },
-
-          '&-title': {
-            fontSize: token.fontSize,
-          },
-
-          '&-body': {
-            paddingInline: token.paddingSM,
-            paddingBlock: token.paddingSM,
-          },
-        },
       },
 
       '&&-ghost': {
@@ -207,6 +186,32 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           justifyContent: 'center',
         },
       },
+
+      '&&-size-small': {
+        [componentCls]: {
+          '&-header': {
+            paddingInline: token.paddingSM,
+            paddingBlock: token.paddingXS,
+            paddingBlockEnd: 0,
+
+            '&-border': {
+              paddingBlockEnd: token.paddingXS,
+            },
+          },
+
+          '&-title': {
+            fontSize: token.fontSize,
+          },
+
+          '&-body': {
+            paddingInline: token.paddingSM,
+            paddingBlock: token.paddingSM,
+          },
+        },
+        [`${componentCls}-header${componentCls}-header-collapsible`]: {
+          paddingBlock: token.paddingXS,
+        },
+      },
     },
 
     [`${componentCls}-col`]: {
@@ -242,6 +247,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
           },
         },
       },
+      // 这里是为了保证 tabs 的高度和左侧的一致
       [`${token.antCls}-tabs-left > ${token.antCls}-tabs-nav`]: {
         marginInlineEnd: 0,
         [`${token.antCls}-tabs-nav-list`]: {

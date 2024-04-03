@@ -8,8 +8,18 @@ export interface ProListToken extends ProAliasToken {
 const genProListStyle: GenerateStyle<ProListToken> = (token) => {
   return {
     [token.componentCls]: {
-      '&-visible-cell': { display: 'flex', alignItems: 'center' },
-      '&-icon': { marginInlineEnd: 8, color: '#999', cursor: 'grab' },
+      '&-icon': {
+        marginInlineEnd: 8,
+        color: token.colorTextSecondary,
+        cursor: 'grab !important',
+        padding: 4,
+        fontSize: 12,
+        borderRadius: token.borderRadius,
+        '&:hover': {
+          color: token.colorText,
+          backgroundColor: token.colorInfoBg,
+        },
+      },
     },
   };
 };
@@ -20,7 +30,6 @@ export function useStyle(prefixCls: string) {
       ...token,
       componentCls: `.${prefixCls}`,
     };
-
     return [genProListStyle(proListToken)];
   });
 }

@@ -8,7 +8,6 @@ export default () => {
         return Promise.resolve({
           success: true,
           data: {
-            id: '这是一段文本columns',
             date: '20200809',
             money: '1212100',
             money2: -12345.33,
@@ -18,6 +17,7 @@ export default () => {
           },
         });
       }}
+      emptyText={'空'}
       columns={[
         {
           title: '文本',
@@ -111,10 +111,17 @@ export default () => {
         },
       ]}
     >
-      <ProDescriptions.Item dataIndex="percent" label="百分比" valueType="percent">
+      <ProDescriptions.Item
+        dataIndex="percent"
+        label="百分比"
+        valueType="percent"
+      >
         100
       </ProDescriptions.Item>
       <div>多余的dom</div>
+      <ProDescriptions.Item label="超链接">
+        <a href="alipay.com">超链接</a>
+      </ProDescriptions.Item>
     </ProDescriptions>
   );
 };

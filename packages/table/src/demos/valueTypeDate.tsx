@@ -25,7 +25,7 @@ for (let i = 0; i < 2; i += 1) {
   tableListDataSource.push({
     key: i,
     name: `TradeCode ${i}`,
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     updatedAt: Date.now() - Math.floor(Math.random() * 1000),
     createdAt: Date.now() - Math.floor(Math.random() * 2000),
     createdAtRange: [
@@ -83,7 +83,10 @@ export default () => (
           dataIndex: 'createdAtRange',
           valueType: 'dateTimeRange',
           search: {
-            transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
+            transform: (value: any) => ({
+              startTime: value[0],
+              endTime: value[1],
+            }),
           },
         },
         {

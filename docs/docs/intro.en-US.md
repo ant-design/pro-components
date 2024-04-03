@@ -68,7 +68,7 @@ When we clone the project we will see the following directory structure.
 - .fatherrc.ts      * configuration for compile scaffolding
 - .umirc.js         * core configuration for dumi
 - webpack.config.js * configuration file for compiling the umd package
-- jest.config.js    * configuration for the test environment
+- vitest.config.js    * configuration for the test environment
 - lerna.json        * configuration for multiple packages
 - package.json      * configuration for the project
 - tsconfig.json     * configuration for typescript

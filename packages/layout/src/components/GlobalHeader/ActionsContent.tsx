@@ -1,5 +1,6 @@
 ﻿import { useDebounceFn } from '@ant-design/pro-utils';
 import { Avatar, ConfigProvider } from 'antd';
+
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import React, { useContext, useMemo, useState } from 'react';
@@ -27,7 +28,9 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
     if (!avatarProps) return null;
     const { title, render, ...rest } = avatarProps;
     const domList = [
-      <Avatar {...rest} size={28} key="avatar" />,
+      rest?.src || rest?.srcSet || rest.icon || rest.children ? (
+        <Avatar {...rest} size={28} key="avatar" />
+      ) : null,
       title ? (
         <span
           key="name"
@@ -41,50 +44,73 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
     ];
 
     if (render) {
-      return render(avatarProps, <div>{domList}</div>);
+      return render(avatarProps, <div>{domList}</div>, props);
     }
     return <div>{domList}</div>;
   }, [avatarProps]);
 
-  const rightActionsRender = (restParams: any) => {
-    let doms = actionsRender && actionsRender?.(restParams);
+  const rightActionsRender =
+    actionsRender || avatarDom
+      ? (restParams: any) => {
+          const doms = actionsRender && actionsRender?.(restParams);
 
-    if (!doms && !avatarDom) return null;
-    if (!Array.isArray(doms)) doms = [doms];
-    return wrapSSR(
-      <div className={`${prefixCls}-header-actions ${hashId}`}>
-        {doms.filter(Boolean).map((dom, index) => {
-          let hideHover = false;
-          // 如果配置了 hideHover 就不展示 hover 效果了
-          if (React.isValidElement(dom)) {
-            hideHover = !!dom?.props?.['aria-hidden'];
-          }
-          return (
-            <div
-              // eslint-disable-next-line react/no-array-index-key
-              key={index}
-              className={classNames(`${prefixCls}-header-actions-item ${hashId}`, {
-                [`${prefixCls}-header-actions-hover`]: !hideHover,
+          if (!doms && !avatarDom) return null;
+          if (!Array.isArray(doms))
+            return wrapSSR(
+              <div className={`${prefixCls}-header-actions ${hashId}`.trim()}>
+                {doms}
+                {avatarDom && (
+                  <span
+                    className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}
+                  >
+                    {avatarDom}
+                  </span>
+                )}
+              </div>,
+            );
+          return wrapSSR(
+            <div className={`${prefixCls}-header-actions ${hashId}`.trim()}>
+              {doms.filter(Boolean).map((dom, index) => {
+                let hideHover = false;
+                // 如果配置了 hideHover 就不展示 hover 效果了
+                if (React.isValidElement(dom)) {
+                  hideHover = !!dom?.props?.['aria-hidden'];
+                }
+                return (
+                  <div
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    className={classNames(
+                      `${prefixCls}-header-actions-item ${hashId}`,
+                      {
+                        [`${prefixCls}-header-actions-hover`]: !hideHover,
+                      },
+                    )}
+                  >
+                    {dom}
+                  </div>
+                );
               })}
-            >
-              {dom}
-            </div>
+              {avatarDom && (
+                <span
+                  className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}
+                >
+                  {avatarDom}
+                </span>
+              )}
+            </div>,
           );
-        })}
-        {avatarDom && (
-          <span className={`${prefixCls}-header-actions-avatar ${hashId}`}>{avatarDom}</span>
-        )}
-      </div>,
-    );
-  };
+        }
+      : undefined;
   /** 减少一下渲染的次数 */
   const setRightSizeDebounceFn = useDebounceFn(async (width: number) => {
     setRightSize(width);
   }, 160);
 
+  const contentRender = rightActionsRender || rightContentRender;
   return (
     <div
-      className={`${prefixCls}-right-content ${hashId}`}
+      className={`${prefixCls}-right-content ${hashId}`.trim()}
       style={{
         minWidth: rightSize,
         height: '100%',
@@ -100,7 +126,7 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
             setRightSizeDebounceFn.run(width);
           }}
         >
-          {(rightActionsRender || rightContentRender) && (
+          {contentRender ? (
             <div
               style={{
                 display: 'flex',
@@ -109,14 +135,14 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
                 justifyContent: 'flex-end',
               }}
             >
-              {(rightContentRender || rightActionsRender)({
+              {contentRender({
                 ...props,
                 // 测试专用
                 //@ts-ignore
                 rightContentSize: rightSize,
               })}
             </div>
-          )}
+          ) : null}
         </ResizeObserver>
       </div>
     </div>

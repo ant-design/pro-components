@@ -1,11 +1,12 @@
 ﻿import { getPageTitle } from '@ant-design/pro-components';
+import { cleanup } from '@testing-library/react';
 
 const pageProps = {
   pathname: '/welcome',
   location: { pathname: '/welcome' },
   logo: 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
   layout: 'side',
-  contentWidth: 'Fluid',
+  contentWidth: 'Fixed',
   fixedHeader: false,
   fixSiderbar: false,
   menu: { locale: true },
@@ -46,7 +47,9 @@ const pageProps = {
           ],
         },
       ],
-      pro_layout_parentKeys: ['/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925'],
+      pro_layout_parentKeys: [
+        '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
+      ],
     },
     '/': {
       path: '/',
@@ -89,6 +92,10 @@ const pageProps = {
   },
   breadcrumbMap: new Map(),
 };
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('getPageTitle', () => {
   it('🗒️ base', () => {

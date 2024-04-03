@@ -1,16 +1,27 @@
 ﻿import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
-import { FieldLabel } from '@ant-design/pro-utils';
+import {
+  FieldLabel,
+  compatibleBorder,
+  objectToMap,
+  proFieldParsingText,
+} from '@ant-design/pro-utils';
 import type { RadioGroupProps } from 'antd';
 import { Cascader, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import React, {
+  useContext,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type { ProFieldFC } from '../../index';
 import type { FieldSelectProps } from '../Select';
-import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import { useFieldFetchData } from '../Select';
 
 // 兼容代码-----------
-import 'antd/es/cascader/style';
+import 'antd/lib/cascader/style';
 //----------------------
 
 export type GroupProps = {
@@ -29,17 +40,21 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
   const layoutClassName = getPrefixCls('pro-field-cascader');
   const [loading, options, fetchData] = useFieldFetchData(rest);
   const intl = useIntl();
   const cascaderRef = useRef();
-  const size = useContext(ConfigProvider.SizeContext);
   const [open, setOpen] = useState(false);
 
-  useImperativeHandle(ref, () => ({
-    ...(cascaderRef.current || {}),
-    fetchData: () => fetchData(),
-  }));
+  useImperativeHandle(
+    ref,
+    () => ({
+      ...(cascaderRef.current || {}),
+      fetchData: (keyWord: string) => fetchData(keyWord),
+    }),
+    [fetchData],
+  );
 
   const optionsValueEnum = useMemo(() => {
     if (mode !== 'read') return;
@@ -75,10 +90,17 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   }, [mode, options, rest.fieldProps?.fieldNames]);
 
   if (mode === 'read') {
-    const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
+    const dom = (
+      <>
+        {proFieldParsingText(
+          rest.text,
+          objectToMap(rest.valueEnum || optionsValueEnum),
+        )}
+      </>
+    );
 
     if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...rest.fieldProps }, dom) ?? null;
     }
     return dom;
   }
@@ -86,36 +108,53 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     let dom = (
       <Cascader
-        bordered={!light}
+        {...compatibleBorder(!light)}
         ref={cascaderRef}
         open={open}
-        onDropdownVisibleChange={setOpen}
-        suffixIcon={loading ? <LoadingOutlined /> : light ? null : undefined}
+        suffixIcon={loading ? <LoadingOutlined /> : undefined}
         placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-        allowClear={light ? false : undefined}
+        allowClear={rest.fieldProps?.allowClear !== false}
         {...rest.fieldProps}
+        onDropdownVisibleChange={(isOpen) => {
+          rest?.fieldProps?.onDropdownVisibleChange?.(isOpen);
+          setOpen(isOpen);
+        }}
         className={classNames(rest.fieldProps?.className, layoutClassName)}
         options={options}
       />
     );
 
     if (renderFormItem) {
-      dom = renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      dom =
+        renderFormItem(
+          rest.text,
+          { mode, ...rest.fieldProps, options, loading },
+          dom,
+        ) ?? null;
     }
 
     if (light) {
-      const { disabled, allowClear, placeholder } = rest.fieldProps;
+      const { disabled, value } = rest.fieldProps;
+      const notEmpty = !!value && value?.length !== 0;
       return (
         <FieldLabel
           label={label}
           disabled={disabled}
-          placeholder={placeholder}
-          size={size}
-          allowClear={allowClear}
           bordered={rest.bordered}
-          value={dom}
-          onLabelClick={() => setOpen(!open)}
-          onClear={() => rest.fieldProps?.onChange?.(undefined, undefined, {} as any)}
+          value={notEmpty || open ? dom : null}
+          style={
+            notEmpty
+              ? {
+                  paddingInlineEnd: 0,
+                }
+              : undefined
+          }
+          allowClear={false}
+          downIcon={notEmpty || open ? false : undefined}
+          onClick={() => {
+            setOpen(true);
+            rest?.fieldProps?.onDropdownVisibleChange?.(true);
+          }}
         />
       );
     }

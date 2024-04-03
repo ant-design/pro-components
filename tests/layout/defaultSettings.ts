@@ -15,7 +15,7 @@ export type PureSettings = {
    * @name theme for nav menu
    * @name 导航菜单的主题
    */
-  navTheme?: 'light' | 'realDark' | undefined;
+  navTheme?: 'light' | 'realDark';
   /**
    * Side 为正常模式，top菜单显示在顶部，mix 两种兼有
    *
@@ -30,7 +30,11 @@ export type PureSettings = {
   fixedHeader: boolean;
   /** Sticky siderbar */
   fixSiderbar: boolean;
-  menu: { locale?: boolean; defaultOpenAll?: boolean; ignoreFlatMenu?: boolean };
+  menu: {
+    locale?: boolean;
+    defaultOpenAll?: boolean;
+    ignoreFlatMenu?: boolean;
+  };
   title: string;
   // Your custom iconfont Symbol script Url
   // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
@@ -46,7 +50,7 @@ export type ProSettings = PureSettings & RenderSetting;
 
 const defaultSettings: ProSettings = {
   layout: 'side',
-  contentWidth: 'Fluid',
+  contentWidth: 'Fixed',
   fixedHeader: false,
   fixSiderbar: false,
   menu: {

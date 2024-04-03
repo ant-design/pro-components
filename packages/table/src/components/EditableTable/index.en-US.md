@@ -1,6 +1,6 @@
 ---
 title: EditableProTable
-
+atomId: EditableProTable
 nav:
   title: Components
 ---
@@ -13,29 +13,29 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 ### Editable forms
 
-<code src="./demos/basic.tsx" background="hsl(220,23%,97%)" oldtitle="Editable Form"></code>
+<code src="./demos/basic.tsx"  background="var(--main-bg-color)" oldtitle="Editable Form"></code>
 
 ### Link with content outside the edit form
 
-<code src="./demos/form-linkage.tsx" background="hsl(220,23%,97%)" oldtitle="Link with content outside the edit form"></code>
+<code src="./demos/form-linkage.tsx"  background="var(--main-bg-color)" oldtitle="Link with content outside the edit form"></code>
 
 ### Custom Editable Tables
 
-<code src="./demos/custom.tsx" background="hsl(220,23%,97%)" oldtitle="Custom Editable Form"></code>
+<code src="./demos/custom.tsx"  background="var(--main-bg-color)" oldtitle="Custom Editable Form"></code>
 
 ### Live Saved Editable Forms
 
-<code src="./demos/real-time-editing.tsx" background="hsl(220,23%,97%)" oldtitle="Real-time saved editing form"></code>
+<code src="./demos/real-time-editing.tsx"  background="var(--main-bg-color)" oldtitle="Real-time saved editing form"></code>
 
-## API
+## EditableProTable
 
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |
 | `value` | Same as dataSource, pass in an array of metadata for table rendering | `T[]` | `undefined` |
 | `onChange` | The dataSource is triggered when the table is modified, both deletion and modification. | `(value:T[])=>void` | `undefined` |
-| `recordCreatorProps` | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](<https://ant.design/components/button/> #API) | - |
+| `recordCreatorProps` | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button/#API) | - |
 | `maxLength` | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
-| `editable` | Related configuration of editable table | [TableRowEditable](#editable-Editable row configuration) | - |
+| `editable` | Related configuration of editable table | [TableRowEditable](#editable-edit-line-configuration) | - |
 | `controlled` | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
 | `editableFormRef` | table All forms, with some table-specific operations | `React.Ref<EditableFormInstance<T>>` | `undefined` |
 
@@ -104,13 +104,17 @@ Compared with the ProForm form, the editable form adds the following three metho
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
+| type | Type of editable table, single or multiple | `single` \| `multiple` | - |
 | form | Form instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
-| formProps | form properties can be configured, but onFinish is not supported | [`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
+| formProps | form properties can be configured, but onFinish is not supported | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
 | editableKeys | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
 | onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| saveText | Text for saving a row | `React.ReactNode` | `Save` |
 | onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
+| deleteText | Text for deleting a row | `React.ReactNode` | `Delete` |
 | onCancel | Triggered when cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| cancelText | Text for canceling the editing of a row | `React.ReactNode` | `Cancel` |
 | actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
 | deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line?` |
 | onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |
@@ -124,19 +128,19 @@ In order to use it, we preset a New function, which in most cases already meets 
 
 ```typescript
 recordCreatorProps = {
-  // 顶部添加还是末尾添加
+  // Add at the top or bottom
   position: 'bottom',
-  // 新增一行的方式，默认是缓存，取消后就会消失
-  // 如果设置为 dataSource 会触发 onchange，取消后也不会消失，只能删除
+  // Method to add a new row, default is caching, it will disappear after cancellation
+  // If set to dataSource, it will trigger onchange, and it won't disappear after cancellation, only delete is allowed
   newRecordType: 'dataSource',
-  // 不写 key ，会使用 index 当行 id
+  // If not specified, it will use the index as the row ID
   record: {},
-  // 按钮的样式设置，可以设置按钮是否显示
-  // 这样可以做最大行限制和最小行限制之类的功能
+  // Button style settings, you can control whether the button is displayed
+  // This can be used to implement features like maximum and minimum row limits
   style: {
     display: 'none',
   },
-  // https://ant.design/components/button/#API
+  // Button properties, see https://ant.design/components/button/#API
   ...antButtonProps,
 };
 ```
@@ -206,8 +210,14 @@ const TagList: React.FC<{
 
   const handleInputConfirm = () => {
     let tempsTags = [...(value || [])];
-    if (inputValue && tempsTags.filter((tag) => tag.label === inputValue).length === 0) {
-      tempsTags = [...tempsTags, { key: `new-${tempsTags.length}`, label: inputValue }];
+    if (
+      inputValue &&
+      tempsTags.filter((tag) => tag.label === inputValue).length === 0
+    ) {
+      tempsTags = [
+        ...tempsTags,
+        { key: `new-${tempsTags.length}`, label: inputValue },
+      ];
     }
     onChange?.(tempsTags);
     setNewTags([]);
@@ -276,7 +286,7 @@ render: (text, record, _, action) => [
       id: (Math.random() * 1000000).toFixed(0),
     }}
   >
-    <a>Copy this row to the end</a
+    <a>Copy this row to the end</a>
   </EditableProTable.RecordCreator>,
 ];
 ```
@@ -285,6 +295,9 @@ render: (text, record, _, action) => [
 
 ```typescript
 const editable = {
-  actionRender: (row, config, defaultDom) => [defaultDom.save, defaultDom.cancel],
+  actionRender: (row, config, defaultDom) => [
+    defaultDom.save,
+    defaultDom.cancel,
+  ],
 };
 ```

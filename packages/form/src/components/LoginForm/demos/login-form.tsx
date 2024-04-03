@@ -8,30 +8,33 @@ import {
 } from '@ant-design/icons';
 import {
   LoginForm,
+  ProConfigProvider,
   ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
-  ProConfigProvider,
+  setAlpha,
 } from '@ant-design/pro-components';
-import { message, Space, Tabs } from 'antd';
+import { Space, Tabs, message, theme } from 'antd';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
 
 type LoginType = 'phone' | 'account';
 
-const iconStyles: CSSProperties = {
-  marginInlineStart: '16px',
-  color: 'rgba(0, 0, 0, 0.2)',
-  fontSize: '24px',
-  verticalAlign: 'middle',
-  cursor: 'pointer',
-};
-
 export default () => {
+  const { token } = theme.useToken();
   const [loginType, setLoginType] = useState<LoginType>('phone');
+
+  const iconStyles: CSSProperties = {
+    marginInlineStart: '16px',
+    color: setAlpha(token.colorTextBase, 0.2),
+    fontSize: '24px',
+    verticalAlign: 'middle',
+    cursor: 'pointer',
+  };
+
   return (
     <ProConfigProvider hashed={false}>
-      <div style={{ backgroundColor: 'white' }}>
+      <div style={{ backgroundColor: token.colorBgContainer }}>
         <LoginForm
           logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
           title="Github"
@@ -74,6 +77,37 @@ export default () => {
                 fieldProps={{
                   size: 'large',
                   prefix: <LockOutlined className={'prefixIcon'} />,
+                  strengthText:
+                    'Password should contain numbers, letters and special characters, at least 8 characters long.',
+                  statusRender: (value) => {
+                    const getStatus = () => {
+                      if (value && value.length > 12) {
+                        return 'ok';
+                      }
+                      if (value && value.length > 6) {
+                        return 'pass';
+                      }
+                      return 'poor';
+                    };
+                    const status = getStatus();
+                    if (status === 'pass') {
+                      return (
+                        <div style={{ color: token.colorWarning }}>
+                          强度：中
+                        </div>
+                      );
+                    }
+                    if (status === 'ok') {
+                      return (
+                        <div style={{ color: token.colorSuccess }}>
+                          强度：强
+                        </div>
+                      );
+                    }
+                    return (
+                      <div style={{ color: token.colorError }}>强度：弱</div>
+                    );
+                  },
                 }}
                 placeholder={'密码: ant.design'}
                 rules={[

@@ -1,12 +1,16 @@
-import { FieldLabel, parseValueToDay } from '@ant-design/pro-utils';
-import { ConfigProvider, DatePicker, TimePicker } from 'antd';
+import { useIntl } from '@ant-design/pro-provider';
+import {
+  FieldLabel,
+  compatibleBorder,
+  parseValueToDay,
+} from '@ant-design/pro-utils';
+import { DatePicker, TimePicker } from 'antd';
 import dayjs from 'dayjs';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import type { ProFieldFC, ProFieldLightProps } from '../../index';
 
 // 兼容代码-----------
-import 'antd/es/date-picker/style';
-import { useDatePickerStyle } from '../DatePicker';
+import 'antd/lib/date-picker/style';
 //----------------------;
 
 /**
@@ -31,13 +35,11 @@ const FieldTimePicker: ProFieldFC<
     plain,
     fieldProps,
     lightLabel,
-    labelTrigger,
   },
   ref,
 ) => {
   const [open, setOpen] = useState<boolean>(false);
-  const size = useContext(ConfigProvider.SizeContext);
-  const { hashId, prefixCls, wrapSSR } = useDatePickerStyle();
+  const intl = useIntl();
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
 
   const isNumberOrMoment = dayjs.isDayjs(text) || typeof text === 'number';
@@ -45,7 +47,11 @@ const FieldTimePicker: ProFieldFC<
   if (mode === 'read') {
     const dom = (
       <span ref={ref}>
-        {text ? dayjs(text, isNumberOrMoment ? undefined : finalFormat).format(finalFormat) : '-'}
+        {text
+          ? dayjs(text, isNumberOrMoment ? undefined : finalFormat).format(
+              finalFormat,
+            )
+          : '-'}
       </span>
     );
     if (render) {
@@ -55,53 +61,49 @@ const FieldTimePicker: ProFieldFC<
   }
   if (mode === 'edit' || mode === 'update') {
     let dom;
-    const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
+    const { disabled, value } = fieldProps;
     const dayValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs;
+
     if (light) {
-      const valueStr: string = (dayValue && dayValue.format(finalFormat)) || '';
-      dom = wrapSSR(
-        <div
-          className={`${prefixCls}-light ${hashId}`}
-          onClick={(e) => {
-            // 点击label切换下拉菜单
-            const isLabelClick = lightLabel?.current?.labelRef?.current?.contains(
-              e.target as HTMLElement,
-            );
-            if (isLabelClick) {
-              setOpen(!open);
-            } else {
-              setOpen(true);
-            }
+      dom = (
+        <FieldLabel
+          onClick={() => {
+            fieldProps?.onOpenChange?.(true);
+            setOpen(true);
           }}
-        >
-          <TimePicker
-            value={dayValue}
-            format={format}
-            ref={ref}
-            {...fieldProps}
-            onChange={async (v) => {
-              await onChange?.(v);
-              await setOpen(false);
-            }}
-            onOpenChange={(isOpen) => {
-              if (!labelTrigger) {
-                setOpen(isOpen);
-              }
-            }}
-            open={open}
-          />
-          <FieldLabel
-            label={label}
-            disabled={disabled}
-            placeholder={placeholder}
-            size={size}
-            value={valueStr}
-            allowClear={allowClear}
-            onClear={() => onChange?.(null)}
-            expanded={open}
-            ref={lightLabel}
-          />
-        </div>,
+          style={
+            dayValue
+              ? {
+                  paddingInlineEnd: 0,
+                }
+              : undefined
+          }
+          label={label}
+          disabled={disabled}
+          value={
+            dayValue || open ? (
+              <TimePicker
+                {...compatibleBorder(false)}
+                format={format}
+                ref={ref}
+                {...fieldProps}
+                placeholder={
+                  fieldProps.placeholder ??
+                  intl.getMessage('tableForm.selectPlaceholder', '请选择')
+                }
+                value={dayValue}
+                onOpenChange={(isOpen) => {
+                  setOpen(isOpen);
+                  fieldProps?.onOpenChange?.(isOpen);
+                }}
+                open={open}
+              />
+            ) : null
+          }
+          downIcon={dayValue || open ? false : undefined}
+          allowClear={false}
+          ref={lightLabel}
+        />
       );
     } else {
       dom = (
@@ -128,20 +130,45 @@ const FieldTimePicker: ProFieldFC<
  * @param param0
  * @param ref
  */
-const FieldTimeRangePickerComponents: ProFieldFC<{
-  text: string[] | number[];
-  format: string;
-}> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }, ref) => {
+const FieldTimeRangePickerComponents: ProFieldFC<
+  {
+    text: string[] | number[];
+    format: string;
+  } & ProFieldLightProps
+> = (
+  {
+    text,
+    light,
+    label,
+    mode,
+    lightLabel,
+    format,
+    render,
+    renderFormItem,
+    plain,
+    fieldProps,
+  },
+  ref,
+) => {
+  const intl = useIntl();
+  const [open, setOpen] = useState<boolean>(false);
   const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
   const [startText, endText] = Array.isArray(text) ? text : [];
-  const startTextIsNumberOrMoment = dayjs.isDayjs(startText) || typeof startText === 'number';
-  const endTextIsNumberOrMoment = dayjs.isDayjs(endText) || typeof endText === 'number';
+  const startTextIsNumberOrMoment =
+    dayjs.isDayjs(startText) || typeof startText === 'number';
+  const endTextIsNumberOrMoment =
+    dayjs.isDayjs(endText) || typeof endText === 'number';
 
   const parsedStartText: string = startText
-    ? dayjs(startText, startTextIsNumberOrMoment ? undefined : finalFormat).format(finalFormat)
+    ? dayjs(
+        startText,
+        startTextIsNumberOrMoment ? undefined : finalFormat,
+      ).format(finalFormat)
     : '';
   const parsedEndText: string = endText
-    ? dayjs(endText, endTextIsNumberOrMoment ? undefined : finalFormat).format(finalFormat)
+    ? dayjs(endText, endTextIsNumberOrMoment ? undefined : finalFormat).format(
+        finalFormat,
+      )
     : '';
 
   if (mode === 'read') {
@@ -157,18 +184,68 @@ const FieldTimeRangePickerComponents: ProFieldFC<{
     return dom;
   }
   if (mode === 'edit' || mode === 'update') {
-    const { value } = fieldProps;
-    const momentValue = parseValueToDay(value, finalFormat) as dayjs.Dayjs[];
-
-    const dom = (
-      <TimePicker.RangePicker
-        ref={ref}
-        format={format}
-        bordered={plain === undefined ? true : !plain}
-        {...fieldProps}
-        value={momentValue}
-      />
-    );
+    const dayValue = parseValueToDay(
+      fieldProps.value,
+      finalFormat,
+    ) as dayjs.Dayjs[];
+    let dom;
+    if (light) {
+      const {
+        disabled,
+        placeholder = [
+          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+          intl.getMessage('tableForm.selectPlaceholder', '请选择'),
+        ],
+      } = fieldProps;
+      dom = (
+        <FieldLabel
+          onClick={() => {
+            fieldProps?.onOpenChange?.(true);
+            setOpen(true);
+          }}
+          style={
+            dayValue
+              ? {
+                  paddingInlineEnd: 0,
+                }
+              : undefined
+          }
+          label={label}
+          disabled={disabled}
+          placeholder={placeholder}
+          value={
+            dayValue || open ? (
+              <TimePicker.RangePicker
+                {...compatibleBorder(false)}
+                format={format}
+                ref={ref}
+                {...fieldProps}
+                placeholder={placeholder}
+                value={dayValue}
+                onOpenChange={(isOpen) => {
+                  setOpen(isOpen);
+                  fieldProps?.onOpenChange?.(isOpen);
+                }}
+                open={open}
+              />
+            ) : null
+          }
+          downIcon={dayValue || open ? false : undefined}
+          allowClear={false}
+          ref={lightLabel}
+        />
+      );
+    } else {
+      dom = (
+        <TimePicker.RangePicker
+          ref={ref}
+          format={format}
+          {...compatibleBorder(plain === undefined ? true : !plain)}
+          {...fieldProps}
+          value={dayValue}
+        />
+      );
+    }
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
     }

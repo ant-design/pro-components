@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-types */
+import deepMerge from 'lodash.merge';
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
 import React from 'react';
@@ -5,7 +7,10 @@ import { isNil } from '../isNil';
 import { merge } from '../merge';
 import type { SearchTransformKeyFn } from '../typing';
 
-export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
+export type DataFormatMapType = Record<
+  string,
+  SearchTransformKeyFn | undefined
+>;
 
 /**
  * 暂时还不支持 Set和 Map 结构 判断是不是一个能遍历的对象
@@ -32,7 +37,10 @@ export function isPlainObj(itemValue: any) {
 
 export const transformKeySubmitValue = <T extends object = any>(
   values: T,
-  dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
+  dataFormatMapRaw: Record<
+    string,
+    SearchTransformKeyFn | undefined | DataFormatMapType
+  >,
   omit: boolean = true,
 ) => {
   // ignore nil transform
@@ -65,51 +73,109 @@ export const transformKeySubmitValue = <T extends object = any>(
     }
 
     Object.keys(tempValues).forEach((entityKey) => {
-      const key = parentsKey ? [parentsKey, entityKey].flat(1) : [entityKey].flat(1);
-      const itemValue = tempValues[entityKey];
-      const transformFunction = get(dataFormatMap, key);
+      const transformForArray = (transformList: any, subItemValue: any) => {
+        if (!Array.isArray(transformList)) return entityKey;
+        transformList.forEach(
+          (transform: Function | Record<string, any> | any[], idx: number) => {
+            // 如果不存在直接返回
+            if (!transform) return;
 
-      const _transformArray = (transformFn: any) => {
-        if (!Array.isArray(transformFn)) return entityKey;
-        transformFn.forEach((fn: any, idx: number) => {
-          if (!fn) return;
-          if (typeof fn === 'function') {
-            itemValue[idx] = fn(itemValue, entityKey, tempValues);
-          }
-          if (typeof fn === 'object' && !Array.isArray(fn)) {
-            Object.keys(fn).forEach((curK) => {
-              if (typeof fn[curK] === 'function') {
-                const res = fn[curK](tempValues[entityKey][idx][curK], entityKey, tempValues);
-                itemValue[idx][curK] = typeof res === 'object' ? res[curK] : res;
-              }
-            });
-          }
-          if (typeof fn === 'object' && Array.isArray(fn)) {
-            _transformArray(fn);
-          }
-        });
+            const subTransformItem = subItemValue?.[idx];
+
+            // 如果是个方法，把key设置为方法的返回值
+            if (typeof transform === 'function') {
+              subItemValue[idx] = transform(
+                subItemValue,
+                entityKey,
+                tempValues,
+              );
+            }
+            if (typeof transform === 'object' && !Array.isArray(transform)) {
+              Object.keys(transform).forEach((transformArrayItem) => {
+                const subTransformItemValue =
+                  subTransformItem?.[transformArrayItem];
+                if (
+                  typeof transform[transformArrayItem] === 'function' &&
+                  subTransformItemValue
+                ) {
+                  const res = transform[transformArrayItem](
+                    subTransformItem[transformArrayItem],
+                    entityKey,
+                    tempValues,
+                  );
+                  subTransformItem[transformArrayItem] =
+                    typeof res === 'object' ? res[transformArrayItem] : res;
+                } else if (
+                  typeof transform[transformArrayItem] === 'object' &&
+                  Array.isArray(transform[transformArrayItem]) &&
+                  subTransformItemValue
+                ) {
+                  transformForArray(
+                    transform[transformArrayItem],
+                    subTransformItemValue,
+                  );
+                }
+              });
+            }
+            if (
+              typeof transform === 'object' &&
+              Array.isArray(transform) &&
+              subTransformItem
+            ) {
+              transformForArray(transform, subTransformItem);
+            }
+          },
+        );
         return entityKey;
       };
+      const key = parentsKey
+        ? [parentsKey, entityKey].flat(1)
+        : [entityKey].flat(1);
+      const itemValue = (tempValues as any)[entityKey];
+
+      const transformFunction = get(dataFormatMap, key as (number | string)[]);
 
       const transform = () => {
-        const tempKey =
-          typeof transformFunction === 'function'
-            ? transformFunction?.(itemValue, entityKey, tempValues)
-            : _transformArray(transformFunction);
+        let tempKey,
+          transformedResult,
+          isTransformedResultPrimitive = false;
+
+        /**
+         * 先判断是否是方法，是的话执行后拿到值，如果是基本类型，则认为是直接 transform 为新的值，
+         * 如果返回是 Object 则认为是 transform 为新的 {newKey: newValue}
+         */
+        if (typeof transformFunction === 'function') {
+          transformedResult = transformFunction?.(
+            itemValue,
+            entityKey,
+            tempValues,
+          );
+          const typeOfResult = typeof transformedResult;
+          if (typeOfResult !== 'object' && typeOfResult !== 'undefined') {
+            tempKey = entityKey;
+            isTransformedResultPrimitive = true;
+          } else {
+            tempKey = transformedResult;
+          }
+        } else {
+          tempKey = transformForArray(transformFunction, itemValue);
+        }
+
         // { [key:string]:any } 数组也能通过编译
         if (Array.isArray(tempKey)) {
           result = namePathSet(result, tempKey, itemValue);
           return;
         }
         if (typeof tempKey === 'object' && !Array.isArray(finalValues)) {
-          finalValues = {
-            ...finalValues,
-            ...tempKey,
-          };
+          finalValues = deepMerge(finalValues, tempKey);
         } else if (typeof tempKey === 'object' && Array.isArray(finalValues)) {
           result = { ...result, ...tempKey };
-        } else if (tempKey) {
-          result = namePathSet(result, [tempKey], itemValue);
+        } else if (tempKey !== null || tempKey !== undefined) {
+          result = namePathSet(
+            result,
+            [tempKey],
+            isTransformedResultPrimitive ? transformedResult : itemValue,
+          );
         }
       };
 

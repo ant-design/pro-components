@@ -6,9 +6,9 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 import type { ProSettings } from '@ant-design/pro-components';
-import { PageContainer, ProLayout, ProCard } from '@ant-design/pro-components';
+import { PageContainer, ProCard, ProLayout } from '@ant-design/pro-components';
 import { Input } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import defaultProps from './_defaultProps';
 
 export default () => {
@@ -96,7 +96,7 @@ export default () => {
                   }}
                   prefix={<SearchOutlined />}
                   placeholder="搜索方案"
-                  bordered={false}
+                  variant="borderless"
                 />
                 <PlusCircleFilled
                   style={{

@@ -16,7 +16,7 @@ const ProcessMap = {
   running: 'active',
   online: 'success',
   error: 'exception',
-};
+} as const;
 
 export type TableListItem = {
   key: number;
@@ -41,9 +41,12 @@ for (let i = 0; i < 50; i += 1) {
     callNumber: Math.floor(Math.random() * 2000),
     progress: Math.ceil(Math.random() * 100) + 1,
     creator: creators[Math.floor(Math.random() * creators.length)],
-    status: valueEnum[Math.floor(Math.random() * 10) % 4],
+    status: valueEnum[((Math.floor(Math.random() * 10) % 4) + '') as '0'],
     createdAt: Date.now() - Math.floor(Math.random() * 100000),
-    memo: i % 2 === 1 ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴' : '简短备注文案',
+    memo:
+      i % 2 === 1
+        ? '很长很长很长很长很长很长很长的文字要展示但是要留下尾巴'
+        : '简短备注文案',
   });
 }
 
@@ -74,7 +77,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'progress',
     valueType: (item) => ({
       type: 'progress',
-      status: ProcessMap[item.status],
+      status: ProcessMap[item.status as 'close'],
     }),
   },
   {
@@ -129,7 +132,11 @@ export default () => {
         selections: [Table.SELECTION_ALL, Table.SELECTION_INVERT],
         defaultSelectedRowKeys: [1],
       }}
-      tableAlertRender={({ selectedRowKeys, selectedRows, onCleanSelected }) => {
+      tableAlertRender={({
+        selectedRowKeys,
+        selectedRows,
+        onCleanSelected,
+      }) => {
         console.log(selectedRowKeys, selectedRows);
         return (
           <Space size={24}>

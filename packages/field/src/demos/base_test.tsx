@@ -10,7 +10,10 @@ export default () => {
   return (
     <>
       <Space>
-        <Radio.Group onChange={(e) => setState(e.target.value as ProFieldFCMode)} value={state}>
+        <Radio.Group
+          onChange={(e) => setState(e.target.value as ProFieldFCMode)}
+          value={state}
+        >
           <Radio value="read">只读</Radio>
           <Radio value="edit">编辑</Radio>
         </Radio.Group>
@@ -31,10 +34,30 @@ export default () => {
           />
         </Descriptions.Item>
         <Descriptions.Item label="文本">
-          <ProField text="这是一段文本" valueType="text" mode={state} plain={plain} />
+          <ProField
+            text="这是一段文本"
+            fieldProps={{
+              disabled: true,
+            }}
+            valueType="text"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="颜色">
           <ProField text="blue" valueType="color" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="颜色禁用">
+          <ProField
+            text="blue"
+            valueType="color"
+            fieldProps={{
+              disabled: true,
+            }}
+            mode={state}
+            plain={plain}
+          />
+          <ProField text="blue" valueType="color" disabled mode="read" />
         </Descriptions.Item>
         <Descriptions.Item label="图片">
           <ProField
@@ -61,15 +84,47 @@ export default () => {
             mode={state}
             plain={plain}
           />
+
+          <ProField
+            valueType="money"
+            label="自定义货币符号"
+            name="amount4"
+            fieldProps={{
+              value: 2221212.22,
+              customSymbol: '💰',
+            }}
+            mode="read"
+          />
         </Descriptions.Item>
         <Descriptions.Item label="数字">
-          <ProField text="19897979797979" valueType="digit" mode={state} plain={plain} />
+          <ProField
+            text="19897979797979"
+            valueType="digit"
+            fieldProps={{
+              min: 1,
+              max: 10000,
+              precision: 0,
+              formatter: null,
+            }}
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="数字范围">
-          <ProField text={[123, 456]} valueType="digitRange" mode={state} plain={plain} />
+          <ProField
+            text={[123, 456]}
+            valueType="digitRange"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="秒格式化">
-          <ProField text={2000000} valueType="second" mode={state} plain={plain} />
+          <ProField
+            text={2000000}
+            valueType="second"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <ProField text="100" valueType="percent" mode={state} plain={plain} />
@@ -277,10 +332,20 @@ export default () => {
           <ProField text="40" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="进度条">
-          <ProField text="40%" valueType="progress" mode={state} plain={plain} />
+          <ProField
+            text="40%"
+            valueType="progress"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="进度条">
-          <ProField text="love" valueType="progress" mode={state} plain={plain} />
+          <ProField
+            text="love"
+            valueType="progress"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="百分比空值">
           <ProField valueType="percent" mode="read" />
@@ -395,7 +460,12 @@ export default () => {
           />
         </Descriptions.Item>
         <Descriptions.Item label="密码">
-          <ProField text="password" plain={plain} valueType="password" mode={state} />
+          <ProField
+            text="password"
+            plain={plain}
+            valueType="password"
+            mode={state}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="代码块">
           <ProField
@@ -421,7 +491,7 @@ Done in 9.70s.
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
+
     "declaration": true,
     "skipLibCheck": true
   },
