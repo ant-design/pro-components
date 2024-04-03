@@ -20,6 +20,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (
     className,
     hide,
     prefixCls,
+    getContainer,
   } = props;
 
   const { token } = useContext(ProProvider);
