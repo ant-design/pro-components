@@ -112,7 +112,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** 在查询表单中隐藏 */
     search?:
-      | false
+      | boolean
       | {
           /**
            * Transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
