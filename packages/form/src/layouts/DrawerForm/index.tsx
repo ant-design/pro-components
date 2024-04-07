@@ -1,4 +1,8 @@
-﻿import { omitUndefined, useRefFunction } from '@ant-design/pro-utils';
+﻿import {
+  isBrowser,
+  omitUndefined,
+  useRefFunction,
+} from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
@@ -108,7 +112,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const resizeInfo: CustomizeResizeType = React.useMemo(() => {
     const defaultResize: CustomizeResizeType = {
       onResize: () => {},
-      maxWidth: window.innerWidth * 0.8,
+      maxWidth: isBrowser() ? window.innerWidth * 0.8 : undefined,
       minWidth: 300,
     };
     if (typeof resize === 'boolean') {

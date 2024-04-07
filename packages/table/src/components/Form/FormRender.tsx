@@ -169,7 +169,9 @@ const FormRender = <T, U = any>({
         return {
           ...item,
           width: undefined,
-          ...(item.search ? item.search : {}),
+          ...(item.search && typeof item.search === 'object'
+            ? item.search
+            : {}),
           valueType: finalValueType,
           proFieldProps: {
             ...item.proFieldProps,

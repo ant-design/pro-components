@@ -52,10 +52,22 @@ export const ActionsContent: React.FC<GlobalHeaderProps> = ({
   const rightActionsRender =
     actionsRender || avatarDom
       ? (restParams: any) => {
-          let doms = actionsRender && actionsRender?.(restParams);
+          const doms = actionsRender && actionsRender?.(restParams);
 
           if (!doms && !avatarDom) return null;
-          if (!Array.isArray(doms)) doms = [doms];
+          if (!Array.isArray(doms))
+            return wrapSSR(
+              <div className={`${prefixCls}-header-actions ${hashId}`.trim()}>
+                {doms}
+                {avatarDom && (
+                  <span
+                    className={`${prefixCls}-header-actions-avatar ${hashId}`.trim()}
+                  >
+                    {avatarDom}
+                  </span>
+                )}
+              </div>,
+            );
           return wrapSSR(
             <div className={`${prefixCls}-header-actions ${hashId}`.trim()}>
               {doms.filter(Boolean).map((dom, index) => {

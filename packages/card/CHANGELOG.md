@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.30...@ant-design/pro-card@2.6.0) (2024-03-27)
+
+### Features
+
+- **card:** ProCard support colStyle ([bfcf8aa](https://github.com/ant-design/pro-components/commit/bfcf8aa8cd3899337a0a6a085f4afedeab558b96))
+
+## [2.5.30](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.29...@ant-design/pro-card@2.5.30) (2024-03-15)
+
+### Bug Fixes
+
+- **components:** remove deprecated tip props ([85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2bad41a21254719ff7f1df5328e42fd0fb))
+
 ## [2.5.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.28...@ant-design/pro-card@2.5.29) (2024-01-15)
 
 **Note:** Version bump only for package @ant-design/pro-card

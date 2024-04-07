@@ -1,19 +1,28 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.5...@ant-design/pro-field@2.14.6) (2024-01-31)
+## [2.14.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.8...@ant-design/pro-field@2.14.9) (2024-03-27)
 
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.7...@ant-design/pro-field@2.14.8) (2024-03-20)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.6...@ant-design/pro-field@2.14.7) (2024-03-15)
 
 ### Bug Fixes
 
-* **field:** fieldProps.options not effective in ProFormSegmented ([#8129](https://github.com/ant-design/pro-components/issues/8129)) ([a76d570](https://github.com/ant-design/pro-components/commit/a76d570e258de2eb6d6a974deb33019b6ae4e736))
-* 修复ProFormSelect/LightSelect选中之后没有自动隐藏和fieldProps使用open属性不能效两个问题 ([#8116](https://github.com/ant-design/pro-components/issues/8116)) ([817898f](https://github.com/ant-design/pro-components/commit/817898fabd2f199113ebb8a063d1ffbf0ab22829))
+- **components:** compatible 5.13.0 border ([ddf0c82](https://github.com/ant-design/pro-components/commit/ddf0c82b5a9e55546c1b864e76972621b501769b))
+- **components:** remove deprecated tip props ([85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2bad41a21254719ff7f1df5328e42fd0fb))
 
+## [2.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.5...@ant-design/pro-field@2.14.6) (2024-01-31)
 
+### Bug Fixes
 
-
+- **field:** fieldProps.options not effective in ProFormSegmented ([#8129](https://github.com/ant-design/pro-components/issues/8129)) ([a76d570](https://github.com/ant-design/pro-components/commit/a76d570e258de2eb6d6a974deb33019b6ae4e736))
+- 修复 ProFormSelect/LightSelect 选中之后没有自动隐藏和 fieldProps 使用 open 属性不能效两个问题 ([#8116](https://github.com/ant-design/pro-components/issues/8116)) ([817898f](https://github.com/ant-design/pro-components/commit/817898fabd2f199113ebb8a063d1ffbf0ab22829))
 
 ## [2.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.4...@ant-design/pro-field@2.14.5) (2024-01-15)
 

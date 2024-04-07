@@ -35,6 +35,7 @@ type CardPropsBase = {
   loading?: boolean | ReactNode;
   /** 栅格布局宽度，24 栅格，支持指定宽度或百分，需要支持响应式 colSpan={{ xs: 12, sm: 6 }} */
   colSpan?: ColSpanType | Partial<Record<Breakpoint, ColSpanType>>;
+  colStyle?: React.CSSProperties;
   /** 栅格间距 */
   gutter?: Gutter | Gutter[];
   /** 操作按钮 */

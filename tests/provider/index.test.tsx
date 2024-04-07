@@ -1,4 +1,10 @@
-import { ProConfigProvider, useStyle } from '@ant-design/pro-components';
+import {
+  ProConfigProvider,
+  ProForm,
+  ProFormMoney,
+  createIntl,
+  useStyle,
+} from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
 
@@ -34,6 +40,27 @@ describe('ProConfigProvider', () => {
           <Demo />
         </ProConfigProvider>
       </ConfigProvider>,
+    );
+  });
+
+  it('custom translations should be respected', () => {
+    const { container } = render(
+      <ConfigProvider>
+        <ProConfigProvider
+          intl={createIntl('en', {
+            moneySymbol: '!?',
+          })}
+        >
+          <ProForm>
+            <ProFormMoney name="amount" initialValue={44.33} />
+          </ProForm>
+        </ProConfigProvider>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelectorAll('input#amount')[0]).toHaveAttribute(
+      'value',
+      '!? 44.33',
     );
   });
 });

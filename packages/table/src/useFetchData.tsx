@@ -256,7 +256,7 @@ const useFetchData = <DataSource extends RequestData<any>>(
         new Promise((_, reject) => {
           abortRef.current?.signal?.addEventListener?.('abort', () => {
             reject('aborted');
-            // 结束强求，并且清空loading控制
+            // 结束请求，并且清空loading控制
             fetchListDebounce.cancel();
             requestFinally();
           });

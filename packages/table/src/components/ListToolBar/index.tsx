@@ -95,7 +95,18 @@ function getSettingItem(setting: SettingPropType) {
         </Tooltip>
       );
     }
-    return icon;
+    return (
+      <span
+        key={key}
+        onClick={() => {
+          if (onClick) {
+            onClick(key);
+          }
+        }}
+      >
+        {icon}
+      </span>
+    );
   }
   return null;
 }

@@ -1,8 +1,5 @@
 import ProForm, { ProFormSegmented } from '@ant-design/pro-form';
-import {
-  cleanup,
-  render,
-} from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
 
 afterEach(() => {
   cleanup();
@@ -25,6 +22,8 @@ describe('ProFormSegmented', () => {
       </ProForm>,
     );
 
-    expect(container.querySelectorAll('.ant-segmented-item').length).toBe(options.length);
+    expect(container.querySelectorAll('.ant-segmented-item').length).toBe(
+      options.length,
+    );
   });
 });

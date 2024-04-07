@@ -1,15 +1,29 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.25.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.25.0...@ant-design/pro-form@2.25.1) (2024-03-27)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [2.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.24.5...@ant-design/pro-form@2.25.0) (2024-03-20)
+
+### Features
+
+- **form:** ProFormFieldSet support funtion ([efbdab6](https://github.com/ant-design/pro-components/commit/efbdab6bb564a1bde4679b2069acdf3041f96a5c))
+
+## [2.24.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.24.4...@ant-design/pro-form@2.24.5) (2024-03-15)
+
+### Bug Fixes
+
+- **components:** remove deprecated tip props ([85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2bad41a21254719ff7f1df5328e42fd0fb))
+- **form:** PasswordStrength support morse options ([3ab9f11](https://github.com/ant-design/pro-components/commit/3ab9f11bf0307d4d0e127cb66c9042c72645dc64))
+- **list:** support add string line ([9ec366d](https://github.com/ant-design/pro-components/commit/9ec366d3d1ef09587e48a3d98ab5ffe584f3248c))
+- **QueryFilter:** 修复 ProFormDependency 在 QueryFilter 中失效的问题 ([#8212](https://github.com/ant-design/pro-components/issues/8212)) ([fdc5418](https://github.com/ant-design/pro-components/commit/fdc5418b4a12775819a0caafad580236afa7a607))
 
 ## [2.24.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.24.3...@ant-design/pro-form@2.24.4) (2024-01-31)
 
 **Note:** Version bump only for package @ant-design/pro-form
-
-
-
-
 
 ## [2.24.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.24.2...@ant-design/pro-form@2.24.3) (2024-01-18)
 

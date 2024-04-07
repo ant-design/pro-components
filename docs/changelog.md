@@ -1,3 +1,33 @@
+## @ant-design/pro-components@2.7.0
+
+`2024-03-27`
+
+- fix(form): DrawerForm ssr 错误 : window is not defined (#8244). [#8244](https://github.com/ant-design/pro-components/pull/#8244) [@edram](https://github.com/edram)
+- fix(table): densityLarger 中文简体和繁体国际化，文案问题修改 (#8241). [#8241](https://github.com/ant-design/pro-components/pull/#8241) [@lk0606](https://github.com/lk0606)
+- feat(card): ProCard support colStyle. [bfcf8aa](https://github.com/ant-design/pro-components/commit/bfcf8aa)
+
+## @ant-design/pro-components@2.6.52
+
+`2024-03-22`
+
+- feat(form): ProFormFieldSet support funtion. [efbdab6](https://github.com/ant-design/pro-components/commit/efbdab6)
+
+## @ant-design/pro-components@2.6.51
+
+`2024-03-20`
+
+- feat(form): ProFormFieldSet support funtion. [efbdab6](https://github.com/ant-design/pro-components/commit/efbdab6)
+
+## @ant-design/pro-components@2.6.50
+
+`2024-03-15`
+
+- fix(components): remove deprecated tip props. [85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2)
+- fix(components): compatible 5.13.0 border. [ddf0c82](https://github.com/ant-design/pro-components/commit/ddf0c82)
+- fix(form): PasswordStrength support morse options. [3ab9f11](https://github.com/ant-design/pro-components/commit/3ab9f11)
+- fix(list): support add string line. [9ec366d](https://github.com/ant-design/pro-components/commit/9ec366d)
+- feat(table): add click event for icon element (#8167). [#8167](https://github.com/ant-design/pro-components/pull/#8167) [@Been101](https://github.com/Been101)
+
 ## @ant-design/pro-components@2.6.49
 
 `2024-01-31`

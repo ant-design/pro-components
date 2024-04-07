@@ -1084,7 +1084,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                           >
                             Name
                           </th>
-                          <td
+                          <th
                             class="ant-table-cell ant-table-row-expand-icon-cell"
                           />
                           <th

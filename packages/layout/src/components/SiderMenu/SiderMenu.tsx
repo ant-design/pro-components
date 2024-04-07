@@ -106,7 +106,9 @@ export type SiderMenuProps = {
   >;
 
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
-  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
+  actionsRender?: WithFalse<
+    (props: HeaderViewProps) => React.ReactNode[] | React.ReactNode
+  >;
   /**
    * @name  菜单 logo 和 title 区域的渲染
    *
@@ -320,16 +322,18 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             hashId,
           ])}
         >
-          {actionsRender?.(props as HeaderViewProps).map((item, index) => {
-            return (
-              <div
-                key={index}
-                className={`${baseClassName}-actions-list-item ${hashId}`.trim()}
-              >
-                {item}
-              </div>
-            );
-          })}
+          {[actionsRender?.(props as HeaderViewProps)]
+            .flat(1)
+            .map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`${baseClassName}-actions-list-item ${hashId}`.trim()}
+                >
+                  {item}
+                </div>
+              );
+            })}
         </Space>
       );
     },

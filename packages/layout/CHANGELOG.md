@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.18.0...@ant-design/pro-layout@7.19.0) (2024-03-27)
+
+### Bug Fixes
+
+- typo ([#8248](https://github.com/ant-design/pro-components/issues/8248)) ([12e8a83](https://github.com/ant-design/pro-components/commit/12e8a8376b69f85225335e7774e3bc0d2e8aa3d4))
+
+### Features
+
+- **card:** ProCard support colStyle ([bfcf8aa](https://github.com/ant-design/pro-components/commit/bfcf8aa8cd3899337a0a6a085f4afedeab558b96))
+
+# [7.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.20...@ant-design/pro-layout@7.18.0) (2024-03-22)
+
+### Features
+
+- ActionsContent support one dom ([8558d0e](https://github.com/ant-design/pro-components/commit/8558d0ee280595cf1bb39da383bcd3b10da7103b))
+
+## [7.17.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.19...@ant-design/pro-layout@7.17.20) (2024-03-15)
+
+### Bug Fixes
+
+- **components:** compatible 5.13.0 border ([ddf0c82](https://github.com/ant-design/pro-components/commit/ddf0c82b5a9e55546c1b864e76972621b501769b))
+
 ## [7.17.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.17.18...@ant-design/pro-layout@7.17.19) (2024-01-15)
 
 ### Bug Fixes
