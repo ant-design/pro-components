@@ -64,7 +64,7 @@ const PassWordStrength: React.FC<
               }
               return node;
             }}
-            onOpenChange={setOpen}
+            onOpenChange={(e) => setOpen(e)}
             content={
               <div
                 style={{
