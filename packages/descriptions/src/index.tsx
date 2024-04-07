@@ -502,6 +502,7 @@ const ProDescriptions = <
     actionRef,
     onRequestError,
     emptyText,
+    contentStyle,
     ...rest
   } = props;
 
@@ -639,6 +640,7 @@ const ProDescriptions = <
           {...rest}
           contentStyle={{
             minWidth: 0,
+            ...(contentStyle || {})
           }}
           extra={
             rest.extra ? (
