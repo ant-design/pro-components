@@ -127,7 +127,12 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 使用 layout 的  DefaultFooter   footerRender={() => (<DefaultFooter copyright="这是一条测试文案"/>}
    */
   footerRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+    (
+      props: ProLayoutProps & {
+        hasSiderMenu?: boolean;
+      },
+      defaultDom: React.ReactNode,
+    ) => React.ReactNode
   >;
 
   /**
