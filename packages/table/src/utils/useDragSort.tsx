@@ -180,10 +180,10 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
 
   if (dragSortKey) {
     components.body = {
-      ...(props.components?.body || {}),
       wrapper: DraggableContainer,
       row: DraggableBodyRow,
       cell: SortableItemCell,
+      ...(props.components?.body || {}),
     };
   }
 
