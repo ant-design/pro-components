@@ -22,7 +22,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    tip: '标题过长会自动收缩',
+    tooltip: '标题过长会自动收缩',
     formItemProps: {
       rules: [
         {

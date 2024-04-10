@@ -137,7 +137,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <span
                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                      style="width: 22px; height: 22px; font-size: 18px;"
                     >
                       <img
                         src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -267,6 +267,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <div
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
+                      mode="read"
                     >
                       <div
                         class="ant-color-picker-color-block"
@@ -346,7 +347,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                     class="ant-descriptions-item-content"
                   >
                     <span>
-                      23天555小时33分钟20秒
+                      23天3小时33分钟20秒
                     </span>
                   </span>
                 </div>
@@ -999,7 +1000,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                         >
                           <div
                             class="ant-progress-bg"
-                            style="width: 40%; height: 6px;"
+                            style="width: 40%; height: 6px; --progress-percent: 0.4;"
                           />
                         </div>
                       </div>
@@ -1182,7 +1183,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   <span
                     class="ant-descriptions-item-content"
                   >
-                    <div>
+                    <div
+                      style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
+                    >
                       <div>
                         2019-11-15
                       </div>
@@ -1208,7 +1211,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   <span
                     class="ant-descriptions-item-content"
                   >
-                    <div>
+                    <div
+                      style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
+                    >
                       <div>
                         2019-11-15 12:50:26
                       </div>
@@ -1555,7 +1560,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                   >
                     <span
                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                      style="width: 22px; height: 22px; font-size: 18px;"
                     >
                       <img
                         src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -1584,10 +1589,11 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper"
+                      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-disabled"
+                        disabled=""
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -1646,13 +1652,8 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                       style="display: table-cell;"
                     >
                       <div
-                        class="ant-color-picker-color-block"
-                      >
-                        <div
-                          class="ant-color-picker-color-block-inner"
-                          style="background: rgb(22, 119, 255);"
-                        />
-                      </div>
+                        class="ant-color-picker-clear"
+                      />
                     </div>
                   </span>
                 </div>
@@ -1681,16 +1682,12 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                       style="display: table-cell;"
                     >
                       <div
-                        class="ant-color-picker-color-block"
-                      >
-                        <div
-                          class="ant-color-picker-color-block-inner"
-                          style="background: rgb(22, 119, 255);"
-                        />
-                      </div>
+                        class="ant-color-picker-clear"
+                      />
                     </div>
                     <div
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
+                      mode="read"
                     >
                       <div
                         class="ant-color-picker-color-block"
@@ -1720,7 +1717,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <input
-                      class="ant-input"
+                      class="ant-input ant-input-outlined"
                       placeholder="请输入"
                       type="text"
                       value=""
@@ -1748,7 +1745,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-outlined"
                       style="width: 200px;"
                     >
                       <div
@@ -1822,6 +1819,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         />
                       </div>
                     </div>
+                    <span>
+                      💰2,221,212.22
+                    </span>
                   </span>
                 </div>
               </td>
@@ -1841,7 +1841,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-outlined"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -1942,7 +1942,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                       class="ant-space-compact"
                     >
                       <div
-                        class="ant-input-number ant-input-number-compact-item ant-input-number-compact-first-item"
+                        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item"
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -2017,7 +2017,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         </div>
                       </div>
                       <input
-                        class="ant-input ant-input-disabled ant-input-compact-item"
+                        class="ant-input ant-input-disabled ant-input-outlined ant-input-compact-item"
                         disabled=""
                         placeholder="~"
                         style="width: 30px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
@@ -2025,7 +2025,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         value=""
                       />
                       <div
-                        class="ant-input-number ant-input-number-compact-item ant-input-number-compact-last-item"
+                        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
                         style="border-inline-start: 0;"
                       >
                         <div
@@ -2120,7 +2120,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-outlined"
                       style="width: 100%;"
                     >
                       <div
@@ -2218,7 +2218,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-outlined"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -2672,7 +2672,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
                     >
                       <div
@@ -3158,7 +3158,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
                     >
                       <div
@@ -3236,7 +3236,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-select ant-cascader ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-cascader ant-select-outlined ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     >
                       <div
                         class="ant-select-selector"
@@ -3317,7 +3317,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-outlined"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -3409,7 +3409,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-outlined"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -3505,7 +3505,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-input-number"
+                      class="ant-input-number ant-input-number-outlined"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -3669,17 +3669,16 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker"
+                      class="ant-picker ant-picker-outlined"
                     >
                       <div
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           placeholder="请选择"
-                          readonly=""
                           size="21"
-                          title=""
                           value=""
                         />
                         <span
@@ -3736,17 +3735,16 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                         >
                           <div
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               placeholder="请选择"
-                              readonly=""
                               size="21"
-                              title=""
                               value=""
                             />
                             <span
@@ -3779,17 +3777,16 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-picker"
+                          class="ant-picker ant-picker-outlined"
                         >
                           <div
                             class="ant-picker-input"
                           >
                             <input
+                              aria-invalid="false"
                               autocomplete="off"
                               placeholder="请选择"
-                              readonly=""
                               size="21"
-                              title=""
                               value=""
                             />
                             <span
@@ -3838,17 +3835,16 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker"
+                      class="ant-picker ant-picker-outlined"
                     >
                       <div
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
-                          title=""
                           value=""
                         />
                         <span
@@ -3899,15 +3895,16 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-range ant-picker-borderless"
+                      class="ant-picker ant-picker-range ant-picker-outlined"
                     >
                       <div
-                        class="ant-picker-input ant-picker-input-active"
+                        class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="start"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
                           value=""
                         />
@@ -3944,16 +3941,17 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="end"
                           placeholder="请选择"
-                          readonly=""
                           size="12"
                           value=""
                         />
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="left: 0px; width: 0px; position: absolute;"
+                        style="position: absolute; width: 0px; left: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -3998,15 +3996,16 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-range ant-picker-borderless"
+                      class="ant-picker ant-picker-range ant-picker-outlined"
                     >
                       <div
-                        class="ant-picker-input ant-picker-input-active"
+                        class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="start"
                           placeholder="请选择"
-                          readonly=""
                           size="21"
                           value=""
                         />
@@ -4043,16 +4042,17 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="end"
                           placeholder="请选择"
-                          readonly=""
                           size="21"
                           value=""
                         />
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="left: 0px; width: 0px; position: absolute;"
+                        style="position: absolute; width: 0px; left: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -4101,17 +4101,16 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker"
+                      class="ant-picker ant-picker-outlined"
                     >
                       <div
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
                           placeholder="Select time"
-                          readonly=""
                           size="10"
-                          title=""
                           value=""
                         />
                         <span
@@ -4161,15 +4160,16 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-range"
+                      class="ant-picker ant-picker-range ant-picker-outlined"
                     >
                       <div
-                        class="ant-picker-input ant-picker-input-active"
+                        class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="start"
                           placeholder="Start time"
-                          readonly=""
                           size="10"
                           value=""
                         />
@@ -4206,16 +4206,17 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-picker-input"
                       >
                         <input
+                          aria-invalid="false"
                           autocomplete="off"
+                          date-range="end"
                           placeholder="End time"
-                          readonly=""
                           size="10"
                           value=""
                         />
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="left: 0px; width: 0px; position: absolute;"
+                        style="position: absolute; width: 0px; left: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -4267,7 +4268,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-input-password"
+                      class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
                     >
                       <input
                         class="ant-input"
@@ -4321,7 +4322,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <textarea
-                      class="ant-input"
+                      class="ant-input ant-input-outlined"
                       rows="5"
                     >
                       yarn run v1.22.0            
@@ -4352,7 +4353,7 @@ Done in 9.70s.
                     class="ant-descriptions-item-content"
                   >
                     <textarea
-                      class="ant-input"
+                      class="ant-input ant-input-outlined"
                       rows="5"
                     >
                       {
@@ -4414,7 +4415,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/search-value.tsx 
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+                  class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
                   style="width: 330px;"
                 >
                   <div
@@ -4501,7 +4502,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/search-value-auto
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                  class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                   style="width: 330px;"
                 >
                   <div
@@ -4618,7 +4619,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                    class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                     style="min-width: 100px;"
                   >
                     <div
@@ -4683,19 +4684,19 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
               重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
             </span>
           </button>
         </div>
@@ -4724,7 +4725,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+                    class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-focused ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
                     style="min-width: 100px;"
                   >
                     <span
@@ -4793,19 +4794,19 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
               重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
             </span>
           </button>
         </div>
@@ -4865,7 +4866,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
                       class="ant-spin-container"
                     >
                       <div
-                        class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
+                        class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
                         style="min-width: 60px; width: 330px;"
                       >
                         <div
@@ -5016,7 +5017,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
                       class="ant-spin-container"
                     >
                       <div
-                        class="ant-select ant-tree-select ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                        class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                         style="min-width: 60px; width: 330px;"
                       >
                         <div
@@ -5204,19 +5205,19 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-          <button
             class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
               重 置
+            </span>
+          </button>
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
             </span>
           </button>
         </div>

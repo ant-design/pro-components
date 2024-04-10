@@ -46,7 +46,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
     style,
     downIcon,
     allowClear = true,
-    valueMaxLength=41,
+    valueMaxLength = 41,
   } = props;
   const { componentSize } = ConfigProvider?.useConfig?.() || {
     componentSize: 'middle',
@@ -173,7 +173,7 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
         hashId,
         `${prefixCls}-${props.size ?? size ?? 'middle'}`,
         {
-          [`${prefixCls}-active`]: !!value || value === 0,
+          [`${prefixCls}-active`]: (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-bordered`]: bordered,
           [`${prefixCls}-allow-clear`]: allowClear,

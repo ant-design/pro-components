@@ -80,7 +80,7 @@ Note that the values of the breakpoints are the size of the form container and n
 | `≧ 1057px` | 4 columns |
 | `≧ 785px && < 1057px` | 3 columns |
 | `≧ 513px && < 785px` | 2 columns |
-| < 513px` | 1 column |
+| < 513px\` | 1 column |
 
 ### LightFilter
 

@@ -1,4 +1,5 @@
 ﻿import type { TableColumnType } from 'antd';
+import merge from 'lodash.merge';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
 import {
@@ -13,6 +14,7 @@ import type { DensitySize } from '../components/ToolBar/DensityIcon';
 import type { ProTableProps } from '../index';
 import type { ActionType, ProColumns } from '../typing';
 import { genColumnKey } from '../utils';
+
 
 export type ColumnsState = {
   show?: boolean;
@@ -87,8 +89,16 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         /** 从持久化中读取数据 */
         const storage = window[persistenceType];
         try {
+         
           const storageValue = storage?.getItem(persistenceKey);
           if (storageValue) {
+            if (props?.columnsState?.defaultValue) {
+              // 实际生产中，defaultValue往往作为系统方默认配置，则优先级不应高于用户配置的storageValue
+              return merge(
+                props?.columnsState?.defaultValue,
+                JSON.parse(storageValue),
+              );
+            }
             return JSON.parse(storageValue);
           }
         } catch (error) {
@@ -110,6 +120,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
 
   /**  配置或列更改时对columnsMap重新赋值 */
   useEffect(() => {
+
     const { persistenceType, persistenceKey } = props.columnsState || {};
 
     if (persistenceKey && persistenceType && typeof window !== 'undefined') {
@@ -118,7 +129,16 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
       try {
         const storageValue = storage?.getItem(persistenceKey);
         if (storageValue) {
-          setColumnsMap(JSON.parse(storageValue));
+          if (props?.columnsState?.defaultValue) {
+            setColumnsMap(
+              merge(
+                JSON.parse(storageValue),
+                props?.columnsState?.defaultValue,
+              ),
+            );
+          } else {
+            setColumnsMap(JSON.parse(storageValue));
+          }
         } else {
           setColumnsMap(defaultColumnKeyMap);
         }

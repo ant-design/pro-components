@@ -5,7 +5,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import { useContext, useEffect, useImperativeHandle, useRef } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { StepFormProvide, StepsFormProvide } from './index';
+import { StepFormProvide, StepsFormProps, StepsFormProvide } from './index';
 
 export type StepFormProps<T = Record<string, any>, U = Record<string, any>> = {
   step?: number;
@@ -19,7 +19,8 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
   const context = useContext(StepsFormProvide);
   const stepContext = useContext(StepFormProvide);
 
-  const props = { ...stepNativeProps, ...stepContext };
+  const props = { ...stepNativeProps, ...stepContext } as StepFormProps<T> &
+    StepsFormProps<any>;
   const {
     onFinish,
     step,
@@ -29,7 +30,6 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
     ...restProps
   } = props;
 
-  //@ts-expect-error
   noteOnce(!restProps.submitter, 'StepForm 不包含提交按钮，请在 StepsForm 上');
 
   /** 重置 formRef */

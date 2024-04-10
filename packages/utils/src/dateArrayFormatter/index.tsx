@@ -22,7 +22,13 @@ const formatString = (endText: any, format: FormatType): string => {
  */
 export const dateArrayFormatter = (
   value: any[],
-  format: FormatType | FormatType[],
+  format:
+    | FormatType
+    | FormatType[]
+    | {
+        format: string;
+        type?: 'mask';
+      },
 ): string => {
   const [startText, endText] = Array.isArray(value) ? value : [];
 
@@ -32,9 +38,12 @@ export const dateArrayFormatter = (
   if (Array.isArray(format)) {
     formatFirst = format[0];
     formatEnd = format[1];
+  } else if (typeof format === 'object' && format.type === 'mask') {
+    formatFirst = format.format;
+    formatEnd = format.format;
   } else {
-    formatFirst = format;
-    formatEnd = format;
+    formatFirst = format as FormatType;
+    formatEnd = format as FormatType;
   }
 
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158

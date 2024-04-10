@@ -28,7 +28,7 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 
 <code src="./demos/add-or-edit-step-form.tsx" oldtitle="自定义分步表单按钮"></code>
 
-## API
+## StepsForm
 
 | Parameters | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -45,4 +45,6 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 
 Exactly the same as [ProForm](/components/form), except that onFinish supports Promise, so if it returns `false`, it won't jump to the next step.
 
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- |
 | onFinish | form submit success trigger | `(values:T)=>Promise<false>` | - |

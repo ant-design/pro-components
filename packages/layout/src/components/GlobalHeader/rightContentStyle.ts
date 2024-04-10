@@ -11,6 +11,7 @@ const genTopNavHeaderStyle: GenerateStyle<ProToken> = (token) => {
       '&-header-actions': {
         display: 'flex',
         height: '100%',
+        alignItems: 'center',
         '&-item': {
           display: 'inline-flex',
           alignItems: 'center',

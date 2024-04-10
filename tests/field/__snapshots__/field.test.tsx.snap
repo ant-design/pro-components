@@ -3,7 +3,7 @@
 exports[`Field > 🐴 base use 1`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -108,7 +108,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-input-outlined"
                   >
                     <input
                       class="ant-input"
@@ -167,7 +167,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                 >
                   <span
                     class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                    style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
                       src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -215,15 +215,16 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         value=""
                       />
@@ -260,16 +261,17 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -346,7 +348,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-outlined"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -442,7 +444,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-outlined"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -534,7 +536,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
                   >
                     <div
@@ -616,7 +618,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
+                    class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
                     style="min-width: 100px;"
                   >
                     <div
@@ -694,7 +696,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-outlined"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -790,17 +792,16 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker"
+                    class="ant-picker ant-picker-outlined"
                   >
                     <div
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
-                        title=""
                         value=""
                       />
                       <span
@@ -847,17 +848,16 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker"
+                    class="ant-picker ant-picker-outlined"
                   >
                     <div
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -908,15 +908,16 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
@@ -953,16 +954,17 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -1007,15 +1009,16 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-range ant-picker-borderless"
+                    class="ant-picker ant-picker-range ant-picker-outlined"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
@@ -1052,16 +1055,17 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -1110,17 +1114,16 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker"
+                    class="ant-picker ant-picker-outlined"
                   >
                     <div
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="Select time"
-                        readonly=""
                         size="10"
-                        title=""
                         value=""
                       />
                       <span
@@ -1170,7 +1173,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-password"
+                    class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
                   >
                     <input
                       class="ant-input"
@@ -1229,7 +1232,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <textarea
-                    class="ant-input"
+                    class="ant-input ant-input-outlined"
                     rows="5"
                   >
                     yarn run v1.22.0
@@ -1256,7 +1259,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <textarea
-                    class="ant-input"
+                    class="ant-input ant-input-outlined"
                     rows="5"
                   >
                     {
@@ -1321,7 +1324,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper"
+                    class="ant-input-affix-wrapper ant-input-outlined"
                   >
                     <input
                       class="ant-input"
@@ -1380,7 +1383,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                 >
                   <span
                     class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                    style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
                       src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -1431,12 +1434,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         value=""
                       />
@@ -1473,16 +1477,17 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -1559,7 +1564,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-outlined"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -1655,7 +1660,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-outlined"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -1747,7 +1752,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
                   >
                     <div
@@ -1829,7 +1834,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
+                    class="ant-select ant-select-outlined ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading"
                     style="min-width: 100px;"
                   >
                     <div
@@ -1907,7 +1912,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-input-number"
+                    class="ant-input-number ant-input-number-outlined"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -2009,11 +2014,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
-                        title=""
                         value=""
                       />
                       <span
@@ -2066,11 +2070,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="请选择"
-                        readonly=""
                         size="12"
-                        title=""
                         value=""
                       />
                       <span
@@ -2124,12 +2127,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
@@ -2166,16 +2170,17 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -2223,12 +2228,13 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     class="ant-picker ant-picker-range ant-picker-borderless"
                   >
                     <div
-                      class="ant-picker-input ant-picker-input-active"
+                      class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="start"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
@@ -2265,16 +2271,17 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
+                        date-range="end"
                         placeholder="请选择"
-                        readonly=""
                         size="21"
                         value=""
                       />
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="left: 0px; width: 0px; position: absolute;"
+                      style="position: absolute; width: 0px; left: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -2329,11 +2336,10 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                       class="ant-picker-input"
                     >
                       <input
+                        aria-invalid="false"
                         autocomplete="off"
                         placeholder="Select time"
-                        readonly=""
                         size="10"
-                        title=""
                         value=""
                       />
                       <span
@@ -2383,7 +2389,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-input-password"
+                    class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
                   >
                     <input
                       class="ant-input"
@@ -2442,7 +2448,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <input
-                    class="ant-input"
+                    class="ant-input ant-input-outlined"
                     type="text"
                     value="
 yarn run v1.22.0
@@ -2469,7 +2475,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <input
-                    class="ant-input"
+                    class="ant-input ant-input-outlined"
                     type="text"
                     value="{
   \\"compilerOptions\\": {
@@ -2507,7 +2513,7 @@ Done in 9.70s.
 exports[`Field > 🐴 money valueType is Object 1`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -2573,7 +2579,7 @@ exports[`Field > 🐴 money valueType is Object 1`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="请输入"
+        placeholder="Please enter"
         role="spinbutton"
         step="1"
         value=""
@@ -2594,7 +2600,7 @@ exports[`Field > 🐴 money valueType is Object 2`] = `
 exports[`Field > 🐴 money valueType is Object 3`] = `
 <DocumentFragment>
   <span>
-    100
+    $100.00
   </span>
 </DocumentFragment>
 `;
@@ -2602,7 +2608,7 @@ exports[`Field > 🐴 money valueType is Object 3`] = `
 exports[`Field > 🐴 money valueType is Object 4`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -2668,7 +2674,7 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="请输入"
+        placeholder="Введите значение"
         role="spinbutton"
         step="1"
         value=""
@@ -2681,7 +2687,7 @@ exports[`Field > 🐴 money valueType is Object 4`] = `
 exports[`Field > 🐴 money valueType is Object 5`] = `
 <DocumentFragment>
   <span>
-    100.00
+    100,00 ₽
   </span>
 </DocumentFragment>
 `;
@@ -2689,7 +2695,7 @@ exports[`Field > 🐴 money valueType is Object 5`] = `
 exports[`Field > 🐴 money valueType is Object 6`] = `
 <DocumentFragment>
   <span>
-    100
+    ₽100,00 ₽
   </span>
 </DocumentFragment>
 `;
@@ -2697,7 +2703,7 @@ exports[`Field > 🐴 money valueType is Object 6`] = `
 exports[`Field > 🐴 money valueType is Object 7`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -2763,7 +2769,7 @@ exports[`Field > 🐴 money valueType is Object 7`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="请输入"
+        placeholder="Sila masuk"
         role="spinbutton"
         step="1"
         value=""
@@ -2784,7 +2790,7 @@ exports[`Field > 🐴 money valueType is Object 8`] = `
 exports[`Field > 🐴 money valueType is Object 9`] = `
 <DocumentFragment>
   <span>
-    100
+    RM100.00
   </span>
 </DocumentFragment>
 `;
@@ -2792,7 +2798,7 @@ exports[`Field > 🐴 money valueType is Object 9`] = `
 exports[`Field > 🐴 money valueType is Object 10`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -2858,7 +2864,7 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
       <input
         autocomplete="off"
         class="ant-input-number-input"
-        placeholder="请输入"
+        placeholder="Molimo unesite"
         role="spinbutton"
         step="1"
         value=""
@@ -2871,7 +2877,7 @@ exports[`Field > 🐴 money valueType is Object 10`] = `
 exports[`Field > 🐴 money valueType is Object 11`] = `
 <DocumentFragment>
   <span>
-    100.00
+    100 RSD
   </span>
 </DocumentFragment>
 `;
@@ -2879,7 +2885,7 @@ exports[`Field > 🐴 money valueType is Object 11`] = `
 exports[`Field > 🐴 money valueType is Object 12`] = `
 <DocumentFragment>
   <span>
-    100
+    RSD100 RSD
   </span>
 </DocumentFragment>
 `;
@@ -2962,7 +2968,7 @@ exports[`Field > 🐴 percent support unit string 1`] = `
 exports[`Field > 🐴 percent valueType is Object 1`] = `
 <DocumentFragment>
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -3065,7 +3071,7 @@ exports[`Field > 🐴 progress support no number 1`] = `
       >
         <div
           class="ant-progress-bg"
-          style="width: 0%; height: 6px;"
+          style="width: 0%; height: 6px; --progress-percent: 0;"
         />
       </div>
     </div>
@@ -3096,7 +3102,7 @@ exports[`Field > 🐴 progress support string number 1`] = `
       >
         <div
           class="ant-progress-bg"
-          style="width: 12%; height: 6px;"
+          style="width: 12%; height: 6px; --progress-percent: 0.12;"
         />
       </div>
     </div>
@@ -3159,7 +3165,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                 >
                   <span
                     class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                    style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
                       src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -3206,7 +3212,9 @@ exports[`Field > 🐴 read and plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
+                  >
                     <div>
                       2019-11-15
                     </div>
@@ -3484,7 +3492,9 @@ exports[`Field > 🐴 read and plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
+                  >
                     <div>
                       2019-11-15 12:50:26
                     </div>
@@ -3510,7 +3520,9 @@ exports[`Field > 🐴 read and plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
+                  >
                     <div>
                       2019-11-15 12:50:26
                     </div>
@@ -3738,7 +3750,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 >
                   <span
                     class="ant-avatar ant-avatar-circle ant-avatar-image"
-                    style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                    style="width: 22px; height: 22px; font-size: 18px;"
                   >
                     <img
                       src="https://avatars2.githubusercontent.com/u/8186664?s=60&v=4"
@@ -3785,7 +3797,9 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
+                  >
                     <div>
                       2019-11-15
                     </div>
@@ -3957,7 +3971,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                       >
                         <div
                           class="ant-progress-bg"
-                          style="width: 40%; height: 6px;"
+                          style="width: 40%; height: 6px; --progress-percent: 0.4;"
                         />
                       </div>
                     </div>
@@ -4032,7 +4046,9 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
+                  >
                     <div>
                       2019-11-15 12:50:26
                     </div>
@@ -4058,7 +4074,9 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <div>
+                  <div
+                    style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
+                  >
                     <div>
                       2019-11-15 12:50:26
                     </div>

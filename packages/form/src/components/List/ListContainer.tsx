@@ -122,7 +122,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
           let index = uuidFields.length;
           // 如果是顶部，加到第一个，如果不是，为空就是最后一个
           if (position === 'top') index = 0;
-          await wrapperAction.add(runFunction(creatorRecord) || {}, index);
+          await wrapperAction.add(runFunction(creatorRecord) ?? {}, index);
           setLoading(false);
         }}
       >

@@ -1,11 +1,10 @@
 import type { GenerateStyle } from '@ant-design/pro-provider';
 import { ProProvider } from '@ant-design/pro-provider';
 import type { AvatarProps, SiderProps } from 'antd';
-import { Avatar, Layout, Menu, Space } from 'antd';
-import { SiderContext } from 'antd/es/layout/Sider';
+import { Avatar, Layout, Menu, Space, version } from 'antd';
 import type { ItemType } from 'antd/lib/menu/hooks/useItems';
 import classNames from 'classnames';
-import type { CSSProperties } from 'react';
+import type { CSSProperties, FC, ReactNode } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { WithFalse } from '../../typing';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
@@ -17,7 +16,22 @@ import { BaseMenu } from './BaseMenu';
 import type { SiderMenuToken } from './style/stylish';
 import { useStylish } from './style/stylish';
 
-const { Sider } = Layout;
+const _SafetyWarningProvider: FC<{ children: ReactNode }> = React.memo(
+  (props) => {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(
+        `[pro-layout] SiderMenu required antd@^4.24.15 || antd@^5.11.2 for access the menu context, please upgrade your antd version (current ${version}).`,
+      );
+    }
+
+    return <>{props.children}</>;
+  },
+);
+
+const {
+  Sider,
+  _InternalSiderContext: SiderContext = { Provider: _SafetyWarningProvider },
+} = Layout;
 
 export type HeaderRenderKey = 'menuHeaderRender' | 'headerTitleRender';
 
@@ -84,14 +98,17 @@ export type SiderMenuProps = {
     AvatarProps & {
       title?: React.ReactNode;
       render?: (
-        props: AvatarProps,
+        avatarProps: AvatarProps,
         defaultDom: React.ReactNode,
+        props: SiderMenuProps,
       ) => React.ReactNode;
     }
   >;
 
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
-  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
+  actionsRender?: WithFalse<
+    (props: HeaderViewProps) => React.ReactNode[] | React.ReactNode
+  >;
   /**
    * @name  菜单 logo 和 title 区域的渲染
    *
@@ -286,7 +303,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       </div>
     );
     if (render) {
-      return render(avatarProps, dom);
+      return render(avatarProps, dom, props);
     }
     return dom;
   }, [avatarProps, baseClassName, collapsed]);
@@ -305,16 +322,18 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             hashId,
           ])}
         >
-          {actionsRender?.(props).map((item, index) => {
-            return (
-              <div
-                key={index}
-                className={`${baseClassName}-actions-list-item ${hashId}`.trim()}
-              >
-                {item}
-              </div>
-            );
-          })}
+          {[actionsRender?.(props as HeaderViewProps)]
+            .flat(1)
+            .map((item, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`${baseClassName}-actions-list-item ${hashId}`.trim()}
+                >
+                  {item}
+                </div>
+              );
+            })}
         </Space>
       );
     },

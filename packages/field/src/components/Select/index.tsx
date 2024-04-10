@@ -1,5 +1,6 @@
 import { useIntl } from '@ant-design/pro-provider';
 import {
+  compatibleBorder,
   nanoid,
   objectToMap,
   proFieldParsingText,
@@ -486,7 +487,7 @@ const FieldSelect: ProFieldFC<
       if (light) {
         return (
           <LightSelect
-            bordered={bordered}
+            {...compatibleBorder(bordered)}
             id={id}
             loading={loading}
             ref={inputRef}
@@ -512,7 +513,7 @@ const FieldSelect: ProFieldFC<
             minWidth: 100,
             ...rest.style,
           }}
-          bordered={bordered}
+          {...compatibleBorder(bordered)}
           id={id}
           loading={loading}
           ref={inputRef}

@@ -44,7 +44,7 @@ Since `ProComponent` uses newer CSS properties, the desired compatibility may no
 
 Therefore, additional compatibility configurations are required:
 
-1. Configure according to this documentation: https://ant.design/docs/react/compatible-style-cn
+1. Configure according to this documentation: <https://ant.design/docs/react/compatible-style-cn>
 
 2. If it's a Umi project, you can configure in app.ts ：
 

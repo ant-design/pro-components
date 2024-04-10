@@ -15,7 +15,7 @@ function closePicker(container: HTMLElement, index = 0) {
 
 export function openPicker(container: HTMLElement, index = 0) {
   const input = container.querySelectorAll('input')[index];
-  fireEvent.mouseDown(input);
+  fireEvent.click(input);
   fireEvent.focus(input);
 }
 
@@ -73,9 +73,8 @@ describe('DateField', () => {
         expect(openChangeFn).toBeCalledWith(false);
       });
       await act(async () => {
-        await fireEvent.mouseDown(
-          container.querySelector('.ant-picker-clear')!,
-        );
+        await fireEvent.click(container.querySelector('.ant-picker-clear')!);
+        await fireEvent.click(container.querySelector('.ant-picker-clear')!);
         await fireEvent.mouseUp(container.querySelector('.ant-picker-clear')!);
       });
 
@@ -137,9 +136,7 @@ describe('DateField', () => {
       });
 
       await act(async () => {
-        await fireEvent.mouseDown(
-          container.querySelector('.ant-picker-clear')!,
-        );
+        await fireEvent.click(container.querySelector('.ant-picker-clear')!);
         await fireEvent.mouseUp(container.querySelector('.ant-picker-clear')!);
       });
 
@@ -173,8 +170,8 @@ describe('DateField', () => {
       />,
     );
 
-    expect(html.baseElement.innerHTML).toBe(
-      '<div><div><div>2016-11-22 15:22:44</div><div>2016-11-23 15:22:44</div></div></div>',
+    expect(html.baseElement.textContent).toBe(
+      '2016-11-22 15:22:442016-11-23 15:22:44',
     );
   });
 

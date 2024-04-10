@@ -112,7 +112,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** 在查询表单中隐藏 */
     search?:
-      | false
+      | boolean
       | {
           /**
            * Transform: (value: any) => ({ startTime: value[0], endTime: value[1] }),
@@ -375,6 +375,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
    * @name 如何格式化日期
    */
   dateFormatter?:
+    | (string & {})
     | 'string'
     | 'number'
     | ((value: dayjs.Dayjs, valueType: string) => string | number)
@@ -439,7 +440,7 @@ export type ProTableProps<DataSource, U, ValueType = 'text'> = {
   /**
    * 只在request 存在的时候生效，可编辑表格也不会生效
    *
-   * @default true
+   * @default false
    * @name 窗口聚焦时自动重新请求
    */
   revalidateOnFocus?: boolean;

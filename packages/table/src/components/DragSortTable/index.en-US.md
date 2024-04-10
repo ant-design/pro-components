@@ -19,7 +19,7 @@ nav:
 
 <code src="./demos/drag-sort-table.tsx"  background="var(--main-bg-color)" oldtitle="Editable table"></code>
 
-## API
+## DragSortTable
 
 | property | description | type | default value |
 | --- | --- | --- | --- |

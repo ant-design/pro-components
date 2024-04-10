@@ -89,7 +89,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 
 与 ProTable 相同的[配置](https://procomponents.ant.design/components/table/#%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C)。
 
-### Metas.[Meta] 通用 API
+### Metas.\[Meta] 通用 API
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
@@ -99,7 +99,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 
 ### Metas.type
 
-对应 dataSource 的字段类型为 `'new'` \| `'top'` \| `'inline'`。
+对应 dataSource 的字段类型为 `'new'` | `'top'` | `'inline'`。
 
 | 参数      | 说明 | 类型 | 默认值   |
 | :-------- | :--- | :--- | :------- |
@@ -134,7 +134,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 | dataIndex | - | - | `'actions'` |
-| cardActionProps | 设置卡片列表把 action 渲染到哪里｜`extra`｜`'actions' \| 'extra'` |
+| cardActionProps | 设置卡片列表把 action 渲染到哪里｜`extra`｜`'actions' \| 'extra'` |  |  |
 
 ### Metas.content
 

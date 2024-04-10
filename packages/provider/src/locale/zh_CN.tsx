@@ -1,5 +1,5 @@
 export default {
-  moneySymbol: '￥',
+  moneySymbol: '¥',
   deleteThisLine: '删除此项',
   copyThisLine: '复制此项',
   form: {
@@ -46,7 +46,7 @@ export default {
     reload: '刷新',
     density: '密度',
     densityDefault: '正常',
-    densityLarger: '默认',
+    densityLarger: '宽松',
     densityMiddle: '中等',
     densitySmall: '紧凑',
   },

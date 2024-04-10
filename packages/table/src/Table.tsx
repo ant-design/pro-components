@@ -576,7 +576,7 @@ const ProTable = <
   });
   // ============================ END ============================
 
-  /** 默认聚焦的时候重新请求数据，这样可以保证数据都是最新的。 */
+  /** 聚焦的时候重新请求数据，这样可以保证数据都是最新的。 */
   useEffect(() => {
     // 手动模式和 request 为空都不生效
     if (
@@ -750,11 +750,6 @@ const ProTable = <
 
   /** 同步 action */
   counter.setAction(actionRef.current);
-
-  if (propsActionRef) {
-    // @ts-ignore
-    propsActionRef.current = actionRef.current;
-  }
 
   // ---------- 列计算相关 start  -----------------
   const tableColumn = useMemo(() => {

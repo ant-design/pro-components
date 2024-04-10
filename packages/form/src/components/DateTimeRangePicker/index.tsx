@@ -1,6 +1,5 @@
 import { dateArrayFormatter } from '@ant-design/pro-utils';
-import type { RangePickerProps } from 'antd/lib/date-picker/generatePicker';
-import type { Dayjs } from 'dayjs';
+import { RangePickerProps } from 'antd/es/date-picker';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../typing';
@@ -14,7 +13,7 @@ const valueType = 'dateTimeRange' as const;
  * @param
  */
 const ProFormDateTimeRangePicker: React.FC<
-  ProFormFieldItemProps<RangePickerProps<Dayjs>>
+  ProFormFieldItemProps<RangePickerProps>
 > = React.forwardRef(({ fieldProps, proFieldProps, ...rest }, ref) => {
   const context = useContext(FieldContext);
   return (

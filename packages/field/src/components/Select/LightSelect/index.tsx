@@ -1,5 +1,5 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { FieldLabel, useStyle } from '@ant-design/pro-utils';
+import { FieldLabel, compatibleBorder, useStyle } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
 
@@ -62,7 +62,7 @@ const LightSelect: React.ForwardRefRenderFunction<
     labelTrigger,
     optionFilterProp,
     optionLabelProp = '',
-    valueMaxLength=41,
+    valueMaxLength = 41,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -109,6 +109,15 @@ const LightSelect: React.ForwardRefRenderFunction<
     return values;
   }, [labelPropsName, options, valuePropsName, optionLabelProp]);
 
+  // 修复用户在使用ProFormSelect组件时，在fieldProps中使用open属性，不生效。
+  // ProComponents文档中写到“与select相同，且fieldProps同antd组件中的props”描述方案不相符
+  const mergeOpen = useMemo(() => {
+    if (Reflect.has(restProps, 'open')) {
+      return restProps?.open;
+    }
+    return open;
+  }, [open, restProps]);
+
   const filterValue = Array.isArray(value)
     ? value.map((v) => getValueOrLabel(valueMap, v))
     : getValueOrLabel(valueMap, value);
@@ -134,7 +143,15 @@ const LightSelect: React.ForwardRefRenderFunction<
         if (isLabelClick) {
           setOpen(!open);
         } else {
-          setOpen(true);
+          // 这里注释掉
+          /**
+           * 因为这里与代码
+           *  if (mode !== 'multiple') {
+           *   setOpen(false);
+           *  }
+           * 冲突了，导致这段代码不生效
+           */
+          // setOpen(true);
         }
       }}
     >
@@ -153,7 +170,7 @@ const LightSelect: React.ForwardRefRenderFunction<
             setOpen(false);
           }
         }}
-        bordered={bordered}
+        {...compatibleBorder(bordered)}
         showSearch={showSearch}
         onSearch={onSearch}
         style={style}
@@ -182,7 +199,7 @@ const LightSelect: React.ForwardRefRenderFunction<
             </div>
           );
         }}
-        open={open}
+        open={mergeOpen}
         onDropdownVisibleChange={(isOpen) => {
           if (!isOpen) {
             //  测试环境下直接跑

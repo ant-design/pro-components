@@ -84,7 +84,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
-            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+            style="width: 48px; height: 48px; font-size: 18px;"
           >
             <img
               src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -141,7 +141,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
-            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+            style="width: 48px; height: 48px; font-size: 18px;"
           >
             <img
               src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -164,7 +164,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
-            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+            style="width: 48px; height: 48px; font-size: 18px;"
           >
             <img
               src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -229,7 +229,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
-            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+            style="width: 48px; height: 48px; font-size: 18px;"
           >
             <img
               src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -369,7 +369,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
-            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+            style="width: 48px; height: 48px; font-size: 18px;"
           >
             <img
               src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -418,7 +418,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
-            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+            style="width: 48px; height: 48px; font-size: 18px;"
           >
             <img
               src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -467,7 +467,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
-            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+            style="width: 48px; height: 48px; font-size: 18px;"
           >
             <img
               src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -529,7 +529,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
-              style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+              style="width: 48px; height: 48px; font-size: 18px;"
             >
               <img
                 src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -571,7 +571,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
-              style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+              style="width: 48px; height: 48px; font-size: 18px;"
             >
               <img
                 src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -613,7 +613,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <span
               class="ant-avatar ant-avatar-square ant-avatar-image"
-              style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+              style="width: 48px; height: 48px; font-size: 18px;"
             >
               <img
                 src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -737,7 +737,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-square ant-avatar-image"
-            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+            style="width: 48px; height: 48px; font-size: 18px;"
           >
             <img
               src="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
@@ -2052,7 +2052,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             >
               <span
                 class="ant-avatar ant-avatar-square ant-avatar-image"
-                style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                style="width: 32px; height: 32px; font-size: 18px;"
               >
                 <img
                   src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
@@ -2094,7 +2094,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             >
               <span
                 class="ant-avatar ant-avatar-square ant-avatar-image"
-                style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                style="width: 32px; height: 32px; font-size: 18px;"
               >
                 <img
                   src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
@@ -2136,7 +2136,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             >
               <span
                 class="ant-avatar ant-avatar-square ant-avatar-image"
-                style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                style="width: 32px; height: 32px; font-size: 18px;"
               >
                 <img
                   src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
@@ -2178,7 +2178,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             >
               <span
                 class="ant-avatar ant-avatar-square ant-avatar-image"
-                style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                style="width: 32px; height: 32px; font-size: 18px;"
               >
                 <img
                   src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
@@ -2220,7 +2220,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             >
               <span
                 class="ant-avatar ant-avatar-square ant-avatar-image"
-                style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                style="width: 32px; height: 32px; font-size: 18px;"
               >
                 <img
                   src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
@@ -2262,7 +2262,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             >
               <span
                 class="ant-avatar ant-avatar-square ant-avatar-image"
-                style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+                style="width: 32px; height: 32px; font-size: 18px;"
               >
                 <img
                   src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
@@ -5763,7 +5763,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 </div>
                 <div
                   class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  style="left: 0px; transform: translateX(-50%); width: 0px;"
+                  style="width: 0px; left: 0px; transform: translateX(-50%);"
                 />
               </div>
             </div>
@@ -6160,7 +6160,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                 </div>
                 <div
                   class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  style="left: 0px; transform: translateX(-50%); width: 0px;"
+                  style="width: 0px; left: 0px; transform: translateX(-50%);"
                 />
               </div>
             </div>
@@ -10274,7 +10274,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
           class="ant-space-item"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -10402,7 +10402,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                   </div>
                   <div
                     class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                    style="left: 0px; transform: translateX(-50%); width: 0px;"
+                    style="width: 0px; left: 0px; transform: translateX(-50%);"
                   />
                 </div>
               </div>
@@ -10536,7 +10536,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
                 </div>
                 <div
                   class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                  style="left: 0px; transform: translateX(-50%); width: 0px;"
+                  style="width: 0px; left: 0px; transform: translateX(-50%);"
                 />
               </div>
             </div>

@@ -58,7 +58,7 @@ Based on ProTable implementation, it can be considered as a special case of ProT
 
 <code src="../demos/card-list.tsx"  background="var(--main-bg-color)" oldtitle="Card list"></code>
 
-##API
+\##API
 
 ### ProList API
 
@@ -85,9 +85,9 @@ Compared with antd's [List](https://ant.design/components/list-cn/), ProList's A
 
 ### Batch operations
 
-Same [configuration] as ProTable (https://procomponents.ant.design/components/table/#%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C).
+Same \[configuration] as ProTable (<https://procomponents.ant.design/components/table/#%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C>).
 
-### Metas.[Meta] Generic API
+### Metas.\[Meta] Generic API
 
 | parameter | description | type | default value |
 | :-- | :-- | :-- | :-- |
@@ -97,7 +97,7 @@ Same [configuration] as ProTable (https://procomponents.ant.design/components/ta
 
 ### Metas.type
 
-The field type corresponding to dataSource is `'new'` \| `'top'` \| `'inline'`.
+The field type corresponding to dataSource is `'new'` | `'top'` | `'inline'`.
 
 | parameter | description | type | default value |
 | :-------- | :---------- | :--- | :------------ |

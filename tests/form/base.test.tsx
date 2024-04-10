@@ -162,6 +162,9 @@ describe('ProForm', () => {
         onFinish={async (values) => {
           onFinish(values.navTheme);
         }}
+        onValuesChange={(values, e) => {
+          console.log(values, e);
+        }}
         syncToUrl
         syncToInitialValues={false}
       >
@@ -181,10 +184,8 @@ describe('ProForm', () => {
     expect(onFinish).toHaveBeenCalledWith('realDark');
 
     // rest
-    act(() => {
-      wrapper.baseElement
-        .querySelectorAll<HTMLElement>('button.ant-btn')[1]
-        .click();
+    await act(async () => {
+      await (await wrapper.findByText('重 置')).click();
     });
 
     await act(async () => {

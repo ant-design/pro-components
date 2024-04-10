@@ -161,7 +161,12 @@ export type ProLayoutProps = GlobalTypes & {
    * @example 使用 layout 的  DefaultFooter   footerRender={() => (<DefaultFooter copyright="这是一条测试文案"/>}
    */
   footerRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+    (
+      props: ProLayoutProps & {
+        hasSiderMenu?: boolean;
+      },
+      defaultDom: React.ReactNode,
+    ) => React.ReactNode
   >;
 
   /**
@@ -724,9 +729,11 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   useDocumentTitle(pageTitleInfo, props.title || false);
 
+  const { token } = useContext(ProProvider);
+
   const bgImgStyleList = useMemo(() => {
     if (bgLayoutImgList && bgLayoutImgList.length > 0) {
-      return bgLayoutImgList.map((item, index) => {
+      return bgLayoutImgList?.map((item, index) => {
         return (
           <img
             key={index}
@@ -741,8 +748,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     }
     return null;
   }, [bgLayoutImgList]);
-
-  const { token } = useContext(ProProvider);
 
   return wrapSSR(
     <RouteContext.Provider
@@ -772,9 +777,13 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
         <>{children}</>
       ) : (
         <div className={className}>
-          <div className={classNames(`${proLayoutClassName}-bg-list`, hashId)}>
-            {bgImgStyleList}
-          </div>
+          {bgImgStyleList || token.layout?.bgLayout ? (
+            <div
+              className={classNames(`${proLayoutClassName}-bg-list`, hashId)}
+            >
+              {bgImgStyleList}
+            </div>
+          ) : null}
           <Layout
             style={{
               minHeight: '100%',
@@ -787,6 +796,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               // @ts-ignore
               theme={{
                 hashed: isNeedOpenHash(),
+                token: {
+                  controlHeightLG:
+                    token.layout?.sider?.menuHeight || token?.controlHeightLG,
+                },
                 components: {
                   Menu: coverToNewToken({
                     colorItemBg:
@@ -794,8 +807,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorSubItemBg:
                       token.layout?.sider?.colorMenuBackground || 'transparent',
                     radiusItem: token.borderRadius,
-                    controlHeightLG:
-                      token.layout?.sider?.menuHeight || token?.controlHeightLG,
+
                     colorItemBgSelected:
                       token.layout?.sider?.colorBgMenuItemSelected ||
                       token?.colorBgTextHover,
@@ -820,9 +832,10 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     colorItemTextSelected:
                       token.layout?.sider?.colorTextMenuSelected ||
                       'rgba(0, 0, 0, 1)',
-                    colorBgElevated:
-                      token.layout?.sider?.colorBgMenuItemCollapsedElevated ||
-                      '#fff',
+                    popupBg: token?.colorBgElevated,
+                    subMenuItemBg: token?.colorBgElevated,
+                    darkSubMenuItemBg: 'transparent',
+                    darkPopupBg: token?.colorBgElevated,
                   }),
                 },
               }}

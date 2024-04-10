@@ -6,8 +6,16 @@ import {
 } from '@ant-design/icons';
 import { ProProvider, useIntl } from '@ant-design/pro-provider';
 import { runFunction, useRefFunction } from '@ant-design/pro-utils';
-import type { TableColumnType } from 'antd';
-import { Checkbox, ConfigProvider, Popover, Space, Tooltip, Tree } from 'antd';
+import {
+  Checkbox,
+  ConfigProvider,
+  Popover,
+  Space,
+  Tooltip,
+  Tree,
+  Typography,
+  type TableColumnType,
+} from 'antd';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import type { DataNode } from 'antd/lib/tree';
 import classNames from 'classnames';
@@ -160,6 +168,7 @@ const CheckboxList: React.FC<{
               : config.disable?.checkbox,
           isLeaf: parentConfig ? true : undefined,
         };
+
         if (children) {
           item.children = loopData(children, {
             ...config,
@@ -189,7 +198,7 @@ const CheckboxList: React.FC<{
       const targetIndex = newColumns.findIndex(
         (columnKey) => columnKey === targetId,
       );
-      const isDownWard = dropPosition > findIndex;
+      const isDownWard = dropPosition >= findIndex;
       if (findIndex < 0) return;
       const targetItem = newColumns[findIndex];
       newColumns.splice(findIndex, 1);
@@ -260,12 +269,22 @@ const CheckboxList: React.FC<{
       titleRender={(_node) => {
         const node = { ..._node, children: undefined };
         if (!node.title) return null;
+        const normalizedTitle = runFunction(node.title, node);
+        const wrappedTitle = (
+          <Typography.Text
+            style={{ width: 80 }}
+            ellipsis={{ tooltip: normalizedTitle }}
+          >
+            {normalizedTitle}
+          </Typography.Text>
+        );
+
         return (
           <CheckboxListItem
             className={className}
             {...node}
             showListItemOption={showListItemOption}
-            title={runFunction(node.title, node)}
+            title={wrappedTitle}
             columnKey={node.key as string}
           />
         );

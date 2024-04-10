@@ -178,6 +178,7 @@ export const FieldRender: React.FC<
     request,
     renderFormItem,
     params,
+    emptyText,
   } = props;
   const form = ProForm.useFormInstance();
 
@@ -188,7 +189,7 @@ export const FieldRender: React.FC<
     valueEnum,
     mode: mode || 'read',
     proFieldProps: {
-      emptyText: props.emptyText,
+      emptyText,
       render: render
         ? (finText: string) => {
             return render?.(finText, entity, index, action, {
@@ -392,13 +393,10 @@ const schemaToDescriptionsItem = (
           ? ({
               ...restItem,
               key: restItem.key || restItem.label?.toString() || index,
-              label: (title ||
-                restItem.label ||
-                restItem.tooltip ||
-                restItem.tip) && (
+              label: (title || restItem.label || restItem.tooltip) && (
                 <LabelIconTip
                   label={title || restItem.label}
-                  tooltip={restItem.tooltip || restItem.tip}
+                  tooltip={restItem.tooltip}
                   ellipsis={item.ellipsis}
                 />
               ),
@@ -431,13 +429,10 @@ const schemaToDescriptionsItem = (
                 {...restItem}
                 key={restItem.key || restItem.label?.toString() || index}
                 label={
-                  (title ||
-                    restItem.label ||
-                    restItem.tooltip ||
-                    restItem.tip) && (
+                  (title || restItem.label || restItem.tooltip) && (
                     <LabelIconTip
                       label={title || restItem.label}
-                      tooltip={restItem.tooltip || restItem.tip}
+                      tooltip={restItem.tooltip}
                       ellipsis={item.ellipsis}
                     />
                   )
@@ -506,6 +501,8 @@ const ProDescriptions = <
     onLoadingChange,
     actionRef,
     onRequestError,
+    emptyText,
+    contentStyle,
     ...rest
   } = props;
 
@@ -643,6 +640,7 @@ const ProDescriptions = <
           {...rest}
           contentStyle={{
             minWidth: 0,
+            ...(contentStyle || {})
           }}
           extra={
             rest.extra ? (

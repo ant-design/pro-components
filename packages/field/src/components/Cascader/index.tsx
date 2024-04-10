@@ -2,6 +2,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import {
   FieldLabel,
+  compatibleBorder,
   objectToMap,
   proFieldParsingText,
 } from '@ant-design/pro-utils';
@@ -107,7 +108,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   if (mode === 'edit') {
     let dom = (
       <Cascader
-        bordered={!light}
+        {...compatibleBorder(!light)}
         ref={cascaderRef}
         open={open}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}

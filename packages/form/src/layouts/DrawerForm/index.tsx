@@ -1,4 +1,5 @@
 ﻿import {
+  isBrowser,
   omitUndefined,
   openVisibleCompatible,
   useRefFunction,
@@ -21,6 +22,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
+import { SubmitterProps } from '../../components/Submitter';
 import { useStyle } from './style';
 
 export type CustomizeResizeType = {
@@ -111,7 +113,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
   const resizeInfo: CustomizeResizeType = React.useMemo(() => {
     const defaultResize: CustomizeResizeType = {
       onResize: () => {},
-      maxWidth: window.innerWidth * 0.8,
+      maxWidth: isBrowser() ? window.innerWidth * 0.8 : undefined,
       minWidth: 300,
     };
     if (typeof resize === 'boolean') {
@@ -227,7 +229,7 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
             drawerProps?.onClose?.(e);
           },
         },
-      },
+      } as SubmitterProps,
       rest.submitter,
     );
   }, [
@@ -331,26 +333,24 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
           )
         }
       >
-        <div
-          className={
-            resize
-              ? classNames(getCls('sidebar-dragger'), hashId, {
-                  [getCls('sidebar-dragger-min-disabled')]:
-                    drawerWidth === resizeInfo?.minWidth,
-                  [getCls('sidebar-dragger-max-disabled')]:
-                    drawerWidth === resizeInfo?.maxWidth,
-                })
-              : null
-          }
-          onMouseDown={(e) => {
-            resizeInfo?.onResize?.();
-            e.stopPropagation();
-            e.preventDefault();
-            document.addEventListener('mousemove', cbHandleMouseMove);
-            document.addEventListener('mouseup', cbHandleMouseUp);
-            setResizableDrawer(true);
-          }}
-        />
+        {resize ? (
+          <div
+            className={classNames(getCls('sidebar-dragger'), hashId, {
+              [getCls('sidebar-dragger-min-disabled')]:
+                drawerWidth === resizeInfo?.minWidth,
+              [getCls('sidebar-dragger-max-disabled')]:
+                drawerWidth === resizeInfo?.maxWidth,
+            })}
+            onMouseDown={(e) => {
+              resizeInfo?.onResize?.();
+              e.stopPropagation();
+              e.preventDefault();
+              document.addEventListener('mousemove', cbHandleMouseMove);
+              document.addEventListener('mouseup', cbHandleMouseUp);
+              setResizableDrawer(true);
+            }}
+          />
+        ) : null}
         <>
           <BaseForm<T, U>
             formComponentType="DrawerForm"

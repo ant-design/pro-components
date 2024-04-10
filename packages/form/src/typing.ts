@@ -160,7 +160,7 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
    */
   footerRender?: LightFilterFooterRender;
 
-  children?: React.ReactNode;
+  children?: any;
 } & Omit<ProFormItemProps, 'valueType'> &
   Pick<ProFormGridConfig, 'colProps'> &
   ExtendsProps;

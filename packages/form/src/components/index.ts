@@ -25,6 +25,15 @@ export { default as ProFormFieldSet } from './FieldSet';
 export type { ProFormFieldSetProps } from './FieldSet';
 export { FormItemProvide, default as ProFormItem } from './FormItem';
 export type { ProFormItemProps } from './FormItem';
+export {
+  FormControlRender,
+  FormItemRender,
+  ProFormItemRender,
+  pickControlProps,
+  pickControlPropsWithId,
+  useControlModel,
+} from './FormItemRender';
+export type { FormControlFC, WithControlPropsType } from './FormItemRender';
 export { default as Group } from './Group';
 export { ProFormList } from './List';
 export type { FormListActionType, ProFormListProps } from './List';

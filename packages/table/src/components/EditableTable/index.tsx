@@ -304,7 +304,7 @@ function EditableTable<
 
   useEffect(() => {
     if (!props.controlled) return;
-    value.forEach((current, index) => {
+    (value || []).forEach((current, index) => {
       formRef.current?.setFieldsValue({
         [`${getRowKey(current, index)}`]: current,
       });
@@ -359,7 +359,7 @@ function EditableTable<
       )
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [recordCreatorProps == false, maxLength, value?.length]);
+  }, [recordCreatorProps, maxLength, value?.length]);
 
   const buttonRenderProps = useMemo(() => {
     if (!creatorButtonDom) {

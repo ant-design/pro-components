@@ -1,4 +1,4 @@
-﻿---
+---
 title: DragSortTable - 拖动排序表格
 atomId: DragSortTable
 ---
@@ -17,7 +17,7 @@ atomId: DragSortTable
 
 <code src="./demos/drag-sort-table.tsx"  background="var(--main-bg-color)" title="可编辑表格"></code>
 
-## API
+## DragSortTable
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |

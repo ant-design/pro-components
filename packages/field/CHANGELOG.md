@@ -2,6 +2,71 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.8...@ant-design/pro-field@2.14.9) (2024-03-27)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.7...@ant-design/pro-field@2.14.8) (2024-03-20)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.6...@ant-design/pro-field@2.14.7) (2024-03-15)
+
+### Bug Fixes
+
+- **components:** compatible 5.13.0 border ([ddf0c82](https://github.com/ant-design/pro-components/commit/ddf0c82b5a9e55546c1b864e76972621b501769b))
+- **components:** remove deprecated tip props ([85de8a2](https://github.com/ant-design/pro-components/commit/85de8a2bad41a21254719ff7f1df5328e42fd0fb))
+
+## [2.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.5...@ant-design/pro-field@2.14.6) (2024-01-31)
+
+### Bug Fixes
+
+- **field:** fieldProps.options not effective in ProFormSegmented ([#8129](https://github.com/ant-design/pro-components/issues/8129)) ([a76d570](https://github.com/ant-design/pro-components/commit/a76d570e258de2eb6d6a974deb33019b6ae4e736))
+- 修复 ProFormSelect/LightSelect 选中之后没有自动隐藏和 fieldProps 使用 open 属性不能效两个问题 ([#8116](https://github.com/ant-design/pro-components/issues/8116)) ([817898f](https://github.com/ant-design/pro-components/commit/817898fabd2f199113ebb8a063d1ffbf0ab22829))
+
+## [2.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.4...@ant-design/pro-field@2.14.5) (2024-01-15)
+
+### Bug Fixes
+
+- **form:** fix ProFormPage submit error ([2260b0d](https://github.com/ant-design/pro-components/commit/2260b0dae2f26c12e9d25a0a4f85c2fc8fc8e0be))
+
+## [2.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.3...@ant-design/pro-field@2.14.4) (2024-01-15)
+
+### Bug Fixes
+
+- **form:** fix ProFormDateRangePicker readonly no warp error ([b2276c3](https://github.com/ant-design/pro-components/commit/b2276c35aee39fb7ee39254c3d5c48c9dea12881)), closes [#7913](https://github.com/ant-design/pro-components/issues/7913)
+- **form:** 修复特殊情况（不使用 ProFormMoney 使用 FieldMoney）下格式化错误的问题 ([#8024](https://github.com/ant-design/pro-components/issues/8024)) ([c321689](https://github.com/ant-design/pro-components/commit/c32168973008ddfe7d9c4bef79e1cbd46387b8d3))
+- **form:** 修复特殊情况下多出 moneySymbol 的问题 ([#8004](https://github.com/ant-design/pro-components/issues/8004)) ([f9f0a63](https://github.com/ant-design/pro-components/commit/f9f0a63e9f18950754f6ba6efaead3ab8dcfdb5d))
+- slove moneySymbol judge was error ([#8003](https://github.com/ant-design/pro-components/issues/8003)) ([75d5b55](https://github.com/ant-design/pro-components/commit/75d5b552986c5f86e6380cb28ed2f7d0541c6cc3))
+
+## [2.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.2...@ant-design/pro-field@2.14.3) (2023-12-12)
+
+### Bug Fixes
+
+- **Description:** slove valueType as Second calc problem ([#7929](https://github.com/ant-design/pro-components/issues/7929)) ([81249b3](https://github.com/ant-design/pro-components/commit/81249b3650d74684c02436d5d2ed378d5f29cb75))
+- **form:** fix cjs require statement ([#7952](https://github.com/ant-design/pro-components/issues/7952)) ([e16d2ec](https://github.com/ant-design/pro-components/commit/e16d2ec316c28f75fe82f576045cae48467408fa))
+
+## [2.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.1...@ant-design/pro-field@2.14.2) (2023-11-22)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.0...@ant-design/pro-field@2.14.1) (2023-11-15)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [2.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.5...@ant-design/pro-field@2.14.0) (2023-11-14)
+
+### Bug Fixes
+
+- **descriptions:** fix ProTable 和 ProDescriptions render 行为不一样的问题 ([227d302](https://github.com/ant-design/pro-components/commit/227d3023934efceb2f86184767ef7afe37a73c3b))
+- **field:** remove useDeepCompareMemo which causing renderFormItem not updated ([#7887](https://github.com/ant-design/pro-components/issues/7887)) ([d507222](https://github.com/ant-design/pro-components/commit/d507222c083a8be976f8d4dfc3fec9380f0f4316))
+- **form:** fix ProFormMoney customSymbol no work error ([d0f30b8](https://github.com/ant-design/pro-components/commit/d0f30b8b9b7354798ac5b9271b88dad772f56f36))
+- **form:** 修复 FieldOptions 中子元素换行问题 ([#7856](https://github.com/ant-design/pro-components/issues/7856)) ([6a6f1c4](https://github.com/ant-design/pro-components/commit/6a6f1c48bee9d5aaf12842b3f225766192b44ccc))
+
+### Features
+
+- **utils:** FieldLabel 的 VALUE_MAX_LENGTH 可以通过参数传入 ([#7845](https://github.com/ant-design/pro-components/issues/7845)) ([#7846](https://github.com/ant-design/pro-components/issues/7846)) ([8cba14f](https://github.com/ant-design/pro-components/commit/8cba14f24e4549d428432f0ffdf194f8474eddfb))
+
 ## [2.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.13.4...@ant-design/pro-field@2.13.5) (2023-10-26)
 
 **Note:** Version bump only for package @ant-design/pro-field
@@ -79,7 +144,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **form:** textarea 只读状态样式不统一([#7578](https://github.com/ant-design/pro-components/issues/7578) [#6618](https://github.com/ant-design/pro-components/issues/6618)) ([#7579](https://github.com/ant-design/pro-components/issues/7579)) ([d727158](https://github.com/ant-design/pro-components/commit/d727158918b703f74990f823e91656785ea8a08b))
+- **form:** textarea 只读状态样式不统一 ([#7578](https://github.com/ant-design/pro-components/issues/7578) [#6618](https://github.com/ant-design/pro-components/issues/6618)) ([#7579](https://github.com/ant-design/pro-components/issues/7579)) ([d727158](https://github.com/ant-design/pro-components/commit/d727158918b703f74990f823e91656785ea8a08b))
 
 # [2.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.11.0...@ant-design/pro-field@2.12.0) (2023-08-17)
 
@@ -185,7 +250,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **components:** fix useToken no supoort antd@4 的问题 ([58b96e9](https://github.com/ant-design/pro-components/commit/58b96e91632c0c84c429d5384c13ee6f3146e017))
+- **components:** fix useToken no supoort antd\@4 的问题 ([58b96e9](https://github.com/ant-design/pro-components/commit/58b96e91632c0c84c429d5384c13ee6f3146e017))
 
 ## [2.9.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.5...@ant-design/pro-field@2.9.6) (2023-06-12)
 
@@ -195,7 +260,7 @@ All notable changes to this project will be documented in this file. See [Conven
 - 修复 select 的 defaultKeyWords 在 schemaForm 下不生效的 bug ([#7195](https://github.com/ant-design/pro-components/issues/7195)) ([68ef5c9](https://github.com/ant-design/pro-components/commit/68ef5c9e1553d4ed514241b437be4ef2ef69687e))
 - **form:** ColorPicker use antd style-n ([8d3cd04](https://github.com/ant-design/pro-components/commit/8d3cd04eb581c6e03b31e79998c7df7556ed3471))
 - **form:** ProFormColorPicker support disable ([973ac28](https://github.com/ant-design/pro-components/commit/973ac28ea2ec5b194013c691c74d8a326134c1a1))
-- **treeSelect:** 1.新增 treeSelect 不支持请求的情况下不刷新 options 2.修复 fetchDataOnSearch 不生效 ([#7180](https://github.com/ant-design/pro-components/issues/7180)) ([8ee1d33](https://github.com/ant-design/pro-components/commit/8ee1d33bea2ad78d1015d829fac2ac89d4e99873))
+- **treeSelect:** 1. 新增 treeSelect 不支持请求的情况下不刷新 options 2. 修复 fetchDataOnSearch 不生效 ([#7180](https://github.com/ant-design/pro-components/issues/7180)) ([8ee1d33](https://github.com/ant-design/pro-components/commit/8ee1d33bea2ad78d1015d829fac2ac89d4e99873))
 
 ## [2.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.9.4...@ant-design/pro-field@2.9.5) (2023-06-02)
 
@@ -311,7 +376,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- **components:** support antd@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
+- **components:** support antd\@5.4.0 ([#6730](https://github.com/ant-design/pro-components/issues/6730)) ([1ac506f](https://github.com/ant-design/pro-components/commit/1ac506f8e46a30089437cdfe58a5f96447c39f7a))
 - **layout:** add ProHelp components ([#6654](https://github.com/ant-design/pro-components/issues/6654)) ([b1a175c](https://github.com/ant-design/pro-components/commit/b1a175c9ecbdf24a26f1cf34e10a92da05ab2b9c)), closes [#6671](https://github.com/ant-design/pro-components/issues/6671) [#6676](https://github.com/ant-design/pro-components/issues/6676)
 
 # [2.3.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.2.9...@ant-design/pro-field@2.3.0) (2023-02-28)

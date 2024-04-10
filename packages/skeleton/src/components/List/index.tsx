@@ -1,4 +1,5 @@
-import { Card, Divider, Grid, Skeleton, Space } from 'antd';
+import { Card, Divider, Skeleton, Space } from 'antd';
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 import React, { useMemo } from 'react';
 
 /** 一条分割线 */
@@ -36,7 +37,7 @@ const StatisticSkeleton: React.FC<{
     }),
     [],
   );
-  const col = Grid.useBreakpoint() || defaultCol;
+  const col = useBreakpoint() || defaultCol;
 
   const colSize =
     Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';
@@ -111,8 +112,10 @@ export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
       style={{
         borderRadius: 0,
       }}
-      bodyStyle={{
-        padding: 24,
+      styles={{
+        body: {
+          padding: 24,
+        },
       }}
     >
       <div
@@ -164,8 +167,10 @@ export const ListSkeleton: React.FC<{
 }> = ({ size, active = true, actionButton }) => (
   <Card
     bordered={false}
-    bodyStyle={{
-      padding: 0,
+    styles={{
+      body: {
+        padding: 0,
+      },
     }}
   >
     {new Array(size).fill(null).map((_, index) => (
@@ -180,10 +185,12 @@ export const ListSkeleton: React.FC<{
           borderStartEndRadius: 0,
           borderTopLeftRadius: 0,
         }}
-        bodyStyle={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+        styles={{
+          body: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
         }}
       >
         <Skeleton.Button
@@ -240,8 +247,10 @@ export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
       borderBottomRightRadius: 0,
       borderBottomLeftRadius: 0,
     }}
-    bodyStyle={{
-      paddingBlockEnd: 8,
+    styles={{
+      body: {
+        paddingBlockEnd: 8,
+      },
     }}
   >
     <Space
@@ -279,8 +288,10 @@ const ListPageSkeleton: React.FC<ListPageSkeletonProps> = ({
     {(toolbar !== false || list !== false) && (
       <Card
         bordered={false}
-        bodyStyle={{
-          padding: 0,
+        styles={{
+          body: {
+            padding: 0,
+          },
         }}
       >
         {toolbar !== false && <ListToolbarSkeleton active={active} />}

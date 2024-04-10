@@ -1,9 +1,10 @@
-﻿import { compareVersions } from './index';
+﻿import { ComponentToken } from 'antd/es/menu/style';
+import { compareVersions } from './index';
 import { getVersion } from './openVisibleCompatible';
 
 export function coverToNewToken(
-  token: Record<string, string | number | undefined>,
-) {
+  token: Partial<ComponentToken>,
+): Partial<ComponentToken> {
   if (compareVersions(getVersion(), '5.6.0') < 0) return token;
   const deprecatedTokens = {
     colorGroupTitle: 'groupTitleColor',
@@ -33,10 +34,10 @@ export function coverToNewToken(
 
   const newToken = { ...token };
   Object.keys(deprecatedTokens).forEach((key) => {
-    if (newToken[key] !== undefined) {
+    if (newToken[key as keyof ComponentToken] !== undefined) {
       // @ts-ignore
       newToken[deprecatedTokens[key]] = newToken[key];
-      delete newToken[key];
+      delete newToken[key as keyof ComponentToken];
     }
   });
   return newToken;

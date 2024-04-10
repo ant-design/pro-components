@@ -93,6 +93,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
       </Button>,
     );
   }
+
   if (submitButtonProps !== false) {
     dom.push(
       <Button
@@ -117,6 +118,7 @@ const Submitter: React.FC<SubmitterProps> = (props) => {
   if (!renderDom) {
     return null;
   }
+
   if (Array.isArray(renderDom)) {
     if (renderDom?.length < 1) {
       return null;

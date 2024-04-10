@@ -36,17 +36,17 @@ atomId: StatisticCard
 - `footer` 用于设置额外的指标展示区域。
 - 你可以设置 `Statistic` 组件的布局方式`layout` 为 `horizontal` 来展示横向指标。
 
-### 总分/主次关系
+### 总分 / 主次关系
 
 <code src="./demos/total.tsx" background="var(--main-bg-color)" oldtitle="总分/主次关系" ></code>
 
-### 总分/业绩目标
+### 总分 / 业绩目标
 
 <code src="./demos/total-layout.tsx" background="var(--main-bg-color)" oldtitle="总分/业绩目标" ></code>
 
 ### 分组指标
 
-你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
+你可以嵌套指标卡组件来将指标分组，以及 `Divider` 子组件来分隔这些指标。
 
 ### 分组指标带图表
 
@@ -127,7 +127,7 @@ atomId: StatisticCard
 | tip | 标题提示 | string\| ReactNode | - |
 | value | 数值内容 | string \| number | - |
 | icon | 图标 | ReactNode | - |
-| status | 设置状态点, 同 Badge 组件 | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | - |
+| status | 设置状态点，同 Badge 组件 | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | - |
 | valueStyle | 设置数值的样式 | style | - |
 | description | 描述性标签 | React.ReactNode \| () => React.ReactNode | - |
 | layout | 布局 | `horizontal \| vertical \| inline` | `inline` |

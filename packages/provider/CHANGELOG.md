@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.14.0...@ant-design/pro-provider@2.14.1) (2024-03-27)
+
+### Bug Fixes
+
+- **table:** densityLarger 中文简体和繁体国际化，文案问题修改 ([#8241](https://github.com/ant-design/pro-components/issues/8241)) ([058e087](https://github.com/ant-design/pro-components/commit/058e0876fa532dad85405b21a84787ddfa4ec80d))
+
+# [2.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.13.5...@ant-design/pro-provider@2.14.0) (2024-03-15)
+
+### Features
+
+- allow custom translations ([#8175](https://github.com/ant-design/pro-components/issues/8175)) ([7971294](https://github.com/ant-design/pro-components/commit/797129468d1813bafd44ecc1924ca1f9a3ca6950))
+
+### Performance Improvements
+
+- 优化 config provider context 频繁触发渲染问题 ([#8196](https://github.com/ant-design/pro-components/issues/8196)) ([7644209](https://github.com/ant-design/pro-components/commit/764420929d21d333bf35bd60e4709237cec1ed52))
+
+## [2.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.13.4...@ant-design/pro-provider@2.13.5) (2023-11-22)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [2.13.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.13.3...@ant-design/pro-provider@2.13.4) (2023-11-14)
+
+### Bug Fixes
+
+- **form:** fix ProFormMoney customSymbol no work error ([d0f30b8](https://github.com/ant-design/pro-components/commit/d0f30b8b9b7354798ac5b9271b88dad772f56f36))
+
 ## [2.13.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.13.2...@ant-design/pro-provider@2.13.3) (2023-10-26)
 
 **Note:** Version bump only for package @ant-design/pro-provider
@@ -437,7 +463,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- ’添加一行数据'国际化问题 ([#5469](https://github.com/ant-design/pro-components/issues/5469)) ([85cc727](https://github.com/ant-design/pro-components/commit/85cc7275bb58e52e84f25594952d9612742102a0))
+- ’添加一行数据 ' 国际化问题 ([#5469](https://github.com/ant-design/pro-components/issues/5469)) ([85cc727](https://github.com/ant-design/pro-components/commit/85cc7275bb58e52e84f25594952d9612742102a0))
 - **provide:** fix the translation of the `items` (PT-Br) ([#5457](https://github.com/ant-design/pro-components/issues/5457)) ([a30ee7a](https://github.com/ant-design/pro-components/commit/a30ee7a7478fd0e31931aeffe8618d1f748c9cad))
 
 # [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.7.2...@ant-design/pro-provider@1.8.0) (2022-06-16)

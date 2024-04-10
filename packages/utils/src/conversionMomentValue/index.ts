@@ -8,6 +8,7 @@ import type { ProFieldValueType } from '../typing';
 dayjs.extend(quarterOfYear);
 
 type DateFormatter =
+  | (string & {})
   | 'number'
   | 'string'
   | ((value: dayjs.Dayjs, valueType: string) => string | number)
@@ -73,10 +74,7 @@ const isMoment = (value: any): boolean => !!value?._isAMomentObject;
  */
 export const convertMoment = (
   value: dayjs.Dayjs,
-  dateFormatter:
-    | string
-    | ((value: dayjs.Dayjs, valueType: string) => string | number)
-    | false,
+  dateFormatter: DateFormatter,
   valueType: string,
 ) => {
   if (!dateFormatter) {

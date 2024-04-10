@@ -120,14 +120,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                   class="ant-pro-table-list-toolbar-search"
                 >
                   <span
-                    class="ant-input-group-wrapper ant-input-search"
+                    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
                     style="width: 200px;"
                   >
                     <span
                       class="ant-input-wrapper ant-input-group"
                     >
                       <input
-                        class="ant-input"
+                        class="ant-input ant-input-outlined"
                         placeholder="请输入"
                         type="text"
                         value=""
@@ -539,7 +539,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                 class="ant-form-item-control-input-content"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused pro-field pro-field-md"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-outlined pro-field pro-field-md"
                 >
                   <input
                     class="ant-input"
@@ -662,7 +662,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                     class="ant-form-item-control-input-content"
                                   >
                                     <span
-                                      class="ant-input-affix-wrapper pro-field pro-field-md"
+                                      class="ant-input-affix-wrapper ant-input-outlined pro-field pro-field-md"
                                     >
                                       <input
                                         class="ant-input"
@@ -776,7 +776,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                                                 class="ant-form-item-control-input-content"
                                                               >
                                                                 <input
-                                                                  class="ant-input pro-field pro-field-xs"
+                                                                  class="ant-input ant-input-outlined pro-field pro-field-xs"
                                                                   id="attributes_0_items_0_name"
                                                                   placeholder="请输入"
                                                                   type="text"
@@ -843,7 +843,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                                                 class="ant-form-item-control-input-content"
                                                               >
                                                                 <input
-                                                                  class="ant-input pro-field pro-field-xs"
+                                                                  class="ant-input ant-input-outlined pro-field pro-field-xs"
                                                                   id="attributes_0_items_1_name"
                                                                   placeholder="请输入"
                                                                   type="text"
@@ -956,19 +956,19 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
-        <button
           class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
             重 置
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
           </span>
         </button>
       </div>
@@ -1178,7 +1178,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1251,7 +1251,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
                                     </div>
@@ -1296,7 +1296,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1369,7 +1369,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
                                     </div>
@@ -1414,7 +1414,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1487,7 +1487,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
                                     </div>
@@ -1532,7 +1532,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1605,7 +1605,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
                                     </div>
@@ -1650,7 +1650,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1723,7 +1723,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
                                     </div>
@@ -1768,7 +1768,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1841,7 +1841,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
                                     </div>
@@ -1886,7 +1886,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -1959,7 +1959,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
                                     </div>
@@ -2004,7 +2004,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-avatar ant-avatar-circle ant-avatar-image"
-                                      style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
                                     >
                                       <img
                                         src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -2077,7 +2077,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                       >
                                         <div
                                           class="ant-progress-bg"
-                                          style="width: 80%; height: 8px;"
+                                          style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
                                     </div>
@@ -2259,7 +2259,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2354,7 +2354,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2449,7 +2449,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2544,7 +2544,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2738,7 +2738,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2844,7 +2844,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -2950,7 +2950,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -3056,7 +3056,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -3264,7 +3264,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctl
                                           class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-bottomLeft"
                                         >
                                           <div
-                                            class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           >
                                             <div
                                               class="ant-select-selector"
@@ -4287,7 +4287,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4349,7 +4349,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -4421,7 +4421,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4483,7 +4483,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -4555,7 +4555,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4617,7 +4617,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -4689,7 +4689,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4751,7 +4751,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -4823,7 +4823,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -4885,7 +4885,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -5045,7 +5045,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                 >
                   <div
                     aria-label="页码"
-                    class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+                    class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
                   >
                     <div
                       class="ant-select-selector"
@@ -5173,7 +5173,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper"
+                          class="ant-input-affix-wrapper ant-input-outlined"
                           style="width: 100%;"
                         >
                           <input
@@ -5254,7 +5254,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          class="ant-select ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
                           <div
@@ -5685,7 +5685,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -5762,7 +5762,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -5814,7 +5814,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -5891,7 +5891,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -5943,7 +5943,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6020,7 +6020,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -6072,7 +6072,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6149,7 +6149,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                               >
                                 <div
                                   class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>
@@ -6185,7 +6185,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
     </div>
     大小：
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -6246,7 +6246,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
     </div>
      分割线：
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -6424,7 +6424,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6526,7 +6526,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6628,7 +6628,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6730,7 +6730,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -6907,7 +6907,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -7044,7 +7044,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -7181,7 +7181,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -7318,7 +7318,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         >
                           <span
                             class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
@@ -7490,7 +7490,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                         >
                           <span
                             class="qixian-avatar qixian-avatar-circle qixian-avatar-image"
-                            style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            style="width: 22px; height: 22px; font-size: 18px;"
                           >
                             <img
                               src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
@@ -7567,7 +7567,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                               >
                                 <div
                                   class="qixian-progress-bg"
-                                  style="width: 80%; height: 8px;"
+                                  style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
                             </div>

@@ -61,7 +61,7 @@ DrawerForm combines Drawer and ProForm to reduce tedious state management.
 | --- | --- | --- | --- |
 | trigger | The dom used to trigger the opening of the Modal, typically the button | `ReactNode` | - |
 | open | whether to open | `boolean` | - |
-| resize | whether to resize | `{onResize,maxWidth,minWidth}` \| `Boolean` | { onResize: () => { }, maxWidth: window.innerWidth \* 0.8, minWidth: 300} |
+| resize | whether to resize | `{onResize,maxWidth,minWidth}` \| `Boolean` | { onResize: () => { }, maxWidth: window\.innerWidth \* 0.8, minWidth: 300} |
 | onOpenChange | trigger when open changes | `(open:boolean)=>void` | - |
 | drawerProps | Drawer's props, used in the same way as [antd](https://ant.design/components/drawer/). Note: 'open' is not supported, please use the global open | [props](https://ant.design/components/drawer/#API) | - |
 | title | The title of the drawer | `ReactNode` | - |

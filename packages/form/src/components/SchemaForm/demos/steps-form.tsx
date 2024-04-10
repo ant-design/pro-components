@@ -139,7 +139,7 @@ const columns: ProFormColumnsType<DataItem>[][] = [
         {
           title: '标题',
           dataIndex: 'groupTitle',
-          tip: '标题过长会自动收缩',
+          tooltip: '标题过长会自动收缩',
           formItemProps: {
             rules: [
               {

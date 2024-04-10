@@ -19,13 +19,19 @@ const FieldSegmented: ProFieldFC<
     text: string;
     emptyText?: React.ReactNode;
   } & FieldSelectProps
-> = (
-  { mode, render, renderFormItem, fieldProps, emptyText = '-', ...rest },
-  ref,
-) => {
+> = (props, ref) => {
+  const {
+    mode,
+    render,
+    renderFormItem,
+    fieldProps,
+    emptyText = '-',
+    ...rest
+  } = props;
+
   const inputRef = useRef<HTMLInputElement>();
 
-  const [loading, options, fetchData] = useFieldFetchData(rest);
+  const [loading, options, fetchData] = useFieldFetchData(props);
 
   useImperativeHandle(
     ref,

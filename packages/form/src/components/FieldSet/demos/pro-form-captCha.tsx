@@ -58,6 +58,9 @@ export default () => {
             reject();
           });
         }}
+        onTiming={(count) => {
+          console.log('timing:', count);
+        }}
         fieldRef={captchaRef}
         fieldProps={{ ref: inputRef }}
         name="code"

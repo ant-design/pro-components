@@ -36,6 +36,9 @@ export default () => {
         <Descriptions.Item label="文本">
           <ProField
             text="这是一段文本"
+            fieldProps={{
+              disabled: true,
+            }}
             valueType="text"
             mode={state}
             plain={plain}
@@ -80,6 +83,17 @@ export default () => {
             valueType="money"
             mode={state}
             plain={plain}
+          />
+
+          <ProField
+            valueType="money"
+            label="自定义货币符号"
+            name="amount4"
+            fieldProps={{
+              value: 2221212.22,
+              customSymbol: '💰',
+            }}
+            mode="read"
           />
         </Descriptions.Item>
         <Descriptions.Item label="数字">

@@ -100,7 +100,7 @@ export default defineConfig({
         image:
           'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
         title: 'Ant Design',
-        description: '与 Ant Design 设计体系一脉相承，无缝对接 antd 项目',
+        description: '与 Ant Design 设计体系一脉相承，无缝对接 Ant Design 项目',
       },
       {
         image:
@@ -114,7 +114,7 @@ export default defineConfig({
           'https://mdn.alipayobjects.com/yuyan_qk0oxh/afts/img/Y_NMQKxw7OgAAAAAAAAAAAAAFl94AQBr',
         title: '预设样式',
         description:
-          '样式风格与 antd 一脉相承，无需魔改，浑然天成。默认好用的主题系统',
+          '样式风格与 Ant Design 一脉相承，无需魔改，浑然天成。默认好用的主题系统',
       },
       {
         image:

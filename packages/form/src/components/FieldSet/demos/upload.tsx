@@ -8,6 +8,7 @@ export default () => {
   return (
     <ProForm>
       <ProFormUploadButton
+        title="上传按钮的文本变啦"
         name="upload"
         label="Upload"
         max={2}

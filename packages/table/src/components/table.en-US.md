@@ -113,11 +113,11 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| defaultValue | The default value of the column status, only for the first time. Used for resetting value | `Record <string, ColumnsState>;` |
-| value | Column status, support controlled mode | `Record <string, ColumnsState>;` |
-| onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |
-| PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |
-| PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localStorage \| sessionStorage` |
+| defaultValue | The default value of the column status, only for the first time. Used for resetting value | `Record <string, ColumnsState>;` |  |
+| value | Column status, support controlled mode | `Record <string, ColumnsState>;` |  |
+| onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |  |
+| PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |  |
+| PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localStorage \| sessionStorage` |  |
 
 #### Search Search form
 

@@ -27,7 +27,7 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 <code src="./demos/real-time-editing.tsx"  background="var(--main-bg-color)" oldtitle="Real-time saved editing form"></code>
 
-## API
+## EditableProTable
 
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -106,7 +106,7 @@ Compared with the ProForm form, the editable form adds the following three metho
 | --- | --- | --- | --- |
 | type | Type of editable table, single or multiple | `single` \| `multiple` | - |
 | form | Form instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
-| formProps | form properties can be configured, but onFinish is not supported | [`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
+| formProps | form properties can be configured, but onFinish is not supported | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
 | editableKeys | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
 | onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |

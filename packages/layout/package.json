@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "7.17.13",
+  "version": "7.19.0",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
@@ -35,8 +35,8 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
-    "@ant-design/pro-provider": "2.13.3",
-    "@ant-design/pro-utils": "2.14.12",
+    "@ant-design/pro-provider": "2.14.1",
+    "@ant-design/pro-utils": "2.15.6",
     "@babel/runtime": "^7.18.0",
     "@umijs/route-utils": "^4.0.0",
     "@umijs/use-params": "^1.0.9",
@@ -53,7 +53,7 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": ">=4.23.0 || >=5.0.0",
+    "antd": "^4.24.15 || ^5.11.2",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

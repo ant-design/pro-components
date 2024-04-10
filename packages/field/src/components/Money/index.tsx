@@ -130,7 +130,7 @@ const intlMap = {
 
 /**
  * A function that formats the number.
- * @param {string | false} moneySymbol - The currency symbol, which is the first parameter of the
+ * @param {string | false} locale - The currency symbol, which is the first parameter of the
  * formatMoney function.
  * @param {number | string | undefined} paramsText - The text to be formatted
  * @param {number} precision - number, // decimal places
@@ -139,10 +139,11 @@ const intlMap = {
  * @returns A function that takes in 4 parameters and returns a string.
  */
 const getTextByLocale = (
-  moneySymbol: string | false,
+  locale: string | false,
   paramsText: number | string | undefined,
   precision: number,
   config?: any,
+  moneySymbol: string = '',
 ) => {
   let moneyText: number | string | undefined = paramsText
     ?.toString()
@@ -153,22 +154,46 @@ const getTextByLocale = (
     if (Number.isNaN(parsedNum)) return moneyText;
     moneyText = parsedNum;
   }
-
   if (!moneyText && moneyText !== 0) return '';
+
+  let supportFormat = false;
+
+  try {
+    supportFormat =
+      locale !== false &&
+      Intl.NumberFormat.supportedLocalesOf([locale.replace('_', '-')], {
+        localeMatcher: 'lookup',
+      }).length > 0;
+  } catch (error) {}
 
   try {
     // Formatting the number, when readonly moneySymbol = false, unused currency.
-    const finalMoneyText = new Intl.NumberFormat(moneySymbol || 'zh-Hans-CN', {
-      ...(intlMap[(moneySymbol as 'zh-Hans-CN') || 'zh-Hans-CN'] ||
-        intlMap['zh-Hans-CN']),
-      maximumFractionDigits: precision,
-      ...config,
-    })
-      // fix: #6003 解决未指定货币符号时，金额文本格式化异常问题
-      .format(moneyText);
+    const initNumberFormatter = new Intl.NumberFormat(
+      supportFormat && locale !== false
+        ? locale?.replace('_', '-') || 'zh-Hans-CN'
+        : 'zh-Hans-CN',
+      {
+        ...(intlMap[(locale as 'zh-Hans-CN') || 'zh-Hans-CN'] ||
+          defaultMoneyIntl),
+        maximumFractionDigits: precision,
+        ...config,
+      },
+    );
 
-    // 是否有金额符号，例如 ￥ $
-    const hasMoneySymbol = moneySymbol === false;
+    const finalMoneyText = initNumberFormatter.format(moneyText);
+
+    // 同时出现两个符号的情况需要处理
+    const doubleSymbolFormat = (Text: string) => {
+      const match = Text.match(/\d+/);
+      if (match) {
+        const number = match[0];
+        return Text.slice(Text.indexOf(number));
+      } else {
+        return Text;
+      }
+    };
+    // 过滤一下，只留下数字
+    const pureMoneyText = doubleSymbolFormat(finalMoneyText);
 
     /**
      * 首字母判断是否是正负符号
@@ -177,14 +202,9 @@ const getTextByLocale = (
 
     // 兼容正负号
     if (['+', '-'].includes(operatorSymbol)) {
-      // 裁剪字符串,有符号截取两位，没有符号截取一位
-      return `${operatorSymbol}${finalMoneyText.substring(
-        hasMoneySymbol ? 2 : 1,
-      )}`;
+      return `${moneySymbol || ''}${operatorSymbol}${pureMoneyText}`;
     }
-
-    // 没有正负符号截取一位
-    return finalMoneyText.substring(hasMoneySymbol ? 1 : 0);
+    return `${moneySymbol || ''}${pureMoneyText}`;
   } catch (error) {
     return moneyText;
   }
@@ -268,7 +288,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     plain,
     valueEnum,
     placeholder,
-    locale = fieldProps.customSymbol ?? 'zh-Hans-CN',
+    locale,
     customSymbol = fieldProps.customSymbol,
     numberFormatOptions = fieldProps?.numberFormatOptions,
     numberPopoverRender = fieldProps?.numberPopoverRender || false,
@@ -299,7 +319,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     if (rest.moneySymbol === false || fieldProps.moneySymbol === false) {
       return undefined;
     }
-    return intl.getMessage('moneySymbol', '￥');
+    return intl.getMessage('moneySymbol', '¥');
   }, [customSymbol, fieldProps.moneySymbol, intl, rest.moneySymbol]);
 
   /*
@@ -342,10 +362,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     const dom = (
       <span ref={ref}>
         {getTextByLocale(
-          moneySymbol ? locale : false,
+          locale || false,
           text,
           precision,
           numberFormatOptions ?? fieldProps.numberFormatOptions,
+          moneySymbol,
         )}
       </span>
     );
@@ -362,13 +383,14 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           if (numberPopoverRender === false) return null;
           if (!props.value) return null;
           const localeText = getTextByLocale(
-            moneySymbol ? locale : false,
+            moneySymbol || locale || false,
             `${getFormateValue(props.value)}`,
             precision,
             {
               ...numberFormatOptions,
               notation: 'compact',
             },
+            moneySymbol,
           );
 
           if (typeof numberPopoverRender === 'function') {

@@ -45,16 +45,16 @@ describe('Field', () => {
         {},
       );
     });
-    expect(html.baseElement.querySelector('input')?.value).toBe('￥ 1,000');
+    expect(html.baseElement.querySelector('input')?.value).toBe('¥ 1,000');
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
-          value: '￥ 100',
+          value: '¥ 100',
         },
       });
     });
 
-    expect(html.baseElement.querySelector('input')?.value).toBe('￥ 100');
+    expect(html.baseElement.querySelector('input')?.value).toBe('¥ 100');
     html.unmount();
   });
 
@@ -119,18 +119,18 @@ describe('Field', () => {
       });
     });
     await waitFor(() => {
-      expect(!!html.queryByDisplayValue('￥ 1,000')).toBeTruthy();
+      expect(!!html.queryByDisplayValue('¥ 1,000')).toBeTruthy();
     });
 
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input')!, {
         target: {
-          value: '￥ 100',
+          value: '¥ 100',
         },
       });
     });
     await waitFor(() => {
-      expect(!!html.queryByDisplayValue('￥ 100')).toBeTruthy();
+      expect(!!html.queryByDisplayValue('¥ 100')).toBeTruthy();
     });
     act(() => {
       fireEvent.change(html.baseElement.querySelector('input')!, {
@@ -165,7 +165,7 @@ describe('Field', () => {
       );
     });
 
-    await html.findByDisplayValue('￥ 111,111,111');
+    await html.findByDisplayValue('¥ 111,111,111');
 
     act(() => {
       fireEvent.click(
@@ -1189,10 +1189,10 @@ describe('Field', () => {
       html.unmount();
     };
 
-    renderField('en_US');
-    renderField('ru_RU');
-    renderField('ms_MY');
-    renderField('sr_RS');
+    renderField('en-US');
+    renderField('ru-RU');
+    renderField('ms-MY');
+    renderField('sr-RS');
   });
 
   it('🐴 percent support unit string', async () => {

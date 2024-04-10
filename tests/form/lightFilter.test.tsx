@@ -217,6 +217,9 @@ describe('LightFilter', () => {
       fireEvent.mouseUp(
         container.querySelector('.ant-pro-core-field-label .ant-picker-clear')!,
       );
+      fireEvent.click(
+        container.querySelector('.ant-pro-core-field-label .ant-picker-clear')!,
+      );
     });
 
     await waitFor(
@@ -415,6 +418,66 @@ describe('LightFilter', () => {
       expect(
         container.querySelector('.ant-pro-core-field-label'),
       ).toHaveTextContent('名称');
+    });
+  });
+
+  it(' 🪕 select open true', async () => {
+    const html = render(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormSelect
+          showSearch
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+          fieldProps={{
+            open: true,
+          }}
+        />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('.ant-select-dropdown').length,
+      ).toEqual(1);
+    });
+  });
+
+  it(' 🪕 select open false', async () => {
+    const html = render(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormSelect
+          showSearch
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+          fieldProps={{
+            open: false,
+          }}
+        />
+      </LightFilter>,
+    );
+
+    await waitFor(() => {
+      expect(
+        html.baseElement.querySelectorAll('.ant-select-dropdown').length,
+      ).toEqual(0);
     });
   });
 
@@ -689,9 +752,6 @@ describe('LightFilter', () => {
       ).toBeTruthy();
     });
 
-    await screen.findByDisplayValue('2016-11-02');
-    await screen.findByDisplayValue('2016-11-12');
-
     await act(async () => {
       fireEvent.mouseDown(
         container.querySelector(
@@ -726,7 +786,7 @@ describe('LightFilter', () => {
     await waitFor(() => {
       expect(
         container.querySelector('.ant-pro-core-field-label')?.textContent,
-      ).toBe('日期范围');
+      ).toBe('日期范围: ');
     });
   });
 

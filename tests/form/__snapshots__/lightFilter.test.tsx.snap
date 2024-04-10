@@ -15,17 +15,17 @@ exports[`LightFilter >  🪕 DateTimePicker 1`] = `
       : 
     </span>
     <div
-      class="ant-picker ant-picker-borderless ant-picker-status-success ant-picker-focused"
+      class="ant-picker ant-picker-focused ant-picker-borderless ant-picker-status-success"
     >
       <div
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           id="datetime"
           placeholder="请选择日期"
           size="21"
-          title="2016-11-22 15:22:44"
           value="2016-11-22 15:22:44"
         />
         <span

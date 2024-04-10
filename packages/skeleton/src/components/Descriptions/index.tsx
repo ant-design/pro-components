@@ -1,4 +1,5 @@
-import { Card, Grid, Skeleton } from 'antd';
+import { Card, Skeleton } from 'antd';
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 import React, { useMemo } from 'react';
 import { Line, PageHeaderSkeleton } from '../List';
 
@@ -114,7 +115,7 @@ const DescriptionsItemSkeleton: React.FC<{
     }),
     [],
   );
-  const col = Grid.useBreakpoint() || defaultCol;
+  const col = useBreakpoint() || defaultCol;
 
   const colSize =
     Object.keys(col).filter((key) => col[key as 'lg'] === true)[0] || 'md';
@@ -189,7 +190,7 @@ export const TableItemSkeleton = ({
     }),
     [],
   );
-  const col = Grid.useBreakpoint() || defaultCol;
+  const col = useBreakpoint() || defaultCol;
 
   const colSize =
     Object.keys(col).filter((key) => col[key as 'md'] === true)[0] || 'md';

@@ -104,7 +104,7 @@ const BaseProFormField: React.FC<
             }
             onChange?.(...restParams);
           },
-          ...children.props,
+          ...((children?.props as any) || {}),
         });
       }
       return <>{children}</>;

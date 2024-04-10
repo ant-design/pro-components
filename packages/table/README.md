@@ -95,11 +95,11 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| defaultValue | The default value of the column status, only for the first time. Used for resetting value | `Record <string, ColumnsState>;` |
-| value | Column status, support controlled mode | `Record <string, ColumnsState>;` |
-| onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |
-| PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |
-| PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localStorage \| sessionStorage` |
+| defaultValue | The default value of the column status, only for the first time. Used for resetting value | `Record <string, ColumnsState>;` |  |
+| value | Column status, support controlled mode | `Record <string, ColumnsState>;` |  |
+| onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |  |
+| PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |  |
+| PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localStorage \| sessionStorage` |  |
 
 #### Search Search form
 
@@ -125,7 +125,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | --- | --- | --- | --- |
 | type | Type of editable table, single or multiple | `single` \| `multiple` | - |
 | form | Form instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
-| formProps | form properties can be configured, but onFinish is not supported | [`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
+| formProps | form properties can be configured, but onFinish is not supported | [\`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
 | editableKeys | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
 | onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |

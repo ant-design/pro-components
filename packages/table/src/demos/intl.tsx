@@ -94,7 +94,7 @@ export default () => {
           <Space>
             <span>Basic Table</span>
             <Select<string>
-              bordered={false}
+              variant="borderless"
               value={intl}
               onChange={(value) => {
                 dayjs.locale(intlMap[value as 'zhCNIntl'].locale);

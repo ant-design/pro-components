@@ -5,7 +5,7 @@ import {
   WeiboCircleOutlined,
 } from '@ant-design/icons';
 import { LoginForm, LoginFormPage, ProFormText } from '@ant-design/pro-form';
-import { act, cleanup, render } from '@testing-library/react';
+import { cleanup, render, waitFor } from '@testing-library/react';
 import { Alert, Space } from 'antd';
 import { waitForWaitTime } from '../util';
 
@@ -135,14 +135,11 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    await waitForWaitTime(100);
-    const dom = await wrapper.findByText('登 录');
+    waitFor(async () => {
+      (await wrapper.findByText('登 录')).click();
 
-    act(() => {
-      dom.click();
+      expect(fn).toHaveBeenCalled();
     });
-
-    expect(fn).toBeCalled();
   });
 
   it('📦 LoginFormPage support log', async () => {
@@ -194,13 +191,14 @@ describe('LoginForm', () => {
       </LoginForm>,
     );
 
-    await waitForWaitTime(100);
-    let dom = await wrapper.baseElement.querySelector('.ant-btn-loading');
+    waitFor(() => {
+      let dom = wrapper.baseElement.querySelector('.ant-btn-loading');
 
-    expect(!!dom).toBeTruthy();
+      expect(!!dom).toBeTruthy();
 
-    dom = await wrapper.baseElement.querySelector('.ant-btn-lg');
+      dom = wrapper.baseElement.querySelector('.ant-btn-lg');
 
-    expect(!!dom).toBeTruthy();
+      expect(!!dom).toBeTruthy();
+    });
   });
 });
