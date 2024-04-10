@@ -110,7 +110,7 @@ const FieldTimePicker: ProFieldFC<
         <DatePicker.TimePicker
           ref={ref}
           format={format}
-          bordered={plain === undefined ? true : !plain}
+          {...compatibleBorder(false)}
           {...fieldProps}
           value={dayValue}
         />
