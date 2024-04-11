@@ -7201,7 +7201,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-picker ant-picker-outlined"
+                            class="ant-picker ant-picker-borderless"
                           >
                             <div
                               class="ant-picker-input"
