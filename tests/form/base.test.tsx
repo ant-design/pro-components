@@ -1041,6 +1041,7 @@ describe('ProForm', () => {
       </ProForm>,
     );
     await wrapper.findByText('提 交');
+
     act(() => {
       fireEvent.change(
         wrapper.baseElement.querySelectorAll<HTMLElement>('input#testInput')[0],

@@ -640,7 +640,7 @@ describe('utils', () => {
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
-    const html = transformKeySubmitValue(
+    const html = await transformKeySubmitValue(
       {
         dataTime: '2019-11-16 12:50:26',
         time: '2019-11-16 12:50:26',
@@ -656,10 +656,7 @@ describe('utils', () => {
         name: () => 'new-name',
         money: (value) => ({ 'new-money': value }),
         // @ts-ignore
-        dateRange2: [
-          (itemValue, _, tempValues) => tempValues,
-          () => 'dateRange',
-        ],
+        dateRange2: () => 'dateRange',
       },
     );
     const htmlKeys = Object.keys(html).sort();
@@ -699,7 +696,7 @@ describe('utils', () => {
 
   it('📅 transformKeySubmitValue will return file', async () => {
     //@ts-expect-error
-    const html = transformKeySubmitValue(false, {
+    const html = await transformKeySubmitValue(false, {
       dataTime: () => 'new-dataTime',
       time: () => 'new-time',
       name: () => 'new-name',
@@ -709,7 +706,7 @@ describe('utils', () => {
   });
 
   it('📅 transformKeySubmitValue return object', async () => {
-    const html = transformKeySubmitValue(
+    const html = await transformKeySubmitValue(
       {
         dataTime: '2019-11-16 12:50:26',
         time: '2019-11-16 12:50:26',
@@ -725,7 +722,6 @@ describe('utils', () => {
       },
       {
         dateTimeRange: {
-          // @ts-ignore
           time: (value: any) => ({
             dateTimeRange1: value[0],
             dateTimeRange2: value[1],
@@ -738,13 +734,13 @@ describe('utils', () => {
       },
     );
     const htmlKeys = Object.keys(html).sort();
-    console.log(html);
     expect(htmlKeys).toEqual(
       [
         'dateTimeRange1',
         'dateTimeRange2',
         'dateRange1',
         'dateRange2',
+        'dateTimeRange',
         'dataTime',
         'time',
         'name',
@@ -774,7 +770,7 @@ describe('utils', () => {
   });
 
   it('📅 transformKeySubmitValue return nest object', async () => {
-    const html = transformKeySubmitValue(
+    const html = await transformKeySubmitValue(
       {
         d: new Map(),
         e: new Set(),
@@ -805,7 +801,7 @@ describe('utils', () => {
   });
 
   it('📅 transformKeySubmitValue for array', async () => {
-    const html = transformKeySubmitValue(
+    const html = await transformKeySubmitValue(
       [
         {
           name: 1,
@@ -828,47 +824,9 @@ describe('utils', () => {
         },
       },
     );
-
+    console.log(html);
     //@ts-expect-error
     expect(html[1].name2).toBe('qixian_2');
-  });
-
-  it('📅 transformKeySubmitValue return array', async () => {
-    const html = transformKeySubmitValue(
-      {
-        dataTime: '2019-11-16 12:50:26',
-        time: '2019-11-16 12:50:26',
-        name: 'qixian',
-        money: 20,
-        dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
-        dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
-      },
-      {
-        dataTime: () => ['new-dataTime'],
-        time: () => ['new-time'],
-      },
-    );
-    const htmlKeys = Object.keys(html).sort();
-    expect(htmlKeys).toEqual(
-      [
-        'dateRange',
-        'dateTimeRange',
-        'money',
-        'name',
-        'new-dataTime',
-        'new-time',
-      ].sort(),
-    );
-    expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
-    expect((html as any)['new-time']).toBe('2019-11-16 12:50:26');
-    expect(html.name).toBe('qixian');
-    expect(html.money).toBe(20);
-    expect(html.dateTimeRange.join(',')).toBe(
-      '2019-11-16 12:50:26,2019-11-16 12:55:26',
-    );
-    expect(html.dateRange.join(',')).toBe(
-      '2019-11-16 12:50:26,2019-11-16 12:55:26',
-    );
   });
 
   it('📅 transformKeySubmitValue ignore empty transform', async () => {
@@ -880,7 +838,7 @@ describe('utils', () => {
       dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
       dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
     };
-    const html = transformKeySubmitValue(dataIn, {
+    const html = await transformKeySubmitValue(dataIn, {
       dataTime: undefined,
       time: undefined,
     });
@@ -897,8 +855,12 @@ describe('utils', () => {
       dateTimeRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
       dateRange: ['2019-11-16 12:50:26', '2019-11-16 12:55:26'],
     };
-    const html = transformKeySubmitValue(dataIn, {
-      dataTime: () => ['new-dataTime'],
+    const html = await transformKeySubmitValue(dataIn, {
+      dataTime: (value) => {
+        return {
+          'new-dataTime': value,
+        };
+      },
       time: undefined,
     });
     expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
@@ -914,11 +876,16 @@ describe('utils', () => {
       file,
       files: [file],
     };
-    const html = transformKeySubmitValue(dataIn, {
-      dataTime: () => ['new-dataTime'],
+    const html = await transformKeySubmitValue(dataIn, {
+      dataTime: (value) => {
+        return {
+          'new-dataTime': value,
+        };
+      },
       time: undefined,
     });
     expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
+
     expect(html.file).toBe(file);
     expect(html.files[0]).toBe(file);
   });
@@ -929,12 +896,16 @@ describe('utils', () => {
       time: '2019-11-16 12:50:26',
       file: null,
     };
-    const html = transformKeySubmitValue(dataIn, {
-      dataTime: () => ['new-dataTime'],
+    const html = await transformKeySubmitValue(dataIn, {
+      dataTime: (value) => {
+        return {
+          'new-dataTime': value,
+        };
+      },
       time: undefined,
     });
     expect((html as any)['new-dataTime']).toBe('2019-11-16 12:50:26');
-    expect(html.file).toBe(undefined);
+    expect(html.file).toBe(null);
   });
 
   it('📅 isNil', async () => {

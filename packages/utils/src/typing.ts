@@ -499,7 +499,7 @@ export type ProFieldTextType =
 
 export type SearchTransformKeyFn = (
   value: any,
-  namePath: string,
+  namePath: string[],
   allValues: any,
 ) => any;
 export type SearchConvertKeyFn = (

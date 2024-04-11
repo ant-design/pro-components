@@ -631,7 +631,6 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
           parentKey,
         ),
         transformKeyRef.current,
-        paramsOmitNil,
       );
     },
   );

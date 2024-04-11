@@ -1653,9 +1653,7 @@ describe('ProForm List', () => {
                 <ProFormDatePicker
                   name="date"
                   transform={(value) => {
-                    return {
-                      date: moment(value).unix(),
-                    };
+                    return moment(value).unix();
                   }}
                 />
                 <ProFormList name="datas">
@@ -1665,9 +1663,7 @@ describe('ProForm List', () => {
                         <ProFormDatePicker
                           name="date"
                           transform={(value) => {
-                            return {
-                              date: moment(value).unix(),
-                            };
+                            return moment(value).unix();
                           }}
                         />
 
@@ -1678,9 +1674,7 @@ describe('ProForm List', () => {
                                 <ProFormDatePicker
                                   name="date"
                                   transform={(value) => {
-                                    return {
-                                      date: moment(value).unix(),
-                                    };
+                                    return moment(value).unix();
                                   }}
                                 />
 
@@ -1691,9 +1685,7 @@ describe('ProForm List', () => {
                                         <ProFormDatePicker
                                           name="date"
                                           transform={(value) => {
-                                            return {
-                                              date: moment(value).unix(),
-                                            };
+                                            return moment(value).unix();
                                           }}
                                         />
                                       </div>

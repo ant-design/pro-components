@@ -6,6 +6,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Segmented } from 'antd';
+import { set } from 'rc-util';
 import { useState } from 'react';
 
 const Demo = () => {
@@ -40,7 +41,6 @@ const Demo = () => {
       </ProForm.Item>
       <ProForm readonly={readonly} onFinish={async (e) => console.log(e)}>
         <ProFormText name="name" label="姓名" />
-
         <ProFormList
           name="labels"
           label="用户信息"
@@ -50,6 +50,10 @@ const Demo = () => {
               label: '333',
             },
           ]}
+          transform={(value, namePath) => {
+            const finalValue = {};
+            return set(finalValue, [namePath, 'list'].flat(1), value);
+          }}
           copyIconProps={{ Icon: SmileOutlined, tooltipText: '复制此项到末尾' }}
           deleteIconProps={{
             Icon: CloseCircleOutlined,
