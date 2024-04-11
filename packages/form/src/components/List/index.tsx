@@ -21,6 +21,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
+import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../typing';
 import { ProFormListContainer } from './ListContainer';
@@ -125,8 +126,11 @@ function ProFormList<T>(props: ProFormListProps<T>) {
   const baseClassName = context.getPrefixCls('pro-form-list');
   // Internationalization
   const intl = useIntl();
+  /** 从 context 中拿到的值 */
+  const { setFieldValueType } = React.useContext(FieldContext);
 
   const {
+    transform,
     actionRender,
     creatorButtonProps,
     label,
@@ -206,6 +210,23 @@ function ProFormList<T>(props: ProFormListProps<T>) {
       `Proformlist must be placed in ProForm, otherwise it will cause abnormal behavior.`,
     );
   }, [proFormContext.formRef]);
+
+  useEffect(() => {
+    // 如果 setFieldValueType 和 props.name 不存在不存入
+    if (!setFieldValueType || !props.name) {
+      return;
+    }
+
+    // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
+    // 写一个 ts 比较麻烦，用 any 顶一下
+    setFieldValueType(
+      [props.name].flat(1).filter((itemName) => itemName !== undefined),
+      {
+        valueType: 'formList',
+        transform,
+      },
+    );
+  }, [props.name, setFieldValueType, transform]);
 
   const { wrapSSR, hashId } = useStyle(baseClassName);
 
