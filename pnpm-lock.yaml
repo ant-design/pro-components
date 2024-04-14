@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
 
 settings:
   autoInstallPeers: false
@@ -179,8 +179,8 @@ importers:
         specifier: ^2.2.17
         version: 2.2.17(@babel/core@7.24.4)(@types/node@14.18.63)(@types/react@18.2.75)(eslint@8.57.0)(prettier@2.8.8)(react-dom@18.2.0)(react@18.2.0)(stylelint@13.13.1)(typescript@5.4.5)
       dumi-theme-antd-style:
-        specifier: 0.25.1
-        version: 0.25.1(@ant-design/icons@5.3.6)(@types/react@18.2.75)(antd@5.16.1)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0)
+        specifier: 0.26.2
+        version: 0.26.2(@ant-design/icons@5.3.6)(@types/react@18.2.75)(dumi@2.2.17)(moment@2.30.1)(react-dom@18.2.0)(react@18.2.0)
       esbuild:
         specifier: ^0.15.18
         version: 0.15.18
@@ -5789,7 +5789,7 @@ packages:
     dependencies:
       '@babel/core': 7.24.4
       postcss: 8.4.38
-      postcss-syntax: 0.36.2(postcss@8.4.38)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6105,7 +6105,7 @@ packages:
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
-      '@types/react': ^18.0.38
+      '@types/react': ^16.9.0 || ^17.0.0
       react: ^16.9.0 || ^17.0.0
       react-dom: ^16.9.0 || ^17.0.0
       react-test-renderer: ^16.9.0 || ^17.0.0
@@ -7089,7 +7089,7 @@ packages:
   /@umijs/history@5.3.1:
     resolution: {integrity: sha512-/e0cEGrR2bIWQD7pRl3dl9dcyRGeC9hoW0OCvUTT/hjY0EfUrkd6G8ZanVghPMpDuY5usxq9GVcvrT8KNXLWvA==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.24.4
       query-string: 6.14.1
     dev: true
 
@@ -7106,7 +7106,7 @@ packages:
       eslint-plugin-react: 7.33.2(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.57.0)
       postcss: 8.4.38
-      postcss-syntax: 0.36.2(postcss@8.4.38)
+      postcss-syntax: 0.36.2(postcss-html@0.36.0)(postcss-less@3.1.4)(postcss-scss@2.1.1)(postcss@7.0.39)
       stylelint-config-standard: 25.0.0(stylelint@13.13.1)
     transitivePeerDependencies:
       - eslint
@@ -10189,6 +10189,7 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+    requiresBuild: true
     dev: true
 
   /cssfontparser@1.2.1:
@@ -10851,21 +10852,17 @@ packages:
     resolution: {integrity: sha512-a/Y5lf0G6gwsEQ9hop/n03CcjmHsGBk384Cz/AEX6mRYrfSpUx/lQvP9HLoXkCzScl9PL1sSmLPnMkgaXDCZLA==}
     dev: true
 
-  /dumi-theme-antd-style@0.25.1(@ant-design/icons@5.3.6)(@types/react@18.2.75)(antd@5.16.1)(dumi@2.2.17)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-L9QFflPNkwm8Fm13UapGlViRUutukEANOSkZme75rjzkfqroFNs7Yaur0dXanARkC0VYLfSfhAmh94xdd02vCw==}
+  /dumi-theme-antd-style@0.26.2(@ant-design/icons@5.3.6)(@types/react@18.2.75)(dumi@2.2.17)(moment@2.30.1)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-N1ICHk057t0tNc5L2h2uq/TOyQHbOv8jKYkVMfwVc+wyUN+dUEAblCwTnq/xSrXo3kCREYGIEbRfGiRLTtCr3A==}
     peerDependencies:
       '@ant-design/icons': '>=4'
-      antd: ^5
       dumi: ^2.0.0
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
       '@ant-design/icons': 5.3.6(react-dom@18.2.0)(react@18.2.0)
       '@babel/runtime': 7.24.4
-      '@emotion/css': 11.11.2
-      '@emotion/server': 11.11.0(@emotion/css@11.11.2)
       '@emotion/styled': 11.11.5(@types/react@18.2.75)(react@18.2.0)
-      '@emotion/utils': 1.2.1
       '@floating-ui/react': 0.17.0(react-dom@18.2.0)(react@18.2.0)
       ahooks: 3.7.11(react@18.2.0)
       animated-scroll-to: 2.3.0
@@ -10882,7 +10879,6 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-layout-kit: 1.9.0(react@18.2.0)
-      react-lazy-load: 4.0.1(react-dom@18.2.0)(react@18.2.0)
       react-syntax-highlighter: 15.5.0(react@18.2.0)
       shiki-es: 0.2.0
       use-merge-value: 1.2.0(react@18.2.0)
@@ -10890,7 +10886,10 @@ packages:
     transitivePeerDependencies:
       - '@emotion/react'
       - '@types/react'
+      - date-fns
       - immer
+      - luxon
+      - moment
     dev: true
 
   /dumi@2.2.17(@babel/core@7.24.4)(@types/node@14.18.63)(@types/react@18.2.75)(eslint@8.57.0)(prettier@2.8.8)(react-dom@18.2.0)(react@18.2.0)(stylelint@13.13.1)(typescript@5.4.5):
@@ -19951,30 +19950,6 @@ packages:
       postcss-scss: 2.1.1
     dev: true
 
-  /postcss-syntax@0.36.2(postcss@8.4.38):
-    resolution: {integrity: sha512-nBRg/i7E3SOHWxF3PpF5WnJM/jQ1YpY9000OaVXlAQj6Zp/kIqJxEDWIZ67tAd7NLuk7zqN4yqe9nc0oNAOs1w==}
-    peerDependencies:
-      postcss: '>=5.0.0'
-      postcss-html: '*'
-      postcss-jsx: '*'
-      postcss-less: '*'
-      postcss-markdown: '*'
-      postcss-scss: '*'
-    peerDependenciesMeta:
-      postcss-html:
-        optional: true
-      postcss-jsx:
-        optional: true
-      postcss-less:
-        optional: true
-      postcss-markdown:
-        optional: true
-      postcss-scss:
-        optional: true
-    dependencies:
-      postcss: 8.4.38
-    dev: true
-
   /postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
@@ -21222,7 +21197,7 @@ packages:
   /react-markdown@8.0.7(@types/react@18.2.75)(react@18.2.0):
     resolution: {integrity: sha512-bvWbzG4MtOU62XqBx3Xx+zB2raaFFsq4mYiAzfjXJMEz2sixgeAfraA3tvzULF02ZdOMUOKTBFFaZJDDrq+BJQ==}
     peerDependencies:
-      '@types/react': ^18.0.38
+      '@types/react': '>=16'
       react: '>=16'
     dependencies:
       '@types/hast': 2.3.10
@@ -25645,7 +25620,7 @@ packages:
     resolution: {integrity: sha512-2cN1tPkDVkwCy5ickKrI7vijSjPksFRfqS6237NzT0vqSsztTNnQdHw9mmN7uBdk3gceVXU0a+21jFzFzAc9+g==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
-      '@types/react': ^18.0.38
+      '@types/react': '>=16.8'
       immer: '>=9.0.6'
       react: '>=16.8'
     peerDependenciesMeta:
