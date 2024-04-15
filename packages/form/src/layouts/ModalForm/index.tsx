@@ -55,7 +55,7 @@ export type ModalFormProps<
     visible?: boolean;
 
     /** @name 打开关闭的事件 */
-    onOpenChange?: (visible: boolean) => void;
+    onOpenChange?: (open: boolean) => void;
     /**
      * 不支持 'visible'，请使用全局的 visible
      *
@@ -130,13 +130,14 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     [formRef.current],
   );
 
-  useEffect(() => {
-    if (open && (propsOpen || propVisible)) {
-      onOpenChange?.(true);
-      onVisibleChange?.(true);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propVisible, propsOpen, open]);
+  // useMergedState监听了open的变化
+  // useEffect(() => {
+  //   if (open && (propsOpen || propVisible)) {
+  //     onOpenChange?.(true);
+  //     onVisibleChange?.(true);
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [propVisible, propsOpen, open]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
@@ -246,7 +247,9 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
         }}
         afterClose={() => {
           resetFields();
-          setOpen(false);
+          if (open) {
+            setOpen(false);
+          }
           modalProps?.afterClose?.();
         }}
         footer={
