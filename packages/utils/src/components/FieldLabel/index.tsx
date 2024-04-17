@@ -173,7 +173,8 @@ const FieldLabelFunction: React.ForwardRefRenderFunction<
         hashId,
         `${prefixCls}-${props.size ?? size ?? 'middle'}`,
         {
-          [`${prefixCls}-active`]: (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
+          [`${prefixCls}-active`]:
+            (Array.isArray(value) ? value.length > 0 : !!value) || value === 0,
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-bordered`]: bordered,
           [`${prefixCls}-allow-clear`]: allowClear,
