@@ -14,7 +14,7 @@ import {
   ProFormText,
   setAlpha,
 } from '@ant-design/pro-components';
-import { Space, Tabs, message, theme } from 'antd';
+import { message, Space, Tabs, theme } from 'antd';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
 
@@ -36,7 +36,7 @@ export default () => {
     <ProConfigProvider hashed={false}>
       <div style={{ backgroundColor: token.colorBgContainer }}>
         <LoginForm
-          logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
+          logo="https://github.githubassets.com/favicons/favicon.png"
           title="Github"
           subTitle="全球最大的代码托管平台"
           actions={

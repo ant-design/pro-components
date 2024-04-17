@@ -15936,7 +15936,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
               class="ant-pro-form-login-logo "
             >
               <img
-                src="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
+                src="https://github.githubassets.com/favicons/favicon.png"
               />
             </span>
             <span
@@ -16427,7 +16427,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     class="ant-pro-form-login-page-logo"
                   >
                     <img
-                      src="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
+                      src="https://github.githubassets.com/favicons/favicon.png"
                     />
                   </span>
                   <span
