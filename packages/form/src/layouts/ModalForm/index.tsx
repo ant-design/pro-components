@@ -7,7 +7,6 @@ import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   useCallback,
   useContext,
-  // useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
