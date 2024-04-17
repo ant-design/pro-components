@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-provider",
-  "version": "2.14.1",
+  "version": "2.14.2",
   "description": "@ant-design/pro-provider",
   "keywords": [
     "antd",
@@ -34,9 +34,9 @@
   ],
   "dependencies": {
     "@ant-design/cssinjs": "^1.11.1",
+    "@ant-design/pro-utils": "2.15.8",
     "@babel/runtime": "^7.18.0",
     "@ctrl/tinycolor": "^3.4.0",
-    "@ant-design/pro-utils": "2.15.7",
     "rc-util": "^5.0.1",
     "swr": "^2.0.0"
   },

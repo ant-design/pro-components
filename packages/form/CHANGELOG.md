@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.26.0...@ant-design/pro-form@2.26.1) (2024-04-17)
+
+
+### Bug Fixes
+
+* replace login url ([#8315](https://github.com/ant-design/pro-components/issues/8315)) ([a2294c3](https://github.com/ant-design/pro-components/commit/a2294c3fa4efe2259d6ad3c00500e4fa5a5beab7))
+
+
+
+
 
 # [2.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.25.1...@ant-design/pro-form@2.26.0) (2024-04-17)
 
