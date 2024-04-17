@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.25.1...@ant-design/pro-form@2.26.0) (2024-04-17)
+
+
+### Bug Fixes
+
+* **form:** FilterDropdown onClear setTempValue null ([#8305](https://github.com/ant-design/pro-components/issues/8305)) ([6548873](https://github.com/ant-design/pro-components/commit/6548873523505994daa22c30217b89c7313e8187))
+* **form:** onOpenChange fires twice when opening ModalForm ([#8311](https://github.com/ant-design/pro-components/issues/8311)) ([f12ef2b](https://github.com/ant-design/pro-components/commit/f12ef2ba4252122210b1242ca3552c8f3730c944))
+
+
+### Features
+
+* **form:** form list support transform ([7ea4fd1](https://github.com/ant-design/pro-components/commit/7ea4fd180b686b261e103cf5ca9b46f6c3355605))
+
+
+
+
 
 ## [2.25.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.25.0...@ant-design/pro-form@2.25.1) (2024-03-27)
 

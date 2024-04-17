@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.0...@ant-design/pro-layout@7.19.1) (2024-04-17)
+
+
+### Bug Fixes
+
+* **layout:** slove footerRender types error ([#8280](https://github.com/ant-design/pro-components/issues/8280)) ([7e9ebac](https://github.com/ant-design/pro-components/commit/7e9ebaca88bb3b68b5e2925ad9f4fc75ddcfe7f8))
+
+
+
+
 
 # [7.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.18.0...@ant-design/pro-layout@7.19.0) (2024-03-27)
 
