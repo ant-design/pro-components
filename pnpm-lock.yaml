@@ -658,6 +658,9 @@ importers:
       '@ant-design/cssinjs':
         specifier: ^1.11.1
         version: 1.19.1(react-dom@18.2.0)(react@18.2.0)
+      '@ant-design/pro-utils':
+        specifier: 2.15.7
+        version: link:../utils
       '@babel/runtime':
         specifier: ^7.18.0
         version: 7.24.4
