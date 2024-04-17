@@ -4101,7 +4101,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     class="ant-descriptions-item-content"
                   >
                     <div
-                      class="ant-picker ant-picker-borderless"
+                      class="ant-picker ant-picker-outlined"
                     >
                       <div
                         class="ant-picker-input"

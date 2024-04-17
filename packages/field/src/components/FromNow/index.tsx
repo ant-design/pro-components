@@ -1,5 +1,5 @@
 import { useIntl } from '@ant-design/pro-provider';
-import { parseValueToDay } from '@ant-design/pro-utils';
+import { compatibleBorder, parseValueToDay } from '@ant-design/pro-utils';
 import { DatePicker, Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -19,7 +19,10 @@ dayjs.extend(relativeTime);
 const FieldFromNow: ProFieldFC<{
   text: string;
   format?: string;
-}> = ({ text, mode, render, renderFormItem, format, fieldProps }, ref) => {
+}> = (
+  { text, mode, plain, render, renderFormItem, format, fieldProps },
+  ref,
+) => {
   const intl = useIntl();
 
   if (mode === 'read') {
@@ -48,6 +51,7 @@ const FieldFromNow: ProFieldFC<{
         ref={ref}
         placeholder={placeholder}
         showTime
+        {...compatibleBorder(plain === undefined ? true : !plain)}
         {...fieldProps}
         value={momentValue}
       />

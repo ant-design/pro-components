@@ -689,7 +689,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-borderless"
+                class="ant-picker ant-picker-outlined"
               >
                 <div
                   class="ant-picker-input"

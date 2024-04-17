@@ -1114,7 +1114,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    class="ant-picker ant-picker-borderless"
+                    class="ant-picker ant-picker-outlined"
                   >
                     <div
                       class="ant-picker-input"
