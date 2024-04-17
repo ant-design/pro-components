@@ -14,7 +14,7 @@ import {
   ProFormText,
   setAlpha,
 } from '@ant-design/pro-components';
-import { message, Space, Tabs, theme } from 'antd';
+import { Space, Tabs, message, theme } from 'antd';
 import type { CSSProperties } from 'react';
 import { useState } from 'react';
 

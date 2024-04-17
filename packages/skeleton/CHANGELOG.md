@@ -1,15 +1,10 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.1.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.1.11...@ant-design/pro-skeleton@2.1.12) (2024-04-17)
 
 **Note:** Version bump only for package @ant-design/pro-skeleton
-
-
-
-
 
 ## [2.1.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.1.10...@ant-design/pro-skeleton@2.1.11) (2024-03-15)
 
