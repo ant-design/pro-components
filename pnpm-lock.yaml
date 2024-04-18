@@ -449,6 +449,9 @@ importers:
       '@ant-design/pro-form':
         specifier: 2.26.1
         version: link:../form
+      '@ant-design/pro-provider':
+        specifier: 2.14.2
+        version: link:../provider
       '@ant-design/pro-skeleton':
         specifier: 2.1.12
         version: link:../skeleton

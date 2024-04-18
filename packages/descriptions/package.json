@@ -37,6 +37,7 @@
     "@ant-design/pro-field": "2.14.11",
     "@ant-design/pro-form": "2.26.1",
     "@ant-design/pro-skeleton": "2.1.12",
+    "@ant-design/pro-provider": "2.14.2",
     "@ant-design/pro-utils": "2.15.8",
     "@babel/runtime": "^7.18.0",
     "rc-resize-observer": "^0.2.3",
