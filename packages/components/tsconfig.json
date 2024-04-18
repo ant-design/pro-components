@@ -25,8 +25,7 @@
         "../../packages/descriptions/src/index.tsx"
       ],
       "@ant-design/pro-utils": ["../../packages/utils/src/index.tsx"],
-      "@ant-design/pro-card": ["../../packages/card/src/index.tsx"],
-      "@ant-design/pro-components": ["../../packages/components/src/index.tsx"]
+      "@ant-design/pro-card": ["../../packages/card/src/index.tsx"]
     }
   },
   "include": ["./src"]
