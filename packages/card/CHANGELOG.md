@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.6.2...@ant-design/pro-card@2.7.0) (2024-04-19)
 
-
 ### Features
 
-* **card:** CheckCard support children cards ([#8325](https://github.com/ant-design/pro-components/issues/8325)) ([96a15e8](https://github.com/ant-design/pro-components/commit/96a15e8c12fd2c10f3c6fcd341c69015392cbffd))
-
-
-
-
+- **card:** CheckCard support children cards ([#8325](https://github.com/ant-design/pro-components/issues/8325)) ([96a15e8](https://github.com/ant-design/pro-components/commit/96a15e8c12fd2c10f3c6fcd341c69015392cbffd))
 
 ## [2.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.6.1...@ant-design/pro-card@2.6.2) (2024-04-17)
 
