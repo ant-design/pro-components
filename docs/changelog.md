@@ -1,3 +1,9 @@
+## @ant-design/pro-components@2.7.3
+
+`2024-04-19`
+
+- feat(card): CheckCard support children cards (#8325). [#8325](https://github.com/chenshuai2144/pro-components/pull/#8325) [@陈帅](https://github.com/陈帅)
+
 ## @ant-design/pro-components@2.7.1
 
 `2024-04-17`
