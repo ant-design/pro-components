@@ -15,12 +15,10 @@ export type BaseLayoutDesignToken = {
    * 跨站点应用的图标hover颜色
    */
   colorTextAppListIcon: string;
-
   /**
    * layout 的背景颜色
    */
   bgLayout: string;
-
   /**
    * 侧边side的 token 配置
    */
