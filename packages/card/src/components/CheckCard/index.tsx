@@ -213,17 +213,17 @@ const CheckCard: React.FC<CheckCardProps> & {
   /**
    * 头像自定义
    *
-   * @param prefixCls
-   * @param cover
+   * @param cls
+   * @param coverDom
    * @returns
    */
-  const renderCover = (prefixCls: string, cover: string | React.ReactNode) => {
+  const renderCover = (cls: string, coverDom: string | React.ReactNode) => {
     return (
-      <div className={classNames(`${prefixCls}-cover`, hashId)}>
-        {typeof cover === 'string' ? (
-          <img src={cover} alt="checkcard" />
+      <div className={classNames(`${cls}-cover`, hashId)}>
+        {typeof coverDom === 'string' ? (
+          <img src={coverDom} alt="checkcard" />
         ) : (
-          cover
+          coverDom
         )}
       </div>
     );
