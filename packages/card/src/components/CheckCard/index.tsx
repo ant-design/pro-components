@@ -271,7 +271,7 @@ const CheckCard: React.FC<CheckCardProps> & {
 
   const metaDom = useMemo(() => {
     if (cardLoading) {
-      return <CardLoading prefixCls={prefixCls || ''} />;
+      return <CardLoading prefixCls={prefixCls || ''} hashId={hashId} />;
     }
 
     if (cover) {
@@ -279,7 +279,7 @@ const CheckCard: React.FC<CheckCardProps> & {
     }
 
     const avatarDom = avatar ? (
-      <div className={`${prefixCls}-avatar ${hashId}`.trim()}>
+      <div className={classNames(`${prefixCls}-avatar`, hashId)}>
         {typeof avatar === 'string' ? (
           <Avatar size={48} shape="square" src={avatar} />
         ) : (
@@ -289,23 +289,27 @@ const CheckCard: React.FC<CheckCardProps> & {
     ) : null;
 
     const headerDom = (title ?? extra) != null && (
-      <div className={`${prefixCls}-header ${hashId}`.trim()}>
-        <div className={`${prefixCls}-header-left ${hashId}`.trim()}>
-          <div className={`${prefixCls}-title ${hashId}`.trim()}>{title}</div>
+      <div className={classNames(`${prefixCls}-header`, hashId)}>
+        <div className={classNames(`${prefixCls}-header-left`, hashId)}>
+          <div className={classNames(`${prefixCls}-title`, hashId)}>
+            {title}
+          </div>
           {props.subTitle ? (
-            <div className={`${prefixCls}-subTitle ${hashId}`.trim()}>
+            <div className={classNames(`${prefixCls}-subTitle`, hashId)}>
               {props.subTitle}
             </div>
           ) : null}
         </div>
         {extra && (
-          <div className={`${prefixCls}-extra ${hashId}`.trim()}>{extra}</div>
+          <div className={classNames(`${prefixCls}-extra`, hashId)}>
+            {extra}
+          </div>
         )}
       </div>
     );
 
     const descriptionDom = description ? (
-      <div className={`${prefixCls}-description ${hashId}`.trim()}>
+      <div className={classNames(`${prefixCls}-description`, hashId)}>
         {description}
       </div>
     ) : null;
@@ -318,7 +322,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       <div className={metaClass}>
         {avatarDom}
         {headerDom || descriptionDom ? (
-          <div className={`${prefixCls}-detail ${hashId}`.trim()}>
+          <div className={classNames(`${prefixCls}-detail`, hashId)}>
             {headerDom}
             {descriptionDom}
           </div>
@@ -351,7 +355,7 @@ const CheckCard: React.FC<CheckCardProps> & {
       {metaDom}
       {props.children ? (
         <div
-          className={classNames(`${prefixCls}-body`)}
+          className={classNames(`${prefixCls}-body`, hashId)}
           style={props.bodyStyle}
         >
           {props.children}
