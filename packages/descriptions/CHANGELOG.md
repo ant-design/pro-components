@@ -6,10 +6,6 @@ All notable changes to this project will be documented in this file. See [Conven
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
 
-
-
-
-
 ## [2.5.39](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.38...@ant-design/pro-descriptions@2.5.39) (2024-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

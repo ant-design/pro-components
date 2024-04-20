@@ -6,10 +6,6 @@ All notable changes to this project will be documented in this file. See [Conven
 
 **Note:** Version bump only for package @ant-design/pro-card
 
-
-
-
-
 # [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.6.2...@ant-design/pro-card@2.7.0) (2024-04-19)
 
 ### Features
