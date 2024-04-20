@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.7.2...@ant-design/pro-card@2.8.0) (2024-04-20)
+
+### Features
+
+- **card:** new loading loading ([#8336](https://github.com/ant-design/pro-components/issues/8336)) ([d64f656](https://github.com/ant-design/pro-components/commit/d64f656594ec65dec7d3be505d089cb73649dd98))
+
 ## [2.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.7.0...@ant-design/pro-card@2.7.2) (2024-04-20)
 
 **Note:** Version bump only for package @ant-design/pro-card
