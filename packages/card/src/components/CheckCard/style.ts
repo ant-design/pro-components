@@ -100,23 +100,6 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.componentCls}-loading`]: {
         overflow: 'hidden',
         userSelect: 'none',
-        '&-content': {
-          paddingInline: token.padding,
-          paddingBlock: token.paddingSM,
-          p: {
-            marginBlock: 0,
-            marginInline: 0,
-          },
-          [`${token.componentCls}-loading-block`]: {
-            height: '14px',
-            marginBlock: '4px',
-            background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
-            animationName: cardLoading as unknown as string,
-            animationDuration: '1.4s',
-            animationTimingFunction: 'ease',
-            animationIterationCount: 'infinite',
-          },
-        },
       },
       '&:focus': proCheckCardActive(token),
       '&-checked': {

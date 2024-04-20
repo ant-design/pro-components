@@ -1,5 +1,5 @@
 import { useMountMergeState } from '@ant-design/pro-utils';
-import { Col, ConfigProvider, Row } from 'antd';
+import { ConfigProvider, Skeleton } from 'antd';
 
 import { RightOutlined } from '@ant-design/icons';
 import { proTheme } from '@ant-design/pro-provider';
@@ -14,6 +14,7 @@ import React, {
   useState,
 } from 'react';
 import CheckCard from './index';
+import { useStyle } from './style';
 
 export type CheckCardValueType = string | number | boolean;
 
@@ -123,57 +124,11 @@ export interface AbstractCheckCardGroupProps {
 
 export const CardLoading: React.FC<{
   prefixCls: string;
-}> = ({ prefixCls }) => {
-  const loadingBlockClass = `${prefixCls}-loading-block`;
+  hashId: string;
+}> = ({ prefixCls, hashId }) => {
   return (
-    <div className={`${prefixCls}-loading-content`}>
-      <Row
-        gutter={{
-          xs: 8,
-          sm: 8,
-          md: 8,
-          lg: 12,
-        }}
-      >
-        <Col span={22}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={8}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={14}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={6}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={16}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={13}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={9}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={4}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={3}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={14}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
+    <div className={classNames(`${prefixCls}-loading-content`, hashId)}>
+      <Skeleton loading active paragraph={{ rows: 4 }} title={false} />
     </div>
   );
 };
@@ -333,7 +288,6 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     onChange,
     ...restProps
   } = props;
-  const { hashId } = proTheme.useToken();
 
   const antdContext = useContext(ConfigProvider.ConfigContext);
 
@@ -353,6 +307,8 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     'pro-checkcard',
     customizePrefixCls,
   );
+
+  const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const groupPrefixCls = `${prefixCls}-group`;
 
@@ -444,7 +400,11 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
         return list.map((option) => {
           if (option.children && option.children.length > 0) {
             return (
-              <SubCheckCardGroup title={option.title} prefix={groupPrefixCls}>
+              <SubCheckCardGroup
+                title={option.title}
+                prefix={groupPrefixCls}
+                key={option.value?.toString() || option.title?.toString()}
+              >
                 {renderOptions(option.children)}
               </SubCheckCardGroup>
             );
@@ -486,7 +446,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
 
   const classString = classNames(groupPrefixCls, className, hashId);
 
-  return (
+  return wrapSSR(
     <CheckCardGroupConnext.Provider
       value={{
         toggleOption,
@@ -504,7 +464,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
       <div className={classString} style={style} {...domProps}>
         {children}
       </div>
-    </CheckCardGroupConnext.Provider>
+    </CheckCardGroupConnext.Provider>,
   );
 };
 

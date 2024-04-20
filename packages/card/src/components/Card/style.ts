@@ -31,19 +31,6 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       transition: 'all 0.3',
       ...resetComponent?.(token),
 
-      '&::after': {
-        position: 'absolute',
-        insetBlockStart: 2,
-        insetInlineEnd: 2,
-        width: 0,
-        height: 0,
-        border: `6px solid ${token.colorPrimary}`,
-        borderBlockEnd: '6px solid transparent',
-        borderInlineStart: '6px solid transparent',
-        borderStartEndRadius: 2,
-        content: '""',
-      },
-
       '&-box-shadow': {
         boxShadow:
           '0 1px 2px -2px #00000029, 0 3px 6px #0000001f, 0 5px 12px 4px #00000017',
