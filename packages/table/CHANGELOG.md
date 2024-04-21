@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.15.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.7...@ant-design/pro-table@3.15.8) (2024-04-20)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.15.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.5...@ant-design/pro-table@3.15.7) (2024-04-20)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.15.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.5...@ant-design/pro-table@3.15.6) (2024-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.15.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.4...@ant-design/pro-table@3.15.5) (2024-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.3...@ant-design/pro-table@3.15.4) (2024-04-17)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [3.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.2...@ant-design/pro-table@3.15.3) (2024-04-17)
+
+### Bug Fixes
+
+- **table:** Custom components.body no work error ([#8281](https://github.com/ant-design/pro-components/issues/8281)) ([1dd2379](https://github.com/ant-design/pro-components/commit/1dd2379b94b3c78a99d6e3bfa08877f7c418d579))
+
 ## [3.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.1...@ant-design/pro-table@3.15.2) (2024-03-27)
 
 ### Bug Fixes

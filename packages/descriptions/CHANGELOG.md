@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.41](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.39...@ant-design/pro-descriptions@2.5.41) (2024-04-20)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.5.40](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.39...@ant-design/pro-descriptions@2.5.40) (2024-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.5.39](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.38...@ant-design/pro-descriptions@2.5.39) (2024-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.5.38](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.37...@ant-design/pro-descriptions@2.5.38) (2024-04-17)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [2.5.37](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.36...@ant-design/pro-descriptions@2.5.37) (2024-04-17)
+
+### Bug Fixes
+
+- **descriptions:** Customized contentStyle ([#8272](https://github.com/ant-design/pro-components/issues/8272)) ([f5cc8ec](https://github.com/ant-design/pro-components/commit/f5cc8ec8a9daf470bd29195ab53b3dca69ba4827))
+
 ## [2.5.36](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.35...@ant-design/pro-descriptions@2.5.36) (2024-03-27)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.12...@ant-design/pro-field@2.14.14) (2024-04-20)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.12...@ant-design/pro-field@2.14.13) (2024-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.11...@ant-design/pro-field@2.14.12) (2024-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.10...@ant-design/pro-field@2.14.11) (2024-04-17)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [2.14.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.9...@ant-design/pro-field@2.14.10) (2024-04-17)
+
+### Bug Fixes
+
+- **components:** compatible 5.13.0 border ([#8296](https://github.com/ant-design/pro-components/issues/8296)) ([9fb3efe](https://github.com/ant-design/pro-components/commit/9fb3efe9a9840a9455420039e0bdd4673cbe50b8))
+
 ## [2.14.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.8...@ant-design/pro-field@2.14.9) (2024-03-27)
 
 **Note:** Version bump only for package @ant-design/pro-field

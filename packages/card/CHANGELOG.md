@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.7.2...@ant-design/pro-card@2.8.0) (2024-04-20)
+
+### Features
+
+- **card:** new loading loading ([#8336](https://github.com/ant-design/pro-components/issues/8336)) ([d64f656](https://github.com/ant-design/pro-components/commit/d64f656594ec65dec7d3be505d089cb73649dd98))
+
+## [2.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.7.0...@ant-design/pro-card@2.7.2) (2024-04-20)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.7.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.7.0...@ant-design/pro-card@2.7.1) (2024-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [2.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.6.2...@ant-design/pro-card@2.7.0) (2024-04-19)
+
+### Features
+
+- **card:** CheckCard support children cards ([#8325](https://github.com/ant-design/pro-components/issues/8325)) ([96a15e8](https://github.com/ant-design/pro-components/commit/96a15e8c12fd2c10f3c6fcd341c69015392cbffd))
+
+## [2.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.6.1...@ant-design/pro-card@2.6.2) (2024-04-17)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [2.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.6.0...@ant-design/pro-card@2.6.1) (2024-04-17)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 # [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.5.30...@ant-design/pro-card@2.6.0) (2024-03-27)
 
 ### Features

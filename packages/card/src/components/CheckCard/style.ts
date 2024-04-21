@@ -48,6 +48,21 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       overflow: 'auto',
       cursor: 'pointer',
       transition: `all 0.3s`,
+
+      '&:after': {
+        position: 'absolute',
+        insetBlockStart: 2,
+        insetInlineEnd: 2,
+        width: 0,
+        height: 0,
+        opacity: 0,
+        transition: 'all 0.3s ' + token.motionEaseInOut,
+        borderBlockEnd: `${token.borderRadius + 4}px  solid transparent`,
+        borderInlineStart: `${token.borderRadius + 4}px  solid transparent`,
+        borderStartEndRadius: `${token.borderRadius}px`,
+        content: "''",
+      },
+
       '&:last-child': {
         marginInlineEnd: 0,
       },
@@ -59,42 +74,42 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       },
       '&-group': {
         display: 'inline-block',
+        '&-sub-check-card': {
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          '&-title': {
+            cursor: 'pointer',
+            paddingBlock: token.paddingXS,
+            display: 'flex',
+            gap: 4,
+            alignItems: 'center',
+          },
+          '&-panel': {
+            visibility: 'initial',
+            transition: 'all 0.3s',
+            opacity: 1,
+            '&-collapse': {
+              display: 'none',
+              visibility: 'hidden',
+              opacity: 0,
+            },
+          },
+        },
       },
       [`${token.componentCls}-loading`]: {
         overflow: 'hidden',
         userSelect: 'none',
-        '&-content': {
-          paddingInline: token.padding,
-          paddingBlock: token.paddingSM,
-          p: {
-            marginBlock: 0,
-            marginInline: 0,
-          },
-          [`${token.componentCls}-loading-block`]: {
-            height: '14px',
-            marginBlock: '4px',
-            background: `linear-gradient(90deg, rgba(54, 61, 64, 0.2), rgba(54, 61, 64, 0.4), rgba(54, 61, 64, 0.2))`,
-            animationName: cardLoading as unknown as string,
-            animationDuration: '1.4s',
-            animationTimingFunction: 'ease',
-            animationIterationCount: 'infinite',
-          },
-        },
       },
       '&:focus': proCheckCardActive(token),
       '&-checked': {
         ...proCheckCardActive(token),
         '&:after': {
-          position: 'absolute',
-          insetBlockStart: 2,
-          insetInlineEnd: 2,
-          width: 0,
-          height: 0,
+          opacity: 1,
           border: `${token.borderRadius + 4}px solid ${token.colorPrimary}`,
           borderBlockEnd: `${token.borderRadius + 4}px  solid transparent`,
           borderInlineStart: `${token.borderRadius + 4}px  solid transparent`,
           borderStartEndRadius: `${token.borderRadius}px`,
-          content: "''",
         },
       },
       '&-disabled': proCheckCardDisabled(token),

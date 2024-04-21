@@ -1,6 +1,8 @@
 import { useMountMergeState } from '@ant-design/pro-utils';
-import { Col, ConfigProvider, Row } from 'antd';
+import { ConfigProvider, Skeleton } from 'antd';
 
+import { RightOutlined } from '@ant-design/icons';
+import { proTheme } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, {
@@ -9,63 +11,90 @@ import React, {
   useContext,
   useMemo,
   useRef,
+  useState,
 } from 'react';
 import CheckCard from './index';
+import { useStyle } from './style';
 
 export type CheckCardValueType = string | number | boolean;
 
+/**
+ * Represents the possible value types for a CheckGroup.
+ * It can be an array of CheckCardValueTypes, a single CheckCardValueType, or undefined.
+ */
 export type CheckGroupValueType =
   | CheckCardValueType[]
   | CheckCardValueType
   | undefined;
 
+/**
+ * Represents an option for a CheckCard component.
+ */
 export interface CheckCardOptionType {
   /**
-   * 标题展示
+   * The title to be displayed.
    *
-   * @title 标题
+   * @title Title
    */
   title?: React.ReactNode;
+
   /**
-   * 选项值
+   * The value of the option.
    *
-   * @title 值
+   * @title Value
    */
   value: CheckCardValueType;
+
   /**
-   * 描述展示
+   * The description to be displayed.
    *
-   * @title 描述
+   * @title Description
    */
   description?: React.ReactNode;
+
   /**
-   * 组件尺寸，支持大，中，小三种默认尺寸，用户可以自定义宽高
+   * The size of the component. Supports three default sizes: 'large', 'default', 'small'.
+   * Users can also customize the width and height.
    *
    * @default default
-   * @title 组件尺寸
+   * @title Component Size
    */
   size?: 'large' | 'default' | 'small';
+
   /**
-   * 左侧头像展示，可以是一个链接也可以是是一个 ReactNode
+   * The avatar to be displayed on the left side. Can be a link or a ReactNode.
    *
-   * @title 左侧头像区域
+   * @title Left Avatar Area
    */
   avatar?: React.ReactNode;
+
   /**
-   * 图片封面默认，该模式下其他展示值被忽略
+   * The cover image. In this mode, other display values are ignored.
    *
-   * @title 图片封面
+   * @title Cover Image
    */
   cover?: React.ReactNode;
+
   /**
-   * 不可用
+   * Specifies if the option is disabled.
    *
    * @default false
-   * @title 不可用
+   * @title Disabled
    */
   disabled?: boolean;
-  /** Change 回调 */
+
+  /**
+   * Change callback function.
+   *
+   * @param checked - Indicates whether the option is checked or not.
+   * @title Change Callback
+   */
   onChange?: (checked: boolean) => void;
+
+  /**
+   * Child options.
+   */
+  children?: CheckCardOptionType[];
 }
 
 export interface AbstractCheckCardGroupProps {
@@ -95,57 +124,11 @@ export interface AbstractCheckCardGroupProps {
 
 export const CardLoading: React.FC<{
   prefixCls: string;
-}> = ({ prefixCls }) => {
-  const loadingBlockClass = `${prefixCls}-loading-block`;
+  hashId: string;
+}> = ({ prefixCls, hashId }) => {
   return (
-    <div className={`${prefixCls}-loading-content`}>
-      <Row
-        gutter={{
-          xs: 8,
-          sm: 8,
-          md: 8,
-          lg: 12,
-        }}
-      >
-        <Col span={22}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={8}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={14}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={6}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={16}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={13}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={9}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={4}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={3}>
-          <div className={loadingBlockClass} />
-        </Col>
-        <Col span={14}>
-          <div className={loadingBlockClass} />
-        </Col>
-      </Row>
+    <div className={classNames(`${prefixCls}-loading-content`, hashId)}>
+      <Skeleton loading active paragraph={{ rows: 4 }} title={false} />
     </div>
   );
 };
@@ -185,25 +168,113 @@ export interface CheckCardGroupProps extends AbstractCheckCardGroupProps {
   onChange?: (checkedValue: CheckGroupValueType) => void;
 }
 
+/**
+ * Represents the state of a CheckCardGroup component.
+ */
 export interface CheckCardGroupState {
   value: CheckGroupValueType;
   registeredValues: CheckCardValueType[];
 }
 
+/**
+ * Represents the props for the CheckCardGroup component.
+ */
 export type CheckCardGroupConnextType = {
+  /**
+   * A function to toggle the selected option.
+   * @param option - The option to toggle.
+   */
   toggleOption?: (option: CheckCardOptionType) => void;
+
+  /**
+   * The currently selected value.
+   */
   value?: any;
+
+  /**
+   * Specifies whether the component is disabled.
+   */
   disabled?: boolean;
+
+  /**
+   * The size of the component.
+   */
   size?: any;
+
+  /**
+   * Specifies whether the component is in a loading state.
+   */
   loading?: any;
+
+  /**
+   * Specifies whether the component has a border.
+   */
   bordered?: any;
+
+  /**
+   * Specifies whether multiple options can be selected.
+   */
   multiple?: any;
+
+  /**
+   * A function to register a value.
+   * @param value - The value to register.
+   */
   registerValue?: (value: any) => void;
+
+  /**
+   * A function to cancel a value.
+   * @param value - The value to cancel.
+   */
   cancelValue?: (value: any) => void;
 };
 
 export const CheckCardGroupConnext =
   createContext<CheckCardGroupConnextType | null>(null);
+
+/**
+ * SubCheckCardGroup component.
+ *
+ * @component
+ * @param {React.ReactNode} title - The title of the group.
+ * @param {React.ReactNode} children - The content of the group.
+ * @param {string} prefix - The prefix for CSS class names.
+ * @returns {React.ReactNode} The rendered SubCheckCardGroup component.
+ */
+const SubCheckCardGroup: React.FC<{
+  title: React.ReactNode;
+  children: React.ReactNode;
+  prefix: string;
+}> = (props) => {
+  const [collapse, setCollapse] = useState(false);
+  const { hashId } = proTheme.useToken();
+  const baseCls = `${props.prefix}-sub-check-card`;
+  return (
+    <div className={classNames(baseCls, hashId)}>
+      <div
+        className={classNames(`${baseCls}-title`, hashId)}
+        onClick={() => {
+          setCollapse(!collapse);
+        }}
+      >
+        <RightOutlined
+          style={{
+            transform: `rotate(${collapse ? 90 : 0}deg)`,
+            transition: 'transform 0.3s',
+          }}
+        />
+        {props.title}
+      </div>
+      <div
+        className={classNames(`${baseCls}-panel`, hashId, {
+          [`${baseCls}-panel-collapse`]: collapse,
+        })}
+      >
+        {props.children}
+      </div>
+    </div>
+  );
+};
 
 const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
   const {
@@ -236,6 +307,8 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     'pro-checkcard',
     customizePrefixCls,
   );
+
+  const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const groupPrefixCls = `${prefixCls}-group`;
 
@@ -322,24 +395,43 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
       const optionValue = stateValue as
         | CheckCardValueType[]
         | CheckCardValueType;
-      return getOptions().map((option) => (
-        <CheckCard
-          key={option.value.toString()}
-          disabled={option.disabled}
-          size={option.size ?? props.size}
-          value={option.value}
-          checked={
-            multiple
-              ? (optionValue as CheckCardValueType[])?.includes(option.value)
-              : (optionValue as CheckCardValueType) === option.value
+
+      const renderOptions = (list: CheckCardOptionType[]) => {
+        return list.map((option) => {
+          if (option.children && option.children.length > 0) {
+            return (
+              <SubCheckCardGroup
+                title={option.title}
+                prefix={groupPrefixCls}
+                key={option.value?.toString() || option.title?.toString()}
+              >
+                {renderOptions(option.children)}
+              </SubCheckCardGroup>
+            );
           }
-          onChange={option.onChange}
-          title={option.title}
-          avatar={option.avatar}
-          description={option.description}
-          cover={option.cover}
-        />
-      )) as React.ReactNode[];
+          return (
+            <CheckCard
+              key={option.value.toString()}
+              disabled={option.disabled}
+              size={option.size ?? props.size}
+              value={option.value}
+              checked={
+                multiple
+                  ? (optionValue as CheckCardValueType[])?.includes(
+                      option.value,
+                    )
+                  : (optionValue as CheckCardValueType) === option.value
+              }
+              onChange={option.onChange}
+              title={option.title}
+              avatar={option.avatar}
+              description={option.description}
+              cover={option.cover}
+            />
+          );
+        }) as React.ReactNode[];
+      };
+      return renderOptions(getOptions()) as React.ReactNode[];
     }
     return props.children as React.ReactNode;
   }, [
@@ -352,9 +444,9 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     stateValue,
   ]);
 
-  const classString = classNames(groupPrefixCls, className);
+  const classString = classNames(groupPrefixCls, className, hashId);
 
-  return (
+  return wrapSSR(
     <CheckCardGroupConnext.Provider
       value={{
         toggleOption,
@@ -372,7 +464,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
       <div className={classString} style={style} {...domProps}>
         {children}
       </div>
-    </CheckCardGroupConnext.Provider>
+    </CheckCardGroupConnext.Provider>,
   );
 };
 

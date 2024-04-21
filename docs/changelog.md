@@ -1,3 +1,24 @@
+## @ant-design/pro-components@2.7.3
+
+`2024-04-19`
+
+- feat(card): CheckCard support children cards (#8325). [#8325](https://github.com/chenshuai2144/pro-components/pull/#8325) [@陈帅](https://github.com/陈帅)
+
+## @ant-design/pro-components@2.7.1
+
+`2024-04-17`
+
+- fix(components): compatible 5.13.0 border (#8296). [#8296](https://github.com/ant-design/pro-components/pull/#8296) [@leshalv](https://github.com/leshalv)
+- fix(layout): slove footerRender types error (#8280). [#8280](https://github.com/ant-design/pro-components/pull/#8280) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(layout):解决 Layout Menu 小屏幕下样式丢失的问题 (#8147). [#8147](https://github.com/ant-design/pro-components/pull/#8147) [@ONLY-yours](https://github.com/ONLY-yours)
+- fix(form): onOpenChange fires twice when opening ModalForm (#8311). [#8311](https://github.com/ant-design/pro-components/pull/#8311) [@zhuba-Ahhh](https://github.com/zhuba-Ahhh)
+- fix(form): FilterDropdown onClear setTempValue null (#8305). [#8305](https://github.com/ant-design/pro-components/pull/#8305) [@zhuba-Ahhh](https://github.com/zhuba-Ahhh)
+- feat(form): form list support transform. [7ea4fd1](https://github.com/ant-design/pro-components/commit/7ea4fd1)
+- fix(form): Fix the problem of FieldLabel activating style when the value is an array (#8287). [#8287](https://github.com/ant-design/pro-components/pull/#8287) [@zhuba-Ahhh](https://github.com/zhuba-Ahhh)
+- fix(table): Custom components.body no work error (#8281). [#8281](https://github.com/ant-design/pro-components/pull/#8281) [@zhuba-Ahhh](https://github.com/zhuba-Ahhh)
+- chore(table): update column search ts type (#8275). [#8275](https://github.com/ant-design/pro-components/pull/#8275) [@acfasj](https://github.com/acfasj)
+- fix(descriptions): Customized contentStyle (#8272). [#8272](https://github.com/ant-design/pro-components/pull/#8272) [@zhuba-Ahhh](https://github.com/zhuba-Ahhh)
+
 ## @ant-design/pro-components@2.7.0
 
 `2024-03-27`

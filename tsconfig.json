@@ -17,7 +17,7 @@
     "types": ["vitest/globals"],
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "@ant-design/pro-layout": ["./packages/layout/src/index.tsx"],
+      "@ant-design/pro-layout": ["../../packages/layout/src/index.tsx"],
       "@ant-design/pro-form": ["./packages/form/src/index.tsx"],
       "@ant-design/pro-table": ["./packages/table/src/index.tsx"],
       "@ant-design/pro-field": ["./packages/field/src/index.tsx"],

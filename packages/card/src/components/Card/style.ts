@@ -28,6 +28,7 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       paddingInline: 0,
       backgroundColor: token.colorBgContainer,
       borderRadius: token.borderRadius,
+      transition: 'all 0.3',
       ...resetComponent?.(token),
 
       '&-box-shadow': {
@@ -61,9 +62,11 @@ const genProCardStyle: GenerateStyle<ProCardToken> = (token) => {
       '&-checked': {
         ...genActiveStyle(token),
         '&::after': {
+          visibility: 'visible',
           position: 'absolute',
           insetBlockStart: 2,
           insetInlineEnd: 2,
+          opacity: 1,
           width: 0,
           height: 0,
           border: `6px solid ${token.colorPrimary}`,

@@ -15,7 +15,6 @@ import type { ProTableProps } from '../index';
 import type { ActionType, ProColumns } from '../typing';
 import { genColumnKey } from '../utils';
 
-
 export type ColumnsState = {
   show?: boolean;
   fixed?: 'right' | 'left' | undefined;
@@ -89,7 +88,6 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
         /** 从持久化中读取数据 */
         const storage = window[persistenceType];
         try {
-         
           const storageValue = storage?.getItem(persistenceKey);
           if (storageValue) {
             if (props?.columnsState?.defaultValue) {
@@ -120,7 +118,6 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
 
   /**  配置或列更改时对columnsMap重新赋值 */
   useEffect(() => {
-
     const { persistenceType, persistenceKey } = props.columnsState || {};
 
     if (persistenceKey && persistenceType && typeof window !== 'undefined') {

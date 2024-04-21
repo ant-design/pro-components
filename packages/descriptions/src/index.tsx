@@ -615,7 +615,7 @@ const ProDescriptions = <
           {...rest}
           contentStyle={{
             minWidth: 0,
-            ...(contentStyle || {})
+            ...(contentStyle || {}),
           }}
           extra={
             rest.extra ? (
