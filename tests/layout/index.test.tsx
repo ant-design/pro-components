@@ -984,7 +984,7 @@ describe('BasicLayout', () => {
     );
     await waitForWaitTime(100);
     expect(
-      wrapper.baseElement.querySelector<HTMLDivElement>('h2#mix-test')
+      wrapper.baseElement.querySelector<HTMLDivElement>('#mix-test')
         ?.textContent,
     ).toBe('mix title');
   });

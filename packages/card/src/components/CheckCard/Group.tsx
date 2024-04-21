@@ -2,7 +2,7 @@ import { useMountMergeState } from '@ant-design/pro-utils';
 import { ConfigProvider, Skeleton } from 'antd';
 
 import { RightOutlined } from '@ant-design/icons';
-import { proTheme } from '@ant-design/pro-provider';
+import { ProConfigProvider, proTheme } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, {
@@ -309,7 +309,6 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
   );
 
   const { wrapSSR, hashId } = useStyle(prefixCls);
-
   const groupPrefixCls = `${prefixCls}-group`;
 
   const domProps = omit(restProps, [
@@ -468,4 +467,8 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
   );
 };
 
-export default CheckCardGroup;
+export default (props: CheckCardGroupProps) => (
+  <ProConfigProvider needDeps>
+    <CheckCardGroup {...props} />
+  </ProConfigProvider>
+);

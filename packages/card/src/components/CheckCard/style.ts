@@ -100,6 +100,9 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.componentCls}-loading`]: {
         overflow: 'hidden',
         userSelect: 'none',
+        '&-content': {
+          padding: token.paddingMD,
+        },
       },
       '&:focus': proCheckCardActive(token),
       '&-checked': {
