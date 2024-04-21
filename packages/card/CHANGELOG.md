@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.0...@ant-design/pro-card@2.8.1) (2024-04-21)
+
+### Bug Fixes
+
+- **provide:** alway use antd token hashid ([#8338](https://github.com/ant-design/pro-components/issues/8338)) ([984953f](https://github.com/ant-design/pro-components/commit/984953fa5d9a946b08a2f0e4981f603202383e16))
+
 # [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.7.2...@ant-design/pro-card@2.8.0) (2024-04-20)
 
 ### Features

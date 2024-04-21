@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.14...@ant-design/pro-field@2.14.15) (2024-04-21)
+
+### Bug Fixes
+
+- **form:** textarea readonly mode cant use fieldProps.style ([#8337](https://github.com/ant-design/pro-components/issues/8337)) ([71e31bd](https://github.com/ant-design/pro-components/commit/71e31bdfcb3c24d28f9d94cc0c22417339e14d64))
+
 ## [2.14.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.12...@ant-design/pro-field@2.14.14) (2024-04-20)
 
 **Note:** Version bump only for package @ant-design/pro-field

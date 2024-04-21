@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.14.4...@ant-design/pro-provider@2.14.5) (2024-04-21)
+
+### Bug Fixes
+
+- **provide:** alway use antd token hashid ([#8338](https://github.com/ant-design/pro-components/issues/8338)) ([984953f](https://github.com/ant-design/pro-components/commit/984953fa5d9a946b08a2f0e4981f603202383e16))
+
 ## [2.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.14.2...@ant-design/pro-provider@2.14.4) (2024-04-20)
 
 **Note:** Version bump only for package @ant-design/pro-provider
