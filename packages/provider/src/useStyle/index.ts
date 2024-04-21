@@ -107,7 +107,10 @@ export function useStyle(
 ) {
   let { token = {} as Record<string, any> as ProAliasToken } =
     useContext(ProProvider);
+  const { hashed } = useContext(ProProvider);
+
   const { token: antdToken, hashId } = useToken();
+
   const { theme: provideTheme } = useContext(ProProvider);
 
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
@@ -124,11 +127,10 @@ export function useStyle(
       {
         theme: provideTheme!,
         token,
-        hashId,
         path: [componentName],
       },
       () => styleFn(token as ProAliasToken),
     ),
-    hashId,
+    hashId: hashed ? hashId : '',
   };
 }

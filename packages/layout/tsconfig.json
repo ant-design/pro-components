@@ -15,6 +15,7 @@
     "resolveJsonModule": true,
     "paths": {
       "@ant-design/pro-provider": ["../../packages/provider/src/index.tsx"],
+      "@ant-design/pro-components": ["../../packages/components/src/index.tsx"],
       "@ant-design/pro-utils": ["../../packages/utils/src/index.tsx"]
     }
   },
