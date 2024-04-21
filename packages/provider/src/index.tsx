@@ -325,6 +325,8 @@ const ConfigProviderContainer: React.FC<{
     //Fix issue with hashId code
     if (isNeedOpenHash() === false) {
       return '';
+    } else if (tokenContext.hashId) {
+      return tokenContext.hashId;
     } else {
       // 生产环境或其他环境
       return nativeHashId;
