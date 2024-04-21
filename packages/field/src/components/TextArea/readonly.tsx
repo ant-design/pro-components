@@ -15,7 +15,7 @@ import 'antd/lib/input/style';
  */
 const FieldTextAreaReadonly: ProFieldFC<{
   text: string;
-}> = ({ text }, ref) => {
+}> = ({ text, fieldProps }, ref) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const readonlyClassName = getPrefixCls('pro-field-readonly');
   const compClassName = `${readonlyClassName}-textarea`;
@@ -24,7 +24,6 @@ const FieldTextAreaReadonly: ProFieldFC<{
     return {
       [`.${compClassName}`]: {
         display: 'inline-block',
-        // padding: '4px 11px',
         lineHeight: '1.5715',
         maxWidth: '100%',
         whiteSpace: 'pre-wrap',
@@ -36,7 +35,7 @@ const FieldTextAreaReadonly: ProFieldFC<{
     <span
       ref={ref}
       className={classNames(hashId, readonlyClassName, compClassName)}
-      style={{}}
+      {...fieldProps}
     >
       {text ?? '-'}
     </span>,
