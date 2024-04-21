@@ -104,10 +104,10 @@ importers:
         specifier: ^14.18.63
         version: 14.18.63
       '@types/react':
-        specifier: ^18.2.79
+        specifier: ^18.0.38
         version: 18.2.79
       '@types/react-dom':
-        specifier: ^18.2.25
+        specifier: ^18.0.11
         version: 18.2.25
       '@types/react-helmet':
         specifier: ^6.1.11
