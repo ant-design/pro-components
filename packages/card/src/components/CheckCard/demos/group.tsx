@@ -2,7 +2,7 @@ import { CheckCard } from '@ant-design/pro-components';
 import { Divider } from 'antd';
 
 export default () => (
-  <div style={{ padding: 24, backgroundColor: '#f7f8fa' }}>
+  <div style={{ padding: 24 }}>
     <CheckCard.Group
       size="small"
       options={['🍎 Apple', '🍐 Pear', '🍊 Orange']}

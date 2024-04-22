@@ -1135,7 +1135,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
       test
     </div>
     <div
-      style="padding: 24px; background-color: rgb(247, 248, 250);"
+      style="padding: 24px;"
     >
       <div
         class="ant-pro-checkcard-group"

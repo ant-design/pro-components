@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "2.26.5",
+  "version": "2.26.6",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -35,9 +35,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^5.0.0",
-    "@ant-design/pro-field": "2.14.15",
-    "@ant-design/pro-provider": "2.14.5",
-    "@ant-design/pro-utils": "2.15.11",
+    "@ant-design/pro-field": "2.14.16",
+    "@ant-design/pro-provider": "2.14.6",
+    "@ant-design/pro-utils": "2.15.12",
     "@babel/runtime": "^7.18.0",
     "@chenshuai2144/sketch-color": "^1.0.7",
     "@umijs/use-params": "^1.0.9",
