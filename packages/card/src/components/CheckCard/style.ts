@@ -173,6 +173,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'flex',
           alignItems: 'center',
           gap: token.sizeSM,
+          minWidth: 0,
         },
       },
       '&-title': {
@@ -185,6 +186,9 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        '&-with-ellipsis': {
+          display: 'inline-block'
+        },
       },
       '&-description': {
         color: token.colorTextSecondary,
