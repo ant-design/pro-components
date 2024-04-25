@@ -156,7 +156,11 @@ const LightSelect: React.ForwardRefRenderFunction<
       }}
     >
       <Select
-        popupMatchSelectWidth={false}
+        /**
+         * popupMatchSelectWidth写死false会关闭虚拟滚动，数量量过大时，影响组件性能
+         * 将此属性注释掉，变成灵活的动态配置
+         */
+        // popupMatchSelectWidth={false}
         {...restProps}
         allowClear={allowClear}
         value={value}
