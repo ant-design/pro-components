@@ -12,6 +12,14 @@ export type LightSelectProps = {
   label?: string;
   placeholder?: any;
   valueMaxLength?: number;
+  /** 刷新数据 */
+  fetchData: (keyWord?: string) => void;
+  /**
+   * 当搜索关键词发生变化时是否请求远程数据
+   *
+   * @default true
+   */
+  fetchDataOnSearch?: boolean;
 } & ProFieldLightProps;
 
 /**
@@ -63,6 +71,8 @@ const LightSelect: React.ForwardRefRenderFunction<
     optionFilterProp,
     optionLabelProp = '',
     valueMaxLength = 41,
+    fetchDataOnSearch = false,
+    fetchData,
     ...restProps
   } = props;
   const { placeholder = label } = props;
@@ -172,7 +182,16 @@ const LightSelect: React.ForwardRefRenderFunction<
         }}
         {...compatibleBorder(bordered)}
         showSearch={showSearch}
-        onSearch={onSearch}
+        onSearch={
+          showSearch
+            ? (keyValue) => {
+                if (fetchDataOnSearch && fetchData) {
+                  fetchData(keyValue);
+                }
+                onSearch?.(keyValue);
+              }
+            : void 0
+        }
         style={style}
         dropdownRender={(menuNode) => {
           return (
@@ -184,6 +203,9 @@ const LightSelect: React.ForwardRefRenderFunction<
                     allowClear={!!allowClear}
                     onChange={(e) => {
                       setKeyword(e.target.value);
+                      if (fetchDataOnSearch && fetchData) {
+                        fetchData(e.target.value);
+                      }
                       onSearch?.(e.target.value);
                     }}
                     onKeyDown={(e) => {
