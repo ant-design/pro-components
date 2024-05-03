@@ -21,6 +21,7 @@ import {
   fireEvent,
   render,
   waitFor,
+  waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
@@ -2785,6 +2786,189 @@ describe('ProForm', () => {
     });
 
     expect(onFinish).toBeCalledWith(1);
+  });
+
+  it('📦 Select should not overlap group names when scrolling dropdown', async () => {
+    const options = [
+      {
+        name: 'Consulting',
+        label: 'Consulting',
+        options: [
+          {
+            label: 'Consultant',
+            value: 'Consultant',
+          },
+        ],
+      },
+      {
+        name: 'HR',
+        label: 'HR',
+        options: [
+          {
+            label: 'HR1',
+            value: 'HR1',
+          },
+          {
+            label: 'HR Assistant',
+            value: 'HR Assistant',
+          },
+          {
+            label: 'HR Manager',
+            value: 'HR Manager',
+          },
+        ],
+      },
+      {
+        name: 'Product',
+        label: 'Product',
+        options: [
+          {
+            label: 'SDE',
+            value: 'SDE',
+          },
+          {
+            label: 'Senior SDE',
+            value: 'Senior SDE',
+          },
+        ],
+      },
+      {
+        name: 'Recruiting',
+        label: 'Recruiting',
+        options: [
+          {
+            label: 'Recruiter',
+            value: 'Recruiter',
+          },
+          {
+            label: 'Recruiter Assitant',
+            value: 'Recruiter Assitant',
+          },
+          {
+            label: 'Recruiter Manager',
+            value: 'Recruiter Manager',
+          },
+        ],
+      },
+      {
+        name: 'Training',
+        label: 'Training',
+        options: [
+          {
+            label: 'Trainer',
+            value: 'Trainer',
+          },
+          {
+            label: 'Trainer Manager',
+            value: 'Trainer Manager',
+          },
+          {
+            label: 'IT Specialist',
+            value: 'IT Specialist',
+          },
+        ],
+      },
+      {
+        name: 'Marketing',
+        label: 'Marketing',
+        options: [
+          {
+            label: 'Marketer',
+            value: 'Marketer',
+          },
+          {
+            label: 'Marketing Manager',
+            value: 'Marketing Manager',
+          },
+        ],
+      },
+    ];
+    const wrapper = render(
+      <ProForm>
+        <ProFormSelect
+          showSearch
+          allowClear={false}
+          name="selectGroup"
+          label="分组select"
+          mode="multiple"
+          options={options}
+        />
+      </ProForm>,
+    );
+
+    // 找到ProFormSelect组件的下拉触发器并激活它
+    const selectTrigger = await wrapper.findByRole('combobox');
+    act(() => {
+      userEvent.click(selectTrigger);
+    });
+
+    // 等待下拉菜单渲染完成
+    const dropdownMenu = await waitFor(() => wrapper.getByRole('listbox'));
+    const menu = dropdownMenu;
+    const menuHeight = dropdownMenu.scrollHeight;
+    const viewportHeight = dropdownMenu.clientHeight;
+
+    // 模拟多次来回滚动
+    for (let i = 0; i < 5; i++) {
+      // 两次来回滚动
+      // 向下滚动到底部
+      act(() => {
+        menu.scrollTop = menuHeight - viewportHeight;
+        fireEvent.scroll(menu);
+      });
+
+      // 等待滚动完成
+      await waitFor(() => {
+        expect(menu.scrollTop).toBeGreaterThanOrEqual(
+          menuHeight - viewportHeight,
+        );
+      });
+
+      // 向上滚动到顶部
+      act(() => {
+        menu.scrollTop = 0;
+        fireEvent.scroll(menu);
+      });
+
+      // 等待滚动完成
+      await waitFor(() => expect(menu.scrollTop).toBe(0));
+    }
+
+    const dropdownOptions = Array.from(
+      wrapper.baseElement.querySelectorAll('.ant-select-item-option-content'),
+    ).map((node) => node.textContent && node.textContent.trim());
+    const dropdownGroups = Array.from(
+      wrapper.baseElement.querySelectorAll(
+        'div.ant-select-item.ant-select-item-group.ant-select-item-group',
+      ),
+    ).map((node) => node.textContent && node.textContent.trim());
+    expect(dropdownOptions.length).toBe(6); // 滚动后依旧有6个item 虚拟滚动只显示6个
+    expect(dropdownGroups.length).toBe(4); // 滚动后依旧有4个组 虚拟滚动只显示4个
+    function extractLabels(
+      groups: { label: string; options: { label: string }[] }[],
+    ) {
+      return groups.flatMap((group) =>
+        group.options.map((option) => option.label),
+      );
+    }
+    expect(extractLabels(options.slice(0, 3))).toEqual(dropdownOptions);
+
+    expect(options.slice(0, 4).map((group) => group.label)).toEqual(
+      dropdownGroups,
+    );
+
+    // 关闭下拉菜单
+    act(() => {
+      userEvent.click(document.body);
+    });
+
+    // 确保下拉菜单被正确关闭
+    await waitForElementToBeRemoved(() => wrapper.queryByRole('listbox'), {
+      timeout: 100, // 设置超时时间
+    });
+    expect(wrapper.queryByRole('listbox')).toBeNull();
+
+    wrapper.unmount();
   });
 
   it('📦 ColorPicker support rgba new', async () => {
