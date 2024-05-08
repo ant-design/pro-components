@@ -25,6 +25,7 @@ export type {
   FormListActionType,
   ProFormCaptchaProps,
   ProFormCheckboxGroupProps,
+  ProFormCheckboxProps,
   ProFormColorPickerProps,
   ProFormColumnsType,
   ProFormDependencyProps,
