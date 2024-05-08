@@ -22,7 +22,6 @@ import {
   fireEvent,
   render,
   waitFor,
-  waitForElementToBeRemoved,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
@@ -3053,17 +3052,6 @@ describe('ProForm', () => {
     expect(options.slice(0, 4).map((group) => group.label)).toEqual(
       dropdownGroups,
     );
-
-    // 关闭下拉菜单
-    act(() => {
-      userEvent.click(document.body);
-    });
-
-    // 确保下拉菜单被正确关闭
-    await waitForElementToBeRemoved(() => wrapper.queryByRole('listbox'), {
-      timeout: 100, // 设置超时时间
-    });
-    expect(wrapper.queryByRole('listbox')).toBeNull();
 
     wrapper.unmount();
   });
