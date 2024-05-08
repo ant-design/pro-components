@@ -1,6 +1,7 @@
 import { FontSizeOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
+  LightFilter,
   ProFormCaptcha,
   ProFormCheckbox,
   ProFormColorPicker,
@@ -1767,6 +1768,102 @@ describe('ProForm', () => {
 
     await waitFor(() => {
       expect(onRequest.mock.calls.length).toBe(2);
+    });
+
+    wrapper.unmount();
+  });
+
+  it('📦 LightFilter + SearchSelect support fetchDataOnSearch: false', async () => {
+    const onRequest = vi.fn();
+    const wrapper = render(
+      <LightFilter>
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            fetchDataOnSearch: false,
+          }}
+          request={async () => {
+            onRequest();
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
+        />
+      </LightFilter>,
+    );
+
+    await wrapper.findByText('查询选择器');
+
+    act(() => {
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
+        },
+      );
+    });
+
+    expect(onRequest.mock.calls.length).toBe(1);
+  });
+
+  it('📦 LightFilter + SearchSelect support fetchDataOnSearch: true', async () => {
+    const onRequest = vi.fn();
+    const wrapper = render(
+      <LightFilter>
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            fetchDataOnSearch: true,
+          }}
+          request={async () => {
+            onRequest();
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
+        />
+      </LightFilter>,
+    );
+    await wrapper.findByText('查询选择器');
+
+    await waitFor(() => {
+      expect(onRequest.mock.calls.length).toBe(1);
+    });
+
+    act(() => {
+      fireEvent.change(
+        wrapper.baseElement.querySelector(
+          '.ant-select-selection-search-input',
+        )!,
+        {
+          target: {
+            value: '全',
+          },
+        },
+      );
+    });
+
+    act(() => {
+      fireEvent.mouseDown(
+        wrapper.baseElement.querySelectorAll('.ant-select-selector')[0],
+        {},
+      );
+    });
+
+    await waitFor(() => {
+      expect(onRequest.mock.calls.length).toBe(2); // 搜索触发请求
     });
 
     wrapper.unmount();
