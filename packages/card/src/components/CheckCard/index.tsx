@@ -291,7 +291,11 @@ const CheckCard: React.FC<CheckCardProps> & {
     const headerDom = (title ?? extra) != null && (
       <div className={classNames(`${prefixCls}-header`, hashId)}>
         <div className={classNames(`${prefixCls}-header-left`, hashId)}>
-          <div className={classNames(`${prefixCls}-title`, hashId)}>
+          <div
+            className={classNames(`${prefixCls}-title`, hashId, {
+              [`${prefixCls}-title-with-ellipsis`]: typeof title === 'string',
+            })}
+          >
             {title}
           </div>
           {props.subTitle ? (

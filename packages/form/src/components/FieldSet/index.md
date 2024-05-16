@@ -452,7 +452,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormCascader
 
-与 [cascader](https://ant.design/components/cascader-cn/) 相同，通过 filedProps 配置 cascader 的数据。
+与 [cascader](https://ant.design/components/cascader-cn/) 相同，通过 fieldProps 配置 cascader 的数据。
 
 > 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
@@ -492,7 +492,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormSwitch
 
-与 [switch](https://ant.design/components/switch-cn/) 相同，通过 filedProps 配置 switch 的数据。
+与 [switch](https://ant.design/components/switch-cn/) 相同，通过 fieldProps 配置 switch 的数据。
 
 | 参数       | 说明              | 类型          | 默认值 |
 | ---------- | ----------------- | ------------- | ------ |
@@ -508,7 +508,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | ---------- | ----------------- | ----------- | ------ |
 | fieldProps | antd 组件的 props | `RateProps` | -      |
 
-与 [rate](https://ant.design/components/rate-cn/) 相同，通过 filedProps 配置 rate 的数据。
+与 [rate](https://ant.design/components/rate-cn/) 相同，通过 fieldProps 配置 rate 的数据。
 
 ```tsx | pure
 <ProFormRate name="rate" label="Rate" />
@@ -516,7 +516,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormSlider
 
-与 [slider](https://ant.design/components/slider-cn/) 相同，通过 filedProps 配置 slider 的数据。
+与 [slider](https://ant.design/components/slider-cn/) 相同，通过 fieldProps 配置 slider 的数据。
 
 | 参数       | 说明              | 类型          | 默认值 |
 | ---------- | ----------------- | ------------- | ------ |

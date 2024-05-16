@@ -1,6 +1,7 @@
 import type { RequestOptionsType } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
+import { nanoid } from '@ant-design/pro-utils';
 
 import type { DefaultOptionType, LabeledValue } from 'antd/lib/select';
 import classNames from 'classnames';
@@ -188,7 +189,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           ...resetItem,
           data_title: label,
           title: label,
-          key: value ?? label?.toString(),
+          key: value ?? `${label?.toString()}-${index}-${nanoid()}`, // 防止因key相同导致虚拟滚动出问题
           children: genOptions(itemOptions),
         } as DefaultOptionType;
       }
@@ -198,7 +199,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         ...resetItem,
         data_title: label,
         value: value ?? index,
-        key: value ?? label?.toString(),
+        key: value ?? `${label?.toString()}-${index}-${nanoid()}`,
         'data-item': item,
         className: `${prefixCls}-option ${itemClassName || ''}`.trim(),
         label: optionItemRender?.(item as any) || label,
