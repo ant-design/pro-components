@@ -100,6 +100,9 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       [`${token.componentCls}-loading`]: {
         overflow: 'hidden',
         userSelect: 'none',
+        '&-content': {
+          padding: token.paddingMD,
+        },
       },
       '&:focus': proCheckCardActive(token),
       '&-checked': {
@@ -173,6 +176,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
           display: 'flex',
           alignItems: 'center',
           gap: token.sizeSM,
+          minWidth: 0,
         },
       },
       '&-title': {
@@ -185,6 +189,9 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        '&-with-ellipsis': {
+          display: 'inline-block',
+        },
       },
       '&-description': {
         color: token.colorTextSecondary,

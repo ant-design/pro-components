@@ -97,10 +97,11 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
-  let { token = {} as Record<string, any> as ProAliasToken } =
+  // eslint-disable-next-line prefer-const
+  let { token = {} as Record<string, any> as ProAliasToken, hashed } =
     useContext(ProProvider);
-  const { token: antdToken, theme, hashId: antDHashId } = antdTheme.useToken();
-  const { hashId = antDHashId } = useContext(ProProvider);
+
+  const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
 
@@ -116,11 +117,10 @@ export function useStyle(
       {
         theme,
         token,
-        hashId,
         path: [componentName],
       },
       () => styleFn(token as ProAliasToken),
     ),
-    hashId,
+    hashId: hashed ? hashId : '',
   };
 }

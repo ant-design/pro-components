@@ -497,6 +497,7 @@ const FieldSelect: ProFieldFC<
             )}
             lightLabel={lightLabel}
             labelTrigger={labelTrigger}
+            fetchData={fetchData}
             {...fieldProps}
           />
         );

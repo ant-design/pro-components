@@ -52,7 +52,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 示例标题
               </div>
@@ -101,7 +101,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 示例一
               </div>
@@ -201,7 +201,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 示例
               </div>
@@ -246,7 +246,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 示例
               </div>
@@ -274,7 +274,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 示例
               </div>
@@ -332,7 +332,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 Card title
               </div>
@@ -386,7 +386,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 示例二
               </div>
@@ -435,7 +435,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 默认描述区域不会进行折行
               </div>
@@ -484,7 +484,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 你可以通过排版组件进行省略
               </div>
@@ -546,7 +546,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                 class="ant-pro-checkcard-header-left"
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                 >
                   Card title
                 </div>
@@ -588,7 +588,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                 class="ant-pro-checkcard-header-left"
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                 >
                   Card title
                 </div>
@@ -630,7 +630,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                 class="ant-pro-checkcard-header-left"
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                 >
                   Card title
                 </div>
@@ -668,7 +668,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     Card A
                   </div>
@@ -698,7 +698,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     Card B
                   </div>
@@ -754,7 +754,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 示例一
               </div>
@@ -867,7 +867,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                               class="ant-pro-checkcard-header-left"
                             >
                               <div
-                                class="ant-pro-checkcard-title"
+                                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                               >
                                 Spring Boot
                               </div>
@@ -908,7 +908,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                               class="ant-pro-checkcard-header-left"
                             >
                               <div
-                                class="ant-pro-checkcard-title"
+                                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                               >
                                 SOFA Boot
                               </div>
@@ -949,7 +949,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                               class="ant-pro-checkcard-header-left"
                             >
                               <div
-                                class="ant-pro-checkcard-title"
+                                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                               >
                                 Node JS
                               </div>
@@ -1037,7 +1037,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                     class="ant-pro-checkcard-header-left"
                   >
                     <div
-                      class="ant-pro-checkcard-title"
+                      class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                     >
                       Card A
                     </div>
@@ -1071,7 +1071,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                     class="ant-pro-checkcard-header-left"
                   >
                     <div
-                      class="ant-pro-checkcard-title"
+                      class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                     >
                       Card B
                     </div>
@@ -1105,7 +1105,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                     class="ant-pro-checkcard-header-left"
                   >
                     <div
-                      class="ant-pro-checkcard-title"
+                      class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                     >
                       Card C
                     </div>
@@ -1135,7 +1135,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
       test
     </div>
     <div
-      style="padding: 24px; background-color: rgb(247, 248, 250);"
+      style="padding: 24px;"
     >
       <div
         class="ant-pro-checkcard-group"
@@ -1156,7 +1156,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     🍎 Apple
                   </div>
@@ -1181,7 +1181,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     🍐 Pear
                   </div>
@@ -1206,7 +1206,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     🍊 Orange
                   </div>
@@ -1354,7 +1354,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                       class="ant-pro-checkcard-header-left"
                     >
                       <div
-                        class="ant-pro-checkcard-title"
+                        class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                       >
                         🍎 Apple
                       </div>
@@ -1379,7 +1379,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                       class="ant-pro-checkcard-header-left"
                     >
                       <div
-                        class="ant-pro-checkcard-title"
+                        class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                       >
                         🍐 Pear
                       </div>
@@ -1404,7 +1404,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                       class="ant-pro-checkcard-header-left"
                     >
                       <div
-                        class="ant-pro-checkcard-title"
+                        class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                       >
                         🍊 Orange
                       </div>
@@ -1440,7 +1440,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     🍊 Orange
                   </div>
@@ -1465,7 +1465,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     🍐 Pear
                   </div>
@@ -1490,7 +1490,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     🍎 Apple
                   </div>
@@ -1671,7 +1671,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     图像分类
                   </div>
@@ -1713,7 +1713,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     物体检测
                   </div>
@@ -1755,7 +1755,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     OCR自定义
                   </div>
@@ -1797,7 +1797,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     OCR
                   </div>
@@ -1839,7 +1839,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     视频分类
                   </div>
@@ -1881,7 +1881,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-pro-checkcard-header-left"
                 >
                   <div
-                    class="ant-pro-checkcard-title"
+                    class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                   >
                     关键点检测
                   </div>
@@ -1966,7 +1966,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                 class="ant-pro-checkcard-header-left"
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                 >
                   Card A
                 </div>
@@ -1996,7 +1996,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                 class="ant-pro-checkcard-header-left"
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                 >
                   Card B
                 </div>
@@ -2042,7 +2042,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                 class="ant-pro-checkcard-header-left"
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                 >
                   Card A
                 </div>
@@ -2072,7 +2072,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                 class="ant-pro-checkcard-header-left"
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                 >
                   Card B
                 </div>
@@ -2102,7 +2102,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                 class="ant-pro-checkcard-header-left"
               >
                 <div
-                  class="ant-pro-checkcard-title"
+                  class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
                 >
                   Card C
                 </div>
@@ -2211,7 +2211,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 Card title
               </div>
@@ -2315,7 +2315,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
               class="ant-pro-checkcard-header-left"
             >
               <div
-                class="ant-pro-checkcard-title"
+                class="ant-pro-checkcard-title ant-pro-checkcard-title-with-ellipsis"
               >
                 标题内容过长会自动进行省略，标题内容过长会自动进行省略
               </div>

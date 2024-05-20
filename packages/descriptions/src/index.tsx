@@ -399,6 +399,7 @@ const schemaToDescriptionsItem = (
                 <Component>
                   <FieldRender
                     {...item}
+                    key={item?.key}
                     dataIndex={item.dataIndex || index}
                     mode={fieldMode}
                     text={contentDom}

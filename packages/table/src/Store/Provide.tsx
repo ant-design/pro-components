@@ -129,8 +129,8 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
           if (props?.columnsState?.defaultValue) {
             setColumnsMap(
               merge(
-                JSON.parse(storageValue),
                 props?.columnsState?.defaultValue,
+                JSON.parse(storageValue),
               ),
             );
           } else {
