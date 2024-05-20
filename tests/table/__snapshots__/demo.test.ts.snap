@@ -2114,6 +2114,333 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
 </DocumentFragment>
 `;
 
+exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/cell-editor-table.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-app"
+  >
+    <div>
+      test
+    </div>
+    <div
+      class="ant-pro-table"
+    >
+      <div
+        class="ant-pro-card"
+      >
+        <div
+          class="ant-pro-card-body"
+          style="padding-block-start: 0;"
+        >
+          <div
+            class="ant-pro-table-list-toolbar"
+          >
+            <div
+              class="ant-pro-table-list-toolbar-container"
+            >
+              <div
+                class="ant-pro-table-list-toolbar-left"
+              >
+                <div
+                  class="ant-pro-table-list-toolbar-title"
+                >
+                  可编辑表格
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-table-wrapper"
+          >
+            <div
+              class="ant-spin-nested-loading"
+            >
+              <div
+                class="ant-spin-container"
+              >
+                <div
+                  class="ant-table ant-table-middle ant-table-bordered ant-table-layout-fixed ant-table-scroll-horizontal"
+                >
+                  <div
+                    class="ant-table-container"
+                  >
+                    <div
+                      class="ant-table-content"
+                      style="overflow-x: auto; overflow-y: hidden;"
+                    >
+                      <table
+                        style="width: 960px; min-width: 100%; table-layout: fixed;"
+                      >
+                        <colgroup>
+                          <col
+                            style="width: 30%;"
+                          />
+                        </colgroup>
+                        <thead
+                          class="ant-table-thead"
+                        >
+                          <tr>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              活动名称
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              状态
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              描述
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="ant-table-tbody"
+                        >
+                          <tr
+                            aria-hidden="true"
+                            class="ant-table-measure-row"
+                            style="height: 0px; font-size: 0px;"
+                          >
+                            <td
+                              style="padding: 0px; border: 0px; height: 0px;"
+                            >
+                              <div
+                                style="height: 0px; overflow: hidden;"
+                              >
+                                 
+                              </div>
+                            </td>
+                            <td
+                              style="padding: 0px; border: 0px; height: 0px;"
+                            >
+                              <div
+                                style="height: 0px; overflow: hidden;"
+                              >
+                                 
+                              </div>
+                            </td>
+                            <td
+                              style="padding: 0px; border: 0px; height: 0px;"
+                            >
+                              <div
+                                style="height: 0px; overflow: hidden;"
+                              >
+                                 
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164000"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称0
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164001"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称1
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164002"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称2
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164003"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称3
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164004"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称4
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="ant-btn ant-btn-dashed"
+            style="display: block; margin: 10px 0px; width: 100%;"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span>
+              添加一行数据
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/children.tsx correctly 1`] = `
 <DocumentFragment>
   <div
@@ -9840,6 +10167,333 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
 ]
           </code>
         </pre>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`table demos > 📸 renders ./packages/table/src/components/EditableTable/demos/row-editor-table.tsx correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-app"
+  >
+    <div>
+      test
+    </div>
+    <div
+      class="ant-pro-table"
+    >
+      <div
+        class="ant-pro-card"
+      >
+        <div
+          class="ant-pro-card-body"
+          style="padding-block-start: 0;"
+        >
+          <div
+            class="ant-pro-table-list-toolbar"
+          >
+            <div
+              class="ant-pro-table-list-toolbar-container"
+            >
+              <div
+                class="ant-pro-table-list-toolbar-left"
+              >
+                <div
+                  class="ant-pro-table-list-toolbar-title"
+                >
+                  可编辑表格
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-table-wrapper"
+          >
+            <div
+              class="ant-spin-nested-loading"
+            >
+              <div
+                class="ant-spin-container"
+              >
+                <div
+                  class="ant-table ant-table-middle ant-table-bordered ant-table-layout-fixed ant-table-scroll-horizontal"
+                >
+                  <div
+                    class="ant-table-container"
+                  >
+                    <div
+                      class="ant-table-content"
+                      style="overflow-x: auto; overflow-y: hidden;"
+                    >
+                      <table
+                        style="width: 960px; min-width: 100%; table-layout: fixed;"
+                      >
+                        <colgroup>
+                          <col
+                            style="width: 30%;"
+                          />
+                        </colgroup>
+                        <thead
+                          class="ant-table-thead"
+                        >
+                          <tr>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              活动名称
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              状态
+                            </th>
+                            <th
+                              class="ant-table-cell"
+                              scope="col"
+                            >
+                              描述
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody
+                          class="ant-table-tbody"
+                        >
+                          <tr
+                            aria-hidden="true"
+                            class="ant-table-measure-row"
+                            style="height: 0px; font-size: 0px;"
+                          >
+                            <td
+                              style="padding: 0px; border: 0px; height: 0px;"
+                            >
+                              <div
+                                style="height: 0px; overflow: hidden;"
+                              >
+                                 
+                              </div>
+                            </td>
+                            <td
+                              style="padding: 0px; border: 0px; height: 0px;"
+                            >
+                              <div
+                                style="height: 0px; overflow: hidden;"
+                              >
+                                 
+                              </div>
+                            </td>
+                            <td
+                              style="padding: 0px; border: 0px; height: 0px;"
+                            >
+                              <div
+                                style="height: 0px; overflow: hidden;"
+                              >
+                                 
+                              </div>
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164000"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称0
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164001"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称1
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164002"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称2
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164003"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称3
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                          <tr
+                            class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1479828164004"
+                          >
+                            <td
+                              class="ant-table-cell"
+                            >
+                              活动名称4
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              <span
+                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                              >
+                                <span
+                                  class="ant-badge-status-dot ant-badge-status-error"
+                                />
+                                <span
+                                  class="ant-badge-status-text"
+                                >
+                                  未解决
+                                </span>
+                              </span>
+                            </td>
+                            <td
+                              class="ant-table-cell"
+                            >
+                              这个活动真好玩
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="ant-btn ant-btn-dashed"
+            style="display: block; margin: 10px 0px; width: 100%;"
+            type="button"
+          >
+            <span
+              class="ant-btn-icon"
+            >
+              <span
+                aria-label="plus"
+                class="anticon anticon-plus"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="plus"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                  />
+                  <path
+                    d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span>
+              添加一行数据
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

@@ -500,10 +500,11 @@ function EditableTable<
     </>
   );
 }
+
 /**
- * `FieldEditableTable` is a wrapper around `EditableTable` that adds a `Form.Item` around it
- * @param props - EditableProTableProps<DataType, Params, ValueType>
- * @returns A function that takes in props and returns a Form.Item component.
+ * 可以直接放到 Form 中的可编辑表格
+ * A React component that is used to create a table.
+ * @param props
  */
 function FieldEditableTable<
   DataType extends Record<string, any>,
@@ -513,7 +514,15 @@ function FieldEditableTable<
   const form = ProForm.useFormInstance();
 
   if (!props.name)
-    return <EditableTable<DataType, Params, ValueType> {...props} />;
+    return (
+      <EditableTable<DataType, Params, ValueType>
+        tableLayout="fixed"
+        scroll={{
+          x: 'max-content',
+        }}
+        {...props}
+      />
+    );
 
   return (
     <Form.Item
@@ -534,6 +543,10 @@ function FieldEditableTable<
       }}
     >
       <EditableTable<DataType, Params, ValueType>
+        tableLayout="fixed"
+        scroll={{
+          x: 'max-content',
+        }}
         {...props}
         editable={{
           ...props.editable,
