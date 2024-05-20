@@ -128,6 +128,7 @@ const WithValueFomFiledProps: React.FC<
       ...filedChildren.props,
       onChange: finalChange,
       fieldProps,
+      onBlur: isProFormComponent && !isValidElementForFiledChildren && onBlur
     }),
   );
 };
