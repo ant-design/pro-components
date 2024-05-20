@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.1...@ant-design/pro-card@2.8.3) (2024-05-20)
+
+
+### Bug Fixes
+
+* **card:** The extra element and title ellipsis in the checkcard are not functioning correctly when the title is too long ([#8347](https://github.com/ant-design/pro-components/issues/8347)) ([31e48f6](https://github.com/ant-design/pro-components/commit/31e48f6170dbc2f8c5e1ef9cbb7e07dc181905be))
+
+
+
+
 
 ## [2.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.1...@ant-design/pro-card@2.8.2) (2024-04-21)
 
