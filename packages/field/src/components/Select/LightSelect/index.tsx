@@ -6,7 +6,7 @@ import { ConfigProvider, Input, Select } from 'antd';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import React, { useContext, useMemo, useState } from 'react';
-import type { ProFieldLightProps } from '../../../index';
+import type { ProFieldLightProps } from '../../../PureProField';
 
 export type LightSelectProps = {
   label?: string;

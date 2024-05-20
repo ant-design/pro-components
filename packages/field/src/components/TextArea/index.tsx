@@ -1,7 +1,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { Input } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import FieldTextAreaReadonly from './readonly';
 
 /**

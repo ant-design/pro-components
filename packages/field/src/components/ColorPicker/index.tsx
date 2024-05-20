@@ -2,7 +2,7 @@
 import { ColorPicker, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
 const DEFAULT_PRESETS = {
   label: 'Recommended',

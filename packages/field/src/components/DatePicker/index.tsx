@@ -8,7 +8,7 @@ import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import React, { useState } from 'react';
-import type { ProFieldFC, ProFieldLightProps } from '../../index';
+import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 dayjs.extend(weekOfYear);
 

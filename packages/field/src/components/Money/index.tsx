@@ -4,7 +4,7 @@ import { InputNumber, Popover } from 'antd';
 import omit from 'omit.js';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React, { useCallback, useMemo } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
 export type FieldMoneyProps = {
   text: number;

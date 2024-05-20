@@ -3,7 +3,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { Input, Space } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
 /**
  * 最基本的组件，就是个普通的 Input.Password

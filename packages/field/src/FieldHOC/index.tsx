@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import type { ProFieldLightProps } from '../index';
+import type { ProFieldLightProps } from '../PureProField';
 
 function FieldHOC<T extends ProFieldLightProps>(
   props: T & {

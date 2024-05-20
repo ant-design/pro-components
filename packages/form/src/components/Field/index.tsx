@@ -1,4 +1,4 @@
-import ProField from '@ant-design/pro-field';
+import { PureProField } from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import {
   isDeepEqualReact,
@@ -117,7 +117,7 @@ const BaseProFormField: React.FC<
   }
 
   return (
-    <ProField
+    <PureProField
       text={fieldProps?.[valuePropName]}
       render={render as any}
       renderFormItem={renderFormItem as any}

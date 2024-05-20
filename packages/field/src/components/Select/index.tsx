@@ -27,7 +27,7 @@ import React, {
   useState,
 } from 'react';
 import useSWR from 'swr';
-import type { ProFieldFC, ProFieldLightProps } from '../../index';
+import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
 

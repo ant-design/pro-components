@@ -1,3 +1,5 @@
+import { FieldPassword } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import { useMountMergeState } from '@ant-design/pro-utils';
 import { Form, Popover, PopoverProps, type InputProps } from 'antd';
 import type { InputRef, PasswordProps } from 'antd/lib/input';
@@ -109,57 +111,79 @@ const Password: React.FC<
 
   if (fieldProps?.statusRender && rest.name) {
     return (
-      <PassWordStrength
-        name={rest.name}
-        statusRender={fieldProps?.statusRender}
-        popoverProps={fieldProps?.popoverProps}
-        strengthText={fieldProps?.strengthText}
-        open={open}
-        onOpenChange={setOpen}
+      <ProConfigProvider
+        valueTypeMap={{
+          password: {
+            render: (text, props) => <FieldPassword {...props} text={text} />,
+            renderFormItem: (text, props) => (
+              <FieldPassword {...props} text={text} />
+            ),
+          },
+        }}
       >
-        <div>
-          <ProField
-            valueType="password"
-            fieldProps={{
-              ...omit(fieldProps, [
-                'statusRender',
-                'popoverProps',
-                'strengthText',
-              ]),
-              onBlur: (e: any) => {
-                fieldProps?.onBlur?.(e);
-                setOpen(false);
-              },
-              onClick: (e: any) => {
-                fieldProps?.onClick?.(e);
-                setOpen(true);
-              },
-            }}
-            proFieldProps={proFieldProps}
-            filedConfig={
-              {
-                valueType,
-              } as const
-            }
-            {...rest}
-          />
-        </div>
-      </PassWordStrength>
+        <PassWordStrength
+          name={rest.name}
+          statusRender={fieldProps?.statusRender}
+          popoverProps={fieldProps?.popoverProps}
+          strengthText={fieldProps?.strengthText}
+          open={open}
+          onOpenChange={setOpen}
+        >
+          <div>
+            <ProField
+              valueType="password"
+              fieldProps={{
+                ...omit(fieldProps, [
+                  'statusRender',
+                  'popoverProps',
+                  'strengthText',
+                ]),
+                onBlur: (e: any) => {
+                  fieldProps?.onBlur?.(e);
+                  setOpen(false);
+                },
+                onClick: (e: any) => {
+                  fieldProps?.onClick?.(e);
+                  setOpen(true);
+                },
+              }}
+              proFieldProps={proFieldProps}
+              filedConfig={
+                {
+                  valueType,
+                } as const
+              }
+              {...rest}
+            />
+          </div>
+        </PassWordStrength>
+      </ProConfigProvider>
     );
   }
 
   return (
-    <ProField
-      valueType="password"
-      fieldProps={fieldProps}
-      proFieldProps={proFieldProps}
-      filedConfig={
-        {
-          valueType,
-        } as const
-      }
-      {...rest}
-    />
+    <ProConfigProvider
+      valueTypeMap={{
+        password: {
+          render: (text, props) => <FieldPassword {...props} text={text} />,
+          renderFormItem: (text, props) => (
+            <FieldPassword {...props} text={text} />
+          ),
+        },
+      }}
+    >
+      <ProField
+        valueType="password"
+        fieldProps={fieldProps}
+        proFieldProps={proFieldProps}
+        filedConfig={
+          {
+            valueType,
+          } as const
+        }
+        {...rest}
+      />
+    </ProConfigProvider>
   );
 };
 

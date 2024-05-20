@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
 import { proTheme } from '@ant-design/pro-provider';
 

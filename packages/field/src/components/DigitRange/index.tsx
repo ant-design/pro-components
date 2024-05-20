@@ -2,7 +2,7 @@ import { proTheme, useIntl } from '@ant-design/pro-provider';
 import { Input, InputNumber, Space } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
 export type Value = string | number | undefined | null;
 

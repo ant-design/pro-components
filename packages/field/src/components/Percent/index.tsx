@@ -3,7 +3,7 @@ import { InputNumber } from 'antd';
 import toNumber from 'lodash.tonumber';
 import type { ReactNode } from 'react';
 import React, { Fragment, useMemo } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import {
   getColorByRealValue,
   getRealTextWithPrecision,

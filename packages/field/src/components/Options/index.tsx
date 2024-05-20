@@ -1,7 +1,7 @@
 import { proTheme } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import React, { useContext, useImperativeHandle } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
 const addArrayKeys = (doms: React.ReactNode[]) =>
   doms.map((dom, index) => {

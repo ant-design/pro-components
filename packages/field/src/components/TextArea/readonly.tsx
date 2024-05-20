@@ -2,7 +2,7 @@ import { useStyle } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
 /**
  * Input.TextArea 只读模式时渲染的组件

@@ -7,7 +7,7 @@ import {
 import { DatePicker, TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
-import type { ProFieldFC, ProFieldLightProps } from '../../index';
+import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 /**
  * 时间选择组件

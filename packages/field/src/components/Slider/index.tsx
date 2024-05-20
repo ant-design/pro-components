@@ -1,6 +1,6 @@
 import { Slider } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 /**
  * 评分组件
  *

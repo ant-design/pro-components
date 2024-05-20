@@ -3,7 +3,7 @@ import { isNil } from '@ant-design/pro-utils';
 import { InputNumber } from 'antd';
 import omit from 'omit.js';
 import React, { useCallback } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
 export type FieldDigitProps = {
   text: number;

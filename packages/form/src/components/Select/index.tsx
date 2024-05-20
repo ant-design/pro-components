@@ -1,3 +1,5 @@
+import { FieldSelect } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import { runFunction } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import type { BaseOptionType } from 'antd/lib/cascader';
@@ -68,27 +70,38 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
   const context = useContext(FieldContext);
 
   return (
-    <ProFormField<any>
-      valueEnum={runFunction(valueEnum)}
-      request={request}
-      params={params}
-      valueType="select"
-      filedConfig={{ customLightMode: true }}
-      fieldProps={
-        {
-          options,
-          mode,
-          showSearch,
-          getPopupContainer: context.getPopupContainer,
-          ...fieldProps,
-        } as SelectProps<any>
-      }
-      ref={ref}
-      proFieldProps={proFieldProps}
-      {...rest}
+    <ProConfigProvider
+      valueTypeMap={{
+        select: {
+          render: (text, props) => <FieldSelect {...props} text={text} />,
+          renderFormItem: (text, props) => (
+            <FieldSelect {...props} text={text} />
+          ),
+        },
+      }}
     >
-      {children}
-    </ProFormField>
+      <ProFormField<any>
+        valueEnum={runFunction(valueEnum)}
+        request={request}
+        params={params}
+        valueType="select"
+        filedConfig={{ customLightMode: true }}
+        fieldProps={
+          {
+            options,
+            mode,
+            showSearch,
+            getPopupContainer: context.getPopupContainer,
+            ...fieldProps,
+          } as SelectProps<any>
+        }
+        ref={ref}
+        proFieldProps={proFieldProps}
+        {...rest}
+      >
+        {children}
+      </ProFormField>
+    </ProConfigProvider>
   );
 };
 
@@ -121,19 +134,35 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
     };
     const context = useContext(FieldContext);
     return (
-      <ProFormField<any>
-        valueEnum={runFunction(valueEnum)}
-        request={request}
-        params={params}
-        valueType="select"
-        filedConfig={{ customLightMode: true }}
-        fieldProps={{ getPopupContainer: context.getPopupContainer, ...props }}
-        ref={ref}
-        proFieldProps={proFieldProps}
-        {...rest}
+      <ProConfigProvider
+        valueTypeMap={{
+          select: {
+            render: (text, valueTypeProps) => (
+              <FieldSelect {...valueTypeProps} text={text} />
+            ),
+            renderFormItem: (text, valueTypeProps) => (
+              <FieldSelect {...valueTypeProps} text={text} />
+            ),
+          },
+        }}
       >
-        {children}
-      </ProFormField>
+        <ProFormField<any>
+          valueEnum={runFunction(valueEnum)}
+          request={request}
+          params={params}
+          valueType="select"
+          filedConfig={{ customLightMode: true }}
+          fieldProps={{
+            getPopupContainer: context.getPopupContainer,
+            ...props,
+          }}
+          ref={ref}
+          proFieldProps={proFieldProps}
+          {...rest}
+        >
+          {children}
+        </ProFormField>
+      </ProConfigProvider>
     );
   },
 );
