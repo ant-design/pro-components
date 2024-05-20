@@ -1,20 +1,14 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.14.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.15...@ant-design/pro-field@2.14.17) (2024-05-20)
 
-
 ### Bug Fixes
 
-* **form:** LightFilter + SearchSelect component support fetchDataOnSearch ([#8363](https://github.com/ant-design/pro-components/issues/8363)) ([e6560be](https://github.com/ant-design/pro-components/commit/e6560be21a061d2950dca0b00963eac967bc0aa2))
-* **form:** SearchSelect scrolling error in grouping ([#8365](https://github.com/ant-design/pro-components/issues/8365)) ([cc00619](https://github.com/ant-design/pro-components/commit/cc00619527e778c304ac5125be4429e06ac7a3da))
-* **form:** 将LightSelect组件中，popupMatchSelectWidth={false}注释掉，变成灵活多变的动态配置，供用户自行配置。否则，popupMatchSelectWidth写死false会关闭虚拟滚动，数量量过大时，影响组件性能 ([#8354](https://github.com/ant-design/pro-components/issues/8354)) ([2ac6a96](https://github.com/ant-design/pro-components/commit/2ac6a963a09e2a90370ea624f5e9a372dd1bbc39))
-
-
-
-
+- **form:** LightFilter + SearchSelect component support fetchDataOnSearch ([#8363](https://github.com/ant-design/pro-components/issues/8363)) ([e6560be](https://github.com/ant-design/pro-components/commit/e6560be21a061d2950dca0b00963eac967bc0aa2))
+- **form:** SearchSelect scrolling error in grouping ([#8365](https://github.com/ant-design/pro-components/issues/8365)) ([cc00619](https://github.com/ant-design/pro-components/commit/cc00619527e778c304ac5125be4429e06ac7a3da))
+- **form:** 将 LightSelect 组件中，popupMatchSelectWidth={false}注释掉，变成灵活多变的动态配置，供用户自行配置。否则，popupMatchSelectWidth 写死 false 会关闭虚拟滚动，数量量过大时，影响组件性能 ([#8354](https://github.com/ant-design/pro-components/issues/8354)) ([2ac6a96](https://github.com/ant-design/pro-components/commit/2ac6a963a09e2a90370ea624f5e9a372dd1bbc39))
 
 ## [2.14.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.14.15...@ant-design/pro-field@2.14.16) (2024-04-21)
 

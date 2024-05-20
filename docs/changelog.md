@@ -1,3 +1,15 @@
+## @ant-design/pro-components@2.7.9
+
+`2024-05-20`
+
+- fix(form): LightFilter + SearchSelect component support fetchDataOnSearch (#8363). [#8363](https://github.com/ant-design/pro-components/pull/#8363) [@zhuba-Ahhh](https://github.com/zhuba-Ahhh)
+- fix(form): SearchSelect scrolling error in grouping (#8365). [#8365](https://github.com/ant-design/pro-components/pull/#8365) [@zhuba-Ahhh](https://github.com/zhuba-Ahhh)
+- fix(form): 将 LightSelect 组件中，popupMatchSelectWidth={false}注释掉，变成灵活多变的动态配置，供用户自行配置。否则，popupMatchSelectWidth 写死 false 会关闭虚拟滚动，数量量过大时，影响组件性能 (#8354). [#8354](https://github.com/ant-design/pro-components/pull/#8354) [@gb853940223](https://github.com/gb853940223)
+- feat(table): table support RowEditorTable and CellEditorTable. [013877d](https://github.com/ant-design/pro-components/commit/013877d)
+- fix(table): 修 columnsMap 重新赋值时总是使用默认值的问题 (#8384). [#8384](https://github.com/ant-design/pro-components/pull/#8384) [@fnoopv](https://github.com/fnoopv)
+- fix(card): The extra element and title ellipsis in the checkcard are not functioning correctly when the title is too long (#8347). [#8347](https://github.com/ant-design/pro-components/pull/#8347) [@justnewneo](https://github.com/justnewneo)
+- chore(descriptions): Reveal the key to prevent errors (#8394). [#8394](https://github.com/ant-design/pro-components/pull/#8394) [@zhuba-Ahhh](https://github.com/zhuba-Ahhh)
+
 ## @ant-design/pro-components@2.7.3
 
 `2024-04-19`

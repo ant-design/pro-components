@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [3.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.9...@ant-design/pro-table@3.16.0) (2024-05-20)
 
-
 ### Bug Fixes
 
-* **table:** 修columnsMap重新赋值时总是使用默认值的问题 ([#8384](https://github.com/ant-design/pro-components/issues/8384)) ([7c57399](https://github.com/ant-design/pro-components/commit/7c573992f89087d349d93fb95c514f146e9a4ac8))
-
+- **table:** 修 columnsMap 重新赋值时总是使用默认值的问题 ([#8384](https://github.com/ant-design/pro-components/issues/8384)) ([7c57399](https://github.com/ant-design/pro-components/commit/7c573992f89087d349d93fb95c514f146e9a4ac8))
 
 ### Features
 
-* **table:** table support RowEditorTable and CellEditorTable ([013877d](https://github.com/ant-design/pro-components/commit/013877d41ab57153b8deb8cfb8f437a9b5a9e419))
-
-
-
-
+- **table:** table support RowEditorTable and CellEditorTable ([013877d](https://github.com/ant-design/pro-components/commit/013877d41ab57153b8deb8cfb8f437a9b5a9e419))
 
 ## [3.15.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.9...@ant-design/pro-table@3.15.10) (2024-04-21)
 
