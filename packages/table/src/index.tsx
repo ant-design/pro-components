@@ -32,6 +32,8 @@ import type {
   EditableProTableProps,
 } from './components/EditableTable';
 import EditableProTable from './components/EditableTable';
+import { CellEditorTable } from './components/EditableTable/CellEditorTable';
+import { RowEditorTable } from './components/EditableTable/RowEditorTable';
 import Search from './components/Form';
 import type { ListToolBarProps } from './components/ListToolBar';
 import ListToolBar from './components/ListToolBar';
@@ -47,6 +49,7 @@ type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;
 
 export {
+  CellEditorTable,
   ConfigConsumer,
   DragSortTable,
   EditableProTable,
@@ -54,6 +57,7 @@ export {
   ConfigConsumer as IntlConsumer,
   ListToolBar,
   ProTable,
+  RowEditorTable,
   Search,
   TableDropdown,
   FieldStatus as TableStatus,

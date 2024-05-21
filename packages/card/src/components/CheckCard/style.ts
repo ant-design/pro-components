@@ -190,7 +190,7 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
         alignItems: 'center',
         justifyContent: 'space-between',
         '&-with-ellipsis': {
-          display: 'inline-block'
+          display: 'inline-block',
         },
       },
       '&-description': {

@@ -13,6 +13,14 @@ atomId: EditableProTable
 
 <code src="./demos/basic.tsx"  background="var(--main-bg-color)" title="可编辑表格"></code>
 
+### 单元格编辑
+
+<code src="./demos/cell-editor-table.tsx"  background="var(--main-bg-color)" title="单元格编辑"></code>
+
+### 行编辑
+
+<code src="./demos/row-editor-table.tsx"  background="var(--main-bg-color)" title="行编辑"></code>
+
 ### 与 FormItem 配合
 
 <code src="./demos/form-item.tsx"  background="var(--main-bg-color)" title="与 FormItem 配合"></code>
