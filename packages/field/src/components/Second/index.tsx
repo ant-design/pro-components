@@ -19,6 +19,11 @@ export type FieldDigitProps = {
  */
 export function formatSecond(result: number) {
   let formatText = '';
+  let past = false;
+  if (result < 0) {
+    result = -result;
+    past = true;
+  }
   const d = Math.floor(result / (3600 * 24));
   const h = Math.floor((result / 3600) % 24);
   const m = Math.floor((result / 60) % 60);
@@ -32,6 +37,9 @@ export function formatSecond(result: number) {
   }
   if (d > 0) {
     formatText = `${d}天${formatText}`;
+  }
+  if (past) {
+    formatText += '前';
   }
   return formatText;
 }
