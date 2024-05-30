@@ -267,26 +267,25 @@ describe('ModalForm', () => {
       await waitForWaitTime(100);
     });
     expect(fn).toBeCalledWith(false);
-    expect(fn).toBeCalledTimes(1); // 关闭只触发一次 onOpenChange
+    expect(fn).toBeCalledTimes(2); // 点击触发一次，关闭触发一次 onOpenChange
   });
 
-  // 如果默认就是 open 的 onOpenChange 预期应当不触发
-  // it('📦 modal open=true simulate onOpenChange', async () => {
-  //   const fn = vi.fn();
-  //   render(
-  //     <ModalForm
-  //       open
-  //       trigger={<Button id="new">新建</Button>}
-  //       onOpenChange={(visible) => fn(visible)}
-  //     >
-  //       <ProFormText name="name" />
-  //     </ModalForm>,
-  //   );
+  it('📦 modal open=true simulate onOpenChange', async () => {
+    const fn = vi.fn();
+    render(
+      <ModalForm
+        open
+        trigger={<Button id="new">新建</Button>}
+        onOpenChange={(visible) => fn(visible)}
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
 
-  //   await waitFor(() => {
-  //     expect(fn).toBeCalledWith(true);
-  //   });
-  // });
+    await waitFor(() => {
+      expect(fn).toBeCalledWith(true);
+    });
+  });
 
   it('📦 reset button will simulate onOpenChange', async () => {
     const fn = vi.fn();
@@ -386,7 +385,7 @@ describe('ModalForm', () => {
     await waitFor(async () => {
       await waitForWaitTime(100);
     });
-    expect(fn).toBeCalledTimes(0);
+    expect(fn).toBeCalledTimes(1); // 点击会触发一次onOpenChange
   });
 
   it('📦 ModalForm support submitter is false', async () => {
