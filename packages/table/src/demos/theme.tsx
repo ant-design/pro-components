@@ -214,11 +214,11 @@ export default () => {
                   },
                   {
                     label: '2nd item',
-                    key: '1',
+                    key: '2',
                   },
                   {
                     label: '3rd item',
-                    key: '1',
+                    key: '3',
                   },
                 ],
               }}
