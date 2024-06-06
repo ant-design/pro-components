@@ -10,7 +10,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color: rgb(255, 255, 255); font-size: 20px;"
+      style="color: #fff; font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -33,16 +33,16 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
     />
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper"
+      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
       style="width: 300px;"
     >
       <div
@@ -107,7 +107,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               >
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(22, 119, 255);"
+                  style="background-color: #1677FF;"
                 >
                   <span
                     aria-label="check"
@@ -131,35 +131,35 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                 </div>
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(24, 144, 255);"
+                  style="background-color: #1890ff;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(245, 34, 45);"
+                  style="background-color: #F5222D;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(250, 84, 28);"
+                  style="background-color: #FA541C;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(250, 173, 20);"
+                  style="background-color: #FAAD14;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(19, 194, 194);"
+                  style="background-color: #13C2C2;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(82, 196, 26);"
+                  style="background-color: #52C41A;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(47, 84, 235);"
+                  style="background-color: #2F54EB;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(114, 46, 209);"
+                  style="background-color: #722ED1;"
                 />
               </div>
             </div>
@@ -1195,7 +1195,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
   </div>
@@ -1212,7 +1212,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color: rgb(255, 255, 255); font-size: 20px;"
+      style="color: #fff; font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -1235,16 +1235,16 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
     />
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper"
+      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
       style="width: 300px;"
     >
       <div
@@ -2328,7 +2328,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
   </div>
@@ -2345,7 +2345,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color: rgb(255, 255, 255); font-size: 20px;"
+      style="color: #fff; font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -2368,16 +2368,16 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
     />
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper"
+      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
       style="width: 300px;"
     >
       <div
@@ -2442,7 +2442,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
               >
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(22, 119, 255);"
+                  style="background-color: #1677FF;"
                 >
                   <span
                     aria-label="check"
@@ -2466,35 +2466,35 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                 </div>
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(24, 144, 255);"
+                  style="background-color: #1890ff;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(245, 34, 45);"
+                  style="background-color: #F5222D;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(250, 84, 28);"
+                  style="background-color: #FA541C;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(250, 173, 20);"
+                  style="background-color: #FAAD14;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(19, 194, 194);"
+                  style="background-color: #13C2C2;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(82, 196, 26);"
+                  style="background-color: #52C41A;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(47, 84, 235);"
+                  style="background-color: #2F54EB;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(114, 46, 209);"
+                  style="background-color: #722ED1;"
                 />
               </div>
             </div>
@@ -3498,7 +3498,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
   </div>
@@ -3515,7 +3515,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color: rgb(255, 255, 255); font-size: 20px;"
+      style="color: #fff; font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -3538,16 +3538,16 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
     />
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper"
+      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
       style="width: 300px;"
     >
       <div
@@ -3612,7 +3612,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
               >
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(22, 119, 255);"
+                  style="background-color: #1677FF;"
                 >
                   <span
                     aria-label="check"
@@ -3636,35 +3636,35 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                 </div>
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(24, 144, 255);"
+                  style="background-color: #1890ff;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(245, 34, 45);"
+                  style="background-color: #F5222D;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(250, 84, 28);"
+                  style="background-color: #FA541C;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(250, 173, 20);"
+                  style="background-color: #FAAD14;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(19, 194, 194);"
+                  style="background-color: #13C2C2;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(82, 196, 26);"
+                  style="background-color: #52C41A;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(47, 84, 235);"
+                  style="background-color: #2F54EB;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(114, 46, 209);"
+                  style="background-color: #722ED1;"
                 />
               </div>
             </div>
@@ -4665,7 +4665,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
   </div>
@@ -4682,7 +4682,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
       aria-label="close"
       class="anticon anticon-close"
       role="img"
-      style="color: rgb(255, 255, 255); font-size: 20px;"
+      style="color: #fff; font-size: 20px;"
     >
       <svg
         aria-hidden="true"
@@ -4705,16 +4705,16 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask"
+      class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
     />
     <div
       aria-hidden="true"
       data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
     <div
-      class="ant-drawer-content-wrapper"
+      class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
       style="width: 300px;"
     >
       <div
@@ -4779,7 +4779,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               >
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(22, 119, 255);"
+                  style="background-color: #1677FF;"
                 >
                   <span
                     aria-label="check"
@@ -4803,35 +4803,35 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                 </div>
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(24, 144, 255);"
+                  style="background-color: #1890ff;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(245, 34, 45);"
+                  style="background-color: #F5222D;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(250, 84, 28);"
+                  style="background-color: #FA541C;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(250, 173, 20);"
+                  style="background-color: #FAAD14;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(19, 194, 194);"
+                  style="background-color: #13C2C2;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(82, 196, 26);"
+                  style="background-color: #52C41A;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(47, 84, 235);"
+                  style="background-color: #2F54EB;"
                 />
                 <div
                   class="ant-pro-setting-drawer-theme-color-block"
-                  style="background-color: rgb(114, 46, 209);"
+                  style="background-color: #722ED1;"
                 />
               </div>
             </div>
@@ -5867,7 +5867,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
     <div
       aria-hidden="true"
       data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
+      style="width: 0px; height: 0px; overflow: hidden; outline-color: none; outline-style: none; outline-width: initial; position: absolute;"
       tabindex="0"
     />
   </div>

@@ -29,12 +29,10 @@ describe('BasicTable Search', () => {
       return lines * 16;
     },
   });
-
   // Mock getComputedStyle
   const originGetComputedStyle = window.getComputedStyle;
   window.getComputedStyle = (ele) => {
     const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
     return style;
   };
 

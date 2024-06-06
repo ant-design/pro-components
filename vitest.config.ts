@@ -17,14 +17,10 @@ export default defineConfig({
   resolve: {
     alias: moduleNameMapper,
   },
-  define: {
-    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
-    IS_REACT_ACT_ENVIRONMENT: true,
-  },
   test: {
     globals: true,
     setupFiles: ['./tests/setupTests.ts'],
-    environment: 'jsdom',
+    environment: 'happy-dom',
     environmentOptions: {
       jsdom: {
         url: 'http://localhost?navTheme=realDark&layout=mix&colorPrimary=techBlue&splitMenus=false&fixedHeader=true',

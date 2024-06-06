@@ -13,11 +13,11 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -159,7 +159,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
             </a>
           </div>
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"
@@ -378,7 +378,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               </div>
               <div
                 class="ant-pro-top-nav-header-menu"
-                style="flex: 1;"
+                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
               >
                 <div
                   style="margin-block-start: 16px;"
@@ -420,17 +420,17 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 215px; overflow: hidden; flex: 0 0 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
+        style="width: 215px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-fixed-mix ant-pro-sider-layout-mix ant-pro-sider-light ant-pro-sider-mix"
-        style="flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
+        style="flex-grow: 0; flex-shrink: 0; flex-basis: 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"
@@ -624,7 +624,7 @@ exports[`BasicLayout > 🥩 BasicLayout menu support menu.true 1`] = `
               </a>
             </div>
             <div
-              style="flex: 1;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
             />
           </div>
         </header>
@@ -650,11 +650,11 @@ exports[`BasicLayout > 🥩 base use 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -796,7 +796,7 @@ exports[`BasicLayout > 🥩 base use 1`] = `
             </a>
           </div>
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"
@@ -866,11 +866,11 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
       style="min-height: 100%; flex-direction: row;"
     >
       <div
-        style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+        style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-        style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+        style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -1012,7 +1012,7 @@ exports[`BasicLayout > 🥩 contentStyle should change dom 1`] = `
             </a>
           </div>
           <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
           >
             <div
               style="padding: 24px;"
@@ -1084,11 +1084,11 @@ exports[`BasicLayout > 🥩 mix layout hideInMenu render right 1`] = `
         style="min-height: 100%; flex-direction: row;"
       >
         <div
-          style="width: 256px; overflow: hidden; flex: 0 0 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
+          style="width: 256px; overflow: hidden; flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; transition: all 0.2s ease 0s;"
         />
         <aside
           class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
-          style="flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
+          style="flex-grow: 0; flex-shrink: 0; flex-basis: 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -1230,13 +1230,13 @@ exports[`BasicLayout > 🥩 mix layout hideInMenu render right 1`] = `
               </a>
             </div>
             <div
-              style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
                 class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
                 data-menu-list="true"
                 role="menu"
-                style="background-color: transparent; width: 100%;"
+                style="background-color: transparent; border: none none; width: 100%;"
                 tabindex="0"
               >
                 <li
