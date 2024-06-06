@@ -987,29 +987,29 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <div
                       aria-valuenow="40"
-                      class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                      class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                       role="progressbar"
                       style="min-width: 100px; max-width: 320px;"
                     >
                       <div
                         class="ant-progress-outer"
-                        style="width: 100%; height: 6px;"
+                        style="width: 100%;"
                       >
                         <div
                           class="ant-progress-inner"
                         >
                           <div
-                            class="ant-progress-bg"
+                            class="ant-progress-bg ant-progress-bg-outer"
                             style="width: 40%; height: 6px; --progress-percent: 0.4;"
                           />
                         </div>
+                        <span
+                          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                          title="40%"
+                        >
+                          40%
+                        </span>
                       </div>
-                      <span
-                        class="ant-progress-text"
-                        title="40%"
-                      >
-                        40%
-                      </span>
                     </div>
                   </span>
                 </div>

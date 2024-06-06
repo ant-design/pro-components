@@ -3058,29 +3058,29 @@ exports[`Field > 🐴 progress support no number 1`] = `
 <DocumentFragment>
   <div
     aria-valuenow="NaN"
-    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
     style="min-width: 100px; max-width: 320px;"
   >
     <div
       class="ant-progress-outer"
-      style="width: 100%; height: 6px;"
+      style="width: 100%;"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width: 0%; height: 6px; --progress-percent: 0;"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="0%"
+      >
+        0%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="0%"
-    >
-      0%
-    </span>
   </div>
 </DocumentFragment>
 `;
@@ -3089,29 +3089,29 @@ exports[`Field > 🐴 progress support string number 1`] = `
 <DocumentFragment>
   <div
     aria-valuenow="12"
-    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
     style="min-width: 100px; max-width: 320px;"
   >
     <div
       class="ant-progress-outer"
-      style="width: 100%; height: 6px;"
+      style="width: 100%;"
     >
       <div
         class="ant-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="ant-progress-bg ant-progress-bg-outer"
           style="width: 12%; height: 6px; --progress-percent: 0.12;"
         />
       </div>
+      <span
+        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+        title="12%"
+      >
+        12%
+      </span>
     </div>
-    <span
-      class="ant-progress-text"
-      title="12%"
-    >
-      12%
-    </span>
   </div>
 </DocumentFragment>
 `;
@@ -3958,29 +3958,29 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                 >
                   <div
                     aria-valuenow="40"
-                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                     role="progressbar"
                     style="min-width: 100px; max-width: 320px;"
                   >
                     <div
                       class="ant-progress-outer"
-                      style="width: 100%; height: 6px;"
+                      style="width: 100%;"
                     >
                       <div
                         class="ant-progress-inner"
                       >
                         <div
-                          class="ant-progress-bg"
+                          class="ant-progress-bg ant-progress-bg-outer"
                           style="width: 40%; height: 6px; --progress-percent: 0.4;"
                         />
                       </div>
+                      <span
+                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                        title="40%"
+                      >
+                        40%
+                      </span>
                     </div>
-                    <span
-                      class="ant-progress-text"
-                      title="40%"
-                    >
-                      40%
-                    </span>
                   </div>
                 </span>
               </div>

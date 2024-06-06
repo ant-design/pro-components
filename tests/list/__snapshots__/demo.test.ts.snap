@@ -1239,28 +1239,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   </div>
                                   <div
                                     aria-valuenow="80"
-                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 8px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="80%"
+                                      >
+                                        80%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="80%"
-                                    >
-                                      80%
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -1357,28 +1357,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   </div>
                                   <div
                                     aria-valuenow="80"
-                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 8px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="80%"
+                                      >
+                                        80%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="80%"
-                                    >
-                                      80%
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -1475,28 +1475,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   </div>
                                   <div
                                     aria-valuenow="80"
-                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 8px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="80%"
+                                      >
+                                        80%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="80%"
-                                    >
-                                      80%
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -1593,28 +1593,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   </div>
                                   <div
                                     aria-valuenow="80"
-                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 8px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="80%"
+                                      >
+                                        80%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="80%"
-                                    >
-                                      80%
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -1711,28 +1711,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   </div>
                                   <div
                                     aria-valuenow="80"
-                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 8px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="80%"
+                                      >
+                                        80%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="80%"
-                                    >
-                                      80%
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -1829,28 +1829,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   </div>
                                   <div
                                     aria-valuenow="80"
-                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 8px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="80%"
+                                      >
+                                        80%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="80%"
-                                    >
-                                      80%
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -1947,28 +1947,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   </div>
                                   <div
                                     aria-valuenow="80"
-                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 8px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="80%"
+                                      >
+                                        80%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="80%"
-                                    >
-                                      80%
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -2065,28 +2065,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   </div>
                                   <div
                                     aria-valuenow="80"
-                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                                    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 8px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="80%"
+                                      >
+                                        80%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="80%"
-                                    >
-                                      80%
-                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -3387,20 +3387,24 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctl
                   class="ant-spin ant-spin-spinning"
                 >
                   <span
-                    class="ant-spin-dot ant-spin-dot-spin"
+                    class="ant-spin-dot-holder"
                   >
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
+                    <span
+                      class="ant-spin-dot ant-spin-dot-spin"
+                    >
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                    </span>
                   </span>
                 </div>
               </div>
@@ -4337,28 +4341,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -4471,28 +4475,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -4605,28 +4609,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -4739,28 +4743,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -4873,28 +4877,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -5463,20 +5467,24 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                   class="ant-spin ant-spin-spinning"
                 >
                   <span
-                    class="ant-spin-dot ant-spin-dot-spin"
+                    class="ant-spin-dot-holder"
                   >
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
+                    <span
+                      class="ant-spin-dot ant-spin-dot-spin"
+                    >
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                    </span>
                   </span>
                 </div>
               </div>
@@ -5750,28 +5758,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -5879,28 +5887,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -6008,28 +6016,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -6137,28 +6145,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-default"
+                            class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="ant-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="ant-progress-inner"
                               >
                                 <div
-                                  class="ant-progress-bg"
+                                  class="ant-progress-bg ant-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -7555,28 +7563,28 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                           </div>
                           <div
                             aria-valuenow="80"
-                            class="qixian-progress qixian-progress-status-normal qixian-progress-line qixian-progress-show-info qixian-progress-default"
+                            class="qixian-progress qixian-progress-status-normal qixian-progress-line qixian-progress-line-align-end qixian-progress-line-position-outer qixian-progress-show-info qixian-progress-default"
                             role="progressbar"
                           >
                             <div
                               class="qixian-progress-outer"
-                              style="width: 100%; height: 8px;"
+                              style="width: 100%;"
                             >
                               <div
                                 class="qixian-progress-inner"
                               >
                                 <div
-                                  class="qixian-progress-bg"
+                                  class="qixian-progress-bg qixian-progress-bg-outer"
                                   style="width: 80%; height: 8px; --progress-percent: 0.8;"
                                 />
                               </div>
+                              <span
+                                class="qixian-progress-text qixian-progress-text-end qixian-progress-text-outer"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="qixian-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>

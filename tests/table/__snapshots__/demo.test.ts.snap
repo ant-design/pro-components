@@ -372,26 +372,26 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               </div>
             </div>
           </div>
-          <div
-            id="DndDescribedBy-4"
-            style="display: none;"
-          >
-            
+        </div>
+      </div>
+    </div>
+    <div
+      id="DndDescribedBy-4"
+      style="display: none;"
+    >
+      
     To pick up a draggable item, press the space bar.
     While dragging, use the arrow keys to move the item.
     Press space again to drop the item in its new position, or press escape to cancel.
   
-          </div>
-          <div
-            aria-atomic="true"
-            aria-live="assertive"
-            id="DndLiveRegion-4"
-            role="status"
-            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
-          />
-        </div>
-      </div>
     </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="DndLiveRegion-4"
+      role="status"
+      style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+    />
   </div>
 </DocumentFragment>
 `;
@@ -779,26 +779,26 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               </div>
             </div>
           </div>
-          <div
-            id="DndDescribedBy-0"
-            style="display: none;"
-          >
-            
+        </div>
+      </div>
+    </div>
+    <div
+      id="DndDescribedBy-0"
+      style="display: none;"
+    >
+      
     To pick up a draggable item, press the space bar.
     While dragging, use the arrow keys to move the item.
     Press space again to drop the item in its new position, or press escape to cancel.
   
-          </div>
-          <div
-            aria-atomic="true"
-            aria-live="assertive"
-            id="DndLiveRegion-0"
-            role="status"
-            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
-          />
-        </div>
-      </div>
     </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="DndLiveRegion-0"
+      role="status"
+      style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+    />
     <div
       class="ant-pro-table"
     >
@@ -1153,26 +1153,26 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               </div>
             </div>
           </div>
-          <div
-            id="DndDescribedBy-1"
-            style="display: none;"
-          >
-            
+        </div>
+      </div>
+    </div>
+    <div
+      id="DndDescribedBy-1"
+      style="display: none;"
+    >
+      
     To pick up a draggable item, press the space bar.
     While dragging, use the arrow keys to move the item.
     Press space again to drop the item in its new position, or press escape to cancel.
   
-          </div>
-          <div
-            aria-atomic="true"
-            aria-live="assertive"
-            id="DndLiveRegion-1"
-            role="status"
-            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
-          />
-        </div>
-      </div>
     </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="DndLiveRegion-1"
+      role="status"
+      style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+    />
     <div
       class="ant-pro-table"
     >
@@ -1533,26 +1533,26 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               </div>
             </div>
           </div>
-          <div
-            id="DndDescribedBy-3"
-            style="display: none;"
-          >
-            
+        </div>
+      </div>
+    </div>
+    <div
+      id="DndDescribedBy-3"
+      style="display: none;"
+    >
+      
     To pick up a draggable item, press the space bar.
     While dragging, use the arrow keys to move the item.
     Press space again to drop the item in its new position, or press escape to cancel.
   
-          </div>
-          <div
-            aria-atomic="true"
-            aria-live="assertive"
-            id="DndLiveRegion-3"
-            role="status"
-            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
-          />
-        </div>
-      </div>
     </div>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      id="DndLiveRegion-3"
+      role="status"
+      style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+    />
   </div>
 </DocumentFragment>
 `;
@@ -15164,29 +15164,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
@@ -15302,29 +15302,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
@@ -15439,29 +15439,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
@@ -15576,29 +15576,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
@@ -15713,29 +15713,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
@@ -17826,20 +17826,24 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                   class="qixian-spin qixian-spin-spinning"
                 >
                   <span
-                    class="qixian-spin-dot qixian-spin-dot-spin"
+                    class="qixian-spin-dot-holder"
                   >
-                    <i
-                      class="qixian-spin-dot-item"
-                    />
-                    <i
-                      class="qixian-spin-dot-item"
-                    />
-                    <i
-                      class="qixian-spin-dot-item"
-                    />
-                    <i
-                      class="qixian-spin-dot-item"
-                    />
+                    <span
+                      class="qixian-spin-dot qixian-spin-dot-spin"
+                    >
+                      <i
+                        class="qixian-spin-dot-item"
+                      />
+                      <i
+                        class="qixian-spin-dot-item"
+                      />
+                      <i
+                        class="qixian-spin-dot-item"
+                      />
+                      <i
+                        class="qixian-spin-dot-item"
+                      />
+                    </span>
                   </span>
                 </div>
               </div>
@@ -18770,20 +18774,24 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                       class="ant-spin ant-spin-spinning"
                     >
                       <span
-                        class="ant-spin-dot ant-spin-dot-spin"
+                        class="ant-spin-dot-holder"
                       >
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
-                        <i
-                          class="ant-spin-dot-item"
-                        />
+                        <span
+                          class="ant-spin-dot ant-spin-dot-spin"
+                        >
+                          <i
+                            class="ant-spin-dot-item"
+                          />
+                          <i
+                            class="ant-spin-dot-item"
+                          />
+                          <i
+                            class="ant-spin-dot-item"
+                          />
+                          <i
+                            class="ant-spin-dot-item"
+                          />
+                        </span>
                       </span>
                     </div>
                   </div>
@@ -35995,29 +36003,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
@@ -36065,29 +36073,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
@@ -37021,29 +37029,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                 >
                                   <div
                                     aria-valuenow="86"
-                                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                     role="progressbar"
                                     style="min-width: 100px; max-width: 320px;"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 6px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="86%"
+                                      >
+                                        86%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="86%"
-                                    >
-                                      86%
-                                    </span>
                                   </div>
                                 </td>
                               </tr>
@@ -37070,29 +37078,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                 >
                                   <div
                                     aria-valuenow="86"
-                                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                                    class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                     role="progressbar"
                                     style="min-width: 100px; max-width: 320px;"
                                   >
                                     <div
                                       class="ant-progress-outer"
-                                      style="width: 100%; height: 6px;"
+                                      style="width: 100%;"
                                     >
                                       <div
                                         class="ant-progress-inner"
                                       >
                                         <div
-                                          class="ant-progress-bg"
+                                          class="ant-progress-bg ant-progress-bg-outer"
                                           style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                         />
                                       </div>
+                                      <span
+                                        class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                        title="86%"
+                                      >
+                                        86%
+                                      </span>
                                     </div>
-                                    <span
-                                      class="ant-progress-text"
-                                      title="86%"
-                                    >
-                                      86%
-                                    </span>
                                   </div>
                                 </td>
                               </tr>
@@ -37737,20 +37745,24 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                   class="ant-spin ant-spin-spinning ant-spin-rtl"
                 >
                   <span
-                    class="ant-spin-dot ant-spin-dot-spin"
+                    class="ant-spin-dot-holder"
                   >
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
+                    <span
+                      class="ant-spin-dot ant-spin-dot-spin"
+                    >
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                    </span>
                   </span>
                 </div>
               </div>
@@ -39535,20 +39547,24 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                   class="ant-spin ant-spin-spinning"
                 >
                   <span
-                    class="ant-spin-dot ant-spin-dot-spin"
+                    class="ant-spin-dot-holder"
                   >
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
-                    <i
-                      class="ant-spin-dot-item"
-                    />
+                    <span
+                      class="ant-spin-dot ant-spin-dot-spin"
+                    >
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                      <i
+                        class="ant-spin-dot-item"
+                      />
+                    </span>
                   </span>
                 </div>
               </div>
@@ -44356,20 +44372,24 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                     class="ant-spin ant-spin-spinning"
                   >
                     <span
-                      class="ant-spin-dot ant-spin-dot-spin"
+                      class="ant-spin-dot-holder"
                     >
-                      <i
-                        class="ant-spin-dot-item"
-                      />
-                      <i
-                        class="ant-spin-dot-item"
-                      />
-                      <i
-                        class="ant-spin-dot-item"
-                      />
-                      <i
-                        class="ant-spin-dot-item"
-                      />
+                      <span
+                        class="ant-spin-dot ant-spin-dot-spin"
+                      >
+                        <i
+                          class="ant-spin-dot-item"
+                        />
+                        <i
+                          class="ant-spin-dot-item"
+                        />
+                        <i
+                          class="ant-spin-dot-item"
+                        />
+                        <i
+                          class="ant-spin-dot-item"
+                        />
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -49404,29 +49424,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
@@ -49478,29 +49498,29 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                             >
                               <div
                                 aria-valuenow="86"
-                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                                class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
                                 style="min-width: 100px; max-width: 320px;"
                               >
                                 <div
                                   class="ant-progress-outer"
-                                  style="width: 100%; height: 6px;"
+                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-progress-inner"
                                   >
                                     <div
-                                      class="ant-progress-bg"
+                                      class="ant-progress-bg ant-progress-bg-outer"
                                       style="width: 86%; height: 6px; --progress-percent: 0.86;"
                                     />
                                   </div>
+                                  <span
+                                    class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                                    title="86%"
+                                  >
+                                    86%
+                                  </span>
                                 </div>
-                                <span
-                                  class="ant-progress-text"
-                                  title="86%"
-                                >
-                                  86%
-                                </span>
                               </div>
                             </td>
                             <td
