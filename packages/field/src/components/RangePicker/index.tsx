@@ -17,7 +17,7 @@ import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 const FieldRangePicker: ProFieldFC<
   {
     text: string[];
-    format: string;
+    format?: string;
     bordered?: boolean;
     showTime?: boolean;
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
@@ -28,7 +28,7 @@ const FieldRangePicker: ProFieldFC<
     mode,
     light,
     label,
-    format,
+    format = 'YYYY-MM-DD',
     render,
     picker,
     renderFormItem,

@@ -1,4 +1,6 @@
-﻿import type { CascaderProps } from 'antd';
+﻿import { FieldCascader } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
+import type { CascaderProps } from 'antd';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type {
@@ -17,19 +19,30 @@ const ProFormCascader: React.ForwardRefRenderFunction<
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   const context = useContext(FieldContext);
   return (
-    <ProField
-      valueType="cascader"
-      fieldProps={{
-        getPopupContainer: context.getPopupContainer,
-        ...fieldProps,
+    <ProConfigProvider
+      valueTypeMap={{
+        cascader: {
+          render: (text, props) => <FieldCascader {...props} text={text} />,
+          renderFormItem: (text, props) => (
+            <FieldCascader {...props} text={text} />
+          ),
+        },
       }}
-      ref={ref}
-      request={request}
-      params={params}
-      filedConfig={{ customLightMode: true }}
-      proFieldProps={proFieldProps}
-      {...rest}
-    />
+    >
+      <ProField
+        valueType="cascader"
+        fieldProps={{
+          getPopupContainer: context.getPopupContainer,
+          ...fieldProps,
+        }}
+        ref={ref}
+        request={request}
+        params={params}
+        filedConfig={{ customLightMode: true }}
+        proFieldProps={proFieldProps}
+        {...rest}
+      />
+    </ProConfigProvider>
   );
 };
 

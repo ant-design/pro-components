@@ -1,17 +1,17 @@
 import { dateArrayFormatter } from '@ant-design/pro-utils';
-import type { RangePickerProps } from 'antd/lib/date-picker';
+import { RangePickerProps } from 'antd/es/date-picker';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import { BaseDateRanger } from './BaseDateRanger';
 
-const valueType = 'dateRange' as const;
+const valueType = 'dateTimeRange' as const;
 
 /**
- * 日期区间选择组件
+ * 日期时间区间选择组件
  *
  * @param
  */
-const ProFormDateRangePicker: React.FC<
+export const ProFormDateTimeRangePicker: React.FC<
   ProFormFieldItemProps<RangePickerProps>
 > = React.forwardRef(({ fieldProps, proFieldProps, ...rest }, ref) => {
   return (
@@ -32,5 +32,3 @@ const ProFormDateRangePicker: React.FC<
     />
   );
 });
-
-export default ProFormDateRangePicker;

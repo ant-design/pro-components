@@ -48,7 +48,7 @@ export default () => {
           value: selectSize,
           label: selectSize,
         }))}
-      />{' '}
+      />
       分割线：
       <Select<0 | 1>
         value={split}
@@ -63,7 +63,7 @@ export default () => {
             label: '无',
           },
         ]}
-      />{' '}
+      />
       <br />
       <br />
       <ProList<{ title: string }>

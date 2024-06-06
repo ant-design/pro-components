@@ -1,8 +1,7 @@
 import type { WeekPickerProps } from 'antd/lib/date-picker';
-import React, { useContext } from 'react';
-import FieldContext from '../../FieldContext';
+import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
-import ProField from '../Field';
+import { BaseDatePicker } from './BaseDatePicker';
 
 const valueType = 'dateWeek' as const;
 /**
@@ -12,14 +11,11 @@ const valueType = 'dateWeek' as const;
  */
 const ProFormDatePickerWeek: React.FC<ProFormFieldItemProps<WeekPickerProps>> =
   React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref: any) => {
-    const context = useContext(FieldContext);
-
     return (
-      <ProField
-        ref={ref}
+      <BaseDatePicker
         valueType={valueType}
+        ref={ref as any}
         fieldProps={{
-          getPopupContainer: context.getPopupContainer,
           ...fieldProps,
         }}
         proFieldProps={proFieldProps}

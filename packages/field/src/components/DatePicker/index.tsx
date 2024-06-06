@@ -31,7 +31,7 @@ const formatDate = (text: any, format: any) => {
 const FieldDatePicker: ProFieldFC<
   {
     text: string | number;
-    format: string;
+    format?: string;
     showTime?: boolean;
     bordered?: boolean;
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
@@ -40,7 +40,7 @@ const FieldDatePicker: ProFieldFC<
   {
     text,
     mode,
-    format,
+    format = 'YYYY-MM-DD',
     label,
     light,
     render,

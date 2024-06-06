@@ -1,26 +1,23 @@
 import { dateArrayFormatter } from '@ant-design/pro-utils';
 import type { RangePickerProps } from 'antd/lib/date-picker';
-import React, { useContext } from 'react';
-import FieldContext from '../../FieldContext';
+import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
-import ProField from '../Field';
+import { BaseDateRanger } from './BaseDateRanger';
 
-const valueType = 'dateQuarterRange' as const;
+const valueType = 'dateYearRange' as const;
 
 /**
  * 季度份区间选择组件
  *
  * @param
  */
-const DateQuarterRangePicker: React.FC<
+export const ProFormDateYearRangePicker: React.FC<
   ProFormFieldItemProps<RangePickerProps>
 > = React.forwardRef(({ fieldProps, proFieldProps, ...rest }, ref) => {
-  const context = useContext(FieldContext);
   return (
-    <ProField
+    <BaseDateRanger
       ref={ref}
       fieldProps={{
-        getPopupContainer: context.getPopupContainer,
         ...fieldProps,
       }}
       valueType={valueType}
@@ -29,11 +26,9 @@ const DateQuarterRangePicker: React.FC<
         valueType,
         customLightMode: true,
         lightFilterLabelFormatter: (value) =>
-          dateArrayFormatter(value, fieldProps?.format || 'YYYY-W'),
+          dateArrayFormatter(value, fieldProps?.format || 'YYYY-MM-DD'),
       }}
       {...rest}
     />
   );
 });
-
-export default DateQuarterRangePicker;
