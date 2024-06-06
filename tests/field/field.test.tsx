@@ -4,7 +4,7 @@ import {
   FieldStatus,
   FieldTimePicker,
   ProFieldBadgeColor,
-} from '@ant-design/pro-field';
+} from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';

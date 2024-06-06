@@ -1,8 +1,8 @@
 ﻿import type {
   ProFormColumnsType,
   ProFormLayoutType,
-} from '@ant-design/pro-form';
-import { BetaSchemaForm } from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
+import { BetaSchemaForm } from '@ant-design/pro-components';
 import { ProProvider } from '@ant-design/pro-provider';
 import {
   act,

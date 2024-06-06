@@ -4,8 +4,11 @@ import type {
   ProColumns,
   TableRowEditable,
 } from '@ant-design/pro-components';
-import { ProForm, ProFormText } from '@ant-design/pro-components';
-import { EditableProTable } from '@ant-design/pro-table';
+import {
+  EditableProTable,
+  ProForm,
+  ProFormText,
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,

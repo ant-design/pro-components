@@ -1,4 +1,4 @@
-import ProForm, { ProFormMoney } from '@ant-design/pro-form';
+import { ProForm, ProFormMoney } from '@ant-design/pro-components';
 import {
   act,
   cleanup,

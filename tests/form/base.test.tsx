@@ -1,7 +1,8 @@
 import { FontSizeOutlined } from '@ant-design/icons';
-import type { ProFormInstance } from '@ant-design/pro-form';
-import ProForm, {
+import type { ProFormInstance } from '@ant-design/pro-components';
+import {
   LightFilter,
+  ProForm,
   ProFormCaptcha,
   ProFormCheckbox,
   ProFormColorPicker,
@@ -15,7 +16,7 @@ import ProForm, {
   ProFormText,
   ProFormTimePicker,
   ProFormTreeSelect,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,

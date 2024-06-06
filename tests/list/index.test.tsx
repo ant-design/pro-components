@@ -1,4 +1,4 @@
-import ProList, { BaseProList } from '@ant-design/pro-list';
+import { BaseProList, ProList } from '@ant-design/pro-components';
 import {
   act,
   cleanup,

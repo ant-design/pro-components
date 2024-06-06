@@ -1,4 +1,4 @@
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 import {
   act,
   cleanup,

@@ -1,5 +1,5 @@
+import { ProTable } from '@ant-design/pro-components';
 import ProProvider from '@ant-design/pro-provider';
-import ProTable from '@ant-design/pro-table';
 import { act, cleanup, render, waitFor } from '@testing-library/react';
 import { Input } from 'antd';
 import { useContext } from 'react';

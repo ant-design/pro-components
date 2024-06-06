@@ -1,4 +1,4 @@
-﻿import { ModalForm, ProFormText } from '@ant-design/pro-form';
+﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
   act,
   cleanup,

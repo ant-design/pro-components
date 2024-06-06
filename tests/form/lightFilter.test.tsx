@@ -7,7 +7,7 @@ import {
   ProFormSlider,
   ProFormText,
   ProFormTimePicker,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,

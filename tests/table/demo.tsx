@@ -1,5 +1,5 @@
-import type { ProColumns } from '@ant-design/pro-table';
-import { TableDropdown, TableStatus } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-components';
+import { TableDropdown, TableStatus } from '@ant-design/pro-components';
 import { Input, message } from 'antd';
 import dayjs from 'dayjs';
 

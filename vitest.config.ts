@@ -10,7 +10,7 @@ const moduleNameMapper = {} as Record<string, any>;
 
 pkgList.forEach((shortName: string) => {
   const name = `@ant-design/pro-${shortName}`;
-  moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
+  moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/lib`);
 });
 
 export default defineConfig({

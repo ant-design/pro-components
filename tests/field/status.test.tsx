@@ -1,4 +1,4 @@
-import { ProField as Field } from '@ant-design/pro-field';
+import { ProField as Field } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 
 afterEach(() => {

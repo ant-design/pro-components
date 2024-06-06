@@ -1,10 +1,13 @@
-import ProForm, { ProFormText } from '@ant-design/pro-form';
 import type {
   ActionType,
   EditableFormInstance,
   ProColumns,
-} from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
+} from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProForm,
+  ProFormText,
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,

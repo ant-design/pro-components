@@ -128,19 +128,6 @@ exports[`Field > 🐴 FieldTimePicker text support is null 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Field > 🐴 ProFieldBadgeColor status 1`] = `
-<DocumentFragment>
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot"
-      style="color: #1890ff; background: #1890ff;"
-    />
-  </span>
-</DocumentFragment>
-`;
-
 exports[`Field > 🐴 base use 1`] = `
 <DocumentFragment>
   <div
