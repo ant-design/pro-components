@@ -4,9 +4,9 @@ import { ConfigProvider, Space } from 'antd';
 
 import classNames from 'classnames';
 import React, { useCallback, useContext, useMemo } from 'react';
-import FieldContext from '../../FieldContext';
-import { useGridHelpers } from '../../helpers';
-import type { ProFormGroupProps } from '../../typing';
+import FieldContext from '../../../FieldContext';
+import { useGridHelpers } from '../../../helpers/grid';
+import { ProFormGroupProps } from '../../../typing';
 import { useStyle } from './style';
 
 const Group: React.FC<ProFormGroupProps> = React.forwardRef(

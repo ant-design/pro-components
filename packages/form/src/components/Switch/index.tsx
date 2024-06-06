@@ -1,3 +1,5 @@
+import { FieldSwitch } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import type { SwitchProps } from 'antd';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
@@ -21,23 +23,34 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
     ref: any,
   ) => {
     return (
-      <ProField
-        valueType="switch"
-        fieldProps={{
-          unCheckedChildren,
-          checkedChildren,
-          ...fieldProps,
+      <ProConfigProvider
+        valueTypeMap={{
+          segmented: {
+            render: (text, props) => <FieldSwitch {...props} text={text} />,
+            renderFormItem: (text, props) => (
+              <FieldSwitch {...props} text={text} />
+            ),
+          },
         }}
-        ref={ref}
-        valuePropName="checked"
-        proFieldProps={proFieldProps}
-        filedConfig={{
-          valuePropName: 'checked',
-          ignoreWidth: true,
-          customLightMode: true,
-        }}
-        {...rest}
-      />
+      >
+        <ProField
+          valueType="switch"
+          fieldProps={{
+            unCheckedChildren,
+            checkedChildren,
+            ...fieldProps,
+          }}
+          ref={ref}
+          valuePropName="checked"
+          proFieldProps={proFieldProps}
+          filedConfig={{
+            valuePropName: 'checked',
+            ignoreWidth: true,
+            customLightMode: true,
+          }}
+          {...rest}
+        />
+      </ProConfigProvider>
     );
   },
 );

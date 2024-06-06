@@ -21,7 +21,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { SubmitterProps } from '../../components/Submitter';
+import { SubmitterProps } from '../../BaseForm/Submitter';
 import { useStyle } from './style';
 
 export type CustomizeResizeType = {

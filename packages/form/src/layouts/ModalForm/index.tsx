@@ -15,7 +15,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { SubmitterProps } from '../../components/Submitter';
+import { SubmitterProps } from '../../BaseForm/Submitter';
 
 export type ModalFormProps<
   T = Record<string, any>,

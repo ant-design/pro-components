@@ -23,6 +23,7 @@ import { useFieldFetchData } from '../Select';
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
+  placeholder?: string;
 } & FieldSelectProps;
 
 /**
@@ -32,7 +33,16 @@ export type GroupProps = {
  * @param ref
  */
 const FieldCascader: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, render, label, light, ...rest },
+  {
+    radioType,
+    placeholder,
+    renderFormItem,
+    mode,
+    render,
+    label,
+    light,
+    ...rest
+  },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -108,7 +118,10 @@ const FieldCascader: ProFieldFC<GroupProps> = (
         ref={cascaderRef}
         open={open}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}
-        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+        placeholder={
+          placeholder ||
+          intl.getMessage('tableForm.selectPlaceholder', '请选择')
+        }
         allowClear={rest.fieldProps?.allowClear !== false}
         {...rest.fieldProps}
         onDropdownVisibleChange={(isOpen) => {

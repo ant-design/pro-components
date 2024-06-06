@@ -25,7 +25,7 @@ title: ProField - 原子组件
 ## API
 
 ```typescript | pure
-import Field from '@ant-design/pro-field';
+import { ProField as Field } from '@ant-design/pro-field';
 
 return <Field text="100" valueType="money" mode={state} />;
 ```

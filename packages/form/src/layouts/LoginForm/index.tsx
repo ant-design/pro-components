@@ -2,7 +2,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useMemo } from 'react';
-import type { SubmitterProps } from '../../components';
+import type { SubmitterProps } from '../../BaseForm/Submitter';
 import type { ProFormProps } from '../ProForm';
 import { ProForm } from '../ProForm';
 import { useStyle } from './style';

@@ -1,4 +1,6 @@
-﻿import type { TreeSelectProps } from 'antd';
+﻿import { FieldTreeSelect } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
+import type { TreeSelectProps } from 'antd';
 import type { RefSelectProps } from 'antd/lib/select';
 import React from 'react';
 import type {
@@ -30,16 +32,27 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
   ProFormTreeSelectProps<any>
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
-    <ProFormField
-      valueType="treeSelect"
-      fieldProps={fieldProps}
-      ref={ref}
-      request={request}
-      params={params}
-      filedConfig={{ customLightMode: true }}
-      proFieldProps={proFieldProps}
-      {...rest}
-    />
+    <ProConfigProvider
+      valueTypeMap={{
+        treeSelect: {
+          render: (text, props) => <FieldTreeSelect {...props} text={text} />,
+          renderFormItem: (text, props) => (
+            <FieldTreeSelect {...props} text={text} />
+          ),
+        },
+      }}
+    >
+      <ProFormField
+        valueType="treeSelect"
+        fieldProps={fieldProps}
+        ref={ref}
+        request={request}
+        params={params}
+        filedConfig={{ customLightMode: true }}
+        proFieldProps={proFieldProps}
+        {...rest}
+      />
+    </ProConfigProvider>
   );
 };
 

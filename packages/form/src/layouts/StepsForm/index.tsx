@@ -16,7 +16,7 @@ import React, {
   useState,
 } from 'react';
 import type { ProFormInstance } from '../../BaseForm';
-import type { SubmitterProps } from '../../components';
+import type { SubmitterProps } from '../../BaseForm/Submitter';
 import type { ProFormProps } from '../ProForm';
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';

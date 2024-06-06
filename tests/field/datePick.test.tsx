@@ -1,4 +1,4 @@
-import Field from '@ant-design/pro-field';
+import { ProField as Field } from '@ant-design/pro-field';
 import {
   act,
   cleanup,

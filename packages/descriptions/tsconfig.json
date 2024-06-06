@@ -18,6 +18,7 @@
       "@ant-design/pro-table": ["../../packages/table/src/index.tsx"],
       "@ant-design/pro-field": ["../../packages/field/src/index.tsx"],
       "@ant-design/pro-provider": ["../../packages/provider/src/index.tsx"],
+      "@ant-design/pro-components": ["../../packages/components/src/index.tsx"],
       "@ant-design/pro-skeleton": ["../../packages/skeleton/src/index.tsx"],
       "@ant-design/pro-utils": ["../../packages/utils/src/index.tsx"]
     }

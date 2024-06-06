@@ -40,8 +40,6 @@ import React, {
   useState,
 } from 'react';
 import FieldContext from '../FieldContext';
-import type { SubmitterProps } from '../components';
-import { Submitter } from '../components';
 import { FormListContext } from '../components/List';
 import { GridContext, useGridHelpers } from '../helpers';
 import type {
@@ -50,6 +48,8 @@ import type {
   ProFormGroupProps,
 } from '../typing';
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
+import type { SubmitterProps } from './Submitter';
+import Submitter from './Submitter';
 
 export type CommonFormProps<
   T = Record<string, any>,

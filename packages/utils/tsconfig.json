@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
+      "@ant-design/pro-list": ["../../packages/list/src/index.tsx"],
       "@ant-design/pro-provider": ["../../packages/provider/src/index.tsx"]
     }
   },

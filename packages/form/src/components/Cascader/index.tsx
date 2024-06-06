@@ -22,9 +22,19 @@ const ProFormCascader: React.ForwardRefRenderFunction<
     <ProConfigProvider
       valueTypeMap={{
         cascader: {
-          render: (text, props) => <FieldCascader {...props} text={text} />,
+          render: (text, props) => (
+            <FieldCascader
+              {...props}
+              text={text}
+              placeholder={props.placeholder as string}
+            />
+          ),
           renderFormItem: (text, props) => (
-            <FieldCascader {...props} text={text} />
+            <FieldCascader
+              {...props}
+              text={text}
+              placeholder={props.placeholder as string}
+            />
           ),
         },
       }}

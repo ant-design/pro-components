@@ -56,7 +56,7 @@ type FunctionFieldProps = {
  * @param Field
  * @param config
  */
-function createField<P extends ProFormFieldItemProps = any>(
+export function createField<P extends ProFormFieldItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps & FunctionFieldProps> {
@@ -380,5 +380,3 @@ function createField<P extends ProFormFieldItemProps = any>(
 
   return DependencyWrapper;
 }
-
-export { createField };

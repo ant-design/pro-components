@@ -1,6 +1,6 @@
 import { Form } from 'antd';
 import React from 'react';
-import ProFormItem from '../FormItem';
+import ProFormItem from '../index';
 
 interface ControlPropsType {
   id: string;

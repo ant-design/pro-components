@@ -17,7 +17,7 @@ import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 const FieldTimePicker: ProFieldFC<
   {
     text: string | number;
-    format: string;
+    format?: string;
   } & ProFieldLightProps
 > = (
   {
@@ -25,7 +25,7 @@ const FieldTimePicker: ProFieldFC<
     mode,
     light,
     label,
-    format,
+    format = 'HH:mm:ss',
     render,
     renderFormItem,
     plain,
@@ -36,7 +36,7 @@ const FieldTimePicker: ProFieldFC<
 ) => {
   const [open, setOpen] = useState<boolean>(false);
   const intl = useIntl();
-  const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
+  const finalFormat = fieldProps?.format || format;
 
   const isNumberOrMoment = dayjs.isDayjs(text) || typeof text === 'number';
 
@@ -129,7 +129,7 @@ const FieldTimePicker: ProFieldFC<
 const FieldTimeRangePickerComponents: ProFieldFC<
   {
     text: string[] | number[];
-    format: string;
+    format?: string;
   } & ProFieldLightProps
 > = (
   {
@@ -138,7 +138,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
     label,
     mode,
     lightLabel,
-    format,
+    format = 'HH:mm:ss',
     render,
     renderFormItem,
     plain,
@@ -148,7 +148,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
 ) => {
   const intl = useIntl();
   const [open, setOpen] = useState<boolean>(false);
-  const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
+  const finalFormat = fieldProps?.format || format;
   const [startText, endText] = Array.isArray(text) ? text : [];
   const startTextIsNumberOrMoment =
     dayjs.isDayjs(startText) || typeof startText === 'number';

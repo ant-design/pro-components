@@ -26,7 +26,6 @@ import FieldDigitRange from './components/DigitRange';
 import FieldFromNow from './components/FromNow';
 import FieldImage from './components/Image';
 import FieldIndexColumn from './components/IndexColumn';
-import type { FieldMoneyProps } from './components/Money';
 import FieldMoney from './components/Money';
 import FieldOptions from './components/Options';
 import FieldPassword from './components/Password';
@@ -60,10 +59,6 @@ dayjs.extend(advancedFormat);
 dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekday);
-
-export type ProFieldMoneyProps = FieldMoneyProps;
-
-export type ProFieldEmptyText = string | false;
 
 /** 默认的 Field 需要实现的功能 */
 // eslint-disable-next-line @typescript-eslint/ban-types

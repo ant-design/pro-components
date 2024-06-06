@@ -1,4 +1,5 @@
-import Field, {
+import {
+  ProField as Field,
   FieldSelect,
   FieldStatus,
   FieldTimePicker,

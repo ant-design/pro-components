@@ -26,7 +26,7 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
   return (
     <ProConfigProvider
       valueTypeMap={{
-        select: {
+        money: {
           render: (text, props) => (
             <FieldMoney
               {...props}

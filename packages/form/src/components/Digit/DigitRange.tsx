@@ -1,38 +1,50 @@
-import { FieldDigit } from '@ant-design/pro-field';
+﻿import { FieldDigitRange } from '@ant-design/pro-field';
 import { ProConfigProvider } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFormField from '../Field';
 
-export type ProFormDigitProps = ProFormFieldItemProps<
-  InputNumberProps<number>
+export type Value = string | number | undefined;
+
+export type ValuePair = Value[];
+
+export type RangeInputNumberProps = Omit<
+  InputNumberProps<number>,
+  'value' | 'defaultValue' | 'onChange' | 'placeholder'
 > & {
-  min?: InputNumberProps['min'];
-  max?: InputNumberProps['max'];
+  value?: ValuePair;
+  defaultValue?: ValuePair;
+  onChange?: (value?: ValuePair) => void;
 };
+
+export type ProFormDigitRangeProps =
+  ProFormFieldItemProps<RangeInputNumberProps> & {
+    separator?: string;
+    separatorWidth?: number;
+  };
 /**
  * 数组选择组件
  *
  * @param
  */
-const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
-  { fieldProps, min, proFieldProps, max, ...rest },
-  ref,
-) => {
+const ProFormDigit: React.ForwardRefRenderFunction<
+  any,
+  ProFormDigitRangeProps
+> = ({ fieldProps, proFieldProps, ...rest }, ref) => {
   return (
     <ProConfigProvider
       valueTypeMap={{
-        digit: {
+        digitRange: {
           render: (text, props) => (
-            <FieldDigit
+            <FieldDigitRange
               {...props}
               text={text}
               placeholder={props.placeholder as string}
             />
           ),
           renderFormItem: (text, props) => (
-            <FieldDigit
+            <FieldDigitRange
               {...props}
               text={text}
               placeholder={props.placeholder as string}
@@ -42,10 +54,8 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
       }}
     >
       <ProFormField
-        valueType="digit"
+        valueType="digitRange"
         fieldProps={{
-          min,
-          max,
           ...fieldProps,
         }}
         ref={ref}

@@ -1,3 +1,5 @@
+import { FieldSlider } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import type { SliderSingleProps } from 'antd';
 import type { SliderBaseProps, SliderRangeProps } from 'antd/lib/slider';
 import React from 'react';
@@ -36,25 +38,36 @@ const ProFormSlider = React.forwardRef<any, ProFormSliderProps>(
     ref,
   ) => {
     return (
-      <ProField
-        valueType="slider"
-        fieldProps={{
-          ...fieldProps,
-          min,
-          max,
-          step,
-          marks,
-          vertical,
-          range,
-          style: fieldProps?.style,
+      <ProConfigProvider
+        valueTypeMap={{
+          slider: {
+            render: (text, props) => <FieldSlider {...props} text={text} />,
+            renderFormItem: (text, props) => (
+              <FieldSlider {...props} text={text} />
+            ),
+          },
         }}
-        ref={ref}
-        proFieldProps={proFieldProps}
-        filedConfig={{
-          ignoreWidth: true,
-        }}
-        {...rest}
-      />
+      >
+        <ProField
+          valueType="slider"
+          fieldProps={{
+            ...fieldProps,
+            min,
+            max,
+            step,
+            marks,
+            vertical,
+            range,
+            style: fieldProps?.style,
+          }}
+          ref={ref}
+          proFieldProps={proFieldProps}
+          filedConfig={{
+            ignoreWidth: true,
+          }}
+          {...rest}
+        />
+      </ProConfigProvider>
     );
   },
 );
