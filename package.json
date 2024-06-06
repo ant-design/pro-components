@@ -27,7 +27,7 @@
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "npm run version && cross-env TZ=UTC vitest --run",
     "test:coverage": "npm run version && cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
-    "test:update": "pnpm run version && cross-env TZ=UTC  vitest -u",
+    "test:update": "npm run version && cross-env TZ=UTC  vitest -u",
     "tsc": "tsc --noEmit",
     "tsc:duplicate": "tsc -p ./tests/tsconfig.duplicate.json",
     "update:deps": "pnpm up --latest",

@@ -986,29 +986,29 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <div
                       aria-valuenow="40"
-                      class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
+                      class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                       role="progressbar"
                       style="min-width: 100px; max-width: 320px;"
                     >
                       <div
                         class="ant-progress-outer"
-                        style="width: 100%; height: 6px;"
+                        style="width: 100%;"
                       >
                         <div
                           class="ant-progress-inner"
                         >
                           <div
-                            class="ant-progress-bg"
+                            class="ant-progress-bg ant-progress-bg-outer"
                             style="width: 40%; height: 6px; --progress-percent: 0.4;"
                           />
                         </div>
+                        <span
+                          class="ant-progress-text ant-progress-text-end ant-progress-text-outer"
+                          title="40%"
+                        >
+                          40%
+                        </span>
                       </div>
-                      <span
-                        class="ant-progress-text"
-                        title="40%"
-                      >
-                        40%
-                      </span>
                     </div>
                   </span>
                 </div>
@@ -4857,126 +4857,53 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  <div
-                    class="ant-spin-nested-loading"
+                  <span
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-outlined"
+                    style="width: 330px;"
                   >
-                    <div
-                      class="ant-spin-container"
+                    <input
+                      class="ant-input"
+                      fieldnames="[object Object]"
+                      id="name"
+                      multiple=""
+                      open=""
+                      placeholder="请输入搜索关键字"
+                      searchvalue=""
+                      treenodefilterprop="title"
+                      type="text"
+                      value="0-0"
+                    />
+                    <span
+                      class="ant-input-suffix"
                     >
-                      <div
-                        class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-focused ant-select-multiple ant-select-allow-clear ant-select-open ant-select-show-search"
-                        style="min-width: 60px; width: 330px;"
+                      <span
+                        class="ant-input-clear-icon"
+                        role="button"
+                        tabindex="-1"
                       >
-                        <div
-                          class="ant-select-selector"
-                        >
-                          <div
-                            class="ant-select-selection-overflow"
-                          >
-                            <div
-                              class="ant-select-selection-overflow-item"
-                              style="opacity: 1;"
-                            >
-                              <span
-                                class="ant-select-selection-item"
-                                title="Node1"
-                              >
-                                <span
-                                  class="ant-select-selection-item-content"
-                                >
-                                  Node1
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-selection-item-remove"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="close"
-                                    class="anticon anticon-close"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="close"
-                                      fill="currentColor"
-                                      fill-rule="evenodd"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                              </span>
-                            </div>
-                            <div
-                              class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                              style="opacity: 1;"
-                            >
-                              <div
-                                class="ant-select-selection-search"
-                                style="width: 0px;"
-                              >
-                                <input
-                                  aria-autocomplete="list"
-                                  aria-controls="name_list"
-                                  aria-expanded="true"
-                                  aria-haspopup="listbox"
-                                  aria-owns="name_list"
-                                  autocomplete="off"
-                                  class="ant-select-selection-search-input"
-                                  id="name"
-                                  role="combobox"
-                                  style=""
-                                  type="search"
-                                  value=""
-                                />
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-selection-search-mirror"
-                                >
-                                   
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                         <span
-                          aria-hidden="true"
-                          class="ant-select-clear"
-                          style="user-select: none;"
-                          unselectable="on"
+                          aria-label="close-circle"
+                          class="anticon anticon-close-circle"
+                          role="img"
                         >
-                          <span
-                            aria-label="close-circle"
-                            class="anticon anticon-close-circle"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="close-circle"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="close-circle"
-                              fill="currentColor"
-                              fill-rule="evenodd"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                            />
+                          </svg>
                         </span>
-                      </div>
-                    </div>
-                  </div>
+                      </span>
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -5008,170 +4935,52 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
                 <div
                   class="ant-form-item-control-input-content"
                 >
-                  <div
-                    class="ant-spin-nested-loading"
+                  <span
+                    class="ant-input-affix-wrapper ant-input-outlined"
+                    style="width: 330px;"
                   >
-                    <div
-                      class="ant-spin-container"
+                    <input
+                      class="ant-input"
+                      fieldnames="[object Object]"
+                      id="name2"
+                      multiple=""
+                      placeholder="请输入搜索关键字"
+                      treedata="[object Object],[object Object]"
+                      treenodefilterprop="title"
+                      type="text"
+                      value="0-0,0-1"
+                    />
+                    <span
+                      class="ant-input-suffix"
                     >
-                      <div
-                        class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-pro-field-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-                        style="min-width: 60px; width: 330px;"
+                      <span
+                        class="ant-input-clear-icon"
+                        role="button"
+                        tabindex="-1"
                       >
-                        <div
-                          class="ant-select-selector"
-                        >
-                          <div
-                            class="ant-select-selection-overflow"
-                          >
-                            <div
-                              class="ant-select-selection-overflow-item"
-                              style="opacity: 1;"
-                            >
-                              <span
-                                class="ant-select-selection-item"
-                                title="Node1"
-                              >
-                                <span
-                                  class="ant-select-selection-item-content"
-                                >
-                                  Node1
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-selection-item-remove"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="close"
-                                    class="anticon anticon-close"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="close"
-                                      fill="currentColor"
-                                      fill-rule="evenodd"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                              </span>
-                            </div>
-                            <div
-                              class="ant-select-selection-overflow-item"
-                              style="opacity: 1;"
-                            >
-                              <span
-                                class="ant-select-selection-item"
-                                title="Node2"
-                              >
-                                <span
-                                  class="ant-select-selection-item-content"
-                                >
-                                  Node2
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-selection-item-remove"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="close"
-                                    class="anticon anticon-close"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="close"
-                                      fill="currentColor"
-                                      fill-rule="evenodd"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                              </span>
-                            </div>
-                            <div
-                              class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                              style="opacity: 1;"
-                            >
-                              <div
-                                class="ant-select-selection-search"
-                                style="width: 0px;"
-                              >
-                                <input
-                                  aria-autocomplete="list"
-                                  aria-controls="name2_list"
-                                  aria-expanded="false"
-                                  aria-haspopup="listbox"
-                                  aria-owns="name2_list"
-                                  autocomplete="off"
-                                  class="ant-select-selection-search-input"
-                                  id="name2"
-                                  readonly=""
-                                  role="combobox"
-                                  style="opacity: 0;"
-                                  type="search"
-                                  unselectable="on"
-                                  value=""
-                                />
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-selection-search-mirror"
-                                >
-                                   
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                         <span
-                          aria-hidden="true"
-                          class="ant-select-clear"
-                          style="user-select: none;"
-                          unselectable="on"
+                          aria-label="close-circle"
+                          class="anticon anticon-close-circle"
+                          role="img"
                         >
-                          <span
-                            aria-label="close-circle"
-                            class="anticon anticon-close-circle"
-                            role="img"
+                          <svg
+                            aria-hidden="true"
+                            data-icon="close-circle"
+                            fill="currentColor"
+                            fill-rule="evenodd"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
                           >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="close-circle"
-                              fill="currentColor"
-                              fill-rule="evenodd"
-                              focusable="false"
-                              height="1em"
-                              viewBox="64 64 896 896"
-                              width="1em"
-                            >
-                              <path
-                                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                              />
-                            </svg>
-                          </span>
+                            <path
+                              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                            />
+                          </svg>
                         </span>
-                      </div>
-                    </div>
-                  </div>
+                      </span>
+                    </span>
+                  </span>
                 </div>
               </div>
             </div>

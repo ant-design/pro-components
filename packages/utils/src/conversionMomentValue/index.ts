@@ -168,7 +168,7 @@ export const conversionMomentValue = <T extends {} = any>(
         dateFormatter,
         valueTypeMap,
         omitNil,
-        [valueKey],
+        namePath,
       );
       return;
     }

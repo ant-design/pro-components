@@ -28,27 +28,22 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
             <div
               class="ant-space-item"
             >
-              <div
-                class="ant-pro-field-option"
-                style="display: flex; gap: 16px; align-items: center;"
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-primary"
-                  type="button"
-                >
-                  <span>
-                    刷 新
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-default"
-                  type="button"
-                >
-                  <span>
-                    重 置
-                  </span>
-                </button>
-              </div>
+                <span>
+                  刷 新
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default"
+                type="button"
+              >
+                <span>
+                  重 置
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -134,7 +129,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
                       <div
                         class="ant-space-item"
                       >
-                        2020-07-30
+                        20200730
                       </div>
                       <div
                         class="ant-space-item"
@@ -190,9 +185,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
                       <div
                         class="ant-space-item"
                       >
-                        <span>
-                          ¥12,121.00
-                        </span>
+                        12121
                       </div>
                       <div
                         class="ant-space-item"
@@ -506,9 +499,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      ¥100.00
-                    </span>
+                    100
                   </span>
                 </div>
               </td>
@@ -528,9 +519,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      100.00%
-                    </span>
+                    100
                   </span>
                 </div>
               </td>
@@ -554,18 +543,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span
-                      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                    >
-                      <span
-                        class="ant-badge-status-dot ant-badge-status-error"
-                      />
-                      <span
-                        class="ant-badge-status-text"
-                      >
-                        未解决
-                      </span>
-                    </span>
+                    open
                   </span>
                 </div>
               </td>
@@ -585,7 +563,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    已解决
+                    closed
                   </span>
                 </div>
               </td>
@@ -609,32 +587,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <div
-                      aria-valuenow="40"
-                      class="ant-progress ant-progress-status-active ant-progress-line ant-progress-show-info ant-progress-small"
-                      role="progressbar"
-                      style="min-width: 100px; max-width: 320px;"
-                    >
-                      <div
-                        class="ant-progress-outer"
-                        style="width: 100%; height: 6px;"
-                      >
-                        <div
-                          class="ant-progress-inner"
-                        >
-                          <div
-                            class="ant-progress-bg"
-                            style="width: 40%; height: 6px; --progress-percent: 0.4;"
-                          />
-                        </div>
-                      </div>
-                      <span
-                        class="ant-progress-text"
-                        title="40%"
-                      >
-                        40%
-                      </span>
-                    </div>
+                    40
                   </span>
                 </div>
               </td>
@@ -654,7 +607,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    2016-11-22 15:22:44
+                    1479828164000
                   </span>
                 </div>
               </td>
@@ -678,7 +631,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    2016-11-22
+                    1479828164000
                   </span>
                 </div>
               </td>
@@ -698,16 +651,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <div
-                      style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
-                    >
-                      <div>
-                        2016-11-21 15:22:44
-                      </div>
-                      <div>
-                        2016-11-22 15:22:44
-                      </div>
-                    </div>
+                    14797417640001479828164000
                   </span>
                 </div>
               </td>
@@ -731,9 +675,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      15:22:44
-                    </span>
+                    1479828164000
                   </span>
                 </div>
               </td>
@@ -753,17 +695,11 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <pre
-                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
-                    >
-                      <code>
-                        
+                    
 yarn run v1.22.0
 $ eslint --format=pretty ./packages
 Done in 9.70s.
           
-                      </code>
-                    </pre>
                   </span>
                 </div>
               </td>
@@ -787,11 +723,7 @@ Done in 9.70s.
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <pre
-                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
-                    >
-                      <code>
-                        {
+                    {
   "compilerOptions": {
     "target": "esnext",
     "moduleResolution": "node",
@@ -801,19 +733,13 @@ Done in 9.70s.
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
+
     "declaration": true,
     "skipLibCheck": true
   },
-  "include": [
-    "**/src",
-    "**/docs",
-    "scripts",
-    "**/demo",
-    ".eslintrc.js"
-  ]
+  "include": ["**/src", "**/docs", "scripts", "**/demo", ".eslintrc.js"]
 }
-                      </code>
-                    </pre>
+
                   </span>
                 </div>
               </td>
@@ -848,29 +774,24 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
         <div
           class="ant-descriptions-extra"
         >
-          <div
-            class="ant-pro-field-option"
-            style="display: flex; gap: 16px; align-items: center;"
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              链路
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              报警
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              查看
-            </a>
-          </div>
+            链路
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            报警
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            查看
+          </a>
         </div>
       </div>
       <div
@@ -921,7 +842,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    2020-08-09
+                    20200809
                   </span>
                 </div>
               </td>
@@ -941,18 +862,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span
-                      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                    >
-                      <span
-                        class="ant-badge-status-dot ant-badge-status-default"
-                      />
-                      <span
-                        class="ant-badge-status-text"
-                      >
-                        全部
-                      </span>
-                    </span>
+                    all
                   </span>
                 </div>
               </td>
@@ -976,9 +886,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      ¥1,212,100.00
-                    </span>
+                    1212100
                   </span>
                 </div>
               </td>
@@ -1022,7 +930,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    2020-08-09
+                    20200809
                   </span>
                 </div>
               </td>
@@ -1046,7 +954,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    09.08.2020
+                    20200809
                   </span>
                 </div>
               </td>
@@ -1069,9 +977,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                   <span
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
-                  >
-                    打开
-                  </span>
+                  />
                 </div>
               </td>
             </tr>
@@ -1094,9 +1000,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      ¥1,212,100.00
-                    </span>
+                    1212100
                   </span>
                 </div>
               </td>
@@ -1120,9 +1024,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      1,212,100.00
-                    </span>
+                    1212100
                   </span>
                 </div>
               </td>
@@ -1146,9 +1048,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      -12,345.33
-                    </span>
+                    -12345.33
                   </span>
                 </div>
               </td>
@@ -1172,9 +1072,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/col
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      100.00%
-                    </span>
+                    100
                   </span>
                 </div>
               </td>
@@ -1264,14 +1162,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/cus
             <div
               class="ant-space-item"
             >
-              <div
-                class="ant-pro-field-option"
-                style="display: flex; gap: 16px; align-items: center;"
-              >
-                <a>
-                  刷新
-                </a>
-              </div>
+              <a>
+                刷新
+              </a>
             </div>
           </div>
         </div>
@@ -1451,29 +1344,24 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                   <div
                     class="ant-descriptions-extra"
                   >
-                    <div
-                      class="ant-pro-field-option"
-                      style="display: flex; gap: 16px; align-items: center;"
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        链路
-                      </a>
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        报警
-                      </a>
-                      <a
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        查看
-                      </a>
-                    </div>
+                      链路
+                    </a>
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      报警
+                    </a>
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      查看
+                    </a>
                   </div>
                 </div>
                 <div
@@ -1524,18 +1412,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                               class="ant-descriptions-item-content"
                               style="min-width: 0;"
                             >
-                              <span
-                                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                              >
-                                <span
-                                  class="ant-badge-status-dot ant-badge-status-default"
-                                />
-                                <span
-                                  class="ant-badge-status-text"
-                                >
-                                  全部
-                                </span>
-                              </span>
+                              all
                             </span>
                           </div>
                         </td>
@@ -1583,7 +1460,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                               class="ant-descriptions-item-content"
                               style="min-width: 0;"
                             >
-                              2020-08-09
+                              20200809
                             </span>
                           </div>
                         </td>
@@ -1607,9 +1484,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                               class="ant-descriptions-item-content"
                               style="min-width: 0;"
                             >
-                              <span>
-                                ¥1,212,100.00
-                              </span>
+                              1212100
                             </span>
                           </div>
                         </td>
@@ -1633,9 +1508,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                               class="ant-descriptions-item-content"
                               style="min-width: 0;"
                             >
-                              <span>
-                                20.00%
-                              </span>
+                              20%
                             </span>
                           </div>
                         </td>
@@ -2032,27 +1905,47 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                           <div
                                             class="ant-form-item-control-input-content"
                                           >
-                                            <button
-                                              aria-checked="false"
-                                              class="ant-switch"
-                                              id="loading"
-                                              role="switch"
-                                              type="button"
+                                            <span
+                                              class="ant-input-affix-wrapper ant-input-outlined"
                                             >
-                                              <div
-                                                class="ant-switch-handle"
+                                              <input
+                                                class="ant-input"
+                                                id="loading"
+                                                placeholder="请输入"
+                                                type="text"
+                                                value=""
                                               />
                                               <span
-                                                class="ant-switch-inner"
+                                                class="ant-input-suffix"
                                               >
                                                 <span
-                                                  class="ant-switch-inner-checked"
-                                                />
-                                                <span
-                                                  class="ant-switch-inner-unchecked"
-                                                />
+                                                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                                  role="button"
+                                                  tabindex="-1"
+                                                >
+                                                  <span
+                                                    aria-label="close-circle"
+                                                    class="anticon anticon-close-circle"
+                                                    role="img"
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      data-icon="close-circle"
+                                                      fill="currentColor"
+                                                      fill-rule="evenodd"
+                                                      focusable="false"
+                                                      height="1em"
+                                                      viewBox="64 64 896 896"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                                      />
+                                                    </svg>
+                                                  </span>
+                                                </span>
                                               </span>
-                                            </button>
+                                            </span>
                                           </div>
                                         </div>
                                       </div>
@@ -2234,27 +2127,47 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                           <div
                                             class="ant-form-item-control-input-content"
                                           >
-                                            <button
-                                              aria-checked="false"
-                                              class="ant-switch"
-                                              id="bordered"
-                                              role="switch"
-                                              type="button"
+                                            <span
+                                              class="ant-input-affix-wrapper ant-input-outlined"
                                             >
-                                              <div
-                                                class="ant-switch-handle"
+                                              <input
+                                                class="ant-input"
+                                                id="bordered"
+                                                placeholder="请输入"
+                                                type="text"
+                                                value=""
                                               />
                                               <span
-                                                class="ant-switch-inner"
+                                                class="ant-input-suffix"
                                               >
                                                 <span
-                                                  class="ant-switch-inner-checked"
-                                                />
-                                                <span
-                                                  class="ant-switch-inner-unchecked"
-                                                />
+                                                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                                  role="button"
+                                                  tabindex="-1"
+                                                >
+                                                  <span
+                                                    aria-label="close-circle"
+                                                    class="anticon anticon-close-circle"
+                                                    role="img"
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      data-icon="close-circle"
+                                                      fill="currentColor"
+                                                      fill-rule="evenodd"
+                                                      focusable="false"
+                                                      height="1em"
+                                                      viewBox="64 64 896 896"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                                      />
+                                                    </svg>
+                                                  </span>
+                                                </span>
                                               </span>
-                                            </button>
+                                            </span>
                                           </div>
                                         </div>
                                       </div>
@@ -2290,83 +2203,47 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                           <div
                                             class="ant-form-item-control-input-content"
                                           >
-                                            <div
-                                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined pro-field pro-field-xs"
+                                            <span
+                                              class="ant-input-affix-wrapper ant-input-outlined pro-field pro-field-xs"
                                             >
-                                              <div
-                                                class="ant-input-number-handler-wrap"
+                                              <input
+                                                class="ant-input"
+                                                id="column"
+                                                placeholder="请输入"
+                                                type="text"
+                                                value="3"
+                                              />
+                                              <span
+                                                class="ant-input-suffix"
                                               >
                                                 <span
-                                                  aria-disabled="false"
-                                                  aria-label="Increase Value"
-                                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                                  class="ant-input-clear-icon"
                                                   role="button"
-                                                  unselectable="on"
+                                                  tabindex="-1"
                                                 >
                                                   <span
-                                                    aria-label="up"
-                                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                                    aria-label="close-circle"
+                                                    class="anticon anticon-close-circle"
                                                     role="img"
                                                   >
                                                     <svg
                                                       aria-hidden="true"
-                                                      data-icon="up"
+                                                      data-icon="close-circle"
                                                       fill="currentColor"
+                                                      fill-rule="evenodd"
                                                       focusable="false"
                                                       height="1em"
                                                       viewBox="64 64 896 896"
                                                       width="1em"
                                                     >
                                                       <path
-                                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                                                       />
                                                     </svg>
                                                   </span>
                                                 </span>
-                                                <span
-                                                  aria-disabled="false"
-                                                  aria-label="Decrease Value"
-                                                  class="ant-input-number-handler ant-input-number-handler-down"
-                                                  role="button"
-                                                  unselectable="on"
-                                                >
-                                                  <span
-                                                    aria-label="down"
-                                                    class="anticon anticon-down ant-input-number-handler-down-inner"
-                                                    role="img"
-                                                  >
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      data-icon="down"
-                                                      fill="currentColor"
-                                                      focusable="false"
-                                                      height="1em"
-                                                      viewBox="64 64 896 896"
-                                                      width="1em"
-                                                    >
-                                                      <path
-                                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                                      />
-                                                    </svg>
-                                                  </span>
-                                                </span>
-                                              </div>
-                                              <div
-                                                class="ant-input-number-input-wrap"
-                                              >
-                                                <input
-                                                  aria-valuemin="0"
-                                                  aria-valuenow="3"
-                                                  autocomplete="off"
-                                                  class="ant-input-number-input"
-                                                  id="column"
-                                                  placeholder="请输入"
-                                                  role="spinbutton"
-                                                  step="1"
-                                                  value="3"
-                                                />
-                                              </div>
-                                            </div>
+                                              </span>
+                                            </span>
                                           </div>
                                         </div>
                                       </div>
@@ -2419,29 +2296,24 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
             <div
               class="ant-space-item"
             >
-              <div
-                class="ant-pro-field-option"
-                style="display: flex; gap: 16px; align-items: center;"
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
               >
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  链路
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  报警
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  查看
-                </a>
-              </div>
+                链路
+              </a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                报警
+              </a>
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                查看
+              </a>
             </div>
           </div>
         </div>
@@ -2560,18 +2432,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span
-                      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                    >
-                      <span
-                        class="ant-badge-status-dot ant-badge-status-default"
-                      />
-                      <span
-                        class="ant-badge-status-text"
-                      >
-                        全部
-                      </span>
-                    </span>
+                    all
                   </span>
                 </div>
               </td>
@@ -2713,7 +2574,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                       <div
                         class="ant-space-item"
                       >
-                        2020-08-09
+                        20200809
                       </div>
                       <div
                         class="ant-space-item"
@@ -2769,302 +2630,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                       <div
                         class="ant-space-item"
                       >
-                        <ul
-                          class="ant-rate ant-rate-disabled"
-                          role="radiogroup"
-                          tabindex="-1"
-                        >
-                          <li
-                            class="ant-rate-star ant-rate-star-full"
-                          >
-                            <div
-                              aria-checked="true"
-                              aria-posinset="1"
-                              aria-setsize="5"
-                              role="radio"
-                              tabindex="-1"
-                            >
-                              <div
-                                class="ant-rate-star-first"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div
-                                class="ant-rate-star-second"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </li>
-                          <li
-                            class="ant-rate-star ant-rate-star-full"
-                          >
-                            <div
-                              aria-checked="true"
-                              aria-posinset="2"
-                              aria-setsize="5"
-                              role="radio"
-                              tabindex="-1"
-                            >
-                              <div
-                                class="ant-rate-star-first"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div
-                                class="ant-rate-star-second"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </li>
-                          <li
-                            class="ant-rate-star ant-rate-star-full"
-                          >
-                            <div
-                              aria-checked="true"
-                              aria-posinset="3"
-                              aria-setsize="5"
-                              role="radio"
-                              tabindex="-1"
-                            >
-                              <div
-                                class="ant-rate-star-first"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div
-                                class="ant-rate-star-second"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </li>
-                          <li
-                            class="ant-rate-star ant-rate-star-full"
-                          >
-                            <div
-                              aria-checked="true"
-                              aria-posinset="4"
-                              aria-setsize="5"
-                              role="radio"
-                              tabindex="-1"
-                            >
-                              <div
-                                class="ant-rate-star-first"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div
-                                class="ant-rate-star-second"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </li>
-                          <li
-                            class="ant-rate-star ant-rate-star-full"
-                          >
-                            <div
-                              aria-checked="true"
-                              aria-posinset="5"
-                              aria-setsize="5"
-                              role="radio"
-                              tabindex="-1"
-                            >
-                              <div
-                                class="ant-rate-star-first"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div
-                                class="ant-rate-star-second"
-                              >
-                                <span
-                                  aria-label="star"
-                                  class="anticon anticon-star"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="star"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
+                        5
                       </div>
                       <div
                         class="ant-space-item"
@@ -3178,9 +2744,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                       <div
                         class="ant-space-item"
                       >
-                        <span>
-                          100.00%
-                        </span>
+                        100
                       </div>
                       <div
                         class="ant-space-item"
@@ -3298,7 +2862,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    2016.11.22
+                    1479828164000
                   </span>
                 </div>
               </td>
@@ -3318,16 +2882,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <div
-                      style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;"
-                    >
-                      <div>
-                        2016.11.21 15:22:44
-                      </div>
-                      <div>
-                        2016.11.22 15:22:44
-                      </div>
-                    </div>
+                    14797417640001479828164000
                   </span>
                 </div>
               </td>
@@ -3351,9 +2906,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      2016.11.22
-                    </span>
+                    1479828164000
                   </span>
                 </div>
               </td>
@@ -3373,7 +2926,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    2016.11.22 15:22:44
+                    1479828164000
                   </span>
                 </div>
               </td>
@@ -3397,9 +2950,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/for
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      1 个月前
-                    </span>
+                    1477149764000
                   </span>
                 </div>
               </td>
@@ -3440,27 +2991,22 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
             <div
               class="ant-space-item"
             >
-              <div
-                class="ant-pro-field-option"
-                style="display: flex; gap: 16px; align-items: center;"
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
               >
-                <button
-                  class="ant-btn ant-btn-primary"
-                  type="button"
-                >
-                  <span>
-                    刷 新
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-default"
-                  type="button"
-                >
-                  <span>
-                    重 置
-                  </span>
-                </button>
-              </div>
+                <span>
+                  刷 新
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-default"
+                type="button"
+              >
+                <span>
+                  重 置
+                </span>
+              </button>
             </div>
             <div
               class="ant-space-item"
@@ -3520,7 +3066,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    2020-07-30
+                    20200730
                   </span>
                 </div>
               </td>
@@ -3544,9 +3090,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      ¥12,121.00
-                    </span>
+                    12121
                   </span>
                 </div>
               </td>
@@ -3581,29 +3125,24 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
         <div
           class="ant-descriptions-extra"
         >
-          <div
-            class="ant-pro-field-option"
-            style="display: flex; gap: 16px; align-items: center;"
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              链路
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              报警
-            </a>
-            <a
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              查看
-            </a>
-          </div>
+            链路
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            报警
+          </a>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            查看
+          </a>
         </div>
       </div>
       <div
@@ -3688,18 +3227,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span
-                      class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                    >
-                      <span
-                        class="ant-badge-status-dot ant-badge-status-default"
-                      />
-                      <span
-                        class="ant-badge-status-text"
-                      >
-                        全部
-                      </span>
-                    </span>
+                    all
                   </span>
                 </div>
               </td>
@@ -3747,7 +3275,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    2020-08-09
+                    20200809
                   </span>
                 </div>
               </td>
@@ -3771,9 +3299,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      ¥1,212,100.00
-                    </span>
+                    1212100
                   </span>
                 </div>
               </td>
@@ -3797,9 +3323,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                     class="ant-descriptions-item-content"
                     style="min-width: 0;"
                   >
-                    <span>
-                      100.00%
-                    </span>
+                    100
                   </span>
                 </div>
               </td>

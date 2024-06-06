@@ -273,7 +273,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         <div className={`${prefixCls}-tabs ${hashId}`.trim()}>
           <Tabs
             onChange={tabs.onChange}
-            {...tabs}
+            {...omit(tabs, ['cardProps'])}
             // @ts-ignore
             items={ModifyTabItemsContent}
           >

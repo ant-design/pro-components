@@ -6,6 +6,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   useCallback,
   useContext,
+  useEffect,
   useImperativeHandle,
   useMemo,
   useRef,
@@ -128,14 +129,13 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     [formRef.current],
   );
 
-  // useMergedState监听了open的变化
-  // useEffect(() => {
-  //   if (open && (propsOpen || propVisible)) {
-  //     onOpenChange?.(true);
-  //     onVisibleChange?.(true);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [propVisible, propsOpen, open]);
+  useEffect(() => {
+    if (propsOpen || propVisible) {
+      onOpenChange?.(true);
+      onVisibleChange?.(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [propVisible, propsOpen]);
 
   const triggerDom = useMemo(() => {
     if (!trigger) {
