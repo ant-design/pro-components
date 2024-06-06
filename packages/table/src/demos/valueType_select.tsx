@@ -137,7 +137,7 @@ const columns: ProColumns<TableListItem>[] = [
     fieldProps: {
       // placeholder: []
     },
-    renderFormItem: (_, { type, defaultRender }) => {
+    formItemRender: (_, { type, defaultRender }) => {
       if (type === 'form') {
         return null;
       }

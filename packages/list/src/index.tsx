@@ -28,7 +28,7 @@ export type ProListMeta<T> = Pick<
   | 'editable'
   | 'fieldProps'
   | 'formItemProps'
-  | 'renderFormItem'
+  | 'formItemRender'
 > & {
   key?: React.Key;
 };

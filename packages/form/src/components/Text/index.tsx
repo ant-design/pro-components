@@ -115,7 +115,7 @@ const Password: React.FC<
         valueTypeMap={{
           password: {
             render: (text, props) => <FieldPassword {...props} text={text} />,
-            renderFormItem: (text, props) => (
+            formItemRender: (text, props) => (
               <FieldPassword {...props} text={text} />
             ),
           },
@@ -166,7 +166,7 @@ const Password: React.FC<
       valueTypeMap={{
         password: {
           render: (text, props) => <FieldPassword {...props} text={text} />,
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldPassword {...props} text={text} />
           ),
         },

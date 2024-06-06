@@ -21,7 +21,7 @@ const FieldSegmented: ProFieldFC<
   const {
     mode,
     render,
-    renderFormItem,
+    formItemRender,
     fieldProps,
     emptyText = '-',
     ...rest
@@ -76,8 +76,8 @@ const FieldSegmented: ProFieldFC<
       />
     );
 
-    if (renderFormItem) {
-      return renderFormItem(
+    if (formItemRender) {
+      return formItemRender(
         rest.text,
         { mode, ...fieldProps, options, loading },
         dom,

@@ -34,7 +34,7 @@ const ProFormMoney: React.ForwardRefRenderFunction<any, ProFormMoneyProps> = (
               text={text}
             />
           ),
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldMoney
               {...props}
               placeholder={props.placeholder as string}

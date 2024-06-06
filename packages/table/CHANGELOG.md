@@ -291,7 +291,7 @@ All notable changes to this project will be documented in this file. See [Conven
 ### Bug Fixes
 
 - **table:** dataSource support string list ([7b81b4c](https://github.com/ant-design/pro-components/commit/7b81b4c8ae247ccc4198ef597a9ae58d83ab697a))
-- **table:** fix renderFormItem render twice render time ([c3b8ffd](https://github.com/ant-design/pro-components/commit/c3b8ffd62f2100789e749907b5aef84c6966c528))
+- **table:** fix formItemRender render twice render time ([c3b8ffd](https://github.com/ant-design/pro-components/commit/c3b8ffd62f2100789e749907b5aef84c6966c528))
 - **table:** Fix the columnsSetting styling issue in controlling column state when the table header is too long ([5b746b3](https://github.com/ant-design/pro-components/commit/5b746b3cfef9a2da021d963d8c723e5a9b9b829a))
 - **table:** Fix the issue of actionref not being synchronized ([2160fb8](https://github.com/ant-design/pro-components/commit/2160fb846bcfe41809a37dfe6e1cc3fce1d211e7))
 - **table:** Fix the issue where align="center" is not working ([db6fc65](https://github.com/ant-design/pro-components/commit/db6fc655b9994826238bb6b63588467ff8c6a6f8))
@@ -973,7 +973,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- **table:** renderFormItem support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
+- **table:** formItemRender support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
 
 ## [2.75.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.75.0...@ant-design/pro-table@2.75.1) (2022-05-20)
 
@@ -1227,7 +1227,7 @@ All notable changes to this project will be documented in this file. See [Conven
 ### Bug Fixes
 
 - **form:** fix ignoreRules no work error ([5586970](https://github.com/ant-design/pro-components/commit/558697094fc0aa39b5ac372064608cdefa239798))
-- **table:** EditableProTable 支持在 renderFormItem 中的 record 中返回用户自定义的字段 ([#4644](https://github.com/ant-design/pro-components/issues/4644)) ([488122d](https://github.com/ant-design/pro-components/commit/488122d88f031472ee0786a98b2a3dd017c5cb5b))
+- **table:** EditableProTable 支持在 formItemRender 中的 record 中返回用户自定义的字段 ([#4644](https://github.com/ant-design/pro-components/issues/4644)) ([488122d](https://github.com/ant-design/pro-components/commit/488122d88f031472ee0786a98b2a3dd017c5cb5b))
 
 ## [2.63.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.5...@ant-design/pro-table@2.63.6) (2022-02-15)
 
@@ -1713,7 +1713,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 - **form:** fix reg inclubes “(” error ([#3103](https://github.com/ant-design/pro-components/issues/3103)) ([cc1f9d0](https://github.com/ant-design/pro-components/commit/cc1f9d06eb796df620f0f28f4764ff797a96692f))
 - **table:** fix onSearch no work error ([#3097](https://github.com/ant-design/pro-components/issues/3097)) ([8c99641](https://github.com/ant-design/pro-components/commit/8c99641a547b6a7f34cb8842e69aaa9c6f047621))
-- **table:** remove onchange form renderFormItem ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
+- **table:** remove onchange form formItemRender ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
 
 ### Reverts
 
@@ -1976,7 +1976,7 @@ All notable changes to this project will be documented in this file. See [Conven
 - **field:** omit fieldProps and support onChange ([#1886](https://github.com/ant-design/pro-components/issues/1886)) ([8d7c963](https://github.com/ant-design/pro-components/commit/8d7c9639073822daa554db07a5f0c8c0ea334a65))
 - **form:** fix error message no work error ([#1875](https://github.com/ant-design/pro-components/issues/1875)) ([584a73a](https://github.com/ant-design/pro-components/commit/584a73a18aadc339202f34306edaa20d849e6c23))
 - **layout:** use @umijs/use-params ([#1895](https://github.com/ant-design/pro-components/issues/1895)) ([80aac76](https://github.com/ant-design/pro-components/commit/80aac7665115c8f884c473d78c2fcc12ac042bb3))
-- **table:** no has colSize on renderFormItem ([#1876](https://github.com/ant-design/pro-components/issues/1876)) ([98b6afd](https://github.com/ant-design/pro-components/commit/98b6afd93248a33e457c71234d7f4dbc9ce77bf0))
+- **table:** no has colSize on formItemRender ([#1876](https://github.com/ant-design/pro-components/issues/1876)) ([98b6afd](https://github.com/ant-design/pro-components/commit/98b6afd93248a33e457c71234d7f4dbc9ce77bf0))
 - **table:** set function to aysnc ([8751290](https://github.com/ant-design/pro-components/commit/8751290d02b706db1d9f435c97af2a9e71b1d59d))
 
 ### Features
@@ -2351,7 +2351,7 @@ All notable changes to this project will be documented in this file. See [Conven
 ### Bug Fixes
 
 - **table:** options or fullScreen is null, not render ConfigProvider ([#854](https://github.com/ant-design/pro-components/issues/854)) ([004abb9](https://github.com/ant-design/pro-components/commit/004abb90a9d002de0c13223ac27ac98b34b3341b))
-- **table:** renderFormItem should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
+- **table:** formItemRender should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
 
 ## [2.9.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.9.11...@ant-design/pro-table@2.9.12) (2020-10-26)
 

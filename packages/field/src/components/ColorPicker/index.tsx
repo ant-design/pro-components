@@ -41,7 +41,7 @@ const FieldColorPicker: ProFieldFC<
   {
     text: string;
   } & Partial<ColorPickerProps>
-> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref: any) => {
+> = ({ text, mode: type, render, formItemRender, fieldProps }, ref: any) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-color-picker');
 
@@ -71,8 +71,8 @@ const FieldColorPicker: ProFieldFC<
         className={classNames({ [prefixCls]: true })}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps, style }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode: type, ...fieldProps, style }, dom);
     }
     return dom;
   }

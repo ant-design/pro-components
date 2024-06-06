@@ -1033,8 +1033,8 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- **table:** renderFormItem support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
-- **table:** renderFormItem support ignoreFormItem ([#5296](https://github.com/ant-design/pro-components/issues/5296)) ([d6977b5](https://github.com/ant-design/pro-components/commit/d6977b5e2c75c100992b049f4bf1642fd22f351e))
+- **table:** formItemRender support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
+- **table:** formItemRender support ignoreFormItem ([#5296](https://github.com/ant-design/pro-components/issues/5296)) ([d6977b5](https://github.com/ant-design/pro-components/commit/d6977b5e2c75c100992b049f4bf1642fd22f351e))
 
 ## [1.68.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.68.1...@ant-design/pro-form@1.68.2) (2022-05-20)
 
@@ -1300,7 +1300,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 - **form:** fix ignoreRules no work error ([5586970](https://github.com/ant-design/pro-components/commit/558697094fc0aa39b5ac372064608cdefa239798))
 - 🐛 make sure the formItemProps property is dosen't override ([#4662](https://github.com/ant-design/pro-components/issues/4662)) ([cd50ac4](https://github.com/ant-design/pro-components/commit/cd50ac44b319ce240f4435f10872733b4ba74690))
-- **table:** EditableProTable 支持在 renderFormItem 中的 record 中返回用户自定义的字段 ([#4644](https://github.com/ant-design/pro-components/issues/4644)) ([488122d](https://github.com/ant-design/pro-components/commit/488122d88f031472ee0786a98b2a3dd017c5cb5b))
+- **table:** EditableProTable 支持在 formItemRender 中的 record 中返回用户自定义的字段 ([#4644](https://github.com/ant-design/pro-components/issues/4644)) ([488122d](https://github.com/ant-design/pro-components/commit/488122d88f031472ee0786a98b2a3dd017c5cb5b))
 
 ## [1.53.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.5...@ant-design/pro-form@1.53.6) (2022-02-15)
 
@@ -1848,7 +1848,7 @@ All notable changes to this project will be documented in this file. See [Conven
 - **form:** fix reg inclubes “(” error ([#3103](https://github.com/ant-design/pro-components/issues/3103)) ([cc1f9d0](https://github.com/ant-design/pro-components/commit/cc1f9d06eb796df620f0f28f4764ff797a96692f))
 - **form:** fix select optionGroup no filter error ([#3100](https://github.com/ant-design/pro-components/issues/3100)) ([5a9419c](https://github.com/ant-design/pro-components/commit/5a9419c89e40cf6de953258ef00a382887922519))
 - **form:** ProFormPropsType error type ([#3089](https://github.com/ant-design/pro-components/issues/3089)) ([15e9ce5](https://github.com/ant-design/pro-components/commit/15e9ce566cc341fb5235d3a5656410831fd134fc))
-- **table:** remove onchange form renderFormItem ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
+- **table:** remove onchange form formItemRender ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
 
 ### Features
 
@@ -2484,7 +2484,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **table:** renderFormItem should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
+- **table:** formItemRender should run in form init ([#852](https://github.com/ant-design/pro-components/issues/852)) ([612b04a](https://github.com/ant-design/pro-components/commit/612b04a7225ccc93b8c081d268981d988c333d4c))
 
 ## [1.1.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.1.4...@ant-design/pro-form@1.1.5) (2020-10-26)
 

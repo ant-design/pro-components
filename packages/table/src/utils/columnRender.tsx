@@ -148,7 +148,7 @@ export function columnRender<T>({
       ? textDom
       : genCopyable(textDom, columnProps, renderTextStr);
 
-  /** 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem */
+  /** 如果是编辑模式，并且 formItemRender 存在直接走 formItemRender */
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (

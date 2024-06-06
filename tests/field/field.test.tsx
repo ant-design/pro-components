@@ -371,13 +371,13 @@ describe('Field', () => {
       vi.useRealTimers();
     });
 
-    it(`🐴 ${valueType}  edit model support renderFormItem function`, async () => {
+    it(`🐴 ${valueType}  edit model support formItemRender function`, async () => {
       const html = render(
         <Field
           text="default"
           valueType={valueType as 'radio'}
           mode="edit"
-          renderFormItem={() => (
+          formItemRender={() => (
             <>
               <Input id="select" />
               default
@@ -398,14 +398,14 @@ describe('Field', () => {
       html.unmount();
     });
 
-    it(`🐴 ${valueType}  edit model support renderFormItem return null`, async () => {
+    it(`🐴 ${valueType}  edit model support formItemRender return null`, async () => {
       const html = render(
         <Field
           text="default"
           valueType={valueType as 'radio'}
           mode="edit"
           // @ts-expect-error
-          renderFormItem={() => undefined}
+          formItemRender={() => undefined}
           valueEnum={{
             0: { text: '关闭', status: 'Default' },
             1: { text: '运行中', status: 'Processing' },
@@ -418,14 +418,14 @@ describe('Field', () => {
       html.unmount();
     });
 
-    it(`🐴 ${valueType}  edit model support renderFormItem return 0`, async () => {
+    it(`🐴 ${valueType}  edit model support formItemRender return 0`, async () => {
       const html = render(
         <Field
           text="default"
           valueType={valueType as 'radio'}
           mode="edit"
           // @ts-expect-error
-          renderFormItem={() => 0}
+          formItemRender={() => 0}
           valueEnum={{
             0: { text: '关闭', status: 'Default' },
             1: { text: '运行中', status: 'Processing' },
@@ -1097,14 +1097,14 @@ describe('Field', () => {
       expect(html.baseElement.textContent).toBe('qixian');
     });
 
-    it(`🐴 valueType renderFormItem ${valueType}`, async () => {
+    it(`🐴 valueType formItemRender ${valueType}`, async () => {
       if (valueType === 'option') return;
       const html = render(
         <Field
           text={dayjs('2019-11-16 12:50:26').valueOf()}
           mode="edit"
           valueType={valueType as 'text'}
-          renderFormItem={() => <span>qixian</span>}
+          formItemRender={() => <span>qixian</span>}
         />,
       );
       await html.findAllByText('qixian');
@@ -1650,13 +1650,13 @@ describe('Field', () => {
     html.unmount();
   });
 
-  it(`🐴 valueType renderFormItem return number`, async () => {
+  it(`🐴 valueType formItemRender return number`, async () => {
     const html = render(
       <Field
         text={dayjs('2019-11-16 12:50:26').valueOf()}
         mode="edit"
         // @ts-expect-error
-        renderFormItem={() => 2}
+        formItemRender={() => 2}
       />,
     );
     expect(html.baseElement.textContent).toBe('2');

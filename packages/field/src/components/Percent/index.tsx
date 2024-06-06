@@ -34,7 +34,7 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     mode,
     showColor = false,
     render,
-    renderFormItem,
+    formItemRender,
     fieldProps,
     placeholder,
     showSymbol: propsShowSymbol,
@@ -94,8 +94,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
         {...fieldProps}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

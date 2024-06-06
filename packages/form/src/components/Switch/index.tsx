@@ -27,7 +27,7 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
         valueTypeMap={{
           segmented: {
             render: (text, props) => <FieldSwitch {...props} text={text} />,
-            renderFormItem: (text, props) => (
+            formItemRender: (text, props) => (
               <FieldSwitch {...props} text={text} />
             ),
           },

@@ -172,7 +172,7 @@ export const FieldRender: React.FC<
     plain,
     dataIndex,
     request,
-    renderFormItem,
+    formItemRender,
     params,
     emptyText,
   } = props;
@@ -255,10 +255,10 @@ export const FieldRender: React.FC<
             {...fieldConfig}
             // @ts-ignore
             proFieldProps={{ ...fieldConfig.proFieldProps }}
-            renderFormItem={
-              renderFormItem
+            formItemRender={
+              formItemRender
                 ? () =>
-                    renderFormItem?.(
+                    formItemRender?.(
                       {
                         ...props,
                         type: 'descriptions',

@@ -32,7 +32,7 @@ export const BaseDatePicker: React.FC<
         valueTypeMap={{
           [valueType]: {
             render: (text, props) => <FieldDatePicker {...props} text={text} />,
-            renderFormItem: (text, props) => (
+            formItemRender: (text, props) => (
               <FieldDatePicker {...props} text={text} />
             ),
           },

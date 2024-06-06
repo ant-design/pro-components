@@ -36,7 +36,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   {
     radioType,
     placeholder,
-    renderFormItem,
+    formItemRender,
     mode,
     render,
     label,
@@ -133,9 +133,9 @@ const FieldCascader: ProFieldFC<GroupProps> = (
       />
     );
 
-    if (renderFormItem) {
+    if (formItemRender) {
       dom =
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...rest.fieldProps, options, loading },
           dom,

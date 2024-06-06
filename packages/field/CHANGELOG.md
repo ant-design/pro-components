@@ -99,7 +99,7 @@ All notable changes to this project will be documented in this file. See [Conven
 ### Bug Fixes
 
 - **descriptions:** fix ProTable 和 ProDescriptions render 行为不一样的问题 ([227d302](https://github.com/ant-design/pro-components/commit/227d3023934efceb2f86184767ef7afe37a73c3b))
-- **field:** remove useDeepCompareMemo which causing renderFormItem not updated ([#7887](https://github.com/ant-design/pro-components/issues/7887)) ([d507222](https://github.com/ant-design/pro-components/commit/d507222c083a8be976f8d4dfc3fec9380f0f4316))
+- **field:** remove useDeepCompareMemo which causing formItemRender not updated ([#7887](https://github.com/ant-design/pro-components/issues/7887)) ([d507222](https://github.com/ant-design/pro-components/commit/d507222c083a8be976f8d4dfc3fec9380f0f4316))
 - **form:** fix ProFormMoney customSymbol no work error ([d0f30b8](https://github.com/ant-design/pro-components/commit/d0f30b8b9b7354798ac5b9271b88dad772f56f36))
 - **form:** 修复 FieldOptions 中子元素换行问题 ([#7856](https://github.com/ant-design/pro-components/issues/7856)) ([6a6f1c4](https://github.com/ant-design/pro-components/commit/6a6f1c48bee9d5aaf12842b3f225766192b44ccc))
 
@@ -201,7 +201,7 @@ All notable changes to this project will be documented in this file. See [Conven
 ### Bug Fixes
 
 - **form:** 修复 compact warning ([#7496](https://github.com/ant-design/pro-components/issues/7496)) ([b60d33d](https://github.com/ant-design/pro-components/commit/b60d33d285b4ed0081fb813ace5fc1f0211acf20))
-- **form:** 表单项配置 request 并且自定义 renderFormItem 时，没有透传 options 和 loading ([#7457](https://github.com/ant-design/pro-components/issues/7457)) ([1baf580](https://github.com/ant-design/pro-components/commit/1baf58029c38e5ebde5533da6d7f5aea57f19e6c)), closes [#7456](https://github.com/ant-design/pro-components/issues/7456)
+- **form:** 表单项配置 request 并且自定义 formItemRender 时，没有透传 options 和 loading ([#7457](https://github.com/ant-design/pro-components/issues/7457)) ([1baf580](https://github.com/ant-design/pro-components/commit/1baf58029c38e5ebde5533da6d7f5aea57f19e6c)), closes [#7456](https://github.com/ant-design/pro-components/issues/7456)
 
 ### Features
 

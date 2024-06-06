@@ -273,7 +273,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     text,
     mode: type,
     render,
-    renderFormItem,
+    formItemRender,
     fieldProps,
     proFieldKey,
     plain,
@@ -434,8 +434,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
       />
     );
 
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

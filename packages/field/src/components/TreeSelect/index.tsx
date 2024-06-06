@@ -38,7 +38,7 @@ export type TreeSelectFieldProps = TreeSelectProps<any> & {
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, light, label, render, ...rest },
+  { radioType, formItemRender, mode, light, label, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -208,9 +208,9 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       </Spin>
     );
 
-    if (renderFormItem) {
+    if (formItemRender) {
       dom =
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...(fieldProps as any), options, loading },
           dom,

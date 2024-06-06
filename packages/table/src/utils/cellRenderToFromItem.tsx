@@ -184,8 +184,8 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     /**
      * 如果没有自定义直接返回
      */
-    if (columnProps?.renderFormItem) {
-      fieldDom = columnProps.renderFormItem(
+    if (columnProps?.formItemRender) {
+      fieldDom = columnProps.formItemRender(
         {
           ...columnProps,
           index,
@@ -233,7 +233,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
   if (formItemName.length === 0) return null;
 
   if (
-    typeof columnProps?.renderFormItem === 'function' ||
+    typeof columnProps?.formItemRender === 'function' ||
     typeof columnProps?.fieldProps === 'function' ||
     typeof columnProps?.formItemProps === 'function'
   ) {
@@ -320,7 +320,7 @@ function cellRenderToFromItem<T>(
         ? config.index
         : text,
     mode: config.mode,
-    renderFormItem: undefined,
+    formItemRender: undefined,
     valueType: valueType as ProFieldValueType,
     // @ts-ignore
     record: rowData,

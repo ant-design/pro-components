@@ -112,7 +112,7 @@ export const columns: ProColumns[] = [
     key: 'date',
     dataIndex: 'date',
     valueType: 'date',
-    renderFormItem: () => <Input />,
+    formItemRender: () => <Input />,
   },
   {
     title: 'dateTime',

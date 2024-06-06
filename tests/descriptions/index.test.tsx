@@ -177,7 +177,7 @@ describe('descriptions', () => {
             label="money"
             dataIndex="money"
             valueType="money"
-            renderFormItem={() => <Input />}
+            formItemRender={() => <Input />}
           />
         </ProDescriptions>
       );

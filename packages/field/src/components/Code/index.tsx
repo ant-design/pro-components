@@ -27,7 +27,7 @@ const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
 }> = (
-  { text, mode, render, language = 'text', renderFormItem, plain, fieldProps },
+  { text, mode, render, language = 'text', formItemRender, plain, fieldProps },
   ref,
 ) => {
   const code = languageFormat(text, language);
@@ -64,8 +64,8 @@ const FieldCode: ProFieldFC<{
     if (plain) {
       dom = <Input {...fieldProps} ref={ref} />;
     }
-    if (renderFormItem) {
-      return renderFormItem(code, { mode, ...fieldProps, ref }, dom) ?? null;
+    if (formItemRender) {
+      return formItemRender(code, { mode, ...fieldProps, ref }, dom) ?? null;
     }
     return dom;
   }

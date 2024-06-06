@@ -74,7 +74,7 @@ const ProFormSelectComponents = <T, OptionType extends BaseOptionType = any>(
       valueTypeMap={{
         select: {
           render: (text, props) => <FieldSelect {...props} text={text} />,
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldSelect {...props} text={text} />
           ),
         },
@@ -140,7 +140,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
             render: (text, valueTypeProps) => (
               <FieldSelect {...valueTypeProps} text={text} />
             ),
-            renderFormItem: (text, valueTypeProps) => (
+            formItemRender: (text, valueTypeProps) => (
               <FieldSelect {...valueTypeProps} text={text} />
             ),
           },

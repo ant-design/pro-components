@@ -42,7 +42,7 @@ const ProFormSlider = React.forwardRef<any, ProFormSliderProps>(
         valueTypeMap={{
           slider: {
             render: (text, props) => <FieldSlider {...props} text={text} />,
-            renderFormItem: (text, props) => (
+            formItemRender: (text, props) => (
               <FieldSlider {...props} text={text} />
             ),
           },

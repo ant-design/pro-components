@@ -29,7 +29,7 @@ const ProFormColorPicker: React.ForwardRefRenderFunction<
       valueTypeMap={{
         color: {
           render: (text, props) => <FieldColorPicker {...props} text={text} />,
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldColorPicker {...props} text={text} />
           ),
         },

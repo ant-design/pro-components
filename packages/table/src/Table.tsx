@@ -781,7 +781,7 @@ const ProTable = <
       }
     },
     [tableColumn],
-    ['render', 'renderFormItem'],
+    ['render', 'formItemRender'],
     100,
   );
 

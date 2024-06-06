@@ -29,7 +29,7 @@ const ProFormCascader: React.ForwardRefRenderFunction<
               placeholder={props.placeholder as string}
             />
           ),
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldCascader
               {...props}
               text={text}

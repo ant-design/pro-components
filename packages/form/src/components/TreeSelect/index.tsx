@@ -36,7 +36,7 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
       valueTypeMap={{
         treeSelect: {
           render: (text, props) => <FieldTreeSelect {...props} text={text} />,
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldTreeSelect {...props} text={text} />
           ),
         },

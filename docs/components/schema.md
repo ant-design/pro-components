@@ -18,8 +18,8 @@ order: 1
 | `fieldProps` | `(form,config)=>fieldProps`\| `fieldProps` | 传给渲染的组件的 props，自定义的时候也会传递 |
 | `formItemProps` | `(form,config)=>formItemProps` \| `formItemProps` | 传递给 Form.Item 的配置 |
 | `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | 修改的数据是会被 valueType 定义的渲染组件消费 |
-| `render` | `(dom,entity,index, action, schema) => React.ReactNode` | 自定义只读模式的 dom,`render` 方法只管理的只读模式，编辑模式需要使用 `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式，返回一个 ReactNode，会自动包裹 value 和 onChange |
+| `render` | `(dom,entity,index, action, schema) => React.ReactNode` | 自定义只读模式的 dom,`render` 方法只管理的只读模式，编辑模式需要使用 `formItemRender` |
+| `formItemRender` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式，返回一个 ReactNode，会自动包裹 value 和 onChange |
 | `request` | `(params,props) => Promise<{label,value}[]>` | 从远程请求网络数据，一般用于选择类组件 |
 | `params` | `Record<string, any>` | 额外传递给 `request` 的参数，组件不做处理，但是变化会引起`request` 重新请求数据 |
 | `hideInForm` | `boolean` | 在 Form 中隐藏 |
@@ -76,7 +76,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    *
    * @name 自定义编辑模式
    */
-  renderFormItem?: (
+  formItemRender?: (
     item: ProSchema<T, U, Extra>,
     config: {
       index?: number;

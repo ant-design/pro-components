@@ -19,7 +19,7 @@ const ProFormTextArea: React.ForwardRefRenderFunction<
       valueTypeMap={{
         textarea: {
           render: (text, props) => <FieldTextArea {...props} text={text} />,
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldTextArea {...props} text={text} />
           ),
         },

@@ -17,7 +17,7 @@ const FieldPassword: ProFieldFC<{
   open?: boolean;
   onOpenChange?: (visible: boolean) => void;
 }> = (
-  { text, mode, render, renderFormItem, fieldProps, proFieldKey, ...rest },
+  { text, mode, render, formItemRender, fieldProps, proFieldKey, ...rest },
   ref,
 ) => {
   const intl = useIntl();
@@ -55,8 +55,8 @@ const FieldPassword: ProFieldFC<{
         {...fieldProps}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

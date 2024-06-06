@@ -29,7 +29,7 @@ const FieldProgress: ProFieldFC<{
   text: number | string;
   placeholder?: string;
 }> = (
-  { text, mode, render, plain, renderFormItem, fieldProps, placeholder },
+  { text, mode, render, plain, formItemRender, fieldProps, placeholder },
   ref,
 ) => {
   const intl = useIntl();
@@ -64,8 +64,8 @@ const FieldProgress: ProFieldFC<{
     const dom = (
       <InputNumber ref={ref} placeholder={placeholderValue} {...fieldProps} />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

@@ -56,7 +56,7 @@ export default () => {
           title: '状态2',
           key: 'state2',
           dataIndex: 'state2',
-          renderFormItem: () => {
+          formItemRender: () => {
             return <Input placeholder="输入 Success 切换分值" />;
           },
         },

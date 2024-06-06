@@ -44,7 +44,7 @@ const FieldDatePicker: ProFieldFC<
     label,
     light,
     render,
-    renderFormItem,
+    formItemRender,
     plain,
     showTime,
     fieldProps,
@@ -129,8 +129,8 @@ const FieldDatePicker: ProFieldFC<
         />
       );
     }
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

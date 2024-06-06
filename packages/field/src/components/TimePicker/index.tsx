@@ -27,7 +27,7 @@ const FieldTimePicker: ProFieldFC<
     label,
     format = 'HH:mm:ss',
     render,
-    renderFormItem,
+    formItemRender,
     plain,
     fieldProps,
     lightLabel,
@@ -112,8 +112,8 @@ const FieldTimePicker: ProFieldFC<
         />
       );
     }
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }
@@ -140,7 +140,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
     lightLabel,
     format = 'HH:mm:ss',
     render,
-    renderFormItem,
+    formItemRender,
     plain,
     fieldProps,
   },
@@ -242,8 +242,8 @@ const FieldTimeRangePickerComponents: ProFieldFC<
         />
       );
     }
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

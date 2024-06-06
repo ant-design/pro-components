@@ -88,7 +88,7 @@ const columns: ProColumns<DataSourceType>[] = [
     dataIndex: 'index',
     valueType: 'indexBorder',
     width: 48,
-    renderFormItem: () => <InputNumber />,
+    formItemRender: () => <InputNumber />,
   },
   {
     title: '标题',

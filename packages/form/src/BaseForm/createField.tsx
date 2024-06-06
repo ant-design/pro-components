@@ -205,7 +205,7 @@ export function createField<P extends ProFormFieldItemProps = any>(
     const onChange = useRefFunction((...restParams: any[]) => {
       if (getFormItemProps || getFieldProps) {
         forceUpdateByOnChange([]);
-      } else if (rest.renderFormItem) {
+      } else if (rest.formItemRender) {
         forceUpdate([]);
       }
       fieldProps?.onChange?.(...restParams);

@@ -81,7 +81,7 @@ export default () => {
       key: 'direction',
       hideInTable: true,
       dataIndex: 'direction',
-      renderFormItem: (item, { type, defaultRender, ...rest }, form) => {
+      formItemRender: (item, { type, defaultRender, ...rest }, form) => {
         if (type === 'form') {
           return null;
         }

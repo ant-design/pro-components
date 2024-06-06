@@ -47,7 +47,7 @@ export function formatSecond(result: number) {
  * @param FieldSecond
  */
 const Second: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps, placeholder },
+  { text, mode: type, render, formItemRender, fieldProps, placeholder },
   ref,
 ) => {
   const intl = useIntl();
@@ -73,8 +73,8 @@ const Second: ProFieldFC<FieldDigitProps> = (
         {...fieldProps}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

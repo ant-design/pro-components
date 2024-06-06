@@ -394,7 +394,7 @@ const FieldSelect: ProFieldFC<
     mode,
     valueEnum,
     render,
-    renderFormItem,
+    formItemRender,
     request,
     fieldProps,
     plain,
@@ -540,9 +540,9 @@ const FieldSelect: ProFieldFC<
       );
     };
     const dom = renderDom();
-    if (renderFormItem) {
+    if (formItemRender) {
       return (
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...fieldProps, options, loading },
           dom,

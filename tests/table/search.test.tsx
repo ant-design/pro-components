@@ -424,7 +424,7 @@ describe('BasicTable Search', () => {
     html.unmount();
   });
 
-  it('🎏 renderFormItem test and fieldProps onChange', async () => {
+  it('🎏 formItemRender test and fieldProps onChange', async () => {
     const fn = vi.fn();
     const onChangeFn = vi.fn();
     const html = render(
@@ -445,8 +445,8 @@ describe('BasicTable Search', () => {
                 onChangeFn(e.target.value);
               },
             },
-            renderFormItem: () => {
-              return <Input id="renderFormItem" placeholder="renderFormItem" />;
+            formItemRender: () => {
+              return <Input id="formItemRender" placeholder="formItemRender" />;
             },
           },
           {
@@ -460,13 +460,13 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await html.findAllByPlaceholderText('renderFormItem');
+    await html.findAllByPlaceholderText('formItemRender');
 
-    expect(html.baseElement.querySelector('input#renderFormItem')).toBeTruthy();
+    expect(html.baseElement.querySelector('input#formItemRender')).toBeTruthy();
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector('input#renderFormItem')!,
+        html.baseElement.querySelector('input#formItemRender')!,
         {
           target: { value: '12' },
         },
@@ -480,7 +480,7 @@ describe('BasicTable Search', () => {
     html.unmount();
   });
 
-  it('🎏 renderFormItem support return false', async () => {
+  it('🎏 formItemRender support return false', async () => {
     const formRef = createRef<FormInstance | null>();
     const html = render(
       <ProTable
@@ -494,7 +494,7 @@ describe('BasicTable Search', () => {
             formItemProps: {
               className: 'money-class',
             },
-            renderFormItem: () => false,
+            formItemRender: () => false,
           },
           {
             title: 'Name',
@@ -527,7 +527,7 @@ describe('BasicTable Search', () => {
               formItemProps: {
                 className: 'money-class',
               },
-              renderFormItem: () => <div />,
+              formItemRender: () => <div />,
             },
             {
               title: 'Name',
@@ -589,7 +589,7 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
-            renderFormItem: () => <Input id="renderFormItem" />,
+            formItemRender: () => <Input id="formItemRender" />,
           },
           {
             title: 'Name',
@@ -619,7 +619,7 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
-            renderFormItem: () => <Input id="renderFormItem" />,
+            formItemRender: () => <Input id="formItemRender" />,
           },
           {
             title: 'Name',
@@ -654,7 +654,7 @@ describe('BasicTable Search', () => {
               title: '金额',
               dataIndex: 'money',
               valueType: 'money',
-              renderFormItem: () => <Input id="renderFormItem" />,
+              formItemRender: () => <Input id="formItemRender" />,
             },
             {
               title: 'Name',

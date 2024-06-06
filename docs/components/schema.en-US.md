@@ -18,8 +18,8 @@ In the `ProComponents`, we have used the same definition as tables for component
 | `fieldProps` | `(form,config)=>fieldProps`\| `fieldProps` | Props passed to the rendering component. They are also passed when customizing |
 | `formItemProps` | `(form,config)=>formItemProps` \| `formItemProps` | Configuration passed to Form.Item |
 | `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | The modified data is consumed by the rendering component defined by valueType |
-| `render` | `(dom,entity,index, action, schema) => React.ReactNode` | Custom DOM for read-only mode. The `render` method only manages read-only mode, while the editing mode should use `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | Custom editing mode that returns a ReactNode, automatically wrapping value and onChange |
+| `render` | `(dom,entity,index, action, schema) => React.ReactNode` | Custom DOM for read-only mode. The `render` method only manages read-only mode, while the editing mode should use `formItemRender` |
+| `formItemRender` | `(schema,config,form) => React.ReactNode` | Custom editing mode that returns a ReactNode, automatically wrapping value and onChange |
 | `request` | `(params,props) => Promise<{label,value}[]>` | Requests network data remotely, usually used for selection-type components |
 | `params` | `Record<string, any>` | Additional parameters passed to `request`. The component does not process them, but changes will trigger a new data request in `request` |
 | `hideInForm` | `boolean` | Hidden in the form |
@@ -76,7 +76,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    *
    * @name Custom edit mode
    */
-  renderFormItem?: (
+  formItemRender?: (
     item: ProSchema<T, U, Extra>,
     config: {
       index?: number;

@@ -28,7 +28,7 @@ export const BaseDateRanger: React.FC<
             render: (text, props) => (
               <FieldRangePicker {...props} text={text} />
             ),
-            renderFormItem: (text, props) => (
+            formItemRender: (text, props) => (
               <FieldRangePicker {...props} text={text} />
             ),
           },

@@ -18,7 +18,7 @@ export type FieldDigitProps = {
  *     moneySymbol?: string; }
  */
 const FieldDigit: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, placeholder, renderFormItem, fieldProps },
+  { text, mode: type, render, placeholder, formItemRender, fieldProps },
   ref,
 ) => {
   const intl = useIntl();
@@ -73,8 +73,8 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
         onBlur={(e) => fieldProps?.onBlur?.(proxyChange(e.target.value))}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

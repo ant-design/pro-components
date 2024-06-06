@@ -49,7 +49,7 @@ const BaseProFormField: React.FC<
     isDefaultDom,
     render,
     proFieldProps,
-    renderFormItem,
+    formItemRender,
     valueType,
     initialValue,
     onChange,
@@ -120,7 +120,7 @@ const BaseProFormField: React.FC<
     <PureProField
       text={fieldProps?.[valuePropName]}
       render={render as any}
-      renderFormItem={renderFormItem as any}
+      formItemRender={formItemRender as any}
       valueType={(valueType as 'text') || 'text'}
       cacheForSwr={cacheForSwr}
       fieldProps={memoFieldProps}

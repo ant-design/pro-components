@@ -12,7 +12,7 @@ const FieldText: ProFieldFC<{
   text: string;
   emptyText?: React.ReactNode;
 }> = (
-  { text, mode, render, renderFormItem, fieldProps, emptyText = '-' },
+  { text, mode, render, formItemRender, fieldProps, emptyText = '-' },
   ref,
 ) => {
   const { autoFocus, prefix = '', suffix = '' } = fieldProps || {};
@@ -53,8 +53,8 @@ const FieldText: ProFieldFC<{
       />
     );
 
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

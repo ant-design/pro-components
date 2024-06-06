@@ -12,7 +12,7 @@ import type { ProFieldFC } from '../../PureProField';
  * @param
  */
 const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
-  { text, mode, render, light, label, renderFormItem, fieldProps },
+  { text, mode, render, light, label, formItemRender, fieldProps },
   ref,
 ) => {
   const intl = useIntl();
@@ -62,8 +62,8 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
       );
     }
 
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, editDom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, editDom);
     }
     return editDom;
   }

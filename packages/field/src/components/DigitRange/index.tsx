@@ -26,7 +26,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
     mode: type,
     render,
     placeholder,
-    renderFormItem,
+    formItemRender,
     fieldProps,
     separator = '~',
     separatorWidth = 30,
@@ -138,8 +138,8 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         />
       </Compact>
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

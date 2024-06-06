@@ -26,7 +26,7 @@ const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
       valueTypeMap={{
         checkbox: {
           render: (text, props) => <FieldCheckbox {...props} text={text} />,
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldCheckbox {...props} text={text} />
           ),
         },

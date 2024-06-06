@@ -149,7 +149,7 @@ export type ProRenderFieldPropsType = {
    * @params dom 默认的 dom
    * @return 返回一个用于编辑的dom
    */
-  renderFormItem?:
+  formItemRender?:
     | ((
         text: any,
         props: ProFieldFCRenderProps,

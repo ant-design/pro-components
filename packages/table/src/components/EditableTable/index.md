@@ -163,19 +163,19 @@ recordCreatorProps = {
 };
 ```
 
-### renderFormItem 自定义编辑组件
+### formItemRender 自定义编辑组件
 
-虽然我们很希望默认的 valueType 可以满足所有的需求，但是现实往往不尽如人意。所以我们也提供了 `renderFormItem` 来自定义编辑输入组件。
+虽然我们很希望默认的 valueType 可以满足所有的需求，但是现实往往不尽如人意。所以我们也提供了 `formItemRender` 来自定义编辑输入组件。
 
-`renderFormItem` 可以理解为在 Form.Item 下面加入一个元素， 伪代码实现是下面这样的：
+`formItemRender` 可以理解为在 Form.Item 下面加入一个元素， 伪代码实现是下面这样的：
 
 ```typescript
-const dom = renderFormItem();
+const dom = formItemRender();
 
 <Form.Item>{dom}</Form.Item>;
 ```
 
-所以与 Form.Item 相同，我们认为 `renderFormItem` 返回的组件都是拥有的 `value` 和 `onChange` 的，我们接下来将看到用 `renderFormItem` 将一个简单的 TagList 组件放入可编辑表格中。
+所以与 Form.Item 相同，我们认为 `formItemRender` 返回的组件都是拥有的 `value` 和 `onChange` 的，我们接下来将看到用 `formItemRender` 将一个简单的 TagList 组件放入可编辑表格中。
 
 > 没有 `value` 将会无法注入值，没有 `onChange` 会无法修改行数据
 
@@ -250,7 +250,7 @@ const TagList: React.FC<{
     title: '标签',
     dataIndex: 'labels',
     width: '40%',
-    renderFormItem: () => <TagList />,
+    formItemRender: () => <TagList />,
     render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
 ```
@@ -261,7 +261,7 @@ const TagList: React.FC<{
 
 value 和 onChange 会自动注入，我们不需要显式的注入。数据绑定也是由编辑表格自己注入的，我们在 `onSave` 中可以拿到处理完成的数据。虽然我们可以行内的写很复杂的逻辑甚至网路请求，但是我们推荐使用拆分组件，这样不仅性能更好，逻辑也可以拆分的很简单。
 
-> `renderFormItem` 同时也用来生成查询表单，如果我们需要区分这两种情况，可以使用 `renderFormItem: (_, { isEditable }) => (isEditable ? <TagList /> : <Input /> )` 这样的方式来进行分别渲染。
+> `formItemRender` 同时也用来生成查询表单，如果我们需要区分这两种情况，可以使用 `formItemRender: (_, { isEditable }) => (isEditable ? <TagList /> : <Input /> )` 这样的方式来进行分别渲染。
 
 ### actionRender 自定义操作栏
 

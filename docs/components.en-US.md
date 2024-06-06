@@ -140,7 +140,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
    * @name Customize the edit schema
    * @description returns a node that will automatically wrap value and onChange
    */
-  renderFormItem?: (
+  formItemRender?: (
     item: ProSchema<T, U, Extra>,
     config: {
       index?: number;

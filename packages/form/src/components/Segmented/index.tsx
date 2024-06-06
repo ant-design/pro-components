@@ -22,7 +22,7 @@ const ProFormSegmented: React.ForwardRefRenderFunction<
       valueTypeMap={{
         segmented: {
           render: (text, props) => <FieldSegmented {...props} text={text} />,
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldSegmented {...props} text={text} />
           ),
         },

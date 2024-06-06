@@ -23,7 +23,7 @@ export type GroupProps = {
  * @param ref
  */
 const FieldRadio: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, render, ...rest },
+  { radioType, formItemRender, mode, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -106,9 +106,9 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         options={options}
       />,
     );
-    if (renderFormItem) {
+    if (formItemRender) {
       return (
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...rest.fieldProps, options, loading },
           dom,

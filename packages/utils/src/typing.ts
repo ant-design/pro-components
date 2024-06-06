@@ -630,7 +630,7 @@ export type ProSchema<
     action: ProCoreActionType,
   ) => any;
   /**
-   * Render 方法只管理的只读模式，编辑模式需要使用 renderFormItem
+   * Render 方法只管理的只读模式，编辑模式需要使用 formItemRender
    *
    * @name 自定义只读模式的dom
    */
@@ -661,7 +661,7 @@ export type ProSchema<
    *
    * @name 自定义编辑模式
    */
-  renderFormItem?: (
+  formItemRender?: (
     schema: ProSchema<
       Entity,
       ExtraProps,
@@ -719,7 +719,7 @@ export type ProSchema<
   dependencies?: NamePath[];
 
   /**
-   *  @name 忽略 FormItem，必须要和 renderFormItem 组件一起使用
+   *  @name 忽略 FormItem，必须要和 formItemRender 组件一起使用
    */
   ignoreFormItem?: boolean;
 

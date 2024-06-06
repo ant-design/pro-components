@@ -16,7 +16,7 @@ const FieldFromNow: ProFieldFC<{
   text: string;
   format?: string;
 }> = (
-  { text, mode, plain, render, renderFormItem, format, fieldProps },
+  { text, mode, plain, render, formItemRender, format, fieldProps },
   ref,
 ) => {
   const intl = useIntl();
@@ -52,8 +52,8 @@ const FieldFromNow: ProFieldFC<{
         value={momentValue}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

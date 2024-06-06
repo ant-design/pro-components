@@ -742,7 +742,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- **table:** renderFormItem support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
+- **table:** formItemRender support ignoreFormItem ([7aae13d](https://github.com/ant-design/pro-components/commit/7aae13d791452121eedfc38c43676fc9a0f3ba05))
 
 ## [1.41.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.41.3...@ant-design/pro-utils@1.41.4) (2022-05-20)
 
@@ -1257,7 +1257,7 @@ All notable changes to this project will be documented in this file. See [Conven
 ### Bug Fixes
 
 - **form:** fix select optionGroup no filter error ([#3100](https://github.com/ant-design/pro-components/issues/3100)) ([5a9419c](https://github.com/ant-design/pro-components/commit/5a9419c89e40cf6de953258ef00a382887922519))
-- **table:** remove onchange form renderFormItem ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
+- **table:** remove onchange form formItemRender ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
 
 ## [1.19.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.1...@ant-design/pro-utils@1.19.2) (2021-06-17)
 

@@ -313,7 +313,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Bug Fixes
 
-- **list:** Extend ProListMeta<T> type with `renderFormItem` ([#7136](https://github.com/ant-design/pro-components/issues/7136)) ([39ab5ef](https://github.com/ant-design/pro-components/commit/39ab5efa787ebda9acc1b693fed7e73cdd1b8f78))
+- **list:** Extend ProListMeta<T> type with `formItemRender` ([#7136](https://github.com/ant-design/pro-components/issues/7136)) ([39ab5ef](https://github.com/ant-design/pro-components/commit/39ab5efa787ebda9acc1b693fed7e73cdd1b8f78))
 - fix test case ([ab24418](https://github.com/ant-design/pro-components/commit/ab24418993d468b63f2711f21aae9ff58f91f191))
 
 ### Features

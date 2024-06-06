@@ -12,7 +12,7 @@ import FieldTextAreaReadonly from './readonly';
 const FieldTextArea: ProFieldFC<{
   text: string;
 }> = (props, ref) => {
-  const { text, mode, render, renderFormItem, fieldProps } = props;
+  const { text, mode, render, formItemRender, fieldProps } = props;
   const intl = useIntl();
 
   if (mode === 'read') {
@@ -34,8 +34,8 @@ const FieldTextArea: ProFieldFC<{
         {...fieldProps}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

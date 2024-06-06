@@ -31,7 +31,7 @@ const FieldRangePicker: ProFieldFC<
     format = 'YYYY-MM-DD',
     render,
     picker,
-    renderFormItem,
+    formItemRender,
     plain,
     showTime,
     lightLabel,
@@ -151,8 +151,8 @@ const FieldRangePicker: ProFieldFC<
         />
       );
     }
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

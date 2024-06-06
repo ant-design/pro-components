@@ -22,7 +22,7 @@ const FieldImage = React.forwardRef<FieldImageProps, any>(
       text,
       mode: type,
       render,
-      renderFormItem,
+      formItemRender,
       fieldProps,
       placeholder,
       width,
@@ -45,8 +45,8 @@ const FieldImage = React.forwardRef<FieldImageProps, any>(
       const dom = (
         <Input ref={ref} placeholder={placeholderValue} {...fieldProps} />
       );
-      if (renderFormItem) {
-        return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+      if (formItemRender) {
+        return formItemRender(text, { mode: type, ...fieldProps }, dom);
       }
       return dom;
     }

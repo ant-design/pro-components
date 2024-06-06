@@ -22,7 +22,7 @@ export type GroupProps = {
  * @param ref
  */
 const FieldCheckbox: ProFieldFC<GroupProps> = (
-  { layout = 'horizontal', renderFormItem, mode, render, ...rest },
+  { layout = 'horizontal', formItemRender, mode, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -127,9 +127,9 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
         options={options}
       />,
     );
-    if (renderFormItem) {
+    if (formItemRender) {
       return (
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...rest.fieldProps, options, loading },
           dom,

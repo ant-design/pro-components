@@ -21,7 +21,7 @@ export const ProFormTimeRangePicker: React.FC<
           render: (text, props) => (
             <FieldTimeRangePicker {...props} text={text} />
           ),
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldTimeRangePicker {...props} text={text} />
           ),
         },

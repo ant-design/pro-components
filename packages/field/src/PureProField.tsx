@@ -145,7 +145,7 @@ export const pureRenderText = (
       );
     }
     if (mode === 'update' || mode === 'edit') {
-      return customValueTypeConfig.renderFormItem?.(
+      return customValueTypeConfig.formItemRender?.(
         dataValue,
         {
           text: dataValue as React.ReactNode,
@@ -173,7 +173,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
     valueType = 'text',
     mode = 'read',
     onChange,
-    renderFormItem,
+    formItemRender,
     value,
     readonly,
     fieldProps: restFieldProps,
@@ -209,11 +209,11 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
       ref,
       ...rest,
       mode: readonly ? 'read' : mode,
-      renderFormItem: renderFormItem
+      formItemRender: formItemRender
         ? (curText: any, props: ProFieldFCRenderProps, dom: JSX.Element) => {
             const { placeholder: _placeholder, ...restProps } = props;
-            const newDom = renderFormItem(curText, restProps, dom);
-            // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
+            const newDom = formItemRender(curText, restProps, dom);
+            // formItemRender 之后的dom可能没有props，这里会帮忙注入一下
             if (React.isValidElement(newDom))
               return React.cloneElement(newDom, {
                 ...fieldProps,
@@ -222,13 +222,13 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
             return newDom;
           }
         : undefined,
-      placeholder: renderFormItem
+      placeholder: formItemRender
         ? undefined
         : rest?.placeholder ?? fieldProps?.placeholder,
       fieldProps: pickProProps(
         omitUndefined({
           ...fieldProps,
-          placeholder: renderFormItem
+          placeholder: formItemRender
             ? undefined
             : rest?.placeholder ?? fieldProps?.placeholder,
         }),

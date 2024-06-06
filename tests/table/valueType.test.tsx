@@ -93,7 +93,7 @@ describe('BasicTable valueType', () => {
             valueTypeMap: {
               link: {
                 render: (text: any) => <a id="link">{text}</a>,
-                renderFormItem: (_: any, props: any) => (
+                formItemRender: (_: any, props: any) => (
                   <Input
                     placeholder="请输入链接"
                     id="name"
@@ -139,7 +139,7 @@ describe('BasicTable valueType', () => {
                     {fieldProps.color}
                   </a>
                 ),
-                renderFormItem: (_: any, props: any) => (
+                formItemRender: (_: any, props: any) => (
                   <Input
                     placeholder="请输入链接"
                     id="name"

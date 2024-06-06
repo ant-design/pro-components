@@ -24,7 +24,7 @@ const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
       valueTypeMap={{
         [valueType]: {
           render: (text, props) => <FieldTimePicker {...props} text={text} />,
-          renderFormItem: (text, props) => (
+          formItemRender: (text, props) => (
             <FieldTimePicker {...props} text={text} />
           ),
         },

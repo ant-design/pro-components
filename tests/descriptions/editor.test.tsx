@@ -43,7 +43,7 @@ const columns: ProDescriptionsItemProps<DataSourceType>[] = [
   {
     dataIndex: 'index',
     valueType: 'indexBorder',
-    renderFormItem: () => <InputNumber />,
+    formItemRender: () => <InputNumber />,
   },
   {
     title: '标题',
@@ -231,7 +231,7 @@ describe('Descriptions', () => {
     });
   });
 
-  it('📝 renderFormItem run defaultRender', async () => {
+  it('📝 formItemRender run defaultRender', async () => {
     const wrapper = render(
       <Descriptions<DataSourceType>
         editable={{
@@ -240,7 +240,7 @@ describe('Descriptions', () => {
         columns={[
           {
             dataIndex: 'title',
-            renderFormItem: (item, config) => {
+            formItemRender: (item, config) => {
               return config.defaultRender(item);
             },
           },

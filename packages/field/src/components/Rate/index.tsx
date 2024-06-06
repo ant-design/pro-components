@@ -9,7 +9,7 @@ import type { ProFieldFC } from '../../PureProField';
  */
 const FieldRate: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
+}> = ({ text, mode, render, formItemRender, fieldProps }, ref) => {
   if (mode === 'read') {
     const dom = (
       <Rate allowHalf disabled ref={ref} {...fieldProps} value={text} />
@@ -21,8 +21,8 @@ const FieldRate: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     const dom = <Rate allowHalf ref={ref} {...fieldProps} />;
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }
