@@ -200,4 +200,4 @@ Copyright © 2023 - present [AFX][ant-design-link] & [Ant Digital](https://antdi
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ant-design/pro-components&type=Date)](https://star-history.com/#ant-design/pro-components&Date)
+[![Star History](https://api.lucabubi.me/chart?username=ant-design&repository=pro-components)](https://github.com/lucabubi/star-history)
