@@ -906,7 +906,7 @@ const ProTable = <
 
   const selectedRows = useMemo(
     () => selectedRowKeys?.map((key) => preserveRecordsRef.current?.get(key)),
-    [selectedRowKeys],
+    [action.dataSource, selectedRowKeys],
   ) as T[];
 
   /** 内置的工具栏 */
