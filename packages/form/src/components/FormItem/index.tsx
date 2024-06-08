@@ -156,6 +156,12 @@ type WarpFormItemProps = {
    * @example  string => object   convertValue: (value,namePath)=> { return {value,label:value} }
    */
   convertValue?: SearchConvertKeyFn;
+  help?:
+    | React.ReactNode
+    | ((params: {
+        errors: React.ReactNode[];
+        warnings: React.ReactNode[];
+      }) => React.ReactNode);
 };
 
 /**
@@ -171,6 +177,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   valuePropName,
   addonWarpStyle,
   convertValue,
+  help,
   ...props
 }) => {
   const formDom = useMemo(() => {
@@ -205,7 +212,8 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
           mark: 'pro_table_render',
           render: (
             inputProps: FormItemProps & {
-              errors: any[];
+              errors: React.ReactNode[];
+              warnings: React.ReactNode[];
             },
             doms: {
               input: JSX.Element;
@@ -231,7 +239,12 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                 ) : null}
               </div>
               {doms.extra}
-              {doms.errorList}
+              {typeof help === 'function'
+                ? help({
+                    errors: inputProps.errors,
+                    warnings: inputProps.warnings,
+                  })
+                : doms.errorList}
             </>
           ),
         }}
