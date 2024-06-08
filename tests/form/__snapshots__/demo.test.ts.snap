@@ -1164,7 +1164,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                                     >
                                                       <label
                                                         class=""
-                                                        title="搜集依赖值（情形3） <ProFormDependency name={[\\"a\\",\\"b\\",[\\"c\\",\\"a\\"]]}>"
+                                                        title="搜集依赖值（情形3） <ProFormDependency name={["a","b",["c","a"]]}>"
                                                       >
                                                         搜集依赖值（情形3） &lt;ProFormDependency name={["a","b",["c","a"]]}&gt;
                                                       </label>
@@ -1538,7 +1538,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                                     >
                                                       <label
                                                         class=""
-                                                        title="搜集依赖值（情形2) <ProFormDependency name={[\\"a\\",\\"b\\",[\\"c\\",\\"a\\"]]} ignoreFormListField>"
+                                                        title="搜集依赖值（情形2) <ProFormDependency name={["a","b",["c","a"]]} ignoreFormListField>"
                                                       >
                                                         搜集依赖值（情形2) &lt;ProFormDependency name={["a","b",["c","a"]]} ignoreFormListField&gt;
                                                       </label>
