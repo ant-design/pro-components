@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.8.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.3...@ant-design/pro-card@2.8.4) (2024-06-08)
 
-
 ### Bug Fixes
 
-* **ProCard:** delete cardProps when pass tabs parameter to antd Tabs ([#8460](https://github.com/ant-design/pro-components/issues/8460)) ([3b72808](https://github.com/ant-design/pro-components/commit/3b72808c8a608ba5b5bb2fb01a7e918d41d4f3b6))
-
-
-
-
+- **ProCard:** delete cardProps when pass tabs parameter to antd Tabs ([#8460](https://github.com/ant-design/pro-components/issues/8460)) ([3b72808](https://github.com/ant-design/pro-components/commit/3b72808c8a608ba5b5bb2fb01a7e918d41d4f3b6))
 
 ## [2.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.1...@ant-design/pro-card@2.8.3) (2024-05-20)
 
