@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.0...@ant-design/pro-table@3.16.1) (2024-06-08)
+
+
+### Bug Fixes
+
+* 修复pro-table文档案例代码里Dropdown内元素key冲突问题 ([#8469](https://github.com/ant-design/pro-components/issues/8469)) ([1c8714c](https://github.com/ant-design/pro-components/commit/1c8714c021460ee48d93d7ef9ba5b8533e313850))
+
+
+
+
 
 # [3.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.15.9...@ant-design/pro-table@3.16.0) (2024-05-20)
 
