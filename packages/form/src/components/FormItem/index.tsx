@@ -170,7 +170,9 @@ type WarpFormItemProps = {
  * @param WarpFormItemProps
  * @returns
  */
-const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
+const WarpFormItem: React.FC<
+  Omit<FormItemProps, 'help'> & WarpFormItemProps
+> = ({
   children,
   addonAfter,
   addonBefore,
@@ -195,8 +197,35 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
       return (
         <Form.Item
           {...props}
+          help={typeof help !== 'function' ? help : undefined}
           valuePropName={valuePropName}
           getValueProps={getValuePropsFunc}
+          // @ts-ignore
+          _internalItemRender={{
+            mark: 'pro_table_render',
+            render: (
+              inputProps: FormItemProps & {
+                errors: React.ReactNode[];
+                warnings: React.ReactNode[];
+              },
+              doms: {
+                input: JSX.Element;
+                errorList: JSX.Element;
+                extra: JSX.Element;
+              },
+            ) => (
+              <>
+                {doms.input}
+                {typeof help === 'function'
+                  ? help({
+                      errors: inputProps.errors,
+                      warnings: inputProps.warnings,
+                    })
+                  : doms.errorList}
+                {doms.extra}
+              </>
+            ),
+          }}
         >
           {children}
         </Form.Item>
@@ -206,6 +235,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
     return (
       <Form.Item
         {...props}
+        help={typeof help !== 'function' ? help : undefined}
         valuePropName={valuePropName}
         // @ts-ignore
         _internalItemRender={{
@@ -238,13 +268,13 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
                   <div style={{ marginInlineStart: 8 }}>{addonAfter}</div>
                 ) : null}
               </div>
-              {doms.extra}
               {typeof help === 'function'
                 ? help({
                     errors: inputProps.errors,
                     warnings: inputProps.warnings,
                   })
                 : doms.errorList}
+              {doms.extra}
             </>
           ),
         }}
