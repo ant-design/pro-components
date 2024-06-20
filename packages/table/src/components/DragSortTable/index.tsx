@@ -87,24 +87,25 @@ function DragSortTable<
   };
 
   return wrapSSR(
-    <DndContext>
-      <ProTable<T, U, ValueType>
-        {...(otherProps as ProTableProps<T, U, ValueType>)}
-        columns={otherProps.columns?.map((item): any => {
-          if (item.dataIndex == dragSortKey || item.key === dragSortKey) {
-            if (!item.render) {
-              item.render = () => null;
-            }
+    <ProTable<T, U, ValueType>
+      {...(otherProps as ProTableProps<T, U, ValueType>)}
+      columns={otherProps.columns?.map((item): any => {
+        if (item.dataIndex == dragSortKey || item.key === dragSortKey) {
+          if (!item.render) {
+            item.render = () => null;
           }
-          return item;
-        })}
-        onLoad={wrapOnload}
-        rowKey={rowKey}
-        dataSource={dataSource}
-        components={components}
-        onDataSourceChange={onDataSourceChange}
-      />
-    </DndContext>,
+        }
+        return item;
+      })}
+      onLoad={wrapOnload}
+      rowKey={rowKey}
+      tableViewRender={(_, defaultDom) => {
+        return <DndContext>{defaultDom}</DndContext>;
+      }}
+      dataSource={dataSource}
+      components={components}
+      onDataSourceChange={onDataSourceChange}
+    />,
   );
 }
 
