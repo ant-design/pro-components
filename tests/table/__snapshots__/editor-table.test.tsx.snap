@@ -229,7 +229,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           >
                             <span
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              class="ant-typography ant-typography-ellipsis"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -238,7 +238,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                 tabindex="0"
                               >
                                 <span
@@ -327,7 +327,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           >
                             <span
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              class="ant-typography ant-typography-ellipsis"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -336,7 +336,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                 tabindex="0"
                               >
                                 <span
@@ -425,7 +425,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           >
                             <span
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              class="ant-typography ant-typography-ellipsis"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -434,7 +434,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                 tabindex="0"
                               >
                                 <span
@@ -772,7 +772,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           >
                             <span
                               aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              class="ant-typography ant-typography-ellipsis"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -781,7 +781,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                 tabindex="0"
                               >
                                 <span
@@ -870,7 +870,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           >
                             <span
                               aria-label="🐛 [BUG]无法创建工程npm create umi"
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              class="ant-typography ant-typography-ellipsis"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -879,7 +879,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                 tabindex="0"
                               >
                                 <span
@@ -968,7 +968,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           >
                             <span
                               aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                              class="ant-typography ant-typography-ellipsis"
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
@@ -977,7 +977,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                 aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                 tabindex="0"
                               >
                                 <span

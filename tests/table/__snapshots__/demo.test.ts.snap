@@ -372,26 +372,26 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      id="DndDescribedBy-4"
-      style="display: none;"
-    >
-      
+          <div
+            id="DndDescribedBy-4"
+            style="display: none;"
+          >
+            
     To pick up a draggable item, press the space bar.
     While dragging, use the arrow keys to move the item.
     Press space again to drop the item in its new position, or press escape to cancel.
   
+          </div>
+          <div
+            aria-atomic="true"
+            aria-live="assertive"
+            id="DndLiveRegion-4"
+            role="status"
+            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+          />
+        </div>
+      </div>
     </div>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      id="DndLiveRegion-4"
-      role="status"
-      style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
-    />
   </div>
 </DocumentFragment>
 `;
@@ -779,26 +779,26 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      id="DndDescribedBy-0"
-      style="display: none;"
-    >
-      
+          <div
+            id="DndDescribedBy-0"
+            style="display: none;"
+          >
+            
     To pick up a draggable item, press the space bar.
     While dragging, use the arrow keys to move the item.
     Press space again to drop the item in its new position, or press escape to cancel.
   
+          </div>
+          <div
+            aria-atomic="true"
+            aria-live="assertive"
+            id="DndLiveRegion-0"
+            role="status"
+            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+          />
+        </div>
+      </div>
     </div>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      id="DndLiveRegion-0"
-      role="status"
-      style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
-    />
     <div
       class="ant-pro-table"
     >
@@ -1153,26 +1153,26 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      id="DndDescribedBy-1"
-      style="display: none;"
-    >
-      
+          <div
+            id="DndDescribedBy-1"
+            style="display: none;"
+          >
+            
     To pick up a draggable item, press the space bar.
     While dragging, use the arrow keys to move the item.
     Press space again to drop the item in its new position, or press escape to cancel.
   
+          </div>
+          <div
+            aria-atomic="true"
+            aria-live="assertive"
+            id="DndLiveRegion-1"
+            role="status"
+            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+          />
+        </div>
+      </div>
     </div>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      id="DndLiveRegion-1"
-      role="status"
-      style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
-    />
     <div
       class="ant-pro-table"
     >
@@ -1533,26 +1533,26 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <div
-      id="DndDescribedBy-3"
-      style="display: none;"
-    >
-      
+          <div
+            id="DndDescribedBy-3"
+            style="display: none;"
+          >
+            
     To pick up a draggable item, press the space bar.
     While dragging, use the arrow keys to move the item.
     Press space again to drop the item in its new position, or press escape to cancel.
   
+          </div>
+          <div
+            aria-atomic="true"
+            aria-live="assertive"
+            id="DndLiveRegion-3"
+            role="status"
+            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+          />
+        </div>
+      </div>
     </div>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      id="DndLiveRegion-3"
-      role="status"
-      style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
-    />
   </div>
 </DocumentFragment>
 `;
@@ -4228,7 +4228,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             title="题库名称一"
                                           >
                                             <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                                               style="width: 100%; margin: 0px; padding: 0px;"
                                               title=""
                                             >
@@ -4294,7 +4294,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             title="题库名称二"
                                           >
                                             <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                                               style="width: 100%; margin: 0px; padding: 0px;"
                                               title=""
                                             >
@@ -4360,7 +4360,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             title="题库名称三"
                                           >
                                             <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                                               style="width: 100%; margin: 0px; padding: 0px;"
                                               title=""
                                             >
@@ -4426,7 +4426,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             title="题库名称四"
                                           >
                                             <span
-                                              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                                               style="width: 100%; margin: 0px; padding: 0px;"
                                               title=""
                                             >
@@ -15205,7 +15205,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -15214,7 +15214,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -15343,7 +15343,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <span
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -15352,7 +15352,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -15480,7 +15480,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -15489,7 +15489,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -15617,7 +15617,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <span
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -15626,7 +15626,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -15754,7 +15754,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -15763,7 +15763,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -20636,7 +20636,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -20645,7 +20645,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -20758,7 +20758,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                             >
                               <span
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -20767,7 +20767,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -20880,7 +20880,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -20889,7 +20889,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -21002,7 +21002,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                             >
                               <span
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -21011,7 +21011,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -21124,7 +21124,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -21133,7 +21133,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -23705,7 +23705,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -23714,7 +23714,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -23792,7 +23792,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                             >
                               <span
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -23801,7 +23801,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -23879,7 +23879,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -23888,7 +23888,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -23966,7 +23966,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                             >
                               <span
                                 aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -23975,7 +23975,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -24053,7 +24053,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                             >
                               <span
                                 aria-label="简短备注文案"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -24062,7 +24062,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -34354,7 +34354,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                             >
                               <span
                                 aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -34363,7 +34363,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -35048,7 +35048,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                             >
                               <span
                                 aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                class="ant-typography ant-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -35057,7 +35057,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                   aria-label="复制"
                                   class="ant-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -41553,7 +41553,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               >
                                 <span
                                   aria-label="🐛 [BUG]yarn install命令 antd2.4.5会报错"
-                                  class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                  class="canvas-typography canvas-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -41562,7 +41562,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                     aria-label="复制"
                                     class="canvas-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -41602,7 +41602,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             >
                               <span
                                 aria-label=""
-                                class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -41622,7 +41622,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -41670,7 +41670,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             >
                               <span
                                 aria-label=""
-                                class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -41679,7 +41679,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -41763,7 +41763,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               >
                                 <span
                                   aria-label="🐛 [BUG]无法创建工程npm create umi"
-                                  class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                  class="canvas-typography canvas-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -41772,7 +41772,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                     aria-label="复制"
                                     class="canvas-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -41812,7 +41812,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             >
                               <span
                                 aria-label=""
-                                class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -41832,7 +41832,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -41880,7 +41880,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             >
                               <span
                                 aria-label=""
-                                class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -41889,7 +41889,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -41973,7 +41973,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               >
                                 <span
                                   aria-label="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
-                                  class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                  class="canvas-typography canvas-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -41982,7 +41982,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                     aria-label="复制"
                                     class="canvas-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -42022,7 +42022,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             >
                               <span
                                 aria-label=""
-                                class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -42042,7 +42042,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span
@@ -42090,7 +42090,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                             >
                               <span
                                 aria-label=""
-                                class="canvas-typography canvas-typography-ellipsis canvas-typography-single-line"
+                                class="canvas-typography canvas-typography-ellipsis"
                                 style="width: 100%; margin: 0px; padding: 0px;"
                                 title=""
                               >
@@ -42099,7 +42099,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   aria-label="复制"
                                   class="canvas-typography-copy"
                                   role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                   tabindex="0"
                                 >
                                   <span

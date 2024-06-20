@@ -443,7 +443,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     style="min-width: 0; max-width: 80%;"
                   >
                     <span
-                      class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                      class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
                       style="width: 100%; margin: 0px; padding: 0px;"
                       title=""
                     >
@@ -2478,7 +2478,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                       >
                         <span
                           aria-label="这是一段文本columns"
-                          class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                          class="ant-typography ant-typography-ellipsis"
                           style="width: 100%; margin: 0px; padding: 0px;"
                           title=""
                         >
@@ -2487,7 +2487,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                             aria-label="复制"
                             class="ant-typography-copy"
                             role="button"
-                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                             tabindex="0"
                           >
                             <span
@@ -3632,7 +3632,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                   >
                     <span
                       aria-label="这是一段文本columns"
-                      class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                      class="ant-typography ant-typography-ellipsis"
                       style="width: 100%; margin: 0px; padding: 0px;"
                       title=""
                     >
@@ -3641,7 +3641,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                         aria-label="Copy"
                         class="ant-typography-copy"
                         role="button"
-                        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                         tabindex="0"
                       >
                         <span

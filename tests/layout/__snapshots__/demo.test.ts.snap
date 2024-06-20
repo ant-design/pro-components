@@ -2427,7 +2427,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="简短备注文案"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -2436,7 +2436,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -2546,7 +2546,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -2555,7 +2555,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -2665,7 +2665,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="简短备注文案"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -2674,7 +2674,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -2784,7 +2784,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -2793,7 +2793,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -2903,7 +2903,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="简短备注文案"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -2912,7 +2912,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -3022,7 +3022,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -3031,7 +3031,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -3141,7 +3141,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="简短备注文案"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -3150,7 +3150,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -3260,7 +3260,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -3269,7 +3269,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -3379,7 +3379,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="简短备注文案"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -3388,7 +3388,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
@@ -3498,7 +3498,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                               >
                                 <span
                                   aria-label="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
-                                  class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                  class="ant-typography ant-typography-ellipsis"
                                   style="width: 100%; margin: 0px; padding: 0px;"
                                   title=""
                                 >
@@ -3507,7 +3507,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     aria-label="复制"
                                     class="ant-typography-copy"
                                     role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
                                     tabindex="0"
                                   >
                                     <span
