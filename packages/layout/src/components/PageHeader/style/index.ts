@@ -28,16 +28,19 @@ const genPageHeaderStyle: GenerateStyle<PageHeaderToken> = (token) => {
     [token.componentCls]: {
       ...resetComponent?.(token),
       position: 'relative',
-      backgroundColor: token.pageHeaderBgGhost,
+      backgroundColor: token.colorWhite,
       paddingBlock: token.pageHeaderPaddingVertical + 2,
       paddingInline: token.pageHeaderPadding,
+      '&&-ghost': {
+        backgroundColor: token.pageHeaderBgGhost,
+      },
       '&-no-children': {
         height: token.layout?.pageContainer?.paddingBlockPageContainerContent,
       },
-      '& &-has-breadcrumb': {
+      '&&-has-breadcrumb': {
         paddingBlockStart: token.pageHeaderPaddingBreadCrumb,
       },
-      '& &-has-footer': {
+      '&&-has-footer': {
         paddingBlockEnd: 0,
       },
       '& &-back': {

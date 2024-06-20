@@ -161,6 +161,26 @@ const renderChildren = (
   hashId: string,
 ) => <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>;
 
+const transformBreadcrumbRoutesToItems = (
+  routes?: BreadcrumbProps['routes']
+): BreadcrumbProps['items'] => {
+  return routes?.map((route) => {
+    return {
+      ...route,
+      breadcrumbName: undefined,
+      children: undefined,
+      title: route.breadcrumbName,
+      ...(route.children?.length
+        ? {
+            menu: {
+              items: transformBreadcrumbRoutesToItems(route.children)
+            }
+          }
+        : {})
+    }
+  })
+}
+
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState<boolean>(false);
 
@@ -180,6 +200,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     className: customizeClassName,
     contentWidth,
     layout,
+    ghost = true,
   } = props;
 
   const prefixCls = getPrefixCls('page-header', customizePrefixCls);
@@ -189,10 +210,9 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     if (
       breadcrumb &&
       !(breadcrumb as BreadcrumbProps)?.items &&
-      (breadcrumb as unknown as BreadcrumbProps)?.routes
+      (breadcrumb as BreadcrumbProps)?.routes
     ) {
-      // @ts-ignore
-      breadcrumb.items = breadcrumb.routes;
+      (breadcrumb as BreadcrumbProps).items = transformBreadcrumbRoutesToItems((breadcrumb as BreadcrumbProps).routes);
     }
 
     if ((breadcrumb as BreadcrumbProps)?.items) {
@@ -220,7 +240,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
     [`${prefixCls}-rtl`]: direction === 'rtl',
     [`${prefixCls}-compact`]: compact,
     [`${prefixCls}-wide`]: contentWidth === 'Fixed' && layout == 'top',
-    [`${prefixCls}-ghost`]: true,
+    [`${prefixCls}-ghost`]: ghost,
   });
   const title = renderTitle(prefixCls, props, direction, hashId);
   const childDom = children && renderChildren(prefixCls, children, hashId);
