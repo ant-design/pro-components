@@ -1,3 +1,10 @@
+## @ant-design/pro-components@2.7.11
+
+`2024-06-21`
+
+- fix(layout): PageHeader style and breadcrumb.routes prop (#8491). [#8491](https://github.com/ant-design/pro-components/pull/#8491) [@ChuChencheng](https://github.com/ChuChencheng)
+- fix(form): formItem help render type (#8482). [#8482](https://github.com/ant-design/pro-components/pull/#8482) [@yunho1017](https://github.com/yunho1017)
+
 ## @ant-design/pro-components@2.7.10
 
 `2024-06-08`

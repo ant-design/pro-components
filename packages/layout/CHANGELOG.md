@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.19.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.8...@ant-design/pro-layout@7.19.9) (2024-06-21)
 
-
 ### Bug Fixes
 
-* **layout:** PageHeader style and breadcrumb.routes prop ([#8491](https://github.com/ant-design/pro-components/issues/8491)) ([c11eb83](https://github.com/ant-design/pro-components/commit/c11eb83d3efe4a8fdeb644f613b25e5a3f2ca301))
-
-
-
-
+- **layout:** PageHeader style and breadcrumb.routes prop ([#8491](https://github.com/ant-design/pro-components/issues/8491)) ([c11eb83](https://github.com/ant-design/pro-components/commit/c11eb83d3efe4a8fdeb644f613b25e5a3f2ca301))
 
 ## [7.19.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.7...@ant-design/pro-layout@7.19.8) (2024-06-08)
 

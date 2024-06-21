@@ -162,7 +162,7 @@ const renderChildren = (
 ) => <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>;
 
 const transformBreadcrumbRoutesToItems = (
-  routes?: BreadcrumbProps['routes']
+  routes?: BreadcrumbProps['routes'],
 ): BreadcrumbProps['items'] => {
   return routes?.map((route) => {
     return {
@@ -173,13 +173,13 @@ const transformBreadcrumbRoutesToItems = (
       ...(route.children?.length
         ? {
             menu: {
-              items: transformBreadcrumbRoutesToItems(route.children)
-            }
+              items: transformBreadcrumbRoutesToItems(route.children),
+            },
           }
-        : {})
-    }
-  })
-}
+        : {}),
+    };
+  });
+};
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState<boolean>(false);
@@ -212,7 +212,9 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
       !(breadcrumb as BreadcrumbProps)?.items &&
       (breadcrumb as BreadcrumbProps)?.routes
     ) {
-      (breadcrumb as BreadcrumbProps).items = transformBreadcrumbRoutesToItems((breadcrumb as BreadcrumbProps).routes);
+      (breadcrumb as BreadcrumbProps).items = transformBreadcrumbRoutesToItems(
+        (breadcrumb as BreadcrumbProps).routes,
+      );
     }
 
     if ((breadcrumb as BreadcrumbProps)?.items) {

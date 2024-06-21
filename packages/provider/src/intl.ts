@@ -23,10 +23,10 @@ import srRS from './locale/sr_RS';
 import thTH from './locale/th_TH';
 import trTR from './locale/tr_TR';
 import ukUA from './locale/uk_UA';
+import uzUZ from './locale/uz_UZ';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
-import uzUZ from './locale/uz_UZ';
 
 /**
  * 安全的从一个对象中读取相应的值
