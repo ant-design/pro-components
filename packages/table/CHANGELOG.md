@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.1...@ant-design/pro-table@3.16.2) (2024-06-21)
+
+
+### Reverts
+
+* Revert "fixed(table): wrap ProTable component with DndContext (#8414)" (#8509) ([f9b5c74](https://github.com/ant-design/pro-components/commit/f9b5c743dd425a5b75c75e6ae043e0c1a56161ca)), closes [#8414](https://github.com/ant-design/pro-components/issues/8414) [#8509](https://github.com/ant-design/pro-components/issues/8509)
+
+
+
+
 
 ## [3.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.0...@ant-design/pro-table@3.16.1) (2024-06-08)
 
