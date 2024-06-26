@@ -48,7 +48,6 @@ const genProStyle: GenerateStyle<ProListToken> = (token) => {
       overflow: 'auto',
       cursor: 'pointer',
       transition: `all 0.3s`,
-
       '&:after': {
         position: 'absolute',
         insetBlockStart: 2,
