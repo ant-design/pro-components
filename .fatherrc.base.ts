@@ -1,9 +1,5 @@
 import { defineConfig } from 'father';
 
-const siteBuild = process.env.SITE_DEPLOY === 'TRUE';
-
-console.log(siteBuild);
-
 export default defineConfig({
   // 以下为 esm 配置项启用时的默认值，有自定义需求时才需配置
   esm: {
@@ -11,7 +7,7 @@ export default defineConfig({
     output: 'es',
     extraBabelPlugins: [[require.resolve('./scripts/replaceLib'), {}]],
     platform: 'browser', // 默认构建为 Browser 环境的产物
-    transformer: siteBuild ? 'babel' : 'esbuild', // 默认使用 babel 以提供更好的兼容性
+    transformer: 'esbuild', // 默认使用 babel 以提供更好的兼容性
   },
   // 以下为 cjs 配置项启用时的默认值，有自定义需求时才需配置
   cjs: {
@@ -19,6 +15,6 @@ export default defineConfig({
     input: 'src', // 默认编译目录
     output: 'lib',
     platform: 'browser', // 默认构建为 Node.js 环境的产物
-    transformer: siteBuild ? 'babel' : 'esbuild', // 默认使用 esbuild 以获得更快的构建速度
+    transformer: 'esbuild', // 默认使用 esbuild 以获得更快的构建速度
   },
 });

@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.0...@ant-design/pro-form@2.28.1) (2024-06-21)
+
+### Bug Fixes
+
+- **form:** formItem help render type ([#8482](https://github.com/ant-design/pro-components/issues/8482)) ([a447cf5](https://github.com/ant-design/pro-components/commit/a447cf511a68e00c142fd9837762920282df6916))
+
+# [2.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.27.0...@ant-design/pro-form@2.28.0) (2024-06-08)
+
+### Bug Fixes
+
+- **form:** 修复 openChange 打开时不触发问题 ([#8403](https://github.com/ant-design/pro-components/issues/8403)) ([5a1153b](https://github.com/ant-design/pro-components/commit/5a1153bcfa6de5d48e30d85401fa748ecd86864d))
+
+### Features
+
+- **form:** add form item help render type ([#8462](https://github.com/ant-design/pro-components/issues/8462)) ([08ab425](https://github.com/ant-design/pro-components/commit/08ab425e396e0476522b383d08ecbced088ebd33))
+
 # [2.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.26.5...@ant-design/pro-form@2.27.0) (2024-05-20)
 
 ### Features

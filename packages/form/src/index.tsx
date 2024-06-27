@@ -9,9 +9,7 @@ export type {
   LightWrapperProps,
   ProFormInstance,
 } from './BaseForm';
-export { default as Submitter } from './BaseForm/Submitter';
-export type { SubmitterProps } from './BaseForm/Submitter';
-export { FieldContext } from './FieldContext';
+
 export * from './components';
 export type {
   FormListActionType,
@@ -36,6 +34,7 @@ export type {
   ProFormUploadDraggerProps,
 } from './components';
 export { FormListContext } from './components/List';
+export { FieldContext } from './FieldContext';
 export * from './layouts';
 export type {
   LightFilterFooterRender,

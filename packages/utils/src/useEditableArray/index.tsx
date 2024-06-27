@@ -553,7 +553,7 @@ export function useEditableArray<RecordType>(
 ) {
   // Internationalization
   const intl = useIntl();
-  
+
   const [newLineRecordCache, setNewLineRecordCache] = useState<
     NewLineConfig<RecordType> | undefined
   >(undefined);
@@ -670,7 +670,13 @@ export function useEditableArray<RecordType>(
       editableType === 'single' &&
       props.onlyOneLineEditorAlertMessage !== false
     ) {
-      warning(props.onlyOneLineEditorAlertMessage || intl.getMessage('editableTable.onlyOneLineEditor', '只能同时编辑一行'));
+      warning(
+        props.onlyOneLineEditorAlertMessage ||
+          intl.getMessage(
+            'editableTable.onlyOneLineEditor',
+            '只能同时编辑一行',
+          ),
+      );
       return false;
     }
     editableKeysSet.add(recordKey);
@@ -853,7 +859,10 @@ export function useEditableArray<RecordType>(
         newLineRecordRef.current &&
         props.onlyAddOneLineAlertMessage !== false
       ) {
-        warning(props.onlyAddOneLineAlertMessage || intl.getMessage('editableTable.onlyAddOneLine', '只能新增一行'));
+        warning(
+          props.onlyAddOneLineAlertMessage ||
+            intl.getMessage('editableTable.onlyAddOneLine', '只能新增一行'),
+        );
         return false;
       }
       // 如果是单行的话，不允许多行编辑
@@ -862,7 +871,13 @@ export function useEditableArray<RecordType>(
         editableType === 'single' &&
         props.onlyOneLineEditorAlertMessage !== false
       ) {
-        warning(props.onlyOneLineEditorAlertMessage || intl.getMessage('editableTable.onlyOneLineEditor', '只能同时编辑一行'));
+        warning(
+          props.onlyOneLineEditorAlertMessage ||
+            intl.getMessage(
+              'editableTable.onlyOneLineEditor',
+              '只能同时编辑一行',
+            ),
+        );
         return false;
       }
       // 防止多次渲染

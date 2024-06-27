@@ -1,3 +1,19 @@
+## @ant-design/pro-components@2.7.11
+
+`2024-06-21`
+
+- fix(layout): PageHeader style and breadcrumb.routes prop (#8491). [#8491](https://github.com/ant-design/pro-components/pull/#8491) [@ChuChencheng](https://github.com/ChuChencheng)
+- fix(form): formItem help render type (#8482). [#8482](https://github.com/ant-design/pro-components/pull/#8482) [@yunho1017](https://github.com/yunho1017)
+
+## @ant-design/pro-components@2.7.10
+
+`2024-06-08`
+
+- feat(form): add form item help render type (#8462). [#8462](https://github.com/ant-design/pro-components/pull/#8462) [@Yuno](https://github.com/Yuno)
+- feat(form): the second field supports negative numbers (#8449). [#8449](https://github.com/ant-design/pro-components/pull/#8449) [@Geng](https://github.com/Geng)
+- fix(form):ProFormTimePicker.RangePicker 获取时间区间，当 name 超过两层时，值为日期+时间格式. [0ce8bcd](https://github.com/ant-design/pro-components/commit/0ce8bcd)
+- fix(form): 修复 openChange 打开时不触发问题 (#8403). [#8403](https://github.com/ant-design/pro-components/pull/#8403) [@beautiful-boyyy](https://github.com/beautiful-boyyy)
+
 ## @ant-design/pro-components@2.7.3
 
 `2024-04-19`
@@ -774,7 +790,7 @@
 `2022-11-30`
 
 - fix(layout): fix collapsedshowtitle style error. [e4dc580](https://github.com/ant-design/pro-components/commit/e4dc580)
-- fix (layout): 修复 Footer <a> 标签单独使用时带有下划线问题 (#6300). [#6300](https://github.com/ant-design/pro-components/pull/#6300) [@leshalv](https://github.com/leshalv)
+- fix (layout): 修复 Footer `<a>` 标签单独使用时带有下划线问题 (#6300). [#6300](https://github.com/ant-design/pro-components/pull/#6300) [@leshalv](https://github.com/leshalv)
 - feat(layout): support stylish. [60c0b54](https://github.com/ant-design/pro-components/commit/60c0b54)
 - fix(layout): better theme gen style. [fcbc182](https://github.com/ant-design/pro-components/commit/fcbc182)
 - fix(layout): update drawer style. [eb7ace8](https://github.com/ant-design/pro-components/commit/eb7ace8)

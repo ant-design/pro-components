@@ -10,13 +10,23 @@ const moduleNameMapper = {} as Record<string, any>;
 
 pkgList.forEach((shortName: string) => {
   const name = `@ant-design/pro-${shortName}`;
-  moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/lib`);
+  moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
 });
 
 export default defineConfig({
   resolve: {
     alias: moduleNameMapper,
   },
+  esbuild: {
+    platform: 'browser',
+    treeShaking: false,
+    target: 'chrome58,firefox57,safari11,edge16',
+    jsxFragment: 'Fragment',
+    // 使用 ESBuild 转换所有文件以删除代码覆盖率中的注释。
+    // `test.coverage.ignoreEmptyLines` 需要工作：
+    include: ['**/*.js', '**/*.jsx', '**/*.mjs', '**/*.ts', '**/*.tsx'],
+  },
+
   test: {
     globals: true,
     setupFiles: ['./tests/setupTests.ts'],
