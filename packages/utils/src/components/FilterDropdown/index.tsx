@@ -3,7 +3,7 @@ import React, { useContext, useRef } from 'react';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import { DropdownFooter } from '../DropdownFooter';
 
-import type { TooltipPlacement } from 'antd/lib/tooltip';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
 import { useStyle } from './style';
 

@@ -6,7 +6,7 @@ import type {
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { LabelIconTip, genCopyable, isNil } from '@ant-design/pro-utils';
-import get from 'rc-util/lib/utils/get';
+import get from 'rc-util/es/utils/get';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ContainerType } from '../Store/Provide';

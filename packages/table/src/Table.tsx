@@ -19,9 +19,9 @@ import type {
   GetRowKey,
   SortOrder,
   TableCurrentDataSource,
-} from 'antd/lib/table/interface';
+} from 'antd/es/table/interface';
 import classNames from 'classnames';
-import type Summary from 'rc-table/lib/Footer/Summary';
+import type Summary from 'rc-table/es/Footer/Summary';
 import React, {
   Key,
   useCallback,

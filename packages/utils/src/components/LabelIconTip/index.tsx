@@ -3,7 +3,7 @@ import { ConfigProvider, Tooltip } from 'antd';
 import type {
   LabelTooltipType,
   WrapperTooltipProps,
-} from 'antd/lib/form/FormItemLabel';
+} from 'antd/es/form/FormItemLabel';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
 import { useStyle } from './style';

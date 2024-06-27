@@ -2,7 +2,7 @@ import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
-import type { DirectionType } from 'antd/lib/config-provider';
+import type { DirectionType } from 'antd/es/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import * as React from 'react';

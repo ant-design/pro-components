@@ -2,7 +2,7 @@ import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
 
-import zh_CN from 'antd/lib/locale/zh_CN';
+import zh_CN from 'antd/es/locale/zh_CN';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
 import type { IntlType } from './intl';

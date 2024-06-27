@@ -17,40 +17,6 @@ afterEach(() => {
 });
 
 describe('BasicTable', () => {
-  const LINE_STR_COUNT = 20;
-  // Mock offsetHeight
-  // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'offsetHeight',
-  ).get;
-  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-    get() {
-      let html = this.innerHTML;
-      html = html.replace(/<[^>]*>/g, '');
-      const lines = Math.ceil(html.length / LINE_STR_COUNT);
-      return lines * 16;
-    },
-  });
-
-  // Mock getComputedStyle
-  const originGetComputedStyle = window.getComputedStyle;
-  window.getComputedStyle = (ele) => {
-    const style = originGetComputedStyle(ele);
-    return style;
-  };
-
-  beforeAll(() => {
-    process.env.NODE_ENV = 'TEST';
-  });
-
-  afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-      get: originOffsetHeight,
-    });
-    window.getComputedStyle = originGetComputedStyle;
-  });
-
   it('🎏 base use', async () => {
     const pageSizeOnchange = vi.fn();
     const html = render(

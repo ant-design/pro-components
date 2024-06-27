@@ -2629,30 +2629,7 @@ Done in 9.70s.
                     true=""
                     type="text"
                     value="{
-<<<<<<< HEAD
   "
-=======
-  "compilerOptions": {
-    "target": "esnext",
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "declaration": true,
-    "skipLibCheck": true
-  },
-  "include": [
-    "**/src",
-    "**/docs",
-    "scripts",
-    "**/demo",
-    ".eslintrc.js"
-  ]
-}"
->>>>>>> master
                   />
                 </span>
               </div>

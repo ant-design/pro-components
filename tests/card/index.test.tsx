@@ -1,7 +1,7 @@
 import { ProCard } from '@ant-design/pro-components';
 import { act, cleanup, render, waitFor } from '@testing-library/react';
 
-vi.mock('antd/lib/grid/hooks/useBreakpoint');
+vi.mock('antd/es/grid/hooks/useBreakpoint');
 
 afterEach(() => {
   cleanup();

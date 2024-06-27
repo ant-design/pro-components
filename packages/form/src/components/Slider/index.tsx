@@ -1,7 +1,7 @@
 import { FieldSlider } from '@ant-design/pro-field';
 import { ProConfigProvider } from '@ant-design/pro-provider';
 import type { SliderSingleProps } from 'antd';
-import type { SliderBaseProps, SliderRangeProps } from 'antd/lib/slider';
+import type { SliderBaseProps, SliderRangeProps } from 'antd/es/slider';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';

@@ -2,7 +2,7 @@ import type { BreadcrumbProps } from 'antd';
 import type {
   BreadcrumbItemType,
   ItemType,
-} from 'antd/lib/breadcrumb/Breadcrumb';
+} from 'antd/es/breadcrumb/Breadcrumb';
 import type H from 'history';
 import pathToRegexp from 'path-to-regexp';
 import type { ProLayoutProps } from '../ProLayout';

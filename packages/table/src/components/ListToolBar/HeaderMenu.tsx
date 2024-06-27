@@ -2,7 +2,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { ProProvider } from '@ant-design/pro-provider';
 import { Dropdown, Space, Tabs } from 'antd';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useContext } from 'react';
 
 export type ListToolBarMenuItem = {

@@ -1,11 +1,10 @@
 ﻿import { FieldColorPicker } from '@ant-design/pro-field';
 import { ProConfigProvider } from '@ant-design/pro-provider';
-import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 import type { PopoverProps } from 'antd';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProFromField from '../Field';
-type ColorPickerProps = SketchPickerProps & {
+type ColorPickerProps = {
   value?: string;
   onChange?: (color: string) => void;
 };

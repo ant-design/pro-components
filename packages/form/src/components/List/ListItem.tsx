@@ -7,9 +7,9 @@ import type {
   FormListFieldData,
   FormListOperation,
   FormListProps,
-} from 'antd/lib/form/FormList';
-import toArray from 'rc-util/lib/Children/toArray';
-import set from 'rc-util/lib/utils/set';
+} from 'antd/es/form/FormList';
+import toArray from 'rc-util/es/Children/toArray';
+import set from 'rc-util/es/utils/set';
 import type { CSSProperties, ReactNode } from 'react';
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { FormListContext } from '.';

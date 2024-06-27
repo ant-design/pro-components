@@ -18,8 +18,8 @@ import type { AnyObject } from 'antd/es/_util/type';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
 import Omit from 'omit.js';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import warning from 'rc-util/lib/warning';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
+import warning from 'rc-util/es/warning';
 import type { CSSProperties } from 'react';
 import React, {
   useCallback,

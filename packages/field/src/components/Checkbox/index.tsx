@@ -4,7 +4,7 @@
   useStyle,
 } from '@ant-design/pro-utils';
 import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
-import type { CheckboxGroupProps } from 'antd/lib/checkbox';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
 import type { ProFieldFC } from '../../PureProField';

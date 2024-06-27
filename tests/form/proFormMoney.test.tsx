@@ -7,7 +7,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { ConfigProvider } from 'antd';
-import enGBIntl from 'antd/lib/locale/en_GB';
+import enGBIntl from 'antd/es/locale/en_GB';
 
 afterEach(() => {
   cleanup();

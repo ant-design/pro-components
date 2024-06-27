@@ -3,7 +3,7 @@ import { ProConfigProvider } from '@ant-design/pro-provider';
 import { runFunction } from '@ant-design/pro-utils';
 import type { CheckboxProps, CheckboxRef } from 'antd';
 import { Checkbox } from 'antd';
-import type { CheckboxGroupProps } from 'antd/lib/checkbox';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import React from 'react';
 import { createField } from '../../BaseForm/createField';
 import type {

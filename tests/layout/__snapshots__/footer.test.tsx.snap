@@ -3,7 +3,7 @@
 exports[`DefaultFooter test > 🦶 copyright support false 1`] = `
 <DocumentFragment>
   <footer
-    class="ant-layout-footer"
+    class="ant-layout-footer css-dev-only-do-not-override-m4timi"
     style="padding: 0px;"
   />
 </DocumentFragment>
@@ -12,14 +12,14 @@ exports[`DefaultFooter test > 🦶 copyright support false 1`] = `
 exports[`DefaultFooter test > 🦶 links support false 1`] = `
 <DocumentFragment>
   <footer
-    class="ant-layout-footer"
+    class="ant-layout-footer css-dev-only-do-not-override-m4timi"
     style="padding: 0px;"
   >
     <div
-      class="ant-pro-global-footer"
+      class="ant-pro-global-footer css-dev-only-do-not-override-m4timi"
     >
       <div
-        class="ant-pro-global-footer-copyright"
+        class="ant-pro-global-footer-copyright css-dev-only-do-not-override-m4timi"
       >
         <span
           aria-label="copyright"

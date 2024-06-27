@@ -8,7 +8,7 @@ import { isBrowser, merge } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 import { Alert, Button, Divider, Drawer, List, Switch, message } from 'antd';
 import omit from 'omit.js';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useEffect, useRef, useState } from 'react';
 import type { ProSettings } from '../../defaultSettings';
 import { defaultSettings } from '../../defaultSettings';

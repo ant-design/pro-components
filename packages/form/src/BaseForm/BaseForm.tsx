@@ -24,13 +24,13 @@ import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
 
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
 import omit from 'omit.js';
-import get from 'rc-util/lib/utils/get';
-import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
-import { noteOnce } from 'rc-util/lib/warning';
+import get from 'rc-util/es/utils/get';
+import { default as namePathSet, default as set } from 'rc-util/es/utils/set';
+import { noteOnce } from 'rc-util/es/warning';
 import React, {
   useContext,
   useEffect,

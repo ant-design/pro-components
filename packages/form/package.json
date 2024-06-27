@@ -39,7 +39,6 @@
     "@ant-design/pro-provider": "2.14.8",
     "@ant-design/pro-utils": "2.15.15",
     "@babel/runtime": "^7.18.0",
-    "@chenshuai2144/sketch-color": "^1.0.7",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",

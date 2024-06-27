@@ -1,7 +1,7 @@
 import { FieldTextArea } from '@ant-design/pro-field';
 import { ProConfigProvider } from '@ant-design/pro-provider';
-import type { TextAreaProps } from 'antd/lib/input';
-import type { TextAreaRef } from 'antd/lib/input/TextArea';
+import type { TextAreaProps } from 'antd/es/input';
+import type { TextAreaRef } from 'antd/es/input/TextArea';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';

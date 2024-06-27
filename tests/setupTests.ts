@@ -5,7 +5,7 @@ import React from 'react';
 import { vi } from 'vitest';
 import tableData from './table/mock.data.json';
 
-import { defaultConfig } from 'antd/lib/theme/internal';
+import { defaultConfig } from 'antd/es/theme/internal';
 
 defaultConfig.hashed = false;
 globalThis.React = React;
