@@ -200,16 +200,15 @@ export type ProFieldValueTypeWithFieldProps = {
   /** 树形选择 */
   treeSelect: TreeSelectProps;
   /** 颜色选择器 */
-  color: SketchPickerProps &
-    ColorPickerProps & {
-      value?: string;
-      popoverProps?: PopoverProps;
-      mode?: 'read' | 'edit';
-      onChange?: (color: string) => void;
-      colors?: string[];
-      /** 是否使用旧版本 */
-      old?: boolean;
-    };
+  color: ColorPickerProps & {
+    value?: string;
+    popoverProps?: PopoverProps;
+    mode?: 'read' | 'edit';
+    onChange?: (color: string) => void;
+    colors?: string[];
+    /** 是否使用旧版本 */
+    old?: boolean;
+  };
   /** 分段器 */
   segmented: SegmentedProps;
   /** 分组 */
