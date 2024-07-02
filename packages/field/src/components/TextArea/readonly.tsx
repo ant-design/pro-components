@@ -6,6 +6,7 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/lib/input/style';
+import { omit } from 'lodash';
 //------------
 
 /**
@@ -15,7 +16,7 @@ import 'antd/lib/input/style';
  */
 const FieldTextAreaReadonly: ProFieldFC<{
   text: string;
-}> = ({ text }, ref) => {
+}> = ({ text, fieldProps }, ref) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const readonlyClassName = getPrefixCls('pro-field-readonly');
   const compClassName = `${readonlyClassName}-textarea`;
@@ -35,6 +36,7 @@ const FieldTextAreaReadonly: ProFieldFC<{
     <span
       ref={ref}
       className={classNames(hashId, readonlyClassName, compClassName)}
+      {...omit(fieldProps, ['autoSize', 'classNames', 'styles'])}
     >
       {text ?? '-'}
     </span>,
