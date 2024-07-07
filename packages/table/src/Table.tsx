@@ -772,6 +772,8 @@ const ProTable = <
     type,
     // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
+    // 如果传入了actionRender，则需要更新memo确保actionRender里能获取到最新的state快照
+    props.editable?.actionRender,
   ]);
 
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
