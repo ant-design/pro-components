@@ -70,8 +70,14 @@ export const createIntl = (
   locale: string,
   localeMap: Record<string, any>,
 ): IntlType => ({
-  getMessage: (id: string, defaultMessage: string) =>
-    get(localeMap, id, defaultMessage) || defaultMessage,
+  getMessage: (id: string, defaultMessage: string) => {
+    const msg = get(localeMap, id, '');
+    if (msg) return msg;
+    const localKey = locale.replace('_', '-');
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    const intl = intlMap[localKey! as 'zh-CN'];
+    return intl ? intl.getMessage(id, defaultMessage) : defaultMessage;
+  },
   locale,
 });
 
