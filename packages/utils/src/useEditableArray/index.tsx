@@ -1027,6 +1027,13 @@ export function useEditableArray<RecordType>(
     },
   );
 
+  // 如果传入了自定义的actionRender，使用useRefFunction以确保内部的事件处理函数可以访问最新的state
+  const existCustomActionRender = props.actionRender && typeof props.actionRender === 'function'
+  const customActionRender = existCustomActionRender
+      ? props.actionRender
+      : () => {};
+  const customActionRenderRef = useRefFunction((customActionRender as ActionRenderFunction<RecordType>))
+
   const actionRender = (row: RecordType & { index: number }) => {
     const key = props.getRowKey(row, row.index);
     const config: ActionRenderConfig<any, NewLineConfig<any>> = {
@@ -1060,8 +1067,8 @@ export function useEditableArray<RecordType>(
     } else {
       saveRefsMap.current.set(recordKeyToString(key), renderResult.saveRef);
     }
-    if (props.actionRender)
-      return props.actionRender(row, config, {
+    if (existCustomActionRender)
+      return customActionRenderRef(row, config, {
         save: renderResult.save,
         delete: renderResult.delete,
         cancel: renderResult.cancel,
