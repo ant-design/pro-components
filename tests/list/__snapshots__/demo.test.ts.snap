@@ -1238,6 +1238,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                     发布中
                                   </div>
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="80"
                                     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
@@ -1356,6 +1358,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                     发布中
                                   </div>
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="80"
                                     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
@@ -1474,6 +1478,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                     发布中
                                   </div>
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="80"
                                     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
@@ -1592,6 +1598,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                     发布中
                                   </div>
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="80"
                                     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
@@ -1710,6 +1718,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                     发布中
                                   </div>
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="80"
                                     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
@@ -1828,6 +1838,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                     发布中
                                   </div>
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="80"
                                     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
@@ -1946,6 +1958,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                     发布中
                                   </div>
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="80"
                                     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
@@ -2064,6 +2078,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                     发布中
                                   </div>
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="80"
                                     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                                     role="progressbar"
@@ -2099,7 +2115,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                 </div>
               </div>
               <div
-                class="ant-list-pagination ant-list-pagination-align-end"
+                class="ant-list-pagination"
               >
                 <ul
                   class="ant-pagination"
@@ -3417,7 +3433,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctl
               </div>
             </div>
             <div
-              class="ant-list-pagination ant-list-pagination-align-end"
+              class="ant-list-pagination"
             >
               <ul
                 class="ant-pagination"
@@ -4340,6 +4356,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -4474,6 +4492,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -4608,6 +4628,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -4742,6 +4764,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -4876,6 +4900,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -4948,7 +4974,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
               </div>
             </div>
             <div
-              class="ant-list-pagination ant-list-pagination-align-end"
+              class="ant-list-pagination"
             >
               <ul
                 class="ant-pagination"
@@ -5497,7 +5523,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
               </div>
             </div>
             <div
-              class="ant-list-pagination ant-list-pagination-align-end"
+              class="ant-list-pagination"
             >
               <ul
                 class="ant-pagination"
@@ -5757,6 +5783,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -5886,6 +5914,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -6015,6 +6045,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -6144,6 +6176,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default"
                             role="progressbar"
@@ -7562,6 +7596,8 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                             发布中
                           </div>
                           <div
+                            aria-valuemax="100"
+                            aria-valuemin="0"
                             aria-valuenow="80"
                             class="qixian-progress qixian-progress-status-normal qixian-progress-line qixian-progress-line-align-end qixian-progress-line-position-outer qixian-progress-show-info qixian-progress-default"
                             role="progressbar"

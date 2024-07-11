@@ -1577,6 +1577,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                                               width="64"
                                               xmlns="http://www.w3.org/2000/svg"
                                             >
+                                              <title>
+                                                Simple Empty
+                                              </title>
                                               <g
                                                 fill="none"
                                                 fill-rule="evenodd"
@@ -10672,6 +10675,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                             height="294"
                             width="252"
                           >
+                            <title>
+                              No Found
+                            </title>
                             <defs>
                               <path
                                 d="M0 .387h251.772v251.772H0z"
@@ -15207,6 +15213,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                                 height="294"
                                 width="252"
                               >
+                                <title>
+                                  No Found
+                                </title>
                                 <defs>
                                   <path
                                     d="M0 .387h251.772v251.772H0z"
@@ -18377,6 +18386,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                     height="294"
                     width="252"
                   >
+                    <title>
+                      No Found
+                    </title>
                     <defs>
                       <path
                         d="M0 .387h251.772v251.772H0z"
@@ -18895,6 +18907,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                             height="294"
                             width="252"
                           >
+                            <title>
+                              No Found
+                            </title>
                             <defs>
                               <path
                                 d="M0 .387h251.772v251.772H0z"
@@ -19588,6 +19603,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/menu-group.tsx 
                                   height="294"
                                   width="252"
                                 >
+                                  <title>
+                                    No Found
+                                  </title>
                                   <defs>
                                     <path
                                       d="M0 .387h251.772v251.772H0z"

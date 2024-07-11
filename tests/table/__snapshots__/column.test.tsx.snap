@@ -351,6 +351,9 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                                   width="64"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
+                                  <title>
+                                    Simple Empty
+                                  </title>
                                   <g
                                     fill="none"
                                     fill-rule="evenodd"
@@ -725,6 +728,9 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                                   width="64"
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
+                                  <title>
+                                    Simple Empty
+                                  </title>
                                   <g
                                     fill="none"
                                     fill-rule="evenodd"

@@ -15163,6 +15163,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
@@ -15301,6 +15303,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
@@ -15438,6 +15442,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
@@ -15575,6 +15581,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
@@ -15712,6 +15720,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
@@ -16860,6 +16870,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columns-setting-c
                                     width="64"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
+                                    <title>
+                                      Simple Empty
+                                    </title>
                                     <g
                                       fill="none"
                                       fill-rule="evenodd"
@@ -17999,6 +18012,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                                     width="64"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
+                                    <title>
+                                      Simple Empty
+                                    </title>
                                     <g
                                       fill="none"
                                       fill-rule="evenodd"
@@ -18911,6 +18927,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                         width="64"
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
+                                        <title>
+                                          Simple Empty
+                                        </title>
                                         <g
                                           fill="none"
                                           fill-rule="evenodd"
@@ -27192,6 +27211,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.t
                                                   width="64"
                                                   xmlns="http://www.w3.org/2000/svg"
                                                 >
+                                                  <title>
+                                                    Simple Empty
+                                                  </title>
                                                   <g
                                                     fill="none"
                                                     fill-rule="evenodd"
@@ -36002,6 +36024,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
@@ -36072,6 +36096,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
@@ -37028,6 +37054,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                   class="ant-table-cell"
                                 >
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="86"
                                     class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                     role="progressbar"
@@ -37077,6 +37105,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                   class="ant-table-cell"
                                 >
                                   <div
+                                    aria-valuemax="100"
+                                    aria-valuemin="0"
                                     aria-valuenow="86"
                                     class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                     role="progressbar"
@@ -37912,6 +37942,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                                     width="64"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
+                                    <title>
+                                      Simple Empty
+                                    </title>
                                     <g
                                       fill="none"
                                       fill-rule="evenodd"
@@ -39214,7 +39247,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                         </div>
                         <div
                           class="ant-picker-active-bar"
-                          style="position: absolute; width: 0px; left: 0px;"
+                          style="position: absolute; width: 0px;"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -39775,6 +39808,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                     width="64"
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
+                                    <title>
+                                      Simple Empty
+                                    </title>
                                     <g
                                       fill="none"
                                       fill-rule="evenodd"
@@ -44039,7 +44075,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="position: absolute; width: 0px; left: 0px;"
+                            style="position: absolute; width: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -44600,6 +44636,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                       width="64"
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
+                                      <title>
+                                        Simple Empty
+                                      </title>
                                       <g
                                         fill="none"
                                         fill-rule="evenodd"
@@ -46474,7 +46513,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="position: absolute; width: 0px; left: 0px;"
+                            style="position: absolute; width: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -47365,7 +47404,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="position: absolute; width: 0px; left: 0px;"
+                            style="position: absolute; width: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -47484,7 +47523,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                         </div>
                         <div
                           class="ant-picker-active-bar"
-                          style="position: absolute; width: 0px; left: 0px;"
+                          style="position: absolute; width: 0px;"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -47603,7 +47642,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                         </div>
                         <div
                           class="ant-picker-active-bar"
-                          style="position: absolute; width: 0px; left: 0px;"
+                          style="position: absolute; width: 0px;"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -49423,6 +49462,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"
@@ -49497,6 +49538,8 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               class="ant-table-cell"
                             >
                               <div
+                                aria-valuemax="100"
+                                aria-valuemin="0"
                                 aria-valuenow="86"
                                 class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                                 role="progressbar"

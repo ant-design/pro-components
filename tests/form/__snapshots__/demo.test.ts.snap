@@ -7360,7 +7360,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7606,7 +7606,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -7824,7 +7824,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -8042,7 +8042,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -8260,7 +8260,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -8479,7 +8479,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -8623,7 +8623,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -18729,7 +18729,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="position: absolute; width: 0px; left: 0px;"
+                                  style="position: absolute; width: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -18928,7 +18928,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="position: absolute; width: 0px; left: 0px;"
+                                  style="position: absolute; width: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -31303,7 +31303,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="position: absolute; width: 0px; left: 0px;"
+                        style="position: absolute; width: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -31448,7 +31448,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="position: absolute; width: 0px; left: 0px;"
+                        style="position: absolute; width: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -32484,7 +32484,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="position: absolute; width: 0px; left: 0px;"
+                        style="position: absolute; width: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -33869,7 +33869,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -34637,7 +34637,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -35186,7 +35186,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="position: absolute; width: 0px; left: 0px;"
+                                  style="position: absolute; width: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -36836,7 +36836,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="position: absolute; width: 0px; left: 0px;"
+                                  style="position: absolute; width: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -38256,7 +38256,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                   </div>
                                   <div
                                     class="ant-picker-active-bar"
-                                    style="position: absolute; width: 0px; left: 0px;"
+                                    style="position: absolute; width: 0px;"
                                   />
                                   <span
                                     class="ant-picker-suffix"
@@ -39584,7 +39584,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="position: absolute; width: 0px; left: 0px;"
+                                  style="position: absolute; width: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -41368,7 +41368,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="position: absolute; width: 0px; left: 0px;"
+                            style="position: absolute; width: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -42800,7 +42800,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                           </div>
                           <div
                             class="ant-picker-active-bar"
-                            style="position: absolute; width: 0px; left: 0px;"
+                            style="position: absolute; width: 0px;"
                           />
                           <span
                             class="ant-picker-suffix"
@@ -47223,7 +47223,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
                       </div>
                       <div
                         class="ant-picker-active-bar"
-                        style="position: absolute; width: 0px; left: 0px;"
+                        style="position: absolute; width: 0px;"
                       />
                       <span
                         class="ant-picker-suffix"
@@ -48664,7 +48664,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="position: absolute; width: 0px;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -49703,7 +49703,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                               </div>
                                               <div
                                                 class="ant-picker-active-bar"
-                                                style="position: absolute; width: 0px; left: 0px;"
+                                                style="position: absolute; width: 0px;"
                                               />
                                               <span
                                                 class="ant-picker-suffix"
@@ -51184,7 +51184,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                                 </div>
                                 <div
                                   class="ant-picker-active-bar"
-                                  style="position: absolute; width: 0px; left: 0px;"
+                                  style="position: absolute; width: 0px;"
                                 />
                                 <span
                                   class="ant-picker-suffix"
@@ -55535,7 +55535,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/sync-to-url.tsx cor
                   </div>
                   <div
                     class="ant-picker-active-bar"
-                    style="position: absolute; width: 0px; left: 0px;"
+                    style="position: absolute; width: 0px;"
                   />
                   <span
                     class="ant-picker-suffix"
