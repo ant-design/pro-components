@@ -1,6 +1,7 @@
 <!-----
 title: Universal Configuration Overview order
 order: 1
+apiHeader: false
 ----->
 
 # Universal Configuration
