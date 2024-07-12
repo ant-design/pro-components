@@ -58,9 +58,14 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
       ...fractionDigits,
       ...(fieldProps?.intlProps || {}),
     }).format(Number(text) as number);
-    const dom = (
+
+    // 如果是 string 模式，什么都不要处理了
+    const dom = !fieldProps?.stringMode ? (
       <span ref={ref}>{fieldProps?.formatter?.(digit) || digit}</span>
+    ) : (
+      <span>{text}</span>
     );
+
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
