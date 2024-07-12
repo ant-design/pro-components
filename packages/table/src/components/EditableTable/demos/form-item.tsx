@@ -99,7 +99,7 @@ export default () => {
         <a
           key="editable"
           onClick={() => {
-            action?.startEditable?.(record.id);
+            action?.startEditable?.(record.id, record);
           }}
         >
           编辑
@@ -210,7 +210,8 @@ export default () => {
           actionRender: (row, config, defaultDom) => {
             return [
               defaultDom.save,
-              defaultDom.delete || defaultDom.cancel,
+              defaultDom.delete,
+              defaultDom.cancel,
               <a
                 key="set"
                 onClick={() => {
