@@ -6,6 +6,7 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/lib/input/style';
+import { omit } from 'lodash';
 //------------
 
 /**
@@ -35,7 +36,7 @@ const FieldTextAreaReadonly: ProFieldFC<{
     <span
       ref={ref}
       className={classNames(hashId, readonlyClassName, compClassName)}
-      {...fieldProps}
+      {...omit(fieldProps, ['autoSize', 'classNames', 'styles'])}
     >
       {text ?? '-'}
     </span>,
