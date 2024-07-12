@@ -1,13 +1,18 @@
-﻿import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
+﻿import {
+  CopyOutlined,
+  DeleteOutlined,
+  LoadingOutlined,
+} from '@ant-design/icons';
 import { ProProvider } from '@ant-design/pro-provider';
 import { SearchTransformKeyFn } from '@ant-design/pro-utils';
 import type { ButtonProps, FormInstance } from 'antd';
-import { Spin, Tooltip } from 'antd';
+import { ConfigProvider, Tooltip } from 'antd';
 import type {
   FormListFieldData,
   FormListOperation,
   FormListProps,
 } from 'antd/lib/form/FormList';
+import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import set from 'rc-util/lib/utils/set';
 import type { CSSProperties, ReactNode } from 'react';
@@ -312,6 +317,7 @@ const ProFormListItem: React.FC<
     ...rest
   } = props;
   const { hashId } = useContext(ProProvider);
+  const { componentSize } = ConfigProvider.useConfig();
   const listContext = useContext(FormListContext);
   const unmountedRef = useRef(false);
 
@@ -379,9 +385,14 @@ const ProFormListItem: React.FC<
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
       <Tooltip title={tooltipText} key="copy">
-        <Spin spinning={loadingCopy}>
+        {loadingCopy ? (
+          <LoadingOutlined />
+        ) : (
           <Icon
-            className={`${prefixCls}-action-icon action-copy ${hashId}`.trim()}
+            className={classNames(
+              `${prefixCls}-action-icon action-copy`,
+              hashId,
+            )}
             onClick={async () => {
               setLoadingCopy(true);
               const row = formInstance?.getFieldValue(
@@ -393,7 +404,7 @@ const ProFormListItem: React.FC<
               setLoadingCopy(false);
             }}
           />
-        </Spin>
+        )}
       </Tooltip>
     );
   }, [
@@ -416,9 +427,14 @@ const ProFormListItem: React.FC<
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps!;
     return (
       <Tooltip title={tooltipText} key="delete">
-        <Spin spinning={loadingRemove}>
+        {loadingRemove ? (
+          <LoadingOutlined />
+        ) : (
           <Icon
-            className={`${prefixCls}-action-icon action-remove ${hashId}`.trim()}
+            className={classNames(
+              `${prefixCls}-action-icon action-remove`,
+              hashId,
+            )}
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
@@ -427,7 +443,7 @@ const ProFormListItem: React.FC<
               }
             }}
           />
-        </Spin>
+        )}
       </Tooltip>
     );
   }, [
@@ -454,7 +470,17 @@ const ProFormListItem: React.FC<
 
   const dom =
     actions.length > 0 && mode !== 'read' ? (
-      <div className={`${prefixCls}-action ${hashId}`.trim()}>{actions}</div>
+      <div
+        className={classNames(
+          `${prefixCls}-action`,
+          {
+            [`${prefixCls}-action-small`]: componentSize === 'small',
+          },
+          hashId,
+        )}
+      >
+        {actions}
+      </div>
     ) : null;
 
   const options = {
@@ -480,9 +506,11 @@ const ProFormListItem: React.FC<
     {
       listDom: (
         <div
-          className={`${prefixCls}-container ${containerClassName || ''} ${
-            hashId || ''
-          }`.trim()}
+          className={classNames(
+            `${prefixCls}-container`,
+            containerClassName,
+            hashId,
+          )}
           style={{
             width: grid ? '100%' : undefined,
             ...containerStyle,
@@ -496,18 +524,21 @@ const ProFormListItem: React.FC<
     options,
   ) || (
     <div
-      className={`${prefixCls}-item ${hashId} 
-      ${alwaysShowItemLabel === undefined && `${prefixCls}-item-default`}
-      ${alwaysShowItemLabel ? `${prefixCls}-item-show-label` : ''}`}
+      className={classNames(`${prefixCls}-item`, hashId, {
+        [`${prefixCls}-item-default`]: alwaysShowItemLabel === undefined,
+        [`${prefixCls}-item-show-label`]: alwaysShowItemLabel,
+      })}
       style={{
         display: 'flex',
         alignItems: 'flex-end',
       }}
     >
       <div
-        className={`${prefixCls}-container ${
-          containerClassName || ''
-        } ${hashId}`.trim()}
+        className={classNames(
+          `${prefixCls}-container`,
+          containerClassName,
+          hashId,
+        )}
         style={{
           width: grid ? '100%' : undefined,
           ...containerStyle,

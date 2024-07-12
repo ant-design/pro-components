@@ -1017,6 +1017,8 @@ describe('ProForm List', () => {
     expect(input.length).toBe(3);
     expect(input[2].value).toBe('1111');
 
+    expect(html.baseElement).toMatchSnapshot();
+
     // 删除按钮
     await act(async () => {
       html.baseElement
