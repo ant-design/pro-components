@@ -1,5 +1,5 @@
 ﻿import { version } from 'antd';
-import { Variant } from 'antd/es/form/hooks/useVariants';
+import { Variant } from 'antd/es/config-provider';
 import { compareVersions } from '../compareVersions';
 
 /**
