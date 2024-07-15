@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.2...@ant-design/pro-table@3.16.3) (2024-07-15)
+
+
+### Bug Fixes
+
+* **table:** fix canel editort no work error ([2b60fe5](https://github.com/ant-design/pro-components/commit/2b60fe50d6dd6616c685a85b4b8f0e04927b1940))
+
+
+
+
 
 ## [3.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.1...@ant-design/pro-table@3.16.2) (2024-06-21)
 

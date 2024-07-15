@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.15.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.15.15...@ant-design/pro-utils@2.15.16) (2024-07-15)
+
+
+### Bug Fixes
+
+* **table:** fix canel editort no work error ([2b60fe5](https://github.com/ant-design/pro-components/commit/2b60fe50d6dd6616c685a85b4b8f0e04927b1940))
+* **table:** 解决ProTable.editable.actionRender无法获取最新state快照的问题（第二种改法） ([#8549](https://github.com/ant-design/pro-components/issues/8549)) ([8d9fa00](https://github.com/ant-design/pro-components/commit/8d9fa00685c3ca4b55dfccfc93e7bc63e6525a5f))
+
+
+
+
 
 ## [2.15.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.15.14...@ant-design/pro-utils@2.15.15) (2024-06-21)
 

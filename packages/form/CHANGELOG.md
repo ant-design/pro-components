@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.28.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.1...@ant-design/pro-form@2.28.2) (2024-07-15)
+
+
+### Bug Fixes
+
+* **form:** Digit support stringMode ([5075113](https://github.com/ant-design/pro-components/commit/50751136faacb021f8322645364f4bcc3f3453d4))
+* **form:** fix FormList size=small, icon is default size error ([d797fa7](https://github.com/ant-design/pro-components/commit/d797fa7f98c1042e531758ae8a3e5d32950c783b))
+
+
+
+
 
 ## [2.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.0...@ant-design/pro-form@2.28.1) (2024-06-21)
 
