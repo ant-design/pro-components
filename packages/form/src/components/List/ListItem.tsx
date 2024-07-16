@@ -317,7 +317,9 @@ const ProFormListItem: React.FC<
     ...rest
   } = props;
   const { hashId } = useContext(ProProvider);
-  const { componentSize } = ConfigProvider.useConfig();
+  const { componentSize } = ConfigProvider.useConfig?.() || {
+    componentSize: 'middle',
+  };
   const listContext = useContext(FormListContext);
   const unmountedRef = useRef(false);
 
