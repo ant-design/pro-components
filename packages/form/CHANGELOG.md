@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.28.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.2...@ant-design/pro-form@2.28.3) (2024-07-16)
+
+
+### Bug Fixes
+
+* **form:** fix  ConfigProvider.useConfig unsupport antd@4 error ([#8567](https://github.com/ant-design/pro-components/issues/8567)) ([59e9cd5](https://github.com/ant-design/pro-components/commit/59e9cd5c0df0c17f556e9bc4153fa451434993d8))
+
+
+
+
 
 ## [2.28.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.1...@ant-design/pro-form@2.28.2) (2024-07-15)
 
