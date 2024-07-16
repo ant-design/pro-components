@@ -14,7 +14,7 @@ export type ProFormSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType = any,
 > = ProFormFieldItemProps<
-  SelectProps<ValueType> & {
+  SelectProps<ValueType, OptionType> & {
     /**
      * 是否在输入框聚焦时触发搜索
      *
