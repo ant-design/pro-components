@@ -282,7 +282,7 @@ const CheckboxList: React.FC<{
         return (
           <CheckboxListItem
             className={className}
-            {...node}
+            {...omit(node, ['key'])}
             showListItemOption={showListItemOption}
             title={wrappedTitle}
             columnKey={node.key as string}
