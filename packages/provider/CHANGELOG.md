@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.14.8...@ant-design/pro-provider@2.14.9) (2024-07-15)
+
+### Bug Fixes
+
+- **provider:** missing EditableProTable translations for English ([#8550](https://github.com/ant-design/pro-components/issues/8550)) ([b50d9bf](https://github.com/ant-design/pro-components/commit/b50d9bf8dee9768b0f449f8992e320747b8fdc54))
+- **provider:** use built-in translation when translation in ProConfigContext is missing ([#8551](https://github.com/ant-design/pro-components/issues/8551)) ([84c0eb8](https://github.com/ant-design/pro-components/commit/84c0eb8ad7d76d9d81404e6af69f26f4ffca0bec))
+
 ## [2.14.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.14.7...@ant-design/pro-provider@2.14.8) (2024-06-21)
 
 **Note:** Version bump only for package @ant-design/pro-provider

@@ -57,6 +57,8 @@ export default {
     submitText: 'Login',
   },
   editableTable: {
+    onlyOneLineEditor: 'Only one line can be edited',
+    onlyAddOneLine: 'Only one line can be added',
     action: {
       save: 'Save',
       cancel: 'Cancel',

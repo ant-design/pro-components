@@ -1,5 +1,6 @@
 import {
   ProForm,
+  ProFormCascader,
   ProFormCheckbox,
   ProFormColorPicker,
   ProFormDigit,
@@ -170,6 +171,47 @@ const Demo = () => {
                 type: 'array',
               },
             ]}
+          />
+          <ProFormCascader
+            label="地址"
+            request={async () => [
+              {
+                value: 'zhejiang',
+                label: '浙江',
+                children: [
+                  {
+                    value: 'hangzhou',
+                    label: '杭州',
+                    children: [
+                      {
+                        value: 'xihu',
+                        label: '西湖',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: 'jiangsu',
+                label: 'Jiangsu',
+                children: [
+                  {
+                    value: 'nanjing',
+                    label: 'Nanjing',
+                    children: [
+                      {
+                        value: 'zhonghuamen',
+                        label: 'Zhong Hua Men',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ]}
+            fieldProps={{
+              changeOnSelect: true,
+            }}
+            name="area"
           />
 
           <ProFormRadio.Group
