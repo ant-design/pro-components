@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.3...@ant-design/pro-form@2.28.4) (2024-07-18)
 
-
 ### Bug Fixes
 
-* **form:** upload use flex style ([d0e410c](https://github.com/ant-design/pro-components/commit/d0e410cff6133e7ae83f48aebf15c86d94e9ad56))
-
-
-
-
+- **form:** upload use flex style ([d0e410c](https://github.com/ant-design/pro-components/commit/d0e410cff6133e7ae83f48aebf15c86d94e9ad56))
 
 ## [2.28.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.2...@ant-design/pro-form@2.28.3) (2024-07-16)
 
