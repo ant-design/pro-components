@@ -169,7 +169,7 @@ const transformBreadcrumbRoutesToItems = (
       ...route,
       breadcrumbName: undefined,
       children: undefined,
-      title: route.breadcrumbName,
+      title: route.title || route.breadcrumbName,
       ...(route.children?.length
         ? {
             menu: {
