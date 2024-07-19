@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.19.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.10...@ant-design/pro-layout@7.19.11) (2024-07-18)
+
+### Bug Fixes
+
+- **layout:** breadcrumbName add warning message ([ce0d4cf](https://github.com/ant-design/pro-components/commit/ce0d4cf2b785f0157521b3d0b7b1e276c308058f))
+- **layout:** defualt use title items ([5d6ad39](https://github.com/ant-design/pro-components/commit/5d6ad39617afe7c6247b373aeeebba64042ed2ef))
+
 ## [7.19.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.9...@ant-design/pro-layout@7.19.10) (2024-07-15)
 
 **Note:** Version bump only for package @ant-design/pro-layout

@@ -4154,6 +4154,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           >
                             <div
                               class="ant-upload ant-upload-drag"
+                              style="flex-direction: column; align-items: center; display: flex;"
                             >
                               <span
                                 class="ant-upload ant-upload-btn"
@@ -5986,7 +5987,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                   >
                     <div
                       class="ant-upload ant-upload-drag"
-                      style="display: none;"
+                      style="flex-direction: column; align-items: center; display: none;"
                     >
                       <span
                         class="ant-upload ant-upload-btn"
@@ -10054,6 +10055,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                 >
                   <div
                     class="ant-upload ant-upload-drag"
+                    style="flex-direction: column; align-items: center; display: flex;"
                   >
                     <span
                       class="ant-upload ant-upload-btn"
@@ -43908,6 +43910,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
                 >
                   <div
                     class="ant-upload ant-upload-drag"
+                    style="flex-direction: column; align-items: center; display: flex;"
                   >
                     <span
                       class="ant-upload ant-upload-btn"
@@ -44539,6 +44542,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
                 >
                   <div
                     class="ant-upload ant-upload-drag"
+                    style="flex-direction: column; align-items: center; display: flex;"
                   >
                     <span
                       class="ant-upload ant-upload-btn"
