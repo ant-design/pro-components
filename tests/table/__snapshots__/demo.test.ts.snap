@@ -1343,7 +1343,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key1"
                             id="0"
-                            style="transition: transform 0ms linear;"
+                            style=""
                           >
                             <td
                               class="ant-table-cell"
@@ -1405,7 +1405,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key2"
                             id="1"
-                            style="transition: transform 0ms linear;"
+                            style=""
                           >
                             <td
                               class="ant-table-cell"
@@ -1467,7 +1467,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key3"
                             id="2"
-                            style="transition: transform 0ms linear;"
+                            style=""
                           >
                             <td
                               class="ant-table-cell"

@@ -2102,7 +2102,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                 class="ant-list-pagination"
               >
                 <ul
-                  class="ant-pagination"
+                  class="ant-pagination ant-pagination-end"
                 >
                   <li
                     class="ant-pagination-total-text"
@@ -3420,7 +3420,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctl
               class="ant-list-pagination"
             >
               <ul
-                class="ant-pagination"
+                class="ant-pagination ant-pagination-end"
               >
                 <li
                   class="ant-pagination-total-text"
@@ -4961,7 +4961,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
               class="ant-list-pagination"
             >
               <ul
-                class="ant-pagination"
+                class="ant-pagination ant-pagination-end"
               >
                 <li
                   class="ant-pagination-total-text"
@@ -5510,7 +5510,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
               class="ant-list-pagination"
             >
               <ul
-                class="ant-pagination"
+                class="ant-pagination ant-pagination-end"
               >
                 <li
                   class="ant-pagination-total-text"

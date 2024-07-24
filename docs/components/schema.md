@@ -1,7 +1,7 @@
 <!-----
 title: 通用配置总览
 order: 1
-apiHeader: false
+apiHeader:false
 ----->
 
 # 通用配置

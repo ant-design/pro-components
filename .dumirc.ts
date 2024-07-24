@@ -419,12 +419,7 @@ export default defineConfig({
         },
       ],
     },
-    apiHeader: {
-      // 组件库包名，可以从 package.json 中引入名称
-      pkg: '@ant-design/pro-components',
-      // 匹配路由，默认为 /api 或 /components
-      match: ['/api', '/components'],
-    },
+    apiHeader: false,
   },
   hash: true,
   ignoreMomentLocale: true,
