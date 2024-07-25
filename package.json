@@ -170,5 +170,5 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
   },
-  "packageManager": "pnpm@8.6.0"
+  "packageManager": "pnpm@9.6.0"
 }
