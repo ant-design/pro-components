@@ -47,13 +47,13 @@
     "@dnd-kit/utilities": "^3.2.1",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
-    "lodash.merge": "^4.6.2",
+    "lodash-es": "^4.17.21",
     "omit.js": "^2.0.2",
     "rc-resize-observer": "^1.0.0",
     "rc-util": "^5.0.1"
   },
   "devDependencies": {
-    "@types/lodash.merge": "^4.6.7",
+    "@types/lodash-es": "^4.7.12",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {

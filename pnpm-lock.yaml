@@ -91,12 +91,9 @@ importers:
       '@types/history':
         specifier: ^4.7.11
         version: 4.7.11
-      '@types/lodash':
-        specifier: ^4.17.7
-        version: 4.17.7
-      '@types/lodash.merge':
-        specifier: ^4.6.9
-        version: 4.6.9
+      '@types/lodash-es':
+        specifier: ^4.17.12
+        version: 4.17.12
       '@types/mockjs':
         specifier: ^1.0.10
         version: 1.0.10
@@ -238,7 +235,7 @@ importers:
       lint-staged:
         specifier: ^10.5.4
         version: 10.5.4
-      lodash:
+      lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
       mockdate:
@@ -412,19 +409,19 @@ importers:
         version: 2.8.6(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-descriptions':
         specifier: 2.5.49
-        version: 2.5.49(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.5.49(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-field':
         specifier: 2.15.2
         version: 2.15.2(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-form':
         specifier: 2.28.4
-        version: 2.28.4(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.28.4(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-layout':
         specifier: 7.19.11
         version: 7.19.11(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-list':
         specifier: 2.5.65
-        version: 2.5.65(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.5.65(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-provider':
         specifier: 2.14.9
         version: 2.14.9(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -433,7 +430,7 @@ importers:
         version: 2.1.13(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-table':
         specifier: 3.16.5
-        version: 3.16.5(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.16.5(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-utils':
         specifier: 2.15.16
         version: 2.15.16(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -448,7 +445,7 @@ importers:
         version: 2.15.2(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-form':
         specifier: 2.28.4
-        version: 2.28.4(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.28.4(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-provider':
         specifier: 2.14.9
         version: 2.14.9(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -495,9 +492,9 @@ importers:
       dayjs:
         specifier: ^1.11.10
         version: 1.11.12
-      lodash.tonumber:
-        specifier: ^4.0.3
-        version: 4.0.3
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
       omit.js:
         specifier: ^2.0.2
         version: 2.0.2
@@ -508,9 +505,9 @@ importers:
         specifier: ^2.0.0
         version: 2.2.5(react@18.3.1)
     devDependencies:
-      '@types/lodash.tonumber':
-        specifier: ^4.0.6
-        version: 4.0.9
+      '@types/lodash-es':
+        specifier: ^4.17.12
+        version: 4.17.12
       '@types/react-color':
         specifier: ^3.0.4
         version: 3.0.12
@@ -550,9 +547,9 @@ importers:
       dayjs:
         specifier: ^1.11.10
         version: 1.11.12
-      lodash.merge:
-        specifier: ^4.6.2
-        version: 4.6.2
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
       omit.js:
         specifier: ^2.0.2
         version: 2.0.2
@@ -563,9 +560,9 @@ importers:
         specifier: ^5.0.6
         version: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
-      '@types/lodash.merge':
-        specifier: ^4.6.7
-        version: 4.6.9
+      '@types/lodash-es':
+        specifier: ^4.17.12
+        version: 4.17.12
       typescript:
         specifier: ^5.0.4
         version: 5.5.4
@@ -593,9 +590,9 @@ importers:
       classnames:
         specifier: ^2.3.2
         version: 2.5.1
-      lodash.merge:
-        specifier: ^4.6.2
-        version: 4.6.2
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
       omit.js:
         specifier: ^2.0.2
         version: 2.0.2
@@ -615,6 +612,9 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
     devDependencies:
+      '@types/lodash-es':
+        specifier: ^4.17.12
+        version: 4.17.12
       typescript:
         specifier: ^5.0.4
         version: 5.5.4
@@ -632,7 +632,7 @@ importers:
         version: 2.15.2(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-table':
         specifier: 3.16.5
-        version: 3.16.5(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.16.5(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-utils':
         specifier: 2.15.16
         version: 2.15.16(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -701,7 +701,7 @@ importers:
         version: 2.15.2(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-form':
         specifier: 2.28.4
-        version: 2.28.4(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.28.4(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-provider':
         specifier: 2.14.9
         version: 2.14.9(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -729,9 +729,9 @@ importers:
       dayjs:
         specifier: ^1.11.10
         version: 1.11.12
-      lodash.merge:
-        specifier: ^4.6.2
-        version: 4.6.2
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
       omit.js:
         specifier: ^2.0.2
         version: 2.0.2
@@ -742,9 +742,9 @@ importers:
         specifier: ^5.0.1
         version: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
-      '@types/lodash.merge':
-        specifier: ^4.6.7
-        version: 4.6.9
+      '@types/lodash-es':
+        specifier: ^4.7.12
+        version: 4.17.12
       typescript:
         specifier: ^5.0.4
         version: 5.5.4
@@ -766,9 +766,9 @@ importers:
       dayjs:
         specifier: ^1.11.10
         version: 1.11.12
-      lodash.merge:
-        specifier: ^4.6.2
-        version: 4.6.2
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
       rc-util:
         specifier: ^5.0.6
         version: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -779,6 +779,9 @@ importers:
         specifier: ^2.0.0
         version: 2.2.5(react@18.3.1)
     devDependencies:
+      '@types/lodash-es':
+        specifier: ^4.17.12
+        version: 4.17.12
       typescript:
         specifier: ^5.0.4
         version: 5.5.4
@@ -3646,11 +3649,8 @@ packages:
   '@types/keyv@3.1.4':
     resolution: {integrity: sha512-BQ5aZNSCpj7D6K2ksrRCTmKRLEpnPvWDiLPfoGyhZ++8YtiK9d/3DBKPJgry359X/P1PfruyYwvnvwFjuEiEIg==}
 
-  '@types/lodash.merge@4.6.9':
-    resolution: {integrity: sha512-23sHDPmzd59kUgWyKGiOMO2Qb9YtqRO/x4IhkgNUiPQ1+5MUVqi6bCZeq9nBJ17msjIMbEIO5u+XW4Kz6aGUhQ==}
-
-  '@types/lodash.tonumber@4.0.9':
-    resolution: {integrity: sha512-53rIpKcaX3lrKLbdMLsQlyhRfNBjHivG3Fy3foCjmL+oG4f4oZgmow6UxSoDjxtxmzwMS4mDnEIr390ffN9t9Q==}
+  '@types/lodash-es@4.17.12':
+    resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
 
   '@types/lodash@4.17.7':
     resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
@@ -8517,6 +8517,9 @@ packages:
     resolution: {integrity: sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
+  lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+
   lodash._reinterpolate@3.0.0:
     resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
 
@@ -12508,6 +12511,7 @@ packages:
 
   uid-number@0.0.6:
     resolution: {integrity: sha512-c461FXIljswCuscZn67xq9PpszkPT6RjheWFQTgCyabJrTUozElanb0YEqv2UGgk247YpcJkFBuSGNvBlpXM9w==}
+    deprecated: This package is no longer supported.
 
   umask@1.1.0:
     resolution: {integrity: sha512-lE/rxOhmiScJu9L6RTNVgB/zZbF+vGC0/p6D3xnkAePI2o0sMyFG966iR5Ki50OI/0mNi2yaRnxfLsPmEZF/JA==}
@@ -13338,10 +13342,10 @@ snapshots:
     transitivePeerDependencies:
       - react-dom
 
-  '@ant-design/pro-descriptions@2.5.49(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ant-design/pro-descriptions@2.5.49(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@ant-design/pro-field': 2.15.2(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@ant-design/pro-form': 2.28.4(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ant-design/pro-form': 2.28.4(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-provider': 2.14.9(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-skeleton': 2.1.13(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-utils': 2.15.16(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -13373,7 +13377,7 @@ snapshots:
     transitivePeerDependencies:
       - react-dom
 
-  '@ant-design/pro-form@2.28.4(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ant-design/pro-form@2.28.4(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@ant-design/icons': 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-field': 2.15.2(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -13392,8 +13396,6 @@ snapshots:
       rc-util: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-    optionalDependencies:
-      '@types/lodash.merge': 4.6.9
 
   '@ant-design/pro-layout@7.19.11(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -13415,12 +13417,12 @@ snapshots:
       swr: 2.2.5(react@18.3.1)
       warning: 4.0.3
 
-  '@ant-design/pro-list@2.5.65(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ant-design/pro-list@2.5.65(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@ant-design/icons': 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-card': 2.8.6(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-field': 2.15.2(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@ant-design/pro-table': 3.16.5(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ant-design/pro-table': 3.16.5(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-utils': 2.15.16(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@babel/runtime': 7.24.8
       antd: 5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -13452,12 +13454,12 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@ant-design/pro-table@3.16.5(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ant-design/pro-table@3.16.5(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@ant-design/icons': 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-card': 2.8.6(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-field': 2.15.2(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@ant-design/pro-form': 2.28.4(@types/lodash.merge@4.6.9)(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ant-design/pro-form': 2.28.4(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(rc-field-form@2.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-provider': 2.14.9(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/pro-utils': 2.15.16(antd@5.19.3(moment@2.30.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@babel/runtime': 7.24.8
@@ -17026,11 +17028,7 @@ snapshots:
     dependencies:
       '@types/node': 14.18.63
 
-  '@types/lodash.merge@4.6.9':
-    dependencies:
-      '@types/lodash': 4.17.7
-
-  '@types/lodash.tonumber@4.0.9':
+  '@types/lodash-es@4.17.12':
     dependencies:
       '@types/lodash': 4.17.7
 
@@ -23630,6 +23628,8 @@ snapshots:
   locate-path@7.2.0:
     dependencies:
       p-locate: 6.0.0
+
+  lodash-es@4.17.21: {}
 
   lodash._reinterpolate@3.0.0: {}
 

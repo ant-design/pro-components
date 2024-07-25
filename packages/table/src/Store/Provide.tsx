@@ -1,5 +1,5 @@
 ﻿import type { TableColumnType } from 'antd';
-import merge from 'lodash.merge';
+import { merge } from 'lodash-es';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { noteOnce } from 'rc-util/lib/warning';
 import {

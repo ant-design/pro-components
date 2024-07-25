@@ -20,7 +20,7 @@ import {
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import _ from 'lodash';
+import { pick } from 'lodash-es';
 import moment from 'moment';
 import React from 'react';
 import { waitForWaitTime } from '../util';
@@ -856,14 +856,14 @@ describe('ProForm List', () => {
 
     expect(container.querySelector('code.case1')).toContainHTML(
       JSON.stringify(
-        _.pick(initialValues, namePaths2PropertyPaths(depName1)),
+        pick(initialValues, namePaths2PropertyPaths(depName1)),
         null,
         2,
       ),
     );
     expect(container.querySelector('code.case2')).toContainHTML(
       JSON.stringify(
-        _.pick(initialValues, namePaths2PropertyPaths(depName2)),
+        pick(initialValues, namePaths2PropertyPaths(depName2)),
         null,
         2,
       ),

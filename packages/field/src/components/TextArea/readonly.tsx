@@ -6,7 +6,7 @@ import type { ProFieldFC } from '../../index';
 
 // 兼容代码-----------
 import 'antd/lib/input/style';
-import { omit } from 'lodash';
+import { omit } from 'lodash-es';
 //------------
 
 /**

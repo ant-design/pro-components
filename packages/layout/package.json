@@ -41,7 +41,7 @@
     "@umijs/route-utils": "^4.0.0",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.3.2",
-    "lodash.merge": "^4.6.2",
+    "lodash-es": "^4.17.21",
     "omit.js": "^2.0.2",
     "path-to-regexp": "2.4.0",
     "rc-resize-observer": "^1.1.0",
@@ -50,6 +50,7 @@
     "warning": "^4.0.3"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
