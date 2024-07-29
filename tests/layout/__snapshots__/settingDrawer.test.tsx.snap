@@ -3,7 +3,7 @@
 exports[`settingDrawer.test > 🌺 base user 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-m4timi"
+    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-1uq9j6g"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -29,7 +29,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
     </span>
   </div>
   <div
-    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-m4timi ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-1uq9j6g ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -55,25 +55,25 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
           class="ant-drawer-body"
         >
           <div
-            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-m4timi"
+            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-1uq9j6g"
           >
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 整体风格设置
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -98,15 +98,15 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 主题色
               </h3>
               <div
-                class="ant-pro-setting-drawer-theme-color css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-theme-color css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #1677FF;"
                 >
                   <span
@@ -130,60 +130,60 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #1890ff;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #F5222D;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #FA541C;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #FAAD14;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #13C2C2;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #52C41A;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #2F54EB;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #722ED1;"
                 />
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 导航模式
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: block;"
                   >
@@ -203,11 +203,11 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -227,11 +227,11 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -256,19 +256,19 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 侧边菜单类型
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -287,7 +287,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -479,11 +479,11 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                   </div>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -502,7 +502,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -687,10 +687,10 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               </div>
             </div>
             <div
-              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
             >
               <div
-                class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
                   class="ant-spin-container"
@@ -711,7 +711,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                       >
                         <li>
                           <div
-                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-select-single ant-select-show-arrow"
                             style="width: 80px;"
                           >
                             <div
@@ -788,7 +788,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -823,7 +823,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -858,7 +858,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-m4timi ant-switch-disabled"
+                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-1uq9j6g ant-switch-disabled"
                             disabled=""
                             role="switch"
                             type="button"
@@ -885,22 +885,22 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 内容区域
               </h3>
               <div
-                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -922,7 +922,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -957,7 +957,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -992,7 +992,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -1027,7 +1027,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -1054,22 +1054,22 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 其他设置
               </h3>
               <div
-                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -1091,7 +1091,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-m4timi"
+                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-1uq9j6g"
                               role="switch"
                               type="button"
                             >
@@ -1118,11 +1118,11 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
-              class="ant-alert ant-alert-warning css-dev-only-do-not-override-m4timi"
+              class="ant-alert ant-alert-warning css-dev-only-do-not-override-1uq9j6g"
               data-show="true"
               role="alert"
               style="margin-block-end: 16px;"
@@ -1157,7 +1157,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               </div>
             </div>
             <button
-              class="ant-btn css-dev-only-do-not-override-m4timi ant-btn-default ant-btn-block"
+              class="ant-btn css-dev-only-do-not-override-1uq9j6g ant-btn-default ant-btn-block"
               style="margin-block-end: 24px;"
               type="button"
             >
@@ -1205,7 +1205,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
 exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-m4timi"
+    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-1uq9j6g"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -1231,7 +1231,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
     </span>
   </div>
   <div
-    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-m4timi ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-1uq9j6g ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -1257,25 +1257,25 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
           class="ant-drawer-body"
         >
           <div
-            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-m4timi"
+            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-1uq9j6g"
           >
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 整体风格设置
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -1297,26 +1297,26 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 导航模式
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: block;"
                   >
@@ -1336,11 +1336,11 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -1360,11 +1360,11 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -1389,19 +1389,19 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 侧边菜单类型
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -1420,7 +1420,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -1612,11 +1612,11 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                   </div>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -1635,7 +1635,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -1820,10 +1820,10 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
             >
               <div
-                class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
                   class="ant-spin-container"
@@ -1844,7 +1844,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                       >
                         <li>
                           <div
-                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-select-single ant-select-show-arrow"
                             style="width: 80px;"
                           >
                             <div
@@ -1921,7 +1921,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -1956,7 +1956,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -1991,7 +1991,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-m4timi ant-switch-disabled"
+                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-1uq9j6g ant-switch-disabled"
                             disabled=""
                             role="switch"
                             type="button"
@@ -2018,22 +2018,22 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 内容区域
               </h3>
               <div
-                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -2055,7 +2055,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -2090,7 +2090,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -2125,7 +2125,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -2160,7 +2160,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -2187,22 +2187,22 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 其他设置
               </h3>
               <div
-                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -2224,7 +2224,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-m4timi"
+                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-1uq9j6g"
                               role="switch"
                               type="button"
                             >
@@ -2251,11 +2251,11 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
-              class="ant-alert ant-alert-warning css-dev-only-do-not-override-m4timi"
+              class="ant-alert ant-alert-warning css-dev-only-do-not-override-1uq9j6g"
               data-show="true"
               role="alert"
               style="margin-block-end: 16px;"
@@ -2290,7 +2290,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
               </div>
             </div>
             <button
-              class="ant-btn css-dev-only-do-not-override-m4timi ant-btn-default ant-btn-block"
+              class="ant-btn css-dev-only-do-not-override-1uq9j6g ant-btn-default ant-btn-block"
               style="margin-block-end: 24px;"
               type="button"
             >
@@ -2338,7 +2338,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
 exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-m4timi"
+    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-1uq9j6g"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -2364,7 +2364,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
     </span>
   </div>
   <div
-    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-m4timi ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-1uq9j6g ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -2390,25 +2390,25 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
           class="ant-drawer-body"
         >
           <div
-            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-m4timi"
+            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-1uq9j6g"
           >
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 整体风格设置
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -2433,15 +2433,15 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 主题色
               </h3>
               <div
-                class="ant-pro-setting-drawer-theme-color css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-theme-color css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #1677FF;"
                 >
                   <span
@@ -2465,60 +2465,60 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #1890ff;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #F5222D;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #FA541C;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #FAAD14;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #13C2C2;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #52C41A;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #2F54EB;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #722ED1;"
                 />
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 导航模式
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: block;"
                   >
@@ -2538,11 +2538,11 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -2562,11 +2562,11 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -2591,19 +2591,19 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 侧边菜单类型
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -2622,7 +2622,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -2814,11 +2814,11 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                   </div>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -2837,7 +2837,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -3022,10 +3022,10 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
             >
               <div
-                class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
                   class="ant-spin-container"
@@ -3046,7 +3046,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                       >
                         <li>
                           <div
-                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-select-single ant-select-show-arrow"
                             style="width: 80px;"
                           >
                             <div
@@ -3123,7 +3123,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -3158,7 +3158,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -3193,7 +3193,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-m4timi ant-switch-disabled"
+                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-1uq9j6g ant-switch-disabled"
                             disabled=""
                             role="switch"
                             type="button"
@@ -3220,22 +3220,22 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 内容区域
               </h3>
               <div
-                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -3257,7 +3257,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -3292,7 +3292,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -3327,7 +3327,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -3362,7 +3362,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -3389,22 +3389,22 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 其他设置
               </h3>
               <div
-                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -3426,7 +3426,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-m4timi"
+                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-1uq9j6g"
                               role="switch"
                               type="button"
                             >
@@ -3453,11 +3453,11 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
-              class="ant-alert ant-alert-warning css-dev-only-do-not-override-m4timi"
+              class="ant-alert ant-alert-warning css-dev-only-do-not-override-1uq9j6g"
               data-show="true"
               role="alert"
               style="margin-block-end: 16px;"
@@ -3508,7 +3508,7 @@ exports[`settingDrawer.test > 🌺 hideCopyButton = true 1`] = `
 exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-m4timi"
+    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-1uq9j6g"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -3534,7 +3534,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
     </span>
   </div>
   <div
-    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-m4timi ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-1uq9j6g ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -3560,25 +3560,25 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
           class="ant-drawer-body"
         >
           <div
-            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-m4timi"
+            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-1uq9j6g"
           >
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 整体风格设置
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -3603,15 +3603,15 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 主题色
               </h3>
               <div
-                class="ant-pro-setting-drawer-theme-color css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-theme-color css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #1677FF;"
                 >
                   <span
@@ -3635,60 +3635,60 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #1890ff;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #F5222D;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #FA541C;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #FAAD14;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #13C2C2;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #52C41A;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #2F54EB;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #722ED1;"
                 />
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 导航模式
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: block;"
                   >
@@ -3708,11 +3708,11 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -3732,11 +3732,11 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -3761,19 +3761,19 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 侧边菜单类型
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -3792,7 +3792,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -3984,11 +3984,11 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                   </div>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -4007,7 +4007,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -4192,10 +4192,10 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
             >
               <div
-                class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
                   class="ant-spin-container"
@@ -4216,7 +4216,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                       >
                         <li>
                           <div
-                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-select-single ant-select-show-arrow"
                             style="width: 80px;"
                           >
                             <div
@@ -4293,7 +4293,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -4328,7 +4328,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -4363,7 +4363,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-m4timi ant-switch-disabled"
+                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-1uq9j6g ant-switch-disabled"
                             disabled=""
                             role="switch"
                             type="button"
@@ -4390,22 +4390,22 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 内容区域
               </h3>
               <div
-                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -4427,7 +4427,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -4462,7 +4462,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -4497,7 +4497,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -4532,7 +4532,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -4559,22 +4559,22 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 其他设置
               </h3>
               <div
-                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -4596,7 +4596,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-m4timi"
+                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-1uq9j6g"
                               role="switch"
                               type="button"
                             >
@@ -4623,11 +4623,11 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <button
-              class="ant-btn css-dev-only-do-not-override-m4timi ant-btn-default ant-btn-block"
+              class="ant-btn css-dev-only-do-not-override-1uq9j6g ant-btn-default ant-btn-block"
               style="margin-block-end: 24px;"
               type="button"
             >
@@ -4675,7 +4675,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
 exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
 <DocumentFragment>
   <div
-    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-m4timi"
+    class="ant-pro-setting-drawer-handle css-dev-only-do-not-override-1uq9j6g"
     style="width: 48px; height: 48px;"
   >
     <span
@@ -4701,7 +4701,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
     </span>
   </div>
   <div
-    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-m4timi ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-dev-only-do-not-override-1uq9j6g ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -4727,25 +4727,25 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
           class="ant-drawer-body"
         >
           <div
-            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-m4timi"
+            class="ant-pro-setting-drawer-drawer-content css-dev-only-do-not-override-1uq9j6g"
           >
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 整体风格设置
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: block;"
                   >
@@ -4770,15 +4770,15 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 主题色
               </h3>
               <div
-                class="ant-pro-setting-drawer-theme-color css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-theme-color css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #1677FF;"
                 >
                   <span
@@ -4802,60 +4802,60 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #1890ff;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #F5222D;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #FA541C;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #FAAD14;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #13C2C2;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #52C41A;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #2F54EB;"
                 />
                 <div
-                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-m4timi"
+                  class="ant-pro-setting-drawer-theme-color-block css-dev-only-do-not-override-1uq9j6g"
                   style="background-color: #722ED1;"
                 />
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 导航模式
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: block;"
                   >
@@ -4875,11 +4875,11 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -4899,11 +4899,11 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                   </span>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -4928,19 +4928,19 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 侧边菜单类型
               </h3>
               <div
-                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-block-checkbox css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-sub ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -4959,7 +4959,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -5151,11 +5151,11 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                   </div>
                 </div>
                 <div
-                  class="css-dev-only-do-not-override-m4timi ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
+                  class="css-dev-only-do-not-override-1uq9j6g ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-group ant-pro-setting-drawer-block-checkbox-siderMenuType-item"
                 >
                   <span
                     aria-label="check"
-                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-m4timi"
+                    class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-dev-only-do-not-override-1uq9j6g"
                     role="img"
                     style="display: none;"
                   >
@@ -5174,7 +5174,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                     </svg>
                   </span>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-m4timi"
+                    class="ant-pro-setting-drawer-block-checkbox-icon css-dev-only-do-not-override-1uq9j6g"
                   >
                     <svg
                       height="1em"
@@ -5359,10 +5359,10 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               </div>
             </div>
             <div
-              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+              class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
             >
               <div
-                class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
                   class="ant-spin-container"
@@ -5383,7 +5383,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                       >
                         <li>
                           <div
-                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-select-single ant-select-show-arrow"
+                            class="ant-select ant-select-sm ant-select-outlined content-width css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-select-single ant-select-show-arrow"
                             style="width: 80px;"
                           >
                             <div
@@ -5460,7 +5460,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-m4timi"
+                            class="ant-switch ant-switch-small fixed-header css-dev-only-do-not-override-1uq9j6g"
                             role="switch"
                             type="button"
                           >
@@ -5495,7 +5495,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                         <li>
                           <button
                             aria-checked="true"
-                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-m4timi ant-switch-checked"
+                            class="ant-switch ant-switch-small fix-siderbar css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                             role="switch"
                             type="button"
                           >
@@ -5530,7 +5530,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                         <li>
                           <button
                             aria-checked="false"
-                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-m4timi ant-switch-disabled"
+                            class="ant-switch ant-switch-small split-menus css-dev-only-do-not-override-1uq9j6g ant-switch-disabled"
                             disabled=""
                             role="switch"
                             type="button"
@@ -5557,22 +5557,22 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 内容区域
               </h3>
               <div
-                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -5594,7 +5594,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-header css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -5629,7 +5629,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-footer css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -5664,7 +5664,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menu css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -5699,7 +5699,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="true"
-                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi ant-switch-checked"
+                              class="ant-switch ant-switch-small regional-menuHeader css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g ant-switch-checked"
                               role="switch"
                               type="button"
                             >
@@ -5726,22 +5726,22 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
               style="margin-block-end: 12px;"
             >
               <h3
-                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-m4timi"
+                class="ant-pro-setting-drawer-body-title css-dev-only-do-not-override-1uq9j6g"
               >
                 其他设置
               </h3>
               <div
-                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-m4timi css-dev-only-do-not-override-m4timi"
+                class="ant-list ant-list-sm ant-pro-setting-drawer-list css-dev-only-do-not-override-1uq9j6g css-dev-only-do-not-override-1uq9j6g"
               >
                 <div
-                  class="ant-spin-nested-loading css-dev-only-do-not-override-m4timi"
+                  class="ant-spin-nested-loading css-dev-only-do-not-override-1uq9j6g"
                 >
                   <div
                     class="ant-spin-container"
@@ -5763,7 +5763,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
                           <li>
                             <button
                               aria-checked="false"
-                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-m4timi"
+                              class="ant-switch ant-switch-small color-weak css-dev-only-do-not-override-1uq9j6g"
                               role="switch"
                               type="button"
                             >
@@ -5790,11 +5790,11 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               </div>
             </div>
             <div
-              class="ant-divider css-dev-only-do-not-override-m4timi ant-divider-horizontal"
+              class="ant-divider css-dev-only-do-not-override-1uq9j6g ant-divider-horizontal"
               role="separator"
             />
             <div
-              class="ant-alert ant-alert-warning css-dev-only-do-not-override-m4timi"
+              class="ant-alert ant-alert-warning css-dev-only-do-not-override-1uq9j6g"
               data-show="true"
               role="alert"
               style="margin-block-end: 16px;"
@@ -5829,7 +5829,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               </div>
             </div>
             <button
-              class="ant-btn css-dev-only-do-not-override-m4timi ant-btn-default ant-btn-block"
+              class="ant-btn css-dev-only-do-not-override-1uq9j6g ant-btn-default ant-btn-block"
               style="margin-block-end: 24px;"
               type="button"
             >

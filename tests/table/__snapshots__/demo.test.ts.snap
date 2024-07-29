@@ -1343,7 +1343,6 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key1"
                             id="0"
-                            style=""
                           >
                             <td
                               class="ant-table-cell"
@@ -1405,7 +1404,6 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key2"
                             id="1"
-                            style=""
                           >
                             <td
                               class="ant-table-cell"
@@ -1467,7 +1465,6 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key3"
                             id="2"
-                            style=""
                           >
                             <td
                               class="ant-table-cell"
@@ -35284,7 +35281,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
       test
     </div>
     <div
-      class="ant-pro-table"
+      class="ant-pro-table ant-pro-table-polling"
     >
       <div
         class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -35806,7 +35803,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                 <div
                   class="ant-pro-table-list-toolbar-title"
                 >
-                  上次更新时间：15:22:47
+                  上次更新时间：15:22:51
                 </div>
               </div>
               <div

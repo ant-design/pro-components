@@ -1179,7 +1179,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
   "a": 6,
   "b": 7
 }
-<<<<<<< HEAD
                                                                   </code>
                                                                 </pre>
                                                               </div>
@@ -1193,62 +1192,46 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                                           <div
                                                             class="ant-pro-form-list-action"
                                                           >
-                                                            <div
-                                                              class="ant-spin-nested-loading"
+                                                            <span
+                                                              aria-label="copy"
+                                                              class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
+                                                              role="img"
+                                                              tabindex="-1"
                                                             >
-                                                              <div
-                                                                class="ant-spin-container"
+                                                              <svg
+                                                                aria-hidden="true"
+                                                                data-icon="copy"
+                                                                fill="currentColor"
+                                                                focusable="false"
+                                                                height="1em"
+                                                                viewBox="64 64 896 896"
+                                                                width="1em"
                                                               >
-                                                                <span
-                                                                  aria-label="copy"
-                                                                  class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
-                                                                  role="img"
-                                                                  tabindex="-1"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden="true"
-                                                                    data-icon="copy"
-                                                                    fill="currentColor"
-                                                                    focusable="false"
-                                                                    height="1em"
-                                                                    viewBox="64 64 896 896"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                                                    />
-                                                                  </svg>
-                                                                </span>
-                                                              </div>
-                                                            </div>
-                                                            <div
-                                                              class="ant-spin-nested-loading"
+                                                                <path
+                                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                                />
+                                                              </svg>
+                                                            </span>
+                                                            <span
+                                                              aria-label="delete"
+                                                              class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
+                                                              role="img"
+                                                              tabindex="-1"
                                                             >
-                                                              <div
-                                                                class="ant-spin-container"
+                                                              <svg
+                                                                aria-hidden="true"
+                                                                data-icon="delete"
+                                                                fill="currentColor"
+                                                                focusable="false"
+                                                                height="1em"
+                                                                viewBox="64 64 896 896"
+                                                                width="1em"
                                                               >
-                                                                <span
-                                                                  aria-label="delete"
-                                                                  class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
-                                                                  role="img"
-                                                                  tabindex="-1"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden="true"
-                                                                    data-icon="delete"
-                                                                    fill="currentColor"
-                                                                    focusable="false"
-                                                                    height="1em"
-                                                                    viewBox="64 64 896 896"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                                                                    />
-                                                                  </svg>
-                                                                </span>
-                                                              </div>
-                                                            </div>
+                                                                <path
+                                                                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                                                                />
+                                                              </svg>
+                                                            </span>
                                                           </div>
                                                           <button
                                                             class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
@@ -1325,9 +1308,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                                                                   style="width: max-content; max-width: 100%; min-width: 100%;"
                                                                                 >
                                                                                   <div
-                                                                                    class="ant-pro-form-list-item  
-      ant-pro-form-list-item-default
-      "
+                                                                                    class="ant-pro-form-list-item ant-pro-form-list-item-default"
                                                                                     style="display: flex; align-items: flex-end;"
                                                                                   >
                                                                                     <div
@@ -1547,62 +1528,46 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                                                                                         <div
                                                                                                           class="ant-pro-form-list-action"
                                                                                                         >
-                                                                                                          <div
-                                                                                                            class="ant-spin-nested-loading"
+                                                                                                          <span
+                                                                                                            aria-label="copy"
+                                                                                                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
+                                                                                                            role="img"
+                                                                                                            tabindex="-1"
                                                                                                           >
-                                                                                                            <div
-                                                                                                              class="ant-spin-container"
+                                                                                                            <svg
+                                                                                                              aria-hidden="true"
+                                                                                                              data-icon="copy"
+                                                                                                              fill="currentColor"
+                                                                                                              focusable="false"
+                                                                                                              height="1em"
+                                                                                                              viewBox="64 64 896 896"
+                                                                                                              width="1em"
                                                                                                             >
-                                                                                                              <span
-                                                                                                                aria-label="copy"
-                                                                                                                class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
-                                                                                                                role="img"
-                                                                                                                tabindex="-1"
-                                                                                                              >
-                                                                                                                <svg
-                                                                                                                  aria-hidden="true"
-                                                                                                                  data-icon="copy"
-                                                                                                                  fill="currentColor"
-                                                                                                                  focusable="false"
-                                                                                                                  height="1em"
-                                                                                                                  viewBox="64 64 896 896"
-                                                                                                                  width="1em"
-                                                                                                                >
-                                                                                                                  <path
-                                                                                                                    d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                                                                                                  />
-                                                                                                                </svg>
-                                                                                                              </span>
-                                                                                                            </div>
-                                                                                                          </div>
-                                                                                                          <div
-                                                                                                            class="ant-spin-nested-loading"
+                                                                                                              <path
+                                                                                                                d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                                                                              />
+                                                                                                            </svg>
+                                                                                                          </span>
+                                                                                                          <span
+                                                                                                            aria-label="delete"
+                                                                                                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
+                                                                                                            role="img"
+                                                                                                            tabindex="-1"
                                                                                                           >
-                                                                                                            <div
-                                                                                                              class="ant-spin-container"
+                                                                                                            <svg
+                                                                                                              aria-hidden="true"
+                                                                                                              data-icon="delete"
+                                                                                                              fill="currentColor"
+                                                                                                              focusable="false"
+                                                                                                              height="1em"
+                                                                                                              viewBox="64 64 896 896"
+                                                                                                              width="1em"
                                                                                                             >
-                                                                                                              <span
-                                                                                                                aria-label="delete"
-                                                                                                                class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
-                                                                                                                role="img"
-                                                                                                                tabindex="-1"
-                                                                                                              >
-                                                                                                                <svg
-                                                                                                                  aria-hidden="true"
-                                                                                                                  data-icon="delete"
-                                                                                                                  fill="currentColor"
-                                                                                                                  focusable="false"
-                                                                                                                  height="1em"
-                                                                                                                  viewBox="64 64 896 896"
-                                                                                                                  width="1em"
-                                                                                                                >
-                                                                                                                  <path
-                                                                                                                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                                                                                                                  />
-                                                                                                                </svg>
-                                                                                                              </span>
-                                                                                                            </div>
-                                                                                                          </div>
+                                                                                                              <path
+                                                                                                                d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                                                                                                              />
+                                                                                                            </svg>
+                                                                                                          </span>
                                                                                                         </div>
                                                                                                         <button
                                                                                                           class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
@@ -1716,189 +1681,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                                             </div>
                                                           </div>
                                                         </proformdependency>
-=======
-                                                            </code>
-                                                          </pre>
-                                                        </div>
-                                                      </div>
-                                                      <div
-                                                        class="ant-form-item-extra"
-                                                      >
-                                                        a, b, c.a取自局部
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div
-                                        class="ant-pro-form-list-action"
-                                      >
-                                        <span
-                                          aria-label="copy"
-                                          class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
-                                          role="img"
-                                          tabindex="-1"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="copy"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                            />
-                                          </svg>
-                                        </span>
-                                        <span
-                                          aria-label="delete"
-                                          class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
-                                          role="img"
-                                          tabindex="-1"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="delete"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                                            />
-                                          </svg>
-                                        </span>
-                                      </div>
-                                    </div>
-                                    <button
-                                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="ant-btn-icon"
-                                      >
-                                        <span
-                                          aria-label="plus"
-                                          class="anticon anticon-plus"
-                                          role="img"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="plus"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                                            />
-                                            <path
-                                              d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
-                                            />
-                                          </svg>
-                                        </span>
-                                      </span>
-                                      <span>
-                                        添加一行数据
-                                      </span>
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-space-item"
-            >
-              <div
-                class="ant-pro-form-group"
-              >
-                <div
-                  class="ant-pro-form-group-title"
-                >
-                  c.e
-                </div>
-                <div>
-                  <div
-                    class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                    style="column-gap: 32px; row-gap: 0;"
-                  >
-                    <div
-                      class="ant-space-item"
-                    >
-                      <div
-                        class="ant-pro-form-list"
-                      >
-                        <div
-                          class="ant-form-item"
-                        >
-                          <div
-                            class="ant-row ant-form-item-row"
-                          >
-                            <div
-                              class="ant-col ant-form-item-control"
-                            >
-                              <div
-                                class="ant-form-item-control-input"
-                              >
-                                <div
-                                  class="ant-form-item-control-input-content"
-                                >
-                                  <div
-                                    style="max-width: 100%; min-width: 100%;"
-                                  >
-                                    <div
-                                      class="ant-pro-form-list-item ant-pro-form-list-item-default"
-                                      style="display: flex; align-items: flex-end;"
-                                    >
-                                      <div
-                                        class="ant-pro-form-list-container"
-                                      >
-                                        <div
-                                          class="ant-pro-form-group"
-                                        >
-                                          <div>
-                                            <div
-                                              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                                              style="column-gap: 32px; row-gap: 0;"
-                                            >
-                                              <div
-                                                class="ant-space-item"
-                                              >
-                                                <div
-                                                  class="ant-form-item"
-                                                >
-                                                  <div
-                                                    class="ant-row ant-form-item-row"
-                                                  >
-                                                    <div
-                                                      class="ant-col ant-form-item-label"
-                                                    >
-                                                      <label
-                                                        class=""
-                                                        for="c_e_0_a"
-                                                        title="a"
-                                                      >
-                                                        a
->>>>>>> master
                                                       </label>
                                                     </div>
                                                   </div>
@@ -1908,53 +1690,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                           </div>
                                         </div>
                                       </div>
-<<<<<<< HEAD
-=======
-                                      <div
-                                        class="ant-pro-form-list-action"
-                                      >
-                                        <span
-                                          aria-label="copy"
-                                          class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
-                                          role="img"
-                                          tabindex="-1"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="copy"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                            />
-                                          </svg>
-                                        </span>
-                                        <span
-                                          aria-label="delete"
-                                          class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
-                                          role="img"
-                                          tabindex="-1"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="delete"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                                            />
-                                          </svg>
-                                        </span>
-                                      </div>
->>>>>>> master
                                     </div>
                                   </div>
                                 </div>
@@ -31523,48 +31258,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                             </svg>
                           </span>
                         </span>
-<<<<<<< HEAD
-=======
-                      </div>
-                      <div
-                        class="ant-picker-input"
-                      >
-                        <input
-                          aria-invalid="false"
-                          autocomplete="off"
-                          date-range="end"
-                          placeholder="结束日期"
-                          size="12"
-                          value="2016-11-22"
-                        />
-                      </div>
-                      <div
-                        class="ant-picker-active-bar"
-                        style="position: absolute; width: 0px;"
-                      />
-                      <span
-                        class="ant-picker-suffix"
-                      >
-                        <span
-                          aria-label="calendar"
-                          class="anticon anticon-calendar"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="calendar"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                            />
-                          </svg>
-                        </span>
->>>>>>> master
                       </span>
                     </span>
                   </div>
@@ -31642,48 +31335,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                             </svg>
                           </span>
                         </span>
-<<<<<<< HEAD
-=======
-                      </div>
-                      <div
-                        class="ant-picker-input"
-                      >
-                        <input
-                          aria-invalid="false"
-                          autocomplete="off"
-                          date-range="end"
-                          placeholder="结束日期"
-                          size="12"
-                          value="2016-11-22"
-                        />
-                      </div>
-                      <div
-                        class="ant-picker-active-bar"
-                        style="position: absolute; width: 0px;"
-                      />
-                      <span
-                        class="ant-picker-suffix"
-                      >
-                        <span
-                          aria-label="calendar"
-                          class="anticon anticon-calendar"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="calendar"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                            />
-                          </svg>
-                        </span>
->>>>>>> master
                       </span>
                     </span>
                   </div>
