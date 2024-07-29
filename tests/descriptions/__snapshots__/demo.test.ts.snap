@@ -610,6 +610,8 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
                     style="min-width: 0;"
                   >
                     <div
+                      aria-valuemax="100"
+                      aria-valuemin="0"
                       aria-valuenow="40"
                       class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                       role="progressbar"

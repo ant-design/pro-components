@@ -97,8 +97,12 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
             }
           }}
           style={{
+            flexDirection: 'column',
+            alignItems: 'center',
             ...fieldProps?.style,
-            display: !showUploadButton ? 'none' : undefined,
+            display: !showUploadButton
+              ? 'none'
+              : fieldProps?.style?.display || 'flex',
           }}
         >
           <p className={`${baseClassName}-drag-icon`}>{icon}</p>

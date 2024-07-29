@@ -1,4 +1,5 @@
-﻿import arEG from './locale/ar_EG';
+﻿import { get } from 'rc-util';
+import arEG from './locale/ar_EG';
 import caES from './locale/ca_ES';
 import csCZ from './locale/cs_CZ';
 import deDE from './locale/de_DE';
@@ -28,33 +29,6 @@ import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
 
-/**
- * 安全的从一个对象中读取相应的值
- * @param source
- * @param path
- * @param defaultValue
- * @returns
- */
-function get(
-  source: Record<string, unknown>,
-  path: string,
-  defaultValue?: string,
-): string | undefined {
-  // a[3].b -> a.3.b
-  const paths = path.replace(/\[(\d+)\]/g, '.$1').split('.');
-  let result = source;
-  let message = defaultValue;
-  // eslint-disable-next-line no-restricted-syntax
-  for (const p of paths) {
-    message = Object(result)[p];
-    result = Object(result)[p];
-    if (message === undefined) {
-      return defaultValue;
-    }
-  }
-  return message;
-}
-
 export type IntlType = {
   locale: string;
   getMessage: (id: string, defaultMessage: string) => string;
@@ -70,8 +44,18 @@ export const createIntl = (
   locale: string,
   localeMap: Record<string, any>,
 ): IntlType => ({
-  getMessage: (id: string, defaultMessage: string) =>
-    get(localeMap, id, defaultMessage) || defaultMessage,
+  getMessage: (id: string, defaultMessage: string) => {
+    const msg =
+      get(localeMap, id.replace(/\[(\d+)\]/g, '.$1').split('.')) || '';
+    if (msg) return msg;
+    const localKey = locale.replace('_', '-');
+    if (localKey === 'zh-CN') {
+      return defaultMessage;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    const intl = intlMap['zh-CN'];
+    return intl ? intl.getMessage(id, defaultMessage) : defaultMessage;
+  },
   locale,
 });
 

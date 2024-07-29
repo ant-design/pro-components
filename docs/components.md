@@ -1,5 +1,6 @@
 ---
 title: 组件总览
+apiHeader: false
 order: 0
 ---
 

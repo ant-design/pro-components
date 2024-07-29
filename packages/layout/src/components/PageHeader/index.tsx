@@ -160,26 +160,6 @@ const renderChildren = (
   hashId: string,
 ) => <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>;
 
-const transformBreadcrumbRoutesToItems = (
-  routes?: BreadcrumbProps['routes'],
-): BreadcrumbProps['items'] => {
-  return routes?.map((route) => {
-    return {
-      ...route,
-      breadcrumbName: undefined,
-      children: undefined,
-      title: route.breadcrumbName,
-      ...(route.children?.length
-        ? {
-            menu: {
-              items: transformBreadcrumbRoutesToItems(route.children),
-            },
-          }
-        : {}),
-    };
-  });
-};
-
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState<boolean>(false);
 

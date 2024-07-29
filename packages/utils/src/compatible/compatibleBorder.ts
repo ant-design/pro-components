@@ -1,4 +1,4 @@
-﻿import { Variant } from 'antd/es/form/hooks/useVariants';
+﻿import { Variant } from 'antd/es/config-provider';
 
 /**
  * 兼容 antd 5.13.0 以下版本的 bordered 属性

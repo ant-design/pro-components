@@ -1,6 +1,7 @@
 import { useStyle } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
+import omitjs from 'omit.js';
 import React, { useContext } from 'react';
 import type { ProFieldFC } from '../../PureProField';
 
@@ -31,7 +32,7 @@ const FieldTextAreaReadonly: ProFieldFC<{
     <span
       ref={ref}
       className={classNames(hashId, readonlyClassName, compClassName)}
-      {...fieldProps}
+      {...omitjs(fieldProps, ['autoSize', 'classNames', 'styles'])}
     >
       {text ?? '-'}
     </span>,

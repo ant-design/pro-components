@@ -9,12 +9,13 @@
   ProFormSelect,
   ProFormText,
 } from '@ant-design/pro-components';
+import { ConfigProvider } from 'antd';
 import { useState } from 'react';
 
 const Demo = () => {
   const [position, setPosition] = useState<'bottom' | 'top'>('bottom');
   return (
-    <>
+    <ConfigProvider componentSize="small">
       <ProFormRadio.Group
         fieldProps={{
           value: position,
@@ -119,7 +120,7 @@ const Demo = () => {
           </ProFormGroup>
         </ProFormList>
       </ProForm>
-    </>
+    </ConfigProvider>
   );
 };
 

@@ -399,7 +399,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="position: absolute; width: 0px; left: 0px;"
+                      style="position: absolute; width: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -1092,7 +1092,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="position: absolute; width: 0px; left: 0px;"
+                      style="position: absolute; width: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -1193,7 +1193,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="position: absolute; width: 0px; left: 0px;"
+                      style="position: absolute; width: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -1616,7 +1616,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="position: absolute; width: 0px; left: 0px;"
+                      style="position: absolute; width: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -2309,7 +2309,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="position: absolute; width: 0px; left: 0px;"
+                      style="position: absolute; width: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -2410,7 +2410,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     </div>
                     <div
                       class="ant-picker-active-bar"
-                      style="position: absolute; width: 0px; left: 0px;"
+                      style="position: absolute; width: 0px;"
                     />
                     <span
                       class="ant-picker-suffix"
@@ -3189,6 +3189,8 @@ exports[`Field > 🐴 percent=0 1`] = `
 exports[`Field > 🐴 progress support no number 1`] = `
 <DocumentFragment>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="NaN"
     class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
@@ -3220,6 +3222,8 @@ exports[`Field > 🐴 progress support no number 1`] = `
 exports[`Field > 🐴 progress support string number 1`] = `
 <DocumentFragment>
   <div
+    aria-valuemax="100"
+    aria-valuemin="0"
     aria-valuenow="12"
     class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
     role="progressbar"
@@ -3504,6 +3508,8 @@ exports[`Field > 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuemax="100"
+                    aria-valuemin="0"
                     aria-valuenow="40"
                     class="ant-progress ant-progress-status-active ant-progress-steps ant-progress-show-info ant-progress-small"
                     role="progressbar"
@@ -4119,6 +4125,8 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <div
+                    aria-valuemax="100"
+                    aria-valuemin="0"
                     aria-valuenow="40"
                     class="ant-progress ant-progress-status-active ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-small"
                     role="progressbar"

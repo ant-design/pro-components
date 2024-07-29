@@ -1,9 +1,9 @@
 ﻿/* eslint-disable react-hooks/exhaustive-deps */
 import { useIntl } from '@ant-design/pro-provider';
 import { message } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
+import { get, useMergedState } from 'rc-util';
 import type React from 'react';
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import type {
   ActionRenderConfig,
   ActionTypeText,
@@ -54,6 +54,11 @@ export function useEditableMap<RecordType>(
     setDataSource: (dataSource: RecordType) => void;
   },
 ) {
+  /**
+   * 点击开始编辑之前的保存数据用的
+   */
+  const preEditRowRef = useRef<RecordType | null>(null);
+
   const editableType = props.type || 'single';
 
   // Internationalization
@@ -92,7 +97,7 @@ export function useEditableMap<RecordType>(
    *
    * @param recordKey
    */
-  const startEditable = (recordKey: RecordKey) => {
+  const startEditable = (recordKey: RecordKey, recordValue?: any) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
       warning(
@@ -104,6 +109,15 @@ export function useEditableMap<RecordType>(
       );
       return false;
     }
+    preEditRowRef.current =
+      recordValue ??
+      get(
+        props.dataSource,
+        Array.isArray(recordKey)
+          ? (recordKey as string[])
+          : [recordKey as string],
+      ) ??
+      null;
     editableKeysSet.add(recordKeyToString(recordKey));
     setEditableRowKeys(Array.from(editableKeysSet));
     return true;
@@ -183,6 +197,7 @@ export function useEditableMap<RecordType>(
         setEditableRowKeys,
         saveText,
         cancelText,
+        preEditRowRef,
         deleteText,
         deletePopconfirmMessage: `${intl.getMessage(
           'deleteThisLine',

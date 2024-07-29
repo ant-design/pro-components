@@ -73,4 +73,4 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 
 ### Customized collapsed
 
-<code src="../demos/customize-collapsed.tsx" iframe="580px"></code>
+<code src="../demos/customize-collapsed.tsx" iframe="580"></code>
