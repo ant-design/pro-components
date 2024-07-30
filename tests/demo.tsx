@@ -1,4 +1,5 @@
 import {
+  act,
   cleanup,
   render as reactRender,
   waitFor,
@@ -7,7 +8,6 @@ import { App } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
 import { useEffect } from 'react';
-import { act } from 'react-dom/test-utils';
 type Options = {
   skip?: boolean;
 };

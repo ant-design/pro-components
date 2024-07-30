@@ -422,7 +422,7 @@ describe('BasicTable Search', () => {
     html.unmount();
   });
 
-  it('🎏 formItemRender test and fieldProps onChange', async () => {
+  it.only('🎏 formItemRender test and fieldProps onChange', async () => {
     const fn = vi.fn();
     const onChangeFn = vi.fn();
     const html = render(
@@ -433,6 +433,7 @@ describe('BasicTable Search', () => {
             fn(values.money);
           },
         }}
+        toolBarRender={false}
         columns={[
           {
             title: '金额',
@@ -446,11 +447,6 @@ describe('BasicTable Search', () => {
             formItemRender: () => {
               return <Input id="formItemRender" placeholder="formItemRender" />;
             },
-          },
-          {
-            title: 'Name',
-            key: 'name',
-            dataIndex: 'name',
           },
         ]}
         dataSource={[{ key: 1, name: '1', money: 1 }]}

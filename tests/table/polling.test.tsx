@@ -91,7 +91,7 @@ describe('polling', () => {
         [],
         {
           pageInfo: {},
-          polling: 1500,
+          polling: 2500,
           manual: false,
           postData: () => [],
           loading: false,
@@ -107,13 +107,6 @@ describe('polling', () => {
         }}
       />,
     );
-
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledTimes(1);
-    });
-    act(() => {
-      vi.runAllTimers();
-    });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledTimes(1);

@@ -3,10 +3,20 @@ import { defineConfig } from 'vitest/config';
 
 const moduleNameMapper = {} as Record<string, any>;
 
-['components'].forEach((shortName: string) => {
+[
+  'components',
+  'skeleton',
+  'form',
+  'field',
+  'card',
+  'provider',
+  'table',
+  'layout',
+].forEach((shortName: string) => {
   const name = `@ant-design/pro-${shortName}`;
   moduleNameMapper[name] = join(__dirname, `./packages/${shortName}/src`);
 });
+console.log(moduleNameMapper);
 
 export default defineConfig({
   resolve: {
