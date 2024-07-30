@@ -14,8 +14,9 @@ export type ProFormColorPickerProps =
     popoverProps?: PopoverProps;
     colors?: string[];
   };
+
 /**
- * 数组选择组件
+ * 颜色选择组件
  *
  * @param
  */

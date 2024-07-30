@@ -23,7 +23,7 @@ export type ProFormTreeSelectProps<T = any> = ProFormFieldItemProps<
   ProFormFieldRemoteProps;
 
 /**
- * 级联选择框
+ * 树选择器
  *
  * @param
  */
