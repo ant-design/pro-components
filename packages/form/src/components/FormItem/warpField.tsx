@@ -8,16 +8,16 @@
 import type { FormItemProps } from 'antd';
 import classnames from 'classnames';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
-import { noteOnce } from 'rc-util/es/warning';
 import React, { useContext, useMemo, useState } from 'react';
-import FieldContext from '../FieldContext';
-import { ProFormDependency, ProFormItem } from '../components';
-import { useGridHelpers } from '../helpers';
+import FieldContext from '../../FieldContext';
+import { useGridHelpers } from '../../helpers';
 import type {
   ExtendsProps,
   ProFormFieldItemProps,
   ProFormItemCreateConfig,
-} from '../typing';
+} from '../../typing';
+import ProFormDependency from '../Dependency';
+import ProFormItem from './index';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -56,7 +56,7 @@ type FunctionFieldProps = {
  * @param Field
  * @param config
  */
-export function createField<P extends ProFormFieldItemProps = any>(
+export function warpField<P extends ProFormFieldItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps & FunctionFieldProps> {
@@ -181,12 +181,6 @@ export function createField<P extends ProFormFieldItemProps = any>(
         ...formItemProps,
       }),
       [defaultFormItemProps, formItemProps, messageVariables],
-    );
-
-    noteOnce(
-      // eslint-disable-next-line @typescript-eslint/dot-notation
-      !rest['defaultValue'],
-      '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
 
     const { prefixName } = useContext(RcFieldContext);
@@ -380,3 +374,5 @@ export function createField<P extends ProFormFieldItemProps = any>(
 
   return DependencyWrapper;
 }
+
+export default warpField;

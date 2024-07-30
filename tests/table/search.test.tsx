@@ -422,7 +422,7 @@ describe('BasicTable Search', () => {
     html.unmount();
   });
 
-  it.only('🎏 formItemRender test and fieldProps onChange', async () => {
+  it('🎏 formItemRender test and fieldProps onChange', async () => {
     const fn = vi.fn();
     const onChangeFn = vi.fn();
     const html = render(

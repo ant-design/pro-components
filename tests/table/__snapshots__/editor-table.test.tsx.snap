@@ -217,11 +217,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                               type="button"
                             />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              1
-                            </div>
+                            0
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -266,23 +262,12 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           <td
                             class="ant-table-cell"
                           >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-processing"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                解决中
-                              </span>
-                            </span>
+                            processing
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26
+                            1590486176000
                           </td>
                           <td
                             class="ant-table-cell"
@@ -315,11 +300,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                               type="button"
                             />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              2
-                            </div>
+                            1
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -364,23 +345,12 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           <td
                             class="ant-table-cell"
                           >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-success"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                已解决
-                              </span>
-                            </span>
+                            closed
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26
+                            1590481162000
                           </td>
                           <td
                             class="ant-table-cell"
@@ -413,11 +383,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                               type="button"
                             />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              3
-                            </div>
+                            2
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -462,23 +428,12 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                           <td
                             class="ant-table-cell"
                           >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-error"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                未解决
-                              </span>
-                            </span>
+                            open
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26
+                            1590479665000
                           </td>
                           <td
                             class="ant-table-cell"
@@ -760,11 +715,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                               type="button"
                             />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              1
-                            </div>
+                            0
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -809,23 +760,12 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           <td
                             class="ant-table-cell"
                           >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-processing"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                解决中
-                              </span>
-                            </span>
+                            processing
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26
+                            1590486176000
                           </td>
                           <td
                             class="ant-table-cell"
@@ -858,11 +798,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
                               type="button"
                             />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              2
-                            </div>
+                            1
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -907,23 +843,12 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           <td
                             class="ant-table-cell"
                           >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-success"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                已解决
-                              </span>
-                            </span>
+                            closed
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26
+                            1590481162000
                           </td>
                           <td
                             class="ant-table-cell"
@@ -956,11 +881,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                               class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                               type="button"
                             />
-                            <div
-                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                            >
-                              3
-                            </div>
+                            2
                           </td>
                           <td
                             class="ant-table-cell ant-table-cell-ellipsis"
@@ -1005,23 +926,12 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                           <td
                             class="ant-table-cell"
                           >
-                            <span
-                              class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                            >
-                              <span
-                                class="ant-badge-status-dot ant-badge-status-error"
-                              />
-                              <span
-                                class="ant-badge-status-text"
-                              >
-                                未解决
-                              </span>
-                            </span>
+                            open
                           </td>
                           <td
                             class="ant-table-cell"
                           >
-                            2020-05-26
+                            1590479665000
                           </td>
                           <td
                             class="ant-table-cell"

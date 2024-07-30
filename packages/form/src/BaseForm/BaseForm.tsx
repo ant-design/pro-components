@@ -218,7 +218,7 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
+export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
 
 /**
  * It takes a name path and converts it to an array.
@@ -491,7 +491,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
 /** 自动的formKey 防止重复 */
 let requestFormCacheId = 0;
 
-function BaseForm<T = Record<string, any>, U = Record<string, any>>(
+export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U>,
 ) {
   const {
@@ -821,6 +821,3 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     </EditOrReadOnlyContext.Provider>,
   );
 }
-
-export { BaseForm };
-export type { FormInstance, FormItemProps, FormProps, ProFormInstance };

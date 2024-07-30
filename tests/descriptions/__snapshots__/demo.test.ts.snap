@@ -1277,167 +1277,41 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/cus
       test
     </div>
     <div
-      class="ant-descriptions ant-pro-descriptions"
+      class="ant-result ant-result-error"
     >
       <div
-        class="ant-descriptions-header"
+        class="ant-result-icon"
       >
-        <div
-          class="ant-descriptions-title"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          自定义 valueType
-        </div>
-        <div
-          class="ant-descriptions-extra"
-        >
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <div
-              class="ant-space-item"
-            >
-              <div
-                class="ant-pro-field-option"
-                style="display: flex; gap: 16px; align-items: center;"
-              >
-                <a>
-                  刷新
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
       </div>
       <div
-        class="ant-descriptions-view"
+        class="ant-result-title"
       >
-        <table>
-          <tbody>
-            <tr
-              class="ant-descriptions-row"
-            >
-              <td
-                class="ant-descriptions-item"
-                colspan="1"
-              >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    链接
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                    style="min-width: 0;"
-                  >
-                    <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                    >
-                      <div
-                        class="ant-space-item"
-                      >
-                        <a>
-                          TradeCode 1
-                        </a>
-                      </div>
-                      <div
-                        class="ant-space-item"
-                      >
-                        <span
-                          aria-label="edit"
-                          class="anticon anticon-edit"
-                          role="img"
-                          tabindex="-1"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="edit"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </span>
-                </div>
-              </td>
-            </tr>
-            <tr
-              class="ant-descriptions-row"
-            >
-              <td
-                class="ant-descriptions-item"
-                colspan="1"
-              >
-                <div
-                  class="ant-descriptions-item-container"
-                >
-                  <span
-                    class="ant-descriptions-item-label"
-                  >
-                    标签
-                  </span>
-                  <span
-                    class="ant-descriptions-item-content"
-                    style="min-width: 0;"
-                  >
-                    <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                    >
-                      <div
-                        class="ant-space-item"
-                      >
-                        <span
-                          class="ant-tag"
-                        >
-                          close
-                        </span>
-                        <span
-                          class="ant-tag"
-                        >
-                          close
-                        </span>
-                      </div>
-                      <div
-                        class="ant-space-item"
-                      >
-                        <span
-                          aria-label="edit"
-                          class="anticon anticon-edit"
-                          role="img"
-                          tabindex="-1"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="edit"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                    </div>
-                  </span>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        Something went wrong.
+      </div>
+      <div
+        class="ant-result-extra"
+      >
+        Objects are not valid as a React child (found: object with keys {value, label}). If you meant to render a collection of children, use an array instead.
       </div>
     </div>
   </div>
@@ -2063,27 +1937,47 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                           <div
                                             class="ant-form-item-control-input-content"
                                           >
-                                            <button
-                                              aria-checked="false"
-                                              class="ant-switch"
-                                              id="loading"
-                                              role="switch"
-                                              type="button"
+                                            <span
+                                              class="ant-input-affix-wrapper ant-input-outlined"
                                             >
-                                              <div
-                                                class="ant-switch-handle"
+                                              <input
+                                                class="ant-input"
+                                                id="loading"
+                                                placeholder="请输入"
+                                                type="text"
+                                                value=""
                                               />
                                               <span
-                                                class="ant-switch-inner"
+                                                class="ant-input-suffix"
                                               >
                                                 <span
-                                                  class="ant-switch-inner-checked"
-                                                />
-                                                <span
-                                                  class="ant-switch-inner-unchecked"
-                                                />
+                                                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                                  role="button"
+                                                  tabindex="-1"
+                                                >
+                                                  <span
+                                                    aria-label="close-circle"
+                                                    class="anticon anticon-close-circle"
+                                                    role="img"
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      data-icon="close-circle"
+                                                      fill="currentColor"
+                                                      fill-rule="evenodd"
+                                                      focusable="false"
+                                                      height="1em"
+                                                      viewBox="64 64 896 896"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                                      />
+                                                    </svg>
+                                                  </span>
+                                                </span>
                                               </span>
-                                            </button>
+                                            </span>
                                           </div>
                                         </div>
                                       </div>
@@ -2265,27 +2159,47 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                           <div
                                             class="ant-form-item-control-input-content"
                                           >
-                                            <button
-                                              aria-checked="false"
-                                              class="ant-switch"
-                                              id="bordered"
-                                              role="switch"
-                                              type="button"
+                                            <span
+                                              class="ant-input-affix-wrapper ant-input-outlined"
                                             >
-                                              <div
-                                                class="ant-switch-handle"
+                                              <input
+                                                class="ant-input"
+                                                id="bordered"
+                                                placeholder="请输入"
+                                                type="text"
+                                                value=""
                                               />
                                               <span
-                                                class="ant-switch-inner"
+                                                class="ant-input-suffix"
                                               >
                                                 <span
-                                                  class="ant-switch-inner-checked"
-                                                />
-                                                <span
-                                                  class="ant-switch-inner-unchecked"
-                                                />
+                                                  class="ant-input-clear-icon ant-input-clear-icon-hidden"
+                                                  role="button"
+                                                  tabindex="-1"
+                                                >
+                                                  <span
+                                                    aria-label="close-circle"
+                                                    class="anticon anticon-close-circle"
+                                                    role="img"
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      data-icon="close-circle"
+                                                      fill="currentColor"
+                                                      fill-rule="evenodd"
+                                                      focusable="false"
+                                                      height="1em"
+                                                      viewBox="64 64 896 896"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                                      />
+                                                    </svg>
+                                                  </span>
+                                                </span>
                                               </span>
-                                            </button>
+                                            </span>
                                           </div>
                                         </div>
                                       </div>

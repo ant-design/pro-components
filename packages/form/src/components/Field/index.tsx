@@ -7,8 +7,8 @@ import {
 } from '@ant-design/pro-utils';
 import React, { memo, useContext, useMemo } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
-import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../typing';
+import warpField from '../FormItem/warpField';
 
 export type ProFormFieldProps<
   T = any,
@@ -133,7 +133,7 @@ const BaseProFormField: React.FC<
   );
 };
 
-const ProFormField = createField<ProFormFieldProps>(
+const ProFormField = warpField<ProFormFieldProps>?.(
   memo(BaseProFormField, (prevProps, nextProps) => {
     return isDeepEqualReact(nextProps, prevProps, ['onChange', 'onBlur']);
   }),

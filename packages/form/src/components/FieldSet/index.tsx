@@ -5,9 +5,9 @@ import type { GroupProps } from 'antd/es/input';
 import toArray from 'rc-util/es/Children/toArray';
 import React, { useCallback, useImperativeHandle, useMemo } from 'react';
 import type { LightWrapperProps } from '../../BaseForm';
-import { createField } from '../../BaseForm/createField';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormItemProps } from '../FormItem';
+import warpField from '../FormItem/warpField';
 
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
@@ -145,7 +145,8 @@ const BaseProFormFieldSet: React.FC<
   );
 });
 
-const ProFormFieldSet =
-  createField<Omit<ProFormItemProps, 'children'>>(BaseProFormFieldSet);
+const ProFormFieldSet = warpField<Omit<ProFormItemProps, 'children'>>?.(
+  BaseProFormFieldSet,
+);
 
 export default ProFormFieldSet as typeof BaseProFormFieldSet;

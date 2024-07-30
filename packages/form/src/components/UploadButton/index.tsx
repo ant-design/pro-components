@@ -3,8 +3,8 @@ import type { ButtonProps, UploadProps } from 'antd';
 import { Button, Upload } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
-import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../typing';
+import warpField from '../FormItem/warpField';
 
 type PickUploadProps = Pick<
   UploadProps<any>,
@@ -122,7 +122,7 @@ const BaseProFormUploadButton: React.ForwardRefRenderFunction<
   );
 };
 
-const ProFormUploadButton = createField<ProFormUploadButtonProps>(
+const ProFormUploadButton = warpField<ProFormUploadButtonProps>?.(
   React.forwardRef(BaseProFormUploadButton),
   {
     getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>

@@ -3,8 +3,8 @@ import { ConfigProvider, Upload } from 'antd';
 import type { DraggerProps, UploadProps } from 'antd/es/upload';
 import React, { useContext } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
-import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../typing';
+import warpField from '../FormItem/warpField';
 
 export type ProFormUploadDraggerProps = ProFormFieldItemProps<DraggerProps> & {
   /**
@@ -123,7 +123,7 @@ const BaseProFormUploadDragger: React.FC<ProFormUploadDraggerProps> =
     },
   );
 
-const ProFormUploadDragger = createField<ProFormUploadDraggerProps>(
+const ProFormUploadDragger = warpField<ProFormUploadDraggerProps>?.(
   BaseProFormUploadDragger,
   {
     getValueFromEvent: (value: { fileList: UploadProps['fileList'] }) =>
