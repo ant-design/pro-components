@@ -4,6 +4,7 @@ import type { DatePickerProps } from 'antd/es/date-picker';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type { ProFormFieldItemProps } from '../../typing';
+import { ProFormTimeRangePicker } from '../DateRangePicker/TimeRangePicker';
 import ProField from '../Field';
 
 const valueType = 'time' as const;
@@ -49,7 +50,10 @@ const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
   );
 };
 
-const WrappedProFormTimePicker: typeof ProFormTimePicker & {} =
-  ProFormTimePicker as any;
+const WrappedProFormTimePicker: typeof ProFormTimePicker & {
+  RangePicker: typeof ProFormTimeRangePicker;
+} = ProFormTimePicker as any;
+
+WrappedProFormTimePicker.RangePicker = ProFormTimeRangePicker;
 
 export default WrappedProFormTimePicker;

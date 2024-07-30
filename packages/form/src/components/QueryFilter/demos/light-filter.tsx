@@ -210,6 +210,23 @@ export default () => {
           <ProFormText />
         </ProFormFieldSet>
       </LightFilter>
+
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormSelect
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+        />
+        <ProFormDateTimePicker name="datetime" label="日期时间" />
+      </LightFilter>
     </div>
   );
 };
