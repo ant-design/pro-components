@@ -45,5 +45,5 @@ return <Skeleton type="list" />;
 | statistic | number of statistic skeleton screens | `number` \| `false` | - |
 | list | skeleton screen of the list, you can control the number | `number` \| `false` | - |
 | toolbar | Action bar skeleton screen of the list | boolean | - |
-| renderFormItem | Customize the dom performance under `mode=update or edit`, generally used to render edit boxes | - | - |
+| formItemRender | Customize the dom performance under `mode=update or edit`, generally used to render edit boxes | - | - |
 | render | Customize the dom performance under `mode=read`, which is just a simple form of expression | - | - |

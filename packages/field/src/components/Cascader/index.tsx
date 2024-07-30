@@ -16,17 +16,14 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
-
-// 兼容代码-----------
-import 'antd/lib/cascader/style';
-//----------------------
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
+  placeholder?: string;
 } & FieldSelectProps;
 
 /**
@@ -36,7 +33,16 @@ export type GroupProps = {
  * @param ref
  */
 const FieldCascader: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, render, label, light, ...rest },
+  {
+    radioType,
+    placeholder,
+    formItemRender,
+    mode,
+    render,
+    label,
+    light,
+    ...rest
+  },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -112,7 +118,10 @@ const FieldCascader: ProFieldFC<GroupProps> = (
         ref={cascaderRef}
         open={open}
         suffixIcon={loading ? <LoadingOutlined /> : undefined}
-        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+        placeholder={
+          placeholder ||
+          intl.getMessage('tableForm.selectPlaceholder', '请选择')
+        }
         allowClear={rest.fieldProps?.allowClear !== false}
         {...rest.fieldProps}
         onDropdownVisibleChange={(isOpen) => {
@@ -124,9 +133,9 @@ const FieldCascader: ProFieldFC<GroupProps> = (
       />
     );
 
-    if (renderFormItem) {
+    if (formItemRender) {
       dom =
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...rest.fieldProps, options, loading },
           dom,

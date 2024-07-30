@@ -164,19 +164,19 @@ recordCreatorProps = {
 };
 ```
 
-### renderFormItem Custom Edit Component
+### formItemRender Custom Edit Component
 
-As much as we would like the default valueType to meet all our needs, the reality is often not as good as it could be. So we also provide `renderFormItem` to customize the edit input component.
+As much as we would like the default valueType to meet all our needs, the reality is often not as good as it could be. So we also provide `formItemRender` to customize the edit input component.
 
-`renderFormItem` can be understood as adding an element below Form.
+`formItemRender` can be understood as adding an element below Form.
 
 ```typescript
-const dom = renderFormItem();
+const dom = formItemRender();
 
 <Form.Item>{dom}</Form.Item>;
 ```
 
-So as with Form.Item, we assume that the components returned by `renderFormItem` have `value` and `onChange`, and we'll see next that putting a simple TagList component into an editable form with `renderFormItem`.
+So as with Form.Item, we assume that the components returned by `formItemRender` have `value` and `onChange`, and we'll see next that putting a simple TagList component into an editable form with `formItemRender`.
 
 > Without `value` you won't be able to inject values and without `onChange` you won't be able to modify the row data!
 
@@ -251,7 +251,7 @@ In the column we can configure it like this.
     title: 'labels',
     dataIndex: 'labels',
     width: '40%',
-    renderFormItem: () => <TagList />,
+    formItemRender: () => <TagList />,
     render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
   },
 ```
@@ -262,7 +262,7 @@ The effect of the transformed edit form is as follows.
 
 value and onChange are injected automatically, we don't need to inject them explicitly. Data binding is also injected by the edit form itself, and we can get the finished data in `onSave`. Although we can write complex logic and even web requests inline, we recommend using the split component, which not only provides better performance, but also allows the logic to be split very simply.
 
-> `renderFormItem` is also used to generate query forms, if we need to distinguish between the two cases, we can use `renderFormItem: (_, { isEditable }) => (isEditable ? <TagList /> : <Input /> )` to render them separately.
+> `formItemRender` is also used to generate query forms, if we need to distinguish between the two cases, we can use `formItemRender: (_, { isEditable }) => (isEditable ? <TagList /> : <Input /> )` to render them separately.
 
 ### actionRender Custom Action Bar
 

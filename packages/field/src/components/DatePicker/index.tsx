@@ -8,11 +8,7 @@ import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 import React, { useState } from 'react';
-import type { ProFieldFC, ProFieldLightProps } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/date-picker/style';
-//----------------------
+import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 dayjs.extend(weekOfYear);
 
@@ -35,7 +31,7 @@ const formatDate = (text: any, format: any) => {
 const FieldDatePicker: ProFieldFC<
   {
     text: string | number;
-    format: string;
+    format?: string;
     showTime?: boolean;
     bordered?: boolean;
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
@@ -44,11 +40,11 @@ const FieldDatePicker: ProFieldFC<
   {
     text,
     mode,
-    format,
+    format = 'YYYY-MM-DD',
     label,
     light,
     render,
-    renderFormItem,
+    formItemRender,
     plain,
     showTime,
     fieldProps,
@@ -133,8 +129,8 @@ const FieldDatePicker: ProFieldFC<
         />
       );
     }
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

@@ -68,7 +68,7 @@ class CustomBoundary extends React.Component<
                     ）
                   </li>
                   <li>
-                    异步代码（例如 <code>setTimeout</code> 或{' '}
+                    异步代码（例如 <code>setTimeout</code> 或
                     <code>requestAnimationFrame</code> 回调函数）
                   </li>
                   <li>服务端渲染</li>

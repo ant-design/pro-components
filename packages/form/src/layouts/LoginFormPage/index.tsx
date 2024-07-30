@@ -176,8 +176,7 @@ export function LoginFormPage<T = Record<string, any>>(
             >
               {activityConfig.title && (
                 <div className={getCls('notice-activity-title')}>
-                  {' '}
-                  {activityConfig.title}{' '}
+                  {activityConfig.title}
                 </div>
               )}
               {activityConfig.subTitle && (

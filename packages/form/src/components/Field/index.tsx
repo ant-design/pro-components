@@ -1,4 +1,4 @@
-import ProField from '@ant-design/pro-field';
+import { PureProField } from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import {
   isDeepEqualReact,
@@ -7,8 +7,8 @@ import {
 } from '@ant-design/pro-utils';
 import React, { memo, useContext, useMemo } from 'react';
 import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
-import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../typing';
+import warpField from '../FormItem/warpField';
 
 export type ProFormFieldProps<
   T = any,
@@ -49,7 +49,7 @@ const BaseProFormField: React.FC<
     isDefaultDom,
     render,
     proFieldProps,
-    renderFormItem,
+    formItemRender,
     valueType,
     initialValue,
     onChange,
@@ -117,10 +117,10 @@ const BaseProFormField: React.FC<
   }
 
   return (
-    <ProField
+    <PureProField
       text={fieldProps?.[valuePropName]}
       render={render as any}
-      renderFormItem={renderFormItem as any}
+      formItemRender={formItemRender as any}
       valueType={(valueType as 'text') || 'text'}
       cacheForSwr={cacheForSwr}
       fieldProps={memoFieldProps}
@@ -133,7 +133,7 @@ const BaseProFormField: React.FC<
   );
 };
 
-const ProFormField = createField<ProFormFieldProps>(
+const ProFormField = warpField<ProFormFieldProps>?.(
   memo(BaseProFormField, (prevProps, nextProps) => {
     return isDeepEqualReact(nextProps, prevProps, ['onChange', 'onBlur']);
   }),

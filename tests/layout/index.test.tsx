@@ -3,8 +3,7 @@ import {
   InfoCircleFilled,
   QuestionCircleFilled,
 } from '@ant-design/icons';
-import { ProLayout } from '@ant-design/pro-components';
-import { LoginForm, ProFormText } from '@ant-design/pro-form';
+import { LoginForm, ProFormText, ProLayout } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -13,7 +12,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, ConfigProvider } from 'antd';
-import en_US from 'antd/lib/locale/en_US';
+import en_US from 'antd/es/locale/en_US';
 import React, { useState } from 'react';
 import { waitForWaitTime } from '../util';
 import { bigDefaultProps } from './defaultProps';
@@ -23,12 +22,6 @@ afterEach(() => {
 });
 
 describe('BasicLayout', () => {
-  beforeEach(() => {
-    delete process.env.ANTD_VERSION;
-  });
-  afterEach(() => {
-    delete process.env.ANTD_VERSION;
-  });
   beforeAll(() => {
     process.env.NODE_ENV = 'TEST';
     const matchMediaSpy = vi.spyOn(window, 'matchMedia');
@@ -46,14 +39,6 @@ describe('BasicLayout', () => {
   it('🥩 base use', async () => {
     const html = render(<ProLayout />);
     expect(html.asFragment()).toMatchSnapshot();
-    html.unmount();
-  });
-
-  it('🥩 compatibleStyle', async () => {
-    process.env.ANTD_VERSION = '4.0.0';
-    const html = render(<ProLayout>{process.env.ANTD_VERSION}</ProLayout>);
-    expect(html.asFragment()).toMatchSnapshot();
-    delete process.env.ANTD_VERSION;
     html.unmount();
   });
 
@@ -217,7 +202,7 @@ describe('BasicLayout', () => {
     });
 
     await waitFor(() => {
-      expect(itemClicking).toBeCalled();
+      expect(itemClicking).toHaveBeenCalled();
     });
 
     wrapper.unmount();
@@ -335,7 +320,7 @@ describe('BasicLayout', () => {
     });
 
     await waitFor(() => {
-      expect(itemClicking).toBeCalled();
+      expect(itemClicking).toHaveBeenCalled();
     });
 
     wrapper.unmount();
@@ -818,6 +803,26 @@ describe('BasicLayout', () => {
     });
   });
 
+  it('🥩 do not render bgListDom', async () => {
+    const wrapper = render(
+      <ProLayout
+        token={{
+          bgLayout: null,
+        }}
+        menuExtraRender={() => <div>menuExtraRender</div>}
+        menuHeaderRender={false}
+      />,
+    );
+    await waitForWaitTime(100);
+    const dom = wrapper.baseElement.querySelector<HTMLDivElement>(
+      '.ant-pro-layout-bg-list',
+    );
+    expect(!!dom).toBeFalsy();
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
   it('🥩 customize render menu header', async () => {
     const wrapper = render(
       <ProLayout
@@ -965,7 +970,7 @@ describe('BasicLayout', () => {
       );
     });
 
-    expect(onPageChange).toBeCalled();
+    expect(onPageChange).toHaveBeenCalled();
     await waitForWaitTime(100);
     act(() => {
       wrapper.unmount();
@@ -1008,7 +1013,7 @@ describe('BasicLayout', () => {
         .querySelector<HTMLDivElement>('div.ant-pro-global-header-logo')
         ?.click();
     });
-    expect(onMenuHeaderClick).toBeCalled();
+    expect(onMenuHeaderClick).toHaveBeenCalled();
   });
 
   it('🥩 renderPageTitle return value should is string', async () => {
@@ -1027,7 +1032,7 @@ describe('BasicLayout', () => {
     );
 
     await waitFor(() => {
-      expect(renderPageTitle).toBeCalled();
+      expect(renderPageTitle).toHaveBeenCalled();
     });
   });
 
@@ -1533,7 +1538,7 @@ describe('BasicLayout', () => {
       domLink?.click();
     });
     await waitForWaitTime(100);
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
   });
 
   it('🥩 ProLayout support menu.request', async () => {
@@ -1601,7 +1606,7 @@ describe('BasicLayout', () => {
     render(<Demo />);
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -1609,7 +1614,7 @@ describe('BasicLayout', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -1637,7 +1642,7 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
 
     act(() => {
       html.rerender(
@@ -1654,8 +1659,8 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(100);
 
-    expect(fn).toBeCalledTimes(2);
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledTimes(2);
+    expect(fn).toHaveBeenCalledWith({
       id: '1212',
     });
     act(() => {
@@ -1672,8 +1677,8 @@ describe('BasicLayout', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fn).toBeCalledTimes(3);
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledTimes(3);
+    expect(fn).toHaveBeenCalledWith({
       id: '123',
     });
 
@@ -1691,7 +1696,7 @@ describe('BasicLayout', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fn).toBeCalledTimes(3);
+    expect(fn).toHaveBeenCalledTimes(3);
   });
 
   it('🥩 ProLayout support menu.defaultOpenAll', async () => {
@@ -2009,7 +2014,7 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(1000);
 
-    expect(onCollapse).toBeCalledTimes(2);
+    expect(onCollapse).toHaveBeenCalledTimes(2);
     expect(
       html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
     ).toBe(2);

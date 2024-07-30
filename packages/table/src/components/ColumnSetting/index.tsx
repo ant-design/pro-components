@@ -16,8 +16,8 @@ import {
   Typography,
   type TableColumnType,
 } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
-import type { DataNode } from 'antd/lib/tree';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { DataNode } from 'antd/es/tree';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, { useContext, useEffect, useMemo, useRef } from 'react';

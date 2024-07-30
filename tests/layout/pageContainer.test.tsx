@@ -477,7 +477,7 @@ describe('PageContainer', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('info');
+      expect(fn).toHaveBeenCalledWith('info');
     });
   });
 

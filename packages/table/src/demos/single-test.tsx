@@ -105,7 +105,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       noStyle: true,
     },
     ignoreFormItem: true,
-    renderFormItem: () => {
+    formItemRender: () => {
       return <Input />;
     },
   },
@@ -118,7 +118,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     formItemProps: {
       noStyle: true,
     },
-    renderFormItem: (_, { defaultRender }) => defaultRender(_),
+    formItemRender: (_, { defaultRender }) => defaultRender(_),
     render: (_, record) => (
       <Space>
         {record.labels.map(({ name, color }) => (

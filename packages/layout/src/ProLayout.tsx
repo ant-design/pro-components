@@ -12,14 +12,14 @@ import {
   useMountMergeState,
 } from '@ant-design/pro-utils';
 import { getMatchMenu } from '@umijs/route-utils';
-import type { BreadcrumbProps } from 'antd';
+import type { BreadcrumbProps, WatermarkProps } from 'antd';
 import { ConfigProvider, Layout } from 'antd';
 import type { AnyObject } from 'antd/es/_util/type';
 import type { ItemType } from 'antd/es/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
 import Omit from 'omit.js';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import warning from 'rc-util/lib/warning';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
+import warning from 'rc-util/es/warning';
 import type { CSSProperties } from 'react';
 import React, {
   useCallback,
@@ -38,7 +38,6 @@ import { PageLoading } from './components/PageLoading';
 import { SiderMenu } from './components/SiderMenu';
 import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
 import type { SiderMenuToken } from './components/SiderMenu/style';
-import type { WaterMarkProps } from './components/WaterMark';
 import { RouteContext } from './context/RouteContext';
 import type { ProSettings } from './defaultSettings';
 import { defaultSettings } from './defaultSettings';
@@ -243,7 +242,7 @@ export type ProLayoutProps = GlobalTypes & {
   breadcrumbProps?: Omit<BreadcrumbProps, 'itemRender'> & LayoutBreadcrumbProps;
 
   /** @name 水印的相关配置 */
-  waterMarkProps?: WaterMarkProps;
+  waterMarkProps?: WatermarkProps;
 
   /**
    * @name 操作菜单重新刷新
@@ -332,6 +331,7 @@ const renderSiderMenu = (
   }
   // 这里走了可以少一次循环
   const clearMenuData = clearMenuItem(menuData || []);
+
   if (
     clearMenuData &&
     clearMenuData?.length < 1 &&
@@ -497,7 +497,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       setMenuLoading(true);
       const menuDataItems = await menu?.request?.(
         params || {},
-        route?.children || route?.routes || [],
+        route?.children || [],
       );
       setMenuLoading(false);
       return menuDataItems;
@@ -529,12 +529,12 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }>(
     () =>
       getMenuData(
-        data || route?.children || route?.routes || [],
+        data || route?.children || [],
         menu,
         formatMessage,
         menuDataRender,
       ),
-    [formatMessage, menu, menuDataRender, data, route?.children, route?.routes],
+    [formatMessage, menu, menuDataRender, data, route?.children],
   );
 
   const { breadcrumb, breadcrumbMap, menuData = [] } = menuInfoData || {};

@@ -148,7 +148,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
                   )
               : undefined,
             render: originItem.render,
-            renderFormItem: originItem.renderFormItem,
+            formItemRender: originItem.formItemRender,
             renderText: originItem.renderText,
             request: originItem.request,
             params: originItem.params,

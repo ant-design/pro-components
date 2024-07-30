@@ -24,8 +24,6 @@ import {
 } from '@ant-design/pro-provider';
 import { compareVersions } from './compareVersions';
 import { coverToNewToken } from './compareVersions/coverToNewToken';
-import { menuOverlayCompatible } from './compareVersions/menuOverlayCompatible';
-import { openVisibleCompatible } from './compareVersions/openVisibleCompatible';
 import { useDebounceFn } from './hooks/useDebounceFn';
 import { useDebounceValue } from './hooks/useDebounceValue';
 import {
@@ -106,14 +104,12 @@ export {
   isUrl,
   LabelIconTip,
   lighten,
-  menuOverlayCompatible,
   merge,
   nanoid,
   objectToMap,
   omitBoolean,
   omitUndefined,
   omitUndefinedAndEmptyArr,
-  openVisibleCompatible,
   operationUnit,
   parseValueToDay,
   pickProFormItemProps,

@@ -1,21 +1,12 @@
 import { ProConfigProvider, useIntl } from '@ant-design/pro-provider';
-import { compareVersions, merge, useRefFunction } from '@ant-design/pro-utils';
+import { merge, useRefFunction } from '@ant-design/pro-utils';
 import type { FormInstance, StepsProps } from 'antd';
-import {
-  Button,
-  Col,
-  ConfigProvider,
-  Form,
-  Row,
-  Space,
-  Steps,
-  version,
-} from 'antd';
+import { Button, Col, ConfigProvider, Form, Row, Space, Steps } from 'antd';
 
-import type { FormProviderProps } from 'antd/lib/form/context';
+import type { FormProviderProps } from 'antd/es/form/context';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import toArray from 'rc-util/es/Children/toArray';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, {
   useCallback,
   useContext,
@@ -25,7 +16,7 @@ import React, {
   useState,
 } from 'react';
 import type { ProFormInstance } from '../../BaseForm';
-import type { SubmitterProps } from '../../components';
+import type { SubmitterProps } from '../../BaseForm/Submitter';
 import type { ProFormProps } from '../ProForm';
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
@@ -286,19 +277,16 @@ function StepsForm<T = Record<string, any>>(
   );
 
   const stepsDom = useMemo(() => {
-    const isNewAntd = compareVersions(version, '4.24.0') > -1;
-    const itemsProps = isNewAntd
-      ? {
-          items: formArray.map((item) => {
-            const itemProps = formMapRef.current.get(item);
-            return {
-              key: item,
-              title: itemProps?.title,
-              ...itemProps?.stepProps,
-            };
-          }),
-        }
-      : {};
+    const itemsProps = {
+      items: formArray.map((item) => {
+        const itemProps = formMapRef.current.get(item);
+        return {
+          key: item,
+          title: itemProps?.title,
+          ...itemProps?.stepProps,
+        };
+      }),
+    };
 
     return (
       <div
@@ -312,19 +300,7 @@ function StepsForm<T = Record<string, any>>(
           {...itemsProps}
           current={step}
           onChange={undefined}
-        >
-          {!isNewAntd &&
-            formArray.map((item) => {
-              const itemProps = formMapRef.current.get(item);
-              return (
-                <Steps.Step
-                  key={item}
-                  title={itemProps?.title}
-                  {...itemProps?.stepProps}
-                />
-              );
-            })}
-        </Steps>
+        />
       </div>
     );
   }, [formArray, hashId, prefixCls, step, stepsProps]);

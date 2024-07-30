@@ -7,7 +7,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
   >
     <div
       class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      style="border-start-end-radius: 0; border-top-left-radius: 0px;"
     >
       <div
         class="ant-card-body"
@@ -24,7 +24,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           style="width: 100%; justify-content: space-between; display: flex;"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 0; padding-inline-end: 24px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -64,47 +64,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 24px; padding-inline-end: 0;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -159,7 +119,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             style="width: 100%; justify-content: space-between; display: flex;"
           >
             <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 24px; max-width: 300px;"
             >
               <div
                 class="ant-skeleton ant-skeleton-active"
@@ -199,7 +159,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
               </div>
             </div>
             <div
-              style="flex: 1; align-items: center; justify-content: center;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; align-items: center; justify-content: center;"
             >
               <div
                 style="max-width: 300px; margin: auto;"
@@ -261,7 +221,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           style="display: flex; background: rgba(0, 0, 0, 0.02); padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 0; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -277,7 +237,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -293,23 +253,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 75px; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -326,7 +270,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -335,10 +279,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -354,7 +298,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -370,23 +314,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -403,7 +331,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -412,10 +340,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -431,7 +359,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -447,23 +375,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -480,7 +392,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -489,10 +401,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -508,7 +420,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -524,23 +436,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -557,7 +453,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -566,10 +462,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -585,7 +481,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -601,23 +497,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -634,7 +514,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -643,10 +523,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -662,7 +542,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -678,23 +558,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -711,7 +575,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -720,10 +584,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -739,7 +603,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -755,23 +619,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -788,7 +636,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -797,10 +645,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -816,7 +664,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -832,23 +680,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -865,7 +697,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -874,10 +706,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -893,7 +725,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -909,23 +741,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -942,7 +758,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -951,10 +767,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -970,7 +786,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -986,23 +802,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1019,7 +819,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -1028,10 +828,10 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1047,7 +847,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1063,23 +863,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1096,7 +880,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -1115,7 +899,7 @@ exports[`skeleton > 🥩 descriptions api use 1`] = `
             >
               <h3
                 class="ant-skeleton-title"
-                style="margin: 0px; height: 32px; float: right; max-width: 630px;"
+                style="margin: 0px; height: 32px; css-float: right; max-width: 630px;"
               />
             </div>
           </div>
@@ -1133,7 +917,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
   >
     <div
       class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      style="border-start-end-radius: 0; border-top-left-radius: 0px;"
     >
       <div
         class="ant-card-body"
@@ -1150,7 +934,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           style="width: 100%; justify-content: space-between; display: flex;"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 0; padding-inline-end: 24px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1190,47 +974,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 24px; padding-inline-end: 0;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1285,7 +1029,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             style="width: 100%; justify-content: space-between; display: flex;"
           >
             <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 24px; max-width: 300px;"
             >
               <div
                 class="ant-skeleton ant-skeleton-active"
@@ -1325,7 +1069,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
               </div>
             </div>
             <div
-              style="flex: 1; align-items: center; justify-content: center;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; align-items: center; justify-content: center;"
             >
               <div
                 style="max-width: 300px; margin: auto;"
@@ -1387,7 +1131,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           style="display: flex; background: rgba(0, 0, 0, 0.02); padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 0; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1403,7 +1147,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1419,23 +1163,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 75px; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1452,7 +1180,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -1461,10 +1189,10 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1480,7 +1208,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1496,23 +1224,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1529,7 +1241,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -1538,10 +1250,10 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1557,7 +1269,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1573,23 +1285,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1606,7 +1302,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -1615,10 +1311,10 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1634,7 +1330,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1650,23 +1346,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1683,7 +1363,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -1692,10 +1372,10 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1711,7 +1391,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1727,23 +1407,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1760,7 +1424,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -1769,10 +1433,10 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1788,7 +1452,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1804,23 +1468,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1837,7 +1485,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -1856,7 +1504,7 @@ exports[`skeleton > 🥩 descriptions api use 2`] = `
             >
               <h3
                 class="ant-skeleton-title"
-                style="margin: 0px; height: 32px; float: right; max-width: 630px;"
+                style="margin: 0px; height: 32px; css-float: right; max-width: 630px;"
               />
             </div>
           </div>
@@ -1897,7 +1545,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
     </div>
     <div
       class="ant-card"
-      style="border-start-end-radius: 0; border-top-left-radius: 0;"
+      style="border-start-end-radius: 0; border-top-left-radius: 0px;"
     >
       <div
         class="ant-card-body"
@@ -1914,7 +1562,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           style="width: 100%; justify-content: space-between; display: flex;"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 24px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 0; padding-inline-end: 24px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -1954,47 +1602,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 24px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="margin-block-start: 8px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 1; padding-inline-start: 24px; padding-inline-end: 0;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 24px; padding-inline-end: 0;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2049,7 +1657,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             style="width: 100%; justify-content: space-between; display: flex;"
           >
             <div
-              style="flex: 1; margin-inline-end: 24px; max-width: 300px;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 24px; max-width: 300px;"
             >
               <div
                 class="ant-skeleton ant-skeleton-active"
@@ -2089,7 +1697,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
               </div>
             </div>
             <div
-              style="flex: 1; align-items: center; justify-content: center;"
+              style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; align-items: center; justify-content: center;"
             >
               <div
                 style="max-width: 300px; margin: auto;"
@@ -2151,7 +1759,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           style="display: flex; background: rgba(0, 0, 0, 0.02); padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 0; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 0; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2167,7 +1775,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2183,23 +1791,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 75px; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2216,7 +1808,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -2225,10 +1817,10 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2244,7 +1836,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2260,23 +1852,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2293,7 +1869,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -2302,10 +1878,10 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2321,7 +1897,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2337,23 +1913,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2370,7 +1930,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -2379,10 +1939,10 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2398,7 +1958,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2414,23 +1974,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2447,7 +1991,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -2456,10 +2000,10 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           />
         </div>
         <div
-          style="display: flex; background: none; padding: 24px 8px;"
+          style="display: flex; background: none none; padding: 24px 8px;"
         >
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2475,7 +2019,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
+            style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 20px; padding-inline-end: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2491,23 +2035,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             </div>
           </div>
           <div
-            style="flex: 1; padding-inline-start: 20px; padding-inline-end: 32px;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100%; margin: 0px; height: 24px;"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            style="flex: 3; padding-inline-start: 32px;"
+            style="flex-grow: 3; flex-shrink: 1; flex-basis: 0%; padding-inline-start: 32px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2524,7 +2052,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
           </div>
         </div>
         <div
-          style="padding: 0px 0px;"
+          style="padding: 0px;"
         >
           <div
             class="ant-divider ant-divider-horizontal"
@@ -2543,7 +2071,7 @@ exports[`skeleton > 🥩 descriptions base use 1`] = `
             >
               <h3
                 class="ant-skeleton-title"
-                style="margin: 0px; height: 32px; float: right; max-width: 630px;"
+                style="margin: 0px; height: 32px; css-float: right; max-width: 630px;"
               />
             </div>
           </div>
@@ -2570,7 +2098,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
           style="width: 100%; justify-content: space-between; display: flex;"
         >
           <div
-            style="padding-inline-start: 0; flex: 1; margin-inline-end: 16px;"
+            style="padding-inline-start: 0; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 16px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2594,7 +2122,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
           </div>
           <div
-            style="border-inline-start: 1px solid rgba(0,0,0,0.06); padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
+            style="border-inline-start: 1px solid rgba(0,0,0,0.06); padding-inline-start: 42px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 0;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2618,7 +2146,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
           </div>
           <div
-            style="padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
+            style="padding-inline-start: 42px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 0;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -2660,7 +2188,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
           >
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -2670,7 +2198,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -2715,7 +2243,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -2725,7 +2253,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -2770,7 +2298,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -2780,7 +2308,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -2825,7 +2353,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -2835,7 +2363,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -2880,7 +2408,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -2890,7 +2418,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -2935,7 +2463,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -2945,7 +2473,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -2990,7 +2518,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3000,7 +2528,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3045,7 +2573,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3055,7 +2583,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3100,7 +2628,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3110,7 +2638,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3155,7 +2683,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3165,7 +2693,7 @@ exports[`skeleton > 🥩 list api use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3263,7 +2791,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
           style="width: 100%; justify-content: space-between; display: flex;"
         >
           <div
-            style="padding-inline-start: 0; flex: 1; margin-inline-end: 16px;"
+            style="padding-inline-start: 0; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 16px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -3287,55 +2815,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
             </div>
           </div>
           <div
-            style="border-inline-start: 1px solid rgba(0,0,0,0.06); padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100px; margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-            >
-              <span
-                class="ant-skeleton-button"
-                style="height: 48px;"
-              />
-            </div>
-          </div>
-          <div
-            style="padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
-          >
-            <div
-              class="ant-skeleton ant-skeleton-active"
-            >
-              <div
-                class="ant-skeleton-content"
-              >
-                <h3
-                  class="ant-skeleton-title"
-                  style="width: 100px; margin-block-start: 0;"
-                />
-              </div>
-            </div>
-            <div
-              class="ant-skeleton ant-skeleton-element ant-skeleton-active"
-            >
-              <span
-                class="ant-skeleton-button"
-                style="height: 48px;"
-              />
-            </div>
-          </div>
-          <div
-            style="padding-inline-start: 42px; flex: 1; margin-inline-end: 0;"
+            style="padding-inline-start: 16px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 0;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -3370,7 +2850,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
       >
         <div
           class="ant-card"
-          style="border-bottom-right-radius: 0; border-bottom-left-radius: 0;"
+          style="border-bottom-right-radius: 0px; border-bottom-left-radius: 0px;"
         >
           <div
             class="ant-card-body"
@@ -3436,7 +2916,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
           >
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3446,7 +2926,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3491,7 +2971,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3501,7 +2981,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3546,7 +3026,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3556,7 +3036,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3601,7 +3081,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3611,7 +3091,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3656,7 +3136,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3666,7 +3146,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3711,7 +3191,7 @@ exports[`skeleton > 🥩 list base use 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-start-end-radius: 0; border-top-left-radius: 0;"
+              style="border-start-end-radius: 0; border-top-left-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3848,7 +3328,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
           style="width: 100%; justify-content: space-between; display: flex;"
         >
           <div
-            style="padding-inline-start: 0; flex: 1; margin-inline-end: 16px;"
+            style="padding-inline-start: 0; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; margin-inline-end: 16px;"
           >
             <div
               class="ant-skeleton ant-skeleton-active"
@@ -3890,7 +3370,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
           >
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3900,7 +3380,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -3945,7 +3425,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -3955,7 +3435,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -4000,7 +3480,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -4010,7 +3490,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -4055,7 +3535,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -4065,7 +3545,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -4110,7 +3590,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -4120,7 +3600,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -4165,7 +3645,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -4175,7 +3655,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -4220,7 +3700,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -4230,7 +3710,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -4275,7 +3755,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -4285,7 +3765,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -4330,7 +3810,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -4340,7 +3820,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"
@@ -4385,7 +3865,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
             </div>
             <div
               class="ant-card"
-              style="border-radius: 0;"
+              style="border-radius: 0px;"
             >
               <div
                 class="ant-card-body"
@@ -4395,7 +3875,7 @@ exports[`skeleton > 🥩 statistic=1,span=16 1`] = `
                   style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
                 >
                   <div
-                    style="max-width: 100%; flex: 1;"
+                    style="max-width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
                   >
                     <div
                       class="ant-skeleton ant-skeleton-active"

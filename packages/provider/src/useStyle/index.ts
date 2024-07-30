@@ -2,13 +2,12 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { ConfigProvider as AntdConfigProvider, theme } from 'antd';
-import type { GlobalToken } from 'antd/lib/theme/interface';
+import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
+import type { GlobalToken } from 'antd/es/theme/interface';
 import type React from 'react';
 import { useContext } from 'react';
 import { ProProvider } from '../index';
 import type { ProTokenType } from '../typing/layoutToken';
-import * as batToken from './token';
 
 /**
  * 把一个颜色设置一下透明度
@@ -37,14 +36,7 @@ export type GenerateStyle<
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken, ...rest: any[]) => ReturnType;
 
-const genTheme = (): any => {
-  if (typeof theme === 'undefined' || !theme) return batToken as any;
-  return theme;
-};
-
-export const proTheme = genTheme() as typeof theme;
-
-export const useToken = proTheme.useToken;
+export const proTheme = antdTheme as typeof antdTheme;
 
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactElement) => React.ReactElement;
@@ -105,13 +97,11 @@ export function useStyle(
   componentName: string,
   styleFn: (token: ProAliasToken) => CSSInterpolation,
 ) {
-  let { token = {} as Record<string, any> as ProAliasToken } =
+  // eslint-disable-next-line prefer-const
+  let { token = {} as Record<string, any> as ProAliasToken, hashed } =
     useContext(ProProvider);
-  const { hashed } = useContext(ProProvider);
 
-  const { token: antdToken, hashId } = useToken();
-
-  const { theme: provideTheme } = useContext(ProProvider);
+  const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
   const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
 
@@ -125,7 +115,7 @@ export function useStyle(
   return {
     wrapSSR: useStyleRegister(
       {
-        theme: provideTheme!,
+        theme,
         token,
         path: [componentName],
       },

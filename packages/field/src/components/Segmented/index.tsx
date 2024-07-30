@@ -1,13 +1,11 @@
 import { Segmented, Spin } from 'antd';
 import omit from 'omit.js';
 import React, { useImperativeHandle, useRef } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 
 import { objectToMap, proFieldParsingText } from '@ant-design/pro-utils';
-import 'antd/lib/segmented/style';
-import 'antd/lib/spin/style';
 
 /**
  * Segmented https://ant.design/components/segmented-cn/
@@ -23,7 +21,7 @@ const FieldSegmented: ProFieldFC<
   const {
     mode,
     render,
-    renderFormItem,
+    formItemRender,
     fieldProps,
     emptyText = '-',
     ...rest
@@ -78,8 +76,8 @@ const FieldSegmented: ProFieldFC<
       />
     );
 
-    if (renderFormItem) {
-      return renderFormItem(
+    if (formItemRender) {
+      return formItemRender(
         rest.text,
         { mode, ...fieldProps, options, loading },
         dom,

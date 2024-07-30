@@ -1,4 +1,4 @@
-﻿import { ModalForm, ProFormText } from '@ant-design/pro-form';
+﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -37,7 +37,7 @@ describe('ModalForm', () => {
     await waitFor(async () => {
       await waitForWaitTime(100);
     });
-    expect(fn).toBeCalledWith(true);
+    expect(fn).toHaveBeenCalledWith(true);
   });
 
   it('📦 ModelForm get formRef when use request', async () => {
@@ -94,7 +94,7 @@ describe('ModalForm', () => {
       (await wrapper.findByText('新 建'))?.click();
     });
     await waitForWaitTime(200);
-    expect(fn).toBeCalledWith(true);
+    expect(fn).toHaveBeenCalledWith(true);
 
     await act(async () => {
       (await wrapper.findByText('取 消'))?.click();
@@ -102,7 +102,7 @@ describe('ModalForm', () => {
     await waitFor(async () => {
       await waitForWaitTime(100);
     });
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 ModalForm first no render items', async () => {
@@ -305,7 +305,7 @@ describe('ModalForm', () => {
     await act(async () => {
       (await wrapper.findByText('取 消'))?.click();
     });
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 modal close button will simulate modalProps.onCancel', async () => {
@@ -334,7 +334,7 @@ describe('ModalForm', () => {
     await waitFor(async () => {
       await waitForWaitTime(100);
     });
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 form onFinish return true should close modal', async () => {
@@ -359,7 +359,7 @@ describe('ModalForm', () => {
       await waitForWaitTime(100);
     });
 
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
     await waitFor(async () => {
       await waitForWaitTime(100);
     });
@@ -570,7 +570,7 @@ describe('ModalForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    expect(fn).not.toBeCalled();
+    expect(fn).not.toHaveBeenCalled();
 
     act(() => {
       vi.runOnlyPendingTimers();
@@ -588,7 +588,7 @@ describe('ModalForm', () => {
     act(() => {
       vi.runOnlyPendingTimers();
     });
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     vi.useRealTimers();
   });
 
@@ -634,7 +634,7 @@ describe('ModalForm', () => {
       await waitForWaitTime(500);
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
 
     act(() => {
       wrapper.unmount();

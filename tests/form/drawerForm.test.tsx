@@ -1,4 +1,4 @@
-﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-form';
+﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -32,7 +32,7 @@ describe('DrawerForm', () => {
       (await wrapper.findByText('新 建')).click();
     });
 
-    expect(fn).toBeCalledWith(true);
+    expect(fn).toHaveBeenCalledWith(true);
   });
 
   it('📦 DrawerForm first no render items', async () => {
@@ -181,7 +181,7 @@ describe('DrawerForm', () => {
       ).click();
     });
     await waitForWaitTime(100);
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 drawer close button will simulate onOpenChange', async () => {
@@ -206,7 +206,7 @@ describe('DrawerForm', () => {
       ).click();
     });
     await waitForWaitTime(100);
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 reset button will simulate onOpenChange', async () => {
@@ -227,7 +227,7 @@ describe('DrawerForm', () => {
     });
     await waitForWaitTime(300);
 
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 drawer close button will simulate drawerProps.onClose', async () => {
@@ -254,7 +254,7 @@ describe('DrawerForm', () => {
       ).click();
     });
     await waitForWaitTime(100);
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 drawer reset button will simulate drawerProps.onClose', async () => {
@@ -277,7 +277,7 @@ describe('DrawerForm', () => {
       (await wrapper.findByText('取 消')).click();
     });
 
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 drawer reset button will simulate drawerProps.onCancel', async () => {
@@ -301,12 +301,12 @@ describe('DrawerForm', () => {
       (await wrapper.findByText('取 消')).click();
     });
     await waitForWaitTime(100);
-    expect(fn).toBeCalledWith(false);
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toHaveBeenCalledWith(false);
+    expect(fn).toHaveBeenCalledTimes(2);
 
     // 点击关闭按钮的时候会手动触发一下 onClose
-    expect(onCloseFn).toBeCalledWith(false);
-    expect(fn).toBeCalledTimes(2);
+    expect(onCloseFn).toHaveBeenCalledWith(false);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 
   it('📦 form onFinish return true should close drawer', async () => {
@@ -329,7 +329,7 @@ describe('DrawerForm', () => {
 
     await waitForWaitTime(100);
 
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 form onFinish is null, no close drawer', async () => {
@@ -350,7 +350,7 @@ describe('DrawerForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('📦 submitter config no reset default config', async () => {
@@ -382,7 +382,7 @@ describe('DrawerForm', () => {
       (await wrapper.findByText('新 建')).click();
     });
     await waitForWaitTime(200);
-    expect(fn).toBeCalledWith(true);
+    expect(fn).toHaveBeenCalledWith(true);
 
     act(() => {
       wrapper.baseElement
@@ -390,7 +390,7 @@ describe('DrawerForm', () => {
         ?.click?.();
     });
     await waitForWaitTime(100);
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
   });
 
   it('📦 DrawerForm close no rerender from', async () => {
@@ -817,7 +817,7 @@ describe('DrawerForm', () => {
       ).toBeFalsy();
 
       // 通过检查fn被调用的次数确定在 onOpenChange 时表单是否已被重置
-      expect(fn).toBeCalledTimes(3);
+      expect(fn).toHaveBeenCalledTimes(3);
 
       html.unmount();
     });

@@ -4,7 +4,7 @@ import { useIntl } from '@ant-design/pro-provider';
 import { isDeepEqualReact, omitUndefined } from '@ant-design/pro-utils';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { TableContext } from '../../Store/Provide';
 import type {
@@ -365,7 +365,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
         actionRef: next.actionRef,
         toolBarRender: next.toolBarRender,
       },
-      ['render', 'renderFormItem'],
+      ['render', 'formItemRender'],
     );
   };
   shouldComponentUpdate = (next: ToolbarRenderProps<T>) => {

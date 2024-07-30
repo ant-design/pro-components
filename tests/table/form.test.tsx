@@ -1,4 +1,4 @@
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -49,7 +49,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     fireEvent.change(
@@ -64,7 +64,7 @@ describe('BasicTable Search', () => {
       container.querySelector('.ant-form button.ant-btn-primary')!,
     );
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -106,7 +106,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -152,7 +152,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -202,7 +202,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });

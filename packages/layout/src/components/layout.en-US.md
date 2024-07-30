@@ -109,7 +109,7 @@ ProLayout will automatically select the menu based on `location.pathname` and au
 | ErrorBoundary | Comes with error handling function to prevent blank screen. `ErrorBoundary=false` turn off default ErrorBoundary | `ReactNode` | default ErrorBoundary |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
 | menuProps | The props passed to the antd menu component, see (<https://ant.design/components/menu/>) | `MenuProps` | undefined |
-| waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps](/components/water-mark) | - |
+| waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps] | - |
 
 ### SettingDrawer
 

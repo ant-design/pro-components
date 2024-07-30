@@ -1,5 +1,5 @@
 import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
-import ProTable, { ListToolBar } from '@ant-design/pro-table';
+import { ListToolBar, ProTable } from '@ant-design/pro-components';
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import { waitForWaitTime } from '../util';
@@ -89,7 +89,7 @@ describe('Table valueEnum', () => {
     });
 
     await waitForWaitTime(100);
-    expect(onSearch).toBeCalledWith('1111111');
+    expect(onSearch).toHaveBeenCalledWith('1111111');
   });
 
   it('ListToolBar action no array', async () => {

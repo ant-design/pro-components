@@ -7,11 +7,7 @@ import {
 import { DatePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useCallback } from 'react';
-import type { ProFieldFC, ProFieldLightProps } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/date-picker/style';
-//------------
+import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 /**
  * 日期范围选择组件
@@ -21,7 +17,7 @@ import 'antd/lib/date-picker/style';
 const FieldRangePicker: ProFieldFC<
   {
     text: string[];
-    format: string;
+    format?: string;
     bordered?: boolean;
     showTime?: boolean;
     picker?: 'time' | 'date' | 'week' | 'month' | 'quarter' | 'year';
@@ -32,10 +28,10 @@ const FieldRangePicker: ProFieldFC<
     mode,
     light,
     label,
-    format,
+    format = 'YYYY-MM-DD',
     render,
     picker,
-    renderFormItem,
+    formItemRender,
     plain,
     showTime,
     lightLabel,
@@ -155,8 +151,8 @@ const FieldRangePicker: ProFieldFC<
         />
       );
     }
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

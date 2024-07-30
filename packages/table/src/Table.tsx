@@ -1,8 +1,3 @@
-// 兼容代码-----------
-import 'antd/lib/table/style';
-import 'antd/lib/typography/style';
-//----------------------
-
 import ProCard from '@ant-design/pro-card';
 import ProForm, { GridContext } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
@@ -24,9 +19,9 @@ import type {
   GetRowKey,
   SortOrder,
   TableCurrentDataSource,
-} from 'antd/lib/table/interface';
+} from 'antd/es/table/interface';
 import classNames from 'classnames';
-import type Summary from 'rc-table/lib/Footer/Summary';
+import type Summary from 'rc-table/es/Footer/Summary';
 import React, {
   Key,
   useCallback,
@@ -786,7 +781,7 @@ const ProTable = <
       }
     },
     [tableColumn],
-    ['render', 'renderFormItem'],
+    ['render', 'formItemRender'],
     100,
   );
 

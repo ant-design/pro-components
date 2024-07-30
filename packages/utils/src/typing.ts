@@ -1,13 +1,10 @@
 import type { ColorPickerProps, InputProps, SpaceProps } from 'antd';
-import type { FormInstance, FormItemProps } from 'antd/lib/form';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type { NamePath } from 'antd/lib/form/interface';
+import type { FormInstance, FormItemProps } from 'antd/es/form';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import type { NamePath } from 'antd/es/form/interface';
 import type { ReactNode } from 'react';
 
 import type { UseEditableUtilType } from './useEditableArray';
-
-//@ts-ignore
-import type { SketchPickerProps } from '@chenshuai2144/sketch-color';
 
 import type { ProSchemaValueEnumType } from '@ant-design/pro-provider';
 import type {
@@ -29,9 +26,9 @@ import type {
   TimeRangePickerProps,
   TreeSelectProps,
 } from 'antd';
-import type { RangePickerProps } from 'antd/lib/date-picker';
-import type { PasswordProps, TextAreaProps } from 'antd/lib/input';
-import type { SliderRangeProps } from 'antd/lib/slider';
+import type { RangePickerProps } from 'antd/es/date-picker';
+import type { PasswordProps, TextAreaProps } from 'antd/es/input';
+import type { SliderRangeProps } from 'antd/es/slider';
 
 export type ProFormBaseGroupProps = {
   /**
@@ -203,16 +200,15 @@ export type ProFieldValueTypeWithFieldProps = {
   /** 树形选择 */
   treeSelect: TreeSelectProps;
   /** 颜色选择器 */
-  color: SketchPickerProps &
-    ColorPickerProps & {
-      value?: string;
-      popoverProps?: PopoverProps;
-      mode?: 'read' | 'edit';
-      onChange?: (color: string) => void;
-      colors?: string[];
-      /** 是否使用旧版本 */
-      old?: boolean;
-    };
+  color: ColorPickerProps & {
+    value?: string;
+    popoverProps?: PopoverProps;
+    mode?: 'read' | 'edit';
+    onChange?: (color: string) => void;
+    colors?: string[];
+    /** 是否使用旧版本 */
+    old?: boolean;
+  };
   /** 分段器 */
   segmented: SegmentedProps;
   /** 分组 */
@@ -499,7 +495,7 @@ export type ProFieldTextType =
 
 export type SearchTransformKeyFn = (
   value: any,
-  namePath: string,
+  namePath: string[],
   allValues: any,
 ) => any;
 export type SearchConvertKeyFn = (
@@ -630,7 +626,7 @@ export type ProSchema<
     action: ProCoreActionType,
   ) => any;
   /**
-   * Render 方法只管理的只读模式，编辑模式需要使用 renderFormItem
+   * Render 方法只管理的只读模式，编辑模式需要使用 formItemRender
    *
    * @name 自定义只读模式的dom
    */
@@ -661,7 +657,7 @@ export type ProSchema<
    *
    * @name 自定义编辑模式
    */
-  renderFormItem?: (
+  formItemRender?: (
     schema: ProSchema<
       Entity,
       ExtraProps,
@@ -719,7 +715,7 @@ export type ProSchema<
   dependencies?: NamePath[];
 
   /**
-   *  @name 忽略 FormItem，必须要和 renderFormItem 组件一起使用
+   *  @name 忽略 FormItem，必须要和 formItemRender 组件一起使用
    */
   ignoreFormItem?: boolean;
 

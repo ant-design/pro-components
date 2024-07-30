@@ -31,7 +31,7 @@ export default () => {
         token={{
           bgLayout: '#fff',
           header: {
-            colorBgHeader: '#fff',
+            colorBgHeader: 'rgba(255, 255, 255, 0.6)',
           },
           sider: {
             colorMenuBackground: '#fff',

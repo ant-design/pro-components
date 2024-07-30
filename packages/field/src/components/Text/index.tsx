@@ -1,11 +1,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { Input } from 'antd';
 import React, { useEffect, useImperativeHandle, useRef } from 'react';
-import type { ProFieldFC } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/input/style';
-//------------
+import type { ProFieldFC } from '../../PureProField';
 
 /**
  * 最基本的组件，就是个普通的 Input
@@ -16,7 +12,7 @@ const FieldText: ProFieldFC<{
   text: string;
   emptyText?: React.ReactNode;
 }> = (
-  { text, mode, render, renderFormItem, fieldProps, emptyText = '-' },
+  { text, mode, render, formItemRender, fieldProps, emptyText = '-' },
   ref,
 ) => {
   const { autoFocus, prefix = '', suffix = '' } = fieldProps || {};
@@ -57,8 +53,8 @@ const FieldText: ProFieldFC<{
       />
     );
 
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

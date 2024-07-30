@@ -1,5 +1,4 @@
-﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
-import { Popover } from 'antd';
+﻿import { Popover } from 'antd';
 import classNames from 'classnames';
 import React, { useMemo, useState } from 'react';
 import { AppsLogo } from './AppsLogo';
@@ -44,12 +43,7 @@ export const AppsLogoComponents: React.FC<{
   ) => void;
   prefixCls?: string;
 }> = (props) => {
-  const {
-    appList,
-    appListRender,
-    prefixCls = 'ant-pro',
-    onItemClick: itemClick,
-  } = props;
+  const { appList, appListRender, prefixCls, onItemClick: itemClick } = props;
   const ref = React.useRef<HTMLDivElement>(null);
   const popoverRef = React.useRef<HTMLSpanElement>(null);
   const baseClassName = `${prefixCls}-layout-apps`;
@@ -91,26 +85,15 @@ export const AppsLogoComponents: React.FC<{
     ? appListRender(props?.appList, defaultDomContent)
     : defaultDomContent;
 
-  const popoverOpenProps = openVisibleCompatible(
-    undefined,
-    (openChange: boolean) => setOpen(openChange),
-  );
-
   return wrapSSR(
     <>
-      <div
-        ref={ref}
-        onClick={(e) => {
-          e.stopPropagation();
-          e.preventDefault();
-        }}
-      />
+      <div ref={ref} />
       <Popover
         placement="bottomRight"
         trigger={['click']}
         zIndex={9999}
         arrow={false}
-        {...popoverOpenProps}
+        onOpenChange={(openChange: boolean) => setOpen(openChange)}
         overlayClassName={`${baseClassName}-popover ${hashId}`.trim()}
         content={popoverContent}
         getPopupContainer={() => ref.current || document.body}

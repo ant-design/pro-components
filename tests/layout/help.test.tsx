@@ -786,7 +786,7 @@ describe('👍🏻 ProHelpPanel', () => {
       dom.click();
     });
 
-    expect(onSelectedKeyChangeFn).toBeCalledWith('name9');
+    expect(onSelectedKeyChangeFn).toHaveBeenCalledWith('name9');
 
     html.unmount();
 
@@ -871,7 +871,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await act(async () => {
@@ -881,7 +881,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -913,7 +913,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
 
     await act(async () => {
@@ -923,7 +923,7 @@ describe('👍🏻 ProHelpPanel', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
   });
 

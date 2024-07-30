@@ -1,14 +1,10 @@
 import { useIntl } from '@ant-design/pro-provider';
+import { FieldLabel } from '@ant-design/pro-utils';
 import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
 import Omit from 'omit.js';
 import React, { useMemo } from 'react';
-import type { ProFieldFC } from '../../index';
-
-// 兼容代码-----------
-import { FieldLabel } from '@ant-design/pro-utils';
-import 'antd/lib/switch/style';
-//------------
+import type { ProFieldFC } from '../../PureProField';
 
 /**
  * 评分组件
@@ -16,7 +12,7 @@ import 'antd/lib/switch/style';
  * @param
  */
 const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
-  { text, mode, render, light, label, renderFormItem, fieldProps },
+  { text, mode, render, light, label, formItemRender, fieldProps },
   ref,
 ) => {
   const intl = useIntl();
@@ -66,8 +62,8 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
       );
     }
 
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, editDom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, editDom);
     }
     return editDom;
   }

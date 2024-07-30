@@ -1,14 +1,14 @@
-import Field from '@ant-design/pro-field';
 import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+  ProField as Field,
+  FieldSelect,
+  FieldStatus,
+  FieldTimePicker,
+  ProFieldBadgeColor,
+} from '@ant-design/pro-components';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';
-import React, { useState } from 'react';
+import React, { act, useState } from 'react';
 import { waitForWaitTime, waitTime } from '../util';
 import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
@@ -202,7 +202,7 @@ describe('Field', () => {
       });
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
 
     act(() => {
       fireEvent.blur(html.baseElement.querySelector('input')!, {
@@ -210,7 +210,7 @@ describe('Field', () => {
       });
     });
 
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(2);
 
     html.unmount();
   });
@@ -350,7 +350,7 @@ describe('Field', () => {
 
       await html.findAllByText('default');
 
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
 
       act(() => {
         ref.current?.fetchData?.('test');
@@ -360,18 +360,18 @@ describe('Field', () => {
         vi.runOnlyPendingTimers();
       });
 
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
       html.unmount();
       vi.useRealTimers();
     });
 
-    it(`🐴 ${valueType}  edit model support renderFormItem function`, async () => {
+    it(`🐴 ${valueType}  edit model support formItemRender function`, async () => {
       const html = render(
         <Field
           text="default"
           valueType={valueType as 'radio'}
           mode="edit"
-          renderFormItem={() => (
+          formItemRender={() => (
             <>
               <Input id="select" />
               default
@@ -392,14 +392,14 @@ describe('Field', () => {
       html.unmount();
     });
 
-    it(`🐴 ${valueType}  edit model support renderFormItem return null`, async () => {
+    it(`🐴 ${valueType}  edit model support formItemRender return null`, async () => {
       const html = render(
         <Field
           text="default"
           valueType={valueType as 'radio'}
           mode="edit"
           // @ts-expect-error
-          renderFormItem={() => undefined}
+          formItemRender={() => undefined}
           valueEnum={{
             0: { text: '关闭', status: 'Default' },
             1: { text: '运行中', status: 'Processing' },
@@ -412,14 +412,14 @@ describe('Field', () => {
       html.unmount();
     });
 
-    it(`🐴 ${valueType}  edit model support renderFormItem return 0`, async () => {
+    it(`🐴 ${valueType}  edit model support formItemRender return 0`, async () => {
       const html = render(
         <Field
           text="default"
           valueType={valueType as 'radio'}
           mode="edit"
           // @ts-expect-error
-          renderFormItem={() => 0}
+          formItemRender={() => 0}
           valueEnum={{
             0: { text: '关闭', status: 'Default' },
             1: { text: '运行中', status: 'Processing' },
@@ -627,7 +627,7 @@ describe('Field', () => {
       });
 
       await waitFor(() => {
-        expect(fn).toBeCalledWith(true);
+        expect(fn).toHaveBeenCalledWith(true);
       });
 
       act(() => {
@@ -637,7 +637,7 @@ describe('Field', () => {
       });
 
       await waitFor(() => {
-        expect(fn).toBeCalledWith(false);
+        expect(fn).toHaveBeenCalledWith(false);
       });
     });
   });
@@ -907,7 +907,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(1);
+      expect(requestFn).toHaveBeenCalledTimes(1);
     });
 
     await html.findAllByText('Node2');
@@ -955,7 +955,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(onSearchFn).toBeCalled();
+      expect(onSearchFn).toHaveBeenCalled();
     });
 
     act(() => {
@@ -1011,7 +1011,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(onClearFn).toBeCalled();
+      expect(onClearFn).toHaveBeenCalled();
       expect(html.baseElement.textContent).toContain('');
     });
 
@@ -1024,7 +1024,7 @@ describe('Field', () => {
       );
     });
 
-    expect(onBlurFn).toBeCalledTimes(1);
+    expect(onBlurFn).toHaveBeenCalledTimes(1);
     html.unmount();
     vi.useRealTimers();
   });
@@ -1091,14 +1091,14 @@ describe('Field', () => {
       expect(html.baseElement.textContent).toBe('qixian');
     });
 
-    it(`🐴 valueType renderFormItem ${valueType}`, async () => {
+    it(`🐴 valueType formItemRender ${valueType}`, async () => {
       if (valueType === 'option') return;
       const html = render(
         <Field
           text={dayjs('2019-11-16 12:50:26').valueOf()}
           mode="edit"
           valueType={valueType as 'text'}
-          renderFormItem={() => <span>qixian</span>}
+          formItemRender={() => <span>qixian</span>}
         />,
       );
       await html.findAllByText('qixian');
@@ -1505,7 +1505,7 @@ describe('Field', () => {
       expect(
         !!html.baseElement.querySelector('span.anticon-eye-invisible'),
       ).toBeFalsy();
-      expect(fn).toBeCalledWith(false);
+      expect(fn).toHaveBeenCalledWith(false);
     });
 
     html.unmount();
@@ -1532,7 +1532,7 @@ describe('Field', () => {
       expect(
         !!html.baseElement.querySelector('span.anticon-eye-invisible'),
       ).toBeFalsy();
-      expect(fn).toBeCalledWith(false);
+      expect(fn).toHaveBeenCalledWith(false);
     });
     html.unmount();
   });
@@ -1644,13 +1644,13 @@ describe('Field', () => {
     html.unmount();
   });
 
-  it(`🐴 valueType renderFormItem return number`, async () => {
+  it(`🐴 valueType formItemRender return number`, async () => {
     const html = render(
       <Field
         text={dayjs('2019-11-16 12:50:26').valueOf()}
         mode="edit"
         // @ts-expect-error
-        renderFormItem={() => 2}
+        formItemRender={() => 2}
       />,
     );
     expect(html.baseElement.textContent).toBe('2');
@@ -1710,7 +1710,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(change).toBeCalledWith('1.00000000000007');
+      expect(change).toHaveBeenCalledWith('1.00000000000007');
     });
   });
 
@@ -1848,6 +1848,41 @@ describe('Field', () => {
     html.unmount();
   });
 
+  ['Success', 'Processing', 'Default', 'Error', 'Warning'].forEach((item) => {
+    it(`🐴 FieldStatus status ${item}`, async () => {
+      const Components = FieldStatus[item as keyof typeof FieldStatus];
+      const html = render(<Components />);
+      expect(html.asFragment()).toMatchSnapshot();
+      html.unmount();
+    });
+  });
+
+  ['success', 'processing', 'default', 'error', 'warning'].forEach((item) => {
+    it(`🐴 FieldStatus status  ${item}`, async () => {
+      const Components = FieldStatus[item as keyof typeof FieldStatus];
+      const html = render(<Components />);
+      expect(html.asFragment()).toMatchSnapshot();
+      html.unmount();
+    });
+  });
+
+  it(`🐴 FieldTimePicker text support is null`, async () => {
+    const html = render(
+      <FieldTimePicker
+        mode="read"
+        //@ts-ignore
+        text={null}
+      />,
+    );
+    expect(html.asFragment()).toMatchSnapshot();
+  });
+
+  it(`🐴 ProFieldBadgeColor status`, async () => {
+    const html = render(<ProFieldBadgeColor color="#1890ff" />);
+    expect(html.asFragment()).toMatchSnapshot();
+    html.unmount();
+  });
+
   it(`🐴 text render null`, async () => {
     const html = render(
       <Field
@@ -1859,6 +1894,55 @@ describe('Field', () => {
       />,
     );
     expect(html.baseElement.textContent).toBe('-');
+    html.unmount();
+  });
+
+  it(`🐴 dateRange support placeholder`, async () => {
+    const html = render(
+      <Field
+        text={[dayjs(), dayjs().add(1, 'day')]}
+        valueType="dateRange"
+        emptyText="-"
+        mode="edit"
+        placeholder="test"
+      />,
+    );
+    await waitFor(() => {
+      return html.findAllByPlaceholderText('test');
+    });
+    html.unmount();
+  });
+
+  it(`🐴 digitRange support placeholder`, async () => {
+    const onchangeFn = vi.fn();
+    const html = render(
+      <Field
+        text={[10000, 20000]}
+        valueType="digitRange"
+        emptyText="-"
+        mode="edit"
+        placeholder="test"
+        fieldProps={{
+          value: [30000, 20000],
+        }}
+        onChange={onchangeFn}
+      />,
+    );
+    await waitFor(() => {
+      return html.findAllByPlaceholderText('test');
+    });
+
+    act(() => {
+      fireEvent.blur(html.baseElement.querySelector('.ant-space-compact')!);
+      fireEvent.blur(
+        html.baseElement.querySelector('.ant-input-number-input')!,
+      );
+    });
+
+    await waitFor(() => {
+      expect(onchangeFn).toHaveBeenCalled();
+    });
+
     html.unmount();
   });
 
@@ -1919,7 +2003,7 @@ describe('Field', () => {
       />,
     );
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(1);
+      expect(requestFn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -1929,7 +2013,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(2);
+      expect(requestFn).toHaveBeenCalledTimes(2);
     });
   });
 
@@ -1991,5 +2075,41 @@ describe('Field', () => {
         ).length,
       ).toEqual(1);
     });
+  });
+
+  it(`🐴 FieldSelect support clear`, async () => {
+    const onchange = vi.fn();
+    const html = render(
+      <FieldSelect
+        light
+        mode="edit"
+        valueEnum={{
+          clear: '清空',
+          all: '全部',
+          open: '未解决',
+        }}
+        fieldProps={{
+          value: 'open',
+          onChange: onchange,
+        }}
+        text="open"
+      />,
+    );
+    await waitFor(() => {
+      return html.findAllByText('未解决');
+    });
+
+    act(() => {
+      (
+        html.baseElement.querySelector(
+          '.ant-pro-core-field-label-close',
+        ) as HTMLDivElement
+      )?.click?.();
+    });
+
+    await waitFor(() => {
+      expect(onchange).toHaveBeenCalled();
+    });
+    html.unmount();
   });
 });

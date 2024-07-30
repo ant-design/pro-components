@@ -1,3 +1,5 @@
+import { FieldDigit } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
@@ -19,22 +21,43 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
   ref,
 ) => {
   return (
-    <ProFormField
-      valueType="digit"
-      fieldProps={{
-        min,
-        max,
-        ...fieldProps,
-      }}
-      ref={ref}
-      filedConfig={{
-        defaultProps: {
-          width: '100%',
+    <ProConfigProvider
+      valueTypeMap={{
+        digit: {
+          render: (text, props) => (
+            <FieldDigit
+              {...props}
+              text={text}
+              placeholder={props.placeholder as string}
+            />
+          ),
+          formItemRender: (text, props) => (
+            <FieldDigit
+              {...props}
+              text={text}
+              placeholder={props.placeholder as string}
+            />
+          ),
         },
       }}
-      proFieldProps={proFieldProps}
-      {...rest}
-    />
+    >
+      <ProFormField
+        valueType="digit"
+        fieldProps={{
+          min,
+          max,
+          ...fieldProps,
+        }}
+        ref={ref}
+        filedConfig={{
+          defaultProps: {
+            width: '100%',
+          },
+        }}
+        proFieldProps={proFieldProps}
+        {...rest}
+      />
+    </ProConfigProvider>
   );
 };
 
