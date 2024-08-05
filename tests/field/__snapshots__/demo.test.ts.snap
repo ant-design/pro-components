@@ -267,14 +267,13 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                   >
                     <div
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
-                      mode="read"
                     >
                       <div
                         class="ant-color-picker-color-block"
                       >
                         <div
                           class="ant-color-picker-color-block-inner"
-                          style="background: rgb(0, 0, 255);"
+                          style="background: rgb(0, 0, 0);"
                         />
                       </div>
                     </div>
@@ -1689,14 +1688,13 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     </div>
                     <div
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
-                      mode="read"
                     >
                       <div
                         class="ant-color-picker-color-block"
                       >
                         <div
                           class="ant-color-picker-color-block-inner"
-                          style="background: rgb(0, 0, 255);"
+                          style="background: rgb(0, 0, 0);"
                         />
                       </div>
                     </div>

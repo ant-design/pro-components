@@ -113,7 +113,7 @@ describe('settingDrawer.test', () => {
         'div.ant-pro-setting-drawer-theme-color-block',
       )[0],
     );
-    expect(onSettingChange).toBeCalledWith('#1677FF');
+    expect(onSettingChange).toHaveBeenCalledWith('#1677FF');
 
     fireEvent.click(
       container.querySelectorAll(
@@ -121,7 +121,7 @@ describe('settingDrawer.test', () => {
       )[1],
     );
 
-    expect(onSettingChange).toBeCalledWith('#F5222D');
+    expect(onSettingChange).toHaveBeenCalledWith('#F5222D');
     expect(
       container.querySelectorAll(
         'div.ant-pro-setting-drawer-theme-color-block',
@@ -162,7 +162,7 @@ describe('settingDrawer.test', () => {
     fireEvent.click(container.querySelector('div.ant-drawer-mask')!);
 
     expect(fn).toBeCalled();
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       navTheme: 'realDark',
       layout: 'mix',
       contentWidth: 'Fluid',
@@ -255,7 +255,7 @@ describe('settingDrawer.test', () => {
       )[2],
     );
 
-    expect(onSettingChange).toBeCalledWith('mix');
+    expect(onSettingChange).toHaveBeenCalledWith('mix');
 
     fireEvent.click(
       container.querySelectorAll(
@@ -263,7 +263,7 @@ describe('settingDrawer.test', () => {
       )[1],
     );
 
-    expect(onSettingChange).toBeCalledWith('top');
+    expect(onSettingChange).toHaveBeenCalledWith('top');
   });
 
   it('🌺 fix-siderbar Change', async () => {
@@ -281,11 +281,11 @@ describe('settingDrawer.test', () => {
 
     fireEvent.click(container.querySelector('button.fix-siderbar')!);
 
-    expect(onSettingChange).toBeCalledWith(true);
+    expect(onSettingChange).toHaveBeenCalledWith(true);
 
     fireEvent.click(container.querySelector('button.fix-siderbar')!);
 
-    expect(onSettingChange).toBeCalledWith(false);
+    expect(onSettingChange).toHaveBeenCalledWith(false);
   });
 
   it('🌺 content-width change', async () => {
@@ -310,7 +310,7 @@ describe('settingDrawer.test', () => {
         .querySelector('.ant-select-selector')!,
     );
 
-    expect(onSettingChange).toBeCalledWith('Fluid');
+    expect(onSettingChange).toHaveBeenCalledWith('Fluid');
   });
 
   it('🌺 splitMenu change', async () => {
@@ -331,7 +331,7 @@ describe('settingDrawer.test', () => {
 
     fireEvent.click(container.querySelector('button.split-menus')!);
 
-    expect(onSettingChange).toBeCalledWith(true);
+    expect(onSettingChange).toHaveBeenCalledWith(true);
   });
 
   it('🌺 fixed-header Change', async () => {
@@ -349,11 +349,11 @@ describe('settingDrawer.test', () => {
 
     fireEvent.click(container.querySelector('button.fixed-header')!);
 
-    expect(onSettingChange).toBeCalledWith(true);
+    expect(onSettingChange).toHaveBeenCalledWith(true);
 
     fireEvent.click(container.querySelector('button.fixed-header')!);
 
-    expect(onSettingChange).toBeCalledWith(false);
+    expect(onSettingChange).toHaveBeenCalledWith(false);
   });
 
   it('🌺 theme Change', async () => {
@@ -375,7 +375,7 @@ describe('settingDrawer.test', () => {
       )[0],
     );
 
-    expect(onSettingChange).toBeCalledWith('light');
+    expect(onSettingChange).toHaveBeenCalledWith('light');
 
     fireEvent.click(
       container.querySelectorAll(
@@ -383,7 +383,7 @@ describe('settingDrawer.test', () => {
       )[1],
     );
 
-    expect(onSettingChange).toBeCalledWith('realDark');
+    expect(onSettingChange).toHaveBeenCalledWith('realDark');
   });
 
   it('🌺 colorWeak Change', async () => {
@@ -407,7 +407,7 @@ describe('settingDrawer.test', () => {
     );
 
     fireEvent.click(container.querySelector('button.color-weak')!);
-    expect(onSettingChange).toBeCalledWith(true);
+    expect(onSettingChange).toHaveBeenCalledWith(true);
 
     rerender(
       <SettingDrawer
@@ -423,7 +423,7 @@ describe('settingDrawer.test', () => {
     );
 
     fireEvent.click(container.querySelector('button.color-weak')!);
-    expect(onSettingChange).toBeCalledWith(false);
+    expect(onSettingChange).toHaveBeenCalledWith(false);
   });
 
   ['header', 'footer', 'menu', 'menuHeader'].map((key) => {
@@ -444,7 +444,7 @@ describe('settingDrawer.test', () => {
 
       fireEvent.click(container.querySelector(`button.regional-${key}`)!);
 
-      expect(fn).toBeCalledWith(key);
+      expect(fn).toHaveBeenCalledWith(key);
       unmount();
     });
   });

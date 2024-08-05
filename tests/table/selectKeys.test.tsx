@@ -140,7 +140,7 @@ describe('BasicTable Search', () => {
     render(<DemoTable />);
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('张三,李四');
+      expect(fn).toHaveBeenCalledWith('张三,李四');
     });
   });
 });

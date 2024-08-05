@@ -62,7 +62,7 @@ describe('DateField', () => {
       });
 
       await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(true);
+        expect(openChangeFn).toHaveBeenCalledWith(true);
       });
 
       act(() => {
@@ -70,7 +70,7 @@ describe('DateField', () => {
       });
 
       await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(false);
+        expect(openChangeFn).toHaveBeenCalledWith(false);
       });
       await act(async () => {
         await fireEvent.click(container.querySelector('.ant-picker-clear')!);
@@ -124,7 +124,7 @@ describe('DateField', () => {
       });
 
       await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(true);
+        expect(openChangeFn).toHaveBeenCalledWith(true);
       });
 
       act(() => {
@@ -141,7 +141,7 @@ describe('DateField', () => {
       });
 
       await waitFor(() => {
-        expect(openChangeFn).toBeCalledWith(false);
+        expect(openChangeFn).toHaveBeenCalledWith(false);
       });
 
       await waitFor(

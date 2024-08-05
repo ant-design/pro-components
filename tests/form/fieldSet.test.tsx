@@ -47,7 +47,7 @@ describe('ProFormFieldSet', () => {
       },
     });
 
-    expect(valueFn).toBeCalledWith(['111']);
+    expect(valueFn).toHaveBeenCalledWith(['111']);
     expect(valueFn).toBeCalledTimes(1);
 
     fireEvent.change(container.querySelector('#filedSet3')!, {
@@ -56,15 +56,15 @@ describe('ProFormFieldSet', () => {
       },
     });
 
-    expect(valueFn).toBeCalledWith(['111', undefined, '333']);
+    expect(valueFn).toHaveBeenCalledWith(['111', undefined, '333']);
 
     await userEvent.click(container.querySelectorAll('li > div')[1]);
 
-    expect(valueFn).toBeCalledWith(['111', 2, '333']);
+    expect(valueFn).toHaveBeenCalledWith(['111', 2, '333']);
 
     await userEvent.click(await screen.findByText('提 交'));
 
-    expect(fn).toBeCalledWith(['111', 2, '333']);
+    expect(fn).toHaveBeenCalledWith(['111', 2, '333']);
     unmount();
   });
 
@@ -95,7 +95,7 @@ describe('ProFormFieldSet', () => {
       },
     });
 
-    expect(valueFn).toBeCalledWith(['111']);
+    expect(valueFn).toHaveBeenCalledWith(['111']);
     expect(valueFn).toBeCalledTimes(1);
 
     fireEvent.change(container.querySelector('#filedSet3')!, {
@@ -104,15 +104,15 @@ describe('ProFormFieldSet', () => {
       },
     });
 
-    expect(valueFn).toBeCalledWith(['111', undefined, '333']);
+    expect(valueFn).toHaveBeenCalledWith(['111', undefined, '333']);
 
     await userEvent.click(container.querySelectorAll('li > div')[1]);
 
-    expect(valueFn).toBeCalledWith(['111', 2, '333']);
+    expect(valueFn).toHaveBeenCalledWith(['111', 2, '333']);
 
     await userEvent.click(await screen.findByText('提 交'));
 
-    expect(fn).toBeCalledWith(['111', 2, '333']);
+    expect(fn).toHaveBeenCalledWith(['111', 2, '333']);
     unmount();
   });
 
@@ -159,7 +159,7 @@ describe('ProFormFieldSet', () => {
       },
     });
 
-    expect(valueFn).toBeCalledWith(['111']);
+    expect(valueFn).toHaveBeenCalledWith(['111']);
 
     fireEvent.change(container.querySelector('#filedSet2')!, {
       target: {
@@ -167,11 +167,11 @@ describe('ProFormFieldSet', () => {
       },
     });
 
-    expect(valueFn).toBeCalledWith(['111', '222']);
+    expect(valueFn).toHaveBeenCalledWith(['111', '222']);
 
     await userEvent.click(await screen.findByText('提 交'));
 
-    expect(fn).toBeCalledWith('111');
+    expect(fn).toHaveBeenCalledWith('111');
     unmount();
   });
 
@@ -227,7 +227,7 @@ describe('ProFormFieldSet', () => {
 
     await userEvent.click(await screen.findByText('提 交'));
 
-    expect(fn).toBeCalledWith('2');
+    expect(fn).toHaveBeenCalledWith('2');
     unmount();
   });
 });

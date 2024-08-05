@@ -391,7 +391,7 @@ describe('List', () => {
     expect(container.querySelectorAll('.expand-icon')).toHaveLength(1);
 
     await fireEvent.click(container.querySelector('#test_click')!);
-    expect(fn).toBeCalledWith('我是名称');
+    expect(fn).toHaveBeenCalledWith('我是名称');
   });
 
   it('🚏 ProList support renderItem', async () => {
@@ -582,7 +582,7 @@ describe('List', () => {
 
     fireEvent.mouseEnter(container.querySelector('.ant-list-item')!);
 
-    expect(onMouseEnter).toBeCalledWith('我是名称');
+    expect(onMouseEnter).toHaveBeenCalledWith('我是名称');
   });
 
   it('🚏 ProList support rowClassName as a string', async () => {
@@ -855,8 +855,8 @@ describe('List', () => {
     });
 
     await waitFor(() => {
-      expect(fn1).toBeCalledWith('我是名称');
-      expect(fn2).toBeCalledWith('我是名称');
+      expect(fn1).toHaveBeenCalledWith('我是名称');
+      expect(fn2).toHaveBeenCalledWith('我是名称');
     });
   });
 });

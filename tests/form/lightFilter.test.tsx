@@ -668,7 +668,7 @@ describe('LightFilter', () => {
 
     await waitFor(
       () => {
-        expect(onOpenChange).toBeCalledWith(true);
+        expect(onOpenChange).toHaveBeenCalledWith(true);
       },
       {
         timeout: 2000,
@@ -718,7 +718,7 @@ describe('LightFilter', () => {
 
     await waitFor(
       () => {
-        expect(onLoadingChange).toBeCalledWith(true);
+        expect(onLoadingChange).toHaveBeenCalledWith(true);
       },
       {
         timeout: 1000,
@@ -738,7 +738,7 @@ describe('LightFilter', () => {
 
     await waitFor(
       () => {
-        expect(onLoadingChange).toBeCalledWith(false);
+        expect(onLoadingChange).toHaveBeenCalledWith(false);
       },
       { timeout: 2000 },
     );
@@ -766,7 +766,7 @@ describe('LightFilter', () => {
 
     await waitFor(
       () => {
-        expect(onLoadingChange).toBeCalledWith(true);
+        expect(onLoadingChange).toHaveBeenCalledWith(true);
       },
       {
         timeout: 1000,
@@ -775,7 +775,7 @@ describe('LightFilter', () => {
 
     await waitFor(
       () => {
-        expect(onLoadingChange).toBeCalledWith(false);
+        expect(onLoadingChange).toHaveBeenCalledWith(false);
       },
       {
         timeout: 2000,

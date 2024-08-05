@@ -300,7 +300,7 @@ describe('utils', () => {
     render(<App />);
 
     await waitFor(() => {
-      expect(catchFn).toBeCalledWith(error);
+      expect(catchFn).toHaveBeenCalledWith(error);
     });
 
     vi.useRealTimers();

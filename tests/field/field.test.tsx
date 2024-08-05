@@ -627,7 +627,7 @@ describe('Field', () => {
       });
 
       await waitFor(() => {
-        expect(fn).toBeCalledWith(true);
+        expect(fn).toHaveBeenCalledWith(true);
       });
 
       act(() => {
@@ -637,7 +637,7 @@ describe('Field', () => {
       });
 
       await waitFor(() => {
-        expect(fn).toBeCalledWith(false);
+        expect(fn).toHaveBeenCalledWith(false);
       });
     });
   });
@@ -1505,7 +1505,7 @@ describe('Field', () => {
       expect(
         !!html.baseElement.querySelector('span.anticon-eye-invisible'),
       ).toBeFalsy();
-      expect(fn).toBeCalledWith(false);
+      expect(fn).toHaveBeenCalledWith(false);
     });
 
     html.unmount();
@@ -1532,7 +1532,7 @@ describe('Field', () => {
       expect(
         !!html.baseElement.querySelector('span.anticon-eye-invisible'),
       ).toBeFalsy();
-      expect(fn).toBeCalledWith(false);
+      expect(fn).toHaveBeenCalledWith(false);
     });
     html.unmount();
   });
@@ -1710,7 +1710,7 @@ describe('Field', () => {
     });
 
     await waitFor(() => {
-      expect(change).toBeCalledWith('1.00000000000007');
+      expect(change).toHaveBeenCalledWith('1.00000000000007');
     });
   });
 

@@ -198,7 +198,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith(['title']);
+      expect(fn).toHaveBeenCalledWith(['title']);
     });
   });
 
@@ -459,7 +459,7 @@ describe('Descriptions', () => {
         ?.click();
     });
     await waitFor(() => {
-      expect(fn).toBeCalledWith(['state', 'title']);
+      expect(fn).toHaveBeenCalledWith(['state', 'title']);
     });
   });
 
@@ -492,7 +492,7 @@ describe('Descriptions', () => {
         ?.click();
     });
     await waitFor(() => {
-      expect(fn).toBeCalledWith('state');
+      expect(fn).toHaveBeenCalledWith('state');
     });
   });
 
@@ -545,7 +545,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('state');
+      expect(fn).toHaveBeenCalledWith('state');
     });
   });
 
@@ -580,7 +580,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('state');
+      expect(fn).toHaveBeenCalledWith('state');
     });
   });
 
@@ -663,7 +663,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('qixian');
+      expect(fn).toHaveBeenCalledWith('qixian');
     });
   });
 
@@ -705,7 +705,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith('2021-05-26 09:42:56');
+      expect(fn).toHaveBeenCalledWith('2021-05-26 09:42:56');
     });
   });
 });

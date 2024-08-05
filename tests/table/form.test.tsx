@@ -64,7 +64,7 @@ describe('BasicTable Search', () => {
       container.querySelector('.ant-form button.ant-btn-primary')!,
     );
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -106,7 +106,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -152,7 +152,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });
@@ -202,7 +202,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith({
+      expect(fn).toHaveBeenCalledWith({
         name: 'name',
       });
     });

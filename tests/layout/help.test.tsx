@@ -786,7 +786,7 @@ describe('👍🏻 ProHelpPanel', () => {
       dom.click();
     });
 
-    expect(onSelectedKeyChangeFn).toBeCalledWith('name9');
+    expect(onSelectedKeyChangeFn).toHaveBeenCalledWith('name9');
 
     html.unmount();
 

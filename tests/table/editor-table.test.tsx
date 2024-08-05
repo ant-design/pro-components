@@ -207,7 +207,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledWith(555);
+    expect(fn).toHaveBeenCalledWith(555);
 
     wrapper.unmount();
   });
@@ -414,7 +414,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(onchange).toBeCalledWith(2);
+    expect(onchange).toHaveBeenCalledWith(2);
 
     wrapper.unmount();
   });
@@ -477,7 +477,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(onchange).toBeCalledWith(1);
+    expect(onchange).toHaveBeenCalledWith(1);
 
     wrapper.unmount();
   });
@@ -794,7 +794,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(200);
 
-    expect(fn).toBeCalledWith('1234');
+    expect(fn).toHaveBeenCalledWith('1234');
   });
 
   it('📝 EditableProTable add newLine when position=top', async () => {
@@ -1001,7 +1001,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledWith(555);
+    expect(fn).toHaveBeenCalledWith(555);
 
     wrapper.unmount();
   });
@@ -1062,7 +1062,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledWith(555);
+    expect(fn).toHaveBeenCalledWith(555);
 
     const { dataset } = wrapper.container.querySelectorAll(
       '.ant-table-tbody tr.ant-table-row',
@@ -1128,7 +1128,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledWith(555);
+    expect(fn).toHaveBeenCalledWith(555);
 
     const { dataset } = wrapper.container.querySelectorAll(
       '.ant-table-tbody tr.ant-table-row',
@@ -1189,7 +1189,7 @@ describe('EditorProTable', () => {
       );
     });
     expect(valuesChangeFn).toBeCalledTimes(1);
-    expect(valuesChangeFn).toBeCalledWith('test');
+    expect(valuesChangeFn).toHaveBeenCalledWith('test');
   });
 
   it('📝 EditableProTable add new child line when position is top and tree level > 1 and parent has children', async () => {
@@ -1253,7 +1253,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledWith(555);
+    expect(fn).toHaveBeenCalledWith(555);
 
     const { dataset } = wrapper.container.querySelectorAll(
       '.ant-table-tbody tr.ant-table-row',
@@ -1313,7 +1313,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledWith(555);
+    expect(fn).toHaveBeenCalledWith(555);
 
     const { dataset } = wrapper.container.querySelectorAll(
       '.ant-table-tbody tr.ant-table-row',
@@ -1383,7 +1383,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledWith(555);
+    expect(fn).toHaveBeenCalledWith(555);
 
     const { dataset } = wrapper.container.querySelectorAll(
       '.ant-table-tbody tr.ant-table-row',
@@ -1442,7 +1442,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(fn).toBeCalledWith(555);
+    expect(fn).toHaveBeenCalledWith(555);
 
     const { dataset } = wrapper.container.querySelectorAll(
       '.ant-table-tbody tr.ant-table-row',
@@ -1512,7 +1512,7 @@ describe('EditorProTable', () => {
       });
       await waitForWaitTime(1000);
 
-      expect(fn).toBeCalledWith(recordId);
+      expect(fn).toHaveBeenCalledWith(recordId);
       const trDoms = wrapper.container.querySelectorAll(
         '.ant-table-tbody tr.ant-table-row',
       );

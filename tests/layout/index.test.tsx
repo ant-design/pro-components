@@ -1655,7 +1655,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
 
     expect(fn).toBeCalledTimes(2);
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       id: '1212',
     });
     act(() => {
@@ -1673,7 +1673,7 @@ describe('BasicLayout', () => {
 
     await waitForWaitTime(100);
     expect(fn).toBeCalledTimes(3);
-    expect(fn).toBeCalledWith({
+    expect(fn).toHaveBeenCalledWith({
       id: '123',
     });
 
