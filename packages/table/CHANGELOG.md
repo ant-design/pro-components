@@ -1,6 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [3.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.5...@ant-design/pro-table@3.16.6) (2024-08-05)
+
+
+### Bug Fixes
+
+* **table:** don't spread key to children ([#8588](https://github.com/ant-design/pro-components/issues/8588)) ([be5d0ad](https://github.com/ant-design/pro-components/commit/be5d0adf4811d5dc59b53af8100c55187e828ca1))
+
+
+### Performance Improvements
+
+* lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
+
+
+
 
 ## [3.16.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@3.16.4...@ant-design/pro-table@3.16.5) (2024-07-18)
 

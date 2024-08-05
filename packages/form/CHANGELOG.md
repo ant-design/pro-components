@@ -1,6 +1,29 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.4...@ant-design/pro-form@2.29.0) (2024-08-05)
+
+
+### Bug Fixes
+
+* **form:** correct line height in list action ([#8584](https://github.com/ant-design/pro-components/issues/8584)) ([e2b2ea6](https://github.com/ant-design/pro-components/commit/e2b2ea65185ef6e840f0f26992dae3d7cead27fe))
+* **form:** pass the OptionType type of ProFormSelect to the inner Select ([#8568](https://github.com/ant-design/pro-components/issues/8568)) ([6d8b99f](https://github.com/ant-design/pro-components/commit/6d8b99f356c43d20ce6bc868fe28d300af3f7c29))
+
+
+### Features
+
+* **form:** export ProFormTreeSelectProps ([#8589](https://github.com/ant-design/pro-components/issues/8589)) ([55b912c](https://github.com/ant-design/pro-components/commit/55b912ccec854824b38f2d6f6a6cd39fb028204d))
+
+
+### Performance Improvements
+
+* lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
+
+
+
 
 ## [2.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.3...@ant-design/pro-form@2.28.4) (2024-07-18)
 

@@ -1,6 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.15.2...@ant-design/pro-field@2.16.0) (2024-08-05)
+
+
+### Features
+
+* **field:** add localizedFormat plugin to dayjs ([#8582](https://github.com/ant-design/pro-components/issues/8582)) ([806935d](https://github.com/ant-design/pro-components/commit/806935dc207f2f52530f6b9fda0a9be5bbf23151))
+
+
+### Performance Improvements
+
+* lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
+
+
+
 
 ## [2.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.15.1...@ant-design/pro-field@2.15.2) (2024-07-15)
 
