@@ -1,3 +1,13 @@
+## @ant-design/pro-components@2.7.15
+
+`2024-08-05`
+
+- fix(form): pass the OptionType type of ProFormSelect to the inner Select (#8568). [#8568](https://github.com/ant-design/pro-components/pull/#8568) [@dreammaker7](https://github.com/dreammaker7)
+- fix(form): correct line height in list action (#8584). [#8584](https://github.com/ant-design/pro-components/pull/#8584) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- feat(form): export ProFormTreeSelectProps (#8589). [#8589](https://github.com/ant-design/pro-components/pull/#8589) [@fnoopv](https://github.com/fnoopv)
+- fix(table): don't spread key to children (#8588). [#8588](https://github.com/ant-design/pro-components/pull/#8588) [@fnoopv](https://github.com/fnoopv)
+- feat(field): add localizedFormat plugin to dayjs (#8582). [#8582](https://github.com/ant-design/pro-components/pull/#8582) [@lynette-li](https://github.com/lynette-li)
+
 ## @ant-design/pro-components@2.7.12
 
 `2024-07-15`
