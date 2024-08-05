@@ -38501,100 +38501,96 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                                 </div>
                               </div>
                             </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ant-form-item"
+                      >
+                        <div
+                          class="ant-row ant-form-item-row"
+                        >
+                          <div
+                            class="ant-col ant-form-item-label"
+                          >
+                            <label
+                              class=""
+                              for="checkbox_checkbox"
+                              title="迁移类型"
+                            >
+                              迁移类型
+                            </label>
+                          </div>
+                          <div
+                            class="ant-col ant-form-item-control"
+                          >
                             <div
-                              class="ant-space-item"
+                              class="ant-form-item-control-input"
                             >
                               <div
-                                class="ant-form-item"
+                                class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  class="ant-row ant-form-item-row"
+                                  class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
+                                  id="checkbox_checkbox"
                                 >
-                                  <div
-                                    class="ant-col ant-form-item-label"
+                                  <label
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                   >
-                                    <label
-                                      class=""
-                                      for="checkbox_checkbox"
-                                      title="迁移类型"
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
                                     >
-                                      迁移类型
-                                    </label>
-                                  </div>
-                                  <div
-                                    class="ant-col ant-form-item-control"
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                        value="完整 LOB"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                    <span>
+                                      完整 LOB
+                                    </span>
+                                  </label>
+                                  <label
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
                                   >
-                                    <div
-                                      class="ant-form-item-control-input"
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
                                     >
-                                      <div
-                                        class="ant-form-item-control-input-content"
-                                      >
-                                        <div
-                                          class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
-                                          id="checkbox_checkbox"
-                                        >
-                                          <label
-                                            class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
-                                          >
-                                            <span
-                                              class="ant-checkbox ant-wave-target"
-                                            >
-                                              <input
-                                                class="ant-checkbox-input"
-                                                type="checkbox"
-                                                value="完整 LOB"
-                                              />
-                                              <span
-                                                class="ant-checkbox-inner"
-                                              />
-                                            </span>
-                                            <span>
-                                              完整 LOB
-                                            </span>
-                                          </label>
-                                          <label
-                                            class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
-                                          >
-                                            <span
-                                              class="ant-checkbox ant-wave-target"
-                                            >
-                                              <input
-                                                class="ant-checkbox-input"
-                                                type="checkbox"
-                                                value="不同步 LOB"
-                                              />
-                                              <span
-                                                class="ant-checkbox-inner"
-                                              />
-                                            </span>
-                                            <span>
-                                              不同步 LOB
-                                            </span>
-                                          </label>
-                                          <label
-                                            class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
-                                          >
-                                            <span
-                                              class="ant-checkbox ant-wave-target"
-                                            >
-                                              <input
-                                                class="ant-checkbox-input"
-                                                type="checkbox"
-                                                value="受限制 LOB"
-                                              />
-                                              <span
-                                                class="ant-checkbox-inner"
-                                              />
-                                            </span>
-                                            <span>
-                                              受限制 LOB
-                                            </span>
-                                          </label>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                        value="不同步 LOB"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                    <span>
+                                      不同步 LOB
+                                    </span>
+                                  </label>
+                                  <label
+                                    class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item"
+                                  >
+                                    <span
+                                      class="ant-checkbox ant-wave-target"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                        value="受限制 LOB"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                    <span>
+                                      受限制 LOB
+                                    </span>
+                                  </label>
                                 </div>
                               </div>
                             </div>
