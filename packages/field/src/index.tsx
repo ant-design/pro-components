@@ -54,6 +54,7 @@ import isoWeek from 'dayjs/plugin/isoWeek';
 import localeData from 'dayjs/plugin/localeData';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 
 import dayjs from 'dayjs';
 
@@ -62,6 +63,7 @@ dayjs.extend(advancedFormat);
 dayjs.extend(isoWeek);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekday);
+dayjs.extend(localizedFormat);
 
 export type ProFieldMoneyProps = FieldMoneyProps;
 
