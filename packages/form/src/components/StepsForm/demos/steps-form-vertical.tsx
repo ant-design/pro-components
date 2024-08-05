@@ -109,9 +109,9 @@ export default () => {
             />
           </ProForm.Group>
           <ProFormCheckbox.Group
-              name="checkbox"
-              label="迁移类型"
-              options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
+            name="checkbox"
+            label="迁移类型"
+            options={['完整 LOB', '不同步 LOB', '受限制 LOB']}
           />
         </StepsForm.StepForm>
         <StepsForm.StepForm<{

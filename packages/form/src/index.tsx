@@ -39,9 +39,9 @@ export type {
   ProFormSelectProps,
   ProFormSliderProps,
   ProFormSwitchProps,
+  ProFormTreeSelectProps,
   ProFormUploadButtonProps,
   ProFormUploadDraggerProps,
-  ProFormTreeSelectProps
 } from './components';
 export { FormListContext } from './components/List';
 export { FieldContext } from './FieldContext';

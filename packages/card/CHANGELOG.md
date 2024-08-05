@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.8.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.6...@ant-design/pro-card@2.8.7) (2024-08-05)
 
-
 ### Bug Fixes
 
-* add unit to transition duration in procard ([#8591](https://github.com/ant-design/pro-components/issues/8591)) ([585fe39](https://github.com/ant-design/pro-components/commit/585fe39bc5bf980da3ee81549a8dafda4925611b))
-
-
-
-
+- add unit to transition duration in procard ([#8591](https://github.com/ant-design/pro-components/issues/8591)) ([585fe39](https://github.com/ant-design/pro-components/commit/585fe39bc5bf980da3ee81549a8dafda4925611b))
 
 ## [2.8.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.8.5...@ant-design/pro-card@2.8.6) (2024-07-15)
 
