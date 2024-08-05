@@ -52,9 +52,9 @@ import FieldHOC from './FieldHOC';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import localeData from 'dayjs/plugin/localeData';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 import weekday from 'dayjs/plugin/weekday';
 import weekOfYear from 'dayjs/plugin/weekOfYear';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
 
 import dayjs from 'dayjs';
 
