@@ -785,7 +785,7 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 'labelWidth',
                 'autoFocusFirstInput',
               ] as any[])}
-              ref={(instance) => formRef.current.nativeElement ??= instance?.nativeElement}
+              ref={(instance) => formRef.current.nativeElement = instance?.nativeElement}
               // 组合 urlSearch 和 initialValues
               initialValues={
                 syncToUrlAsImportant
