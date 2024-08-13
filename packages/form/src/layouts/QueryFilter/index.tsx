@@ -545,7 +545,6 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     if(defaultFormItemsNumber !== undefined) { 
       return defaultFormItemsNumber
     }
-    // 查询重置按钮也会占一个spanSize格子，需要减掉计算
     if (defaultColsNumber !== undefined) {
       // 折叠为一行，需要处理多行的情况请使用 defaultFormItemsNumber
       const oneRowControlsNumber = 24 / spanSize.span - 1;
