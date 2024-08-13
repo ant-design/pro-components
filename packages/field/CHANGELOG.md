@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.15.1...@ant-design/pro-field@2.15.2) (2024-07-15)
+
+### Bug Fixes
+
+- **form:** Digit support stringMode ([5075113](https://github.com/ant-design/pro-components/commit/50751136faacb021f8322645364f4bcc3f3453d4))
+- don't pass antd textarea property to span ([#8538](https://github.com/ant-design/pro-components/issues/8538)) ([1ffeb06](https://github.com/ant-design/pro-components/commit/1ffeb06c2549d919162147d5e7e7056c47bff784))
+
 ## [2.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.15.0...@ant-design/pro-field@2.15.1) (2024-06-21)
 
 **Note:** Version bump only for package @ant-design/pro-field

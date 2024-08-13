@@ -1,3 +1,12 @@
+## @ant-design/pro-components@2.7.12
+
+`2024-07-15`
+
+- fix(form): Digit support stringMode. [5075113](https://github.com/ant-design/pro-components/commit/5075113)
+- fix(form): fix FormList size=small, icon is default size error. [d797fa7](https://github.com/ant-design/pro-components/commit/d797fa7)
+- fix(table): fix canel editort no work error. [2b60fe5](https://github.com/ant-design/pro-components/commit/2b60fe5)
+- fix(table): 解决 ProTable.editable.actionRender 无法获取最新 state 快照的问题（第二种改法） (#8549). [#8549](https://github.com/ant-design/pro-components/pull/#8549) [@ShuangxingYang](https://github.com/ShuangxingYang)
+
 ## @ant-design/pro-components@2.7.11
 
 `2024-06-21`
