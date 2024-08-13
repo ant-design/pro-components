@@ -107,8 +107,12 @@ export type BaseQueryFilterProps = Omit<
   layout?: FormProps['layout'];
   /**
    * @name 默认一行显示几个表单项
-   */
+  */
   defaultColsNumber?: number;
+  /**
+   * @name 默认展示几个表单项
+   */
+  defaultFormItemsNumber?: number;
   /**
    * @name 文字标签的宽度
    *
@@ -348,8 +352,8 @@ const QueryFilterContent: React.FC<{
           (firstRowFull ||
             // 如果 超过显示长度 且 总长度超过了 24
             totalSize > showLength) &&
-          !!index &&
-          totalSpan >= 24);
+          !!index
+          );
 
       itemLength += 1;
 
@@ -502,6 +506,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     layout,
     defaultCollapsed = true,
     defaultColsNumber,
+    defaultFormItemsNumber,
     span,
     searchGutter = 24,
     searchText,
@@ -537,12 +542,19 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   );
 
   const showLength = useMemo(() => {
+    if(defaultFormItemsNumber !== undefined) { 
+      return defaultFormItemsNumber
+    }
     // 查询重置按钮也会占一个spanSize格子，需要减掉计算
     if (defaultColsNumber !== undefined) {
-      return defaultColsNumber - 1;
+      // 折叠为一行，需要处理多行的情况请使用 defaultFormItemsNumber
+      const oneRowControlsNumber = 24 / spanSize.span - 1;
+      return defaultColsNumber > oneRowControlsNumber ? oneRowControlsNumber : defaultColsNumber
     }
     return Math.max(1, 24 / spanSize.span - 1);
-  }, [defaultColsNumber, spanSize.span]);
+  }, [defaultColsNumber, defaultFormItemsNumber, spanSize.span]);
+
+  console.log({spanSize})
 
   /** 计算最大宽度防止溢出换行 */
   const formItemFixStyle: FormItemProps<any> | undefined = useMemo(() => {
