@@ -554,8 +554,6 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     return Math.max(1, 24 / spanSize.span - 1);
   }, [defaultColsNumber, defaultFormItemsNumber, spanSize.span]);
 
-  console.log({spanSize})
-
   /** 计算最大宽度防止溢出换行 */
   const formItemFixStyle: FormItemProps<any> | undefined = useMemo(() => {
     if (labelWidth && spanSize.layout !== 'vertical' && labelWidth !== 'auto') {
