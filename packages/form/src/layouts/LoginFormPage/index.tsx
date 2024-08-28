@@ -68,7 +68,7 @@ export type LoginFormPageProps<T> = {
   containerStyle?: React.CSSProperties;
   mainStyle?: React.CSSProperties;
   otherStyle?: React.CSSProperties;
-} & ProFormProps<T>;
+} & Omit<ProFormProps<T>, 'title'>;
 
 export function LoginFormPage<T = Record<string, any>>(
   props: Partial<LoginFormPageProps<T>>,
