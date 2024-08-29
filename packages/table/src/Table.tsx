@@ -36,7 +36,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { isEmpty } from 'lodash-es';
+import { isEmpty, isEqual } from 'lodash-es';
 import type { ActionType } from '.';
 import { Container, TableContext } from './Store/Provide';
 import Alert from './components/Alert';
@@ -687,6 +687,7 @@ const ProTable = <
       props.request &&
       !isEmpty(params) &&
       action.dataSource &&
+      !isEqual(action.dataSource, defaultData) &&
       action?.pageInfo?.current !== 1
     ) {
       action.setPageInfo({
