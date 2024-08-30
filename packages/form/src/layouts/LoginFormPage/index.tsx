@@ -135,7 +135,9 @@ export function LoginFormPage<T = Record<string, any>>(
       style={{
         ...style,
         position: 'relative',
-        backgroundImage: `url("${backgroundImageUrl}")`,
+        backgroundImage: backgroundImageUrl
+          ? `url("${backgroundImageUrl}")`
+          : undefined,
       }}
     >
       {backgroundVideoUrl ? (
