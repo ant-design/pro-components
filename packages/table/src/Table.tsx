@@ -36,6 +36,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
+import { isEmpty, isEqual } from 'lodash-es';
 import type { ActionType } from '.';
 import { Container, TableContext } from './Store/Provide';
 import Alert from './components/Alert';
@@ -285,12 +286,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   /** 自定义的 render */
   const tableDom = props.tableViewRender
     ? props.tableViewRender(
-        {
-          ...getTableProps(),
-          rowSelection: rowSelection !== false ? rowSelection : undefined,
-        },
-        baseTableDom,
-      )
+      {
+        ...getTableProps(),
+        rowSelection: rowSelection !== false ? rowSelection : undefined,
+      },
+      baseTableDom,
+    )
     : baseTableDom;
 
   /**
@@ -684,8 +685,9 @@ const ProTable = <
     // request 存在且params不为空，且已经请求过数据才需要设置。
     if (
       props.request &&
-      params &&
+      !isEmpty(params) &&
       action.dataSource &&
+      !isEqual(action.dataSource, defaultData) &&
       action?.pageInfo?.current !== 1
     ) {
       action.setPageInfo({
