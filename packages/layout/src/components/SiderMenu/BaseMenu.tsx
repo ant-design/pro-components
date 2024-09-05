@@ -112,6 +112,17 @@ export type BaseMenuProps = {
   >;
 
   /**
+   * 修改 name，如果想做个简单的国际化，可以使用这个方法
+   */
+  menuTextRender: WithFalse<
+    (
+      item: MenuDataItem,
+      defaultText: React.ReactNode,
+      menuProps: BaseMenuProps,
+    ) => React.ReactNode
+  >;
+
+  /**
    * @name 处理 menuData 的方法，与 menuDataRender 不同，postMenuData处理完成后会直接渲染，不再进行国际化和拼接处理
    *
    * @example 增加菜单图标 postMenuData={(menuData) => { return menuData.map(item => { return { ...item, icon: <Icon type={item.icon} /> } }) }}
@@ -339,13 +350,17 @@ class MenuUtil {
   getIntlName = (item: MenuDataItem) => {
     const { name, locale } = item;
     const { menu, formatMessage } = this.props;
+    let finalName = name;
     if (locale && menu?.locale !== false) {
-      return formatMessage?.({
+      finalName = formatMessage?.({
         id: locale,
         defaultMessage: name,
       });
     }
-    return name;
+    if (this.props.menuTextRender) {
+      return this.props.menuTextRender(item, finalName, this.props);
+    }
+    return finalName;
   };
 
   /**
