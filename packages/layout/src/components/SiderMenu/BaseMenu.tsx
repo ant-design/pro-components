@@ -114,7 +114,7 @@ export type BaseMenuProps = {
   /**
    * 修改 name，如果想做个简单的国际化，可以使用这个方法
    */
-  menuTextRender: WithFalse<
+  menuTextRender?: WithFalse<
     (
       item: MenuDataItem,
       defaultText: React.ReactNode,
