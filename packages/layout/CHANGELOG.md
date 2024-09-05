@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.12...@ant-design/pro-layout@7.20.0) (2024-09-05)
+
+
+### Features
+
+* **layout:** add menuTextRender props ([1d65e22](https://github.com/ant-design/pro-components/commit/1d65e22002c8e863f9bf240f500a7b9779de14ca))
+
+
+
+
 
 ## [7.19.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.11...@ant-design/pro-layout@7.19.12) (2024-08-05)
 
