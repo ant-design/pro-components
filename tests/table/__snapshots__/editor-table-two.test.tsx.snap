@@ -12,7 +12,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-table-wrapper"
@@ -360,7 +360,7 @@ exports[`EditorProTable 2 > 📝 columns support editable test 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-table-wrapper"
@@ -593,7 +593,7 @@ exports[`EditorProTable 2 > 📝 renderFormItem run defaultRender 1`] = `
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-table-wrapper"

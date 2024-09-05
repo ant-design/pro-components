@@ -10,7 +10,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-table-wrapper"
@@ -553,7 +553,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
     >
       <div
         class="ant-pro-card-body"
-        style="padding-block-start: 0;"
+        style="padding: 0px;"
       >
         <div
           class="ant-table-wrapper"
