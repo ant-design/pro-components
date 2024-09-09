@@ -26,6 +26,7 @@ import type {
   TableCurrentDataSource,
 } from 'antd/lib/table/interface';
 import classNames from 'classnames';
+import { isEmpty, isEqual } from 'lodash-es';
 import type Summary from 'rc-table/lib/Footer/Summary';
 import React, {
   Key,
@@ -36,7 +37,6 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { isEmpty, isEqual } from 'lodash-es';
 import type { ActionType } from '.';
 import { Container, TableContext } from './Store/Provide';
 import Alert from './components/Alert';
@@ -286,12 +286,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   /** 自定义的 render */
   const tableDom = props.tableViewRender
     ? props.tableViewRender(
-      {
-        ...getTableProps(),
-        rowSelection: rowSelection !== false ? rowSelection : undefined,
-      },
-      baseTableDom,
-    )
+        {
+          ...getTableProps(),
+          rowSelection: rowSelection !== false ? rowSelection : undefined,
+        },
+        baseTableDom,
+      )
     : baseTableDom;
 
   /**

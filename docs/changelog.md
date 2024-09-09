@@ -1,3 +1,12 @@
+## @ant-design/pro-components@2.7.16
+
+`2024-09-05`
+
+- feat(layout): add menuTextRender props. [1d65e22](https://github.com/ant-design/pro-components/commit/1d65e22)
+- fix(form): props title is not assignable to type ReactNode (#8682). [#8682](https://github.com/ant-design/pro-components/pull/#8682) [@jiAng](https://github.com/jiAng)
+- feat(Form): FormRef support forward nativeElement (#8632). [#8632](https://github.com/ant-design/pro-components/pull/#8632) [@红](https://github.com/红)
+- fix(field): keyboard events of search input in LightSelect (#8629). [#8629](https://github.com/ant-design/pro-components/pull/#8629) [@Anzimu](https://github.com/Anzimu)
+
 ## @ant-design/pro-components@2.7.15
 
 `2024-08-05`

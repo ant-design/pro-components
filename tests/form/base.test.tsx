@@ -436,9 +436,10 @@ describe('ProForm', () => {
       </ProForm>,
     );
 
-    expect(await wrapper.container.querySelector('form'))
-      .toBe(formRef.current?.nativeElement);
-  })
+    expect(await wrapper.container.querySelector('form')).toBe(
+      formRef.current?.nativeElement,
+    );
+  });
 
   it('📦 ProForm support namePath is array', async () => {
     const fn = vi.fn();

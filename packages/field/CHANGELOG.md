@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.16.0...@ant-design/pro-field@2.16.1) (2024-09-05)
 
-
 ### Bug Fixes
 
-* **field:** keyboard events of search input in LightSelect ([#8629](https://github.com/ant-design/pro-components/issues/8629)) ([92a6f57](https://github.com/ant-design/pro-components/commit/92a6f5746eafdef8f7e4c23b7290dd82cee6ec1c))
-
-
-
-
+- **field:** keyboard events of search input in LightSelect ([#8629](https://github.com/ant-design/pro-components/issues/8629)) ([92a6f57](https://github.com/ant-design/pro-components/commit/92a6f5746eafdef8f7e4c23b7290dd82cee6ec1c))
 
 # [2.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.15.2...@ant-design/pro-field@2.16.0) (2024-08-05)
 

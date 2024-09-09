@@ -1,7 +1,6 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.30.0...@ant-design/pro-form@2.30.1) (2024-09-12)
 
@@ -16,20 +15,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.29.0...@ant-design/pro-form@2.30.0) (2024-09-05)
 
-
 ### Bug Fixes
 
-* 修复如果没传backgroundImageUrl 会导致 url("undefined") 发送一次请求 ([#8689](https://github.com/ant-design/pro-components/issues/8689)) ([8acaa16](https://github.com/ant-design/pro-components/commit/8acaa160738fdbe410b85d66cb64375083927e16))
-* **form:** props title is not assignable to type ReactNode ([#8682](https://github.com/ant-design/pro-components/issues/8682)) ([991ab91](https://github.com/ant-design/pro-components/commit/991ab9140478262e1776e5b750993860fa1c297f))
-
+- 修复如果没传 backgroundImageUrl 会导致 url("undefined") 发送一次请求 ([#8689](https://github.com/ant-design/pro-components/issues/8689)) ([8acaa16](https://github.com/ant-design/pro-components/commit/8acaa160738fdbe410b85d66cb64375083927e16))
+- **form:** props title is not assignable to type ReactNode ([#8682](https://github.com/ant-design/pro-components/issues/8682)) ([991ab91](https://github.com/ant-design/pro-components/commit/991ab9140478262e1776e5b750993860fa1c297f))
 
 ### Features
 
-* **Form:** FormRef support forward nativeElement ([#8632](https://github.com/ant-design/pro-components/issues/8632)) ([d113207](https://github.com/ant-design/pro-components/commit/d1132070c4d7b2df3bfaebe33615faa007ea6ceb))
-
-
-
-
+- **Form:** FormRef support forward nativeElement ([#8632](https://github.com/ant-design/pro-components/issues/8632)) ([d113207](https://github.com/ant-design/pro-components/commit/d1132070c4d7b2df3bfaebe33615faa007ea6ceb))
 
 # [2.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.4...@ant-design/pro-form@2.29.0) (2024-08-05)
 
