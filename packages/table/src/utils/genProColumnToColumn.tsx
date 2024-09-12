@@ -11,6 +11,7 @@ import {
 } from '@ant-design/pro-utils';
 import type { TableColumnType, TableProps } from 'antd';
 import { Table } from 'antd';
+import { AnyObject } from 'antd/es/_util/type';
 import type { ContainerType } from '../Store/Provide';
 import type { ProColumns } from '../typing';
 import {
@@ -41,7 +42,7 @@ type ColumnToColumnParams<T> = {
  * @param map
  * @param columnEmptyText
  */
-export function genProColumnToColumn<T>(
+export function genProColumnToColumn<T extends AnyObject>(
   params: ColumnToColumnParams<T> & { marginSM: number },
   parents?: ProColumns<T, any>,
 ): ColumnToColumnReturnType<T> {

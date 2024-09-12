@@ -343,6 +343,7 @@ class MenuUtil {
       disabled: item.disabled,
       key: item.key! || item.path!,
       onClick: item.onTitleClick,
+      // eslint-disable-next-line react/no-is-mounted
       label: this.getMenuItemPath(item, level, noGroupLevel),
     };
   };

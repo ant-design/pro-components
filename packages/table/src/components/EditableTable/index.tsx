@@ -135,7 +135,7 @@ function RecordCreator<T = Record<string, any>>(
       // 如果返回了false，接触掉默认行为
       const isOk = await children.props.onClick?.(e);
       if (isOk === false) return;
-      actionRef?.current?.addEditRecord(record, {
+      actionRef?.current?.addEditRecord(record as any, {
         position,
         newRecordType,
         parentKey: parentKey as React.Key,
