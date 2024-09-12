@@ -25,7 +25,6 @@ import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
 
 import type { NamePath } from 'antd/lib/form/interface';
-import type { FormRef as RcFormRef } from 'rc-field-form/lib/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
 import omit from 'omit.js';
@@ -100,12 +99,12 @@ export type CommonFormProps<
    *
    * @example 获取 name 的值 formRef.current.getFieldValue("name");
    * @example 获取所有的表单值 formRef.current.getFieldsValue(true);
-   * 
+   *
    * - formRef.current.nativeElement => `2.29.1+`
    */
   formRef?:
-  | React.MutableRefObject<ProFormRef<T> | undefined>
-  | React.RefObject<ProFormRef<T> | undefined>;
+    | React.MutableRefObject<ProFormRef<T> | undefined>
+    | React.RefObject<ProFormRef<T> | undefined>;
 
   /**
    * @name 同步结果到 url 中
@@ -222,7 +221,7 @@ const genParams = (
 };
 
 type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
-type ProFormRef<T = any> = ProFormInstanceType<T> & RcFormRef;
+type ProFormRef<T = any> = ProFormInstanceType<T> & any;
 
 /**
  * It takes a name path and converts it to an array.
@@ -785,7 +784,10 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
                 'labelWidth',
                 'autoFocusFirstInput',
               ] as any[])}
-              ref={(instance) => formRef.current.nativeElement = instance?.nativeElement}
+              ref={(instance) => {
+                if (!formRef.current) return;
+                formRef.current.nativeElement = instance?.nativeElement;
+              }}
               // 组合 urlSearch 和 initialValues
               initialValues={
                 syncToUrlAsImportant
