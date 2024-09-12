@@ -6,7 +6,7 @@ import type {
   ItemType,
 } from 'antd/lib/breadcrumb/Breadcrumb';
 import type H from 'history';
-import pathToRegexp from 'path-to-regexp';
+import { match } from 'path-to-regexp';
 import type { ProLayoutProps } from '../ProLayout';
 import type { ProSettings } from '../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typing';
@@ -78,9 +78,17 @@ export const getBreadcrumb = (
     // Find the first matching path in the order defined by route config
     // 按照 route config 定义的顺序找到第一个匹配的路径
     const keys: string[] = Array.from(breadcrumbMap.keys()) || [];
-    const targetPath = keys.find((path) =>
+    const targetPath = keys.find(
+      (path) => {
+        try {
+          if (path?.startsWith('http')) return false;
+          return match(path.replace('?', ''))(url);
+        } catch (error) {
+          console.log('path', path, error);
+          return false;
+        }
+      },
       // remove ? ,不然会重复
-      pathToRegexp(path.replace('?', '')).test(url),
     );
     if (targetPath) breadcrumbItem = breadcrumbMap.get(targetPath);
   }

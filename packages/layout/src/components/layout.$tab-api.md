@@ -117,4 +117,4 @@ PageContainer 配置 `fixedHeader` 可以将吸顶 header。
 
 <code src="../demos/error-boundaries.tsx" title="layout 自带了错误处理功能，防止白屏" iframe="650"></code>
 
-<code src="../demos/splitMenus.tsx" title="沉浸式导航" debug iframe="650"></code>
+<code src="../demos/splitMenus.tsx" title="splitMenus" debug iframe="650"></code>
