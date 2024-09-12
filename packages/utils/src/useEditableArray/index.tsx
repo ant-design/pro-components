@@ -3,6 +3,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import type { FormInstance, FormProps } from 'antd';
 import { Form, Popconfirm, message } from 'antd';
+import { AnyObject } from 'antd/es/_util/type';
 import type { NamePath } from 'antd/lib/form/interface';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import type { GetRowKey } from 'antd/lib/table/interface';
@@ -558,7 +559,7 @@ export function defaultActionRender<T>(
  *
  * @param props
  */
-export function useEditableArray<RecordType>(
+export function useEditableArray<RecordType extends AnyObject>(
   props: RowEditableConfig<RecordType> & {
     getRowKey: GetRowKey<RecordType>;
     dataSource: RecordType[];

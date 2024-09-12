@@ -672,7 +672,7 @@ const ProFieldComponent: React.ForwardRefRenderFunction<
 };
 
 export const ProField = React.forwardRef(
-  ProFieldComponent,
+  ProFieldComponent as any,
 ) as typeof ProFieldComponent;
 
 export default ProField;
