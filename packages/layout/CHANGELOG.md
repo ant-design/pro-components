@@ -1,6 +1,15 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [7.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.20.0...@ant-design/pro-layout@7.20.1) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+
+
+
 
 # [7.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.12...@ant-design/pro-layout@7.20.0) (2024-09-05)
 
