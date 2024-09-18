@@ -597,8 +597,8 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2
       path-to-regexp:
-        specifier: 8.1.0
-        version: 8.1.0
+        specifier: 8.0.0
+        version: 8.0.0
       rc-resize-observer:
         specifier: ^1.1.0
         version: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9900,6 +9900,10 @@ packages:
 
   path-to-regexp@1.7.0:
     resolution: {integrity: sha512-nifX1uj4S9IrK/w3Xe7kKvNEepXivANs9ng60Iq7PU/BlouV3yL/VUhFqTuTq33ykwUqoNcTeGo5vdOBP4jS/Q==}
+
+  path-to-regexp@8.0.0:
+    resolution: {integrity: sha512-GAWaqWlTjYK/7SVpIUA6CTxmcg65SP30sbjdCvyYReosRkk7Z/LyHWwkK3Vu0FcIi0FNTADUs4eh1AsU5s10cg==}
+    engines: {node: '>=16'}
 
   path-to-regexp@8.1.0:
     resolution: {integrity: sha512-Bqn3vc8CMHty6zuD+tG23s6v2kwxslHEhTj4eYaVKGIEB+YX/2wd0/rgXLFD9G9id9KCtbVy/3ZgmvZjpa0UdQ==}
@@ -25714,6 +25718,8 @@ snapshots:
   path-to-regexp@1.7.0:
     dependencies:
       isarray: 0.0.1
+
+  path-to-regexp@8.0.0: {}
 
   path-to-regexp@8.1.0: {}
 
