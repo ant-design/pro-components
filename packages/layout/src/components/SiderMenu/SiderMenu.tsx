@@ -344,11 +344,12 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     return (
       <AppsLogoComponents
         onItemClick={props.itemClick}
+        appListRender={props.appListRender}
         appList={props.appList}
         prefixCls={props.prefixCls}
       />
     );
-  }, [props.appList, props.prefixCls]);
+  }, [props.appList, props.appListRender, props.prefixCls]);
 
   const collapsedDom = useMemo(() => {
     if (collapsedButtonRender === false) return null;
