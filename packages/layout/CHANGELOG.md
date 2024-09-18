@@ -1,19 +1,13 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [7.20.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.20.1...@ant-design/pro-layout@7.20.2) (2024-09-18)
 
-
 ### Bug Fixes
 
-* **layout:** downgrade path-to-regexp to version 8.0.0 ([#8732](https://github.com/ant-design/pro-components/issues/8732)) ([fdc555b](https://github.com/ant-design/pro-components/commit/fdc555b0bbc3d5adde5e5fdb0a1973beaf4cae47))
-* **layout:** missing appListRender props ([#8731](https://github.com/ant-design/pro-components/issues/8731)) ([5e04180](https://github.com/ant-design/pro-components/commit/5e041805bcd3decfb34c8d1ee6f7f32694537dc6))
-
-
-
-
+- **layout:** downgrade path-to-regexp to version 8.0.0 ([#8732](https://github.com/ant-design/pro-components/issues/8732)) ([fdc555b](https://github.com/ant-design/pro-components/commit/fdc555b0bbc3d5adde5e5fdb0a1973beaf4cae47))
+- **layout:** missing appListRender props ([#8731](https://github.com/ant-design/pro-components/issues/8731)) ([5e04180](https://github.com/ant-design/pro-components/commit/5e041805bcd3decfb34c8d1ee6f7f32694537dc6))
 
 ## [7.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.20.0...@ant-design/pro-layout@7.20.1) (2024-09-12)
 
