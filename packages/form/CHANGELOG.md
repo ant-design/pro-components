@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.30.1...@ant-design/pro-form@2.30.2) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [2.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.30.0...@ant-design/pro-form@2.30.1) (2024-09-12)
+
+### Bug Fixes
+
+- **form:** add formRef.current error ([b4c88c5](https://github.com/ant-design/pro-components/commit/b4c88c55b6ae3c9ed977704ddbf45e159434fdbd))
+
+# [2.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.29.0...@ant-design/pro-form@2.30.0) (2024-09-05)
+
+### Bug Fixes
+
+- 修复如果没传 backgroundImageUrl 会导致 url("undefined") 发送一次请求 ([#8689](https://github.com/ant-design/pro-components/issues/8689)) ([8acaa16](https://github.com/ant-design/pro-components/commit/8acaa160738fdbe410b85d66cb64375083927e16))
+- **form:** props title is not assignable to type ReactNode ([#8682](https://github.com/ant-design/pro-components/issues/8682)) ([991ab91](https://github.com/ant-design/pro-components/commit/991ab9140478262e1776e5b750993860fa1c297f))
+
+### Features
+
+- **Form:** FormRef support forward nativeElement ([#8632](https://github.com/ant-design/pro-components/issues/8632)) ([d113207](https://github.com/ant-design/pro-components/commit/d1132070c4d7b2df3bfaebe33615faa007ea6ceb))
+
+# [2.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.4...@ant-design/pro-form@2.29.0) (2024-08-05)
+
+### Bug Fixes
+
+- **form:** correct line height in list action ([#8584](https://github.com/ant-design/pro-components/issues/8584)) ([e2b2ea6](https://github.com/ant-design/pro-components/commit/e2b2ea65185ef6e840f0f26992dae3d7cead27fe))
+- **form:** pass the OptionType type of ProFormSelect to the inner Select ([#8568](https://github.com/ant-design/pro-components/issues/8568)) ([6d8b99f](https://github.com/ant-design/pro-components/commit/6d8b99f356c43d20ce6bc868fe28d300af3f7c29))
+
+### Features
+
+- **form:** export ProFormTreeSelectProps ([#8589](https://github.com/ant-design/pro-components/issues/8589)) ([55b912c](https://github.com/ant-design/pro-components/commit/55b912ccec854824b38f2d6f6a6cd39fb028204d))
+
+### Performance Improvements
+
+- lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
 ## [2.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.28.3...@ant-design/pro-form@2.28.4) (2024-07-18)
 
 ### Bug Fixes

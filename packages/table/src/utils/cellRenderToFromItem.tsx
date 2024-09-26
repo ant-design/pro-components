@@ -40,7 +40,7 @@ export const spellNamePath = (...rest: any[]): React.Key[] => {
     .flat(1);
 };
 
-type CellRenderFromItemProps<T> = {
+type CellRenderFromItemProps<T extends AnyObject> = {
   text: string | number | (string | number)[];
   valueType: ProColumnType['valueType'];
   index: number;
@@ -63,7 +63,9 @@ type CellRenderFromItemProps<T> = {
   editableUtils: UseEditableUtilType;
 };
 
-const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
+const CellRenderFromItem = <T extends AnyObject>(
+  props: CellRenderFromItemProps<T>,
+) => {
   const formContext = useContext(FieldContext);
 
   const {
@@ -83,7 +85,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
 
   const key = recordKey || index;
   const realIndex = useMemo(
-    () => editableUtils?.getRealIndex?.(rowData) ?? index,
+    () => editableUtils?.getRealIndex?.(rowData!) ?? index,
     [editableUtils, index, rowData],
   );
   const [formItemName, setName] = useState<React.Key[]>(() =>
@@ -266,7 +268,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
  * @param text
  * @param valueType
  */
-function cellRenderToFromItem<T>(
+function cellRenderToFromItem<T extends AnyObject>(
   config: CellRenderFromItemProps<T>,
 ): React.ReactNode {
   const { text, valueType, rowData, columnProps, index } = config;
@@ -289,7 +291,7 @@ function cellRenderToFromItem<T>(
     return cellRenderToFromItem({
       ...config,
       valueType: valueType(rowData, config.type) || 'text',
-    });
+    } as any);
   }
 
   const columnKey = columnProps?.key || columnProps?.dataIndex?.toString();

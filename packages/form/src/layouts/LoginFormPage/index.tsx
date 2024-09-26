@@ -68,7 +68,7 @@ export type LoginFormPageProps<T> = {
   containerStyle?: React.CSSProperties;
   mainStyle?: React.CSSProperties;
   otherStyle?: React.CSSProperties;
-} & ProFormProps<T>;
+} & Omit<ProFormProps<T>, 'title'>;
 
 export function LoginFormPage<T = Record<string, any>>(
   props: Partial<LoginFormPageProps<T>>,
@@ -135,7 +135,9 @@ export function LoginFormPage<T = Record<string, any>>(
       style={{
         ...style,
         position: 'relative',
-        backgroundImage: `url("${backgroundImageUrl}")`,
+        backgroundImage: backgroundImageUrl
+          ? `url("${backgroundImageUrl}")`
+          : undefined,
       }}
     >
       {backgroundVideoUrl ? (

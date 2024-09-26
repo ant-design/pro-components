@@ -53,7 +53,7 @@ function StepForm<T = Record<string, any>>(stepNativeProps: StepFormProps<T>) {
   }
 
   return (
-    <BaseForm
+    <BaseForm<T>
       formRef={formRef}
       onFinish={async (values) => {
         if (restProps.name) {

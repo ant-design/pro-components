@@ -49,7 +49,7 @@ const genProStyle: GenerateStyle<ProToken> = (token) => {
         display: 'flex',
         height: token.controlHeight,
         marginBlockEnd: token.marginLG,
-        lineHeight: token.controlHeight,
+        lineHeight: token.controlHeight + 'px',
         '&-small': {
           height: token.controlHeightSM,
           lineHeight: token.controlHeightSM,

@@ -1,6 +1,6 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber, Progress } from 'antd';
-import toNumber from 'lodash.tonumber';
+import { toNumber } from 'lodash-es';
 import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../PureProField';
 

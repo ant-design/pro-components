@@ -1,4 +1,5 @@
-﻿import '@testing-library/jest-dom';
+﻿/* eslint-disable react/no-is-mounted */
+import '@testing-library/jest-dom';
 import crypto from 'crypto';
 import MockDate from 'mockdate';
 import React from 'react';

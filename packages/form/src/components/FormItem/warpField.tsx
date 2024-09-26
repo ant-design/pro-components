@@ -76,7 +76,7 @@ export function warpField<P extends ProFormFieldItemProps = any>(
       ignoreWidth,
       defaultProps,
       ...defaultFormItemProps
-    } = { ...props?.filedConfig, ...config } || {};
+    } = { ...props?.filedConfig, ...config };
     const {
       label,
       tooltip,

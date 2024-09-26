@@ -558,7 +558,7 @@ export function defaultActionRender<T>(
  *
  * @param props
  */
-export function useEditableArray<RecordType>(
+export function useEditableArray<RecordType extends AnyObject>(
   props: RowEditableConfig<RecordType> & {
     getRowKey: GetRowKey<RecordType>;
     dataSource: RecordType[];

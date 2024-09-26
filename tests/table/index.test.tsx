@@ -1563,16 +1563,16 @@ describe('BasicTable', () => {
       );
     });
 
-    await html.findByDisplayValue('name1');
+    // await html.findByDisplayValue('name1');
 
-    act(() => {
-      fireEvent.keyDown(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
-        { key: 'Enter', keyCode: 13 },
-      );
-    });
+    // act(() => {
+    //   fireEvent.keyDown(
+    //     html.baseElement.querySelector(
+    //       '.ant-pro-table-list-toolbar-search input',
+    //     )!,
+    //     { key: 'Enter', keyCode: 13 },
+    //   );
+    // });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith('name1');

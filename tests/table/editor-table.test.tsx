@@ -233,6 +233,7 @@ describe('EditorProTable', () => {
     await waitForWaitTime(1000);
 
     try {
+      //@ts-ignore
       actionRef.current?.addEditRecord(undefined);
     } catch (error) {
       expect((error as any).message).toEqual(

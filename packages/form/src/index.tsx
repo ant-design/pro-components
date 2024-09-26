@@ -24,6 +24,7 @@ export type {
   ProFormSelectProps,
   ProFormSliderProps,
   ProFormSwitchProps,
+  ProFormTreeSelectProps,
   ProFormUploadButtonProps,
   ProFormUploadDraggerProps,
 } from './components';

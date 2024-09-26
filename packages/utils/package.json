@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-utils",
-  "version": "2.15.16",
+  "version": "2.15.18",
   "description": "@ant-design/pro-utils",
   "keywords": [
     "antd",
@@ -39,12 +39,13 @@
     "@babel/runtime": "^7.18.0",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
-    "lodash.merge": "^4.6.2",
+    "lodash-es": "^4.17.21",
     "rc-util": "^5.0.6",
     "safe-stable-stringify": "^2.4.3",
     "swr": "^2.0.0"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {

@@ -49,7 +49,11 @@ describe('ProFormFieldSet', () => {
     });
 
     expect(valueFn).toHaveBeenCalledWith(['111']);
+<<<<<<< HEAD
     expect(valueFn).toHaveBeenCalledTimes(1);
+=======
+    expect(valueFn).toBeCalledTimes(1);
+>>>>>>> master
 
     fireEvent.change(container.querySelector('#filedSet3')!, {
       target: {
@@ -97,7 +101,11 @@ describe('ProFormFieldSet', () => {
     });
 
     expect(valueFn).toHaveBeenCalledWith(['111']);
+<<<<<<< HEAD
     expect(valueFn).toHaveBeenCalledTimes(1);
+=======
+    expect(valueFn).toBeCalledTimes(1);
+>>>>>>> master
 
     fireEvent.change(container.querySelector('#filedSet3')!, {
       target: {

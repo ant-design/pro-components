@@ -428,6 +428,20 @@ describe('ProForm', () => {
     wrapper.unmount();
   });
 
+  // https://github.com/ant-design/pro-components/issues/8471
+  it('📦 support formRef nativeElement', async () => {
+    const formRef = React.createRef<any>();
+    const wrapper = render(
+      <ProForm formRef={formRef}>
+        <ProFormText name="test" />
+      </ProForm>,
+    );
+
+    expect(await wrapper.container.querySelector('form')).toBe(
+      formRef.current?.nativeElement,
+    );
+  });
+
   it('📦 ProForm support namePath is array', async () => {
     const fn = vi.fn();
     const wrapper = render(

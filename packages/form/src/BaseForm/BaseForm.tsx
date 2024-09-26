@@ -99,10 +99,12 @@ export type CommonFormProps<
    *
    * @example 获取 name 的值 formRef.current.getFieldValue("name");
    * @example 获取所有的表单值 formRef.current.getFieldsValue(true);
+   *
+   * - formRef.current.nativeElement => `2.29.1+`
    */
   formRef?:
-    | React.MutableRefObject<ProFormInstance<T> | undefined>
-    | React.RefObject<ProFormInstance<T> | undefined>;
+    | React.MutableRefObject<ProFormRef<T> | undefined>
+    | React.RefObject<ProFormRef<T> | undefined>;
 
   /**
    * @name 同步结果到 url 中
@@ -526,7 +528,7 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     loading: propsLoading,
     ...propRest
   } = props;
-  const formRef = useRef<ProFormInstance<any>>({} as any);
+  const formRef = useRef<ProFormRef<any>>({} as any);
   const [loading, setLoading] = useMountMergeState<boolean>(false, {
     onChange: onLoadingChange,
     value: propsLoading,
@@ -776,9 +778,14 @@ export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
               autoComplete="off"
               form={form}
               {...omit(propRest, [
+                'ref',
                 'labelWidth',
                 'autoFocusFirstInput',
               ] as any[])}
+              ref={(instance) => {
+                if (!formRef.current) return;
+                formRef.current.nativeElement = instance?.nativeElement;
+              }}
               // 组合 urlSearch 和 initialValues
               initialValues={
                 syncToUrlAsImportant

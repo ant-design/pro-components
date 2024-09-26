@@ -266,7 +266,7 @@ describe('ModalForm', () => {
     await waitFor(async () => {
       await waitForWaitTime(100);
     });
-    expect(fn).toBeCalledWith(false);
+    expect(fn).toHaveBeenCalledWith(false);
     expect(fn).toBeCalledTimes(2); // 点击触发一次，关闭触发一次 onOpenChange
   });
 
@@ -283,7 +283,7 @@ describe('ModalForm', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledWith(true);
+      expect(fn).toHaveBeenCalledWith(true);
     });
   });
 

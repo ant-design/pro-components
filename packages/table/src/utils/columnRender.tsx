@@ -95,7 +95,7 @@ export const defaultOnFilter = (
  *
  * @param param0
  */
-export function columnRender<T>({
+export function columnRender<T extends AnyObject>({
   columnProps,
   text,
   rowData,

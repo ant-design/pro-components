@@ -93,6 +93,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
             if (props?.columnsState?.defaultValue) {
               // 实际生产中，defaultValue往往作为系统方默认配置，则优先级不应高于用户配置的storageValue
               return merge(
+                {},
                 props?.columnsState?.defaultValue,
                 JSON.parse(storageValue),
               );
@@ -129,6 +130,7 @@ function useContainer(props: UseContainerProps = {} as Record<string, any>) {
           if (props?.columnsState?.defaultValue) {
             setColumnsMap(
               merge(
+                {},
                 props?.columnsState?.defaultValue,
                 JSON.parse(storageValue),
               ),

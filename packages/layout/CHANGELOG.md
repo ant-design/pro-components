@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.20.0...@ant-design/pro-layout@7.20.1) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [7.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.12...@ant-design/pro-layout@7.20.0) (2024-09-05)
+
+### Features
+
+- **layout:** add menuTextRender props ([1d65e22](https://github.com/ant-design/pro-components/commit/1d65e22002c8e863f9bf240f500a7b9779de14ca))
+
+## [7.19.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.11...@ant-design/pro-layout@7.19.12) (2024-08-05)
+
+### Performance Improvements
+
+- lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
 ## [7.19.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.19.10...@ant-design/pro-layout@7.19.11) (2024-07-18)
 
 ### Bug Fixes

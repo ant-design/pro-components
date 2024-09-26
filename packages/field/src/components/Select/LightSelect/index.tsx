@@ -199,7 +199,13 @@ export const LightSelect: React.ForwardRefRenderFunction<
                     }}
                     onKeyDown={(e) => {
                       // 避免按下删除键把选项也删除了
-                      e.stopPropagation();
+                      if (e.key === 'Backspace') {
+                        e.stopPropagation();
+                        return;
+                      }
+                      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                        e.preventDefault();
+                      }
                     }}
                     style={{ width: '100%' }}
                     prefix={<SearchOutlined />}

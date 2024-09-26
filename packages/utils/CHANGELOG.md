@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.15.17...@ant-design/pro-utils@2.15.18) (2024-09-12)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [2.15.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.15.16...@ant-design/pro-utils@2.15.17) (2024-08-05)
+
+### Performance Improvements
+
+- lodash => lodash-es ([#8606](https://github.com/ant-design/pro-components/issues/8606)) ([455b4f1](https://github.com/ant-design/pro-components/commit/455b4f1bb1edfd896c04d98c37da6f97fb2428cb))
+
 ## [2.15.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.15.15...@ant-design/pro-utils@2.15.16) (2024-07-15)
 
 ### Bug Fixes
