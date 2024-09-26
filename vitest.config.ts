@@ -10,6 +10,8 @@ const moduleNameMapper = {} as Record<string, any>;
   'field',
   'card',
   'provider',
+  'utils',
+  'descriptions',
   'table',
   'layout',
 ].forEach((shortName: string) => {

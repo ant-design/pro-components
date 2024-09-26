@@ -170,7 +170,6 @@ const loopRunTransform = <T = Record<string, any>>(
       dataFormatMap,
       key as (number | string)[],
     ) as SearchTransformKeyFn;
-    ``;
 
     if (transformFunction && typeof transformFunction === 'function') {
       finalValues = mergeValues(
