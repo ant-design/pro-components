@@ -1,3 +1,12 @@
+## @ant-design/pro-components@2.7.19
+
+- fix(layout): downgrade path-to-regexp to version 8.0.0 (#8732)
+- fix(layout): missing appListRender props (#8731) @Beeant
+
+## @ant-design/pro-components@2.7.18
+
+- refactor(layout): update path-to-regexp to version 8.1.0 (#8725)
+
 ## @ant-design/pro-components@2.7.16
 
 `2024-09-05`
