@@ -1,4 +1,4 @@
-import { merge as deepMerge } from 'lodash-es';
+import deepMerge from "lodash-es/merge";
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
 import React from 'react';
