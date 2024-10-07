@@ -11,7 +11,10 @@ export default defineConfig({
   },
   // 以下为 cjs 配置项启用时的默认值，有自定义需求时才需配置
   cjs: {
-    extraBabelPlugins: [[require.resolve('./scripts/replaceEs'), {}]],
+    extraBabelPlugins: [
+      [require.resolve('./scripts/replaceEs'), {}],
+      [require.resolve('./scripts/replaceLodash'), {}],
+    ],
     input: 'src', // 默认编译目录
     output: 'lib',
     platform: 'browser', // 默认构建为 Node.js 环境的产物
