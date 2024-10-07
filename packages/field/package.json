@@ -43,12 +43,14 @@
     "@chenshuai2144/sketch-color": "^1.0.8",
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
+    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "omit.js": "^2.0.2",
     "rc-util": "^5.4.0",
     "swr": "^2.0.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.10",
     "@types/lodash-es": "^4.17.12",
     "@types/react-color": "^3.0.4",
     "rc-resize-observer": "^0.2.3",
