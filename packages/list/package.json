@@ -39,6 +39,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@ant-design/cssinjs": "^1.21.1",
     "@ant-design/icons": "^5.0.0",
     "@ant-design/pro-card": "2.8.8",
     "@ant-design/pro-field": "2.16.2",

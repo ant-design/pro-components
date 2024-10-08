@@ -373,6 +373,9 @@ importers:
 
   packages/card:
     dependencies:
+      '@ant-design/cssinjs':
+        specifier: ^1.21.1
+        version: 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/icons':
         specifier: ^5.0.0
         version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -569,6 +572,9 @@ importers:
 
   packages/layout:
     dependencies:
+      '@ant-design/cssinjs':
+        specifier: ^1.21.1
+        version: 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/icons':
         specifier: ^5.0.0
         version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -621,6 +627,9 @@ importers:
 
   packages/list:
     dependencies:
+      '@ant-design/cssinjs':
+        specifier: ^1.21.1
+        version: 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/icons':
         specifier: ^5.0.0
         version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -659,7 +668,7 @@ importers:
   packages/provider:
     dependencies:
       '@ant-design/cssinjs':
-        specifier: ^1.11.1
+        specifier: ^1.21.1
         version: 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@babel/runtime':
         specifier: ^7.18.0
@@ -667,6 +676,9 @@ importers:
       '@ctrl/tinycolor':
         specifier: ^3.4.0
         version: 3.6.1
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.13
       rc-util:
         specifier: ^5.0.1
         version: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -690,6 +702,9 @@ importers:
 
   packages/table:
     dependencies:
+      '@ant-design/cssinjs':
+        specifier: ^1.21.1
+        version: 1.21.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@ant-design/icons':
         specifier: ^5.0.0
         version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1830,12 +1845,15 @@ packages:
 
   '@esbuild-kit/cjs-loader@2.4.4':
     resolution: {integrity: sha512-NfsJX4PdzhwSkfJukczyUiZGc7zNNWZcEAyqeISpDnn0PTfzMJR1aR8xAIPskBejIxBJbIgCCMzbaYa9SXepIg==}
+    deprecated: 'Merged into tsx: https://tsx.is'
 
   '@esbuild-kit/core-utils@3.3.2':
     resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
+    deprecated: 'Merged into tsx: https://tsx.is'
 
   '@esbuild-kit/esm-loader@2.6.5':
     resolution: {integrity: sha512-FxEMIkJKnodyA1OaCUoEvbYRkoZlLZ4d/eXFu9Fh8CbBBgP5EmZxrfTRyN0qpXZ4vOvqnE5YdRdcrmUUXuU+dA==}
+    deprecated: 'Merged into tsx: https://tsx.is'
 
   '@esbuild/aix-ppc64@0.21.4':
     resolution: {integrity: sha512-Zrm+B33R4LWPLjDEVnEqt2+SLTATlru1q/xYKVn8oVTbiRBGmK2VIMoIYGJDGyftnGaC788IuzGFAlb7IQ0Y8A==}
@@ -6377,6 +6395,7 @@ packages:
   eslint@8.57.0:
     resolution: {integrity: sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   espree@9.6.1:
@@ -12523,6 +12542,7 @@ packages:
 
   uid-number@0.0.6:
     resolution: {integrity: sha512-c461FXIljswCuscZn67xq9PpszkPT6RjheWFQTgCyabJrTUozElanb0YEqv2UGgk247YpcJkFBuSGNvBlpXM9w==}
+    deprecated: This package is no longer supported.
 
   umask@1.1.0:
     resolution: {integrity: sha512-lE/rxOhmiScJu9L6RTNVgB/zZbF+vGC0/p6D3xnkAePI2o0sMyFG966iR5Ki50OI/0mNi2yaRnxfLsPmEZF/JA==}
@@ -16147,7 +16167,7 @@ snapshots:
 
   '@loadable/component@5.15.2(react@18.3.1)':
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.25.6
       hoist-non-react-statics: 3.3.2
       react: 18.3.1
       react-is: 16.13.1
@@ -16584,7 +16604,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
       '@rc-component/portal': 1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-motion: 2.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-resize-observer: 1.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -17542,7 +17562,7 @@ snapshots:
 
   '@umijs/history@5.3.1':
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.25.6
       query-string: 6.14.1
 
   '@umijs/lint@4.3.20(eslint@8.57.0)(jest@26.6.3(ts-node@10.9.2(@swc/core@1.4.2(@swc/helpers@0.5.1))(@types/node@14.18.63)(typescript@5.6.2)))(stylelint@13.13.1)(typescript@5.6.2)':
@@ -21968,7 +21988,7 @@ snapshots:
 
   history@5.3.0:
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.25.6
 
   hmac-drbg@1.0.1:
     dependencies:
@@ -26433,7 +26453,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
       '@rc-component/trigger': 1.18.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-util: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -26507,7 +26527,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
       '@rc-component/trigger': 1.18.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-motion: 2.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-overflow: 1.3.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.43.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -26677,7 +26697,7 @@ snapshots:
   rc-tabs@12.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.25.6
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-dropdown: 4.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-menu: 9.12.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-motion: 2.9.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -26810,7 +26830,7 @@ snapshots:
 
   react-helmet-async@1.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.25.6
       invariant: 2.2.4
       prop-types: 15.8.1
       react: 18.3.1
@@ -29422,7 +29442,7 @@ snapshots:
 
   wide-align@1.1.5:
     dependencies:
-      string-width: 1.0.2
+      string-width: 4.2.3
 
   widest-line@2.0.1:
     dependencies:
@@ -29551,7 +29571,7 @@ snapshots:
 
   xml2js@0.6.2:
     dependencies:
-      sax: 1.2.1
+      sax: 1.4.1
       xmlbuilder: 11.0.1
     optional: true
 
