@@ -40,9 +40,10 @@
     "> 1%"
   ],
   "dependencies": {
-    "@ant-design/cssinjs": "^1.11.1",
+    "@ant-design/cssinjs": "^1.21.1",
     "@babel/runtime": "^7.18.0",
     "@ctrl/tinycolor": "^3.4.0",
+    "dayjs": "^1.11.10",
     "rc-util": "^5.0.1",
     "swr": "^2.0.0"
   },
