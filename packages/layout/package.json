@@ -49,6 +49,7 @@
     "@umijs/route-utils": "^4.0.0",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.3.2",
+    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "omit.js": "^2.0.2",
     "path-to-regexp": "8.0.0",
@@ -58,6 +59,7 @@
     "warning": "^4.0.3"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.10",
     "@types/lodash-es": "^4.17.12",
     "typescript": "^5.0.4"
   },
