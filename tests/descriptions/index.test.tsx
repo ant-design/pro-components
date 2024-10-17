@@ -415,7 +415,7 @@ describe('descriptions', () => {
     await waitFor(() => {
       expect(
         wrapper.baseElement.querySelector(
-          'span.ant-descriptions-item-content div.ant-typography-copy',
+          'span.ant-descriptions-item-content button.ant-typography-copy',
         ),
       ).toBeTruthy();
     });

@@ -4684,7 +4684,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -4692,7 +4692,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -4794,7 +4794,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -4802,7 +4802,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/select-request.ts
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -5205,7 +5205,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -5213,7 +5213,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>

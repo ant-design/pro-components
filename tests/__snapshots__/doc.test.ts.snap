@@ -261,7 +261,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
             style="display: flex; gap: 8px; align-items: center;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
               type="button"
             >
               <span>
@@ -269,7 +269,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="button"
             >
               <span>
@@ -454,7 +454,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
                                   style="display: flex; gap: 8px; align-items: center;"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-default"
+                                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                     type="button"
                                   >
                                     <span>
@@ -462,7 +462,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/customization-va
                                     </span>
                                   </button>
                                   <button
-                                    class="ant-btn ant-btn-primary"
+                                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                     type="button"
                                   >
                                     <span>
@@ -1021,7 +1021,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueEnum-map.ts
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -1029,7 +1029,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueEnum-map.ts
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -1537,7 +1537,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueType.tsx co
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1545,7 +1545,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueType.tsx co
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>

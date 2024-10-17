@@ -985,7 +985,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
                   class="ant-form-item-control-input-content"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="submit"
                   >
                     <span>
@@ -7546,7 +7546,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
             class="ant-pro-card-extra"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
               type="button"
             >
               <span>
@@ -7595,7 +7595,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
             class="ant-pro-card-extra"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
               type="button"
             >
               <span>
@@ -7644,7 +7644,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/collapsible.tsx cor
             class="ant-pro-card-extra"
           >
             <button
-              class="ant-btn ant-btn-default ant-btn-sm"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
               type="button"
             >
               <span>
@@ -9805,7 +9805,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -9817,7 +9817,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/steps-v.tsx correct
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     disabled=""
                     type="button"
                   >
