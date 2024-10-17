@@ -36,7 +36,7 @@ exports[`Table valueEnum > ListToolBar action no array 1`] = `
         style="align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -68,7 +68,7 @@ exports[`Table valueEnum > ListToolBar action no jsx 1`] = `
           style="display: flex; align-items: center; gap: 8px;"
         >
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>

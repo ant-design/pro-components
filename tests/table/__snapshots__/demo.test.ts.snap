@@ -1693,7 +1693,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                  class="ant-table ant-table-middle ant-table-ping-right ant-table-layout-fixed ant-table-scroll-horizontal"
                 >
                   <div
                     class="ant-table-container"
@@ -2011,7 +2011,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
             </div>
           </div>
           <button
-            class="ant-btn ant-btn-dashed"
+            class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
             style="display: block; margin: 10px 0px; width: 100%;"
             type="button"
           >
@@ -2159,7 +2159,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-bordered ant-table-layout-fixed ant-table-scroll-horizontal"
+                  class="ant-table ant-table-middle ant-table-bordered ant-table-ping-right ant-table-layout-fixed ant-table-scroll-horizontal"
                 >
                   <div
                     class="ant-table-container"
@@ -2400,7 +2400,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
             </div>
           </div>
           <button
-            class="ant-btn ant-btn-dashed"
+            class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
             style="display: block; margin: 10px 0px; width: 100%;"
             type="button"
           >
@@ -2486,7 +2486,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                  class="ant-table ant-table-middle ant-table-ping-right ant-table-layout-fixed ant-table-scroll-horizontal"
                 >
                   <div
                     class="ant-table-container"
@@ -2779,7 +2779,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
             </div>
           </div>
           <button
-            class="ant-btn ant-btn-dashed"
+            class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
             style="display: block; margin: 10px 0px; width: 100%;"
             type="button"
           >
@@ -2905,7 +2905,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span
@@ -2943,7 +2943,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -2989,7 +2989,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                  class="ant-table ant-table-middle ant-table-ping-right ant-table-layout-fixed ant-table-scroll-horizontal"
                 >
                   <div
                     class="ant-table-container"
@@ -3352,7 +3352,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                             </span>
                           </button>
                           <div
+                            aria-label="segmented control"
                             class="ant-segmented"
+                            role="listbox"
                             style="margin-block-end: 0;"
                           >
                             <div
@@ -3366,7 +3368,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="false"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="添加到顶部"
                                 >
                                   添加到顶部
@@ -3381,7 +3385,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="true"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="添加到底部"
                                 >
                                   添加到底部
@@ -3395,7 +3401,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="false"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="隐藏"
                                 >
                                   隐藏
@@ -3404,7 +3412,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                             </div>
                           </div>
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -3425,7 +3433,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                         class="ant-spin-container"
                       >
                         <div
-                          class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                          class="ant-table ant-table-middle ant-table-ping-right ant-table-layout-fixed ant-table-scroll-horizontal"
                           id="table"
                         >
                           <div
@@ -3648,7 +3656,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-dashed"
+                    class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                     style="display: block; margin: 10px 0px; width: 100%;"
                     type="button"
                   >
@@ -3772,7 +3780,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -3780,7 +3788,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -4492,7 +4500,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                           </div>
                         </div>
                         <button
-                          class="ant-btn ant-btn-dashed"
+                          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                           style="display: block; margin: 10px 0px; width: 100%;"
                           type="button"
                         >
@@ -4536,7 +4544,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
               style="display: flex; gap: 8px; align-items: center;"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                 type="button"
               >
                 <span>
@@ -4544,7 +4552,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -4601,7 +4609,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -4622,7 +4630,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-layout-fixed ant-table-scroll-horizontal"
+                  class="ant-table ant-table-middle ant-table-ping-right ant-table-layout-fixed ant-table-scroll-horizontal"
                 >
                   <div
                     class="ant-table-container"
@@ -9948,7 +9956,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
             </div>
           </div>
           <button
-            class="ant-btn ant-btn-dashed"
+            class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
             style="display: block; margin: 10px 0px; width: 100%;"
             type="button"
           >
@@ -10218,7 +10226,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-bordered ant-table-layout-fixed ant-table-scroll-horizontal"
+                  class="ant-table ant-table-middle ant-table-bordered ant-table-ping-right ant-table-layout-fixed ant-table-scroll-horizontal"
                 >
                   <div
                     class="ant-table-container"
@@ -10459,7 +10467,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
             </div>
           </div>
           <button
-            class="ant-btn ant-btn-dashed"
+            class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
             style="display: block; margin: 10px 0px; width: 100%;"
             type="button"
           >
@@ -10667,7 +10675,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -10702,7 +10710,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -11603,7 +11611,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -11638,7 +11646,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -12294,7 +12302,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -12329,7 +12337,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
                     type="button"
                   >
                     <span>
@@ -12357,7 +12365,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -13078,7 +13086,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -13189,7 +13197,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -14671,7 +14679,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -14762,7 +14770,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-middle ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+                  class="ant-table ant-table-middle ant-table-ping-right ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
                 >
                   <div
                     class="ant-table-container"
@@ -15212,12 +15220,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -15238,7 +15244,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -15352,12 +15358,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 title=""
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -15378,7 +15382,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -15491,12 +15495,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -15517,7 +15519,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -15630,12 +15632,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 title=""
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -15656,7 +15656,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -15769,12 +15769,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -15795,7 +15793,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -16043,7 +16041,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/card-title.tsx co
                   class="ant-pro-table-list-toolbar-title"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -16694,7 +16692,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columns-setting-c
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -16980,7 +16978,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columnsStateMap.t
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -17634,7 +17632,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="qixian-btn qixian-btn-default"
+                                class="qixian-btn qixian-btn-default qixian-btn-color-default qixian-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -17642,7 +17640,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                                 </span>
                               </button>
                               <button
-                                class="qixian-btn qixian-btn-primary qixian-btn-loading"
+                                class="qixian-btn qixian-btn-primary qixian-btn-color-primary qixian-btn-variant-solid qixian-btn-loading"
                                 type="button"
                               >
                                 <span
@@ -17714,7 +17712,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="qixian-btn qixian-btn-primary"
+                    class="qixian-btn qixian-btn-primary qixian-btn-color-primary qixian-btn-variant-solid"
                     type="button"
                   >
                     <span
@@ -18556,7 +18554,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                   style="display: flex; gap: 8px; align-items: center;"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-default"
+                                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                     type="button"
                                   >
                                     <span>
@@ -18564,7 +18562,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                     </span>
                                   </button>
                                   <button
-                                    class="ant-btn ant-btn-primary ant-btn-loading"
+                                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading"
                                     type="button"
                                   >
                                     <span
@@ -18665,7 +18663,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                       style="display: flex; align-items: center; gap: 8px;"
                     >
                       <button
-                        class="ant-btn ant-btn-primary"
+                        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                         type="button"
                       >
                         <span
@@ -19148,7 +19146,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -19156,7 +19154,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -20214,7 +20212,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -20222,7 +20220,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -20334,7 +20332,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-default ant-btn-dangerous"
+                    class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -20342,7 +20340,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -20350,7 +20348,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -20358,7 +20356,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
                     type="button"
                   >
                     <span
@@ -20660,12 +20658,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -20686,7 +20682,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -20782,12 +20778,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                 title=""
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -20808,7 +20802,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -20904,12 +20898,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -20930,7 +20922,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -21026,12 +21018,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                 title=""
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -21052,7 +21042,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -21148,12 +21138,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -21174,7 +21162,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -21569,7 +21557,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -21577,7 +21565,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -22080,7 +22068,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -22088,7 +22076,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -22591,7 +22579,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -22599,7 +22587,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -23341,7 +23329,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -23349,7 +23337,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -23729,12 +23717,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -23755,7 +23741,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                           </tr>
@@ -23816,12 +23802,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                 title=""
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -23842,7 +23826,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                           </tr>
@@ -23903,12 +23887,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -23929,7 +23911,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                           </tr>
@@ -23990,12 +23972,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                 title=""
                               >
                                 很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -24016,7 +23996,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                           </tr>
@@ -24077,12 +24057,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                 title=""
                               >
                                 简短备注文案
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -24103,7 +24081,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                           </tr>
@@ -24538,7 +24516,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                         style="display: flex; gap: 8px; align-items: center;"
                                       >
                                         <button
-                                          class="ant-btn ant-btn-default"
+                                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                           type="button"
                                         >
                                           <span>
@@ -24546,7 +24524,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                           </span>
                                         </button>
                                         <button
-                                          class="ant-btn ant-btn-primary"
+                                          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                           type="button"
                                         >
                                           <span>
@@ -24658,7 +24636,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                             style="display: flex; align-items: center; gap: 8px;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                               type="button"
                             >
                               <span>
@@ -27258,7 +27236,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.t
                           </div>
                         </div>
                         <button
-                          class="ant-btn ant-btn-dashed"
+                          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                           style="display: block; margin: 10px 0px; width: 100%;"
                           type="button"
                         >
@@ -27302,7 +27280,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.t
               style="display: flex; gap: 8px; align-items: center;"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                 type="button"
               >
                 <span>
@@ -27310,7 +27288,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.t
                 </span>
               </button>
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -27423,7 +27401,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries.
           </ul>
         </div>
         <button
-          class="ant-btn ant-btn-primary ant-btn-dangerous"
+          class="ant-btn ant-btn-primary ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -28284,7 +28262,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -28292,7 +28270,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -28341,7 +28319,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -28349,7 +28327,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -28836,7 +28814,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -28844,7 +28822,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -28967,7 +28945,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span
@@ -30153,7 +30131,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -30161,7 +30139,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -30169,7 +30147,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -30247,7 +30225,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span
@@ -30860,7 +30838,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -31822,7 +31800,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -31830,7 +31808,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -31857,7 +31835,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -33090,7 +33068,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/normal.tsx correc
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -33098,7 +33076,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/normal.tsx correc
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -33125,7 +33103,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/normal.tsx correc
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -34105,7 +34083,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -34113,7 +34091,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -34381,12 +34359,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                 title=""
                               >
                                 🐛 [BUG]yarn install命令 antd2.4.5会报错
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -34407,7 +34383,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -34799,7 +34775,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -34807,7 +34783,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -35075,12 +35051,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                 title=""
                               >
                                 🐛 [BUG]yarn install命令 antd2.4.5会报错
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="ant-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -35101,7 +35075,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -35698,7 +35672,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -35706,7 +35680,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -35784,7 +35758,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span
@@ -36557,7 +36531,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -36565,7 +36539,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -37566,7 +37540,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default ant-btn-rtl"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-rtl"
                                 type="button"
                               >
                                 <span>
@@ -37574,7 +37548,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading ant-btn-rtl"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading ant-btn-rtl"
                                 type="button"
                               >
                                 <span
@@ -37646,7 +37620,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-rtl"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-rtl"
                     type="button"
                   >
                     <span
@@ -38052,7 +38026,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search.tsx correc
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -38582,7 +38556,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -38590,7 +38564,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -38598,7 +38572,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -38647,7 +38621,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span
@@ -39318,7 +39292,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -39326,7 +39300,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary ant-btn-loading"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading"
                                 type="button"
                               >
                                 <span
@@ -39427,7 +39401,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span
@@ -39461,7 +39435,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-default ant-dropdown-trigger"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
                     type="button"
                   >
                     <span
@@ -40193,7 +40167,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
             style="display: flex; gap: 8px; align-items: center;"
           >
             <button
-              class="canvas-btn canvas-btn-default"
+              class="canvas-btn canvas-btn-default canvas-btn-color-default canvas-btn-variant-outlined"
               type="button"
             >
               <span>
@@ -40201,7 +40175,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
               </span>
             </button>
             <button
-              class="canvas-btn canvas-btn-primary"
+              class="canvas-btn canvas-btn-primary canvas-btn-color-primary canvas-btn-variant-solid"
               type="button"
             >
               <span>
@@ -40432,7 +40406,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="canvas-btn canvas-btn-default"
+                                class="canvas-btn canvas-btn-default canvas-btn-color-default canvas-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -40440,7 +40414,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 </span>
                               </button>
                               <button
-                                class="canvas-btn canvas-btn-primary"
+                                class="canvas-btn canvas-btn-primary canvas-btn-color-primary canvas-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -41244,7 +41218,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="canvas-btn canvas-btn-default"
+                                class="canvas-btn canvas-btn-default canvas-btn-color-default canvas-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -41252,7 +41226,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 </span>
                               </button>
                               <button
-                                class="canvas-btn canvas-btn-primary"
+                                class="canvas-btn canvas-btn-primary canvas-btn-color-primary canvas-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -41330,7 +41304,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="canvas-btn canvas-btn-primary"
+                    class="canvas-btn canvas-btn-primary canvas-btn-color-primary canvas-btn-variant-solid"
                     type="button"
                   >
                     <span
@@ -41594,12 +41568,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   title=""
                                 >
                                   🐛 [BUG]yarn install命令 antd2.4.5会报错
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="canvas-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -41620,7 +41592,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </span>
                             </td>
@@ -41654,12 +41626,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                     未解决
                                   </span>
                                 </span>
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="canvas-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -41680,7 +41650,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -41711,12 +41681,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 title=""
                               >
                                 2020-05-26
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="canvas-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -41737,7 +41705,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -41804,12 +41772,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   title=""
                                 >
                                   🐛 [BUG]无法创建工程npm create umi
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="canvas-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -41830,7 +41796,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </span>
                             </td>
@@ -41864,12 +41830,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                     未解决
                                   </span>
                                 </span>
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="canvas-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -41890,7 +41854,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -41921,12 +41885,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 title=""
                               >
                                 2020-05-26
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="canvas-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -41947,7 +41909,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -42014,12 +41976,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   title=""
                                 >
                                   🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                                  <div
+                                  <button
                                     aria-label="复制"
                                     class="canvas-typography-copy"
-                                    role="button"
-                                    style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                    tabindex="0"
+                                    type="button"
                                   >
                                     <span
                                       aria-label="copy"
@@ -42040,7 +42000,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                         />
                                       </svg>
                                     </span>
-                                  </div>
+                                  </button>
                                 </span>
                               </span>
                             </td>
@@ -42074,12 +42034,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                     未解决
                                   </span>
                                 </span>
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="canvas-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -42100,7 +42058,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -42131,12 +42089,10 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 title=""
                               >
                                 2020-05-26
-                                <div
+                                <button
                                   aria-label="复制"
                                   class="canvas-typography-copy"
-                                  role="button"
-                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                  tabindex="0"
+                                  type="button"
                                 >
                                   <span
                                     aria-label="copy"
@@ -42157,7 +42113,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                       />
                                     </svg>
                                   </span>
-                                </div>
+                                </button>
                               </span>
                             </td>
                             <td
@@ -42367,7 +42323,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                   class="ant-input-group-addon"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
+                                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-input-search-button"
                                     type="button"
                                   >
                                     <span
@@ -42407,7 +42363,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                             style="display: flex; align-items: center; gap: 8px;"
                           >
                             <button
-                              class="ant-btn ant-btn-primary"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                               type="button"
                             >
                               <span>
@@ -43277,7 +43233,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/table-nested.tsx 
                   style="display: flex; align-items: center; gap: 8px;"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -43285,7 +43241,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/table-nested.tsx 
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -43312,7 +43268,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/table-nested.tsx 
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -44146,7 +44102,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                 style="display: flex; gap: 4px; align-items: center;"
                               >
                                 <button
-                                  class="ant-btn ant-btn-default"
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                   type="button"
                                 >
                                   <span>
@@ -44154,7 +44110,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                   </span>
                                 </button>
                                 <button
-                                  class="ant-btn ant-btn-primary ant-btn-loading"
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-loading"
                                   type="button"
                                 >
                                   <span
@@ -44255,7 +44211,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                     style="display: flex; align-items: center; gap: 4px;"
                   >
                     <button
-                      class="ant-btn ant-btn-primary"
+                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                       type="button"
                     >
                       <span
@@ -44289,7 +44245,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                       </span>
                     </button>
                     <button
-                      class="ant-btn ant-btn-default ant-dropdown-trigger"
+                      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-dropdown-trigger"
                       type="button"
                     >
                       <span
@@ -44960,7 +44916,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -44968,7 +44924,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -46585,7 +46541,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -46593,7 +46549,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -47938,7 +47894,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -47946,7 +47902,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -49204,7 +49160,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                               style="display: flex; gap: 8px; align-items: center;"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -49212,7 +49168,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
