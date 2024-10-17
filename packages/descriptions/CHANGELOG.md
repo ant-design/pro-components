@@ -1,6 +1,23 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.53...@ant-design/pro-descriptions@2.6.0) (2024-10-17)
+
+
+### Bug Fixes
+
+* **FieldRender:** 将 dataIndex 强制转换为 React.Key 以确保类型安全 ([e2482f7](https://github.com/ant-design/pro-components/commit/e2482f7eec63e975326a57d11aa500092034083e))
+
+
+### Features
+
+* added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+
+
+
 
 ## [2.5.53](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@2.5.52...@ant-design/pro-descriptions@2.5.53) (2024-09-12)
 

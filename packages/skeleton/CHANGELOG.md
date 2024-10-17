@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [2.2.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.1.13...@ant-design/pro-skeleton@2.2.0) (2024-10-17)
+
+
+### Features
+
+* added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+
+
+
 
 ## [2.1.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@2.1.12...@ant-design/pro-skeleton@2.1.13) (2024-04-19)
 

@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [7.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.20.2...@ant-design/pro-layout@7.21.0) (2024-10-17)
+
+
+### Bug Fixes
+
+* remove clear cache in ProLayout ([#8746](https://github.com/ant-design/pro-components/issues/8746)) ([5f54ed0](https://github.com/ant-design/pro-components/commit/5f54ed0a7988c944244c3d646ba4f503035138db))
+* replace `lodash-es` imports with `lodash` in CJS builds ([#8754](https://github.com/ant-design/pro-components/issues/8754)) ([3ef9283](https://github.com/ant-design/pro-components/commit/3ef9283a4cf52b8106d049af49f41dc37bb448b1))
+
+
+### Features
+
+* added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
+
+
+
 
 ## [7.20.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.20.1...@ant-design/pro-layout@7.20.2) (2024-09-18)
 
