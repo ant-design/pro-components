@@ -1,7 +1,10 @@
 {
   "name": "pro-components",
   "private": true,
-  "repository": "git@github.com:ant-design/pro-components.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ant-design/pro-components.git"
+  },
   "license": "MIT",
   "workspaces": [
     "packages/*"
@@ -171,5 +174,6 @@
     "pre-commit": "pretty-quick --staged",
     "commit-msg": "fabric verify-commit"
   },
-  "packageManager": "pnpm@9.6.0"
+  "packageManager": "pnpm@9.6.0",
+  "version": ""
 }

@@ -12,7 +12,7 @@
   "bugs": "https://github.com/ant-design/pro-components/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ant-design/pro-components"
+    "url": "git+https://github.com/ant-design/pro-components.git"
   },
   "license": "MIT",
   "sideEffects": false,
