@@ -1,24 +1,17 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.16.2...@ant-design/pro-field@2.17.0) (2024-10-17)
 
-
 ### Bug Fixes
 
-* **form:** field 为 checkbox 时设置了fieldNames后控制器报错的问题 React does not recognize the `fieldNames` prop on a DOM element ([#8785](https://github.com/ant-design/pro-components/issues/8785)) ([2560090](https://github.com/ant-design/pro-components/commit/25600907e620549079f6aa8618e689258113dd41))
-* replace `lodash-es` imports with `lodash` in CJS builds ([#8754](https://github.com/ant-design/pro-components/issues/8754)) ([3ef9283](https://github.com/ant-design/pro-components/commit/3ef9283a4cf52b8106d049af49f41dc37bb448b1))
-
+- **form:** field 为 checkbox 时设置了 fieldNames 后控制器报错的问题 React does not recognize the `fieldNames` prop on a DOM element ([#8785](https://github.com/ant-design/pro-components/issues/8785)) ([2560090](https://github.com/ant-design/pro-components/commit/25600907e620549079f6aa8618e689258113dd41))
+- replace `lodash-es` imports with `lodash` in CJS builds ([#8754](https://github.com/ant-design/pro-components/issues/8754)) ([3ef9283](https://github.com/ant-design/pro-components/commit/3ef9283a4cf52b8106d049af49f41dc37bb448b1))
 
 ### Features
 
-* added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
-
-
-
-
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
 
 ## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.16.1...@ant-design/pro-field@2.16.2) (2024-09-12)
 

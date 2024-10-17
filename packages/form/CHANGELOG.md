@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [2.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.30.2...@ant-design/pro-form@2.31.0) (2024-10-17)
 
-
 ### Bug Fixes
 
-* replace `lodash-es` imports with `lodash` in CJS builds ([#8754](https://github.com/ant-design/pro-components/issues/8754)) ([3ef9283](https://github.com/ant-design/pro-components/commit/3ef9283a4cf52b8106d049af49f41dc37bb448b1))
-
+- replace `lodash-es` imports with `lodash` in CJS builds ([#8754](https://github.com/ant-design/pro-components/issues/8754)) ([3ef9283](https://github.com/ant-design/pro-components/commit/3ef9283a4cf52b8106d049af49f41dc37bb448b1))
 
 ### Features
 
-* added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
-
-
-
-
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
 
 ## [2.30.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.30.1...@ant-design/pro-form@2.30.2) (2024-09-12)
 
