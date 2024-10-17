@@ -149,7 +149,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="ant-btn ant-btn-default"
+                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                               type="button"
                             >
                               <span>
@@ -157,7 +157,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                               type="button"
                             >
                               <span>
@@ -526,7 +526,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="qixian-btn qixian-btn-default"
+                              class="qixian-btn qixian-btn-default qixian-btn-color-default qixian-btn-variant-outlined"
                               type="button"
                             >
                               <span>
@@ -534,7 +534,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                               </span>
                             </button>
                             <button
-                              class="qixian-btn qixian-btn-primary"
+                              class="qixian-btn qixian-btn-primary qixian-btn-color-primary qixian-btn-variant-solid"
                               type="button"
                             >
                               <span>
@@ -903,7 +903,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                             style="display: flex; gap: 8px; align-items: center;"
                           >
                             <button
-                              class="ant-btn ant-btn-default"
+                              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                               type="button"
                             >
                               <span>
@@ -911,7 +911,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                               </span>
                             </button>
                             <button
-                              class="ant-btn ant-btn-primary"
+                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                               type="button"
                             >
                               <span>

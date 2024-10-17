@@ -3,6 +3,7 @@ const exec = require('child_process').execSync;
 const fs = require('fs');
 const path = require('path');
 
+console.log('开始发布');
 const github = new Octokit({
   debug: process.env.NODE_ENV === 'development',
   auth: process.env.GITHUB_TOKEN || process.env.GITHUB_AUTH,

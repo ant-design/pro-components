@@ -21,7 +21,9 @@ import type {
   TableCurrentDataSource,
 } from 'antd/es/table/interface';
 import classNames from 'classnames';
-import type Summary from 'rc-table/es/Footer/Summary';
+import isEmpty from 'lodash-es/isEmpty';
+import isEqual from 'lodash-es/isEqual';
+import type Summary from 'rc-table/lib/Footer/Summary';
 import React, {
   Key,
   useCallback,

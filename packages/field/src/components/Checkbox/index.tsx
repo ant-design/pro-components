@@ -29,7 +29,6 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   const layoutClassName = getPrefixCls('pro-field-checkbox');
   const status = Form.Item?.useStatus?.();
   const [loading, options, fetchData] = useFieldFetchData(rest);
-
   // css
   const { wrapSSR, hashId } = useStyle('Checkbox', (token) => {
     return {
@@ -111,10 +110,11 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
   }
 
   if (mode === 'edit') {
+    const { fieldNames, ...restFieldProps } = rest.fieldProps || {};
     const dom = wrapSSR(
       //@ts-ignore
       <Checkbox.Group
-        {...rest.fieldProps}
+        {...restFieldProps}
         className={classNames(
           rest.fieldProps?.className,
           hashId,

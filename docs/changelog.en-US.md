@@ -1,3 +1,19 @@
+## @ant-design/pro-components@2.8.0
+
+`2024-10-17`
+
+- fix(components):修复 ts 定义导致列名获取不到的问题 (#8795). [#8795](https://github.com/ant-design/pro-components/pull/#8795) [@qnnp-me](https://github.com/qnnp-me)
+- fix(form): field 为 checkbox 时设置了 fieldNames 后控制器报错的问题 React does not recognize the `fieldNames` prop on a DOM element (#8785). [#8785](https://github.com/ant-design/pro-components/pull/#8785) [@echoyl](https://github.com/echoyl)
+
+## @ant-design/pro-components@2.7.19
+
+- fix(layout): downgrade path-to-regexp to version 8.0.0 (#8732)
+- fix(layout): missing appListRender props (#8731) @Beeant
+
+## @ant-design/pro-components@2.7.18
+
+- refactor(layout): update path-to-regexp to version 8.1.0 (#8725)
+
 ## @ant-design/pro-components@2.7.16
 
 `2024-09-05`

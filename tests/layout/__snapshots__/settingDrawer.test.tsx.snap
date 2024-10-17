@@ -1157,7 +1157,7 @@ exports[`settingDrawer.test > 🌺 base user 1`] = `
               </div>
             </div>
             <button
-              class="ant-btn ant-btn-default ant-btn-block"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-block"
               style="margin-block-end: 24px;"
               type="button"
             >
@@ -2290,7 +2290,7 @@ exports[`settingDrawer.test > 🌺 hideColors = true 1`] = `
               </div>
             </div>
             <button
-              class="ant-btn ant-btn-default ant-btn-block"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-block"
               style="margin-block-end: 24px;"
               type="button"
             >
@@ -4627,7 +4627,7 @@ exports[`settingDrawer.test > 🌺 hideHintAlert = true 1`] = `
               role="separator"
             />
             <button
-              class="ant-btn ant-btn-default ant-btn-block"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-block"
               style="margin-block-end: 24px;"
               type="button"
             >
@@ -5829,7 +5829,7 @@ exports[`settingDrawer.test > 🌺 settings = undefined 1`] = `
               </div>
             </div>
             <button
-              class="ant-btn ant-btn-default ant-btn-block"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-block"
               style="margin-block-end: 24px;"
               type="button"
             >

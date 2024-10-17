@@ -558,7 +558,7 @@ export type ProSchema<
    *
    * @name 与实体映射的key
    */
-  dataIndex?: React.Key | React.Key[];
+  dataIndex?: unknown;
 
   /**
    * 支持 ReactNode 和 方法

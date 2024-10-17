@@ -6,9 +6,9 @@
 import type { DrawerProps, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import classNames from 'classnames';
-import { merge } from 'lodash-es';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
-import { noteOnce } from 'rc-util/es/warning';
+import merge from 'lodash-es/merge';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { noteOnce } from 'rc-util/lib/warning';
 import React, {
   useCallback,
   useContext,

@@ -310,7 +310,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >
@@ -519,7 +519,7 @@ exports[`EditorProTable 2 > 📝 columns support editable test 1`] = `
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >
@@ -757,7 +757,7 @@ exports[`EditorProTable 2 > 📝 formItemRender run defaultRender 1`] = `
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >

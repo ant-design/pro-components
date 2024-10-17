@@ -230,12 +230,10 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                               title=""
                             >
                               🐛 [BUG]yarn install命令 antd2.4.5会报错
-                              <div
+                              <button
                                 aria-label="复制"
                                 class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                tabindex="0"
+                                type="button"
                               >
                                 <span
                                   aria-label="copy"
@@ -256,7 +254,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                     />
                                   </svg>
                                 </span>
-                              </div>
+                              </button>
                             </span>
                           </td>
                           <td
@@ -313,12 +311,10 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                               title=""
                             >
                               🐛 [BUG]无法创建工程npm create umi
-                              <div
+                              <button
                                 aria-label="复制"
                                 class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                tabindex="0"
+                                type="button"
                               >
                                 <span
                                   aria-label="copy"
@@ -339,7 +335,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                     />
                                   </svg>
                                 </span>
-                              </div>
+                              </button>
                             </span>
                           </td>
                           <td
@@ -396,12 +392,10 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                               title=""
                             >
                               🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                              <div
+                              <button
                                 aria-label="复制"
                                 class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                tabindex="0"
+                                type="button"
                               >
                                 <span
                                   aria-label="copy"
@@ -422,7 +416,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
                                     />
                                   </svg>
                                 </span>
-                              </div>
+                              </button>
                             </span>
                           </td>
                           <td
@@ -458,7 +452,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps 1`] =
           </div>
         </div>
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           style="display: block; margin: 10px 0px; width: 100%;"
           type="button"
         >
@@ -728,12 +722,10 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                               title=""
                             >
                               🐛 [BUG]yarn install命令 antd2.4.5会报错
-                              <div
+                              <button
                                 aria-label="复制"
                                 class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                tabindex="0"
+                                type="button"
                               >
                                 <span
                                   aria-label="copy"
@@ -754,7 +746,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                     />
                                   </svg>
                                 </span>
-                              </div>
+                              </button>
                             </span>
                           </td>
                           <td
@@ -811,12 +803,10 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                               title=""
                             >
                               🐛 [BUG]无法创建工程npm create umi
-                              <div
+                              <button
                                 aria-label="复制"
                                 class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                tabindex="0"
+                                type="button"
                               >
                                 <span
                                   aria-label="copy"
@@ -837,7 +827,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                     />
                                   </svg>
                                 </span>
-                              </div>
+                              </button>
                             </span>
                           </td>
                           <td
@@ -894,12 +884,10 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                               title=""
                             >
                               🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                              <div
+                              <button
                                 aria-label="复制"
                                 class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                                tabindex="0"
+                                type="button"
                               >
                                 <span
                                   aria-label="copy"
@@ -920,7 +908,7 @@ exports[`EditorProTable > 📝 EditableProTable support recordCreatorProps=false
                                     />
                                   </svg>
                                 </span>
-                              </div>
+                              </button>
                             </span>
                           </td>
                           <td

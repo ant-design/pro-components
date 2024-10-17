@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/base.demo-test.tsx correctly 1`] = `<DocumentFragment />`;
