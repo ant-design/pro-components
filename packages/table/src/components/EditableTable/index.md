@@ -48,6 +48,7 @@ atomId: EditableProTable
 | `value` | 同 dataSource，传入一个数组，是 table 渲染的元数据 | `T[]` | `undefined` |
 | `onChange` | dataSource 修改时触发，删除和修改都会触发，如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
 | `recordCreatorProps` | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
+| `renderCreatorButton` | 自定义渲染新建按钮 | `(originNode: React.ReactNode) => originNode` | `undefined` |
 | `maxLength` | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
 | `editable` | 可编辑表格的相关配置 | [TableRowEditable](#editable-编辑行配置) | - |
 | `controlled` | 是否受控，如果受控每次编辑都会触发 onChange，并且会修改 dataSource | `boolean` | false |
