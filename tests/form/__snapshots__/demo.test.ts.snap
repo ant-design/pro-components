@@ -454,7 +454,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -498,7 +498,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -506,7 +506,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1234,7 +1234,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                       </div>
                                     </div>
                                     <button
-                                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                       type="button"
                                     >
                                       <span
@@ -1580,7 +1580,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                       </div>
                                     </div>
                                     <button
-                                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                       type="button"
                                     >
                                       <span
@@ -1657,7 +1657,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1665,7 +1665,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1721,7 +1721,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                     value=""
                   />
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     style="display: block;"
                     type="button"
                   >
@@ -1739,7 +1739,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1747,7 +1747,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1755,7 +1755,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -1763,7 +1763,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -3610,6 +3610,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                         >
                           <div
                             class="ant-slider pro-field ant-slider-horizontal ant-slider-with-marks"
+                            id="validate_other_slider"
                             style="min-width: 120px;"
                           >
                             <div
@@ -4078,11 +4079,12 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 <input
                                   accept=""
                                   id="validate_other_pic"
+                                  name="file"
                                   style="display: none;"
                                   type="file"
                                 />
                                 <button
-                                  class="ant-btn ant-btn-default"
+                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                   type="button"
                                 >
                                   <span
@@ -4164,6 +4166,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 <input
                                   accept=""
                                   id="validate_other_drag-pic"
+                                  name="files"
                                   style="display: none;"
                                   type="file"
                                 />
@@ -4246,8 +4249,10 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
+                            aria-label="segmented control"
                             class="ant-segmented"
                             id="validate_other_segmented"
+                            role="listbox"
                           >
                             <div
                               class="ant-segmented-group"
@@ -4261,7 +4266,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="true"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="未解决"
                                 >
                                   未解决
@@ -4275,7 +4282,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="false"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="已解决"
                                 >
                                   已解决
@@ -4319,8 +4328,10 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
+                            aria-label="segmented control"
                             class="ant-segmented"
                             id="validate_other_segmented2"
+                            role="listbox"
                           >
                             <div
                               class="ant-segmented-group"
@@ -4333,7 +4344,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="false"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="全部"
                                 >
                                   全部
@@ -4348,7 +4361,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="true"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="未解决"
                                 >
                                   未解决
@@ -4362,7 +4377,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="false"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="已解决"
                                 >
                                   已解决
@@ -4376,7 +4393,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                   type="radio"
                                 />
                                 <div
+                                  aria-selected="false"
                                   class="ant-segmented-item-label"
+                                  role="option"
                                   title="解决中"
                                 >
                                   解决中
@@ -4397,7 +4416,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -4405,7 +4424,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -5449,6 +5468,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                       >
                         <input
                           accept=""
+                          name="file"
                           style="display: none;"
                           type="file"
                         />
@@ -5488,7 +5508,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-upload-list-item-actions picture"
                           >
                             <button
-                              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                               title="删除文件"
                               type="button"
                             >
@@ -5551,7 +5571,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-upload-list-item-actions picture"
                           >
                             <button
-                              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                               title="删除文件"
                               type="button"
                             >
@@ -5614,7 +5634,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-upload-list-item-actions picture"
                           >
                             <button
-                              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                               title="删除文件"
                               type="button"
                             >
@@ -5997,6 +6017,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                         <input
                           accept=""
                           id="validate_other_dragger"
+                          name="files"
                           style="display: none;"
                           type="file"
                         />
@@ -6084,7 +6105,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-upload-list-item-actions"
                           >
                             <button
-                              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                               title="删除文件"
                               type="button"
                             >
@@ -6158,7 +6179,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-upload-list-item-actions"
                           >
                             <button
-                              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                               title="删除文件"
                               type="button"
                             >
@@ -6232,7 +6253,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                             class="ant-upload-list-item-actions"
                           >
                             <button
-                              class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+                              class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
                               title="删除文件"
                               type="button"
                             >
@@ -6931,7 +6952,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -6939,7 +6960,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -8724,7 +8745,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -8732,7 +8753,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -9384,7 +9405,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -9392,7 +9413,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -9449,7 +9470,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                     value=""
                   />
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     style="display: block;"
                     type="button"
                   >
@@ -9467,7 +9488,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -9475,7 +9496,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -9483,7 +9504,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -9491,7 +9512,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -9820,7 +9841,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -9828,7 +9849,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -9896,11 +9917,12 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                       <input
                         accept=""
                         id="upload"
+                        name="file"
                         style="display: none;"
                         type="file"
                       />
                       <button
-                        class="ant-btn ant-btn-default"
+                        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                         type="button"
                       >
                         <span
@@ -9984,6 +10006,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                         <input
                           accept=""
                           id="upload"
+                          name="file"
                           style="display: none;"
                           type="file"
                         />
@@ -10065,6 +10088,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                       <input
                         accept=""
                         id="dragger"
+                        name="files"
                         style="display: none;"
                         type="file"
                       />
@@ -10120,7 +10144,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -10128,7 +10152,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -10438,7 +10462,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ba
                                   style="display: flex; align-items: flex-end; gap: 8px; height: 60px;"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-primary"
+                                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                     type="button"
                                   >
                                     <span>
@@ -10446,7 +10470,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ba
                                     </span>
                                   </button>
                                   <button
-                                    class="ant-btn ant-btn-dashed"
+                                    class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                                     type="button"
                                   >
                                     <span>
@@ -10505,7 +10529,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ba
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -10549,7 +10573,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ba
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -10557,7 +10581,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ba
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -10723,7 +10747,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/co
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -10767,7 +10791,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/co
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -10775,7 +10799,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/co
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -11068,7 +11092,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                                 </div>
                               </div>
                               <button
-                                class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                 type="button"
                               >
                                 <span
@@ -11112,7 +11136,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                   style="display: flex; gap: 8px; align-items: center;"
                 >
                   <button
-                    class="ant-btn ant-btn-default"
+                    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                     type="button"
                   >
                     <span>
@@ -11120,7 +11144,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/cu
                     </span>
                   </button>
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                     type="button"
                   >
                     <span>
@@ -12700,7 +12724,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/de
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -12744,7 +12768,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/de
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -12752,7 +12776,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/de
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -13070,7 +13094,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ho
                                                     </div>
                                                   </div>
                                                   <button
-                                                    class="ant-btn ant-btn-link ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                                    class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-block ant-pro-form-list-creator-button-bottom"
                                                     type="button"
                                                   >
                                                     <span>
@@ -13093,7 +13117,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ho
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -13137,7 +13161,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ho
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -13145,7 +13169,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ho
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -14127,7 +14151,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-sm ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-sm ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -14171,7 +14195,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-sm"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm"
           type="button"
         >
           <span>
@@ -14179,7 +14203,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary ant-btn-sm"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
           type="button"
         >
           <span>
@@ -14230,8 +14254,10 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                 class="ant-form-item-control-input-content"
               >
                 <div
+                  aria-label="segmented control"
                   class="ant-segmented ant-segmented-block"
                   id="mode"
+                  role="listbox"
                 >
                   <div
                     class="ant-segmented-group"
@@ -14245,7 +14271,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                         type="radio"
                       />
                       <div
+                        aria-selected="true"
                         class="ant-segmented-item-label"
+                        role="option"
                         title="编辑"
                       >
                         编辑
@@ -14259,7 +14287,9 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                         type="radio"
                       />
                       <div
+                        aria-selected="false"
                         class="ant-segmented-item-label"
+                        role="option"
                         title="只读"
                       >
                         只读
@@ -14601,7 +14631,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
                         </div>
                       </div>
                       <button
-                        class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                        class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                         type="button"
                       >
                         <span
@@ -14645,7 +14675,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -14653,7 +14683,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/li
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -15264,7 +15294,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
                                           </div>
                                         </div>
                                         <button
-                                          class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                           type="button"
                                         >
                                           <span
@@ -15308,7 +15338,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -15352,7 +15382,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -15360,7 +15390,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/ne
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -15389,7 +15419,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -15401,7 +15431,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-dangerous"
+          class="ant-btn ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -15413,7 +15443,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -15425,7 +15455,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           type="button"
         >
           <span>
@@ -15437,7 +15467,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-dashed"
+          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
           type="button"
         >
           <span>
@@ -15719,7 +15749,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -15763,7 +15793,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -15771,7 +15801,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Group/demos/pr
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -16075,7 +16105,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                           />
                         </span>
                         <button
-                          class="ant-btn ant-btn-default ant-btn-lg"
+                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
                           style="display: block;"
                           type="button"
                         >
@@ -16118,7 +16148,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
               </a>
             </div>
             <button
-              class="ant-btn ant-btn-primary ant-btn-lg"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
               style="width: 100%;"
               type="button"
             >
@@ -16271,7 +16301,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                 class="ant-pro-form-login-page-notice-activity-action"
               >
                 <button
-                  class="ant-btn ant-btn-default ant-btn-lg"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
                   style="border-radius: 20px; background: rgb(31, 31, 31); color: rgb(22, 104, 220); width: 120px;"
                   type="button"
                 >
@@ -16567,7 +16597,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                                 />
                               </span>
                               <button
-                                class="ant-btn ant-btn-default ant-btn-lg"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
                                 style="display: block;"
                                 type="button"
                               >
@@ -16610,7 +16640,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                     </a>
                   </div>
                   <button
-                    class="ant-btn ant-btn-primary ant-btn-lg"
+                    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-lg"
                     style="width: 100%;"
                     type="button"
                   >
@@ -16750,7 +16780,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
       test
     </div>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span
@@ -16801,7 +16831,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span
@@ -16835,7 +16865,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
           class="ant-space-item"
         >
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span
@@ -16880,7 +16910,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
       test
     </div>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span
@@ -16928,7 +16958,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -16940,7 +16970,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -16968,7 +16998,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -16980,7 +17010,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -16992,7 +17022,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -17004,7 +17034,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -17032,7 +17062,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span
@@ -17066,7 +17096,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/ModalForm/demo
         class="ant-space-item"
       >
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span
@@ -21638,7 +21668,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -21646,7 +21676,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -22177,7 +22207,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -22185,7 +22215,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -22764,7 +22794,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -22772,7 +22802,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -23702,7 +23732,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -23710,7 +23740,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -24021,7 +24051,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -24029,7 +24059,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -24342,7 +24372,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -24350,7 +24380,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -24906,7 +24936,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -24914,7 +24944,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -25499,7 +25529,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -25507,7 +25537,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -26092,7 +26122,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -26100,7 +26130,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -26685,7 +26715,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -26693,7 +26723,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -27237,7 +27267,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                           style="display: flex; gap: 8px; align-items: center;"
                         >
                           <button
-                            class="ant-btn ant-btn-default"
+                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                             type="button"
                           >
                             <span>
@@ -27245,7 +27275,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
                             </span>
                           </button>
                           <button
-                            class="ant-btn ant-btn-primary"
+                            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                             type="button"
                           >
                             <span>
@@ -27327,7 +27357,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
               class="ant-input-group-addon"
             >
               <button
-                class="ant-btn ant-btn-primary ant-input-search-button"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-input-search-button"
                 type="button"
               >
                 <span>
@@ -27933,7 +27963,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
       </div>
     </div>
     <button
-      class="ant-btn ant-btn-default"
+      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -28189,7 +28219,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -28197,7 +28227,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -28622,7 +28652,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -28630,7 +28660,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -28761,7 +28791,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -28769,7 +28799,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -29018,7 +29048,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -29026,7 +29056,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -29447,7 +29477,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -29455,7 +29485,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -30085,7 +30115,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -30093,7 +30123,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -30226,7 +30256,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -30590,7 +30620,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -30598,7 +30628,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -31971,7 +32001,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                             </div>
                           </div>
                           <button
-                            class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                            class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                             type="button"
                           >
                             <span
@@ -32375,7 +32405,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -32383,7 +32413,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -33351,7 +33381,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                                 </div>
                               </div>
                               <button
-                                class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                 type="button"
                               >
                                 <span
@@ -33745,7 +33775,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -34052,7 +34082,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -34060,7 +34090,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -34610,7 +34640,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -35828,7 +35858,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                     class="ant-space-item"
                   >
                     <button
-                      class="ant-btn ant-btn-primary"
+                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                       type="button"
                     >
                       <span>
@@ -35856,7 +35886,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
       test
     </div>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span
@@ -37667,7 +37697,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -38986,7 +39016,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                       class="ant-space-item"
                     >
                       <button
-                        class="ant-btn ant-btn-primary"
+                        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                         type="button"
                       >
                         <span>
@@ -40222,7 +40252,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/StepsForm/demo
                     class="ant-space-item"
                   >
                     <button
-                      class="ant-btn ant-btn-primary"
+                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                       type="button"
                     >
                       <span>
@@ -40369,7 +40399,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/antd.modify.tsx cor
                 class="ant-form-item-control-input-content"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -40525,7 +40555,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/antd.nest.tsx corre
                 class="ant-form-item-control-input-content"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -40670,7 +40700,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/antd.tsx correctly 
                 class="ant-form-item-control-input-content"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -42054,7 +42084,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                     style="max-width: 100%; min-width: 100%;"
                   >
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -42098,7 +42128,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -42106,7 +42136,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -43586,7 +43616,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -43630,7 +43660,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -43638,7 +43668,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -43706,11 +43736,12 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
                       <input
                         accept=""
                         id="validate_other_upload"
+                        name="file"
                         style="display: none;"
                         type="file"
                       />
                       <button
-                        class="ant-btn ant-btn-default"
+                        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                         type="button"
                       >
                         <span
@@ -43916,6 +43947,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
                       <input
                         accept=""
                         id="validate_other_dragger"
+                        name="files"
                         style="display: none;"
                         type="file"
                       />
@@ -43995,6 +44027,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
               >
                 <div
                   class="ant-slider ant-slider-horizontal"
+                  id="validate_other_range"
                   style="min-width: 120px;"
                 >
                   <div
@@ -44086,7 +44119,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
                 class="ant-form-item-control-input-content"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -44105,7 +44138,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -44113,7 +44146,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/components-test.tsx
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -44278,7 +44311,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -44338,11 +44371,12 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
                       <input
                         accept=""
                         id="validate_other_upload"
+                        name="file"
                         style="display: none;"
                         type="file"
                       />
                       <button
-                        class="ant-btn ant-btn-default"
+                        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                         type="button"
                       >
                         <span
@@ -44548,6 +44582,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
                       <input
                         accept=""
                         id="validate_other_dragger"
+                        name="files"
                         style="display: none;"
                         type="file"
                       />
@@ -44681,6 +44716,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
               >
                 <div
                   class="ant-slider ant-slider-horizontal"
+                  id="validate_other_range"
                   style="min-width: 120px;"
                 >
                   <div
@@ -44760,7 +44796,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -44768,7 +44804,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/config-provider.tsx
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -45229,7 +45265,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/dependency.tsx corr
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -45237,7 +45273,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/dependency.tsx corr
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -45451,7 +45487,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-control-render
                 class="ant-form-item-control-input-content"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -45883,7 +45919,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-item-render.ts
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -45891,7 +45927,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-item-render.ts
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -46265,7 +46301,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout.tsx cor
               class="ant-space-item"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                 type="button"
               >
                 <span>
@@ -46277,7 +46313,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout.tsx cor
               class="ant-space-item"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -47181,7 +47217,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
               class="ant-space-item"
             >
               <button
-                class="ant-btn ant-btn-default"
+                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                 type="button"
               >
                 <span>
@@ -47193,7 +47229,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/form-layout-grid.ts
               class="ant-space-item"
             >
               <button
-                class="ant-btn ant-btn-primary"
+                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                 type="button"
               >
                 <span>
@@ -47481,7 +47517,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/formRef.tsx correct
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -47489,7 +47525,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/formRef.tsx correct
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -47497,7 +47533,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/formRef.tsx correct
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -47505,7 +47541,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/formRef.tsx correct
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -47517,7 +47553,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/formRef.tsx correct
           style="display: block;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -47525,7 +47561,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/formRef.tsx correct
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -47792,7 +47828,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/label-col.tsx corre
                 class="ant-form-item-control-input-content"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="submit"
                 >
                   <span>
@@ -47924,7 +47960,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/labelInValue.tsx co
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -47932,7 +47968,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/labelInValue.tsx co
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -48879,7 +48915,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
           style="display: flex; gap: 8px; align-items: center;"
         >
           <button
-            class="ant-btn ant-btn-default"
+            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
             type="button"
           >
             <span>
@@ -48887,7 +48923,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-change.tsx c
             </span>
           </button>
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -50366,11 +50402,12 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                           <input
                                             accept=""
                                             id="file"
+                                            name="file"
                                             style="display: none;"
                                             type="file"
                                           />
                                           <button
-                                            class="ant-btn ant-btn-default"
+                                            class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                             type="button"
                                           >
                                             <span
@@ -50569,7 +50606,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                               class="ant-pro-footer-bar-right"
                             >
                               <button
-                                class="ant-btn ant-btn-default"
+                                class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                                 type="button"
                               >
                                 <span>
@@ -50577,7 +50614,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                                 </span>
                               </button>
                               <button
-                                class="ant-btn ant-btn-primary"
+                                class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                 type="button"
                               >
                                 <span>
@@ -51764,7 +51801,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                     class="ant-space-item"
                   >
                     <button
-                      class="ant-btn ant-btn-default"
+                      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                       type="button"
                     >
                       <span>
@@ -51776,7 +51813,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/linkage-customizati
                     class="ant-space-item"
                   >
                     <button
-                      class="ant-btn ant-btn-primary"
+                      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                       type="button"
                     >
                       <span>
@@ -51807,7 +51844,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
       <div>
         在form外边可以
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span
@@ -51848,7 +51885,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
             type="text"
           />
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span
@@ -52083,7 +52120,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
                                                           <div>
                                                             在内层formlist拿不到
                                                             <button
-                                                              class="ant-btn ant-btn-primary"
+                                                              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                                               type="button"
                                                             >
                                                               <span
@@ -52116,7 +52153,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
                                                         </div>
                                                       </div>
                                                       <button
-                                                        class="ant-btn ant-btn-link ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                                        class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-block ant-pro-form-list-creator-button-bottom"
                                                         type="button"
                                                       >
                                                         <span>
@@ -52138,7 +52175,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
                               <div>
                                 在外层formlist拿不到
                                 <button
-                                  class="ant-btn ant-btn-primary"
+                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                                   type="button"
                                 >
                                   <span
@@ -52172,7 +52209,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
                           </div>
                         </div>
                         <button
-                          class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                           type="button"
                         >
                           <span
@@ -52216,7 +52253,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
             style="display: flex; gap: 8px; align-items: center;"
           >
             <button
-              class="ant-btn ant-btn-default"
+              class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
               type="button"
             >
               <span>
@@ -52224,7 +52261,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
               </span>
             </button>
             <button
-              class="ant-btn ant-btn-primary"
+              class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
               type="button"
             >
               <span>
@@ -53394,7 +53431,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -53402,7 +53439,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/money.tsx correctly
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -53541,7 +53578,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/params-formref.tsx 
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -53549,7 +53586,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/params-formref.tsx 
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -53987,7 +54024,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
                                           </div>
                                         </div>
                                         <button
-                                          class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                                           type="button"
                                         >
                                           <span
@@ -54031,7 +54068,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
                       </div>
                     </div>
                     <button
-                      class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
                       type="button"
                     >
                       <span
@@ -54075,7 +54112,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -54083,7 +54120,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -54480,7 +54517,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
                                         style="visibility: hidden;"
                                       >
                                         <button
-                                          class="ant-btn ant-btn-dashed"
+                                          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                                           style="display: block; margin: 10px 0px; width: 100%;"
                                           type="button"
                                         >
@@ -54520,7 +54557,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
                                         style="position: absolute; left: 0px; width: 100%;"
                                       >
                                         <button
-                                          class="ant-btn ant-btn-dashed"
+                                          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
                                           style="display: block; margin: 10px 0px; width: 100%;"
                                           type="button"
                                         >
@@ -55071,7 +55108,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -55079,7 +55116,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -55422,7 +55459,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/sync-to-url.tsx cor
         style="display: flex; gap: 8px; align-items: center;"
       >
         <button
-          class="ant-btn ant-btn-default"
+          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           type="button"
         >
           <span>
@@ -55430,7 +55467,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/sync-to-url.tsx cor
           </span>
         </button>
         <button
-          class="ant-btn ant-btn-primary"
+          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>

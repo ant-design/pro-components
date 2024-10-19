@@ -33,7 +33,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
                 style="display: flex; gap: 16px; align-items: center;"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -41,7 +41,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/arr
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -240,7 +240,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
       test
     </div>
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -409,7 +409,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/bas
           class="ant-descriptions-extra"
         >
           <button
-            class="ant-btn ant-btn-primary"
+            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
             type="button"
           >
             <span>
@@ -2485,12 +2485,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                           title=""
                         >
                           这是一段文本columns
-                          <div
+                          <button
                             aria-label="复制"
                             class="ant-typography-copy"
-                            role="button"
-                            style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                            tabindex="0"
+                            type="button"
                           >
                             <span
                               aria-label="copy"
@@ -2511,7 +2509,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/edi
                                 />
                               </svg>
                             </span>
-                          </div>
+                          </button>
                         </span>
                       </div>
                       <div
@@ -3447,7 +3445,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
                 style="display: flex; gap: 16px; align-items: center;"
               >
                 <button
-                  class="ant-btn ant-btn-primary"
+                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
                   type="button"
                 >
                   <span>
@@ -3455,7 +3453,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
                   </span>
                 </button>
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
                   type="button"
                 >
                   <span>
@@ -3468,7 +3466,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/req
               class="ant-space-item"
             >
               <button
-                class="ant-btn ant-btn-link"
+                class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link"
                 type="button"
               >
                 <span>
@@ -3639,12 +3637,10 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                       title=""
                     >
                       这是一段文本columns
-                      <div
+                      <button
                         aria-label="Copy"
                         class="ant-typography-copy"
-                        role="button"
-                        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-flex;"
-                        tabindex="0"
+                        type="button"
                       >
                         <span
                           aria-label="copy"
@@ -3665,7 +3661,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                             />
                           </svg>
                         </span>
-                      </div>
+                      </button>
                     </span>
                   </span>
                 </div>

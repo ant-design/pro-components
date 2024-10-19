@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.69...@ant-design/pro-list@2.6.0) (2024-10-17)
+
+### Features
+
+- added exports to support ESM environments such as vitest ([#8738](https://github.com/ant-design/pro-components/issues/8738)) ([71c4be9](https://github.com/ant-design/pro-components/commit/71c4be9c9ca5942154e0473e62be608d784d53fc))
+
 ## [2.5.69](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@2.5.68...@ant-design/pro-list@2.5.69) (2024-09-12)
 
 **Note:** Version bump only for package @ant-design/pro-list

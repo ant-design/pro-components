@@ -85,7 +85,7 @@ exports[`ProForm > 📦 submit props render=()=>[] 1`] = `
       type="text"
     />
     <button
-      class="ant-btn ant-btn-primary"
+      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -219,7 +219,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -227,7 +227,7 @@ exports[`ProForm > 📦 submitted value should be consistent with input when pre
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -253,7 +253,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default test_button"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined test_button"
         type="button"
       >
         <span>
@@ -261,7 +261,7 @@ exports[`ProForm > 📦 submitter props support resetButtonProps 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -287,7 +287,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -295,7 +295,7 @@ exports[`ProForm > 📦 submitter props support submitButtonProps 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary test_button"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid test_button"
         type="button"
       >
         <span>
@@ -405,7 +405,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -413,7 +413,7 @@ exports[`ProForm > 📦 validateFieldsReturnFormatValue 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -548,7 +548,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -556,7 +556,7 @@ exports[`ProForm > 📦 valueType digit with precision value 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
@@ -739,7 +739,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
       style="display: flex; gap: 8px; align-items: center;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         type="button"
       >
         <span>
@@ -747,7 +747,7 @@ exports[`ProForm > 📦 when dateFormatter is a Function 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span>
