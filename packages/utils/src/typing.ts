@@ -635,7 +635,7 @@ export type ProSchema<
    * @name 自定义只读模式的dom
    */
   render?: (
-    dom: unknown,
+    dom: any,
     entity: Entity,
     index: number,
     action: ProCoreActionType | undefined,
