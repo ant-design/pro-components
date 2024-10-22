@@ -20,13 +20,6 @@
   "unpkg": "dist/pro-components.min.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./es/index.js",
-      "require": "./lib/index.js",
-      "types": "./es/index.d.ts"
-    }
-  },
   "files": [
     "dist",
     "lib",
