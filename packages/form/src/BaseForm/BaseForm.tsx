@@ -644,20 +644,18 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     setUrlParamsMergeInitialValues({});
   }, [syncToInitialValues]);
 
+  const getGenParams = useRefFunction(() => {
+    return {
+      ...urlSearch,
+      ...extraUrlParams,
+    };
+  });
+
   useEffect(() => {
     if (!syncToUrl) return;
-    setUrlSearch(
-      genParams(
-        syncToUrl,
-        {
-          ...urlSearch,
-          ...extraUrlParams,
-        },
-        'set',
-      ),
-    );
+    setUrlSearch(genParams(syncToUrl, getGenParams(), 'set'));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [extraUrlParams, syncToUrl]);
+  }, [extraUrlParams, getGenParams, syncToUrl]);
 
   const getPopupContainer = useMemo(() => {
     if (typeof window === 'undefined') return undefined;
