@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.8.0...@ant-design/pro-components@2.8.1) (2024-10-22)
 
-
 ### Bug Fixes
 
-* **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
-
-
-
-
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
 
 # [2.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-components@2.7.19...@ant-design/pro-components@2.8.0) (2024-10-17)
 
