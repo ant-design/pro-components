@@ -135,6 +135,10 @@ recordCreatorProps = {
   newRecordType: 'dataSource',
   // If not specified, it will use the index as the row ID
   record: {},
+  // Set button text
+  creatorButtonText: 'New line ',
+  // Custom render
+  render: (originNode) => originNode,
   // Button style settings, you can control whether the button is displayed
   // This can be used to implement features like maximum and minimum row limits
   style: {

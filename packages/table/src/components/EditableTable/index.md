@@ -153,6 +153,8 @@ recordCreatorProps = {
   record: {},
   // 设置按钮文案
   creatorButtonText: '新增一行',
+  // 自定义渲染
+  render: (originNode) => originNode,
   // 按钮的样式设置，可以设置按钮是否显示
   // 这样可以做最大行限制和最小行限制之类的功能
   style: {

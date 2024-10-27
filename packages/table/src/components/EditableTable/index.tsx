@@ -68,7 +68,7 @@ export type EditableFormInstance<T = any> = ProFormInstance<T> & {
   setRowData?: (rowIndex: string | number, data: Partial<T>) => void;
 };
 
-export type RecordCreatorProps<DataSourceType> = {
+export interface RecordCreatorProps<DataSourceType> extends ButtonProps {
   record:
     | DataSourceType
     | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
@@ -84,7 +84,11 @@ export type RecordCreatorProps<DataSourceType> = {
   parentKey?:
     | React.Key
     | ((index: number, dataSource: DataSourceType[]) => React.Key);
-};
+  /** 设置按钮文案 */
+  creatorButtonText?: React.ReactNode;
+  /** 自定义渲染 */
+  render?: (originNode: JSX.Element) => JSX.Element;
+}
 
 export type EditableProTableProps<
   T,
@@ -103,12 +107,7 @@ export type EditableProTableProps<
   editableFormRef?: React.Ref<EditableFormInstance<T> | undefined>;
 
   /** @name 新建按钮的设置 */
-  recordCreatorProps?:
-    | (RecordCreatorProps<T> &
-        ButtonProps & {
-          creatorButtonText?: React.ReactNode;
-        })
-    | false;
+  recordCreatorProps?: RecordCreatorProps<T> | false;
   /** 最大行数 */
   maxLength?: number;
   /** Table 的值发生改变，为了适应 Form 调整了顺序 */
@@ -325,6 +324,7 @@ function EditableTable<
     newRecordType,
     parentKey,
     style,
+    render,
     ...restButtonProps
   } = recordCreatorProps || {};
   const isTop = position === 'top';
@@ -333,6 +333,24 @@ function EditableTable<
     if (typeof maxLength === 'number' && maxLength <= value?.length) {
       return false;
     }
+
+    const innerCreatorButton = (
+      <Button
+        type="dashed"
+        style={{
+          display: 'block',
+          margin: '10px 0',
+          width: '100%',
+          ...style,
+        }}
+        icon={<PlusOutlined />}
+        {...restButtonProps}
+      >
+        {creatorButtonText ||
+          intl.getMessage('editableTable.action.add', '添加一行数据')}
+      </Button>
+    );
+
     return (
       recordCreatorProps !== false && (
         <RecordCreator
@@ -341,20 +359,7 @@ function EditableTable<
           parentKey={runFunction(parentKey, value?.length, value)}
           newRecordType={newRecordType}
         >
-          <Button
-            type="dashed"
-            style={{
-              display: 'block',
-              margin: '10px 0',
-              width: '100%',
-              ...style,
-            }}
-            icon={<PlusOutlined />}
-            {...restButtonProps}
-          >
-            {creatorButtonText ||
-              intl.getMessage('editableTable.action.add', '添加一行数据')}
-          </Button>
+          {render?.(innerCreatorButton) ?? innerCreatorButton}
         </RecordCreator>
       )
     );
