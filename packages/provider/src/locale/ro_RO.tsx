@@ -1,5 +1,5 @@
 export default {
-  moneySymbol: '¥',
+  moneySymbol: 'RON',
   deleteThisLine: 'Șterge acest rând',
   copyThisLine: 'Copiază acest rând',
   form: {

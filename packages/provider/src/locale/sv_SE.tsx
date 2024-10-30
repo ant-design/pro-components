@@ -1,5 +1,5 @@
 export default {
-  moneySymbol: '¥',
+  moneySymbol: 'SEK',
   deleteThisLine: 'Radera denna rad',
   copyThisLine: 'Kopiera denna rad',
   form: {
