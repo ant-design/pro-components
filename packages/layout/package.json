@@ -45,7 +45,7 @@
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "omit.js": "^2.0.2",
-    "path-to-regexp": "8.0.0",
+    "path-to-regexp": "8.1.0",
     "rc-resize-observer": "^1.1.0",
     "rc-util": "^5.0.6",
     "swr": "^2.0.0",
