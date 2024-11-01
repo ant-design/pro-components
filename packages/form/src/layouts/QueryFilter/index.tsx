@@ -132,7 +132,7 @@ export type BaseQueryFilterProps = Omit<
    * span={6}
    *
    * @example 配置一行3个
-   * span={6}
+   * span={8}
    *
    * @example 根据屏幕宽度配置
    * span={xs: 24, sm: 12, md: 8, lg: 6, xl: 6, xxl: 6}
