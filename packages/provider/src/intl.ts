@@ -28,6 +28,9 @@ import uzUZ from './locale/uz_UZ';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
+import nlNL from './locale/nl_NL';
+import roRO from './locale/ro_RO';
+import svSE from './locale/sv_SE';
 
 export type IntlType = {
   locale: string;
@@ -88,6 +91,9 @@ const skSKIntl = createIntl('sk_SK', skSK);
 const heILIntl = createIntl('he_IL', heIL);
 const ukUAIntl = createIntl('uk_UA', ukUA);
 const uzUZIntl = createIntl('uz_UZ', uzUZ);
+const nlNLIntl = createIntl('nl_NL', nlNL);
+const roROIntl = createIntl('ro_RO', roRO);
+const svSEIntl = createIntl('sv_SE', svSE);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -119,6 +125,9 @@ const intlMap = {
   'he-IL': heILIntl,
   'uk-UA': ukUAIntl,
   'uz-UZ': uzUZIntl,
+  'nl-NL': nlNLIntl,
+  'ro-RO': roROIntl,
+  'sv-SE': svSEIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -168,4 +177,7 @@ export {
   viVNIntl,
   zhCNIntl,
   zhTWIntl,
+  nlNLIntl,
+  roROIntl,
+  svSEIntl,
 };
