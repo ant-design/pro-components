@@ -14826,7 +14826,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                     class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
                                   >
                                     <input
-                                      aria-checked="mixed"
                                       aria-label="Custom selection"
                                       class="ant-checkbox-input"
                                       type="checkbox"
@@ -16869,7 +16868,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columns-setting-c
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <title>
-                                      Simple Empty
+                                      暂无数据
                                     </title>
                                     <g
                                       fill="none"
@@ -18011,7 +18010,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <title>
-                                      Simple Empty
+                                      暂无数据
                                     </title>
                                     <g
                                       fill="none"
@@ -18926,7 +18925,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                         xmlns="http://www.w3.org/2000/svg"
                                       >
                                         <title>
-                                          Simple Empty
+                                          暂无数据
                                         </title>
                                         <g
                                           fill="none"
@@ -27190,7 +27189,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/edittable-rules.t
                                                   xmlns="http://www.w3.org/2000/svg"
                                                 >
                                                   <title>
-                                                    Simple Empty
+                                                    暂无数据
                                                   </title>
                                                   <g
                                                     fill="none"
@@ -37917,7 +37916,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <title>
-                                      Simple Empty
+                                      لا توجد بيانات
                                     </title>
                                     <g
                                       fill="none"
@@ -39783,7 +39782,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <title>
-                                      Simple Empty
+                                      暂无数据
                                     </title>
                                     <g
                                       fill="none"
@@ -44593,7 +44592,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                       xmlns="http://www.w3.org/2000/svg"
                                     >
                                       <title>
-                                        Simple Empty
+                                        暂无数据
                                       </title>
                                       <g
                                         fill="none"

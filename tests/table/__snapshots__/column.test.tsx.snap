@@ -352,7 +352,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <title>
-                                    Simple Empty
+                                    暂无数据
                                   </title>
                                   <g
                                     fill="none"
@@ -729,7 +729,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                                   xmlns="http://www.w3.org/2000/svg"
                                 >
                                   <title>
-                                    Simple Empty
+                                    暂无数据
                                   </title>
                                   <g
                                     fill="none"
