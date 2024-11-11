@@ -15,13 +15,13 @@ import 'antd/lib/input/style';
 const FieldTextArea: ProFieldFC<{
   text: string;
 }> = (props, ref) => {
-  const { text, mode, render, renderFormItem, fieldProps } = props;
+  const { text, mode, render, , fieldProps } = props;
   const intl = useIntl();
 
   if (mode === 'read') {
     const dom = <FieldTextAreaReadonly {...props} ref={ref} />;
     if (render) {
-      return render(text, { mode, ...fieldProps }, dom);
+      return render(text, { mode, ...omit(fieldProps, ['showCount']), dom);
     }
     return dom;
   }
@@ -38,7 +38,7 @@ const FieldTextArea: ProFieldFC<{
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+      return (text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }
