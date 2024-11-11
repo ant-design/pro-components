@@ -21,7 +21,7 @@ const FieldTextArea: ProFieldFC<{
   if (mode === 'read') {
     const dom = <FieldTextAreaReadonly {...props} ref={ref} />;
     if (render) {
-      return render(text, { mode, ...omit(fieldProps, ['showCount']), dom);
+      return render(text, { mode, ...omit(fieldProps, ['showCount']) }, dom);
     }
     return dom;
   }
