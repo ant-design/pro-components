@@ -38,7 +38,7 @@ const FieldTextArea: ProFieldFC<{
       />
     );
     if (renderFormItem) {
-      return (text, { mode, ...fieldProps }, dom);
+      return renderFormItem(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }
