@@ -1,3 +1,9 @@
+## @ant-design/pro-components@2.8.2
+
+`2024-11-14`
+
+- fix(table): React does not recognize the `showCount` prop on a DOM element. (#8856). [#8856](https://github.com/ant-design/pro-components/pull/#8856) [@leshalv](https://github.com/leshalv)
+
 ## @ant-design/pro-components@2.8.0
 
 `2024-10-17`

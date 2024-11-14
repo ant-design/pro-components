@@ -16,11 +16,14 @@ import jaJP from './locale/ja_JP';
 import koKR from './locale/ko_KR';
 import mnMN from './locale/mn_MN';
 import msMY from './locale/ms_MY';
+import nlNL from './locale/nl_NL';
 import plPL from './locale/pl_PL';
 import ptBR from './locale/pt_BR';
+import roRO from './locale/ro_RO';
 import ruRU from './locale/ru_RU';
 import skSK from './locale/sk_SK';
 import srRS from './locale/sr_RS';
+import svSE from './locale/sv_SE';
 import thTH from './locale/th_TH';
 import trTR from './locale/tr_TR';
 import ukUA from './locale/uk_UA';
@@ -28,9 +31,6 @@ import uzUZ from './locale/uz_UZ';
 import viVN from './locale/vi_VN';
 import zhCN from './locale/zh_CN';
 import zhTW from './locale/zh_TW';
-import nlNL from './locale/nl_NL';
-import roRO from './locale/ro_RO';
-import svSE from './locale/sv_SE';
 
 export type IntlType = {
   locale: string;
@@ -165,11 +165,14 @@ export {
   koKRIntl,
   mnMNIntl,
   msMYIntl,
+  nlNLIntl,
   plPLIntl,
   ptBRIntl,
+  roROIntl,
   ruRUIntl,
   skSKIntl,
   srRSIntl,
+  svSEIntl,
   thTHIntl,
   trTRIntl,
   ukUAIntl,
@@ -177,7 +180,4 @@ export {
   viVNIntl,
   zhCNIntl,
   zhTWIntl,
-  nlNLIntl,
-  roROIntl,
-  svSEIntl,
 };

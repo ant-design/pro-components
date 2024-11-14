@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.1...@ant-design/pro-field@2.17.2) (2024-11-14)
 
-
 ### Bug Fixes
 
-* **table:** React does not recognize the `showCount` prop on a DOM element. ([#8856](https://github.com/ant-design/pro-components/issues/8856)) ([143ac69](https://github.com/ant-design/pro-components/commit/143ac692803d7361d0543bfb09918ddb59bff398))
-
-
-
-
+- **table:** React does not recognize the `showCount` prop on a DOM element. ([#8856](https://github.com/ant-design/pro-components/issues/8856)) ([143ac69](https://github.com/ant-design/pro-components/commit/143ac692803d7361d0543bfb09918ddb59bff398))
 
 ## [2.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.0...@ant-design/pro-field@2.17.1) (2024-10-22)
 
