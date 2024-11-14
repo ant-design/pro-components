@@ -328,7 +328,9 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
               <div
                 className={
                   expandedRowClassName &&
-                  expandedRowClassName(record, index, indentSize)
+                  typeof expandedRowClassName !== 'string'
+                    ? expandedRowClassName(record, index, indentSize)
+                    : expandedRowClassName
                 }
               >
                 {expandedRowDom}
