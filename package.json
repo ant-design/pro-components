@@ -28,6 +28,7 @@
     "site": "npm run build && cross-env SITE_DEPLOY='TRUE' dumi build",
     "start": "npm run version && dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
+    "test:ui": "npm run version && cross-env TZ=UTC vitest --ui",
     "test": "npm run version && cross-env TZ=UTC vitest --run",
     "test:coverage": "npm run version && pnpm --filter \"@ant-design/**\" build && cross-env TZ=UTC TEST_LOG=none vitest  --coverage",
     "test:update": "npm run version && cross-env TZ=UTC  vitest -u",

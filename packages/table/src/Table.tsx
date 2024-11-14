@@ -57,6 +57,7 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
+import ValueTypeToComponent from '../../field/src/ValueTypeToComponent';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -1021,7 +1022,7 @@ const ProviderTableContainer = <
 
   return (
     <Container initValue={props}>
-      <ProConfigProvider needDeps>
+      <ProConfigProvider valueTypeMap={ValueTypeToComponent} needDeps>
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={`${getPrefixCls('pro-table')}`}
