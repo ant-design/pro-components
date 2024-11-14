@@ -730,29 +730,33 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueEnum-map.ts
                             class="ant-select-selector"
                           >
                             <span
-                              class="ant-select-selection-search"
+                              class="ant-select-selection-wrap"
                             >
-                              <input
-                                aria-autocomplete="list"
-                                aria-controls="status1_list"
-                                aria-expanded="false"
-                                aria-haspopup="listbox"
-                                aria-owns="status1_list"
-                                autocomplete="off"
-                                class="ant-select-selection-search-input"
-                                id="status1"
-                                readonly=""
-                                role="combobox"
-                                style="opacity: 0;"
-                                type="search"
-                                unselectable="on"
-                                value=""
-                              />
-                            </span>
-                            <span
-                              class="ant-select-selection-placeholder"
-                            >
-                              请选择
+                              <span
+                                class="ant-select-selection-search"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-controls="status1_list"
+                                  aria-expanded="false"
+                                  aria-haspopup="listbox"
+                                  aria-owns="status1_list"
+                                  autocomplete="off"
+                                  class="ant-select-selection-search-input"
+                                  id="status1"
+                                  readonly=""
+                                  role="combobox"
+                                  style="opacity: 0;"
+                                  type="search"
+                                  unselectable="on"
+                                  value=""
+                                />
+                              </span>
+                              <span
+                                class="ant-select-selection-placeholder"
+                              >
+                                请选择
+                              </span>
                             </span>
                           </div>
                           <span
@@ -829,29 +833,33 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueEnum-map.ts
                             class="ant-select-selector"
                           >
                             <span
-                              class="ant-select-selection-search"
+                              class="ant-select-selection-wrap"
                             >
-                              <input
-                                aria-autocomplete="list"
-                                aria-controls="status2_list"
-                                aria-expanded="false"
-                                aria-haspopup="listbox"
-                                aria-owns="status2_list"
-                                autocomplete="off"
-                                class="ant-select-selection-search-input"
-                                id="status2"
-                                readonly=""
-                                role="combobox"
-                                style="opacity: 0;"
-                                type="search"
-                                unselectable="on"
-                                value=""
-                              />
-                            </span>
-                            <span
-                              class="ant-select-selection-placeholder"
-                            >
-                              请选择
+                              <span
+                                class="ant-select-selection-search"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-controls="status2_list"
+                                  aria-expanded="false"
+                                  aria-haspopup="listbox"
+                                  aria-owns="status2_list"
+                                  autocomplete="off"
+                                  class="ant-select-selection-search-input"
+                                  id="status2"
+                                  readonly=""
+                                  role="combobox"
+                                  style="opacity: 0;"
+                                  type="search"
+                                  unselectable="on"
+                                  value=""
+                                />
+                              </span>
+                              <span
+                                class="ant-select-selection-placeholder"
+                              >
+                                请选择
+                              </span>
                             </span>
                           </div>
                           <span
@@ -924,29 +932,33 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueEnum-map.ts
                           class="ant-select-selector"
                         >
                           <span
-                            class="ant-select-selection-search"
+                            class="ant-select-selection-wrap"
                           >
-                            <input
-                              aria-autocomplete="list"
-                              aria-controls="status3_list"
-                              aria-expanded="false"
-                              aria-haspopup="listbox"
-                              aria-owns="status3_list"
-                              autocomplete="off"
-                              class="ant-select-selection-search-input"
-                              id="status3"
-                              readonly=""
-                              role="combobox"
-                              style="opacity: 0;"
-                              type="search"
-                              unselectable="on"
-                              value=""
-                            />
-                          </span>
-                          <span
-                            class="ant-select-selection-placeholder"
-                          >
-                            请选择
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-autocomplete="list"
+                                aria-controls="status3_list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                aria-owns="status3_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="status3"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-placeholder"
+                            >
+                              请选择
+                            </span>
                           </span>
                         </div>
                         <span
@@ -1248,7 +1260,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueEnum-map.ts
                                     xmlns="http://www.w3.org/2000/svg"
                                   >
                                     <title>
-                                      Simple Empty
+                                      暂无数据
                                     </title>
                                     <g
                                       fill="none"
@@ -1341,27 +1353,31 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueType.tsx co
                   class="ant-select-selector"
                 >
                   <span
-                    class="ant-select-selection-search"
+                    class="ant-select-selection-wrap"
                   >
-                    <input
-                      aria-autocomplete="list"
-                      aria-controls="rc_select_TEST_OR_SSR_list"
-                      aria-expanded="false"
-                      aria-haspopup="listbox"
-                      aria-owns="rc_select_TEST_OR_SSR_list"
-                      autocomplete="off"
-                      class="ant-select-selection-search-input"
-                      id="rc_select_TEST_OR_SSR"
-                      role="combobox"
-                      type="search"
-                      value=""
-                    />
-                  </span>
-                  <span
-                    class="ant-select-selection-item"
-                    title="文本框"
-                  >
-                    文本框
+                    <span
+                      class="ant-select-selection-search"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
+                        aria-haspopup="listbox"
+                        aria-owns="rc_select_TEST_OR_SSR_list"
+                        autocomplete="off"
+                        class="ant-select-selection-search-input"
+                        id="rc_select_TEST_OR_SSR"
+                        role="combobox"
+                        type="search"
+                        value=""
+                      />
+                    </span>
+                    <span
+                      class="ant-select-selection-item"
+                      title="文本框"
+                    >
+                      文本框
+                    </span>
                   </span>
                 </div>
                 <span
