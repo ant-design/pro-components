@@ -3270,29 +3270,33 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctl
                                               class="ant-select-selector"
                                             >
                                               <span
-                                                class="ant-select-selection-search"
+                                                class="ant-select-selection-wrap"
                                               >
-                                                <input
-                                                  aria-autocomplete="list"
-                                                  aria-controls="status_list"
-                                                  aria-expanded="false"
-                                                  aria-haspopup="listbox"
-                                                  aria-owns="status_list"
-                                                  autocomplete="off"
-                                                  class="ant-select-selection-search-input"
-                                                  id="status"
-                                                  readonly=""
-                                                  role="combobox"
-                                                  style="opacity: 0;"
-                                                  type="search"
-                                                  unselectable="on"
-                                                  value=""
-                                                />
-                                              </span>
-                                              <span
-                                                class="ant-select-selection-placeholder"
-                                              >
-                                                请选择
+                                                <span
+                                                  class="ant-select-selection-search"
+                                                >
+                                                  <input
+                                                    aria-autocomplete="list"
+                                                    aria-controls="status_list"
+                                                    aria-expanded="false"
+                                                    aria-haspopup="listbox"
+                                                    aria-owns="status_list"
+                                                    autocomplete="off"
+                                                    class="ant-select-selection-search-input"
+                                                    id="status"
+                                                    readonly=""
+                                                    role="combobox"
+                                                    style="opacity: 0;"
+                                                    type="search"
+                                                    unselectable="on"
+                                                    value=""
+                                                  />
+                                                </span>
+                                                <span
+                                                  class="ant-select-selection-placeholder"
+                                                >
+                                                  请选择
+                                                </span>
                                               </span>
                                             </div>
                                             <span
@@ -5065,28 +5069,32 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="页码"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          role="combobox"
-                          type="search"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="5 条/页"
-                      >
-                        5 条/页
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-label="页码"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            role="combobox"
+                            type="search"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="5 条/页"
+                        >
+                          5 条/页
+                        </span>
                       </span>
                     </div>
                     <span
@@ -5275,29 +5283,33 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                             class="ant-select-selector"
                           >
                             <span
-                              class="ant-select-selection-search"
+                              class="ant-select-selection-wrap"
                             >
-                              <input
-                                aria-autocomplete="list"
-                                aria-controls="status_list"
-                                aria-expanded="false"
-                                aria-haspopup="listbox"
-                                aria-owns="status_list"
-                                autocomplete="off"
-                                class="ant-select-selection-search-input"
-                                id="status"
-                                readonly=""
-                                role="combobox"
-                                style="opacity: 0;"
-                                type="search"
-                                unselectable="on"
-                                value=""
-                              />
-                            </span>
-                            <span
-                              class="ant-select-selection-placeholder"
-                            >
-                              请选择
+                              <span
+                                class="ant-select-selection-search"
+                              >
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-controls="status_list"
+                                  aria-expanded="false"
+                                  aria-haspopup="listbox"
+                                  aria-owns="status_list"
+                                  autocomplete="off"
+                                  class="ant-select-selection-search-input"
+                                  id="status"
+                                  readonly=""
+                                  role="combobox"
+                                  style="opacity: 0;"
+                                  type="search"
+                                  unselectable="on"
+                                  value=""
+                                />
+                              </span>
+                              <span
+                                class="ant-select-selection-placeholder"
+                              >
+                                请选择
+                              </span>
                             </span>
                           </div>
                           <span
@@ -6217,30 +6229,34 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="default"
-        >
-          default
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="default"
+          >
+            default
+          </span>
         </span>
       </div>
       <span
@@ -6278,30 +6294,34 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="有"
-        >
-          有
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="有"
+          >
+            有
+          </span>
         </span>
       </div>
       <span
