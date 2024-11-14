@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.1...@ant-design/pro-provider@2.15.2) (2024-11-14)
+
+
+### Bug Fixes
+
+* **provider:** support antd csp ([#8855](https://github.com/ant-design/pro-components/issues/8855)) ([f64090a](https://github.com/ant-design/pro-components/commit/f64090a41a88092a8223299ef3c9e8c3dce12b05))
+
+
+
+
 
 ## [2.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@2.15.0...@ant-design/pro-provider@2.15.1) (2024-10-22)
 
