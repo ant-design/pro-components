@@ -1519,14 +1519,14 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-
+    const input = html.baseElement.querySelector(
+      '.ant-pro-table-list-toolbar-search input',
+    )!
     await html.findByText('查 询');
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
+        input,
         {
           target: {
             value: 'name',
@@ -1539,9 +1539,7 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.keyDown(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
+        input,
         { key: 'Enter', keyCode: 13 },
       );
     });
@@ -1552,9 +1550,7 @@ describe('BasicTable', () => {
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector(
-          '.ant-pro-table-list-toolbar-search input',
-        )!,
+        input,
         {
           target: {
             value: 'name1',
@@ -1563,16 +1559,20 @@ describe('BasicTable', () => {
       );
     });
 
-    // await html.findByDisplayValue('name1');
-
-    // act(() => {
-    //   fireEvent.keyDown(
-    //     html.baseElement.querySelector(
-    //       '.ant-pro-table-list-toolbar-search input',
-    //     )!,
-    //     { key: 'Enter', keyCode: 13 },
-    //   );
-    // });
+    await html.findByDisplayValue('name1');
+    // 下一次keyDown前需要一次keyUp，除非是设置了长按
+    act(() => {
+      fireEvent.keyUp(
+        input,
+        { key: 'Enter', keyCode: 13 },
+      );
+    });
+    act(() => {
+      fireEvent.keyDown(
+        input,
+        { key: 'Enter', keyCode: 13 },
+      );
+    });
 
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith('name1');
