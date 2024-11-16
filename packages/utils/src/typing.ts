@@ -249,7 +249,6 @@ export type ProFieldValueTypeWithFieldProps = {
  * @param image 图片设置
  * @param jsonCode Json 的代码块，格式化了一下
  * @param color 颜色选择器
- * @param color 颜色选择器
  */
 export type ProFieldValueType = Extract<
   keyof ProFieldValueTypeWithFieldProps,

@@ -103,7 +103,7 @@ export function useStyle(
 
   const { token: antdToken, hashId, theme } = antdTheme.useToken();
 
-  const { getPrefixCls } = useContext(AntdConfigProvider.ConfigContext);
+  const { getPrefixCls, csp } = useContext(AntdConfigProvider.ConfigContext);
 
   // 如果不在 ProProvider 里面，就用 antd 的
   if (!token.layout) {
@@ -118,6 +118,7 @@ export function useStyle(
         theme,
         token,
         path: [componentName],
+        nonce: csp?.nonce,
       },
       () => styleFn(token as ProAliasToken),
     ),

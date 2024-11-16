@@ -1382,11 +1382,13 @@ describe('BasicTable', () => {
         request={async () => {
           return { data: [] };
         }}
+        search={false}
+        toolBarRender={false}
         rowKey="key"
       />,
     );
     await waitFor(() => {
-      html.getByText('暂无数据');
+      html.getAllByText('暂无数据');
     });
   });
 
@@ -1675,7 +1677,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      return html.findByText('暂无数据');
+      return html.findAllByText('暂无数据');
     });
 
     await waitFor(() => {
@@ -1687,7 +1689,7 @@ describe('BasicTable', () => {
     });
 
     await waitFor(() => {
-      return html.findByText('暂无数据');
+      return html.findAllByText('暂无数据');
     });
 
     for (let i = 0; i < 10; i += 1) {
@@ -1702,7 +1704,7 @@ describe('BasicTable', () => {
       expect(fn).toHaveBeenCalledTimes(2);
     });
 
-    await html.findByText('暂无数据');
+    await html.findAllByText('暂无数据');
     vi.useRealTimers();
   });
 

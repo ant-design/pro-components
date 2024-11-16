@@ -69,6 +69,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | --- | --- | --- | --- |
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
 | params | 用于 `request` 查询的额外参数，一旦变化会触发重新加载 | `object` | - |
+| polling | 是否轮询，polling 表示轮询的时间间隔，0 表示关闭轮询，大于 0 表示开启轮询，最小的轮询时间为 2000ms | `number \| ((dataSource: columnType[]) => number) \| undefined` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
 | dataSource | Table 的数据，ProTable 推荐使用 `request` 来加载 | `T[]` | - |
