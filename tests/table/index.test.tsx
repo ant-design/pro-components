@@ -1519,9 +1519,9 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    const input = html.baseElement.querySelector(
+    const input = await waitFor(() => html.baseElement.querySelector(
       '.ant-pro-table-list-toolbar-search input',
-    )!
+    )!)
     await html.findByText('查 询');
 
     act(() => {
