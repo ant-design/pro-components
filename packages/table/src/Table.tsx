@@ -1,7 +1,7 @@
 import ProCard from '@ant-design/pro-card';
 import ProForm, { GridContext } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
-import { ProConfigProvider, proTheme, useIntl } from '@ant-design/pro-provider';
+import ProConfigContext, { ProConfigProvider, proTheme, useIntl } from '@ant-design/pro-provider';
 import {
   ErrorBoundary,
   editableRowByKey,
@@ -1020,9 +1020,10 @@ const ProviderTableContainer = <
       ? React.Fragment
       : props.ErrorBoundary || ErrorBoundary;
 
+  const context = useContext(ProConfigContext);
   return (
     <Container initValue={props}>
-      <ProConfigProvider valueTypeMap={ValueTypeToComponent} needDeps>
+      <ProConfigProvider valueTypeMap={{...context.valueTypeMap, ...ValueTypeToComponent}} needDeps>
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={`${getPrefixCls('pro-table')}`}
