@@ -16,11 +16,14 @@ import jaJP from './locale/ja_JP';
 import koKR from './locale/ko_KR';
 import mnMN from './locale/mn_MN';
 import msMY from './locale/ms_MY';
+import nlNL from './locale/nl_NL';
 import plPL from './locale/pl_PL';
 import ptBR from './locale/pt_BR';
+import roRO from './locale/ro_RO';
 import ruRU from './locale/ru_RU';
 import skSK from './locale/sk_SK';
 import srRS from './locale/sr_RS';
+import svSE from './locale/sv_SE';
 import thTH from './locale/th_TH';
 import trTR from './locale/tr_TR';
 import ukUA from './locale/uk_UA';
@@ -88,6 +91,9 @@ const skSKIntl = createIntl('sk_SK', skSK);
 const heILIntl = createIntl('he_IL', heIL);
 const ukUAIntl = createIntl('uk_UA', ukUA);
 const uzUZIntl = createIntl('uz_UZ', uzUZ);
+const nlNLIntl = createIntl('nl_NL', nlNL);
+const roROIntl = createIntl('ro_RO', roRO);
+const svSEIntl = createIntl('sv_SE', svSE);
 
 const intlMap = {
   'mn-MN': mnMNIntl,
@@ -119,6 +125,9 @@ const intlMap = {
   'he-IL': heILIntl,
   'uk-UA': ukUAIntl,
   'uz-UZ': uzUZIntl,
+  'nl-NL': nlNLIntl,
+  'ro-RO': roROIntl,
+  'sv-SE': svSEIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -156,11 +165,14 @@ export {
   koKRIntl,
   mnMNIntl,
   msMYIntl,
+  nlNLIntl,
   plPLIntl,
   ptBRIntl,
+  roROIntl,
   ruRUIntl,
   skSKIntl,
   srRSIntl,
+  svSEIntl,
   thTHIntl,
   trTRIntl,
   ukUAIntl,

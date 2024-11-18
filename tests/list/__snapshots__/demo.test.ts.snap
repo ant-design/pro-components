@@ -1159,7 +1159,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   <div
                                     class="ant-pro-checkcard-title"
                                   >
-                                    https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                                    <span
+                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
+                                    >
+                                      <img
+                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                      />
+                                    </span>
                                     <span
                                       class="ant-list-item-meta-title"
                                     >
@@ -1181,12 +1188,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   class="ant-pro-checkcard-extra"
                                 >
                                   <div>
-                                    <a>
-                                      邀请
-                                    </a>
-                                    <a>
-                                      删除
-                                    </a>
+                                    <div
+                                      class="ant-pro-field-option"
+                                      style="display: flex; gap: 16px; align-items: center;"
+                                    >
+                                      <a>
+                                        邀请
+                                      </a>
+                                      <a>
+                                        删除
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1267,7 +1279,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   <div
                                     class="ant-pro-checkcard-title"
                                   >
-                                    https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                                    <span
+                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
+                                    >
+                                      <img
+                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                      />
+                                    </span>
                                     <span
                                       class="ant-list-item-meta-title"
                                     >
@@ -1289,12 +1308,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   class="ant-pro-checkcard-extra"
                                 >
                                   <div>
-                                    <a>
-                                      邀请
-                                    </a>
-                                    <a>
-                                      删除
-                                    </a>
+                                    <div
+                                      class="ant-pro-field-option"
+                                      style="display: flex; gap: 16px; align-items: center;"
+                                    >
+                                      <a>
+                                        邀请
+                                      </a>
+                                      <a>
+                                        删除
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1375,7 +1399,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   <div
                                     class="ant-pro-checkcard-title"
                                   >
-                                    https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                                    <span
+                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
+                                    >
+                                      <img
+                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                      />
+                                    </span>
                                     <span
                                       class="ant-list-item-meta-title"
                                     >
@@ -1397,12 +1428,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   class="ant-pro-checkcard-extra"
                                 >
                                   <div>
-                                    <a>
-                                      邀请
-                                    </a>
-                                    <a>
-                                      删除
-                                    </a>
+                                    <div
+                                      class="ant-pro-field-option"
+                                      style="display: flex; gap: 16px; align-items: center;"
+                                    >
+                                      <a>
+                                        邀请
+                                      </a>
+                                      <a>
+                                        删除
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1483,7 +1519,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   <div
                                     class="ant-pro-checkcard-title"
                                   >
-                                    https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                                    <span
+                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
+                                    >
+                                      <img
+                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                      />
+                                    </span>
                                     <span
                                       class="ant-list-item-meta-title"
                                     >
@@ -1505,12 +1548,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   class="ant-pro-checkcard-extra"
                                 >
                                   <div>
-                                    <a>
-                                      邀请
-                                    </a>
-                                    <a>
-                                      删除
-                                    </a>
+                                    <div
+                                      class="ant-pro-field-option"
+                                      style="display: flex; gap: 16px; align-items: center;"
+                                    >
+                                      <a>
+                                        邀请
+                                      </a>
+                                      <a>
+                                        删除
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1591,7 +1639,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   <div
                                     class="ant-pro-checkcard-title"
                                   >
-                                    https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                                    <span
+                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
+                                    >
+                                      <img
+                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                      />
+                                    </span>
                                     <span
                                       class="ant-list-item-meta-title"
                                     >
@@ -1613,12 +1668,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   class="ant-pro-checkcard-extra"
                                 >
                                   <div>
-                                    <a>
-                                      邀请
-                                    </a>
-                                    <a>
-                                      删除
-                                    </a>
+                                    <div
+                                      class="ant-pro-field-option"
+                                      style="display: flex; gap: 16px; align-items: center;"
+                                    >
+                                      <a>
+                                        邀请
+                                      </a>
+                                      <a>
+                                        删除
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1699,7 +1759,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   <div
                                     class="ant-pro-checkcard-title"
                                   >
-                                    https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                                    <span
+                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
+                                    >
+                                      <img
+                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                      />
+                                    </span>
                                     <span
                                       class="ant-list-item-meta-title"
                                     >
@@ -1721,12 +1788,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   class="ant-pro-checkcard-extra"
                                 >
                                   <div>
-                                    <a>
-                                      邀请
-                                    </a>
-                                    <a>
-                                      删除
-                                    </a>
+                                    <div
+                                      class="ant-pro-field-option"
+                                      style="display: flex; gap: 16px; align-items: center;"
+                                    >
+                                      <a>
+                                        邀请
+                                      </a>
+                                      <a>
+                                        删除
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1807,7 +1879,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   <div
                                     class="ant-pro-checkcard-title"
                                   >
-                                    https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                                    <span
+                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
+                                    >
+                                      <img
+                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                      />
+                                    </span>
                                     <span
                                       class="ant-list-item-meta-title"
                                     >
@@ -1829,12 +1908,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   class="ant-pro-checkcard-extra"
                                 >
                                   <div>
-                                    <a>
-                                      邀请
-                                    </a>
-                                    <a>
-                                      删除
-                                    </a>
+                                    <div
+                                      class="ant-pro-field-option"
+                                      style="display: flex; gap: 16px; align-items: center;"
+                                    >
+                                      <a>
+                                        邀请
+                                      </a>
+                                      <a>
+                                        删除
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -1915,7 +1999,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   <div
                                     class="ant-pro-checkcard-title"
                                   >
-                                    https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                                    <span
+                                      class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                      style="width: 22px; height: 22px; font-size: 18px;"
+                                    >
+                                      <img
+                                        src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                      />
+                                    </span>
                                     <span
                                       class="ant-list-item-meta-title"
                                     >
@@ -1937,12 +2028,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   class="ant-pro-checkcard-extra"
                                 >
                                   <div>
-                                    <a>
-                                      邀请
-                                    </a>
-                                    <a>
-                                      删除
-                                    </a>
+                                    <div
+                                      class="ant-pro-field-option"
+                                      style="display: flex; gap: 16px; align-items: center;"
+                                    >
+                                      <a>
+                                        邀请
+                                      </a>
+                                      <a>
+                                        删除
+                                      </a>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
@@ -2160,7 +2256,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -2248,7 +2351,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -2336,7 +2446,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -2424,7 +2541,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -2611,7 +2735,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -2710,7 +2841,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -2809,7 +2947,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -2908,7 +3053,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -3106,47 +3258,99 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/filter.tsx correctl
                                     <div
                                       class="ant-form-item-control-input-content"
                                     >
-                                      <span
-                                        class="ant-input-affix-wrapper ant-input-outlined"
-                                      >
-                                        <input
-                                          class="ant-input"
-                                          id="status"
-                                          placeholder="请输入"
-                                          type="text"
-                                          value=""
-                                        />
-                                        <span
-                                          class="ant-input-suffix"
+                                      <div>
+                                        <div
+                                          class="ant-pro-field-select-light-select ant-pro-field-select-light-select-container-bottomLeft"
                                         >
-                                          <span
-                                            class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                            role="button"
-                                            tabindex="-1"
+                                          <div
+                                            class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                           >
+                                            <div
+                                              class="ant-select-selector"
+                                            >
+                                              <span
+                                                class="ant-select-selection-wrap"
+                                              >
+                                                <span
+                                                  class="ant-select-selection-search"
+                                                >
+                                                  <input
+                                                    aria-autocomplete="list"
+                                                    aria-controls="status_list"
+                                                    aria-expanded="false"
+                                                    aria-haspopup="listbox"
+                                                    aria-owns="status_list"
+                                                    autocomplete="off"
+                                                    class="ant-select-selection-search-input"
+                                                    id="status"
+                                                    readonly=""
+                                                    role="combobox"
+                                                    style="opacity: 0;"
+                                                    type="search"
+                                                    unselectable="on"
+                                                    value=""
+                                                  />
+                                                </span>
+                                                <span
+                                                  class="ant-select-selection-placeholder"
+                                                >
+                                                  请选择
+                                                </span>
+                                              </span>
+                                            </div>
                                             <span
-                                              aria-label="close-circle"
-                                              class="anticon anticon-close-circle"
+                                              aria-hidden="true"
+                                              class="ant-select-arrow"
+                                              style="user-select: none;"
+                                              unselectable="on"
+                                            >
+                                              <span
+                                                aria-label="down"
+                                                class="anticon anticon-down ant-select-suffix"
+                                                role="img"
+                                              >
+                                                <svg
+                                                  aria-hidden="true"
+                                                  data-icon="down"
+                                                  fill="currentColor"
+                                                  focusable="false"
+                                                  height="1em"
+                                                  viewBox="64 64 896 896"
+                                                  width="1em"
+                                                >
+                                                  <path
+                                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                                  />
+                                                </svg>
+                                              </span>
+                                            </span>
+                                          </div>
+                                          <span
+                                            class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                                          >
+                                            状态
+                                            <span
+                                              aria-label="down"
+                                              class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
                                               role="img"
                                             >
                                               <svg
                                                 aria-hidden="true"
-                                                data-icon="close-circle"
+                                                data-icon="down"
                                                 fill="currentColor"
-                                                fill-rule="evenodd"
                                                 focusable="false"
                                                 height="1em"
                                                 viewBox="64 64 896 896"
                                                 width="1em"
                                               >
                                                 <path
-                                                  d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                                                 />
                                               </svg>
                                             </span>
                                           </span>
-                                        </span>
-                                      </span>
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -4088,7 +4292,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -4166,33 +4377,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -4212,7 +4428,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -4290,33 +4513,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -4336,7 +4564,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -4414,33 +4649,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -4460,7 +4700,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -4538,33 +4785,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -4584,7 +4836,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -4662,33 +4921,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -4804,28 +5068,32 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="页码"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          role="combobox"
-                          type="search"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="5 条/页"
-                      >
-                        5 条/页
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-label="页码"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            role="combobox"
+                            type="search"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="5 条/页"
+                        >
+                          5 条/页
+                        </span>
                       </span>
                     </div>
                     <span
@@ -5006,48 +5274,70 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                       <div
                         class="ant-form-item-control-input-content"
                       >
-                        <span
-                          class="ant-input-affix-wrapper ant-input-outlined"
+                        <div
+                          class="ant-select ant-select-outlined ant-select-in-form-item ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                           style="width: 100%;"
                         >
-                          <input
-                            class="ant-input"
-                            id="status"
-                            placeholder="请输入"
-                            type="text"
-                            value=""
-                          />
-                          <span
-                            class="ant-input-suffix"
+                          <div
+                            class="ant-select-selector"
                           >
                             <span
-                              class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              class="ant-select-selection-wrap"
                             >
                               <span
-                                aria-label="close-circle"
-                                class="anticon anticon-close-circle"
-                                role="img"
+                                class="ant-select-selection-search"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="close-circle"
-                                  fill="currentColor"
-                                  fill-rule="evenodd"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                  />
-                                </svg>
+                                <input
+                                  aria-autocomplete="list"
+                                  aria-controls="status_list"
+                                  aria-expanded="false"
+                                  aria-haspopup="listbox"
+                                  aria-owns="status_list"
+                                  autocomplete="off"
+                                  class="ant-select-selection-search-input"
+                                  id="status"
+                                  readonly=""
+                                  role="combobox"
+                                  style="opacity: 0;"
+                                  type="search"
+                                  unselectable="on"
+                                  value=""
+                                />
+                              </span>
+                              <span
+                                class="ant-select-selection-placeholder"
+                              >
+                                请选择
                               </span>
                             </span>
+                          </div>
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-arrow"
+                            style="user-select: none;"
+                            unselectable="on"
+                          >
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down ant-select-suffix"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
                           </span>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -5423,7 +5713,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -5547,7 +5844,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -5671,7 +5975,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -5795,7 +6106,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -5911,30 +6229,34 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="default"
-        >
-          default
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="default"
+          >
+            default
+          </span>
         </span>
       </div>
       <span
@@ -5972,30 +6294,34 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
         class="ant-select-selector"
       >
         <span
-          class="ant-select-selection-search"
+          class="ant-select-selection-wrap"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-item"
-          title="有"
-        >
-          有
+          <span
+            class="ant-select-selection-search"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-owns="rc_select_TEST_OR_SSR_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
+              readonly=""
+              role="combobox"
+              style="opacity: 0;"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+            title="有"
+          >
+            有
+          </span>
         </span>
       </div>
       <span
@@ -6141,7 +6467,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -6236,7 +6569,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -6331,7 +6671,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -6426,7 +6773,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/size.tsx correctly 
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -6596,7 +6950,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -6632,33 +6993,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -6721,7 +7087,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -6757,33 +7130,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -6846,7 +7224,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -6882,33 +7267,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -6971,7 +7361,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                         <div
                           class="ant-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg
+                          <span
+                            class="ant-avatar ant-avatar-circle ant-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="ant-list-item-meta-content"
@@ -7007,33 +7404,38 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                     >
                       <li>
                         <div>
-                          <a>
-                            邀请
-                          </a>
-                          <a>
-                            操作
-                          </a>
-                          <a>
-                            <span
-                              aria-label="ellipsis"
-                              class="anticon anticon-ellipsis"
-                              role="img"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="ellipsis"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                          <div
+                            class="ant-pro-field-option"
+                            style="display: flex; gap: 16px; align-items: center;"
+                          >
+                            <a>
+                              邀请
+                            </a>
+                            <a>
+                              操作
+                            </a>
+                            <a>
+                              <span
+                                aria-label="ellipsis"
+                                class="anticon anticon-ellipsis"
+                                role="img"
                               >
-                                <path
-                                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                                />
-                              </svg>
-                            </span>
-                          </a>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="ellipsis"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                                  />
+                                </svg>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </li>
                     </ul>
@@ -7109,17 +7511,17 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                           class="qixian-pro-list-row-checkbox"
                         >
                           <label
-                            class="ant-checkbox-wrapper"
+                            class="qixian-checkbox-wrapper"
                           >
                             <span
-                              class="ant-checkbox ant-wave-target"
+                              class="qixian-checkbox ant-wave-target"
                             >
                               <input
-                                class="ant-checkbox-input"
+                                class="qixian-checkbox-input"
                                 type="checkbox"
                               />
                               <span
-                                class="ant-checkbox-inner"
+                                class="qixian-checkbox-inner"
                               />
                             </span>
                           </label>
@@ -7131,7 +7533,14 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                         <div
                           class="qixian-list-item-meta-avatar"
                         >
-                          https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg
+                          <span
+                            class="qixian-avatar qixian-avatar-circle qixian-avatar-image"
+                            style="width: 22px; height: 22px; font-size: 18px;"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
                         </div>
                         <div
                           class="qixian-list-item-meta-content"

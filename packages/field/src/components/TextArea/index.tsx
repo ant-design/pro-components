@@ -1,5 +1,6 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { Input } from 'antd';
+import omit from 'omit.js';
 import React from 'react';
 import type { ProFieldFC } from '../../PureProField';
 import FieldTextAreaReadonly from './readonly';
@@ -18,7 +19,11 @@ const FieldTextArea: ProFieldFC<{
   if (mode === 'read') {
     const dom = <FieldTextAreaReadonly {...props} ref={ref} />;
     if (render) {
-      return render(text, { mode, ...fieldProps }, dom);
+      return render(
+        text,
+        { mode, ...(omit(fieldProps, ['showCount']) as any) },
+        dom,
+      );
     }
     return dom;
   }

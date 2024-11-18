@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.1...@ant-design/pro-field@2.17.2) (2024-11-14)
+
+### Bug Fixes
+
+- **table:** React does not recognize the `showCount` prop on a DOM element. ([#8856](https://github.com/ant-design/pro-components/issues/8856)) ([143ac69](https://github.com/ant-design/pro-components/commit/143ac692803d7361d0543bfb09918ddb59bff398))
+
+## [2.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.0...@ant-design/pro-field@2.17.1) (2024-10-22)
+
+### Bug Fixes
+
+- **package:** 更新 repository URL 格式为 git+ssh 以确保一致性 ([8882d51](https://github.com/ant-design/pro-components/commit/8882d5164d8b14f8971bf9f34a339d282ac766ba))
+
 # [2.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.16.2...@ant-design/pro-field@2.17.0) (2024-10-17)
 
 ### Bug Fixes
