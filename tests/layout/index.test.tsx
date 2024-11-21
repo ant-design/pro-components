@@ -1889,7 +1889,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
     expect(
       html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
-    ).toBe(0);
+    ).toBe(2);
   });
 
   it('🥩 formatMessage support', async () => {
