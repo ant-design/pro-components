@@ -52,7 +52,7 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
       {...props}
       text={text}
       fieldProps={{
-        status: props.status ? props.status : undefined,
+        ...props?.status && {status: props.status},
         ...pickProProps(props.fieldProps),
       }}
     />,
@@ -60,7 +60,7 @@ const ValueTypeToComponentMap: Record<string, ProRenderFieldPropsType> = {
       {...props}
       text={text}
       fieldProps={{
-        status: props.status ? props.status : undefined,
+        ...props?.status && {status: props.status},
         ...pickProProps(props.fieldProps),
       }}
     />,

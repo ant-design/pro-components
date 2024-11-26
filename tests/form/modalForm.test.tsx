@@ -1,4 +1,8 @@
-﻿import { ModalForm, ProFormText } from '@ant-design/pro-components';
+﻿/**
+ * @vitest-environment jsdom
+ */
+
+import { ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -468,7 +472,7 @@ describe('ModalForm', () => {
 
     expect(await wrapper.findByDisplayValue('test')).toBeTruthy();
   });
-
+  // need jsdom
   it('📦 ModalForm destroyOnClose close will rerender from', async () => {
     const wrapper = render(
       <ModalForm

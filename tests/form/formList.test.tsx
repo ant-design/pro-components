@@ -22,6 +22,7 @@ import {
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
 import moment from 'moment';
+import { pick } from 'lodash';
 import React from 'react';
 import { waitForWaitTime } from '../util';
 

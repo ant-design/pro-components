@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import {
   GithubFilled,
   InfoCircleFilled,
@@ -1792,6 +1796,7 @@ describe('BasicLayout', () => {
     ).toBe(3);
   });
 
+  // 点击后有动画，使用happy-dom会有问题，jsdom可通过
   it('🥩 ProLayout support menu.ignoreFlatMenu', async () => {
     const Demo = () => {
       const [pathname, setPathname] = useState('/admin/sub-page1');

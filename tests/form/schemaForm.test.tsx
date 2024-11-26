@@ -1,4 +1,8 @@
-﻿import type {
+﻿/**
+ * @vitest-environment jsdom
+ */
+
+import type {
   ProFormColumnsType,
   ProFormLayoutType,
 } from '@ant-design/pro-components';
@@ -671,6 +675,7 @@ describe('SchemaForm', () => {
     vi.useRealTimers();
   });
 
+  // need jsdom
   ['ModalForm', 'DrawerForm'].forEach((layoutType) => {
     it(`😊 ${layoutType} support destroyOnClose rerender`, async () => {
       const formColumns = [

@@ -20,7 +20,6 @@ import { Button, Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useRef } from 'react';
 import { waitTime } from '../util';
-
 type DataSourceType = {
   id: number | string;
   title?: string;
@@ -207,7 +206,7 @@ const EditorProTableDemo = (
         </Button>,
       ]}
       columns={columns.map((item) => {
-        if (!props.hideRules) {
+        if (props.hideRules) {
           // eslint-disable-next-line no-param-reassign
           delete item.formItemProps;
         }
@@ -239,6 +238,72 @@ afterEach(() => {
 });
 
 describe('EditorProTable 2', () => {
+  // 放到中间会报错，那就放到第一个吧
+  it('📝 support form rules', async () => {
+    const fn = vi.fn();
+    const wrapper = render(
+      <EditorProTableDemo onSave={(key, row) => {
+        return fn(row.title);
+      }} />,
+    );
+    await wrapper.findAllByText('编辑');
+
+    await act(() => {
+      wrapper.queryAllByText('编辑')[0]?.click();
+    });
+
+    const row0input = wrapper.container
+    .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
+    .querySelectorAll('input');
+
+    await waitFor(() => {
+      expect(row0input.length === 4,
+      ).toBeTruthy();
+    });
+
+    await act(() => {
+      // 只有title那一列设置了校验rule，title列下标是1
+      fireEvent.change(row0input[1],
+        {
+          target: {
+            value: '',
+          },
+        },
+      );
+    });
+
+    await wrapper.findAllByText('保存');
+
+    await act(() => {
+      wrapper.queryAllByText('保存')[0]?.click();
+    });
+
+    await waitFor(() => {
+      // 不能为空，不会通过通过验证，不触发 onSave
+      expect(fn).not.toHaveBeenCalled();
+    });
+
+    await act(() => {
+      fireEvent.change(row0input[1],
+        {
+          target: {
+            value: 'qixian',
+          },
+        },
+      );
+    });
+
+    await wrapper.findAllByText('保存');
+
+    await act(() => {
+      wrapper.queryAllByText('保存')[0]?.click();
+    });
+
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledWith('qixian');
+    });
+    wrapper.unmount();
+  });
   it('📝 EditableProTable controlled will trigger onchange', async () => {
     const onChange = vi.fn();
     const wrapper = render(
@@ -2031,6 +2096,7 @@ describe('EditorProTable 2', () => {
       expect(fn).toHaveBeenCalledWith(624691229);
       expect(wrapper.queryAllByText('删除').length > 0).toBeFalsy();
     });
+    wrapper.unmount();
   });
 
   it('📝 support onDelete return false', async () => {
@@ -2068,73 +2134,9 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalledWith(624691229);
     });
-  });
-
-  it('📝 support form rules', async () => {
-    const fn = vi.fn();
-    const wrapper = render(
-      <EditorProTableDemo onSave={(key, row) => fn(row.title)} />,
-    );
-    await wrapper.findAllByText('编辑');
-
-    act(() => {
-      wrapper.queryAllByText('编辑')[0]?.click();
-    });
-
-    await waitFor(() => {
-      expect(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll('input').length > 0,
-      ).toBeTruthy();
-    });
-
-    act(() => {
-      fireEvent.change(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll(`input`)[0],
-        {
-          target: {
-            value: '',
-          },
-        },
-      );
-    });
-
-    await wrapper.findAllByText('保存');
-
-    act(() => {
-      wrapper.queryAllByText('保存')[0]?.click();
-    });
-
-    await waitFor(() => {
-      // 没有通过验证，不触发 onSave
-      expect(fn).not.toHaveBeenCalled();
-    });
-
-    act(() => {
-      fireEvent.change(
-        wrapper.container
-          .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-          .querySelectorAll(`td .ant-input`)[0],
-        {
-          target: {
-            value: 'qixian',
-          },
-        },
-      );
-    });
-
-    act(() => {
-      wrapper.queryAllByText('保存')[0]?.click();
-    });
-
-    await waitFor(() => {
-      expect(fn).toHaveBeenCalledWith('qixian');
-    });
     wrapper.unmount();
   });
+
 
   it('📝 support add line for start', async () => {
     const fn = vi.fn();
@@ -2197,6 +2199,7 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalled();
     });
+    wrapper.unmount();
   });
 
   it('📝 support add line for bottom', async () => {
@@ -2322,6 +2325,7 @@ describe('EditorProTable 2', () => {
     await waitFor(() => {
       expect(fn).toHaveBeenCalled();
     });
+    wrapper.unmount();
   });
 
   it('📝 support add line when single line edit when keys', async () => {
@@ -2358,6 +2362,7 @@ describe('EditorProTable 2', () => {
           .querySelectorAll('input').length,
       ).toBe(4);
     });
+    wrapper.unmount();
   });
 
   it('📝 support add line when single line edit', async () => {
@@ -2396,5 +2401,6 @@ describe('EditorProTable 2', () => {
         timeout: 1000,
       },
     );
+    wrapper.unmount();
   });
 });

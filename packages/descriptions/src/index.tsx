@@ -28,8 +28,9 @@ import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
-import { proTheme } from '@ant-design/pro-provider';
+import ProConfigContext, { ProConfigProvider, proTheme } from '@ant-design/pro-provider';
 import type { DescriptionsItemType } from 'antd/es/descriptions';
+import ValueTypeToComponent from '../../field/src/ValueTypeToComponent';
 
 // todo remove it
 export interface DescriptionsItemProps {
@@ -496,6 +497,7 @@ const ProDescriptions = <
     ...rest
   } = props;
 
+  const proContext = useContext(ProConfigContext);
   const context = useContext(ConfigProvider.ConfigContext);
 
   const action = useFetchData<RequestData>(
@@ -616,35 +618,37 @@ const ProDescriptions = <
   const className = context.getPrefixCls('pro-descriptions');
   return (
     <ErrorBoundary>
-      <FormComponent
-        key="form"
-        form={props.editable?.form}
-        component={false}
-        submitter={false}
-        {...formProps}
-        onFinish={undefined}
-      >
-        <Descriptions
-          className={className}
-          {...rest}
-          contentStyle={{
-            minWidth: 0,
-            ...(contentStyle || {}),
-          }}
-          extra={
-            rest.extra ? (
-              <Space>
-                {options}
-                {rest.extra}
-              </Space>
-            ) : (
-              options
-            )
-          }
-          title={title}
-          items={children as DescriptionsItemType[]}
-        />
-      </FormComponent>
+      <ProConfigProvider valueTypeMap={{...proContext.valueTypeMap, ...ValueTypeToComponent}}>
+        <FormComponent
+          key="form"
+          form={props.editable?.form}
+          component={false}
+          submitter={false}
+          {...formProps}
+          onFinish={undefined}
+        >
+          <Descriptions
+            className={className}
+            {...rest}
+            contentStyle={{
+              minWidth: 0,
+              ...(contentStyle || {}),
+            }}
+            extra={
+              rest.extra ? (
+                <Space>
+                  {options}
+                  {rest.extra}
+                </Space>
+              ) : (
+                options
+              )
+            }
+            title={title}
+            items={children as DescriptionsItemType[]}
+          />
+        </FormComponent>
+      </ProConfigProvider>
     </ErrorBoundary>
   );
 };

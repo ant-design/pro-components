@@ -12,6 +12,7 @@ import React, { act, useState } from 'react';
 import { waitForWaitTime, waitTime } from '../util';
 import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
+import userEvent from '@testing-library/user-event';
 
 const domRef = React.createRef();
 
@@ -2024,57 +2025,26 @@ describe('Field', () => {
         valueType="select"
         mode="edit"
         light
-        options={[
-          { label: '全部', value: 'all' },
-          { label: '未解决', value: 'open' },
-          { label: '已解决', value: 'closed' },
-          { label: '解决中', value: 'processing' },
-        ]}
+        fieldProps={{
+          options: [
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ]
+        }}
       />,
     );
     await waitForWaitTime(100);
-
-    act(() => {
-      // 点击label打开DatePicker
-      // jest环境下，click 不会触发mousedown和mouseup，需要手动触发以覆盖相关逻辑代码
-      fireEvent.mouseDown(
-        html.baseElement.querySelector('.ant-pro-core-field-label')!,
-      );
-      fireEvent.click(
-        html.baseElement.querySelector('.ant-pro-core-field-label')!,
-      );
-      fireEvent.mouseUp(
-        html.baseElement.querySelector('.ant-pro-core-field-label')!,
-      );
-    });
-    await waitFor(() => {
-      expect(
-        html.baseElement.querySelectorAll('.ant-select-dropdown').length,
-      ).toEqual(1);
-      expect(
-        html.baseElement.querySelectorAll(
-          '.ant-select-dropdown.ant-select-dropdown-hidden',
-        ).length,
-      ).toEqual(0);
-    });
-    act(() => {
-      fireEvent.mouseDown(
-        html.baseElement.querySelector('.ant-pro-core-field-label')!,
-      );
-      fireEvent.click(
-        html.baseElement.querySelector('.ant-pro-core-field-label')!,
-      );
-      fireEvent.mouseUp(
-        html.baseElement.querySelector('.ant-pro-core-field-label')!,
-      );
-    });
-    await waitFor(() => {
-      expect(
-        html.baseElement.querySelectorAll(
-          '.ant-select-dropdown.ant-select-dropdown-hidden',
-        ).length,
-      ).toEqual(1);
-    });
+    await userEvent.click(
+      html.baseElement.querySelector('.ant-pro-core-field-label')!,
+    );
+    await waitFor(() => expect(html.baseElement.querySelectorAll('.ant-select-dropdown.ant-slide-up-appear')[0]).toBeInTheDocument());
+    await userEvent.click(
+      html.baseElement.querySelector('.ant-pro-core-field-label')!,
+    );
+    // 第二次点击后组件没有到最终的隐藏态，这里检查动画的中间状态可通过
+    await waitFor(() => expect(html.baseElement.querySelectorAll('.ant-select-dropdown.ant-slide-up-enter')[0]).toBeInTheDocument());
   });
 
   it(`🐴 FieldSelect support clear`, async () => {

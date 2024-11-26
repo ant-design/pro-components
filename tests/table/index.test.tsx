@@ -1,7 +1,12 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import type { ActionType } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import {
   act,
+  cleanup,
   fireEvent,
   render,
   screen,
@@ -10,6 +15,10 @@ import {
 import { Button, Input } from 'antd';
 import React, { useRef } from 'react';
 import { columns, request } from './demo';
+
+afterEach(() => {
+  cleanup();
+});
 
 describe('BasicTable', () => {
   it('🎏 base use', async () => {
@@ -97,8 +106,10 @@ describe('BasicTable', () => {
     await waitFor(() => {
       return html.queryAllByText('Edward King 9');
     });
+    html.unmount();
   });
 
+  // need jsdom
   it('🎏 tableDropdown click trigger onSelect', async () => {
     const html = render(
       <div>
@@ -129,7 +140,7 @@ describe('BasicTable', () => {
       fireEvent.mouseOver(screen.getByText('更多操作'));
     });
 
-    await waitFor(() => html.findByText('复制'));
+    await waitFor(async () => html.findByText('复制'));
 
     await act(async () => {
       (await html.findByText('复制')).click();
@@ -139,7 +150,7 @@ describe('BasicTable', () => {
       fireEvent.mouseOver(screen.getByText('其他操作'));
     });
 
-    await waitFor(() => html.findByText('编辑'));
+    await waitFor(async () => html.findByText('编辑'));
 
     await act(async () => {
       (await html.findByText('编辑')).click();
