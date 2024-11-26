@@ -126,7 +126,7 @@ describe('BasicTable valueType', () => {
     html.unmount();
   });
 
-  // 使用valueTypeMap包裹protable后，这里的context不会使用导致单测失败
+
   it('🎏 table valueType render support fieldProps', async () => {
     const html = render(
       <ProProvider.Provider

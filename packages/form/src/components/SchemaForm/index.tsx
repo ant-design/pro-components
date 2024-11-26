@@ -12,6 +12,7 @@ import type { FormProps } from 'antd';
 import { Form } from 'antd';
 import React, {
   useCallback,
+  useContext,
   useImperativeHandle,
   useRef,
   useState,
@@ -32,6 +33,8 @@ import type {
   ProFormRenderValueTypeHelpers,
 } from './typing';
 import { renderValueType } from './valueType';
+import ProConfigContext, { ProConfigProvider } from '@ant-design/pro-provider';
+import ValueTypeToComponent from '../../../../field/src/ValueTypeToComponent';
 
 export * from './typing';
 
@@ -217,24 +220,28 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     [formRef.current],
   );
 
+  const context = useContext(ProConfigContext);
+  
   return (
-    <FormRenderComponents
-      {...specificProps}
-      {...restProps}
-      onInit={(_, initForm) => {
-        if (propsFormRef) {
-          (propsFormRef as React.MutableRefObject<ProFormInstance<T>>).current =
-            initForm;
-        }
-        restProps?.onInit?.(_, initForm);
-        formRef.current = initForm;
-      }}
-      form={props.form || form}
-      formRef={formRef}
-      onValuesChange={onValuesChange}
-    >
-      {formChildrenDoms}
-    </FormRenderComponents>
+    <ProConfigProvider valueTypeMap={{...context.valueTypeMap, ...ValueTypeToComponent}}>
+      <FormRenderComponents
+        {...specificProps}
+        {...restProps}
+        onInit={(_, initForm) => {
+          if (propsFormRef) {
+            (propsFormRef as React.MutableRefObject<ProFormInstance<T>>).current =
+              initForm;
+          }
+          restProps?.onInit?.(_, initForm);
+          formRef.current = initForm;
+        }}
+        form={props.form || form}
+        formRef={formRef}
+        onValuesChange={onValuesChange}
+      >
+        {formChildrenDoms}
+      </FormRenderComponents>
+    </ProConfigProvider>
   );
 }
 
