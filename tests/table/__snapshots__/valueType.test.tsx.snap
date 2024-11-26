@@ -149,39 +149,43 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                             <div
                               class="ant-select-selector"
                             >
-                              <div
-                                class="ant-select-selection-overflow"
+                              <span
+                                class="ant-select-selection-wrap"
                               >
                                 <div
-                                  class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-                                  style="opacity: 1;"
+                                  class="ant-select-selection-overflow"
                                 >
                                   <div
-                                    class="ant-select-selection-search"
-                                    style="width: 0px;"
+                                    class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+                                    style="opacity: 1;"
                                   >
-                                    <input
-                                      aria-autocomplete="list"
-                                      aria-controls="treeSelect_list"
-                                      aria-expanded="true"
-                                      aria-haspopup="listbox"
-                                      aria-owns="treeSelect_list"
-                                      autocomplete="off"
-                                      class="ant-select-selection-search-input"
-                                      id="treeSelect"
-                                      role="combobox"
-                                      type="search"
-                                      value="Javasc"
-                                    />
-                                    <span
-                                      aria-hidden="true"
-                                      class="ant-select-selection-search-mirror"
+                                    <div
+                                      class="ant-select-selection-search"
+                                      style="width: 0px;"
                                     >
-                                      Javasc 
-                                    </span>
+                                      <input
+                                        aria-autocomplete="list"
+                                        aria-controls="treeSelect_list"
+                                        aria-expanded="true"
+                                        aria-haspopup="listbox"
+                                        aria-owns="treeSelect_list"
+                                        autocomplete="off"
+                                        class="ant-select-selection-search-input"
+                                        id="treeSelect"
+                                        role="combobox"
+                                        type="search"
+                                        value="Javasc"
+                                      />
+                                      <span
+                                        aria-hidden="true"
+                                        class="ant-select-selection-search-mirror"
+                                      >
+                                        Javasc 
+                                      </span>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
+                              </span>
                             </div>
                             <span
                               aria-hidden="true"
@@ -669,28 +673,32 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                       class="ant-select-selector"
                     >
                       <span
-                        class="ant-select-selection-search"
+                        class="ant-select-selection-wrap"
                       >
-                        <input
-                          aria-autocomplete="list"
-                          aria-controls="rc_select_TEST_OR_SSR_list"
-                          aria-expanded="false"
-                          aria-haspopup="listbox"
-                          aria-label="页码"
-                          aria-owns="rc_select_TEST_OR_SSR_list"
-                          autocomplete="off"
-                          class="ant-select-selection-search-input"
-                          id="rc_select_TEST_OR_SSR"
-                          role="combobox"
-                          type="search"
-                          value=""
-                        />
-                      </span>
-                      <span
-                        class="ant-select-selection-item"
-                        title="20 条/页"
-                      >
-                        20 条/页
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
+                            aria-haspopup="listbox"
+                            aria-label="页码"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            role="combobox"
+                            type="search"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-item"
+                          title="20 条/页"
+                        >
+                          20 条/页
+                        </span>
                       </span>
                     </div>
                     <span
