@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { FontSizeOutlined } from '@ant-design/icons';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import {
@@ -88,6 +92,7 @@ describe('ProForm', () => {
     });
   });
 
+  // need jsdom support
   it('📦 ProForm support sync form url', async () => {
     const fn = vi.fn();
     const wrapper = render(
@@ -121,7 +126,7 @@ describe('ProForm', () => {
 
     expect(fn).toHaveBeenCalledWith('realDark');
   });
-
+  // need jsdom support
   it('📦 ProForm support sync form url as important', async () => {
     const fn = vi.fn();
     const wrapper = render(
@@ -156,7 +161,7 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
     wrapper.unmount();
   });
-
+  // need jsdom support
   it('📦 ProForm support sync form url and rest', async () => {
     const onFinish = vi.fn();
     const wrapper = render(

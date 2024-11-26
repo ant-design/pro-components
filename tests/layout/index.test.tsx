@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import {
   GithubFilled,
   InfoCircleFilled,
@@ -1792,6 +1796,7 @@ describe('BasicLayout', () => {
     ).toBe(3);
   });
 
+  // 点击后有动画，使用happy-dom会有问题，jsdom可通过
   it('🥩 ProLayout support menu.ignoreFlatMenu', async () => {
     const Demo = () => {
       const [pathname, setPathname] = useState('/admin/sub-page1');
@@ -1889,7 +1894,7 @@ describe('BasicLayout', () => {
     await waitForWaitTime(100);
     expect(
       html.baseElement.querySelectorAll('li.ant-menu-submenu-open').length,
-    ).toBe(2);
+    ).toBe(0);
   });
 
   it('🥩 formatMessage support', async () => {

@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { SettingDrawer } from '@ant-design/pro-components';
 import {
   act,
@@ -143,6 +147,7 @@ describe('settingDrawer.test', () => {
     expect(html.asFragment()).toMatchSnapshot();
   });
 
+  // need jsdom
   it('🌺 initState form query', async () => {
     const fn = vi.fn();
     const { container, unmount } = render(
