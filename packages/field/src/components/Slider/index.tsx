@@ -1,10 +1,6 @@
 import { Slider } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/slider/style';
-//------------
+import type { ProFieldFC } from '../../PureProField';
 /**
  * 评分组件
  *
@@ -12,7 +8,7 @@ import 'antd/lib/slider/style';
  */
 const FieldSlider: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
+}> = ({ text, mode, render, formItemRender, fieldProps }, ref) => {
   if (mode === 'read') {
     const dom = text;
     if (render) {
@@ -31,8 +27,8 @@ const FieldSlider: ProFieldFC<{
         }}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

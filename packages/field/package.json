@@ -33,9 +33,8 @@
     "@ant-design/pro-provider": "2.15.2",
     "@ant-design/pro-utils": "2.16.2",
     "@babel/runtime": "^7.18.0",
-    "@chenshuai2144/sketch-color": "^1.0.8",
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.13",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "omit.js": "^2.0.2",
@@ -50,7 +49,7 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": "^4.24.15 || ^5.11.2",
+    "antd": "^5.11.2",
     "react": ">=17.0.0"
   }
 }

@@ -7,13 +7,9 @@ import type { RadioGroupProps } from 'antd';
 import { ConfigProvider, Form, Radio, Spin } from 'antd';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
-
-// 兼容代码-----------
-import 'antd/lib/radio/style';
-//------------
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -27,7 +23,7 @@ export type GroupProps = {
  * @param ref
  */
 const FieldRadio: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, render, ...rest },
+  { radioType, formItemRender, mode, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -110,9 +106,9 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         options={options}
       />,
     );
-    if (renderFormItem) {
+    if (formItemRender) {
       return (
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...rest.fieldProps, options, loading },
           dom,

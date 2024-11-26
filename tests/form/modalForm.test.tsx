@@ -1,4 +1,8 @@
-﻿import { ModalForm, ProFormText } from '@ant-design/pro-form';
+﻿/**
+ * @vitest-environment jsdom
+ */
+
+import { ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -468,7 +472,7 @@ describe('ModalForm', () => {
 
     expect(await wrapper.findByDisplayValue('test')).toBeTruthy();
   });
-
+  // need jsdom
   it('📦 ModalForm destroyOnClose close will rerender from', async () => {
     const wrapper = render(
       <ModalForm
@@ -570,7 +574,7 @@ describe('ModalForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    expect(fn).not.toBeCalled();
+    expect(fn).not.toHaveBeenCalled();
 
     act(() => {
       vi.runOnlyPendingTimers();
@@ -588,7 +592,7 @@ describe('ModalForm', () => {
     act(() => {
       vi.runOnlyPendingTimers();
     });
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     vi.useRealTimers();
   });
 
@@ -634,7 +638,7 @@ describe('ModalForm', () => {
       await waitForWaitTime(500);
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
 
     act(() => {
       wrapper.unmount();

@@ -6,8 +6,7 @@ import type {
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
 import { LabelIconTip, genCopyable, isNil } from '@ant-design/pro-utils';
-import { AnyObject } from 'antd/es/_util/type';
-import get from 'rc-util/lib/utils/get';
+import get from 'rc-util/es/utils/get';
 import React from 'react';
 import { isMergeCell } from '.';
 import type { ContainerType } from '../Store/Provide';
@@ -149,7 +148,7 @@ export function columnRender<T extends AnyObject>({
       ? textDom
       : genCopyable(textDom, columnProps, renderTextStr);
 
-  /** 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem */
+  /** 如果是编辑模式，并且 formItemRender 存在直接走 formItemRender */
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (

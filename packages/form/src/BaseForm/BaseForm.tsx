@@ -24,13 +24,13 @@ import { useUrlSearchParams } from '@umijs/use-params';
 import type { FormInstance, FormItemProps, FormProps } from 'antd';
 import { ConfigProvider, Form, Spin } from 'antd';
 
-import type { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/es/form/interface';
 import classNames from 'classnames';
 import type dayjs from 'dayjs';
 import omit from 'omit.js';
-import get from 'rc-util/lib/utils/get';
-import { default as namePathSet, default as set } from 'rc-util/lib/utils/set';
-import { noteOnce } from 'rc-util/lib/warning';
+import get from 'rc-util/es/utils/get';
+import { default as namePathSet, default as set } from 'rc-util/es/utils/set';
+import { noteOnce } from 'rc-util/es/warning';
 import React, {
   useContext,
   useEffect,
@@ -40,8 +40,6 @@ import React, {
   useState,
 } from 'react';
 import FieldContext from '../FieldContext';
-import type { SubmitterProps } from '../components';
-import { Submitter } from '../components';
 import { FormListContext } from '../components/List';
 import { GridContext, useGridHelpers } from '../helpers';
 import type {
@@ -50,6 +48,8 @@ import type {
   ProFormGroupProps,
 } from '../typing';
 import { EditOrReadOnlyContext } from './EditOrReadOnlyContext';
+import type { SubmitterProps } from './Submitter';
+import Submitter from './Submitter';
 
 export type CommonFormProps<
   T = Record<string, any>,
@@ -220,8 +220,7 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
-type ProFormRef<T = any> = ProFormInstanceType<T> & any;
+export type ProFormInstance<T = any> = FormInstance<T> & ProFormInstanceType<T>;
 
 /**
  * It takes a name path and converts it to an array.
@@ -494,7 +493,7 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
 /** 自动的formKey 防止重复 */
 let requestFormCacheId = 0;
 
-function BaseForm<T = Record<string, any>, U = Record<string, any>>(
+export function BaseForm<T = Record<string, any>, U = Record<string, any>>(
   props: BaseFormProps<T, U>,
 ) {
   const {
@@ -634,7 +633,6 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
           parentKey,
         ),
         transformKeyRef.current,
-        paramsOmitNil,
       );
     },
   );
@@ -828,6 +826,3 @@ function BaseForm<T = Record<string, any>, U = Record<string, any>>(
     </EditOrReadOnlyContext.Provider>,
   );
 }
-
-export { BaseForm };
-export type { FormInstance, FormItemProps, FormProps, ProFormInstance };

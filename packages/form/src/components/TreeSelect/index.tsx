@@ -1,5 +1,7 @@
-﻿import type { TreeSelectProps } from 'antd';
-import type { RefSelectProps } from 'antd/lib/select';
+﻿import { FieldTreeSelect } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
+import type { TreeSelectProps } from 'antd';
+import type { RefSelectProps } from 'antd/es/select';
 import React from 'react';
 import type {
   ProFormFieldItemProps,
@@ -21,7 +23,7 @@ export type ProFormTreeSelectProps<T = any> = ProFormFieldItemProps<
   ProFormFieldRemoteProps;
 
 /**
- * 级联选择框
+ * 树选择器
  *
  * @param
  */
@@ -30,16 +32,27 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
   ProFormTreeSelectProps<any>
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
-    <ProFormField
-      valueType="treeSelect"
-      fieldProps={fieldProps}
-      ref={ref}
-      request={request}
-      params={params}
-      filedConfig={{ customLightMode: true }}
-      proFieldProps={proFieldProps}
-      {...rest}
-    />
+    <ProConfigProvider
+      valueTypeMap={{
+        treeSelect: {
+          render: (text, props) => <FieldTreeSelect {...props} text={text} />,
+          formItemRender: (text, props) => (
+            <FieldTreeSelect {...props} text={text} />
+          ),
+        },
+      }}
+    >
+      <ProFormField
+        valueType="treeSelect"
+        fieldProps={fieldProps}
+        ref={ref}
+        request={request}
+        params={params}
+        filedConfig={{ customLightMode: true }}
+        proFieldProps={proFieldProps}
+        {...rest}
+      />
+    </ProConfigProvider>
   );
 };
 

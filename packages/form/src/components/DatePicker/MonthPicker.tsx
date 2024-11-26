@@ -1,35 +1,31 @@
-import type { MonthPickerProps } from 'antd/lib/date-picker';
-import React, { useContext } from 'react';
-import FieldContext from '../../FieldContext';
+import type { DatePickerProps } from 'antd';
+import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
-import ProField from '../Field';
+import { BaseDatePicker } from './BaseDatePicker';
 
 const valueType = 'dateMonth' as const;
 /**
- * 周选择组件
+ * 日期选择组件
  *
  * @param
  */
-const ProFormDatePickerMonth: React.FC<
-  ProFormFieldItemProps<MonthPickerProps>
-> = React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref) => {
-  const context = useContext(FieldContext);
-  return (
-    <ProField
-      ref={ref}
-      valueType={valueType}
-      fieldProps={{
-        getPopupContainer: context.getPopupContainer,
-        ...fieldProps,
-      }}
-      proFieldProps={proFieldProps}
-      filedConfig={{
-        valueType,
-        customLightMode: true,
-      }}
-      {...rest}
-    />
-  );
-});
+const ProFormDatePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> =
+  React.forwardRef(({ proFieldProps, fieldProps, ...rest }, ref) => {
+    return (
+      <BaseDatePicker
+        valueType={valueType}
+        ref={ref as any}
+        fieldProps={{
+          ...fieldProps,
+        }}
+        proFieldProps={proFieldProps}
+        filedConfig={{
+          valueType,
+          customLightMode: true,
+        }}
+        {...rest}
+      />
+    );
+  });
 
-export default ProFormDatePickerMonth;
+export default ProFormDatePicker;

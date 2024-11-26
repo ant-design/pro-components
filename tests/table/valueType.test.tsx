@@ -1,5 +1,5 @@
+import { ProTable } from '@ant-design/pro-components';
 import { ProProvider } from '@ant-design/pro-provider';
-import ProTable from '@ant-design/pro-table';
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
 import { waitForWaitTime } from '../util';
@@ -93,7 +93,7 @@ describe('BasicTable valueType', () => {
             valueTypeMap: {
               link: {
                 render: (text: any) => <a id="link">{text}</a>,
-                renderFormItem: (_: any, props: any) => (
+                formItemRender: (_: any, props: any) => (
                   <Input
                     placeholder="请输入链接"
                     id="name"
@@ -126,6 +126,7 @@ describe('BasicTable valueType', () => {
     html.unmount();
   });
 
+
   it('🎏 table valueType render support fieldProps', async () => {
     const html = render(
       <ProProvider.Provider
@@ -139,7 +140,7 @@ describe('BasicTable valueType', () => {
                     {fieldProps.color}
                   </a>
                 ),
-                renderFormItem: (_: any, props: any) => (
+                formItemRender: (_: any, props: any) => (
                   <Input
                     placeholder="请输入链接"
                     id="name"

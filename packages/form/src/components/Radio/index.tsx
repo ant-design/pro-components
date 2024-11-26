@@ -2,12 +2,12 @@ import { runFunction } from '@ant-design/pro-utils';
 import type { RadioGroupProps, RadioProps } from 'antd';
 import { Radio } from 'antd';
 import React from 'react';
-import { createField } from '../../BaseForm/createField';
 import type {
   ProFormFieldItemProps,
   ProFormFieldRemoteProps,
 } from '../../typing';
 import ProField from '../Field';
+import warpField from '../FormItem/warpField';
 
 export type ProFormRadioGroupProps = ProFormFieldItemProps<
   RadioGroupProps,
@@ -65,7 +65,7 @@ const ProFormRadioComponents: React.FC<ProFormFieldItemProps<RadioProps>> =
     );
   });
 
-const ProFormRadio = createField<ProFormFieldItemProps<RadioProps>>(
+const ProFormRadio = warpField<ProFormFieldItemProps<RadioProps>>?.(
   ProFormRadioComponents,
   {
     valuePropName: 'checked',

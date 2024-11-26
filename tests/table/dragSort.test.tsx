@@ -1,5 +1,5 @@
 import { MenuOutlined } from '@ant-design/icons';
-import { DragSortTable } from '@ant-design/pro-table';
+import { DragSortTable } from '@ant-design/pro-components';
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { waitForWaitTime } from '../util';
 
@@ -147,10 +147,6 @@ describe('dragSort', () => {
       return dragAndDrop(dragHandle);
     });
 
-    // await waitFor(() => {
-    //   expect(onDragSortEndFn).toBeCalled();
-    // });
-
     expect(container.querySelector('.dragSortDefaultHandle')).toMatchSnapshot();
   });
 
@@ -199,7 +195,7 @@ describe('dragSort', () => {
     );
 
     expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
 
@@ -264,7 +260,7 @@ describe('dragSort', () => {
 
     expect(container.querySelector('.dragSortCustomHandle')).toMatchSnapshot();
     expect(container.querySelector('.customRender')).toMatchSnapshot();
-    expect(callback).toBeCalled();
+    expect(callback).toHaveBeenCalled();
     expect(callback).toHaveBeenCalledWith('kiner', 0);
   });
 });

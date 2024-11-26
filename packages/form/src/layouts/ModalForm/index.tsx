@@ -1,9 +1,8 @@
-﻿import { openVisibleCompatible } from '@ant-design/pro-utils';
-import type { FormProps, ModalProps } from 'antd';
+﻿import type { FormProps, ModalProps } from 'antd';
 import { ConfigProvider, Modal } from 'antd';
-import merge from 'lodash-es/merge';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { noteOnce } from 'rc-util/lib/warning';
+import { merge } from 'lodash-es';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
+import { noteOnce } from 'rc-util/es/warning';
 import React, {
   useCallback,
   useContext,
@@ -16,7 +15,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { SubmitterProps } from '../../components/Submitter';
+import { SubmitterProps } from '../../BaseForm/Submitter';
 
 export type ModalFormProps<
   T = Record<string, any>,
@@ -229,15 +228,13 @@ function ModalForm<T = Record<string, any>, U = Record<string, any>>({
     [onFinish, setOpen, submitTimeout],
   );
 
-  const modalOpenProps = openVisibleCompatible(open);
-
   return (
     <>
       <Modal
         title={title}
         width={width || 800}
         {...modalProps}
-        {...modalOpenProps}
+        open={open}
         onCancel={(e) => {
           // 提交表单loading时，阻止弹框关闭
           if (submitTimeout && loading) return;

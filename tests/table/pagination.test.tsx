@@ -1,4 +1,4 @@
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { act, cleanup, fireEvent, render } from '@testing-library/react';
 import { waitForWaitTime } from '../util';
 import { request } from './demo';
@@ -263,7 +263,7 @@ describe('BasicTable pagination', () => {
       html.queryByText('1')?.click();
     });
     await waitForWaitTime(200);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('🎏 pagination was correct in controlled mode && params was in deep comparison', async () => {

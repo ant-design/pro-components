@@ -3,10 +3,10 @@ import { ProProvider, useIntl } from '@ant-design/pro-provider';
 import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import type { ColProps, FormItemProps, RowProps } from 'antd';
 import { Col, ConfigProvider, Form, Row } from 'antd';
-import type { FormInstance, FormProps } from 'antd/lib/form/Form';
+import type { FormInstance, FormProps } from 'antd/es/form/Form';
 import classNames from 'classnames';
 import RcResizeObserver from 'rc-resize-observer';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import type { ReactElement } from 'react';
 import React, { useContext, useMemo } from 'react';
 import type { CommonFormProps } from '../../BaseForm';
@@ -202,7 +202,7 @@ const flatMapItems = (
   ignoreRules?: boolean,
 ): React.ReactNode[] => {
   return items?.flatMap((item: any) => {
-    if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
+    if (item?.type?.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
     }
 

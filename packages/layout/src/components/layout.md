@@ -69,7 +69,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 | ErrorBoundary | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode` | 内置 ErrorBoundary |
 | links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
 | menuProps | 传递到 antd menu 组件的 props, 参考 [导航菜单](https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
-| waterMarkProps | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer | [WaterMarkProps](/components/water-mark) | - |
+| waterMarkProps | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer | WaterMarkProps | - |
 
 ### menu
 

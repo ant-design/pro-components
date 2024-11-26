@@ -1,4 +1,4 @@
-import Field from '@ant-design/pro-field';
+import { ProField as Field } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -80,7 +80,7 @@ describe('DateField', () => {
 
       await waitFor(
         () => {
-          expect(fn).toBeCalled();
+          expect(fn).toHaveBeenCalled();
         },
         {
           timeout: 1000,
@@ -146,7 +146,7 @@ describe('DateField', () => {
 
       await waitFor(
         () => {
-          expect(onChangeFn).toBeCalled();
+          expect(onChangeFn).toHaveBeenCalled();
         },
         {
           timeout: 1000,

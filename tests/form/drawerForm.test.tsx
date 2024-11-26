@@ -1,8 +1,13 @@
-﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-form';
+﻿/**
+ * @vitest-environment jsdom
+ */
+
+import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
   fireEvent,
+  getByText,
   render,
   waitFor,
 } from '@testing-library/react';
@@ -302,11 +307,11 @@ describe('DrawerForm', () => {
     });
     await waitForWaitTime(100);
     expect(fn).toHaveBeenCalledWith(false);
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(2);
 
     // 点击关闭按钮的时候会手动触发一下 onClose
     expect(onCloseFn).toHaveBeenCalledWith(false);
-    expect(fn).toBeCalledTimes(2);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 
   it('📦 form onFinish return true should close drawer', async () => {
@@ -350,7 +355,7 @@ describe('DrawerForm', () => {
     });
 
     await waitForWaitTime(100);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   it('📦 submitter config no reset default config', async () => {
@@ -695,6 +700,7 @@ describe('DrawerForm', () => {
       props: 'modalProps',
     },
   ];
+  // need jsdom support
   tests.forEach((item) => {
     const { name, Comp, close, props } = item;
     it(`📦 ${name} resetFields when destroy`, async () => {
@@ -732,9 +738,11 @@ describe('DrawerForm', () => {
       await waitForWaitTime(300);
       // 点击取消按钮后重置
       act(() => {
-        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+        fireEvent.click(getByText(html.baseElement, '新 建'));
       });
-      await waitForWaitTime(300);
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument()
+      })
       act(() => {
         fireEvent.change(
           html.baseElement.querySelector<HTMLDivElement>('input#name')!,
@@ -745,22 +753,26 @@ describe('DrawerForm', () => {
           },
         );
       });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBe('12345');
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345')
+      })
       act(() => {
-        html.baseElement
-          .querySelectorAll<HTMLDivElement>('.ant-btn-default')[0]
-          .click();
+        fireEvent.click(getByText(html.baseElement, '取 消'));
       });
+
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).not.toBeInTheDocument()
+      })
       act(() => {
-        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+        fireEvent.click(getByText(html.baseElement, '新 建'));
       });
-      await waitForWaitTime(300);
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument()
+      })
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();
+
       // 点击关闭按钮后重置
       act(() => {
         fireEvent.change(
@@ -772,20 +784,26 @@ describe('DrawerForm', () => {
           },
         );
       });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBe('12345');
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345')
+      })
+
       act(() => {
         html.baseElement.querySelectorAll<HTMLDivElement>(close)[0].click();
       });
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).not.toBeInTheDocument()
+      })
       act(() => {
-        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+        fireEvent.click(getByText(html.baseElement, '新 建'));
       });
-      await waitForWaitTime(300);
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument()
+      })
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();
+
       // 点击提交按钮后重置
       act(() => {
         fireEvent.change(
@@ -797,27 +815,28 @@ describe('DrawerForm', () => {
           },
         );
       });
-      await waitForWaitTime(300);
-      expect(
-        html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
-      ).toBe('12345');
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345')
+      })
 
       act(() => {
-        html.baseElement
-          .querySelectorAll<HTMLDivElement>('.ant-btn-primary')[0]
-          .click();
+        fireEvent.click(getByText(html.baseElement, '确 认'));
       });
-      await waitForWaitTime(300);
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).not.toBeInTheDocument()
+      })
       act(() => {
-        html.baseElement.querySelectorAll<HTMLDivElement>('#new')[0].click();
+        fireEvent.click(getByText(html.baseElement, '新 建'));
       });
-      await waitForWaitTime(300);
+      await waitFor(() => {
+        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument()
+      })
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();
 
       // 通过检查fn被调用的次数确定在 onOpenChange 时表单是否已被重置
-      expect(fn).toBeCalledTimes(3);
+      expect(fn).toHaveBeenCalledTimes(3);
 
       html.unmount();
     });

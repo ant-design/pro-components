@@ -3,7 +3,7 @@ import { nanoid } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Select } from 'antd';
 
-import type { DefaultOptionType, LabeledValue } from 'antd/lib/select';
+import type { DefaultOptionType, LabeledValue } from 'antd/es/select';
 import classNames from 'classnames';
 import React, {
   useContext,

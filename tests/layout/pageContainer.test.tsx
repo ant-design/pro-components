@@ -560,7 +560,7 @@ describe('PageContainer', () => {
       />,
     );
 
-    expect(html.container.innerText).toBe(undefined);
+    expect(html.container.innerText).toBe('');
 
     html.rerender(
       <PageContainer

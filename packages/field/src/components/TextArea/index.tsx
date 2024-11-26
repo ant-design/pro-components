@@ -2,12 +2,9 @@ import { useIntl } from '@ant-design/pro-provider';
 import { Input } from 'antd';
 import omit from 'omit.js';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import FieldTextAreaReadonly from './readonly';
 
-// 兼容代码-----------
-import 'antd/lib/input/style';
-//------------
 /**
  * 最基本的组件，就是个普通的 Input.TextArea
  *
@@ -16,7 +13,7 @@ import 'antd/lib/input/style';
 const FieldTextArea: ProFieldFC<{
   text: string;
 }> = (props, ref) => {
-  const { text, mode, render, renderFormItem, fieldProps } = props;
+  const { text, mode, render, formItemRender, fieldProps } = props;
   const intl = useIntl();
 
   if (mode === 'read') {
@@ -42,8 +39,8 @@ const FieldTextArea: ProFieldFC<{
         {...fieldProps}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

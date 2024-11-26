@@ -1,4 +1,4 @@
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -198,7 +198,7 @@ describe('Table ColumnSetting', () => {
     });
     await waitForWaitTime(100);
 
-    expect(callBack).toBeCalled();
+    expect(callBack).toHaveBeenCalled();
   });
 
   it('🎏 columnSetting columnsState.value props', async () => {
@@ -398,7 +398,7 @@ describe('Table ColumnSetting', () => {
     });
     await waitForWaitTime(100);
     window.localStorage = localStorage;
-    expect(console.warn).toBeCalled();
+    expect(console.warn).toHaveBeenCalled();
   });
 
   it('🎏 columnSetting columnsState.onChange', async () => {
@@ -462,7 +462,7 @@ describe('Table ColumnSetting', () => {
     });
     await waitForWaitTime(100);
 
-    expect(callBack).toBeCalled();
+    expect(callBack).toHaveBeenCalled();
   });
 
   it('🎏 columnSetting columnsState.persistenceKey', async () => {
@@ -781,7 +781,7 @@ describe('Table ColumnSetting', () => {
         ).length,
     ).toBe(2);
 
-    expect(callBack).toBeCalled();
+    expect(callBack).toHaveBeenCalled();
 
     act(() => {
       const input = html.baseElement
@@ -876,7 +876,7 @@ describe('Table ColumnSetting', () => {
         ?.click();
     });
 
-    expect(onChange).toBeCalledTimes(1);
+    expect(onChange).toHaveBeenCalledTimes(1);
     expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
       {
         "age": {
@@ -970,7 +970,7 @@ describe('Table ColumnSetting', () => {
         ?.click();
     });
 
-    expect(onChange).toBeCalledTimes(2);
+    expect(onChange).toHaveBeenCalledTimes(2);
     expect((onChange.mock as any).lastCall[0]).toMatchInlineSnapshot(`
       {
         "3": {
@@ -1091,7 +1091,7 @@ describe('Table ColumnSetting', () => {
         ).length,
     ).toBe(2);
 
-    expect(callBack).toBeCalled();
+    expect(callBack).toHaveBeenCalled();
   });
 
   it('🎏 columnSetting close checkable', async () => {

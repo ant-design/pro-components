@@ -1,10 +1,13 @@
-import ProForm, { ProFormText } from '@ant-design/pro-form';
 import type {
   ActionType,
   EditableFormInstance,
   ProColumns,
-} from '@ant-design/pro-table';
-import { EditableProTable } from '@ant-design/pro-table';
+} from '@ant-design/pro-components';
+import {
+  EditableProTable,
+  ProForm,
+  ProFormText,
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -88,7 +91,7 @@ const columns: ProColumns<DataSourceType>[] = [
     dataIndex: 'index',
     valueType: 'indexBorder',
     width: 48,
-    renderFormItem: () => <InputNumber />,
+    formItemRender: () => <InputNumber />,
   },
   {
     title: '标题',
@@ -321,7 +324,7 @@ describe('EditorProTable', () => {
       ).toBe(4);
     });
     await waitFor(() => {
-      expect(onChange).not.toBeCalled();
+      expect(onChange).not.toHaveBeenCalled();
     });
     editAndChange('test value');
     // save with recordKey
@@ -333,7 +336,7 @@ describe('EditorProTable', () => {
     await act(() => vi.runOnlyPendingTimers());
 
     await waitFor(() => {
-      expect(onChange).toBeCalled();
+      expect(onChange).toHaveBeenCalled();
     });
     await waitFor(() => {
       expect(changedDataSource).toHaveLength(defaultData.length);
@@ -350,7 +353,7 @@ describe('EditorProTable', () => {
     await act(() => vi.runOnlyPendingTimers());
 
     await waitFor(() => {
-      expect(onChange).toBeCalled();
+      expect(onChange).toHaveBeenCalled();
     });
     await waitFor(() => {
       expect(changedDataSource).toHaveLength(defaultData.length);
@@ -539,7 +542,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1000);
 
-    expect(onchange).not.toBeCalled();
+    expect(onchange).not.toHaveBeenCalled();
 
     wrapper.unmount();
   });
@@ -573,7 +576,7 @@ describe('EditorProTable', () => {
 
     await waitForWaitTime(1200);
 
-    expect(fn).not.toBeCalled();
+    expect(fn).not.toHaveBeenCalled();
     act(() => {
       fireEvent.change(
         wrapper.container
@@ -1171,12 +1174,16 @@ describe('EditorProTable', () => {
     );
 
     await waitForWaitTime(300);
-    expect(valuesChangeFn).toBeCalledTimes(0);
+
+    await waitFor(() => {
+      expect(valuesChangeFn).not.toHaveBeenCalled();
+    });
 
     await act(async () => {
       (await wrapper.queryAllByText('编辑')).at(0)?.click();
     });
     await waitForWaitTime(1200);
+
     act(() => {
       fireEvent.change(
         wrapper.container
@@ -1189,7 +1196,7 @@ describe('EditorProTable', () => {
         },
       );
     });
-    expect(valuesChangeFn).toBeCalledTimes(1);
+    expect(valuesChangeFn).toHaveBeenCalledTimes(1);
     expect(valuesChangeFn).toHaveBeenCalledWith('test');
   });
 

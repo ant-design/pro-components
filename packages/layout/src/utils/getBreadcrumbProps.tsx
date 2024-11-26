@@ -1,21 +1,14 @@
-import { compareVersions } from '@ant-design/pro-utils';
 import type { BreadcrumbProps } from 'antd';
-import { version } from 'antd';
 import type {
   BreadcrumbItemType,
   ItemType,
-} from 'antd/lib/breadcrumb/Breadcrumb';
+} from 'antd/es/breadcrumb/Breadcrumb';
 import type H from 'history';
 import { match } from 'path-to-regexp';
 import type { ProLayoutProps } from '../ProLayout';
 import type { ProSettings } from '../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typing';
 import { urlToList } from './pathTools';
-
-export const getVersion = () => {
-  if (typeof process === 'undefined') return version;
-  return process?.env?.ANTD_VERSION || version;
-};
 
 export type BreadcrumbProLayoutProps = {
   breadcrumbList?: { title: string; href: string }[];
@@ -192,13 +185,8 @@ export const getBreadcrumbProps = (
     items = undefined;
   }
   // 如果当前 ant design 包的版本大于等于5.3.0，则返回一个对象{items,itemRender},否则返回一个对象{routes:item,itemRender}
-  return compareVersions(getVersion(), '5.3.0') > -1
-    ? ({
-        items,
-        itemRender,
-      } as BreadcrumbListReturn)
-    : ({
-        routes: items,
-        itemRender,
-      } as unknown as BreadcrumbListReturn);
+  return {
+    items,
+    itemRender,
+  } as BreadcrumbListReturn;
 };

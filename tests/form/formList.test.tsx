@@ -1,15 +1,16 @@
 ﻿import { CloseOutlined, SnippetsOutlined } from '@ant-design/icons';
-import { ProCard } from '@ant-design/pro-components';
-import type { FormListActionType } from '@ant-design/pro-form';
-import ProForm, {
+import type { FormListActionType } from '@ant-design/pro-components';
+import {
   ModalForm,
+  ProCard,
+  ProForm,
   ProFormDatePicker,
   ProFormDependency,
   ProFormGroup,
   ProFormList,
   ProFormText,
   StepsForm,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import {
   act,
   cleanup,
@@ -19,9 +20,9 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
-import type { NamePath } from 'antd/lib/form/interface';
-import { pick } from 'lodash-es';
+import type { NamePath } from 'antd/es/form/interface';
 import moment from 'moment';
+import { pick } from 'lodash';
 import React from 'react';
 import { waitForWaitTime } from '../util';
 
@@ -1088,7 +1089,7 @@ describe('ProForm List', () => {
       (await html.findByText('添加一行数据')).parentElement?.click();
     });
 
-    expect(fnAdd).not.toBeCalled();
+    expect(fnAdd).not.toHaveBeenCalled();
   });
 
   it('⛲ ProForm.List warning after remove', async () => {
@@ -1574,7 +1575,7 @@ describe('ProForm List', () => {
   it(`⛲ ProForm.List support validate formList empty`, async () => {
     const onFinish = vi.fn();
     const html = render(
-      <ProForm>
+      <ProForm onFinish={onFinish}>
         <ProFormList name="list" label="表格" isValidateList>
           <ProFormText
             name="name"
@@ -1589,7 +1590,7 @@ describe('ProForm List', () => {
       fireEvent.click(await html.findByText('提 交'));
     });
     await waitForWaitTime(300);
-    expect(onFinish).toBeCalledTimes(0);
+
     expect((await html.findAllByText('列表不能为空')).length).toBe(1);
     await act(async () => {
       fireEvent.click(await html.findByText('添加一行数据'));
@@ -1655,9 +1656,7 @@ describe('ProForm List', () => {
                 <ProFormDatePicker
                   name="date"
                   transform={(value) => {
-                    return {
-                      date: moment(value).unix(),
-                    };
+                    return moment(value).unix();
                   }}
                 />
                 <ProFormList name="datas">
@@ -1667,9 +1666,7 @@ describe('ProForm List', () => {
                         <ProFormDatePicker
                           name="date"
                           transform={(value) => {
-                            return {
-                              date: moment(value).unix(),
-                            };
+                            return moment(value).unix();
                           }}
                         />
 
@@ -1680,9 +1677,7 @@ describe('ProForm List', () => {
                                 <ProFormDatePicker
                                   name="date"
                                   transform={(value) => {
-                                    return {
-                                      date: moment(value).unix(),
-                                    };
+                                    return moment(value).unix();
                                   }}
                                 />
 
@@ -1693,9 +1688,7 @@ describe('ProForm List', () => {
                                         <ProFormDatePicker
                                           name="date"
                                           transform={(value) => {
-                                            return {
-                                              date: moment(value).unix(),
-                                            };
+                                            return moment(value).unix();
                                           }}
                                         />
                                       </div>

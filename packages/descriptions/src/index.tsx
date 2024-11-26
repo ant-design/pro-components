@@ -13,27 +13,24 @@ import {
   ErrorBoundary,
   InlineErrorFormItem,
   LabelIconTip,
-  compareVersions,
   genCopyable,
   getFieldPropsOrFormItemProps,
   stringify,
   useEditableMap,
 } from '@ant-design/pro-utils';
 import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
-import { ConfigProvider, Descriptions, Space, version } from 'antd';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import toArray from 'rc-util/lib/Children/toArray';
-import get from 'rc-util/lib/utils/get';
+import { ConfigProvider, Descriptions, Space } from 'antd';
+import type { LabelTooltipType } from 'antd/es/form/FormItemLabel';
+import toArray from 'rc-util/es/Children/toArray';
+import get from 'rc-util/es/utils/get';
 import React, { useContext, useEffect } from 'react';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
-// 兼容代码-----------
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
-import { proTheme } from '@ant-design/pro-provider';
+import ProConfigContext, { ProConfigProvider, proTheme } from '@ant-design/pro-provider';
 import type { DescriptionsItemType } from 'antd/es/descriptions';
-import 'antd/lib/descriptions/style';
-//----------------------
+import ValueTypeToComponent from '../../field/src/ValueTypeToComponent';
 
 // todo remove it
 export interface DescriptionsItemProps {
@@ -176,7 +173,7 @@ export const FieldRender: React.FC<
     plain,
     dataIndex,
     request,
-    renderFormItem,
+    formItemRender,
     params,
     emptyText,
   } = props;
@@ -259,10 +256,10 @@ export const FieldRender: React.FC<
             {...fieldConfig}
             // @ts-ignore
             proFieldProps={{ ...fieldConfig.proFieldProps }}
-            renderFormItem={
-              renderFormItem
+            formItemRender={
+              formItemRender
                 ? () =>
-                    renderFormItem?.(
+                    formItemRender?.(
                       {
                         ...props,
                         type: 'descriptions',
@@ -328,16 +325,13 @@ const schemaToDescriptionsItem = (
   emptyText?: React.ReactNode,
 ) => {
   const options: JSX.Element[] = [];
-  const isBigger58 = compareVersions(version, '5.8.0') >= 0;
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
   const children = items
     ?.map?.((item, index) => {
       if (React.isValidElement(item)) {
-        return isBigger58
-          ? {
-              children: item,
-            }
-          : item;
+        return {
+          children: item,
+        };
       }
       const {
         valueEnum,
@@ -390,18 +384,20 @@ const schemaToDescriptionsItem = (
       const contentDom: React.ReactNode =
         fieldMode === 'edit' ? text : genCopyable(text, item, text);
 
+      const key = restItem.key || restItem.label?.toString() || index;
+      const label = (title || restItem.label || restItem.tooltip) && (
+        <LabelIconTip
+          label={title || restItem.label}
+          tooltip={restItem.tooltip}
+          ellipsis={item.ellipsis}
+        />
+      );
       const field: DescriptionsItemType | JSX.Element =
-        isBigger58 && valueType !== 'option'
+        valueType !== 'option'
           ? ({
               ...restItem,
-              key: restItem.key || restItem.label?.toString() || index,
-              label: (title || restItem.label || restItem.tooltip) && (
-                <LabelIconTip
-                  label={title || restItem.label}
-                  tooltip={restItem.tooltip}
-                  ellipsis={item.ellipsis}
-                />
-              ),
+              key,
+              label,
               children: (
                 <Component>
                   <FieldRender
@@ -430,19 +426,7 @@ const schemaToDescriptionsItem = (
               ),
             } as DescriptionsItemType)
           : ((
-              <Descriptions.Item
-                {...restItem}
-                key={restItem.key || restItem.label?.toString() || index}
-                label={
-                  (title || restItem.label || restItem.tooltip) && (
-                    <LabelIconTip
-                      label={title || restItem.label}
-                      tooltip={restItem.tooltip}
-                      ellipsis={item.ellipsis}
-                    />
-                  )
-                }
-              >
+              <Descriptions.Item {...restItem} key={key} label={label}>
                 <Component>
                   <FieldRender
                     {...item}
@@ -513,6 +497,7 @@ const ProDescriptions = <
     ...rest
   } = props;
 
+  const proContext = useContext(ProConfigContext);
   const context = useContext(ConfigProvider.ConfigContext);
 
   const action = useFetchData<RequestData>(
@@ -631,40 +616,39 @@ const ProDescriptions = <
   }
 
   const className = context.getPrefixCls('pro-descriptions');
-  const isBigger58 = compareVersions(version, '5.8.0') >= 0;
   return (
     <ErrorBoundary>
-      <FormComponent
-        key="form"
-        form={props.editable?.form}
-        component={false}
-        submitter={false}
-        {...formProps}
-        onFinish={undefined}
-      >
-        <Descriptions
-          className={className}
-          {...rest}
-          contentStyle={{
-            minWidth: 0,
-            ...(contentStyle || {}),
-          }}
-          extra={
-            rest.extra ? (
-              <Space>
-                {options}
-                {rest.extra}
-              </Space>
-            ) : (
-              options
-            )
-          }
-          title={title}
-          items={isBigger58 ? (children as DescriptionsItemType[]) : undefined}
+      <ProConfigProvider valueTypeMap={{...proContext.valueTypeMap, ...ValueTypeToComponent}}>
+        <FormComponent
+          key="form"
+          form={props.editable?.form}
+          component={false}
+          submitter={false}
+          {...formProps}
+          onFinish={undefined}
         >
-          {isBigger58 ? null : (children as JSX.Element[])}
-        </Descriptions>
-      </FormComponent>
+          <Descriptions
+            className={className}
+            {...rest}
+            contentStyle={{
+              minWidth: 0,
+              ...(contentStyle || {}),
+            }}
+            extra={
+              rest.extra ? (
+                <Space>
+                  {options}
+                  {rest.extra}
+                </Space>
+              ) : (
+                options
+              )
+            }
+            title={title}
+            items={children as DescriptionsItemType[]}
+          />
+        </FormComponent>
+      </ProConfigProvider>
     </ErrorBoundary>
   );
 };

@@ -1,11 +1,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { Image, Input } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/image/style';
-//----------------------
+import type { ProFieldFC } from '../../PureProField';
 
 export type FieldImageProps = {
   text: string;
@@ -26,7 +22,7 @@ const FieldImage = React.forwardRef<FieldImageProps, any>(
       text,
       mode: type,
       render,
-      renderFormItem,
+      formItemRender,
       fieldProps,
       placeholder,
       width,
@@ -49,8 +45,8 @@ const FieldImage = React.forwardRef<FieldImageProps, any>(
       const dom = (
         <Input ref={ref} placeholder={placeholderValue} {...fieldProps} />
       );
-      if (renderFormItem) {
-        return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+      if (formItemRender) {
+        return formItemRender(text, { mode: type, ...fieldProps }, dom);
       }
       return dom;
     }

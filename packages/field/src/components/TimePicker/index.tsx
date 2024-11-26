@@ -7,11 +7,7 @@ import {
 import { DatePicker, TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';
-import type { ProFieldFC, ProFieldLightProps } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/date-picker/style';
-//----------------------;
+import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 
 /**
  * 时间选择组件
@@ -21,7 +17,7 @@ import 'antd/lib/date-picker/style';
 const FieldTimePicker: ProFieldFC<
   {
     text: string | number;
-    format: string;
+    format?: string;
   } & ProFieldLightProps
 > = (
   {
@@ -29,9 +25,9 @@ const FieldTimePicker: ProFieldFC<
     mode,
     light,
     label,
-    format,
+    format = 'HH:mm:ss',
     render,
-    renderFormItem,
+    formItemRender,
     plain,
     fieldProps,
     lightLabel,
@@ -40,7 +36,7 @@ const FieldTimePicker: ProFieldFC<
 ) => {
   const [open, setOpen] = useState<boolean>(false);
   const intl = useIntl();
-  const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
+  const finalFormat = fieldProps?.format || format;
 
   const isNumberOrMoment = dayjs.isDayjs(text) || typeof text === 'number';
 
@@ -116,8 +112,8 @@ const FieldTimePicker: ProFieldFC<
         />
       );
     }
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }
@@ -133,7 +129,7 @@ const FieldTimePicker: ProFieldFC<
 const FieldTimeRangePickerComponents: ProFieldFC<
   {
     text: string[] | number[];
-    format: string;
+    format?: string;
   } & ProFieldLightProps
 > = (
   {
@@ -142,9 +138,9 @@ const FieldTimeRangePickerComponents: ProFieldFC<
     label,
     mode,
     lightLabel,
-    format,
+    format = 'HH:mm:ss',
     render,
-    renderFormItem,
+    formItemRender,
     plain,
     fieldProps,
   },
@@ -152,7 +148,7 @@ const FieldTimeRangePickerComponents: ProFieldFC<
 ) => {
   const intl = useIntl();
   const [open, setOpen] = useState<boolean>(false);
-  const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
+  const finalFormat = fieldProps?.format || format;
   const [startText, endText] = Array.isArray(text) ? text : [];
   const startTextIsNumberOrMoment =
     dayjs.isDayjs(startText) || typeof startText === 'number';
@@ -246,8 +242,8 @@ const FieldTimeRangePickerComponents: ProFieldFC<
         />
       );
     }
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

@@ -4,8 +4,8 @@ import { FieldLabel, FilterDropdown } from '@ant-design/pro-utils';
 import type { FormProps } from 'antd';
 import { ConfigProvider } from 'antd';
 
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { TooltipPlacement } from 'antd/lib/tooltip';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import React, {
@@ -283,7 +283,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             prefixCls={prefixCls}
             items={items?.flatMap((item: any) => {
               /** 如果是 ProFormGroup，直接拼接dom */
-              if (item?.type.displayName === 'ProForm-Group')
+              if (item?.type?.displayName === 'ProForm-Group')
                 return item.props.children;
               return item;
             })}

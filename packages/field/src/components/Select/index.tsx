@@ -27,13 +27,9 @@ import React, {
   useState,
 } from 'react';
 import useSWR from 'swr';
-import type { ProFieldFC, ProFieldLightProps } from '../../index';
+import type { ProFieldFC, ProFieldLightProps } from '../../PureProField';
 import LightSelect from './LightSelect';
 import SearchSelect from './SearchSelect';
-
-// 兼容代码-----------
-import 'antd/lib/select/style';
-//------------
 
 type SelectOptionType = Partial<RequestOptionsType>[];
 
@@ -398,7 +394,7 @@ const FieldSelect: ProFieldFC<
     mode,
     valueEnum,
     render,
-    renderFormItem,
+    formItemRender,
     request,
     fieldProps,
     plain,
@@ -544,9 +540,9 @@ const FieldSelect: ProFieldFC<
       );
     };
     const dom = renderDom();
-    if (renderFormItem) {
+    if (formItemRender) {
       return (
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...fieldProps, options, loading },
           dom,

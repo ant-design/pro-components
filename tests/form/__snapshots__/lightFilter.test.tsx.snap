@@ -25,8 +25,8 @@ exports[`LightFilter >  🪕 DateTimePicker 1`] = `
           autocomplete="off"
           id="datetime"
           placeholder="请选择日期"
-          size="21"
-          value="2016-11-22 15:22:44"
+          size="12"
+          value="2016-11-22"
         />
         <span
           class="ant-picker-suffix"

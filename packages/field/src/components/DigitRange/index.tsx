@@ -1,12 +1,8 @@
 import { proTheme, useIntl } from '@ant-design/pro-provider';
 import { Input, InputNumber, Space } from 'antd';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/input-number/style';
-//----------------------
+import type { ProFieldFC } from '../../PureProField';
 
 export type Value = string | number | undefined | null;
 
@@ -30,7 +26,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
     mode: type,
     render,
     placeholder,
-    renderFormItem,
+    formItemRender,
     fieldProps,
     separator = '~',
     separatorWidth = 30,
@@ -77,7 +73,10 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
           value0 > value1
         ) {
           setValuePair([value1, value0]);
-        } else if (value0 === undefined && value1 === undefined) {
+          return;
+        }
+
+        if (value0 === undefined && value1 === undefined) {
           // 当两个值均为undefined时将值变为undefined，方便required处理
           setValuePair(undefined);
         }
@@ -139,8 +138,8 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         />
       </Compact>
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

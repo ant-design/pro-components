@@ -3,11 +3,11 @@
   proFieldParsingText,
   useStyle,
 } from '@ant-design/pro-utils';
-import { Checkbox, ConfigProvider, Form, Spin } from 'antd';
-import type { CheckboxGroupProps } from 'antd/lib/checkbox';
+import { Checkbox, ConfigProvider, Form, Spin, theme } from 'antd';
+import type { CheckboxGroupProps } from 'antd/es/checkbox';
 import classNames from 'classnames';
 import React, { useContext, useImperativeHandle, useRef } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
 export type GroupProps = {
@@ -15,10 +15,6 @@ export type GroupProps = {
   options?: CheckboxGroupProps['options'];
 } & FieldSelectProps;
 
-// 兼容代码-----------
-import { useToken } from '@ant-design/pro-provider';
-import 'antd/lib/checkbox/style';
-//----------------------
 /**
  * 多选组件
  *
@@ -26,7 +22,7 @@ import 'antd/lib/checkbox/style';
  * @param ref
  */
 const FieldCheckbox: ProFieldFC<GroupProps> = (
-  { layout = 'horizontal', renderFormItem, mode, render, ...rest },
+  { layout = 'horizontal', formItemRender, mode, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -67,7 +63,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
     };
   });
 
-  const { token } = useToken?.();
+  const { token } = theme.useToken?.();
   const checkBoxRef = useRef();
   useImperativeHandle(
     ref,
@@ -131,9 +127,9 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
         options={options}
       />,
     );
-    if (renderFormItem) {
+    if (formItemRender) {
       return (
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...rest.fieldProps, options, loading },
           dom,

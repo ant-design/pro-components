@@ -1,3 +1,7 @@
+/**
+ * @vitest-environment jsdom
+ */
+
 import { SettingDrawer } from '@ant-design/pro-components';
 import {
   act,
@@ -143,6 +147,7 @@ describe('settingDrawer.test', () => {
     expect(html.asFragment()).toMatchSnapshot();
   });
 
+  // need jsdom
   it('🌺 initState form query', async () => {
     const fn = vi.fn();
     const { container, unmount } = render(
@@ -161,7 +166,7 @@ describe('settingDrawer.test', () => {
     fireEvent.click(container.querySelector('.ant-btn.ant-btn-block')!);
     fireEvent.click(container.querySelector('div.ant-drawer-mask')!);
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     expect(fn).toHaveBeenCalledWith({
       navTheme: 'realDark',
       layout: 'mix',
@@ -212,7 +217,7 @@ describe('settingDrawer.test', () => {
     );
 
     fireEvent.click(container.querySelector('.ant-btn.ant-btn-block')!);
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     unmount();
   });
 
