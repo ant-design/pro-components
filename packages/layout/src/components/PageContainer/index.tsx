@@ -352,7 +352,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
   } = props;
   const value = useContext(RouteContext);
   /** 告诉 props 是否存在 footerBar */
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!value || !value?.setHasPageContainer) {
       return () => {};
     }
