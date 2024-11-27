@@ -129,6 +129,10 @@ export type ProFormFieldItemProps<T = Record<string, any>, K = any> = {
    */
   secondary?: boolean;
   /**
+   * @name 只读模式渲染文本,没有值的时候展示
+   */
+  emptyText?: React.ReactNode;
+  /**
    * @name 是否使用 swr 来缓存 缓存可能导致数据更新不及时，请谨慎使用，尤其是页面中多个组件 name 相同
    *
    * @default false
