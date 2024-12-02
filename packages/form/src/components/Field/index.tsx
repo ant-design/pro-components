@@ -1,4 +1,4 @@
-import ProField from '@ant-design/pro-field';
+import ProField, { ProFieldPropsType } from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import {
   isDeepEqualReact,
@@ -10,29 +10,30 @@ import { EditOrReadOnlyContext } from '../../BaseForm/EditOrReadOnlyContext';
 import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../typing';
 
-export type ProFormFieldProps<
-  T = any,
-  FiledProps = Record<string, any>,
-> = ProSchema<
-  T,
-  ProFormFieldItemProps<FiledProps> & {
-    mode?: 'edit' | 'read' | 'update';
-    // 用来判断是不是被嵌套渲染的 dom
-    isDefaultDom?: boolean;
-    ref?: any;
-    plain?: boolean;
-    text?: any;
-    getFieldProps?: () => Record<string, any>;
-    getFormItemProps?: () => Record<string, any>;
-    /**
-     * dependencies value
-     */
-    dependenciesValues?: Record<string, any>;
-    originDependencies?: Record<string, any>;
-  },
-  any,
-  any
->;
+export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = Omit<
+  ProSchema<
+    T,
+    ProFormFieldItemProps<FiledProps> & {
+      mode?: 'edit' | 'read' | 'update';
+      // 用来判断是不是被嵌套渲染的 dom
+      isDefaultDom?: boolean;
+      ref?: any;
+      plain?: boolean;
+      text?: any;
+      getFieldProps?: () => Record<string, any>;
+      getFormItemProps?: () => Record<string, any>;
+      /**
+       * dependencies value
+       */
+      dependenciesValues?: Record<string, any>;
+      originDependencies?: Record<string, any>;
+    },
+    any,
+    any
+  >,
+  keyof ProFieldPropsType
+> &
+  ProFieldPropsType;
 
 const BaseProFormField: React.FC<
   ProFormFieldProps & {
@@ -119,8 +120,8 @@ const BaseProFormField: React.FC<
   return (
     <ProField
       text={fieldProps?.[valuePropName]}
-      render={render as any}
-      renderFormItem={renderFormItem as any}
+      render={render}
+      renderFormItem={renderFormItem}
       valueType={(valueType as 'text') || 'text'}
       cacheForSwr={cacheForSwr}
       fieldProps={memoFieldProps}
