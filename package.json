@@ -173,6 +173,8 @@
     "vitest": "^2.1.8",
     "write-pkg": "^4.0.0",
     "xhr-mock": "^2.5.1",
+    "@vitejs/plugin-legacy": "^6.0.0",
+    "nwsapi": "2.2.13",
     "yorkie": "^2.0.0",
     "zustand": "^4.5.5"
   },
@@ -181,8 +183,5 @@
     "commit-msg": "fabric verify-commit"
   },
   "packageManager": "pnpm@9.6.0",
-  "version": "",
-  "dependencies": {
-    "@vitejs/plugin-legacy": "^6.0.0"
-  }
+  "version": ""
 }

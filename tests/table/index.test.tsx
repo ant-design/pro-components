@@ -1,3 +1,5 @@
+/* eslint-disable @babel/no-unused-expressions */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /**
  * @vitest-environment jsdom
  */
@@ -168,6 +170,10 @@ describe('BasicTable', () => {
           fn = eventFn;
         }
       });
+
+    vi.spyOn(document, 'visibilityState' as any, 'get').mockReturnValue(
+      'visible',
+    );
 
     const html = render(
       <ProTable
