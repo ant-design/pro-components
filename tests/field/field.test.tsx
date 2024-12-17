@@ -142,7 +142,7 @@ describe('Field', () => {
     });
   });
 
-  it.only('🐴 money show Popover', async () => {
+  it('🐴 money show Popover', async () => {
     const html = render(
       <Field
         text="100"
