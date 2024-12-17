@@ -1,13 +1,7 @@
 ﻿import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-form';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Form } from 'antd';
-import React from 'react';
+import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

@@ -1,7 +1,8 @@
 import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import ProTable, { ListToolBar } from '@ant-design/pro-table';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

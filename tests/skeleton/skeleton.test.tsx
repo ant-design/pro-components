@@ -1,4 +1,5 @@
-import { act, cleanup, render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
+import { act } from 'react';
 import ProSkeleton from '../../packages/skeleton/src/index';
 
 afterEach(() => {

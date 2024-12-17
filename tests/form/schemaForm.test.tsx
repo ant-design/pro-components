@@ -5,7 +5,6 @@
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import { ProProvider } from '@ant-design/pro-provider';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -14,7 +13,7 @@ import {
 } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
-import React, { createRef, useContext, useEffect } from 'react';
+import React, { act, createRef, useContext, useEffect } from 'react';
 
 const columns: ProFormColumnsType<any>[] = [
   {

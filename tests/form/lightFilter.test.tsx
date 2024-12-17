@@ -9,7 +9,6 @@ import {
   ProFormTimePicker,
 } from '@ant-design/pro-form';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -19,6 +18,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
+import { act } from 'react';
 
 afterEach(() => {
   cleanup();

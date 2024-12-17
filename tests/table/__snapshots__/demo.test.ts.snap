@@ -35380,7 +35380,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
       test
     </div>
     <div
-      class="ant-pro-table"
+      class="ant-pro-table ant-pro-table-polling"
     >
       <div
         class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -35906,7 +35906,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                 <div
                   class="ant-pro-table-list-toolbar-title"
                 >
-                  上次更新时间：15:22:47
+                  上次更新时间：15:22:51
                 </div>
               </div>
               <div
