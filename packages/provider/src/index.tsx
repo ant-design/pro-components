@@ -361,8 +361,6 @@ const ConfigProviderContainer: React.FC<{
     hashId,
   ]);
 
-  console.log(restConfig);
-
   const configProviderDom = useMemo(() => {
     return (
       <AntdConfigProvider {...restConfig} theme={themeConfig}>

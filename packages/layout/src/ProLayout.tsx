@@ -497,7 +497,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
       setMenuLoading(true);
       const menuDataItems = await menu?.request?.(
         params || {},
-        route?.children || [],
+        route?.children || route?.routes || [],
       );
       setMenuLoading(false);
       return menuDataItems;
@@ -529,7 +529,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }>(
     () =>
       getMenuData(
-        data || route?.children || [],
+        data || route?.children || route?.routes || [],
         menu,
         formatMessage,
         menuDataRender,

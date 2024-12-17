@@ -59,6 +59,7 @@ export type MenuDataItem = {
 };
 
 export type Route = Omit<MenuDataItem, 'routes'> & {
+  routes?: Route[];
   children?: Route[];
 };
 
