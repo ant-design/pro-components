@@ -1,5 +1,6 @@
 import { CheckCard } from '@ant-design/pro-components';
-import { act, cleanup, render, waitFor } from '@testing-library/react';
+import { cleanup, render, waitFor } from '@testing-library/react';
+import { act } from 'react';
 
 afterEach(() => {
   cleanup();

@@ -3,15 +3,9 @@ import {
   PageContainer,
   ProLayout,
 } from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button } from 'antd';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { act, useEffect, useMemo, useState } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

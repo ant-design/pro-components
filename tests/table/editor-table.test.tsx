@@ -5,16 +5,10 @@ import type {
   ProColumns,
 } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { InputNumber } from 'antd';
 import crypto from 'crypto';
-import React from 'react';
+import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 type DataSourceType = {

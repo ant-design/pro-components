@@ -11,7 +11,6 @@ import ProForm, {
   StepsForm,
 } from '@ant-design/pro-form';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -22,7 +21,7 @@ import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import { pick } from 'lodash-es';
 import moment from 'moment';
-import React from 'react';
+import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

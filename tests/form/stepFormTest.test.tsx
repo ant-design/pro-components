@@ -1,6 +1,5 @@
 ﻿import { ProFormText, StepsForm } from '@ant-design/pro-form';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -9,7 +8,7 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from 'antd';
-import React from 'react';
+import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

@@ -5496,8 +5496,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                     class="ant-upload-wrapper"
                   >
                     <div
-                      class="ant-upload ant-upload-select"
-                      style="display: none;"
+                      class="ant-upload ant-upload-select ant-upload-hidden"
                     >
                       <span
                         class="ant-upload"

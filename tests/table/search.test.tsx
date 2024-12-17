@@ -1,16 +1,10 @@
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { ProTable } from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import dayjs from 'dayjs';
-import React, { createRef } from 'react';
+import React, { act, createRef } from 'react';
 import { waitTime } from '../util';
 
 afterEach(() => {

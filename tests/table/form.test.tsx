@@ -1,13 +1,7 @@
 import ProTable from '@ant-design/pro-table';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import type { FormInstance } from 'antd';
-import React from 'react';
+import React, { act } from 'react';
 
 afterEach(() => {
   cleanup();

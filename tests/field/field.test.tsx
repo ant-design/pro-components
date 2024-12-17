@@ -1,18 +1,11 @@
 import Field from '@ant-design/pro-field';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';
-import React, { useState } from 'react';
+import React, { act, useState } from 'react';
 import { waitForWaitTime, waitTime } from '../util';
 import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
-
 const domRef = React.createRef();
 
 afterEach(() => {

@@ -6,16 +6,10 @@ import type {
 } from '@ant-design/pro-components';
 import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { EditableProTable } from '@ant-design/pro-table';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Button, Input, InputNumber } from 'antd';
 import useMergedState from 'rc-util/es/hooks/useMergedState';
-import React, { useRef } from 'react';
+import React, { act, useRef } from 'react';
 import { waitTime } from '../util';
 
 type DataSourceType = {

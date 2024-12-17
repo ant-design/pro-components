@@ -222,7 +222,7 @@ const defaultRenderText = (
           ...props,
           mode: mode || 'read',
         },
-        <>{dataValue}</>,
+        <>{dataValue as any}</>,
       );
     }
     if (mode === 'update' || mode === 'edit') {
@@ -232,7 +232,7 @@ const defaultRenderText = (
           text: dataValue as React.ReactNode,
           ...props,
         },
-        <>{dataValue}</>,
+        <>{dataValue as any}</>,
       );
     }
   }

@@ -495,6 +495,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <div
               class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-multiple-line"
+              style="-webkit-line-clamp: 2;"
             >
               选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
             </div>

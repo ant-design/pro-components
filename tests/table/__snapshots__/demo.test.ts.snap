@@ -387,7 +387,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
             aria-live="assertive"
             id="DndLiveRegion-4"
             role="status"
-            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+            style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
           />
         </div>
       </div>
@@ -794,7 +794,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
             aria-live="assertive"
             id="DndLiveRegion-0"
             role="status"
-            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+            style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
           />
         </div>
       </div>
@@ -1168,7 +1168,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
             aria-live="assertive"
             id="DndLiveRegion-1"
             role="status"
-            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+            style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
           />
         </div>
       </div>
@@ -1548,7 +1548,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
             aria-live="assertive"
             id="DndLiveRegion-3"
             role="status"
-            style="position: fixed; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
+            style="position: fixed; top: 0px; left: 0px; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip-path: inset(100%); white-space: nowrap;"
           />
         </div>
       </div>
@@ -35380,7 +35380,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
       test
     </div>
     <div
-      class="ant-pro-table"
+      class="ant-pro-table ant-pro-table-polling"
     >
       <div
         class="ant-pro-card ant-pro-table-search ant-pro-table-search-query-filter"
@@ -35906,7 +35906,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                 <div
                   class="ant-pro-table-list-toolbar-title"
                 >
-                  上次更新时间：15:22:47
+                  上次更新时间：15:22:51
                 </div>
               </div>
               <div
@@ -43912,7 +43912,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
       test
     </div>
     <div
-      style="background-color: rgb(14, 14, 14);"
+      style="background-color: rgb(14, 17, 22);"
     >
       <div
         class="ant-pro-table"

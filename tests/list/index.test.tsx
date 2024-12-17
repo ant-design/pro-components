@@ -1,6 +1,5 @@
 import ProList, { BaseProList } from '@ant-design/pro-list';
 import {
-  act,
   cleanup,
   fireEvent,
   render as reactRender,
@@ -9,7 +8,7 @@ import {
 } from '@testing-library/react';
 import { Tag } from 'antd';
 import type { Key } from 'react';
-import { useState } from 'react';
+import { act, useState } from 'react';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForWaitTime } from '../util';
 
