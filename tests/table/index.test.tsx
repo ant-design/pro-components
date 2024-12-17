@@ -1,15 +1,14 @@
 import type { ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
   screen,
   waitFor,
 } from '@testing-library/react';
-import { Button, Input, Select } from 'antd';
-import React, { useEffect, useRef } from 'react';
+import { Button, Input } from 'antd';
+import React, { act, useEffect, useRef } from 'react';
 import { columns, request } from './demo';
 
 afterEach(() => {
@@ -1244,7 +1243,7 @@ describe('BasicTable', () => {
       value: () => {
         // @ts-ignore
         document.fullscreenElement = document.createElement('div');
-
+        console.log('Rrrrr------------');
         // @ts-ignore
         document.onfullscreenchange?.();
       },
@@ -1280,18 +1279,8 @@ describe('BasicTable', () => {
             data: [],
           };
         }}
-        toolBarRender={() => [
-          <Select
-            open={true}
-            key="key"
-            options={[
-              {
-                label: '1',
-                value: 1,
-              },
-            ]}
-          />,
-        ]}
+        search={false}
+        toolBarRender={() => [<Button key="fix">查询</Button>]}
         rowKey="key"
       />,
     );

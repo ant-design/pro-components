@@ -1,12 +1,7 @@
 import Field from '@ant-design/pro-field';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import dayjs from 'dayjs';
+import { act } from 'react';
 
 function closePicker(container: HTMLElement, index = 0) {
   const input = container.querySelectorAll('input')[index];
