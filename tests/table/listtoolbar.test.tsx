@@ -2,6 +2,7 @@ import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import { ListToolBar, ProTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

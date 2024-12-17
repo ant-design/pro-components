@@ -6,6 +6,7 @@
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Form } from 'antd';
 import type { UploadFile } from 'antd/es/upload/interface';
+import { act } from 'react';
 import mock from 'xhr-mock';
 import { waitForWaitTime } from '../util';
 

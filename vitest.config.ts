@@ -1,6 +1,6 @@
+import legacy from '@vitejs/plugin-legacy';
 import { join } from 'path';
 import { defineConfig } from 'vitest/config';
-
 const moduleNameMapper = {} as Record<string, any>;
 
 [
@@ -27,6 +27,11 @@ export default defineConfig({
   esbuild: {
     format: 'esm',
   },
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11'],
+    }),
+  ],
   test: {
     globals: true,
     setupFiles: ['./tests/setupTests.ts'],

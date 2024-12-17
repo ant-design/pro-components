@@ -11,7 +11,6 @@ import { defaultConfig } from 'antd/es/theme/internal';
 import jsdom from 'jsdom';
 
 const { JSDOM } = jsdom;
-const { window } = new JSDOM();
 const { document } = new JSDOM('').window;
 global.document = document;
 defaultConfig.hashed = false;
@@ -20,6 +19,9 @@ globalThis.React = React;
 vi.stubGlobal('IS_REACT_ACT_ENVIRONMENT', true);
 vi.stubGlobal('ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION', true);
 vi.stubEnv('TZ', 'UTC');
+
+//@ts-ignore
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 vi.mock('antd', async (importActual) => {
   const antd = await importActual<typeof import('antd')>();

@@ -2,6 +2,7 @@ import { ProTable } from '@ant-design/pro-components';
 import { ProProvider } from '@ant-design/pro-provider';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 const cascaderOptions = [

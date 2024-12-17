@@ -1,5 +1,6 @@
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 import { request } from './demo';
 
