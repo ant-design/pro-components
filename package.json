@@ -176,5 +176,8 @@
     "commit-msg": "fabric verify-commit"
   },
   "packageManager": "pnpm@9.6.0",
-  "version": ""
+  "version": "",
+  "dependencies": {
+    "nwsapi": "2.2.13"
+  }
 }
