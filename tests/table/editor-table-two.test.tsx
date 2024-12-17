@@ -242,9 +242,11 @@ describe('EditorProTable 2', () => {
   it('📝 support form rules', async () => {
     const fn = vi.fn();
     const wrapper = render(
-      <EditorProTableDemo onSave={(key, row) => {
-        return fn(row.title);
-      }} />,
+      <EditorProTableDemo
+        onSave={(key, row) => {
+          return fn(row.title);
+        }}
+      />,
     );
     await wrapper.findAllByText('编辑');
 
@@ -253,23 +255,20 @@ describe('EditorProTable 2', () => {
     });
 
     const row0input = wrapper.container
-    .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
-    .querySelectorAll('input');
+      .querySelectorAll('.ant-table-tbody tr.ant-table-row')[0]
+      .querySelectorAll('input');
 
     await waitFor(() => {
-      expect(row0input.length === 4,
-      ).toBeTruthy();
+      expect(row0input.length === 4).toBeTruthy();
     });
 
     await act(() => {
       // 只有title那一列设置了校验rule，title列下标是1
-      fireEvent.change(row0input[1],
-        {
-          target: {
-            value: '',
-          },
+      fireEvent.change(row0input[1], {
+        target: {
+          value: '',
         },
-      );
+      });
     });
 
     await wrapper.findAllByText('保存');
@@ -284,13 +283,11 @@ describe('EditorProTable 2', () => {
     });
 
     await act(() => {
-      fireEvent.change(row0input[1],
-        {
-          target: {
-            value: 'qixian',
-          },
+      fireEvent.change(row0input[1], {
+        target: {
+          value: 'qixian',
         },
-      );
+      });
     });
 
     await wrapper.findAllByText('保存');
@@ -2136,7 +2133,6 @@ describe('EditorProTable 2', () => {
     });
     wrapper.unmount();
   });
-
 
   it('📝 support add line for start', async () => {
     const fn = vi.fn();

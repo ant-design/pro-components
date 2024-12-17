@@ -1,7 +1,11 @@
 import ProCard from '@ant-design/pro-card';
 import ProForm, { GridContext } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
-import ProConfigContext, { ProConfigProvider, proTheme, useIntl } from '@ant-design/pro-provider';
+import ProConfigContext, {
+  ProConfigProvider,
+  proTheme,
+  useIntl,
+} from '@ant-design/pro-provider';
 import {
   ErrorBoundary,
   editableRowByKey,
@@ -34,6 +38,7 @@ import React, {
   useRef,
 } from 'react';
 import type { ActionType } from '.';
+import ValueTypeToComponent from '../../field/src/ValueTypeToComponent';
 import { Container, TableContext } from './Store/Provide';
 import Alert from './components/Alert';
 import FormRender from './components/Form';
@@ -57,7 +62,6 @@ import {
 } from './utils';
 import { columnSort } from './utils/columnSort';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
-import ValueTypeToComponent from '../../field/src/ValueTypeToComponent';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -1023,7 +1027,10 @@ const ProviderTableContainer = <
   const context = useContext(ProConfigContext);
   return (
     <Container initValue={props}>
-      <ProConfigProvider valueTypeMap={{...context.valueTypeMap, ...ValueTypeToComponent}} needDeps>
+      <ProConfigProvider
+        valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
+        needDeps
+      >
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={`${getPrefixCls('pro-table')}`}

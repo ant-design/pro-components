@@ -5,7 +5,6 @@
 import type { ActionType } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -13,7 +12,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Input } from 'antd';
-import React, { useRef } from 'react';
+import React, { act, useRef } from 'react';
 import { columns, request } from './demo';
 
 afterEach(() => {
@@ -1532,29 +1531,26 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    const input = await waitFor(() => html.baseElement.querySelector(
-      '.ant-pro-table-list-toolbar-search input',
-    )!)
+    const input = await waitFor(
+      () =>
+        html.baseElement.querySelector(
+          '.ant-pro-table-list-toolbar-search input',
+        )!,
+    );
     await html.findByText('查 询');
 
     act(() => {
-      fireEvent.change(
-        input,
-        {
-          target: {
-            value: 'name',
-          },
+      fireEvent.change(input, {
+        target: {
+          value: 'name',
         },
-      );
+      });
     });
 
     await html.findByDisplayValue('name');
 
     act(() => {
-      fireEvent.keyDown(
-        input,
-        { key: 'Enter', keyCode: 13 },
-      );
+      fireEvent.keyDown(input, { key: 'Enter', keyCode: 13 });
     });
 
     await waitFor(() => {
@@ -1562,29 +1558,20 @@ describe('BasicTable', () => {
     });
 
     act(() => {
-      fireEvent.change(
-        input,
-        {
-          target: {
-            value: 'name1',
-          },
+      fireEvent.change(input, {
+        target: {
+          value: 'name1',
         },
-      );
+      });
     });
 
     await html.findByDisplayValue('name1');
     // 下一次keyDown前需要一次keyUp，除非是设置了长按
     act(() => {
-      fireEvent.keyUp(
-        input,
-        { key: 'Enter', keyCode: 13 },
-      );
+      fireEvent.keyUp(input, { key: 'Enter', keyCode: 13 });
     });
     act(() => {
-      fireEvent.keyDown(
-        input,
-        { key: 'Enter', keyCode: 13 },
-      );
+      fireEvent.keyDown(input, { key: 'Enter', keyCode: 13 });
     });
 
     await waitFor(() => {

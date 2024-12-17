@@ -135,7 +135,7 @@ exports[`Field > 🐴 ProFieldBadgeColor status 1`] = `
   >
     <span
       class="ant-badge-status-dot"
-      style="color: #1890ff; background: #1890ff;"
+      style="color: rgb(24, 144, 255); background: rgb(24, 144, 255);"
     />
   </span>
 </DocumentFragment>
@@ -1384,8 +1384,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     class="ant-input ant-input-outlined"
                     rows="5"
                   >
-                    
-yarn run v1.22.0
+                    yarn run v1.22.0
 $ eslint --format=pretty ./packages
 Done in 9.70s.
           
@@ -2633,32 +2632,29 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <input
-                    .eslintrc.js=""
-                    :=""
                     class="ant-input ant-input-outlined"
-                    compileroptions=""
-                    declaration=""
-                    demo=""
-                    docs=""
-                    esmoduleinterop=""
-                    esnext=""
-                    experimentaldecorators=""
-                    forceconsistentcasinginfilenames=""
-                    include=""
-                    jsx=""
-                    moduleresolution=""
-                    node=""
-                    noimplicitreturns=""
-                    preserve=""
-                    scripts=""
-                    skiplibcheck=""
-                    src=""
-                    strict=""
-                    target=""
-                    true=""
                     type="text"
                     value="{
-  "
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demo",
+    ".eslintrc.js"
+  ]
+}"
                   />
                 </span>
               </div>
@@ -3208,7 +3204,7 @@ exports[`Field > 🐴 percent valueType is Object 1`] = `
 exports[`Field > 🐴 percent=0 1`] = `
 <DocumentFragment>
   <span
-    style="color: #595959;"
+    style="color: rgb(89, 89, 89);"
   >
      0.00%
   </span>
@@ -3802,22 +3798,7 @@ exports[`Field > 🐴 read and plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    0.1=""
-                    150=""
-                    3px=""
-                    background-color:=""
-                    border-radius:=""
-                    consolas=""
-                    courier=""
-                    liberation=""
-                    menlo=""
-                    min-content=""
-                    mono=""
-                    monospace=""
-                    rgba=""
-                    sfmono-regular=""
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
-                    width:=""
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       
@@ -3846,22 +3827,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    0.1=""
-                    150=""
-                    3px=""
-                    background-color:=""
-                    border-radius:=""
-                    consolas=""
-                    courier=""
-                    liberation=""
-                    menlo=""
-                    min-content=""
-                    mono=""
-                    monospace=""
-                    rgba=""
-                    sfmono-regular=""
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
-                    width:=""
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       {
@@ -4388,22 +4354,7 @@ exports[`Field > 🐴 read ant no plain 1`] = `
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    0.1=""
-                    150=""
-                    3px=""
-                    background-color:=""
-                    border-radius:=""
-                    consolas=""
-                    courier=""
-                    liberation=""
-                    menlo=""
-                    min-content=""
-                    mono=""
-                    monospace=""
-                    rgba=""
-                    sfmono-regular=""
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
-                    width:=""
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       
@@ -4432,22 +4383,7 @@ Done in 9.70s.
                   class="ant-descriptions-item-content"
                 >
                   <pre
-                    0.1=""
-                    150=""
-                    3px=""
-                    background-color:=""
-                    border-radius:=""
-                    consolas=""
-                    courier=""
-                    liberation=""
-                    menlo=""
-                    min-content=""
-                    mono=""
-                    monospace=""
-                    rgba=""
-                    sfmono-regular=""
-                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
-                    width:=""
+                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
                   >
                     <code>
                       {

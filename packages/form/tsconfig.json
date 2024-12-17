@@ -1,0 +1,24 @@
+﻿{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "esnext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@ant-design/pro-field": ["../../packages/field/src/index.tsx"],
+      "@ant-design/pro-provider": ["../../packages/provider/src/index.tsx"],
+      "@ant-design/pro-utils": ["../../packages/utils/src/index.tsx"],
+      "@ant-design/pro-components": ["../../packages/components/src/index.tsx"]
+    }
+  },
+  "include": ["./src"]
+}

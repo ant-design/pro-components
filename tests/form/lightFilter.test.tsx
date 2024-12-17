@@ -9,7 +9,6 @@ import {
   ProFormTimePicker,
 } from '@ant-design/pro-components';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -19,6 +18,7 @@ import {
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
+import { act } from 'react';
 
 afterEach(() => {
   cleanup();
@@ -340,7 +340,7 @@ describe('LightFilter', () => {
   });
 
   it(' 🪕 select showSearch', async () => {
-    const { container } = render(
+    const { container, ...warp } = render(
       <LightFilter
         initialValues={{
           name: 'Jack2',
@@ -384,13 +384,13 @@ describe('LightFilter', () => {
 
     await waitFor(
       () => {
-        return screen.findByRole('textbox');
+        return warp.findByRole('textbox');
       },
       { timeout: 1000 },
     );
 
     await act(async () => {
-      fireEvent.change(await screen.findByRole('textbox'), {
+      fireEvent.change(await warp.findByRole('textbox'), {
         target: {
           value: 'tech',
         },
@@ -398,7 +398,7 @@ describe('LightFilter', () => {
     });
 
     await act(async () => {
-      userEvent.click(await screen.findByTitle('TechUI'));
+      userEvent.click(await warp.findByTitle('TechUI'));
     });
 
     await waitFor(() => {
@@ -1205,7 +1205,7 @@ describe('LightFilter', () => {
       // 两种加载模式都需要判断（需要lightWrapper和不需要的）
       wrapper.baseElement
         .querySelectorAll<HTMLDivElement>('.ant-pro-core-field-label')[0]
-        .click?.();
+        ?.click?.();
     });
     expect(
       !!wrapper.baseElement.querySelector(

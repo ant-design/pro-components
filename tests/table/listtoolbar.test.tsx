@@ -1,6 +1,6 @@
 import { FullscreenOutlined, SettingOutlined } from '@ant-design/icons';
 import { ListToolBar, ProTable } from '@ant-design/pro-components';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Button, Input } from 'antd';
 import { waitForWaitTime } from '../util';
 

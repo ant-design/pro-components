@@ -4,7 +4,6 @@
 
 import { DrawerForm, ModalForm, ProFormText } from '@ant-design/pro-components';
 import {
-  act,
   cleanup,
   fireEvent,
   getByText,
@@ -12,7 +11,7 @@ import {
   waitFor,
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
-import React from 'react';
+import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {
@@ -741,8 +740,10 @@ describe('DrawerForm', () => {
         fireEvent.click(getByText(html.baseElement, '新 建'));
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument()
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toBeInTheDocument();
+      });
       act(() => {
         fireEvent.change(
           html.baseElement.querySelector<HTMLDivElement>('input#name')!,
@@ -754,21 +755,27 @@ describe('DrawerForm', () => {
         );
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345')
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toHaveValue('12345');
+      });
       act(() => {
         fireEvent.click(getByText(html.baseElement, '取 消'));
       });
 
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).not.toBeInTheDocument()
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).not.toBeInTheDocument();
+      });
       act(() => {
         fireEvent.click(getByText(html.baseElement, '新 建'));
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument()
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toBeInTheDocument();
+      });
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();
@@ -785,21 +792,27 @@ describe('DrawerForm', () => {
         );
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345')
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toHaveValue('12345');
+      });
 
       act(() => {
         html.baseElement.querySelectorAll<HTMLDivElement>(close)[0].click();
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).not.toBeInTheDocument()
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).not.toBeInTheDocument();
+      });
       act(() => {
         fireEvent.click(getByText(html.baseElement, '新 建'));
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument()
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toBeInTheDocument();
+      });
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();
@@ -816,21 +829,27 @@ describe('DrawerForm', () => {
         );
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toHaveValue('12345')
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toHaveValue('12345');
+      });
 
       act(() => {
         fireEvent.click(getByText(html.baseElement, '确 认'));
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).not.toBeInTheDocument()
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).not.toBeInTheDocument();
+      });
       act(() => {
         fireEvent.click(getByText(html.baseElement, '新 建'));
       });
       await waitFor(() => {
-        expect(html.baseElement.querySelector<HTMLDivElement>('input#name')).toBeInTheDocument()
-      })
+        expect(
+          html.baseElement.querySelector<HTMLDivElement>('input#name'),
+        ).toBeInTheDocument();
+      });
       expect(
         html.baseElement.querySelector<HTMLInputElement>('input#name')?.value,
       ).toBeFalsy();

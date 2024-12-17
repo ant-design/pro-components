@@ -12,7 +12,6 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import {
-  act,
   cleanup,
   fireEvent,
   render,
@@ -21,9 +20,9 @@ import {
 } from '@testing-library/react';
 import { Button, Form } from 'antd';
 import type { NamePath } from 'antd/es/form/interface';
-import moment from 'moment';
 import { pick } from 'lodash';
-import React from 'react';
+import moment from 'moment';
+import React, { act } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

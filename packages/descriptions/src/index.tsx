@@ -28,7 +28,10 @@ import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 
 import type { ProFieldFCMode } from '@ant-design/pro-provider';
-import ProConfigContext, { ProConfigProvider, proTheme } from '@ant-design/pro-provider';
+import ProConfigContext, {
+  ProConfigProvider,
+  proTheme,
+} from '@ant-design/pro-provider';
 import type { DescriptionsItemType } from 'antd/es/descriptions';
 import ValueTypeToComponent from '../../field/src/ValueTypeToComponent';
 
@@ -618,7 +621,9 @@ const ProDescriptions = <
   const className = context.getPrefixCls('pro-descriptions');
   return (
     <ErrorBoundary>
-      <ProConfigProvider valueTypeMap={{...proContext.valueTypeMap, ...ValueTypeToComponent}}>
+      <ProConfigProvider
+        valueTypeMap={{ ...proContext.valueTypeMap, ...ValueTypeToComponent }}
+      >
         <FormComponent
           key="form"
           form={props.editable?.form}

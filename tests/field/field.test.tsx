@@ -6,13 +6,13 @@ import {
   ProFieldBadgeColor,
 } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Button, Input } from 'antd';
 import dayjs from 'dayjs';
 import React, { act, useState } from 'react';
 import { waitForWaitTime, waitTime } from '../util';
 import Demo from './fixtures/demo';
 import { TreeSelectDemo } from './fixtures/treeSelectDemo';
-import userEvent from '@testing-library/user-event';
 
 const domRef = React.createRef();
 
@@ -2031,7 +2031,7 @@ describe('Field', () => {
             { label: '未解决', value: 'open' },
             { label: '已解决', value: 'closed' },
             { label: '解决中', value: 'processing' },
-          ]
+          ],
         }}
       />,
     );
@@ -2039,12 +2039,24 @@ describe('Field', () => {
     await userEvent.click(
       html.baseElement.querySelector('.ant-pro-core-field-label')!,
     );
-    await waitFor(() => expect(html.baseElement.querySelectorAll('.ant-select-dropdown.ant-slide-up-appear')[0]).toBeInTheDocument());
+    await waitFor(() =>
+      expect(
+        html.baseElement.querySelectorAll(
+          '.ant-select-dropdown.ant-slide-up-appear',
+        )[0],
+      ).toBeInTheDocument(),
+    );
     await userEvent.click(
       html.baseElement.querySelector('.ant-pro-core-field-label')!,
     );
     // 第二次点击后组件没有到最终的隐藏态，这里检查动画的中间状态可通过
-    await waitFor(() => expect(html.baseElement.querySelectorAll('.ant-select-dropdown.ant-slide-up-enter')[0]).toBeInTheDocument());
+    await waitFor(() =>
+      expect(
+        html.baseElement.querySelectorAll(
+          '.ant-select-dropdown.ant-slide-up-enter',
+        )[0],
+      ).toBeInTheDocument(),
+    );
   });
 
   it(`🐴 FieldSelect support clear`, async () => {

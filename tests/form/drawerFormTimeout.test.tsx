@@ -1,5 +1,6 @@
 ﻿import { DrawerForm, ProFormText } from '@ant-design/pro-components';
-import { act, cleanup, render } from '@testing-library/react';
+import { cleanup, render } from '@testing-library/react';
+import { act } from 'react';
 
 afterEach(() => {
   cleanup();

@@ -1,4 +1,5 @@
-﻿import {
+﻿import ProConfigContext, { ProConfigProvider } from '@ant-design/pro-provider';
+import {
   LabelIconTip,
   omitUndefined,
   runFunction,
@@ -17,6 +18,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import ValueTypeToComponent from '../../../../field/src/ValueTypeToComponent';
 import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
@@ -33,8 +35,6 @@ import type {
   ProFormRenderValueTypeHelpers,
 } from './typing';
 import { renderValueType } from './valueType';
-import ProConfigContext, { ProConfigProvider } from '@ant-design/pro-provider';
-import ValueTypeToComponent from '../../../../field/src/ValueTypeToComponent';
 
 export * from './typing';
 
@@ -221,16 +221,19 @@ function BetaSchemaForm<T, ValueType = 'text'>(
   );
 
   const context = useContext(ProConfigContext);
-  
+
   return (
-    <ProConfigProvider valueTypeMap={{...context.valueTypeMap, ...ValueTypeToComponent}}>
+    <ProConfigProvider
+      valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
+    >
       <FormRenderComponents
         {...specificProps}
         {...restProps}
         onInit={(_, initForm) => {
           if (propsFormRef) {
-            (propsFormRef as React.MutableRefObject<ProFormInstance<T>>).current =
-              initForm;
+            (
+              propsFormRef as React.MutableRefObject<ProFormInstance<T>>
+            ).current = initForm;
           }
           restProps?.onInit?.(_, initForm);
           formRef.current = initForm;

@@ -1,6 +1,6 @@
 import { ProTable } from '@ant-design/pro-components';
 import { ProProvider } from '@ant-design/pro-provider';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Input } from 'antd';
 import { waitForWaitTime } from '../util';
 
@@ -125,7 +125,6 @@ describe('BasicTable valueType', () => {
 
     html.unmount();
   });
-
 
   it('🎏 table valueType render support fieldProps', async () => {
     const html = render(

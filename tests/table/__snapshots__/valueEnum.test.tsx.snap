@@ -33,7 +33,7 @@ exports[`Table valueEnum > 🎏 customization valueType 1`] = `
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
+                  style="flex: 0 0 80px;"
                 >
                   <label
                     class=""

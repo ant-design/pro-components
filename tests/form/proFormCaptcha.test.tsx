@@ -1,7 +1,7 @@
 import { ProForm, ProFormCaptcha } from '@ant-design/pro-components';
-import { act, cleanup, fireEvent, render } from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Button, message } from 'antd';
-import React from 'react';
+import React, { act } from 'react';
 
 afterEach(() => {
   cleanup();

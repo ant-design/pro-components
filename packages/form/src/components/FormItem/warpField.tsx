@@ -51,7 +51,7 @@ type FunctionFieldProps = {
 };
 
 /**
- * 这个方法的主要作用的帮助 Field 增加 FormItem 同时也会处理 lightFilter
+ * 这个方法的主要作用是帮助 Field 增加 FormItem 同时也会处理 lightFilter
  *
  * @param Field
  * @param config

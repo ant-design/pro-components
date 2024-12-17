@@ -3,7 +3,7 @@ import { ProConfigProvider } from '@ant-design/pro-provider';
 import { runFunction } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import type { BaseOptionType } from 'antd/es/cascader';
-import type { RefSelectProps } from 'antd/es/select';
+import type { DefaultOptionType, RefSelectProps } from 'antd/es/select';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type {
@@ -14,7 +14,7 @@ import ProFormField from '../Field';
 
 export type ProFormSelectProps<
   ValueType = any,
-  OptionType extends BaseOptionType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > = ProFormFieldItemProps<
   SelectProps<ValueType, OptionType> & {
     /**

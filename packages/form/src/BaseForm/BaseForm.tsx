@@ -316,7 +316,13 @@ function BaseFormComponents<T = Record<string, any>, U = Record<string, any>>(
         if (!nameList) throw new Error('nameList is require');
         const value = getFormInstance()?.getFieldValue(nameList!);
         const obj = nameList ? set({}, nameList as string[], value) : value;
-        return get(transformKey(obj, omitNil, nameList), nameList as string[]);
+        //transformKey会将keys重新和nameList拼接，所以这里要将nameList的首个元素弹出
+        const newNameList = [...nameList];
+        newNameList.shift();
+        return get(
+          transformKey(obj, omitNil, newNameList),
+          nameList as string[],
+        );
       },
       /**
        * 获取被 ProForm 格式化后的单个数据, 包含他的 name

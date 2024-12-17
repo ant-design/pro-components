@@ -94,6 +94,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   {
     title: '创建时间',
     key: 'showTime',
+    valueType: 'dateRange',
     dataIndex: 'createName',
     initialValue: [dayjs().add(-1, 'm'), dayjs()],
     formItemRender: () => <DatePicker.RangePicker />,
@@ -106,6 +107,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   {
     title: '更新时间',
     dataIndex: 'updateName',
+    valueType: 'dateRange',
     initialValue: [dayjs().add(-1, 'm'), dayjs()],
     formItemRender: () => <DatePicker.RangePicker />,
     width: 'md',

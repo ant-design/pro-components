@@ -81,7 +81,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (
 
   const labelValue = (props as any)[valuePropName!];
 
-  /** DataRange的转化，dayjs 的 toString 有点不好用 */
+  /** DateRange的转化，dayjs 的 toString 有点不好用 */
   const labelValueText = useMemo(() => {
     if (!labelValue) return labelValue;
     if (

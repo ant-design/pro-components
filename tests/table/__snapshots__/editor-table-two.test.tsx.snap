@@ -34,7 +34,7 @@ exports[`EditorProTable 2 > 📝 columns initialValue alway work 1`] = `
                     style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="width: max-content; min-width: 100%; table-layout: fixed;"
+                      style="min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -382,7 +382,7 @@ exports[`EditorProTable 2 > 📝 columns support editable test 1`] = `
                     style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="width: max-content; min-width: 100%; table-layout: fixed;"
+                      style="min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -615,7 +615,7 @@ exports[`EditorProTable 2 > 📝 formItemRender run defaultRender 1`] = `
                     style="overflow-x: auto; overflow-y: hidden;"
                   >
                     <table
-                      style="width: max-content; min-width: 100%; table-layout: fixed;"
+                      style="min-width: 100%; table-layout: fixed;"
                     >
                       <colgroup>
                         <col

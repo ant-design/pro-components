@@ -21,17 +21,11 @@ import {
   ProFormTimePicker,
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button, ConfigProvider, Input } from 'antd';
 import dayjs from 'dayjs';
-import React, { useEffect, useRef } from 'react';
+import React, { act, useEffect, useRef } from 'react';
 import { waitForWaitTime } from '../util';
 
 afterEach(() => {

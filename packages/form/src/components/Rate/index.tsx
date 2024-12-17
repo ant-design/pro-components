@@ -1,9 +1,9 @@
+import { FieldRate } from '@ant-design/pro-field';
+import { ProConfigProvider } from '@ant-design/pro-provider';
 import type { RateProps } from 'antd';
 import React from 'react';
 import type { ProFormFieldItemProps } from '../../typing';
 import ProField from '../Field';
-import { ProConfigProvider } from '@ant-design/pro-provider';
-import { FieldRate } from '@ant-design/pro-field';
 /**
  * 评分组件
  *

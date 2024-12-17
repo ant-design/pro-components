@@ -1,5 +1,4 @@
 import {
-  act,
   cleanup,
   render as reactRender,
   waitFor,
@@ -7,7 +6,13 @@ import {
 import { App } from 'antd';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import { useEffect } from 'react';
+import { act, useEffect } from 'react';
+
+import {
+  StyleProvider,
+  legacyLogicalPropertiesTransformer,
+} from '@ant-design/cssinjs';
+
 type Options = {
   skip?: boolean;
 };
@@ -63,10 +68,15 @@ function demoTest(component: string, options?: Options) {
       }, 1000);
     }, []);
     return (
-      <App>
-        <div>test</div>
-        {props.children}
-      </App>
+      <StyleProvider
+        hashPriority="high"
+        transformers={[legacyLogicalPropertiesTransformer]}
+      >
+        <App>
+          <div>test</div>
+          {props.children}
+        </App>
+      </StyleProvider>
     );
   };
 

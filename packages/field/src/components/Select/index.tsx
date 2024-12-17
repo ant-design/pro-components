@@ -524,6 +524,7 @@ const FieldSelect: ProFieldFC<
             fetchData(keyWord);
           }}
           resetData={resetData}
+          preserveOriginalLabel
           optionItemRender={(item) => {
             if (typeof item.label === 'string' && keyWordsRef.current) {
               return (

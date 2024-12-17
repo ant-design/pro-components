@@ -1,11 +1,11 @@
 import { ProTable } from '@ant-design/pro-components';
 import {
-  act,
   cleanup,
   createEvent,
   fireEvent,
   render,
 } from '@testing-library/react';
+import { act } from 'react';
 import { waitForWaitTime } from '../util';
 import { columns } from './demo';
 

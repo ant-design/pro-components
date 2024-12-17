@@ -39,6 +39,8 @@ export {
   DefaultFooter,
   DefaultHeader,
   FooterToolbar,
+  getMenuData,
+  getPageTitle,
   GridContent,
   PageContainer,
   PageHeader,
@@ -49,8 +51,6 @@ export {
   RouteContext,
   SettingDrawer,
   TopNavHeader,
-  getMenuData,
-  getPageTitle,
 };
 export type {
   AppItemProps,

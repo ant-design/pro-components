@@ -41,7 +41,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                         <sup
                           class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                           data-show="true"
-                          style="margin-block-start: -2px; margin-inline-start: 4px; color: #1890FF; background-color: #E6F7FF;"
+                          style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(24, 144, 255); background-color: rgb(230, 247, 255);"
                           title="99"
                         >
                           <bdi>
@@ -81,7 +81,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                         <sup
                           class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                           data-show="true"
-                          style="margin-block-start: -2px; margin-inline-start: 4px; color: #999; background-color: #eee;"
+                          style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
                           title="32"
                         >
                           <bdi>
@@ -253,7 +253,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                           </div>
                           <div>
                             <span
-                              style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #52c41a; margin-inline-end: 8px;"
+                              style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgb(82, 196, 26); margin-inline-end: 8px;"
                             />
                             成功
                           </div>
@@ -350,7 +350,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                           </div>
                           <div>
                             <span
-                              style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #52c41a; margin-inline-end: 8px;"
+                              style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgb(82, 196, 26); margin-inline-end: 8px;"
                             />
                             成功
                           </div>
@@ -447,7 +447,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/ToolBar.tsx correct
                           </div>
                           <div>
                             <span
-                              style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #52c41a; margin-inline-end: 8px;"
+                              style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgb(82, 196, 26); margin-inline-end: 8px;"
                             />
                             成功
                           </div>
@@ -613,7 +613,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="width: max-content; max-width: 100%; min-width: 100%;"
+                    style="max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border"
@@ -752,7 +752,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                                 class="ant-form-item-control-input-content"
                                               >
                                                 <div
-                                                  style="width: max-content; max-width: 100%; min-width: 100%;"
+                                                  style="max-width: 100%; min-width: 100%;"
                                                 >
                                                   <div
                                                     style="display: inline-flex; margin-inline-end: 25px;"
@@ -874,7 +874,6 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/base.tsx correctly 
                                                   </div>
                                                   <button
                                                     class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-block ant-pro-form-list-creator-button-bottom"
-                                                    style="width: unset;"
                                                     type="button"
                                                   >
                                                     <span>
@@ -971,7 +970,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
       test
     </div>
     <div
-      style="background-color: #eee; margin: -24px; padding: 24px;"
+      style="background-color: rgb(238, 238, 238); margin: -24px; padding: 24px;"
     >
       <div
         class="ant-form-item"
@@ -1178,7 +1177,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       语雀专栏
                                     </span>
@@ -1212,7 +1211,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                             >
                               <div
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                style="flex: 1;"
                               >
                                 <div
                                   style="width: 200px;"
@@ -1298,7 +1297,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       语雀专栏
                                     </span>
@@ -1332,7 +1331,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                             >
                               <div
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                style="flex: 1;"
                               >
                                 <div
                                   style="width: 200px;"
@@ -1418,7 +1417,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       语雀专栏
                                     </span>
@@ -1452,7 +1451,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                             >
                               <div
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                style="flex: 1;"
                               >
                                 <div
                                   style="width: 200px;"
@@ -1538,7 +1537,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       语雀专栏
                                     </span>
@@ -1572,7 +1571,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                             >
                               <div
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                style="flex: 1;"
                               >
                                 <div
                                   style="width: 200px;"
@@ -1658,7 +1657,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       语雀专栏
                                     </span>
@@ -1692,7 +1691,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                             >
                               <div
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                style="flex: 1;"
                               >
                                 <div
                                   style="width: 200px;"
@@ -1778,7 +1777,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       语雀专栏
                                     </span>
@@ -1812,7 +1811,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                             >
                               <div
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                style="flex: 1;"
                               >
                                 <div
                                   style="width: 200px;"
@@ -1898,7 +1897,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       语雀专栏
                                     </span>
@@ -1932,7 +1931,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                             >
                               <div
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                style="flex: 1;"
                               >
                                 <div
                                   style="width: 200px;"
@@ -2018,7 +2017,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       语雀专栏
                                     </span>
@@ -2052,7 +2051,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/card-list.tsx corre
                               class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                             >
                               <div
-                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
+                                style="flex: 1;"
                               >
                                 <div
                                   style="width: 200px;"
@@ -2299,7 +2298,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       TechUI
                                     </span>
@@ -2394,7 +2393,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       TechUI
                                     </span>
@@ -2489,7 +2488,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       TechUI
                                     </span>
@@ -2584,7 +2583,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/editable.tsx correc
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       TechUI
                                     </span>
@@ -2778,7 +2777,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       TechUI
                                     </span>
@@ -2884,7 +2883,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       TechUI
                                     </span>
@@ -2990,7 +2989,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       TechUI
                                     </span>
@@ -3096,7 +3095,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/expand.tsx correctl
                                   >
                                     <span
                                       class="ant-tag ant-tag-has-color"
-                                      style="background-color: #5BD8A6;"
+                                      style="background-color: rgb(91, 216, 166);"
                                     >
                                       TechUI
                                     </span>
@@ -4320,7 +4319,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -4334,7 +4333,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                       class="ant-pro-list-row-content"
                     >
                       <div
-                        style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -4456,7 +4455,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -4470,7 +4469,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                       class="ant-pro-list-row-content"
                     >
                       <div
-                        style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -4592,7 +4591,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -4606,7 +4605,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                       class="ant-pro-list-row-content"
                     >
                       <div
-                        style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -4728,7 +4727,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -4742,7 +4741,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                       class="ant-pro-list-row-content"
                     >
                       <div
-                        style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -4864,7 +4863,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -4878,7 +4877,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/pagination.tsx corr
                       class="ant-pro-list-row-content"
                     >
                       <div
-                        style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -5173,7 +5172,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
+                    style="flex: 0 0 80px;"
                   >
                     <label
                       class=""
@@ -5254,7 +5253,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/search.tsx correctl
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
+                    style="flex: 0 0 80px;"
                   >
                     <label
                       class=""
@@ -5770,7 +5769,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                       class=""
                     >
                       <div
-                        style="min-width: 200px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="min-width: 200px; flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -5901,7 +5900,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                       class=""
                     >
                       <div
-                        style="min-width: 200px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="min-width: 200px; flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -6032,7 +6031,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                       class=""
                     >
                       <div
-                        style="min-width: 200px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="min-width: 200px; flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -6163,7 +6162,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/selectedRow.tsx cor
                       class=""
                     >
                       <div
-                        style="min-width: 200px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="min-width: 200px; flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"
@@ -6978,7 +6977,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -7115,7 +7114,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -7252,7 +7251,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -7389,7 +7388,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/special.tsx correct
                               >
                                 <span
                                   class="ant-tag ant-tag-has-color"
-                                  style="background-color: #5BD8A6;"
+                                  style="background-color: rgb(91, 216, 166);"
                                 >
                                   语雀专栏
                                 </span>
@@ -7590,7 +7589,7 @@ exports[`list demos > 📸 renders ./packages/list/src/demos/testConfigProvider.
                       class=""
                     >
                       <div
-                        style="min-width: 200px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; display: flex; justify-content: flex-end;"
+                        style="min-width: 200px; flex: 1; display: flex; justify-content: flex-end;"
                       >
                         <div
                           style="width: 200px;"

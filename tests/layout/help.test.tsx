@@ -6,14 +6,9 @@ import {
   ProHelpPanel,
   ProHelpSelect,
 } from '@ant-design/pro-components';
-import {
-  act,
-  cleanup,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { Typography } from 'antd';
+import { act } from 'react';
 
 export const DefaultProHelp: React.FC<{ children: React.ReactNode }> = (
   props,

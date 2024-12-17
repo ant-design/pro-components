@@ -1,6 +1,6 @@
 import { ProTable } from '@ant-design/pro-components';
 import ProProvider from '@ant-design/pro-provider';
-import { act, cleanup, render, waitFor } from '@testing-library/react';
+import { cleanup, render, waitFor } from '@testing-library/react';
 import { Input } from 'antd';
 import { useContext } from 'react';
 import { waitForWaitTime } from '../util';

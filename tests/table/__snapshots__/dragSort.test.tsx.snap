@@ -53,5 +53,3 @@ exports[`dragSort > 🔥 [dragSort] render drag sort custom handle by dragSortHa
   </svg>
 </span>
 `;
-
-exports[`dragSort > 🔥 [dragSort] render drag sort default handle by dragSortKey 1`] = `null`;
