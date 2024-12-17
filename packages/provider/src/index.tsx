@@ -1,7 +1,6 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 import { ConfigProvider as AntdConfigProvider, theme as antdTheme } from 'antd';
-
 import zh_CN from 'antd/es/locale/zh_CN';
 import React, { useContext, useEffect, useMemo } from 'react';
 import { SWRConfig, useSWRConfig } from 'swr';
@@ -18,6 +17,7 @@ import 'dayjs/locale/zh-cn';
 
 export * from './intl';
 export * from './useStyle';
+
 export { DeepPartial, ProTokenType };
 
 type OmitUndefined<T> = {
@@ -361,6 +361,8 @@ const ConfigProviderContainer: React.FC<{
     hashId,
   ]);
 
+  console.log(restConfig);
+
   const configProviderDom = useMemo(() => {
     return (
       <AntdConfigProvider {...restConfig} theme={themeConfig}>
@@ -423,13 +425,11 @@ export const ProConfigProvider: React.FC<{
 
   const mergeAlgorithm = () => {
     const isDark = dark ?? proProvide.dark;
-    if (isDark && !Array.isArray(theme?.algorithm)) {
-      return [antdTheme.darkAlgorithm, theme?.algorithm].filter(Boolean);
-    }
-    if (isDark && Array.isArray(theme?.algorithm)) {
-      return [antdTheme.darkAlgorithm, ...(theme?.algorithm || [])].filter(
-        Boolean,
-      );
+
+    if (isDark) {
+      return [theme?.algorithm, antdTheme.darkAlgorithm]
+        .flat(1)
+        .filter(Boolean);
     }
     return theme?.algorithm;
   };

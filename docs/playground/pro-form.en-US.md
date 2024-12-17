@@ -15,4 +15,4 @@ ProForm 的主要功能是预设了很多 layout，如果需要切换只需要�
 
 ## FormList
 
-<code src="../../packages/form/src/components/FormItem/Group/demos/customize.tsx" title="ProForm.List" ></code>
+<code src="../../packages/form/src/components/List/demos/customize.tsx" title="ProForm.List" ></code>
