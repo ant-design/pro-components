@@ -1,12 +1,11 @@
-// 兼容代码-----------
-import 'antd/lib/table/style';
-import 'antd/lib/typography/style';
-//----------------------
-
 import ProCard from '@ant-design/pro-card';
 import ProForm, { GridContext } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
-import { ProConfigProvider, proTheme, useIntl } from '@ant-design/pro-provider';
+import ProConfigContext, {
+  ProConfigProvider,
+  proTheme,
+  useIntl,
+} from '@ant-design/pro-provider';
 import {
   ErrorBoundary,
   editableRowByKey,
@@ -24,7 +23,7 @@ import type {
   GetRowKey,
   SortOrder,
   TableCurrentDataSource,
-} from 'antd/lib/table/interface';
+} from 'antd/es/table/interface';
 import classNames from 'classnames';
 import isEmpty from 'lodash-es/isEmpty';
 import isEqual from 'lodash-es/isEqual';
@@ -39,6 +38,7 @@ import React, {
   useRef,
 } from 'react';
 import type { ActionType } from '.';
+import ValueTypeToComponent from '../../field/src/ValueTypeToComponent';
 import { Container, TableContext } from './Store/Provide';
 import Alert from './components/Alert';
 import FormRender from './components/Form';
@@ -804,7 +804,7 @@ const ProTable = <
       }
     },
     [tableColumn],
-    ['render', 'renderFormItem'],
+    ['render', 'formItemRender'],
     100,
   );
 
@@ -1024,9 +1024,13 @@ const ProviderTableContainer = <
       ? React.Fragment
       : props.ErrorBoundary || ErrorBoundary;
 
+  const context = useContext(ProConfigContext);
   return (
     <Container initValue={props}>
-      <ProConfigProvider needDeps>
+      <ProConfigProvider
+        valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
+        needDeps
+      >
         <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={`${getPrefixCls('pro-table')}`}

@@ -23,12 +23,10 @@ describe('BasicTable Search', () => {
       return lines * 16;
     },
   });
-
   // Mock getComputedStyle
   const originGetComputedStyle = window.getComputedStyle;
   window.getComputedStyle = (ele) => {
     const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
     return style;
   };
 
@@ -70,7 +68,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
       expect(paramsFn).toHaveBeenCalledWith(1, 20);
     });
   });
@@ -105,7 +103,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     const dom = await (await html.findAllByText('重 置')).at(0);
@@ -115,8 +113,8 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-      expect(resetFn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(2);
+      expect(resetFn).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -162,8 +160,8 @@ describe('BasicTable Search', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
-      expect(resetFn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(2);
+      expect(resetFn).toHaveBeenCalledTimes(1);
     });
     vi.useRealTimers();
   });
@@ -211,7 +209,7 @@ describe('BasicTable Search', () => {
     await html.findAllByText('暂无数据');
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
@@ -260,7 +258,9 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('姓名');
 
-    expect(fn).toBeCalledTimes(0);
+    await waitFor(() => {
+      expect(fn).not.toHaveBeenCalled();
+    });
 
     expect(!!html.baseElement.querySelector('.ant-spin')).toBeFalsy();
 
@@ -300,7 +300,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(0);
+      expect(requestFn).not.toHaveBeenCalled();
     });
 
     act(() => {
@@ -313,7 +313,7 @@ describe('BasicTable Search', () => {
 
     await html.findAllByText('¥12,000.00');
     await waitFor(() => {
-      expect(requestFn).toBeCalledTimes(1);
+      expect(requestFn).toHaveBeenCalledTimes(1);
     });
 
     vi.useRealTimers();
@@ -410,13 +410,13 @@ describe('BasicTable Search', () => {
       expect(formValues.status).toBe('state');
       expect(formValues.startTime).toBe('2020-09-11');
       expect(formValues.endTime).toBe('2020-09-22');
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     html.unmount();
   });
 
-  it('🎏 renderFormItem test and fieldProps onChange', async () => {
+  it('🎏 formItemRender test and fieldProps onChange', async () => {
     const fn = vi.fn();
     const onChangeFn = vi.fn();
     const html = render(
@@ -427,6 +427,7 @@ describe('BasicTable Search', () => {
             fn(values.money);
           },
         }}
+        toolBarRender={false}
         columns={[
           {
             title: '金额',
@@ -437,14 +438,9 @@ describe('BasicTable Search', () => {
                 onChangeFn(e.target.value);
               },
             },
-            renderFormItem: () => {
-              return <Input id="renderFormItem" placeholder="renderFormItem" />;
+            formItemRender: () => {
+              return <Input id="formItemRender" placeholder="formItemRender" />;
             },
-          },
-          {
-            title: 'Name',
-            key: 'name',
-            dataIndex: 'name',
           },
         ]}
         dataSource={[{ key: 1, name: '1', money: 1 }]}
@@ -452,13 +448,13 @@ describe('BasicTable Search', () => {
       />,
     );
 
-    await html.findAllByPlaceholderText('renderFormItem');
+    await html.findAllByPlaceholderText('formItemRender');
 
-    expect(html.baseElement.querySelector('input#renderFormItem')).toBeTruthy();
+    expect(html.baseElement.querySelector('input#formItemRender')).toBeTruthy();
 
     act(() => {
       fireEvent.change(
-        html.baseElement.querySelector('input#renderFormItem')!,
+        html.baseElement.querySelector('input#formItemRender')!,
         {
           target: { value: '12' },
         },
@@ -472,7 +468,7 @@ describe('BasicTable Search', () => {
     html.unmount();
   });
 
-  it('🎏 renderFormItem support return false', async () => {
+  it('🎏 formItemRender support return false', async () => {
     const formRef = createRef<FormInstance | null>();
     const html = render(
       <ProTable
@@ -486,7 +482,7 @@ describe('BasicTable Search', () => {
             formItemProps: {
               className: 'money-class',
             },
-            renderFormItem: () => false,
+            formItemRender: () => false,
           },
           {
             title: 'Name',
@@ -519,7 +515,7 @@ describe('BasicTable Search', () => {
               formItemProps: {
                 className: 'money-class',
               },
-              renderFormItem: () => <div />,
+              formItemRender: () => <div />,
             },
             {
               title: 'Name',
@@ -581,7 +577,7 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
-            renderFormItem: () => <Input id="renderFormItem" />,
+            formItemRender: () => <Input id="formItemRender" />,
           },
           {
             title: 'Name',
@@ -611,7 +607,7 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
-            renderFormItem: () => <Input id="renderFormItem" />,
+            formItemRender: () => <Input id="formItemRender" />,
           },
           {
             title: 'Name',
@@ -646,7 +642,7 @@ describe('BasicTable Search', () => {
               title: '金额',
               dataIndex: 'money',
               valueType: 'money',
-              renderFormItem: () => <Input id="renderFormItem" />,
+              formItemRender: () => <Input id="formItemRender" />,
             },
             {
               title: 'Name',

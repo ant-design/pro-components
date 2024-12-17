@@ -1,11 +1,11 @@
-﻿import ProForm, {
+﻿import {
+  ProForm,
   ProFormUploadButton,
   ProFormUploadDragger,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Form } from 'antd';
-import type { UploadFile } from 'antd/lib/upload/interface';
-import { act } from 'react';
+import type { UploadFile } from 'antd/es/upload/interface';
 import mock from 'xhr-mock';
 import { waitForWaitTime } from '../util';
 
@@ -75,8 +75,8 @@ describe('ProFormUpload', () => {
       );
     });
     await waitForWaitTime(1000);
-    expect(fn).toBeCalled();
-    expect(onChangeFn).toBeCalledTimes(3);
+    expect(fn).toHaveBeenCalled();
+    expect(onChangeFn).toHaveBeenCalledTimes(3);
   });
 
   it('🏐 ProFormUploadButton support beforeUpload', async () => {
@@ -215,8 +215,8 @@ describe('ProFormUpload', () => {
       );
     });
     await waitForWaitTime(200);
-    expect(fn).toBeCalled();
-    expect(onChangeFn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
+    expect(onChangeFn).toHaveBeenCalled();
   });
 
   it('🏐 ProFormUploadDragger hide when max', async () => {

@@ -12,7 +12,8 @@ import {
   ConfigProvider,
   SpinProps,
   Tabs,
-  version,
+  Watermark,
+  WatermarkProps,
 } from 'antd';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
@@ -25,15 +26,9 @@ import { GridContent } from '../GridContent';
 import type { PageHeaderProps } from '../PageHeader';
 import { PageHeader } from '../PageHeader';
 import { PageLoading } from '../PageLoading';
-import type { WaterMarkProps } from '../WaterMark';
-import { WaterMark } from '../WaterMark';
 import type { PageContainerToken, pageContainerToken } from './style';
 import { useStyle } from './style';
 import { useStylish } from './style/stylish';
-
-import { compareVersions } from '@ant-design/pro-utils';
-
-import 'antd/lib/breadcrumb/style';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -106,7 +101,7 @@ export type PageContainerProps = {
   breadcrumbRender?: PageHeaderProps['breadcrumbRender'] | false;
 
   /** @name WaterMarkProps 水印的配置 */
-  waterMarkProps?: WaterMarkProps;
+  waterMarkProps?: WatermarkProps;
 
   /** @name BreadcrumbProps 配置面包屑 */
   breadcrumb?: BreadcrumbProps;
@@ -164,20 +159,7 @@ const renderFooter: React.FC<
           key: item.key?.toString() || index?.toString(),
         }))}
         {...tabProps}
-      >
-        {/* 如果版本低于 4.23.0，不支持 items */}
-        {compareVersions(version, '4.23.0') < 0
-          ? tabList?.map((item, index) => {
-              return (
-                <Tabs.TabPane
-                  key={item.key || index}
-                  tab={item.tab}
-                  {...item}
-                />
-              );
-            })
-          : null}
-      </Tabs>
+      />
     );
   }
   return null;
@@ -435,7 +417,7 @@ const PageContainerBase: React.FC<PageContainerProps> = (props) => {
         ...value.waterMarkProps,
         ...props.waterMarkProps,
       };
-      return <WaterMark {...waterMarkProps}>{dom}</WaterMark>;
+      return <Watermark {...waterMarkProps}>{dom}</Watermark>;
     }
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);

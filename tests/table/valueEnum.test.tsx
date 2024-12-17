@@ -1,8 +1,8 @@
+import { ProTable } from '@ant-design/pro-components';
 import ProProvider from '@ant-design/pro-provider';
-import ProTable from '@ant-design/pro-table';
 import { cleanup, render, waitFor } from '@testing-library/react';
 import { Input } from 'antd';
-import { act, useContext } from 'react';
+import { useContext } from 'react';
 import { waitForWaitTime } from '../util';
 
 const Demo = () => {
@@ -14,7 +14,7 @@ const Demo = () => {
         valueTypeMap: {
           link: {
             render: (text) => <a>{text}</a>,
-            renderFormItem: (text, props) => (
+            formItemRender: (text, props) => (
               <Input placeholder="请输入链接" {...props?.fieldProps} />
             ),
           },

@@ -1,8 +1,8 @@
 import type { TabPaneProps, TabsProps } from 'antd';
 import { ConfigProvider, Tabs, version } from 'antd';
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
-import { noteOnce } from 'rc-util/lib/warning';
+import toArray from 'rc-util/es/Children/toArray';
+import { noteOnce } from 'rc-util/es/warning';
 import React, { useContext } from 'react';
 import type { ProCardTabPaneProps, ProCardTabsProps } from '../../typing';
 import Card from '../Card';

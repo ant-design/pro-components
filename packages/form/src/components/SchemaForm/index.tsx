@@ -1,4 +1,5 @@
-﻿import {
+﻿import ProConfigContext, { ProConfigProvider } from '@ant-design/pro-provider';
+import {
   LabelIconTip,
   omitUndefined,
   runFunction,
@@ -12,10 +13,12 @@ import type { FormProps } from 'antd';
 import { Form } from 'antd';
 import React, {
   useCallback,
+  useContext,
   useImperativeHandle,
   useRef,
   useState,
 } from 'react';
+import ValueTypeToComponent from '../../../../field/src/ValueTypeToComponent';
 import type { ProFormInstance } from '../../BaseForm';
 import type { ProFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
@@ -148,7 +151,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(
                   )
               : undefined,
             render: originItem.render,
-            renderFormItem: originItem.renderFormItem,
+            formItemRender: originItem.formItemRender,
             renderText: originItem.renderText,
             request: originItem.request,
             params: originItem.params,
@@ -217,24 +220,31 @@ function BetaSchemaForm<T, ValueType = 'text'>(
     [formRef.current],
   );
 
+  const context = useContext(ProConfigContext);
+
   return (
-    <FormRenderComponents
-      {...specificProps}
-      {...restProps}
-      onInit={(_, initForm) => {
-        if (propsFormRef) {
-          (propsFormRef as React.MutableRefObject<ProFormInstance<T>>).current =
-            initForm;
-        }
-        restProps?.onInit?.(_, initForm);
-        formRef.current = initForm;
-      }}
-      form={props.form || form}
-      formRef={formRef}
-      onValuesChange={onValuesChange}
+    <ProConfigProvider
+      valueTypeMap={{ ...context.valueTypeMap, ...ValueTypeToComponent }}
     >
-      {formChildrenDoms}
-    </FormRenderComponents>
+      <FormRenderComponents
+        {...specificProps}
+        {...restProps}
+        onInit={(_, initForm) => {
+          if (propsFormRef) {
+            (
+              propsFormRef as React.MutableRefObject<ProFormInstance<T>>
+            ).current = initForm;
+          }
+          restProps?.onInit?.(_, initForm);
+          formRef.current = initForm;
+        }}
+        form={props.form || form}
+        formRef={formRef}
+        onValuesChange={onValuesChange}
+      >
+        {formChildrenDoms}
+      </FormRenderComponents>
+    </ProConfigProvider>
   );
 }
 

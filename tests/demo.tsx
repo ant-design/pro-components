@@ -39,11 +39,7 @@ function demoTest(component: string, options?: Options) {
 
   // Mock getComputedStyle
   const originGetComputedStyle = window.getComputedStyle;
-  window.getComputedStyle = (ele) => {
-    const style = originGetComputedStyle(ele);
-    style.lineHeight = '16px';
-    return style;
-  };
+
   beforeAll(() => {
     MockDate.set(1479828164000);
   });
@@ -135,12 +131,12 @@ function demoTest(component: string, options?: Options) {
         });
 
         await waitFor(() => {
-          expect(fn).toBeCalled();
+          expect(fn).toHaveBeenCalled();
         });
+
         await waitFor(() => {
           expect(wrapper.asFragment()).toMatchSnapshot();
         });
-
         wrapper.unmount();
         vi.useRealTimers();
         cleanup();

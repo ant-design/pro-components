@@ -1,9 +1,10 @@
-﻿import ProForm, {
+﻿import {
+  ProForm,
   ProFormFieldSet,
   ProFormRate,
   ProFormText,
   ProFormTextArea,
-} from '@ant-design/pro-form';
+} from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Input } from 'antd';
@@ -48,7 +49,7 @@ describe('ProFormFieldSet', () => {
     });
 
     expect(valueFn).toHaveBeenCalledWith(['111']);
-    expect(valueFn).toBeCalledTimes(1);
+    expect(valueFn).toHaveBeenCalledTimes(1);
 
     fireEvent.change(container.querySelector('#filedSet3')!, {
       target: {
@@ -96,7 +97,7 @@ describe('ProFormFieldSet', () => {
     });
 
     expect(valueFn).toHaveBeenCalledWith(['111']);
-    expect(valueFn).toBeCalledTimes(1);
+    expect(valueFn).toHaveBeenCalledTimes(1);
 
     fireEvent.change(container.querySelector('#filedSet3')!, {
       target: {

@@ -1,4 +1,4 @@
-import ProList, { BaseProList } from '@ant-design/pro-list';
+import { BaseProList, ProList } from '@ant-design/pro-components';
 import {
   cleanup,
   fireEvent,
@@ -577,7 +577,7 @@ describe('List', () => {
 
     fireEvent.click(container.querySelector('.ant-list-item')!);
 
-    expect(onClick).toBeCalled();
+    expect(onClick).toHaveBeenCalled();
 
     fireEvent.mouseEnter(container.querySelector('.ant-list-item')!);
 

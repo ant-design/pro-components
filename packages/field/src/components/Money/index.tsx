@@ -2,16 +2,9 @@ import { intlMap as allIntlMap, useIntl } from '@ant-design/pro-provider';
 import type { InputNumberProps } from 'antd';
 import { InputNumber, Popover } from 'antd';
 import omit from 'omit.js';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, { useCallback, useMemo } from 'react';
-import type { ProFieldFC } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/input-number/style';
-import 'antd/lib/popover/style';
-//----------------------
-
-import { openVisibleCompatible } from '@ant-design/pro-utils';
+import type { ProFieldFC } from '../../PureProField';
 
 export type FieldMoneyProps = {
   text: number;
@@ -252,12 +245,10 @@ const InputNumberPopover = React.forwardRef<
       value,
     });
 
-    const props = openVisibleCompatible(dom ? open : false);
-
     return (
       <Popover
         placement="topLeft"
-        {...props}
+        open={dom ? open : false}
         trigger={['focus', 'click']}
         content={dom}
         getPopupContainer={(triggerNode) => {
@@ -282,7 +273,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     text,
     mode: type,
     render,
-    renderFormItem,
+    formItemRender,
     fieldProps,
     proFieldKey,
     plain,
@@ -443,8 +434,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
       />
     );
 
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

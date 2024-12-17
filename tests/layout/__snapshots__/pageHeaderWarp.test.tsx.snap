@@ -16,7 +16,7 @@ exports[`BasicLayout > ActionsContent support contentRender 1`] = `
 exports[`BasicLayout > base use 1`] = `
 <div>
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -255,7 +255,7 @@ exports[`BasicLayout > base use 1`] = `
 exports[`BasicLayout > content is text 1`] = `
 <div>
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
       class="ant-pro-layout-bg-list"

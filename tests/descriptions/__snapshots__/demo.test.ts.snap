@@ -1719,7 +1719,6 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                       </div>
                       <div
                         class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-                        style="width: 0px; left: 0px; transform: translateX(-50%);"
                       />
                     </div>
                   </div>
@@ -3646,7 +3645,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/use
                     >
                       这是一段文本columns
                       <button
-                        aria-label="Copy"
+                        aria-label="复制"
                         class="ant-typography-copy"
                         type="button"
                       >

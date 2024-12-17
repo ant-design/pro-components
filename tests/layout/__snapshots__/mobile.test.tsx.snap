@@ -210,7 +210,7 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
         />
         <div
           aria-hidden="true"
@@ -219,7 +219,7 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 256px;"
         >
           <div
@@ -254,11 +254,11 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-1-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          aria-controls="rc-menu-uuid-84044-1-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-1-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46"
+                          data-menu-id="rc-menu-uuid-84044-1-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -283,7 +283,7 @@ exports[`mobile BasicLayout > 📱 collapsed=false 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-1-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          id="rc-menu-uuid-84044-1-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li
@@ -746,7 +746,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
         />
         <div
           aria-hidden="true"
@@ -755,7 +755,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 215px;"
         >
           <div
@@ -790,11 +790,11 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-2-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          aria-controls="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-2-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46"
+                          data-menu-id="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -819,7 +819,7 @@ exports[`mobile BasicLayout > 📱 layout=mix 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-2-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          id="rc-menu-uuid-84044-2-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li
@@ -1089,7 +1089,7 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask"
+          class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion"
         />
         <div
           aria-hidden="true"
@@ -1098,7 +1098,7 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-drawer-content-wrapper"
+          class="ant-drawer-content-wrapper ant-drawer-panel-motion-left-appear ant-drawer-panel-motion-left-appear-active ant-drawer-panel-motion-left"
           style="width: 215px;"
         >
           <div
@@ -1133,11 +1133,11 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
                         role="none"
                       >
                         <div
-                          aria-controls="rc-menu-uuid-84044-3-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          aria-controls="rc-menu-uuid-84044-3-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           aria-expanded="true"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          data-menu-id="rc-menu-uuid-84044-3-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46"
+                          data-menu-id="rc-menu-uuid-84044-3-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925"
                           role="menuitem"
                           style="padding-left: 16px;"
                           tabindex="-1"
@@ -1162,7 +1162,7 @@ exports[`mobile BasicLayout > 📱 layout=mix and splitMenus 1`] = `
                         <ul
                           class="ant-menu ant-menu-sub ant-menu-inline"
                           data-menu-list="true"
-                          id="rc-menu-uuid-84044-3-/e6588ef55196e07dc333fd4ea6f17be36f1337c871c6991386e7814897305d46-popup"
+                          id="rc-menu-uuid-84044-3-/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925-popup"
                           role="menu"
                         >
                           <li

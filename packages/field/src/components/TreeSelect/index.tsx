@@ -7,7 +7,7 @@ import {
 import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React, {
   useContext,
   useImperativeHandle,
@@ -15,14 +15,9 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import type { FieldSelectProps } from '../Select';
 import { useFieldFetchData } from '../Select';
-
-// 兼容代码-----------
-import 'antd/lib/spin/style';
-import 'antd/lib/tree-select/style';
-//----------------------
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -43,7 +38,7 @@ export type TreeSelectFieldProps = TreeSelectProps<any> & {
  * @param ref
  */
 const FieldTreeSelect: ProFieldFC<GroupProps> = (
-  { radioType, renderFormItem, mode, light, label, render, ...rest },
+  { radioType, formItemRender, mode, light, label, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -213,9 +208,9 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       </Spin>
     );
 
-    if (renderFormItem) {
+    if (formItemRender) {
       dom =
-        renderFormItem(
+        formItemRender(
           rest.text,
           { mode, ...(fieldProps as any), options, loading },
           dom,

@@ -1,4 +1,4 @@
-import ProForm, { ProFormCaptcha } from '@ant-design/pro-form';
+import { ProForm, ProFormCaptcha } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render } from '@testing-library/react';
 import { Button, message } from 'antd';
 import React, { act } from 'react';

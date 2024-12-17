@@ -12,8 +12,7 @@ import {
   runFunction,
 } from '@ant-design/pro-utils';
 import { Form } from 'antd';
-import { AnyObject } from 'antd/es/_util/type';
-import get from 'rc-util/lib/utils/get';
+import get from 'rc-util/es/utils/get';
 import React, {
   useCallback,
   useContext,
@@ -187,8 +186,8 @@ const CellRenderFromItem = <T extends AnyObject>(
     /**
      * 如果没有自定义直接返回
      */
-    if (columnProps?.renderFormItem) {
-      fieldDom = columnProps.renderFormItem(
+    if (columnProps?.formItemRender) {
+      fieldDom = columnProps.formItemRender(
         {
           ...columnProps,
           index,
@@ -236,7 +235,7 @@ const CellRenderFromItem = <T extends AnyObject>(
   if (formItemName.length === 0) return null;
 
   if (
-    typeof columnProps?.renderFormItem === 'function' ||
+    typeof columnProps?.formItemRender === 'function' ||
     typeof columnProps?.fieldProps === 'function' ||
     typeof columnProps?.formItemProps === 'function'
   ) {
@@ -323,7 +322,7 @@ function cellRenderToFromItem<T extends AnyObject>(
         ? config.index
         : text,
     mode: config.mode,
-    renderFormItem: undefined,
+    formItemRender: undefined,
     valueType: valueType as ProFieldValueType,
     // @ts-ignore
     record: rowData,

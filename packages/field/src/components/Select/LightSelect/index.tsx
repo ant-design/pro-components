@@ -1,12 +1,12 @@
 import { SearchOutlined } from '@ant-design/icons';
-import { FieldLabel, compatibleBorder, useStyle } from '@ant-design/pro-utils';
+import { FieldLabel, useStyle } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
 import { ConfigProvider, Input, Select } from 'antd';
 
 import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
+import toArray from 'rc-util/es/Children/toArray';
 import React, { useContext, useMemo, useState } from 'react';
-import type { ProFieldLightProps } from '../../../index';
+import type { ProFieldLightProps } from '../../../PureProField';
 
 export type LightSelectProps = {
   label?: string;
@@ -43,7 +43,7 @@ const getValueOrLabel = (
   return valueMap[v?.value] || v.label;
 };
 
-const LightSelect: React.ForwardRefRenderFunction<
+export const LightSelect: React.ForwardRefRenderFunction<
   any,
   SelectProps<any> & LightSelectProps
 > = (props, ref) => {
@@ -60,7 +60,6 @@ const LightSelect: React.ForwardRefRenderFunction<
     disabled,
     style,
     className,
-    bordered,
     options,
     onSearch,
     allowClear,
@@ -153,24 +152,11 @@ const LightSelect: React.ForwardRefRenderFunction<
         if (isLabelClick) {
           setOpen(!open);
         } else {
-          // 这里注释掉
-          /**
-           * 因为这里与代码
-           *  if (mode !== 'multiple') {
-           *   setOpen(false);
-           *  }
-           * 冲突了，导致这段代码不生效
-           */
-          // setOpen(true);
+          setOpen(true);
         }
       }}
     >
       <Select
-        /**
-         * popupMatchSelectWidth写死false会关闭虚拟滚动，数量量过大时，影响组件性能
-         * 将此属性注释掉，变成灵活的动态配置
-         */
-        // popupMatchSelectWidth={false}
         {...restProps}
         allowClear={allowClear}
         value={value}
@@ -184,7 +170,6 @@ const LightSelect: React.ForwardRefRenderFunction<
             setOpen(false);
           }
         }}
-        {...compatibleBorder(bordered)}
         showSearch={showSearch}
         onSearch={
           showSearch
@@ -270,7 +255,9 @@ const LightSelect: React.ForwardRefRenderFunction<
         label={label}
         placeholder={placeholder}
         disabled={disabled}
-        bordered={bordered}
+        bordered={
+          restProps.variant !== 'borderless' && restProps.variant !== undefined
+        }
         allowClear={!!allowClear}
         value={filterValue || value?.label || value}
         onClear={() => {

@@ -16,7 +16,7 @@ import {
   ProFormTreeSelect,
 } from '@ant-design/pro-components';
 import { Radio, TreeSelect } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import dayjs from 'dayjs';
 import React from 'react';
 
@@ -209,6 +209,23 @@ export default () => {
           <ProFormText />
           <ProFormText />
         </ProFormFieldSet>
+      </LightFilter>
+
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormSelect
+          label="名称"
+          name="name"
+          valueEnum={{
+            Jack: '杰克',
+            Jack2: '杰克2',
+            TechUI: 'TechUI',
+          }}
+        />
+        <ProFormDateTimePicker name="datetime" label="日期时间" />
       </LightFilter>
     </div>
   );

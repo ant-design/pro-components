@@ -210,7 +210,7 @@ exports[`PageContainer > 🐛 className prop should not be passed to its page he
 exports[`PageContainer > 🐲 FooterToolbar should know width 1`] = `
 <div>
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
+    class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -554,7 +554,7 @@ exports[`PageContainer > 🐲 footer is null, do not render footerToolbar  2`] =
 exports[`PageContainer > 🐲 footer should know width 1`] = `
 <div>
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
+    class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-top-menu ant-pro-layout-fix-siderbar ant-pro-layout-top"
   >
     <div
       class="ant-pro-layout-bg-list"
@@ -799,7 +799,7 @@ exports[`PageContainer > 🐲 footer should know width 1`] = `
 exports[`PageContainer > 🐲 pro-layout support breadcrumbProps 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-layout screen-md ant-pro-layout-fix-siderbar ant-pro-layout-side"
+    class="ant-design-pro ant-pro-layout screen-lg ant-pro-layout-fix-siderbar ant-pro-layout-side"
   >
     <div
       class="ant-pro-layout-bg-list"

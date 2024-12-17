@@ -149,7 +149,7 @@ const columns: ProColumns<DataSourceType>[] = [
         },
       ],
     },
-    renderFormItem: (_, { isEditable }) => {
+    formItemRender: (_, { isEditable }) => {
       return isEditable ? <TagList /> : <Input />;
     },
     render: (_, row) =>

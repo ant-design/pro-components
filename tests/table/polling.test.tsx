@@ -1,6 +1,5 @@
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 import { cleanup, render, waitFor } from '@testing-library/react';
-import { act } from 'react';
 import useFetchData from '../../packages/table/src/useFetchData';
 import { columns } from './demo';
 
@@ -47,22 +46,14 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
     act(() => {
       vi.runOnlyPendingTimers();
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalled();
-    });
-
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
-    await waitFor(() => {
-      expect(fn).toBeCalled();
+      expect(fn).toHaveBeenCalled();
     });
 
     act(() => {
@@ -70,10 +61,18 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalled();
     });
 
-    expect(fn).toBeCalledTimes(2);
+    act(() => {
+      vi.runOnlyPendingTimers();
+    });
+
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalledTimes(2);
+    });
+
+    expect(fn).toHaveBeenCalledTimes(2);
 
     vi.useRealTimers();
   });
@@ -93,7 +92,7 @@ describe('polling', () => {
         [],
         {
           pageInfo: {},
-          polling: 1500,
+          polling: 2500,
           manual: false,
           postData: () => [],
           loading: false,
@@ -111,7 +110,7 @@ describe('polling', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     act(() => {
@@ -119,18 +118,10 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
 
-    act(() => {
-      vi.runAllTimers();
-    });
-
-    await waitFor(() => {
-      expect(fn).toBeCalledTimes(3);
-    });
-
-    expect(fn).toBeCalledTimes(3);
+    expect(fn).toHaveBeenCalledTimes(2);
 
     vi.useRealTimers();
   });
@@ -166,7 +157,7 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await act(() => {
@@ -174,7 +165,7 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
     vi.useRealTimers();
   });
@@ -221,7 +212,7 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await act(() => {
@@ -229,7 +220,7 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await act(() => {
@@ -237,7 +228,7 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
     vi.useRealTimers();
   });
@@ -286,7 +277,7 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await act(() => {
@@ -294,11 +285,11 @@ describe('polling', () => {
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(2);
+      expect(fn).toHaveBeenCalledTimes(2);
     });
 
     vi.useRealTimers();

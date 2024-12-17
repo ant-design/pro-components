@@ -1,10 +1,7 @@
 import { useIntl } from '@ant-design/pro-provider';
 import { InputNumber } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
-// 兼容代码-----------
-import 'antd/lib/input-number/style';
-//------------
+import type { ProFieldFC } from '../../PureProField';
 
 export type FieldDigitProps = {
   text: number;
@@ -51,7 +48,7 @@ export function formatSecond(result: number) {
  * @param FieldSecond
  */
 const Second: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps, placeholder },
+  { text, mode: type, render, formItemRender, fieldProps, placeholder },
   ref,
 ) => {
   const intl = useIntl();
@@ -77,8 +74,8 @@ const Second: ProFieldFC<FieldDigitProps> = (
         {...fieldProps}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }

@@ -36,7 +36,7 @@
     "@ant-design/cssinjs": "^1.21.1",
     "@babel/runtime": "^7.18.0",
     "@ctrl/tinycolor": "^3.4.0",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.13",
     "rc-util": "^5.0.1",
     "swr": "^2.0.0"
   },
@@ -44,7 +44,7 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": "^4.24.15 || ^5.11.2",
+    "antd": "^5.11.2",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

@@ -3,16 +3,12 @@ import { InputNumber } from 'antd';
 import toNumber from 'lodash-es/toNumber';
 import type { ReactNode } from 'react';
 import React, { Fragment, useMemo } from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 import {
   getColorByRealValue,
   getRealTextWithPrecision,
   getSymbolByRealValue,
 } from './util';
-
-// 兼容代码-----------
-import 'antd/lib/input-number/style';
-//------------
 
 export type PercentPropInt = {
   prefix?: ReactNode;
@@ -38,7 +34,7 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     mode,
     showColor = false,
     render,
-    renderFormItem,
+    formItemRender,
     fieldProps,
     placeholder,
     showSymbol: propsShowSymbol,
@@ -98,8 +94,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
         {...fieldProps}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

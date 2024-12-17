@@ -1,4 +1,4 @@
-import ProTable from '@ant-design/pro-table';
+import { ProTable } from '@ant-design/pro-components';
 import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
 import { ConfigProvider, Table } from 'antd';
 import dayjs from 'dayjs';
@@ -29,7 +29,7 @@ describe('Table ColumnSetting', () => {
     );
 
     await waitFor(() => {
-      expect(callBack).toBeCalled();
+      expect(callBack).toHaveBeenCalled();
       expect(callBack).toHaveBeenCalledWith('Edward King 0');
     });
   });
@@ -69,7 +69,7 @@ describe('Table ColumnSetting', () => {
     );
 
     await waitFor(() => {
-      expect(callBack).toBeCalled();
+      expect(callBack).toHaveBeenCalled();
       expect(callBack).toHaveBeenCalledWith('2016-11-22');
     });
   });
@@ -120,7 +120,7 @@ describe('Table ColumnSetting', () => {
     );
 
     await waitFor(() => {
-      expect(callBack).toBeCalled();
+      expect(callBack).toHaveBeenCalled();
       expect(callBack).toHaveBeenCalledWith('Edward King 0');
     });
   });

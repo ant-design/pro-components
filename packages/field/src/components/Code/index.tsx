@@ -1,11 +1,8 @@
 import { Input } from 'antd';
 import React from 'react';
-import type { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../PureProField';
 
-// 兼容代码-----------
 import { proTheme } from '@ant-design/pro-provider';
-import 'antd/lib/input/style';
-//----------------------
 
 const languageFormat = (text: string, language: string) => {
   if (typeof text !== 'string') {
@@ -30,7 +27,7 @@ const FieldCode: ProFieldFC<{
   text: string;
   language?: 'json' | 'text';
 }> = (
-  { text, mode, render, language = 'text', renderFormItem, plain, fieldProps },
+  { text, mode, render, language = 'text', formItemRender, plain, fieldProps },
   ref,
 ) => {
   const code = languageFormat(text, language);
@@ -67,8 +64,8 @@ const FieldCode: ProFieldFC<{
     if (plain) {
       dom = <Input {...fieldProps} ref={ref} />;
     }
-    if (renderFormItem) {
-      return renderFormItem(code, { mode, ...fieldProps, ref }, dom) ?? null;
+    if (formItemRender) {
+      return formItemRender(code, { mode, ...fieldProps, ref }, dom) ?? null;
     }
     return dom;
   }

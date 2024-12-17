@@ -1,8 +1,8 @@
 import { ProCard } from '@ant-design/pro-components';
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, render, waitFor } from '@testing-library/react';
 import { act } from 'react';
 
-vi.mock('antd/lib/grid/hooks/useBreakpoint');
+vi.mock('antd/es/grid/hooks/useBreakpoint');
 
 afterEach(() => {
   cleanup();
@@ -38,7 +38,9 @@ describe('Card', () => {
         ?.click();
     });
 
-    expect(fn).toBeCalled();
+    await waitFor(() => {
+      expect(fn).toHaveBeenCalled();
+    });
   });
 
   it('🥩 collapsible defaultCollapsed', async () => {

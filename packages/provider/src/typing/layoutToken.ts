@@ -18,7 +18,8 @@ export type BaseLayoutDesignToken = {
   /**
    * layout 的背景颜色
    */
-  bgLayout: string;
+  bgLayout: string | null;
+
   /**
    * 侧边side的 token 配置
    */
@@ -111,6 +112,7 @@ export const getLayoutDesignToken: (
   antdToken: Record<string, any>,
 ) => LayoutDesignToken = (designTokens, antdToken) => {
   const finalDesignTokens = { ...designTokens };
+  const defaultColorBgHeader = setAlpha(antdToken.colorBgElevated, 0.6);
 
   return {
     bgLayout: `linear-gradient(${antdToken.colorBgContainer}, ${antdToken.colorBgLayout} 28%)`,
@@ -120,13 +122,14 @@ export const getLayoutDesignToken: (
     colorTextAppListIconHover: antdToken.colorTextBase,
     ...finalDesignTokens,
     header: {
-      colorBgHeader: setAlpha(antdToken.colorBgElevated, 0.6),
+      colorBgHeader: defaultColorBgHeader,
       colorBgScrollHeader: setAlpha(antdToken.colorBgElevated, 0.8),
       colorHeaderTitle: antdToken.colorText,
       colorBgMenuItemHover: setAlpha(antdToken.colorTextBase, 0.03),
       colorBgMenuItemSelected: 'transparent',
       colorBgMenuElevated:
-        finalDesignTokens?.header?.colorBgHeader !== 'rgba(255, 255, 255, 0.6)'
+        (finalDesignTokens?.header?.colorBgHeader ?? defaultColorBgHeader) !==
+        defaultColorBgHeader
           ? finalDesignTokens.header?.colorBgHeader
           : antdToken.colorBgElevated,
       colorTextMenuSelected: setAlpha(antdToken.colorTextBase, 0.95),

@@ -2,11 +2,9 @@ import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import type { AvatarProps, BreadcrumbProps, TagType } from 'antd';
 import { Avatar, Breadcrumb, ConfigProvider, Space } from 'antd';
-import 'antd/lib/breadcrumb/style';
-import type { DirectionType } from 'antd/lib/config-provider';
+import type { DirectionType } from 'antd/es/config-provider';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
-import { noteOnce } from 'rc-util/lib/warning';
 import * as React from 'react';
 import type { ContentWidth } from '../../defaultSettings';
 import useStyle from './style/index';
@@ -162,30 +160,6 @@ const renderChildren = (
   hashId: string,
 ) => <div className={`${prefixCls}-content ${hashId}`.trim()}>{children}</div>;
 
-const transformBreadcrumbRoutesToItems = (
-  routes?: BreadcrumbProps['routes'],
-): BreadcrumbProps['items'] => {
-  return routes?.map((route) => {
-    noteOnce(
-      !!route.breadcrumbName,
-      'Route.breadcrumbName is deprecated, please use Route.title instead.',
-    );
-    return {
-      ...route,
-      breadcrumbName: undefined,
-      children: undefined,
-      title: route.title || route.breadcrumbName,
-      ...(route.children?.length
-        ? {
-            menu: {
-              items: transformBreadcrumbRoutesToItems(route.children),
-            },
-          }
-        : {}),
-    };
-  });
-};
-
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState<boolean>(false);
 
@@ -212,20 +186,6 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const { wrapSSR, hashId } = useStyle(prefixCls);
 
   const getDefaultBreadcrumbDom = () => {
-    if (
-      breadcrumb &&
-      !(breadcrumb as BreadcrumbProps)?.items &&
-      (breadcrumb as BreadcrumbProps)?.routes
-    ) {
-      noteOnce(
-        false,
-        'The routes of Breadcrumb is deprecated, please use items instead.',
-      );
-      (breadcrumb as BreadcrumbProps).items = transformBreadcrumbRoutesToItems(
-        (breadcrumb as BreadcrumbProps).routes,
-      );
-    }
-
     if ((breadcrumb as BreadcrumbProps)?.items) {
       return renderBreadcrumb(breadcrumb as BreadcrumbProps, prefixCls);
     }

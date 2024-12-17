@@ -47,7 +47,7 @@
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
     "classnames": "^2.3.2",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.13",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "omit.js": "^2.0.2",
@@ -60,8 +60,8 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "antd": "^4.24.15 || ^5.11.2",
-    "rc-field-form": ">=1.22.0",
+    "antd": "^5.11.2",
+    "rc-field-form": "^2.2.1",
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },

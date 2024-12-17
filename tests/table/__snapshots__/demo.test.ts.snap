@@ -2082,32 +2082,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
       <div
         class="ant-pro-card-body"
       >
-        <pre
-          style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
-        >
-          <code>
-            [
-  {
-    "id": 624748504,
-    "title": "活动名称一",
-    "readonly": "活动名称一",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000,
-    "update_at": 1590486176000
-  },
-  {
-    "id": 624691229,
-    "title": "活动名称二",
-    "readonly": "活动名称二",
-    "decs": "这个活动真好玩",
-    "state": "closed",
-    "created_at": 1590481162000,
-    "update_at": 1590481162000
-  }
-]
-          </code>
-        </pre>
+        [{"id":624748504,"title":"活动名称一","readonly":"活动名称一","decs":"这个活动真好玩","state":"open","created_at":1590486176000,"update_at":1590486176000},{"id":624691229,"title":"活动名称二","readonly":"活动名称二","decs":"这个活动真好玩","state":"closed","created_at":1590481162000,"update_at":1590481162000}]
       </div>
     </div>
   </div>
@@ -2850,40 +2825,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
       <div
         class="ant-pro-card-body"
       >
-        <pre
-          style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
-        >
-          <code>
-            [
-  {
-    "id": 624748504,
-    "title": "活动名称一",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000,
-    "update_at": 1590486176000,
-    "children": [
-      {
-        "id": 6246912293,
-        "title": "活动名称二",
-        "decs": "这个活动真好玩",
-        "state": "closed",
-        "created_at": 1590481162000,
-        "update_at": 1590481162000
-      }
-    ]
-  },
-  {
-    "id": 624691229,
-    "title": "活动名称二",
-    "decs": "这个活动真好玩",
-    "state": "closed",
-    "created_at": 1590481162000,
-    "update_at": 1590481162000
-  }
-]
-          </code>
-        </pre>
+        [{"id":624748504,"title":"活动名称一","decs":"这个活动真好玩","state":"open","created_at":1590486176000,"update_at":1590486176000,"children":[{"id":6246912293,"title":"活动名称二","decs":"这个活动真好玩","state":"closed","created_at":1590481162000,"update_at":1590481162000}]},{"id":624691229,"title":"活动名称二","decs":"这个活动真好玩","state":"closed","created_at":1590481162000,"update_at":1590481162000}]
       </div>
     </div>
   </div>
@@ -3231,38 +3173,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
       <div
         class="ant-pro-card-body"
       >
-        <pre
-          style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
-        >
-          <code>
-            [
-  {
-    "id": 624748504,
-    "title": "活动名称一",
-    "labels": [
-      {
-        "key": "woman",
-        "label": "川妹子"
-      }
-    ],
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": 624691229,
-    "title": "活动名称二",
-    "labels": [
-      {
-        "key": "man",
-        "label": "西北汉子"
-      }
-    ],
-    "state": "closed",
-    "created_at": 1590481162000
-  }
-]
-          </code>
-        </pre>
+        [{"id":624748504,"title":"活动名称一","labels":[{"key":"woman","label":"川妹子"}],"state":"open","created_at":1590486176000},{"id":624691229,"title":"活动名称二","labels":[{"key":"man","label":"西北汉子"}],"state":"closed","created_at":1590481162000}]
       </div>
     </div>
   </div>
@@ -3745,30 +3656,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                   <div
                     class="ant-pro-card-body"
                   >
-                    <pre
-                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
-                    >
-                      <code>
-                        [
-  {
-    "id": "624748504",
-    "title": "活动名称一",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000,
-    "update_at": 1590486176000
-  },
-  {
-    "id": "624691229",
-    "title": "活动名称二",
-    "decs": "这个活动真好玩",
-    "state": "closed",
-    "created_at": 1590481162000,
-    "update_at": 1590481162000
-  }
-]
-                      </code>
-                    </pre>
+                    [{"id":"624748504","title":"活动名称一","decs":"这个活动真好玩","state":"open","created_at":1590486176000,"update_at":1590486176000},{"id":"624691229","title":"活动名称二","decs":"这个活动真好玩","state":"closed","created_at":1590481162000,"update_at":1590481162000}]
                   </div>
                 </div>
               </div>
@@ -10107,154 +9995,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
       <div
         class="ant-pro-card-body"
       >
-        <pre
-          style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px; width: 100%;"
-        >
-          <code>
-            [
-  {
-    "id": "1479828164000",
-    "title": "活动名称0",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164001",
-    "title": "活动名称1",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164002",
-    "title": "活动名称2",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164003",
-    "title": "活动名称3",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164004",
-    "title": "活动名称4",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164005",
-    "title": "活动名称5",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164006",
-    "title": "活动名称6",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164007",
-    "title": "活动名称7",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164008",
-    "title": "活动名称8",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164009",
-    "title": "活动名称9",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164010",
-    "title": "活动名称10",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164011",
-    "title": "活动名称11",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164012",
-    "title": "活动名称12",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164013",
-    "title": "活动名称13",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164014",
-    "title": "活动名称14",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164015",
-    "title": "活动名称15",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164016",
-    "title": "活动名称16",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164017",
-    "title": "活动名称17",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164018",
-    "title": "活动名称18",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  },
-  {
-    "id": "1479828164019",
-    "title": "活动名称19",
-    "decs": "这个活动真好玩",
-    "state": "open",
-    "created_at": 1590486176000
-  }
-]
-          </code>
-        </pre>
+        [{"id":"1479828164000","title":"活动名称0","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164001","title":"活动名称1","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164002","title":"活动名称2","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164003","title":"活动名称3","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164004","title":"活动名称4","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164005","title":"活动名称5","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164006","title":"活动名称6","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164007","title":"活动名称7","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164008","title":"活动名称8","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164009","title":"活动名称9","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164010","title":"活动名称10","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164011","title":"活动名称11","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164012","title":"活动名称12","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164013","title":"活动名称13","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164014","title":"活动名称14","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164015","title":"活动名称15","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164016","title":"活动名称16","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164017","title":"活动名称17","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164018","title":"活动名称18","decs":"这个活动真好玩","state":"open","created_at":1590486176000},{"id":"1479828164019","title":"活动名称19","decs":"这个活动真好玩","state":"open","created_at":1590486176000}]
       </div>
     </div>
   </div>
@@ -10699,32 +10440,30 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                                   <div
                                     class="ant-form-item-control-input-content"
                                   >
-                                    <div>
+                                    <span
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                    >
+                                      响应日期
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                        aria-label="down"
+                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                        role="img"
                                       >
-                                        响应日期
-                                        <span
-                                          aria-label="down"
-                                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                          role="img"
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="down"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="down"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                            />
-                                          </svg>
-                                        </span>
+                                          <path
+                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          />
+                                        </svg>
                                       </span>
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -11635,32 +11374,30 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                                   <div
                                     class="ant-form-item-control-input-content"
                                   >
-                                    <div>
+                                    <span
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                    >
+                                      响应日期
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                        aria-label="down"
+                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                        role="img"
                                       >
-                                        响应日期
-                                        <span
-                                          aria-label="down"
-                                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                          role="img"
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="down"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="down"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                            />
-                                          </svg>
-                                        </span>
+                                          <path
+                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          />
+                                        </svg>
                                       </span>
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -12572,32 +12309,30 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                                 <div
                                   class="ant-form-item-control-input-content"
                                 >
-                                  <div>
+                                  <span
+                                    class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                  >
+                                    响应日期
                                     <span
-                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                      aria-label="down"
+                                      class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                      role="img"
                                     >
-                                      响应日期
-                                      <span
-                                        aria-label="down"
-                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                        role="img"
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="down"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
                                       >
-                                        <svg
-                                          aria-hidden="true"
-                                          data-icon="down"
-                                          fill="currentColor"
-                                          focusable="false"
-                                          height="1em"
-                                          viewBox="64 64 896 896"
-                                          width="1em"
-                                        >
-                                          <path
-                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                          />
-                                        </svg>
-                                      </span>
+                                        <path
+                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                        />
+                                      </svg>
                                     </span>
-                                  </div>
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -13237,32 +12972,30 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                                   <div
                                     class="ant-form-item-control-input-content"
                                   >
-                                    <div>
+                                    <span
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                    >
+                                      响应日期
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                        aria-label="down"
+                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                        role="img"
                                       >
-                                        响应日期
-                                        <span
-                                          aria-label="down"
-                                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                          role="img"
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="down"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="down"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                            />
-                                          </svg>
-                                        </span>
+                                          <path
+                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          />
+                                        </svg>
                                       </span>
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -14120,32 +13853,30 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.
                                       <div
                                         class="ant-form-item-control-input-content"
                                       >
-                                        <div>
+                                        <span
+                                          class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                        >
+                                          响应日期
                                           <span
-                                            class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                            aria-label="down"
+                                            class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                            role="img"
                                           >
-                                            响应日期
-                                            <span
-                                              aria-label="down"
-                                              class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                              role="img"
+                                            <svg
+                                              aria-hidden="true"
+                                              data-icon="down"
+                                              fill="currentColor"
+                                              focusable="false"
+                                              height="1em"
+                                              viewBox="64 64 896 896"
+                                              width="1em"
                                             >
-                                              <svg
-                                                aria-hidden="true"
-                                                data-icon="down"
-                                                fill="currentColor"
-                                                focusable="false"
-                                                height="1em"
-                                                viewBox="64 64 896 896"
-                                                width="1em"
-                                              >
-                                                <path
-                                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                                />
-                                              </svg>
-                                            </span>
+                                              <path
+                                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                              />
+                                            </svg>
                                           </span>
-                                        </div>
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -17728,10 +17459,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                               >
                                 <span
                                   class="qixian-btn-icon qixian-btn-loading-icon"
+                                  style="width: 0px; opacity: 0; transform: scale(0);"
                                 >
                                   <span
                                     aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
+                                    class="anticon anticon-loading anticon-spin qixian-btn-loading-icon-motion-enter qixian-btn-loading-icon-motion-enter-start qixian-btn-loading-icon-motion"
                                     role="img"
                                   >
                                     <svg
@@ -18658,10 +18390,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                   >
                                     <span
                                       class="ant-btn-icon ant-btn-loading-icon"
+                                      style="width: 0px; opacity: 0; transform: scale(0);"
                                     >
                                       <span
                                         aria-label="loading"
-                                        class="anticon anticon-loading anticon-spin"
+                                        class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-enter-start ant-btn-loading-icon-motion"
                                         role="img"
                                       >
                                         <svg
@@ -25994,69 +25727,48 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                           <div
                                             class="ant-form-item-control-input-content"
                                           >
-                                            <div
-                                              class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-pro-field-radio-horizontal"
-                                              id="size"
+                                            <span
+                                              class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined"
                                             >
-                                              <label
-                                                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                                              <input
+                                                class="ant-input ant-input-sm"
+                                                id="size"
+                                                options="[object Object],[object Object],[object Object]"
+                                                placeholder="请输入"
+                                                type="text"
+                                                value="small"
+                                              />
+                                              <span
+                                                class="ant-input-suffix"
                                               >
                                                 <span
-                                                  class="ant-radio-button"
+                                                  class="ant-input-clear-icon"
+                                                  role="button"
+                                                  tabindex="-1"
                                                 >
-                                                  <input
-                                                    class="ant-radio-button-input"
-                                                    type="radio"
-                                                    value="default"
-                                                  />
                                                   <span
-                                                    class="ant-radio-button-inner"
-                                                  />
+                                                    aria-label="close-circle"
+                                                    class="anticon anticon-close-circle"
+                                                    role="img"
+                                                  >
+                                                    <svg
+                                                      aria-hidden="true"
+                                                      data-icon="close-circle"
+                                                      fill="currentColor"
+                                                      fill-rule="evenodd"
+                                                      focusable="false"
+                                                      height="1em"
+                                                      viewBox="64 64 896 896"
+                                                      width="1em"
+                                                    >
+                                                      <path
+                                                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                                      />
+                                                    </svg>
+                                                  </span>
                                                 </span>
-                                                <span>
-                                                  大
-                                                </span>
-                                              </label>
-                                              <label
-                                                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
-                                              >
-                                                <span
-                                                  class="ant-radio-button"
-                                                >
-                                                  <input
-                                                    class="ant-radio-button-input"
-                                                    type="radio"
-                                                    value="middle"
-                                                  />
-                                                  <span
-                                                    class="ant-radio-button-inner"
-                                                  />
-                                                </span>
-                                                <span>
-                                                  中
-                                                </span>
-                                              </label>
-                                              <label
-                                                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
-                                              >
-                                                <span
-                                                  class="ant-radio-button ant-radio-button-checked"
-                                                >
-                                                  <input
-                                                    checked=""
-                                                    class="ant-radio-button-input"
-                                                    type="radio"
-                                                    value="small"
-                                                  />
-                                                  <span
-                                                    class="ant-radio-button-inner"
-                                                  />
-                                                </span>
-                                                <span>
-                                                  小
-                                                </span>
-                                              </label>
-                                            </div>
+                                              </span>
+                                            </span>
                                           </div>
                                         </div>
                                       </div>
@@ -27509,7 +27221,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries.
               <code>
                 setTimeout
               </code>
-               或 
+               或
               <code>
                 requestAnimationFrame
               </code>
@@ -30941,32 +30653,30 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                                   <div
                                     class="ant-form-item-control-input-content"
                                   >
-                                    <div>
+                                    <span
+                                      class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                    >
+                                      响应日期
                                       <span
-                                        class="ant-pro-core-field-label ant-pro-core-field-label-middle"
+                                        aria-label="down"
+                                        class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                                        role="img"
                                       >
-                                        响应日期
-                                        <span
-                                          aria-label="down"
-                                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
-                                          role="img"
+                                        <svg
+                                          aria-hidden="true"
+                                          data-icon="down"
+                                          fill="currentColor"
+                                          focusable="false"
+                                          height="1em"
+                                          viewBox="64 64 896 896"
+                                          width="1em"
                                         >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="down"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                            />
-                                          </svg>
-                                        </span>
+                                          <path
+                                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                          />
+                                        </svg>
                                       </span>
-                                    </div>
+                                    </span>
                                   </div>
                                 </div>
                               </div>
@@ -37724,10 +37434,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                               >
                                 <span
                                   class="ant-btn-icon ant-btn-loading-icon"
+                                  style="width: 0px; opacity: 0; transform: scale(0);"
                                 >
                                   <span
                                     aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
+                                    class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-enter-start ant-btn-loading-icon-motion"
                                     role="img"
                                   >
                                     <svg
@@ -39480,10 +39191,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                               >
                                 <span
                                   class="ant-btn-icon ant-btn-loading-icon"
+                                  style="width: 0px; opacity: 0; transform: scale(0);"
                                 >
                                   <span
                                     aria-label="loading"
-                                    class="anticon anticon-loading anticon-spin"
+                                    class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-enter-start ant-btn-loading-icon-motion"
                                     role="img"
                                   >
                                     <svg
@@ -44302,10 +44014,11 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                 >
                                   <span
                                     class="ant-btn-icon ant-btn-loading-icon"
+                                    style="width: 0px; opacity: 0; transform: scale(0);"
                                   >
                                     <span
                                       aria-label="loading"
-                                      class="anticon anticon-loading anticon-spin"
+                                      class="anticon anticon-loading anticon-spin ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-enter-start ant-btn-loading-icon-motion"
                                       role="img"
                                     >
                                       <svg
@@ -44974,46 +44687,12 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                         class="ant-form-item-control-input-content"
                       >
                         <span
-                          class="ant-input-affix-wrapper ant-input-outlined"
-                          style="width: 100%;"
+                          class="ant-avatar ant-avatar-circle"
+                          style="width: 22px; height: 22px; font-size: 18px;"
                         >
-                          <input
-                            class="ant-input"
-                            id="avatar"
-                            placeholder="请输入"
-                            type="text"
-                            value=""
+                          <img
+                            src=""
                           />
-                          <span
-                            class="ant-input-suffix"
-                          >
-                            <span
-                              class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
-                            >
-                              <span
-                                aria-label="close-circle"
-                                class="anticon anticon-close-circle"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="close-circle"
-                                  fill="currentColor"
-                                  fill-rule="evenodd"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                          </span>
                         </span>
                       </div>
                     </div>

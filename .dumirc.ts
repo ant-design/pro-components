@@ -212,7 +212,7 @@ export default defineConfig({
             },
             {
               title: 'ProFormList',
-              link: '/en-US/components/group',
+              link: '/en-US/components/list',
             },
             {
               title: 'ProFormDependency',
@@ -335,7 +335,7 @@ export default defineConfig({
             },
             {
               title: 'ProFormList - 数据结构化',
-              link: '/components/group',
+              link: '/components/list',
             },
             {
               title: 'ProFormDependency - 数据联动',

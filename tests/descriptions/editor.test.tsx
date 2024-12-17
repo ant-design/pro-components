@@ -36,7 +36,7 @@ const columns: ProDescriptionsItemProps<DataSourceType>[] = [
   {
     dataIndex: 'index',
     valueType: 'indexBorder',
-    renderFormItem: () => <InputNumber />,
+    formItemRender: () => <InputNumber />,
   },
   {
     title: '标题',
@@ -224,7 +224,7 @@ describe('Descriptions', () => {
     });
   });
 
-  it('📝 renderFormItem run defaultRender', async () => {
+  it('📝 formItemRender run defaultRender', async () => {
     const wrapper = render(
       <Descriptions<DataSourceType>
         editable={{
@@ -233,7 +233,7 @@ describe('Descriptions', () => {
         columns={[
           {
             dataIndex: 'title',
-            renderFormItem: (item, config) => {
+            formItemRender: (item, config) => {
               return config.defaultRender(item);
             },
           },
@@ -430,7 +430,7 @@ describe('Descriptions', () => {
     });
 
     await waitFor(() => {
-      expect(fn).not.toBeCalled();
+      expect(fn).not.toHaveBeenCalled();
     });
   });
 
@@ -626,7 +626,7 @@ describe('Descriptions', () => {
 
     await waitFor(() => {
       // 没有通过验证，不触发 onSave
-      expect(fn).not.toBeCalled();
+      expect(fn).not.toHaveBeenCalled();
     });
 
     act(() => {

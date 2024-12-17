@@ -3,12 +3,8 @@ import { compatibleBorder, parseValueToDay } from '@ant-design/pro-utils';
 import { DatePicker, Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import type { ProFieldFC } from '../../index';
-
-// 兼容代码-----------
-import 'antd/lib/date-picker/style';
 import React from 'react';
-//----------------------
+import type { ProFieldFC } from '../../PureProField';
 
 dayjs.extend(relativeTime);
 /**
@@ -20,7 +16,7 @@ const FieldFromNow: ProFieldFC<{
   text: string;
   format?: string;
 }> = (
-  { text, mode, plain, render, renderFormItem, format, fieldProps },
+  { text, mode, plain, render, formItemRender, format, fieldProps },
   ref,
 ) => {
   const intl = useIntl();
@@ -56,8 +52,8 @@ const FieldFromNow: ProFieldFC<{
         value={momentValue}
       />
     );
-    if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    if (formItemRender) {
+      return formItemRender(text, { mode, ...fieldProps }, dom);
     }
     return dom;
   }

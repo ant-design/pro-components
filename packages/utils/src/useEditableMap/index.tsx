@@ -1,8 +1,7 @@
 ﻿/* eslint-disable react-hooks/exhaustive-deps */
 import { useIntl } from '@ant-design/pro-provider';
 import { message } from 'antd';
-import { get } from 'rc-util';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { get, useMergedState } from 'rc-util';
 import type React from 'react';
 import { useCallback, useMemo, useRef } from 'react';
 import type {

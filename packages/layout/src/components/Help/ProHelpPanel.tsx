@@ -206,12 +206,14 @@ export const ProHelpPanel: React.FC<ProHelpPanelProps> = ({
       <Card
         bordered={bordered}
         title={title}
-        bodyStyle={{
-          display: 'flex',
-          padding: 0,
-          margin: 0,
-          height: '100%',
-          width: '100%',
+        styles={{
+          body: {
+            display: 'flex',
+            padding: 0,
+            margin: 0,
+            height: '100%',
+            width: '100%',
+          },
         }}
         size="small"
         extra={extraDomList()}

@@ -1,7 +1,13 @@
-import ProTable from '@ant-design/pro-table';
-import { cleanup, fireEvent, render, waitFor } from '@testing-library/react';
+import { ProTable } from '@ant-design/pro-components';
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  waitFor,
+} from '@testing-library/react';
 import type { FormInstance } from 'antd';
-import React, { act } from 'react';
+import React from 'react';
 
 afterEach(() => {
   cleanup();
@@ -43,7 +49,7 @@ describe('BasicTable Search', () => {
     );
 
     await waitFor(() => {
-      expect(fn).toBeCalledTimes(1);
+      expect(fn).toHaveBeenCalledTimes(1);
     });
 
     fireEvent.change(

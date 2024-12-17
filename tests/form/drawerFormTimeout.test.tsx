@@ -1,4 +1,4 @@
-﻿import { DrawerForm, ProFormText } from '@ant-design/pro-form';
+﻿import { DrawerForm, ProFormText } from '@ant-design/pro-components';
 import { cleanup, render } from '@testing-library/react';
 import { act } from 'react';
 
@@ -46,7 +46,7 @@ describe('DrawerForm', () => {
       vi.advanceTimersByTime(3000);
     });
 
-    expect(fn).not.toBeCalled();
+    expect(fn).not.toHaveBeenCalled();
 
     expect(
       (html.queryAllByText('取 消').at(0)?.parentElement as HTMLButtonElement)
@@ -57,7 +57,7 @@ describe('DrawerForm', () => {
       (await html.queryByText('取 消'))?.click();
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
     html.unmount();
     vi.useRealTimers();
   });
@@ -99,6 +99,6 @@ describe('DrawerForm', () => {
       (await wrapper.queryByText('取 消'))?.click();
     });
 
-    expect(fn).toBeCalled();
+    expect(fn).toHaveBeenCalled();
   });
 });

@@ -1,7 +1,6 @@
 ﻿import {
   isBrowser,
   omitUndefined,
-  openVisibleCompatible,
   useRefFunction,
 } from '@ant-design/pro-utils';
 import type { DrawerProps, FormProps } from 'antd';
@@ -22,7 +21,7 @@ import React, {
 import { createPortal } from 'react-dom';
 import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
-import { SubmitterProps } from '../../components/Submitter';
+import { SubmitterProps } from '../../BaseForm/Submitter';
 import { useStyle } from './style';
 
 export type CustomizeResizeType = {
@@ -275,8 +274,6 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
     return result;
   });
 
-  const drawerOpenProps = openVisibleCompatible(open, onVisibleChange);
-
   const cbHandleMouseMove = useCallback(
     (e: MouseEvent) => {
       const offsetRight: number | string = ((document.body.offsetWidth ||
@@ -310,10 +307,11 @@ function DrawerForm<T = Record<string, any>, U = Record<string, any>>({
         title={title}
         width={drawerWidth}
         {...drawerProps}
-        {...drawerOpenProps}
+        open={open}
         afterOpenChange={(e) => {
           if (!e) resetFields();
           drawerProps?.afterOpenChange?.(e);
+          onVisibleChange?.(e);
         }}
         onClose={(e) => {
           // 提交表单loading时，阻止弹框关闭
