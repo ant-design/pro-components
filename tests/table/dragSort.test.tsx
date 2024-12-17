@@ -128,7 +128,6 @@ describe('dragSort', () => {
     const draggables = container.querySelectorAll(
       '[aria-roledescription="sortable"]',
     );
-    Object.setPrototypeOf(window, Window.prototype);
 
     draggables.forEach((draggable, index) => {
       mockGetBoundingClientRect(draggable, index);

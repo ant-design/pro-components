@@ -33,7 +33,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -115,7 +115,7 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -173,7 +173,6 @@ exports[`BasicTable valueType > 🎏 table support filter when valueType is tree
                                         class="ant-select-selection-search-input"
                                         id="treeSelect"
                                         role="combobox"
-                                        style=""
                                         type="search"
                                         value="Javasc"
                                       />

@@ -144,7 +144,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-form-list-item ant-pro-form-list-item-show-label"
@@ -969,7 +969,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    style="max-width: 100%; min-width: 100%;"
+                                    style="width: max-content; max-width: 100%; min-width: 100%;"
                                   >
                                     <div
                                       class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -1151,24 +1151,32 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                                       class="ant-col ant-form-item-label"
                                                     >
                                                       <label
+                                                        a=""
+                                                        b=""
+                                                        c=""
                                                         class=""
-                                                        title="搜集依赖值（情形3） <ProFormDependency name={["a","b",["c","a"]]}>"
+                                                        title="搜集依赖值（情形3） <ProFormDependency name={["
                                                       >
-                                                        搜集依赖值（情形3） &lt;ProFormDependency name={["a","b",["c","a"]]}&gt;
-                                                      </label>
-                                                    </div>
-                                                    <div
-                                                      class="ant-col ant-form-item-control"
-                                                    >
-                                                      <div
-                                                        class="ant-form-item-control-input"
-                                                      >
-                                                        <div
-                                                          class="ant-form-item-control-input-content"
+                                                        "&gt;
+                                                        搜集依赖值（情形3） 
+                                                        <proformdependency
+                                                          a=""
+                                                          b=""
+                                                          c=""
+                                                          name="{"
                                                         >
-                                                          <pre>
-                                                            <code>
-                                                              {
+                                                          <div
+                                                            class="ant-col ant-form-item-control"
+                                                          >
+                                                            <div
+                                                              class="ant-form-item-control-input"
+                                                            >
+                                                              <div
+                                                                class="ant-form-item-control-input-content"
+                                                              >
+                                                                <pre>
+                                                                  <code>
+                                                                    {
   "c": {
     "d": [
       {
@@ -1179,19 +1187,517 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
   "a": 6,
   "b": 7
 }
-                                                            </code>
-                                                          </pre>
-                                                        </div>
-                                                      </div>
-                                                      <div
-                                                        class="ant-form-item-additional"
-                                                      >
-                                                        <div
-                                                          class="ant-form-item-extra"
-                                                        >
-                                                          a, b, c.a取自局部
-                                                        </div>
-                                                      </div>
+                                                                  </code>
+                                                                </pre>
+                                                              </div>
+                                                            </div>
+                                                            <div
+                                                              class="ant-form-item-additional"
+                                                            >
+                                                              <div
+                                                                class="ant-form-item-extra"
+                                                              >
+                                                                a, b, c.a取自局部
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <div
+                                                            class="ant-pro-form-list-action"
+                                                          >
+                                                            <span
+                                                              aria-label="copy"
+                                                              class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
+                                                              role="img"
+                                                              tabindex="-1"
+                                                            >
+                                                              <svg
+                                                                aria-hidden="true"
+                                                                data-icon="copy"
+                                                                fill="currentColor"
+                                                                focusable="false"
+                                                                height="1em"
+                                                                viewBox="64 64 896 896"
+                                                                width="1em"
+                                                              >
+                                                                <path
+                                                                  d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                                />
+                                                              </svg>
+                                                            </span>
+                                                            <span
+                                                              aria-label="delete"
+                                                              class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
+                                                              role="img"
+                                                              tabindex="-1"
+                                                            >
+                                                              <svg
+                                                                aria-hidden="true"
+                                                                data-icon="delete"
+                                                                fill="currentColor"
+                                                                focusable="false"
+                                                                height="1em"
+                                                                viewBox="64 64 896 896"
+                                                                width="1em"
+                                                              >
+                                                                <path
+                                                                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                                                                />
+                                                              </svg>
+                                                            </span>
+                                                          </div>
+                                                          <button
+                                                            class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                                            type="button"
+                                                          >
+                                                            <span
+                                                              class="ant-btn-icon"
+                                                            >
+                                                              <span
+                                                                aria-label="plus"
+                                                                class="anticon anticon-plus"
+                                                                role="img"
+                                                              >
+                                                                <svg
+                                                                  aria-hidden="true"
+                                                                  data-icon="plus"
+                                                                  fill="currentColor"
+                                                                  focusable="false"
+                                                                  height="1em"
+                                                                  viewBox="64 64 896 896"
+                                                                  width="1em"
+                                                                >
+                                                                  <path
+                                                                    d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                                                                  />
+                                                                  <path
+                                                                    d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+                                                                  />
+                                                                </svg>
+                                                              </span>
+                                                            </span>
+                                                            <span>
+                                                              添加一行数据
+                                                            </span>
+                                                          </button>
+                                                          <div
+                                                            class="ant-space-item"
+                                                          >
+                                                            <div
+                                                              class="ant-pro-form-group"
+                                                            >
+                                                              <div
+                                                                class="ant-pro-form-group-title"
+                                                              >
+                                                                c.e
+                                                              </div>
+                                                              <div>
+                                                                <div
+                                                                  class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
+                                                                  style="column-gap: 32px; row-gap: 0;"
+                                                                >
+                                                                  <div
+                                                                    class="ant-space-item"
+                                                                  >
+                                                                    <div
+                                                                      class="ant-pro-form-list"
+                                                                    >
+                                                                      <div
+                                                                        class="ant-form-item"
+                                                                      >
+                                                                        <div
+                                                                          class="ant-row ant-form-item-row"
+                                                                        >
+                                                                          <div
+                                                                            class="ant-col ant-form-item-control"
+                                                                          >
+                                                                            <div
+                                                                              class="ant-form-item-control-input"
+                                                                            >
+                                                                              <div
+                                                                                class="ant-form-item-control-input-content"
+                                                                              >
+                                                                                <div
+                                                                                  style="width: max-content; max-width: 100%; min-width: 100%;"
+                                                                                >
+                                                                                  <div
+                                                                                    class="ant-pro-form-list-item ant-pro-form-list-item-default"
+                                                                                    style="display: flex; align-items: flex-end;"
+                                                                                  >
+                                                                                    <div
+                                                                                      class="ant-pro-form-list-container"
+                                                                                    >
+                                                                                      <div
+                                                                                        class="ant-pro-form-group"
+                                                                                      >
+                                                                                        <div>
+                                                                                          <div
+                                                                                            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
+                                                                                            style="column-gap: 32px; row-gap: 0;"
+                                                                                          >
+                                                                                            <div
+                                                                                              class="ant-space-item"
+                                                                                            >
+                                                                                              <div
+                                                                                                class="ant-form-item"
+                                                                                              >
+                                                                                                <div
+                                                                                                  class="ant-row ant-form-item-row"
+                                                                                                >
+                                                                                                  <div
+                                                                                                    class="ant-col ant-form-item-label"
+                                                                                                  >
+                                                                                                    <label
+                                                                                                      class=""
+                                                                                                      for="c_e_0_a"
+                                                                                                      title="a"
+                                                                                                    >
+                                                                                                      a
+                                                                                                    </label>
+                                                                                                  </div>
+                                                                                                  <div
+                                                                                                    class="ant-col ant-form-item-control"
+                                                                                                  >
+                                                                                                    <div
+                                                                                                      class="ant-form-item-control-input"
+                                                                                                    >
+                                                                                                      <div
+                                                                                                        class="ant-form-item-control-input-content"
+                                                                                                      >
+                                                                                                        <span
+                                                                                                          class="ant-input-affix-wrapper ant-input-outlined"
+                                                                                                        >
+                                                                                                          <input
+                                                                                                            class="ant-input"
+                                                                                                            id="c_e_0_a"
+                                                                                                            placeholder="请输入"
+                                                                                                            type="text"
+                                                                                                            value="8"
+                                                                                                          />
+                                                                                                          <span
+                                                                                                            class="ant-input-suffix"
+                                                                                                          >
+                                                                                                            <span
+                                                                                                              class="ant-input-clear-icon"
+                                                                                                              role="button"
+                                                                                                              tabindex="-1"
+                                                                                                            >
+                                                                                                              <span
+                                                                                                                aria-label="close-circle"
+                                                                                                                class="anticon anticon-close-circle"
+                                                                                                                role="img"
+                                                                                                              >
+                                                                                                                <svg
+                                                                                                                  aria-hidden="true"
+                                                                                                                  data-icon="close-circle"
+                                                                                                                  fill="currentColor"
+                                                                                                                  fill-rule="evenodd"
+                                                                                                                  focusable="false"
+                                                                                                                  height="1em"
+                                                                                                                  viewBox="64 64 896 896"
+                                                                                                                  width="1em"
+                                                                                                                >
+                                                                                                                  <path
+                                                                                                                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                                                                                                  />
+                                                                                                                </svg>
+                                                                                                              </span>
+                                                                                                            </span>
+                                                                                                          </span>
+                                                                                                        </span>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                              class="ant-space-item"
+                                                                                            >
+                                                                                              <div
+                                                                                                class="ant-form-item"
+                                                                                              >
+                                                                                                <div
+                                                                                                  class="ant-row ant-form-item-row"
+                                                                                                >
+                                                                                                  <div
+                                                                                                    class="ant-col ant-form-item-label"
+                                                                                                  >
+                                                                                                    <label
+                                                                                                      class=""
+                                                                                                      for="c_e_0_b"
+                                                                                                      title="b"
+                                                                                                    >
+                                                                                                      b
+                                                                                                    </label>
+                                                                                                  </div>
+                                                                                                  <div
+                                                                                                    class="ant-col ant-form-item-control"
+                                                                                                  >
+                                                                                                    <div
+                                                                                                      class="ant-form-item-control-input"
+                                                                                                    >
+                                                                                                      <div
+                                                                                                        class="ant-form-item-control-input-content"
+                                                                                                      >
+                                                                                                        <span
+                                                                                                          class="ant-input-affix-wrapper ant-input-outlined"
+                                                                                                        >
+                                                                                                          <input
+                                                                                                            class="ant-input"
+                                                                                                            id="c_e_0_b"
+                                                                                                            placeholder="请输入"
+                                                                                                            type="text"
+                                                                                                            value="9"
+                                                                                                          />
+                                                                                                          <span
+                                                                                                            class="ant-input-suffix"
+                                                                                                          >
+                                                                                                            <span
+                                                                                                              class="ant-input-clear-icon"
+                                                                                                              role="button"
+                                                                                                              tabindex="-1"
+                                                                                                            >
+                                                                                                              <span
+                                                                                                                aria-label="close-circle"
+                                                                                                                class="anticon anticon-close-circle"
+                                                                                                                role="img"
+                                                                                                              >
+                                                                                                                <svg
+                                                                                                                  aria-hidden="true"
+                                                                                                                  data-icon="close-circle"
+                                                                                                                  fill="currentColor"
+                                                                                                                  fill-rule="evenodd"
+                                                                                                                  focusable="false"
+                                                                                                                  height="1em"
+                                                                                                                  viewBox="64 64 896 896"
+                                                                                                                  width="1em"
+                                                                                                                >
+                                                                                                                  <path
+                                                                                                                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                                                                                                                  />
+                                                                                                                </svg>
+                                                                                                              </span>
+                                                                                                            </span>
+                                                                                                          </span>
+                                                                                                        </span>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                              class="ant-space-item"
+                                                                                            >
+                                                                                              <div
+                                                                                                class="ant-form-item"
+                                                                                              >
+                                                                                                <div
+                                                                                                  class="ant-row ant-form-item-row"
+                                                                                                >
+                                                                                                  <div
+                                                                                                    class="ant-col ant-form-item-label"
+                                                                                                  >
+                                                                                                    <label
+                                                                                                      a=""
+                                                                                                      b=""
+                                                                                                      c=""
+                                                                                                      class=""
+                                                                                                      ignoreformlistfield=""
+                                                                                                      title="搜集依赖值（情形2) <ProFormDependency name={["
+                                                                                                    >
+                                                                                                      "&gt;
+                                                                                                      搜集依赖值（情形2) 
+                                                                                                      <proformdependency
+                                                                                                        a=""
+                                                                                                        b=""
+                                                                                                        c=""
+                                                                                                        ignoreformlistfield=""
+                                                                                                        name="{"
+                                                                                                      >
+                                                                                                        <div
+                                                                                                          class="ant-col ant-form-item-control"
+                                                                                                        >
+                                                                                                          <div
+                                                                                                            class="ant-form-item-control-input"
+                                                                                                          >
+                                                                                                            <div
+                                                                                                              class="ant-form-item-control-input-content"
+                                                                                                            >
+                                                                                                              <pre>
+                                                                                                                <code>
+                                                                                                                  {"a":1,"b":2,"c":{"a":3}}
+                                                                                                                </code>
+                                                                                                              </pre>
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                          <div
+                                                                                                            class="ant-form-item-additional"
+                                                                                                          >
+                                                                                                            <div
+                                                                                                              class="ant-form-item-extra"
+                                                                                                            >
+                                                                                                              a, b, c.a取自全局
+                                                                                                            </div>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                        <div
+                                                                                                          class="ant-pro-form-list-action"
+                                                                                                        >
+                                                                                                          <span
+                                                                                                            aria-label="copy"
+                                                                                                            class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
+                                                                                                            role="img"
+                                                                                                            tabindex="-1"
+                                                                                                          >
+                                                                                                            <svg
+                                                                                                              aria-hidden="true"
+                                                                                                              data-icon="copy"
+                                                                                                              fill="currentColor"
+                                                                                                              focusable="false"
+                                                                                                              height="1em"
+                                                                                                              viewBox="64 64 896 896"
+                                                                                                              width="1em"
+                                                                                                            >
+                                                                                                              <path
+                                                                                                                d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                                                                                              />
+                                                                                                            </svg>
+                                                                                                          </span>
+                                                                                                          <span
+                                                                                                            aria-label="delete"
+                                                                                                            class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
+                                                                                                            role="img"
+                                                                                                            tabindex="-1"
+                                                                                                          >
+                                                                                                            <svg
+                                                                                                              aria-hidden="true"
+                                                                                                              data-icon="delete"
+                                                                                                              fill="currentColor"
+                                                                                                              focusable="false"
+                                                                                                              height="1em"
+                                                                                                              viewBox="64 64 896 896"
+                                                                                                              width="1em"
+                                                                                                            >
+                                                                                                              <path
+                                                                                                                d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                                                                                                              />
+                                                                                                            </svg>
+                                                                                                          </span>
+                                                                                                        </div>
+                                                                                                        <button
+                                                                                                          class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                                                                                          type="button"
+                                                                                                        >
+                                                                                                          <span
+                                                                                                            class="ant-btn-icon"
+                                                                                                          >
+                                                                                                            <span
+                                                                                                              aria-label="plus"
+                                                                                                              class="anticon anticon-plus"
+                                                                                                              role="img"
+                                                                                                            >
+                                                                                                              <svg
+                                                                                                                aria-hidden="true"
+                                                                                                                data-icon="plus"
+                                                                                                                fill="currentColor"
+                                                                                                                focusable="false"
+                                                                                                                height="1em"
+                                                                                                                viewBox="64 64 896 896"
+                                                                                                                width="1em"
+                                                                                                              >
+                                                                                                                <path
+                                                                                                                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                                                                                                                />
+                                                                                                                <path
+                                                                                                                  d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+                                                                                                                />
+                                                                                                              </svg>
+                                                                                                            </span>
+                                                                                                          </span>
+                                                                                                          <span>
+                                                                                                            添加一行数据
+                                                                                                          </span>
+                                                                                                        </button>
+                                                                                                        <div
+                                                                                                          class="ant-pro-form-group"
+                                                                                                        >
+                                                                                                          <div
+                                                                                                            class="ant-pro-form-group-title"
+                                                                                                          >
+                                                                                                            收集依赖值（情形1) 
+                                                                                                            <proformdependency
+                                                                                                              a=""
+                                                                                                              b=""
+                                                                                                              c=""
+                                                                                                              d=""
+                                                                                                              e=""
+                                                                                                              name="{"
+                                                                                                            >
+                                                                                                              <div>
+                                                                                                                <div
+                                                                                                                  class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
+                                                                                                                  style="column-gap: 32px; row-gap: 0;"
+                                                                                                                >
+                                                                                                                  <div
+                                                                                                                    class="ant-space-item"
+                                                                                                                  >
+                                                                                                                    <pre>
+                                                                                                                      <code>
+                                                                                                                        {"a":1,"b":2,"c":{"a":3,"b":4,"c":{"a":5},"d":[{"a":6,"b":7}],"e":[{"a":8,"b":9}]}}
+                                                                                                                      </code>
+                                                                                                                    </pre>
+                                                                                                                  </div>
+                                                                                                                </div>
+                                                                                                              </div>
+                                                                                                              <div
+                                                                                                                style="display: flex; gap: 8px; align-items: center;"
+                                                                                                              >
+                                                                                                                <button
+                                                                                                                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                                                                                                                  type="button"
+                                                                                                                >
+                                                                                                                  <span>
+                                                                                                                    重 置
+                                                                                                                  </span>
+                                                                                                                </button>
+                                                                                                                <button
+                                                                                                                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                                                                                                                  type="button"
+                                                                                                                >
+                                                                                                                  <span>
+                                                                                                                    提 交
+                                                                                                                  </span>
+                                                                                                                </button>
+                                                                                                              </div>
+                                                                                                            </proformdependency>
+                                                                                                          </div>
+                                                                                                        </div>
+                                                                                                      </proformdependency>
+                                                                                                    </label>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                          </div>
+                                                                        </div>
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                        </proformdependency>
+                                                      </label>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -1200,435 +1706,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
                                           </div>
                                         </div>
                                       </div>
-                                      <div
-                                        class="ant-pro-form-list-action"
-                                      >
-                                        <span
-                                          aria-label="copy"
-                                          class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
-                                          role="img"
-                                          tabindex="-1"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="copy"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                            />
-                                          </svg>
-                                        </span>
-                                        <span
-                                          aria-label="delete"
-                                          class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
-                                          role="img"
-                                          tabindex="-1"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="delete"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                                            />
-                                          </svg>
-                                        </span>
-                                      </div>
                                     </div>
-                                    <button
-                                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="ant-btn-icon"
-                                      >
-                                        <span
-                                          aria-label="plus"
-                                          class="anticon anticon-plus"
-                                          role="img"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="plus"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                                            />
-                                            <path
-                                              d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
-                                            />
-                                          </svg>
-                                        </span>
-                                      </span>
-                                      <span>
-                                        添加一行数据
-                                      </span>
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-space-item"
-            >
-              <div
-                class="ant-pro-form-group"
-              >
-                <div
-                  class="ant-pro-form-group-title"
-                >
-                  c.e
-                </div>
-                <div>
-                  <div
-                    class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                    style="column-gap: 32px; row-gap: 0;"
-                  >
-                    <div
-                      class="ant-space-item"
-                    >
-                      <div
-                        class="ant-pro-form-list"
-                      >
-                        <div
-                          class="ant-form-item"
-                        >
-                          <div
-                            class="ant-row ant-form-item-row"
-                          >
-                            <div
-                              class="ant-col ant-form-item-control"
-                            >
-                              <div
-                                class="ant-form-item-control-input"
-                              >
-                                <div
-                                  class="ant-form-item-control-input-content"
-                                >
-                                  <div
-                                    style="max-width: 100%; min-width: 100%;"
-                                  >
-                                    <div
-                                      class="ant-pro-form-list-item ant-pro-form-list-item-default"
-                                      style="display: flex; align-items: flex-end;"
-                                    >
-                                      <div
-                                        class="ant-pro-form-list-container"
-                                      >
-                                        <div
-                                          class="ant-pro-form-group"
-                                        >
-                                          <div>
-                                            <div
-                                              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-                                              style="column-gap: 32px; row-gap: 0;"
-                                            >
-                                              <div
-                                                class="ant-space-item"
-                                              >
-                                                <div
-                                                  class="ant-form-item"
-                                                >
-                                                  <div
-                                                    class="ant-row ant-form-item-row"
-                                                  >
-                                                    <div
-                                                      class="ant-col ant-form-item-label"
-                                                    >
-                                                      <label
-                                                        class=""
-                                                        for="c_e_0_a"
-                                                        title="a"
-                                                      >
-                                                        a
-                                                      </label>
-                                                    </div>
-                                                    <div
-                                                      class="ant-col ant-form-item-control"
-                                                    >
-                                                      <div
-                                                        class="ant-form-item-control-input"
-                                                      >
-                                                        <div
-                                                          class="ant-form-item-control-input-content"
-                                                        >
-                                                          <span
-                                                            class="ant-input-affix-wrapper ant-input-outlined"
-                                                          >
-                                                            <input
-                                                              class="ant-input"
-                                                              id="c_e_0_a"
-                                                              placeholder="请输入"
-                                                              type="text"
-                                                              value="8"
-                                                            />
-                                                            <span
-                                                              class="ant-input-suffix"
-                                                            >
-                                                              <span
-                                                                class="ant-input-clear-icon"
-                                                                role="button"
-                                                                tabindex="-1"
-                                                              >
-                                                                <span
-                                                                  aria-label="close-circle"
-                                                                  class="anticon anticon-close-circle"
-                                                                  role="img"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden="true"
-                                                                    data-icon="close-circle"
-                                                                    fill="currentColor"
-                                                                    fill-rule="evenodd"
-                                                                    focusable="false"
-                                                                    height="1em"
-                                                                    viewBox="64 64 896 896"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                                                    />
-                                                                  </svg>
-                                                                </span>
-                                                              </span>
-                                                            </span>
-                                                          </span>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <div
-                                                class="ant-space-item"
-                                              >
-                                                <div
-                                                  class="ant-form-item"
-                                                >
-                                                  <div
-                                                    class="ant-row ant-form-item-row"
-                                                  >
-                                                    <div
-                                                      class="ant-col ant-form-item-label"
-                                                    >
-                                                      <label
-                                                        class=""
-                                                        for="c_e_0_b"
-                                                        title="b"
-                                                      >
-                                                        b
-                                                      </label>
-                                                    </div>
-                                                    <div
-                                                      class="ant-col ant-form-item-control"
-                                                    >
-                                                      <div
-                                                        class="ant-form-item-control-input"
-                                                      >
-                                                        <div
-                                                          class="ant-form-item-control-input-content"
-                                                        >
-                                                          <span
-                                                            class="ant-input-affix-wrapper ant-input-outlined"
-                                                          >
-                                                            <input
-                                                              class="ant-input"
-                                                              id="c_e_0_b"
-                                                              placeholder="请输入"
-                                                              type="text"
-                                                              value="9"
-                                                            />
-                                                            <span
-                                                              class="ant-input-suffix"
-                                                            >
-                                                              <span
-                                                                class="ant-input-clear-icon"
-                                                                role="button"
-                                                                tabindex="-1"
-                                                              >
-                                                                <span
-                                                                  aria-label="close-circle"
-                                                                  class="anticon anticon-close-circle"
-                                                                  role="img"
-                                                                >
-                                                                  <svg
-                                                                    aria-hidden="true"
-                                                                    data-icon="close-circle"
-                                                                    fill="currentColor"
-                                                                    fill-rule="evenodd"
-                                                                    focusable="false"
-                                                                    height="1em"
-                                                                    viewBox="64 64 896 896"
-                                                                    width="1em"
-                                                                  >
-                                                                    <path
-                                                                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
-                                                                    />
-                                                                  </svg>
-                                                                </span>
-                                                              </span>
-                                                            </span>
-                                                          </span>
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <div
-                                                class="ant-space-item"
-                                              >
-                                                <div
-                                                  class="ant-form-item"
-                                                >
-                                                  <div
-                                                    class="ant-row ant-form-item-row"
-                                                  >
-                                                    <div
-                                                      class="ant-col ant-form-item-label"
-                                                    >
-                                                      <label
-                                                        class=""
-                                                        title="搜集依赖值（情形2) <ProFormDependency name={["a","b",["c","a"]]} ignoreFormListField>"
-                                                      >
-                                                        搜集依赖值（情形2) &lt;ProFormDependency name={["a","b",["c","a"]]} ignoreFormListField&gt;
-                                                      </label>
-                                                    </div>
-                                                    <div
-                                                      class="ant-col ant-form-item-control"
-                                                    >
-                                                      <div
-                                                        class="ant-form-item-control-input"
-                                                      >
-                                                        <div
-                                                          class="ant-form-item-control-input-content"
-                                                        >
-                                                          <pre>
-                                                            <code>
-                                                              {"a":1,"b":2,"c":{"a":3}}
-                                                            </code>
-                                                          </pre>
-                                                        </div>
-                                                      </div>
-                                                      <div
-                                                        class="ant-form-item-additional"
-                                                      >
-                                                        <div
-                                                          class="ant-form-item-extra"
-                                                        >
-                                                          a, b, c.a取自全局
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div
-                                        class="ant-pro-form-list-action"
-                                      >
-                                        <span
-                                          aria-label="copy"
-                                          class="anticon anticon-copy ant-pro-form-list-action-icon action-copy"
-                                          role="img"
-                                          tabindex="-1"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="copy"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                            />
-                                          </svg>
-                                        </span>
-                                        <span
-                                          aria-label="delete"
-                                          class="anticon anticon-delete ant-pro-form-list-action-icon action-remove"
-                                          role="img"
-                                          tabindex="-1"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="delete"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                                            />
-                                          </svg>
-                                        </span>
-                                      </div>
-                                    </div>
-                                    <button
-                                      class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
-                                      type="button"
-                                    >
-                                      <span
-                                        class="ant-btn-icon"
-                                      >
-                                        <span
-                                          aria-label="plus"
-                                          class="anticon anticon-plus"
-                                          role="img"
-                                        >
-                                          <svg
-                                            aria-hidden="true"
-                                            data-icon="plus"
-                                            fill="currentColor"
-                                            focusable="false"
-                                            height="1em"
-                                            viewBox="64 64 896 896"
-                                            width="1em"
-                                          >
-                                            <path
-                                              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                                            />
-                                            <path
-                                              d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
-                                            />
-                                          </svg>
-                                        </span>
-                                      </span>
-                                      <span>
-                                        添加一行数据
-                                      </span>
-                                    </button>
                                   </div>
                                 </div>
                               </div>
@@ -1643,51 +1721,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/Dependency/dem
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="ant-pro-form-group"
-      >
-        <div
-          class="ant-pro-form-group-title"
-        >
-          收集依赖值（情形1) &lt;ProFormDependency name={["a","b",["c","a"],["c","b"],["c","c","a"],["c","d"],["c","e"]]}&gt;
-        </div>
-        <div>
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container "
-            style="column-gap: 32px; row-gap: 0;"
-          >
-            <div
-              class="ant-space-item"
-            >
-              <pre>
-                <code>
-                  {"a":1,"b":2,"c":{"a":3,"b":4,"c":{"a":5},"d":[{"a":6,"b":7}],"e":[{"a":8,"b":9}]}}
-                </code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        style="display: flex; gap: 8px; align-items: center;"
-      >
-        <button
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-          type="button"
-        >
-          <span>
-            重 置
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-          type="button"
-        >
-          <span>
-            提 交
-          </span>
-        </button>
       </div>
     </form>
   </div>
@@ -1732,7 +1765,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                   <input
                     class="ant-input ant-input-outlined"
                     id="code"
-                    style="flex: 1; transition: width .3s; margin-right: 8px;"
+                    style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; transition: width .3s; margin-right: 8px;"
                     type="text"
                     value=""
                   />
@@ -3007,7 +3040,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 class="ant-checkbox ant-wave-target ant-checkbox-checked"
                               >
                                 <input
-                                  checked=""
                                   class="ant-checkbox-input"
                                   type="checkbox"
                                   value="A"
@@ -3027,7 +3059,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 class="ant-checkbox ant-wave-target ant-checkbox-checked"
                               >
                                 <input
-                                  checked=""
                                   class="ant-checkbox-input"
                                   type="checkbox"
                                   value="B"
@@ -3047,7 +3078,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 class="ant-checkbox ant-wave-target ant-checkbox-checked"
                               >
                                 <input
-                                  checked=""
                                   class="ant-checkbox-input"
                                   type="checkbox"
                                   value="C"
@@ -3156,7 +3186,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           <div
                             class="ant-color-picker-trigger ant-pro-field-color-picker"
                             id="validate_other_color"
-                            style="display: table-cell; width: 100%;"
+                            style="width: 100%;"
                           >
                             <div
                               class="ant-color-picker-clear"
@@ -3218,6 +3248,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                           >
                             <div
                               class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item"
+                              style=""
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
@@ -3296,7 +3327,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                               class="ant-input ant-input-disabled ant-input-outlined ant-input-compact-item"
                               disabled=""
                               placeholder="-"
-                              style="width: 60px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
+                              style="width: 60px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: #ffffff;"
                               type="text"
                               value=""
                             />
@@ -4235,7 +4266,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 class="ant-segmented-item ant-segmented-item-selected"
                               >
                                 <input
-                                  checked=""
                                   class="ant-segmented-item-input"
                                   type="radio"
                                 />
@@ -4330,7 +4360,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                 class="ant-segmented-item ant-segmented-item-selected"
                               >
                                 <input
-                                  checked=""
                                   class="ant-segmented-item-input"
                                   type="radio"
                                 />
@@ -9441,7 +9470,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                   <input
                     class="ant-input ant-input-outlined"
                     id="code"
-                    style="flex: 1; transition: width .3s; margin-right: 8px;"
+                    style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; transition: width .3s; margin-right: 8px;"
                     type="text"
                     value=""
                   />
@@ -9617,7 +9646,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
                                         class="ant-select-selection-search-input"
                                         id="userQuery"
                                         role="combobox"
-                                        style=""
                                         type="search"
                                         value=""
                                       />
@@ -10153,7 +10181,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FieldSet/demos
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/base-use.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/base-use.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -10198,7 +10226,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-form-list-item ant-pro-form-list-item-show-label"
@@ -10582,7 +10610,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/countLimit.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/countLimit.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -10627,7 +10655,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -10800,7 +10828,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/customize.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/customize.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -10861,7 +10889,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              style="max-width: 100%; min-width: 100%;"
+                              style="width: max-content; max-width: 100%; min-width: 100%;"
                             >
                               <div
                                 class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -12273,7 +12301,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/dependency.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/dependency.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -12318,7 +12346,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -12777,7 +12805,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/horizontal-layout.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/horizontal-layout.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -12822,7 +12850,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border"
@@ -12961,7 +12989,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                                                 class="ant-form-item-control-input-content"
                                               >
                                                 <div
-                                                  style="max-width: 100%; min-width: 100%;"
+                                                  style="width: max-content; max-width: 100%; min-width: 100%;"
                                                 >
                                                   <div
                                                     style="display: inline-flex; margin-inline-end: 25px;"
@@ -13083,6 +13111,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                                                   </div>
                                                   <button
                                                     class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                                    style="width: unset;"
                                                     type="button"
                                                   >
                                                     <span>
@@ -13170,7 +13199,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/list.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/list.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -13492,7 +13521,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -14214,7 +14243,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/list-tooltip.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/list-tooltip.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -14264,7 +14293,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                       class="ant-segmented-item ant-segmented-item-selected"
                     >
                       <input
-                        checked=""
                         class="ant-segmented-item-input"
                         type="radio"
                       />
@@ -14409,7 +14437,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      style="max-width: 100%; min-width: 100%;"
+                      style="width: max-content; max-width: 100%; min-width: 100%;"
                     >
                       <div
                         class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -14695,7 +14723,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/nested-list.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/nested-list.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -14812,7 +14840,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border"
@@ -15073,7 +15101,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        style="max-width: 100%; min-width: 100%;"
+                                        style="width: max-content; max-width: 100%; min-width: 100%;"
                                       >
                                         <div
                                           class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -15401,7 +15429,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
 </DocumentFragment>
 `;
 
-exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group/demos/pro-form-list.tsx correctly 1`] = `
+exports[`form demos > 📸 renders ./packages/form/src/components/List/demos/pro-form-list.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -15511,7 +15539,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/FormItem/Group
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border"
@@ -15821,7 +15849,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
       test
     </div>
     <div
-      style="background-color: rgb(255, 255, 255);"
+      style="background-color: #ffffff;"
     >
       <div
         class="ant-pro-form-login-container "
@@ -16069,7 +16097,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                       >
                         <span
                           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined"
-                          style="flex: 1; transition: width .3s; margin-right: 8px;"
+                          style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; transition: width .3s; margin-right: 8px;"
                         >
                           <span
                             class="ant-input-prefix"
@@ -16140,7 +16168,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                 </span>
               </label>
               <a
-                style="float: right;"
+                style="css-float: right;"
               >
                 忘记密码
               </a>
@@ -16260,8 +16288,16 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
       style="background-color: white; height: 100vh;"
     >
       <div
+        a=""
+        afts=""
         class="ant-pro-form-login-page"
-        style="position: relative; background-image: url(https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*y0ZTS6WLwvgAAAAAAAAAAAAADml6AQ/fmt.webp);"
+        fmt.webp=""
+        https:=""
+        huamei_gcee1x=""
+        img=""
+        mdn.alipayobjects.com=""
+        style="position: relative; background-image: url("
+        y0zts6wlwvgaaaaaaaaaaaaadml6aq=""
       >
         <div
           style="position: absolute; top: 0px; left: 0px; width: 100%; overflow: hidden; height: 100%; z-index: 1; pointer-events: none;"
@@ -16270,6 +16306,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
             autoplay=""
             crossorigin="anonymous"
             loop=""
+            muted=""
             playsinline=""
             src="https://gw.alipayobjects.com/v/huamei_gcee1x/afts/video/jXRBRK_VAwoAAAAAAAAAAAAAK4eUAQBr"
             style="width: 100%; height: 100%; object-fit: cover;"
@@ -16283,7 +16320,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
           >
             <div
               class="ant-pro-form-login-page-notice-activity"
-              style="box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); color: rgba(255, 255, 255, 0.85); border-radius: 8px; background-color: rgba(255, 255, 255, 0.25);"
+              style="box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); color: rgba(255, 255, 255, 0.85); border-radius: 8px; background-color: rgba(255, 255, 255, 0.25); backdrop-filter: blur(4px);"
             >
               <div
                 class="ant-pro-form-login-page-notice-activity-title"
@@ -16300,7 +16337,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-lg"
-                  style="border-radius: 20px; background: rgb(31, 31, 31); color: rgb(22, 104, 220); width: 120px;"
+                  style="border-radius: 20px; background: #1f1f1f; color: #1668dc; width: 120px;"
                   type="button"
                 >
                   <span>
@@ -16315,7 +16352,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
           >
             <div
               class="ant-pro-form-login-page-container"
-              style="background-color: rgba(0, 0, 0, 0.65);"
+              style="background-color: rgba(0, 0, 0, 0.65); backdrop-filter: blur(4px);"
             >
               <div
                 class="ant-pro-form-login-page-top"
@@ -16560,7 +16597,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                             >
                               <span
                                 class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined"
-                                style="flex: 1; transition: width .3s; margin-right: 8px;"
+                                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%; transition: width .3s; margin-right: 8px;"
                               >
                                 <span
                                   class="ant-input-prefix"
@@ -16632,7 +16669,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                       </span>
                     </label>
                     <a
-                      style="float: right;"
+                      style="css-float: right;"
                     >
                       忘记密码
                     </a>
@@ -16681,7 +16718,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                             aria-label="alipay"
                             class="anticon anticon-alipay"
                             role="img"
-                            style="color: rgb(22, 119, 255); font-size: 18px; vertical-align: middle; cursor: pointer;"
+                            style="color: #1677FF; font-size: 18px; vertical-align: middle; cursor: pointer;"
                           >
                             <svg
                               aria-hidden="true"
@@ -16710,7 +16747,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                             aria-label="taobao"
                             class="anticon anticon-taobao"
                             role="img"
-                            style="color: rgb(255, 106, 16); font-size: 18px; vertical-align: middle; cursor: pointer;"
+                            style="color: #FF6A10; font-size: 18px; vertical-align: middle; cursor: pointer;"
                           >
                             <svg
                               aria-hidden="true"
@@ -16738,7 +16775,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/LoginForm/demo
                             aria-label="weibo"
                             class="anticon anticon-weibo"
                             role="img"
-                            style="color: rgb(24, 144, 255); font-size: 18px; vertical-align: middle; cursor: pointer;"
+                            style="color: #1890ff; font-size: 18px; vertical-align: middle; cursor: pointer;"
                           >
                             <svg
                               aria-hidden="true"
@@ -17148,7 +17185,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
-              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="middle"
@@ -19751,7 +19787,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
-              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="middle"
@@ -20092,7 +20127,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
-              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="topLeft"
@@ -21032,7 +21066,6 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
-              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="middle"
@@ -21924,7 +21957,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -22005,7 +22038,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -22080,7 +22113,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -22156,7 +22189,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -22230,7 +22263,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -22304,7 +22337,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -22501,7 +22534,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -22582,7 +22615,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -22661,7 +22694,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -22742,7 +22775,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -22817,7 +22850,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -22891,7 +22924,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23088,7 +23121,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -23163,7 +23196,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23237,7 +23270,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23311,7 +23344,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23385,7 +23418,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23459,7 +23492,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23533,7 +23566,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23607,7 +23640,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23681,7 +23714,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23755,7 +23788,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -23829,7 +23862,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
           >
             <div
               class="ant-col ant-form-item-label"
-              style="flex: 0 0 80px;"
+              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
             >
               <label
                 class=""
@@ -24019,7 +24052,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -24064,7 +24097,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class="ant-form-item-required"
@@ -24145,7 +24178,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -24304,7 +24337,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class="ant-form-item-required"
@@ -24385,7 +24418,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -24466,7 +24499,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -24625,7 +24658,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class="ant-form-item-required"
@@ -24706,7 +24739,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -24787,7 +24820,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -24868,7 +24901,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -24949,7 +24982,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -25030,7 +25063,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -25218,7 +25251,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class="ant-form-item-required"
@@ -25299,7 +25332,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -25380,7 +25413,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -25461,7 +25494,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -25542,7 +25575,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -25623,7 +25656,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -25811,7 +25844,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class="ant-form-item-required"
@@ -25892,7 +25925,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -25973,7 +26006,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -26054,7 +26087,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -26135,7 +26168,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -26216,7 +26249,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -26404,7 +26437,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class="ant-form-item-required"
@@ -26485,7 +26518,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -26566,7 +26599,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -26647,7 +26680,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -26728,7 +26761,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -26809,7 +26842,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/QueryFilter/de
             >
               <div
                 class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
+                style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
               >
                 <label
                   class=""
@@ -30448,7 +30481,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <button
                       class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
@@ -31849,7 +31882,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                         style="margin-left: -4px; margin-right: -4px;"
                       >
                         <div
-                          style="max-width: 100%; min-width: 100%;"
+                          style="width: max-content; max-width: 100%; min-width: 100%;"
                         >
                           <div
                             class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -33342,7 +33375,7 @@ exports[`form demos > 📸 renders ./packages/form/src/components/SchemaForm/dem
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              style="max-width: 100%; min-width: 100%;"
+                              style="width: max-content; max-width: 100%; min-width: 100%;"
                             >
                               <div
                                 class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -42388,7 +42421,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base.tsx correctly 
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <button
                       class="ant-btn ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
@@ -43795,7 +43828,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/base-test.tsx corre
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -48051,7 +48084,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/label-col.tsx corre
                     class="ant-checkbox ant-wave-target ant-checkbox-checked"
                   >
                     <input
-                      checked=""
                       class="ant-checkbox-input"
                       id="basic_remember"
                       type="checkbox"
@@ -48091,7 +48123,6 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/label-col.tsx corre
                     class="ant-radio ant-wave-target ant-radio-checked"
                   >
                     <input
-                      checked=""
                       class="ant-radio-input"
                       id="basic_remember"
                       type="radio"
@@ -49333,7 +49364,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/layout-footer.tsx c
                 </a>
               </span>
               <div
-                style="flex: 1;"
+                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
               />
             </div>
           </header>
@@ -52154,7 +52185,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        style="max-width: 100%; min-width: 100%;"
+                        style="width: max-content; max-width: 100%; min-width: 100%;"
                       >
                         <div
                           class="ant-pro-card ant-pro-card-border"
@@ -52293,7 +52324,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
                                                     class="ant-form-item-control-input-content"
                                                   >
                                                     <div
-                                                      style="max-width: 100%; min-width: 100%;"
+                                                      style="width: max-content; max-width: 100%; min-width: 100%;"
                                                     >
                                                       <div
                                                         style="display: inline-flex; margin-inline-end: 25px;"
@@ -52365,6 +52396,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/modalform-test.tsx 
                                                       </div>
                                                       <button
                                                         class="ant-btn ant-btn-link ant-btn-color-primary ant-btn-variant-link ant-btn-block ant-pro-form-list-creator-button-bottom"
+                                                        style="width: unset;"
                                                         type="button"
                                                       >
                                                         <span>
@@ -53927,7 +53959,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    style="max-width: 100%; min-width: 100%;"
+                    style="width: max-content; max-width: 100%; min-width: 100%;"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border"
@@ -54112,7 +54144,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-dependency
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        style="max-width: 100%; min-width: 100%;"
+                                        style="width: max-content; max-width: 100%; min-width: 100%;"
                                       >
                                         <div
                                           class="ant-pro-form-list-item ant-pro-form-list-item-default"
@@ -54684,7 +54716,7 @@ exports[`form demos > 📸 renders ./packages/form/src/demos/pro-form-editableTa
                                 style="overflow-x: auto; overflow-y: hidden;"
                               >
                                 <table
-                                  style="min-width: 100%; table-layout: fixed;"
+                                  style="width: max-content; min-width: 100%; table-layout: fixed;"
                                 >
                                   <colgroup>
                                     <col

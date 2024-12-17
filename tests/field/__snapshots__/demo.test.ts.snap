@@ -24,7 +24,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
               class="ant-radio ant-wave-target ant-radio-checked"
             >
               <input
-                checked=""
                 class="ant-radio-input"
                 type="radio"
                 value="read"
@@ -1060,7 +1059,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                         class="ant-space-item"
                       >
                         <span
-                          style="color: rgb(255, 77, 79);"
+                          style="color: #ff4d4f;"
                         >
                           + 10.00%
                         </span>
@@ -1069,7 +1068,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                         class="ant-space-item"
                       >
                         <span
-                          style="color: rgb(89, 89, 89);"
+                          style="color: #595959;"
                         >
                            0.00%
                         </span>
@@ -1078,7 +1077,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                         class="ant-space-item"
                       >
                         <span
-                          style="color: rgb(82, 196, 26);"
+                          style="color: #52c41a;"
                         >
                           - 10.00%
                         </span>
@@ -1353,7 +1352,22 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
                     class="ant-descriptions-item-content"
                   >
                     <pre
-                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                      0.1=""
+                      150=""
+                      3px=""
+                      background-color:=""
+                      border-radius:=""
+                      consolas=""
+                      courier=""
+                      liberation=""
+                      menlo=""
+                      min-content=""
+                      mono=""
+                      monospace=""
+                      rgba=""
+                      sfmono-regular=""
+                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                      width:=""
                     >
                       <code>
                         
@@ -1386,7 +1400,22 @@ Done in 9.70s.
                     class="ant-descriptions-item-content"
                   >
                     <pre
-                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                      0.1=""
+                      150=""
+                      3px=""
+                      background-color:=""
+                      border-radius:=""
+                      consolas=""
+                      courier=""
+                      liberation=""
+                      menlo=""
+                      min-content=""
+                      mono=""
+                      monospace=""
+                      rgba=""
+                      sfmono-regular=""
+                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                      width:=""
                     >
                       <code>
                         {
@@ -1467,7 +1496,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
               class="ant-radio ant-wave-target ant-radio-checked"
             >
               <input
-                checked=""
                 class="ant-radio-input"
                 type="radio"
                 value="edit"
@@ -1650,7 +1678,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                   >
                     <div
                       class="ant-color-picker-trigger ant-pro-field-color-picker"
-                      style="display: table-cell;"
+                      style=""
                     >
                       <div
                         class="ant-color-picker-clear"
@@ -1680,7 +1708,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                   >
                     <div
                       class="ant-color-picker-trigger ant-pro-field-color-picker ant-color-picker-trigger-disabled"
-                      style="display: table-cell;"
+                      style=""
                     >
                       <div
                         class="ant-color-picker-clear"
@@ -1943,6 +1971,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                     >
                       <div
                         class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item"
+                        style=""
                       >
                         <div
                           class="ant-input-number-handler-wrap"
@@ -2020,7 +2049,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-input ant-input-disabled ant-input-outlined ant-input-compact-item"
                         disabled=""
                         placeholder="~"
-                        style="width: 30px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
+                        style="width: 30px; text-align: center; border-inline-start: 0; border-inline-end: 0; pointer-events: none; background-color: #ffffff;"
                         type="text"
                         value=""
                       />
@@ -3638,7 +3667,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-space-item"
                       >
                         <span
-                          style="color: rgb(255, 77, 79);"
+                          style="color: #ff4d4f;"
                         >
                           10.00%
                         </span>
@@ -3647,7 +3676,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-space-item"
                       >
                         <span
-                          style="color: rgb(89, 89, 89);"
+                          style="color: #595959;"
                         >
                            0.00%
                         </span>
@@ -3656,7 +3685,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         class="ant-space-item"
                       >
                         <span
-                          style="color: rgb(82, 196, 26);"
+                          style="color: #52c41a;"
                         >
                           - 10.00%
                         </span>
@@ -4337,7 +4366,8 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                       class="ant-input ant-input-outlined"
                       rows="5"
                     >
-                      yarn run v1.22.0            
+                      
+yarn run v1.22.0            
 $ eslint --format=pretty ./packages
 Done in 9.70s.
           
@@ -4966,7 +4996,6 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/tree-select-searc
                                     class="ant-select-selection-search-input"
                                     id="name"
                                     role="combobox"
-                                    style=""
                                     type="search"
                                     value=""
                                   />

@@ -8,21 +8,11 @@ import {
   ProFormText,
   ProFormTimePicker,
 } from '@ant-design/pro-components';
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import KeyCode from 'rc-util/es/KeyCode';
 import { act } from 'react';
-
-afterEach(() => {
-  cleanup();
-});
 
 describe('LightFilter', () => {
   it(' 🪕 basic use text', async () => {
@@ -614,7 +604,7 @@ describe('LightFilter', () => {
     const onFinish = vi.fn();
     const onOpenChange = vi.fn();
     const onLoadingChange = vi.fn();
-    const { baseElement, container } = render(
+    const { baseElement, container, unmount } = render(
       <LightFilter
         onFinish={async (e) => {
           return new Promise((resolve) => {
@@ -647,6 +637,7 @@ describe('LightFilter', () => {
     ).toHaveTextContent('日期范围');
 
     const dom = await screen.findByText('日期范围');
+
     await act(async () => {
       userEvent.click(dom);
     });
@@ -787,6 +778,8 @@ describe('LightFilter', () => {
         container.querySelector('.ant-pro-core-field-label')?.textContent,
       ).toBe('日期范围: ');
     });
+
+    unmount();
   });
 
   it(' 🪕 DateTimePicker', async () => {

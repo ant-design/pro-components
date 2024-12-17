@@ -19,7 +19,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
         >
           <span
             class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
-            style="background-color: rgb(114, 101, 230);"
+            style="background-color: #7265e6;"
           >
             <span
               aria-label="user"
@@ -494,8 +494,8 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             class="ant-pro-checkcard-description"
           >
             <div
-              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-multiple-line"
-              style="-webkit-line-clamp: 2;"
+              aria-label="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。"
+              class="ant-typography ant-typography-ellipsis"
             >
               选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
             </div>
@@ -1639,7 +1639,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
       test
     </div>
     <div
-      style="padding: 24px; background-color: rgb(247, 248, 250);"
+      style="padding: 24px; background-color: #f7f8fa;"
     >
       <div
         class="ant-pro-checkcard-group"
@@ -2231,7 +2231,6 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             class="ant-radio-button ant-radio-button-checked"
           >
             <input
-              checked=""
               class="ant-radio-button-input"
               type="radio"
               value="default"
@@ -5409,7 +5408,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-pro-card-body"
                   >
                     <div
-                      style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
+                      style="display: flex; align-items: center; justify-content: center; background-color: #fafafa; height: 100px;"
                     >
                       关联展示内容 全部
                     </div>
@@ -5805,7 +5804,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-pro-card-body"
                   >
                     <div
-                      style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
+                      style="display: flex; align-items: center; justify-content: center; background-color: #fafafa; height: 100px;"
                     >
                       关联展示内容 全部
                     </div>
@@ -7119,7 +7118,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/actions.tsx correct
             class="ant-pro-card-actions"
           >
             <div
-              style="display: flex; align-items: center; justify-content: center; padding: 12px; flex: 1; gap: 8px;"
+              style="display: flex; align-items: center; justify-content: center; padding: 12px; flex-grow: 1; flex-shrink: 1; flex-basis: 0%; gap: 8px;"
             >
               <span
                 aria-label="setting"

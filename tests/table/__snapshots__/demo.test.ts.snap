@@ -1343,7 +1343,6 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key1"
                             id="0"
-                            style=""
                           >
                             <td
                               class="ant-table-cell"
@@ -1405,7 +1404,6 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key2"
                             id="1"
-                            style=""
                           >
                             <td
                               class="ant-table-cell"
@@ -1467,7 +1465,6 @@ exports[`table demos > 📸 renders ./packages/table/src/components/DragSortTabl
                             class="ant-table-row ant-table-row-level-0"
                             data-row-key="key3"
                             id="2"
-                            style=""
                           >
                             <td
                               class="ant-table-cell"
@@ -1641,7 +1638,6 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   class="ant-radio ant-wave-target ant-radio-checked"
                                 >
                                   <input
-                                    checked=""
                                     class="ant-radio-input"
                                     type="radio"
                                     value="bottom"
@@ -3291,7 +3287,6 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                 class="ant-segmented-item ant-segmented-item-selected"
                               >
                                 <input
-                                  checked=""
                                   class="ant-segmented-item-input"
                                   type="radio"
                                 />
@@ -3718,17 +3713,17 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
               style="display: flex; align-items: center; gap: 16px; padding-block-end: 16px;"
             >
               <div
-                style="flex: 1;"
+                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
               >
                 总分：80
               </div>
               <div
-                style="flex: 1;"
+                style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
               >
                 题数：40
               </div>
               <div
-                style="flex: 2;"
+                style="flex-grow: 2; flex-shrink: 1; flex-basis: 0%;"
               >
                 <div
                   class="ant-form-item"
@@ -3838,7 +3833,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                 </div>
               </div>
               <div
-                style="flex: 2;"
+                style="flex-grow: 2; flex-shrink: 1; flex-basis: 0%;"
               >
                 <div
                   class="ant-form-item"
@@ -14639,6 +14634,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                     <input
                                       aria-label="Custom selection"
                                       class="ant-checkbox-input"
+                                      indeterminate=""
                                       type="checkbox"
                                     />
                                     <span
@@ -15085,7 +15081,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/batchOption.tsx c
                                   class="ant-checkbox ant-wave-target ant-checkbox-checked"
                                 >
                                   <input
-                                    checked=""
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
@@ -17207,7 +17202,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                 >
                   <div
                     class="qixian-col qixian-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -17338,7 +17333,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                 >
                   <div
                     class="qixian-col qixian-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -18040,7 +18035,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                     >
                       <div
                         class="ant-col ant-form-item-label"
-                        style="flex: 0 0 80px;"
+                        style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                       >
                         <label
                           class=""
@@ -18171,7 +18166,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                     >
                       <div
                         class="ant-col ant-form-item-label"
-                        style="flex: 0 0 80px;"
+                        style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                       >
                         <label
                           class=""
@@ -18270,7 +18265,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                   >
                     <div
                       class="ant-col ant-form-item-label"
-                      style="flex: 0 0 80px;"
+                      style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                     >
                       <label
                         class=""
@@ -18843,7 +18838,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -18890,7 +18885,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/customization-val
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -21181,7 +21176,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -21262,7 +21257,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -21696,7 +21691,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -21777,7 +21772,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -22211,7 +22206,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -22292,7 +22287,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -22921,7 +22916,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               class="ant-radio-button ant-radio-button-checked"
                             >
                               <input
-                                checked=""
                                 class="ant-radio-button-input"
                                 type="radio"
                                 value="close"
@@ -24088,7 +24082,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                           >
                             <div
                               class="ant-col ant-form-item-label"
-                              style="flex: 0 0 80px;"
+                              style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                             >
                               <label
                                 class=""
@@ -24165,7 +24159,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                         >
                           <div
                             class="ant-col ant-form-item-label"
-                            style="flex: 0 0 80px;"
+                            style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                           >
                             <label
                               class=""
@@ -24239,7 +24233,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                         >
                           <div
                             class="ant-col ant-form-item-label"
-                            style="flex: 0 0 80px;"
+                            style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                           >
                             <label
                               class=""
@@ -27173,7 +27167,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/error-boundaries.
     </button>
     <div
       class="ant-result ant-result-info"
-      style="height: 100%; background: rgb(255, 255, 255);"
+      style="height: 100%; background: #fff;"
     >
       <div
         class="ant-result-icon"
@@ -27910,7 +27904,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -27991,7 +27985,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -29647,7 +29641,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -29728,7 +29722,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -29828,7 +29822,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -30425,7 +30419,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                                 <sup
                                   class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                                   data-show="true"
-                                  style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(24, 144, 255); background-color: rgb(230, 247, 255);"
+                                  style="margin-block-start: -2px; margin-inline-start: 4px; color: #1890FF; background-color: #E6F7FF;"
                                   title="99"
                                 >
                                   <bdi>
@@ -30475,7 +30469,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                                 <sup
                                   class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                                   data-show="true"
-                                  style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
+                                  style="margin-block-start: -2px; margin-inline-start: 4px; color: #999; background-color: #eee;"
                                   title="30"
                                 >
                                   <bdi>
@@ -30525,7 +30519,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                                 <sup
                                   class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
                                   data-show="true"
-                                  style="margin-block-start: -2px; margin-inline-start: 4px; color: rgb(153, 153, 153); background-color: rgb(238, 238, 238);"
+                                  style="margin-block-start: -2px; margin-inline-start: 4px; color: #999; background-color: #eee;"
                                   title="30"
                                 >
                                   <bdi>
@@ -31344,7 +31338,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -31425,7 +31419,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -31506,7 +31500,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -35120,7 +35114,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -35251,7 +35245,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -35362,7 +35356,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -35436,7 +35430,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/pollinga.tsx corr
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -36183,7 +36177,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -36262,7 +36256,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -36716,7 +36710,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/renderTable.tsx c
           style="display: none;"
         />
         <div
-          style="flex: 1;"
+          style="flex-grow: 1; flex-shrink: 1; flex-basis: 0%;"
         >
           <div
             class="ant-pro-card"
@@ -40108,7 +40102,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                 >
                   <div
                     class="canvas-col canvas-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -40189,7 +40183,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                 >
                   <div
                     class="canvas-col canvas-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -40619,7 +40613,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                 >
                   <div
                     class="canvas-col canvas-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -40750,7 +40744,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                 >
                   <div
                     class="canvas-col canvas-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -40857,7 +40851,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
               >
                 <div
                   class="canvas-col canvas-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -40931,7 +40925,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
               >
                 <div
                   class="canvas-col canvas-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -41007,7 +41001,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
               >
                 <div
                   class="canvas-col canvas-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -42849,10 +42843,26 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                     class="ant-table-cell"
                                   >
                                     <pre
-                                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                                      0.1=""
+                                      150=""
+                                      3px=""
+                                      background-color:=""
+                                      border-radius:=""
+                                      consolas=""
+                                      courier=""
+                                      liberation=""
+                                      menlo=""
+                                      min-content=""
+                                      mono=""
+                                      monospace=""
+                                      rgba=""
+                                      sfmono-regular=""
+                                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                                      width:=""
                                     >
                                       <code>
-                                        const getData = async params =&gt; {
+                                        const getData = async params =&gt;
+                                         {
           const data = await getData(params);
           return { list: data.data, ...data };
         };
@@ -42884,10 +42894,26 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                     class="ant-table-cell"
                                   >
                                     <pre
-                                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                                      0.1=""
+                                      150=""
+                                      3px=""
+                                      background-color:=""
+                                      border-radius:=""
+                                      consolas=""
+                                      courier=""
+                                      liberation=""
+                                      menlo=""
+                                      min-content=""
+                                      mono=""
+                                      monospace=""
+                                      rgba=""
+                                      sfmono-regular=""
+                                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                                      width:=""
                                     >
                                       <code>
-                                        const getData = async params =&gt; {
+                                        const getData = async params =&gt;
+                                         {
           const data = await getData(params);
           return { list: data.data, ...data };
         };
@@ -42919,10 +42945,26 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                     class="ant-table-cell"
                                   >
                                     <pre
-                                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                                      0.1=""
+                                      150=""
+                                      3px=""
+                                      background-color:=""
+                                      border-radius:=""
+                                      consolas=""
+                                      courier=""
+                                      liberation=""
+                                      menlo=""
+                                      min-content=""
+                                      mono=""
+                                      monospace=""
+                                      rgba=""
+                                      sfmono-regular=""
+                                      style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                                      width:=""
                                     >
                                       <code>
-                                        const getData = async params =&gt; {
+                                        const getData = async params =&gt;
+                                         {
           const data = await getData(params);
           return { list: data.data, ...data };
         };
@@ -43624,7 +43666,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
       test
     </div>
     <div
-      style="background-color: rgb(14, 17, 22);"
+      style="background-color: hsl(218, 22%, 7%);"
     >
       <div
         class="ant-pro-table"
@@ -44585,7 +44627,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -44666,7 +44708,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -44709,7 +44751,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -45052,10 +45094,26 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                               class="ant-table-cell"
                             >
                               <pre
-                                style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                                0.1=""
+                                150=""
+                                3px=""
+                                background-color:=""
+                                border-radius:=""
+                                consolas=""
+                                courier=""
+                                liberation=""
+                                menlo=""
+                                min-content=""
+                                mono=""
+                                monospace=""
+                                rgba=""
+                                sfmono-regular=""
+                                style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                                width:=""
                               >
                                 <code>
-                                  const getData = async params =&gt; {
+                                  const getData = async params =&gt;
+                                   {
   const data = await getData(params);
   return { list: data.data, ...data };
 };
@@ -45175,10 +45233,26 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                               class="ant-table-cell"
                             >
                               <pre
-                                style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; background-color: rgba(150, 150, 150, 0.1); border-radius: 3px;"
+                                0.1=""
+                                150=""
+                                3px=""
+                                background-color:=""
+                                border-radius:=""
+                                consolas=""
+                                courier=""
+                                liberation=""
+                                menlo=""
+                                min-content=""
+                                mono=""
+                                monospace=""
+                                rgba=""
+                                sfmono-regular=""
+                                style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; color: rgba(0, 0, 0, 0.65); font-family: "
+                                width:=""
                               >
                                 <code>
-                                  const getData = async params =&gt; {
+                                  const getData = async params =&gt;
+                                   {
   const data = await getData(params);
   return { list: data.data, ...data };
 };
@@ -45961,7 +46035,6 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                               class="ant-checkbox ant-wave-target ant-checkbox-checked"
                             >
                               <input
-                                checked=""
                                 class="ant-checkbox-input"
                                 type="checkbox"
                                 value="all"
@@ -47084,7 +47157,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -47163,7 +47236,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -47283,7 +47356,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -47401,7 +47474,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -47520,7 +47593,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -47594,7 +47667,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -47668,7 +47741,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeDate.tsx
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -48457,7 +48530,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -48572,7 +48645,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
                 >
                   <div
                     class="ant-col ant-form-item-label"
-                    style="flex: 0 0 80px;"
+                    style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                   >
                     <label
                       class=""
@@ -48683,7 +48756,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -48794,7 +48867,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -48905,7 +48978,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueTypeNumber.t
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""

@@ -41,7 +41,7 @@ exports[`Table ColumnSetting > 🎏 columns proFieldProps support custom 1`] = `
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -440,7 +440,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
               >
                 <div
                   class="qixian-col qixian-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
@@ -817,7 +817,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
               >
                 <div
                   class="ant-col ant-form-item-label"
-                  style="flex: 0 0 80px;"
+                  style="flex-grow: 0; flex-shrink: 0; flex-basis: 80px;"
                 >
                   <label
                     class=""
