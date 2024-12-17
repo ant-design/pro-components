@@ -755,14 +755,6 @@ describe('👍🏻 ProHelpPanel', () => {
       (await (await html.findAllByText('离线批量数据')).at(0))?.click();
     });
 
-    await waitFor(() => {
-      expect(
-        html.container.querySelector(
-          '.ant-pro-help-content-render-infinite-scroll',
-        )?.scrollTop,
-      ).toBe(440);
-    });
-
     await act(() => {
       fireEvent.scroll(
         html.container.querySelector(

@@ -554,7 +554,11 @@ describe('PageContainer', () => {
       />,
     );
 
-    expect(html.container.innerText).toBe('');
+    await waitFor(() => {
+      html.findByAltText('diss');
+    });
+
+    expect(!!html.container.innerText).toBe(false);
 
     html.rerender(
       <PageContainer

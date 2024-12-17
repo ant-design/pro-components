@@ -389,9 +389,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
 </DocumentFragment>
 `;
 
-exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContainer/demos/fixHeader.tsx correctly 1`] = `<DocumentFragment />`;
-
-exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContainer/demos/fixHeader.tsx correctly 2`] = `
+exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContainer/demos/fixHeader.tsx correctly 1`] = `
 <DocumentFragment>
   <div
     class="ant-app"
@@ -1692,7 +1690,282 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/AlwaysDefaultOp
                     >
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-                      />
+                      >
+                        <ul
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
+                          data-menu-list="true"
+                          role="menu"
+                          style="background-color: transparent; width: 100%;"
+                          tabindex="0"
+                        >
+                          <li
+                            class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                            data-menu-id="rc-menu-uuid-test-/home"
+                            role="menuitem"
+                            style="padding-left: 16px;"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="ant-menu-title-content"
+                            >
+                              <div
+                                class="ant-pro-base-menu-inline-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-inline-item-icon"
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
+                                <span
+                                  class="ant-pro-base-menu-inline-item-text"
+                                >
+                                  首页
+                                </span>
+                              </div>
+                            </span>
+                          </li>
+                          <li
+                            class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open ant-menu-submenu-selected"
+                            role="none"
+                          >
+                            <div
+                              aria-controls="rc-menu-uuid-test-/data_hui-popup"
+                              aria-expanded="true"
+                              aria-haspopup="true"
+                              class="ant-menu-submenu-title"
+                              data-menu-id="rc-menu-uuid-test-/data_hui"
+                              role="menuitem"
+                              style="padding-left: 16px;"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-menu-title-content"
+                              >
+                                <div
+                                  class="ant-pro-base-menu-inline-item-title"
+                                >
+                                  <span
+                                    class="ant-pro-base-menu-inline-item-text"
+                                  >
+                                    汇总数据
+                                  </span>
+                                </div>
+                              </span>
+                              <i
+                                class="ant-menu-submenu-arrow"
+                              />
+                            </div>
+                            <ul
+                              class="ant-menu ant-menu-sub ant-menu-inline"
+                              data-menu-list="true"
+                              id="rc-menu-uuid-test-/data_hui-popup"
+                              role="menu"
+                            >
+                              <li
+                                class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-/xx-popup"
+                                  aria-expanded="true"
+                                  aria-haspopup="true"
+                                  class="ant-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-/xx"
+                                  role="menuitem"
+                                  style="padding-left: 32px;"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-menu-title-content"
+                                  >
+                                    <div
+                                      class="ant-pro-base-menu-inline-item-title"
+                                    >
+                                      <span
+                                        class="ant-pro-base-menu-inline-item-text"
+                                      >
+                                        域买家维度交易
+                                      </span>
+                                    </div>
+                                  </span>
+                                  <i
+                                    class="ant-menu-submenu-arrow"
+                                  />
+                                </div>
+                                <ul
+                                  class="ant-menu ant-menu-sub ant-menu-inline"
+                                  data-menu-list="true"
+                                  id="rc-menu-uuid-test-/xx-popup"
+                                  role="menu"
+                                >
+                                  <li
+                                    class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-/data_hui2"
+                                    role="menuitem"
+                                    style="padding-left: 48px;"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-menu-title-content"
+                                    >
+                                      <div
+                                        class="ant-pro-base-menu-inline-item-title"
+                                      >
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-icon"
+                                          style="display: none;"
+                                        >
+                                          <span
+                                            class="anticon"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-text"
+                                        >
+                                          月表
+                                        </span>
+                                      </div>
+                                    </span>
+                                  </li>
+                                  <li
+                                    class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-/data_hui3"
+                                    role="menuitem"
+                                    style="padding-left: 48px;"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-menu-title-content"
+                                    >
+                                      <div
+                                        class="ant-pro-base-menu-inline-item-title"
+                                      >
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-icon"
+                                          style="display: none;"
+                                        >
+                                          <span
+                                            class="anticon"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-text"
+                                        >
+                                          日表
+                                        </span>
+                                      </div>
+                                    </span>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li
+                                class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                                  aria-expanded="true"
+                                  aria-haspopup="true"
+                                  class="ant-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe"
+                                  role="menuitem"
+                                  style="padding-left: 32px;"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-menu-title-content"
+                                  >
+                                    <div
+                                      class="ant-pro-base-menu-inline-item-title"
+                                    >
+                                      <span
+                                        class="ant-pro-base-menu-inline-item-text"
+                                      >
+                                        维度交易
+                                      </span>
+                                    </div>
+                                  </span>
+                                  <i
+                                    class="ant-menu-submenu-arrow"
+                                  />
+                                </div>
+                                <ul
+                                  class="ant-menu ant-menu-sub ant-menu-inline"
+                                  data-menu-list="true"
+                                  id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                                  role="menu"
+                                >
+                                  <li
+                                    class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-/data_hui4"
+                                    role="menuitem"
+                                    style="padding-left: 48px;"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-menu-title-content"
+                                    >
+                                      <div
+                                        class="ant-pro-base-menu-inline-item-title"
+                                      >
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-icon"
+                                          style="display: none;"
+                                        >
+                                          <span
+                                            class="anticon"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-text"
+                                        >
+                                          月表
+                                        </span>
+                                      </div>
+                                    </span>
+                                  </li>
+                                  <li
+                                    class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
+                                    role="menuitem"
+                                    style="padding-left: 48px;"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-menu-title-content"
+                                    >
+                                      <div
+                                        class="ant-pro-base-menu-inline-item-title"
+                                      >
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-icon"
+                                          style="display: none;"
+                                        >
+                                          <span
+                                            class="anticon"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-text"
+                                        >
+                                          日表
+                                        </span>
+                                      </div>
+                                    </span>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <div
+                          aria-hidden="true"
+                          style="display: none;"
+                        />
+                      </div>
                     </div>
                   </aside>
                 </div>
@@ -2293,7 +2566,447 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/DefaultOpenAllM
                     >
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-                      />
+                      >
+                        <ul
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
+                          data-menu-list="true"
+                          role="menu"
+                          style="background-color: transparent; width: 100%;"
+                          tabindex="0"
+                        >
+                          <li
+                            class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                            data-menu-id="rc-menu-uuid-test-/home"
+                            role="menuitem"
+                            style="padding-left: 16px;"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="ant-menu-title-content"
+                            >
+                              <div
+                                class="ant-pro-base-menu-inline-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-inline-item-icon"
+                                  style="display: none;"
+                                >
+                                  <span
+                                    class="anticon"
+                                  />
+                                </span>
+                                <span
+                                  class="ant-pro-base-menu-inline-item-text"
+                                >
+                                  首页
+                                </span>
+                              </div>
+                            </span>
+                          </li>
+                          <li
+                            class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open ant-menu-submenu-selected"
+                            role="none"
+                          >
+                            <div
+                              aria-controls="rc-menu-uuid-test-/data_hui-popup"
+                              aria-expanded="true"
+                              aria-haspopup="true"
+                              class="ant-menu-submenu-title"
+                              data-menu-id="rc-menu-uuid-test-/data_hui"
+                              role="menuitem"
+                              style="padding-left: 16px;"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-menu-title-content"
+                              >
+                                <div
+                                  class="ant-pro-base-menu-inline-item-title"
+                                >
+                                  <span
+                                    class="ant-pro-base-menu-inline-item-text"
+                                  >
+                                    汇总数据
+                                  </span>
+                                </div>
+                              </span>
+                              <i
+                                class="ant-menu-submenu-arrow"
+                              />
+                            </div>
+                            <ul
+                              class="ant-menu ant-menu-sub ant-menu-inline"
+                              data-menu-list="true"
+                              id="rc-menu-uuid-test-/data_hui-popup"
+                              role="menu"
+                            >
+                              <li
+                                class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-/xx-popup"
+                                  aria-expanded="true"
+                                  aria-haspopup="true"
+                                  class="ant-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-/xx"
+                                  role="menuitem"
+                                  style="padding-left: 32px;"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-menu-title-content"
+                                  >
+                                    <div
+                                      class="ant-pro-base-menu-inline-item-title"
+                                    >
+                                      <span
+                                        class="ant-pro-base-menu-inline-item-text"
+                                      >
+                                        域买家维度交易
+                                      </span>
+                                    </div>
+                                  </span>
+                                  <i
+                                    class="ant-menu-submenu-arrow"
+                                  />
+                                </div>
+                                <ul
+                                  class="ant-menu ant-menu-sub ant-menu-inline"
+                                  data-menu-list="true"
+                                  id="rc-menu-uuid-test-/xx-popup"
+                                  role="menu"
+                                >
+                                  <li
+                                    class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-/data_hui2"
+                                    role="menuitem"
+                                    style="padding-left: 48px;"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-menu-title-content"
+                                    >
+                                      <div
+                                        class="ant-pro-base-menu-inline-item-title"
+                                      >
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-icon"
+                                          style="display: none;"
+                                        >
+                                          <span
+                                            class="anticon"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-text"
+                                        >
+                                          月表
+                                        </span>
+                                      </div>
+                                    </span>
+                                  </li>
+                                  <li
+                                    class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-/data_hui3"
+                                    role="menuitem"
+                                    style="padding-left: 48px;"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-menu-title-content"
+                                    >
+                                      <div
+                                        class="ant-pro-base-menu-inline-item-title"
+                                      >
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-icon"
+                                          style="display: none;"
+                                        >
+                                          <span
+                                            class="anticon"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-text"
+                                        >
+                                          日表
+                                        </span>
+                                      </div>
+                                    </span>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li
+                                class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                                role="none"
+                              >
+                                <div
+                                  aria-controls="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                                  aria-expanded="true"
+                                  aria-haspopup="true"
+                                  class="ant-menu-submenu-title"
+                                  data-menu-id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe"
+                                  role="menuitem"
+                                  style="padding-left: 32px;"
+                                  tabindex="-1"
+                                >
+                                  <span
+                                    class="ant-menu-title-content"
+                                  >
+                                    <div
+                                      class="ant-pro-base-menu-inline-item-title"
+                                    >
+                                      <span
+                                        class="ant-pro-base-menu-inline-item-text"
+                                      >
+                                        维度交易
+                                      </span>
+                                    </div>
+                                  </span>
+                                  <i
+                                    class="ant-menu-submenu-arrow"
+                                  />
+                                </div>
+                                <ul
+                                  class="ant-menu ant-menu-sub ant-menu-inline"
+                                  data-menu-list="true"
+                                  id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                                  role="menu"
+                                >
+                                  <li
+                                    class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-/data_hui4"
+                                    role="menuitem"
+                                    style="padding-left: 48px;"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-menu-title-content"
+                                    >
+                                      <div
+                                        class="ant-pro-base-menu-inline-item-title"
+                                      >
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-icon"
+                                          style="display: none;"
+                                        >
+                                          <span
+                                            class="anticon"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-text"
+                                        >
+                                          月表
+                                        </span>
+                                      </div>
+                                    </span>
+                                  </li>
+                                  <li
+                                    class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                    data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
+                                    role="menuitem"
+                                    style="padding-left: 48px;"
+                                    tabindex="-1"
+                                  >
+                                    <span
+                                      class="ant-menu-title-content"
+                                    >
+                                      <div
+                                        class="ant-pro-base-menu-inline-item-title"
+                                      >
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-icon"
+                                          style="display: none;"
+                                        >
+                                          <span
+                                            class="anticon"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-pro-base-menu-inline-item-text"
+                                        >
+                                          日表
+                                        </span>
+                                      </div>
+                                    </span>
+                                  </li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                            role="none"
+                          >
+                            <div
+                              aria-controls="rc-menu-uuid-test-/data_ming-popup"
+                              aria-expanded="true"
+                              aria-haspopup="true"
+                              class="ant-menu-submenu-title"
+                              data-menu-id="rc-menu-uuid-test-/data_ming"
+                              role="menuitem"
+                              style="padding-left: 16px;"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-menu-title-content"
+                              >
+                                <div
+                                  class="ant-pro-base-menu-inline-item-title"
+                                >
+                                  <span
+                                    class="ant-pro-base-menu-inline-item-text"
+                                  >
+                                    明细数据
+                                  </span>
+                                </div>
+                              </span>
+                              <i
+                                class="ant-menu-submenu-arrow"
+                              />
+                            </div>
+                            <ul
+                              class="ant-menu ant-menu-sub ant-menu-inline"
+                              data-menu-list="true"
+                              id="rc-menu-uuid-test-/data_ming-popup"
+                              role="menu"
+                            >
+                              <li
+                                class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                data-menu-id="rc-menu-uuid-test-/other/homeEdit"
+                                role="menuitem"
+                                style="padding-left: 32px;"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-menu-title-content"
+                                >
+                                  <div
+                                    class="ant-pro-base-menu-inline-item-title"
+                                  >
+                                    <span
+                                      class="ant-pro-base-menu-inline-item-icon"
+                                      style="display: none;"
+                                    >
+                                      <span
+                                        class="anticon"
+                                      />
+                                    </span>
+                                    <span
+                                      class="ant-pro-base-menu-inline-item-text"
+                                    >
+                                      概述导出
+                                    </span>
+                                  </div>
+                                </span>
+                              </li>
+                            </ul>
+                          </li>
+                          <li
+                            class="ant-menu-submenu ant-menu-submenu-inline ant-pro-base-menu-inline-submenu ant-menu-submenu-open"
+                            role="none"
+                          >
+                            <div
+                              aria-controls="rc-menu-uuid-test-/other-popup"
+                              aria-expanded="true"
+                              aria-haspopup="true"
+                              class="ant-menu-submenu-title"
+                              data-menu-id="rc-menu-uuid-test-/other"
+                              role="menuitem"
+                              style="padding-left: 16px;"
+                              tabindex="-1"
+                            >
+                              <span
+                                class="ant-menu-title-content"
+                              >
+                                <div
+                                  class="ant-pro-base-menu-inline-item-title"
+                                >
+                                  <span
+                                    class="ant-pro-base-menu-inline-item-text"
+                                  >
+                                    其他
+                                  </span>
+                                </div>
+                              </span>
+                              <i
+                                class="ant-menu-submenu-arrow"
+                              />
+                            </div>
+                            <ul
+                              class="ant-menu ant-menu-sub ant-menu-inline"
+                              data-menu-list="true"
+                              id="rc-menu-uuid-test-/other-popup"
+                              role="menu"
+                            >
+                              <li
+                                class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                data-menu-id="rc-menu-uuid-test-/other/upLoad"
+                                role="menuitem"
+                                style="padding-left: 32px;"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-menu-title-content"
+                                >
+                                  <div
+                                    class="ant-pro-base-menu-inline-item-title"
+                                  >
+                                    <span
+                                      class="ant-pro-base-menu-inline-item-icon"
+                                      style="display: none;"
+                                    >
+                                      <span
+                                        class="anticon"
+                                      />
+                                    </span>
+                                    <span
+                                      class="ant-pro-base-menu-inline-item-text"
+                                    >
+                                      odps同步导入
+                                    </span>
+                                  </div>
+                                </span>
+                              </li>
+                              <li
+                                class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                                data-menu-id="rc-menu-uuid-test-/other/upLoadMenu"
+                                role="menuitem"
+                                style="padding-left: 32px;"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-menu-title-content"
+                                >
+                                  <div
+                                    class="ant-pro-base-menu-inline-item-title"
+                                  >
+                                    <span
+                                      class="ant-pro-base-menu-inline-item-icon"
+                                      style="display: none;"
+                                    >
+                                      <span
+                                        class="anticon"
+                                      />
+                                    </span>
+                                    <span
+                                      class="ant-pro-base-menu-inline-item-text"
+                                    >
+                                      菜单导入
+                                    </span>
+                                  </div>
+                                </span>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <div
+                          aria-hidden="true"
+                          style="display: none;"
+                        />
+                      </div>
                     </div>
                   </aside>
                 </div>
@@ -3224,8 +3937,30 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/MultipleMenuOne
                 class="ant-pro-page-container"
               >
                 <div
-                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+                  class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
                 >
+                  <nav
+                    class="ant-breadcrumb ant-page-header-breadcrumb"
+                  >
+                    <ol>
+                      <li>
+                        <span>
+                          配置中心
+                        </span>
+                      </li>
+                      <li
+                        aria-hidden="true"
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </li>
+                      <li>
+                        <span>
+                          产品模板管理
+                        </span>
+                      </li>
+                    </ol>
+                  </nav>
                   <div
                     class="ant-page-header-content"
                   >
@@ -3330,7 +4065,146 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                     >
                       <div
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-                      />
+                      >
+                        <ul
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-pro-base-menu-inline"
+                          data-menu-list="true"
+                          role="menu"
+                          style="background-color: transparent; width: 100%;"
+                          tabindex="0"
+                        >
+                          <li
+                            class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                            data-menu-id="rc-menu-uuid-test-/home"
+                            role="menuitem"
+                            style="padding-left: 16px;"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="ant-menu-title-content"
+                            >
+                              <div
+                                class="ant-pro-base-menu-inline-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-inline-item-icon"
+                                >
+                                  <span
+                                    class="anticon"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class=""
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      width="1em"
+                                    >
+                                      <use
+                                        xlink:href="#icon-shoucang1"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  class="ant-pro-base-menu-inline-item-text ant-pro-base-menu-inline-item-text-has-icon"
+                                >
+                                  收藏
+                                </span>
+                              </div>
+                            </span>
+                          </li>
+                          <li
+                            class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                            data-menu-id="rc-menu-uuid-test-/home/overview"
+                            role="menuitem"
+                            style="padding-left: 16px;"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="ant-menu-title-content"
+                            >
+                              <div
+                                class="ant-pro-base-menu-inline-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-inline-item-icon"
+                                >
+                                  <span
+                                    class="anticon"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class=""
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      width="1em"
+                                    >
+                                      <use
+                                        xlink:href="#icon-facebook"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  class="ant-pro-base-menu-inline-item-text ant-pro-base-menu-inline-item-text-has-icon"
+                                >
+                                  FaceBook
+                                </span>
+                              </div>
+                            </span>
+                          </li>
+                          <li
+                            class="ant-menu-item ant-menu-item-only-child ant-pro-base-menu-inline-menu-item"
+                            data-menu-id="rc-menu-uuid-test-/home/search"
+                            role="menuitem"
+                            style="padding-left: 16px;"
+                            tabindex="-1"
+                          >
+                            <span
+                              class="ant-menu-title-content"
+                            >
+                              <div
+                                class="ant-pro-base-menu-inline-item-title"
+                              >
+                                <span
+                                  class="ant-pro-base-menu-inline-item-icon"
+                                >
+                                  <span
+                                    class="anticon"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class=""
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      width="1em"
+                                    >
+                                      <use
+                                        xlink:href="#icon-twitter"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  class="ant-pro-base-menu-inline-item-text ant-pro-base-menu-inline-item-text-has-icon"
+                                >
+                                  Twitter
+                                </span>
+                              </div>
+                            </span>
+                          </li>
+                        </ul>
+                        <div
+                          aria-hidden="true"
+                          style="display: none;"
+                        />
+                      </div>
                     </div>
                   </aside>
                 </div>
@@ -3452,8 +4326,44 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/Nested.tsx corr
                         class="ant-pro-page-container"
                       >
                         <div
-                          class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+                          class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
                         >
+                          <nav
+                            class="ant-breadcrumb ant-page-header-breadcrumb"
+                          >
+                            <ol>
+                              <li>
+                                <span>
+                                  首页
+                                </span>
+                              </li>
+                              <li
+                                aria-hidden="true"
+                                class="ant-breadcrumb-separator"
+                              >
+                                /
+                              </li>
+                              <li>
+                                <span>
+                                  概述
+                                </span>
+                              </li>
+                            </ol>
+                          </nav>
+                          <div
+                            class="ant-page-header-heading "
+                          >
+                            <div
+                              class="ant-page-header-heading-left"
+                            >
+                              <span
+                                class="ant-page-header-heading-title"
+                                title="概述"
+                              >
+                                概述
+                              </span>
+                            </div>
+                          </div>
                           <div
                             class="ant-page-header-content"
                           >
@@ -3754,8 +4664,44 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/TopmenuNested.t
                         class="ant-pro-page-container"
                       >
                         <div
-                          class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
+                          class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-has-breadcrumb ant-page-header-ghost"
                         >
+                          <nav
+                            class="ant-breadcrumb ant-page-header-breadcrumb"
+                          >
+                            <ol>
+                              <li>
+                                <span>
+                                  首页
+                                </span>
+                              </li>
+                              <li
+                                aria-hidden="true"
+                                class="ant-breadcrumb-separator"
+                              >
+                                /
+                              </li>
+                              <li>
+                                <span>
+                                  概述
+                                </span>
+                              </li>
+                            </ol>
+                          </nav>
+                          <div
+                            class="ant-page-header-heading "
+                          >
+                            <div
+                              class="ant-page-header-heading-left"
+                            >
+                              <span
+                                class="ant-page-header-heading-title"
+                                title="概述"
+                              >
+                                概述
+                              </span>
+                            </div>
+                          </div>
                           <div
                             class="ant-page-header-content"
                           >
@@ -6772,160 +7718,10 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/collapsedShowTi
               <div
                 style="flex: 1;"
               />
-              <div
-                class="ant-pro-global-header-right-content"
-                style="min-width: auto; height: 100%;"
-              >
-                <div
-                  style="height: 100%;"
-                >
-                  <div
-                    style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
-                  >
-                    <div
-                      class="ant-pro-global-header-header-actions"
-                    >
-                      <span
-                        class="ant-pro-global-header-header-actions-avatar"
-                      >
-                        <div>
-                          <span
-                            class="ant-avatar ant-avatar-circle ant-avatar-image"
-                            style="width: 28px; height: 28px; font-size: 18px;"
-                          >
-                            <img
-                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                            />
-                          </span>
-                          <span
-                            style="margin-inline-start: 8px;"
-                          >
-                            七妮妮
-                          </span>
-                        </div>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </header>
           <main
-            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header ant-pro-layout-content-has-page-container"
-          >
-            <div
-              class="ant-pro-page-container ant-pro-page-container-with-footer"
-            >
-              <div
-                class="ant-page-header ant-pro-page-container-warp-page-header ant-page-header-ghost"
-              >
-                <div
-                  class="ant-page-header-heading "
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  />
-                  <span
-                    class="ant-page-header-heading-extra"
-                  >
-                    <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-                    >
-                      <div
-                        class="ant-space-item"
-                      >
-                        <button
-                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                          type="button"
-                        >
-                          <span>
-                            操 作
-                          </span>
-                        </button>
-                      </div>
-                      <div
-                        class="ant-space-item"
-                      >
-                        <button
-                          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                          type="button"
-                        >
-                          <span>
-                            操 作
-                          </span>
-                        </button>
-                      </div>
-                      <div
-                        class="ant-space-item"
-                      >
-                        <button
-                          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-                          type="button"
-                        >
-                          <span>
-                            主操作
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-pro-grid-content"
-              >
-                <div
-                  class="ant-pro-grid-content-children"
-                >
-                  <div
-                    class="ant-pro-page-container-children-container"
-                  >
-                    <div
-                      class="ant-pro-card"
-                      style="height: 200vh; min-height: 800px;"
-                    >
-                      <div
-                        class="ant-pro-card-body"
-                      >
-                        <div />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-pro-footer-bar"
-              style="width: 100%;"
-            >
-              <div
-                class="ant-pro-footer-bar-left"
-              />
-              <div
-                class="ant-pro-footer-bar-right"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                  type="button"
-                >
-                  <span>
-                    重 置
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-                  type="button"
-                >
-                  <span>
-                    提 交
-                  </span>
-                </button>
-              </div>
-            </div>
-          </main>
-          <div
-            class="ant-pro-layout-has-footer"
-            style="height: 64px; margin-block-start: 32px;"
+            class="ant-layout-content ant-pro-layout-content ant-pro-layout-has-header"
           />
         </div>
       </div>
@@ -14945,6 +15741,12 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                         </span>
                       </div>
                     </div>
+                    <span
+                      class="ant-page-header-heading-title"
+                      title="欢迎"
+                    >
+                      欢迎
+                    </span>
                     <span
                       class="ant-page-header-heading-tags"
                     >
