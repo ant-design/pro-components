@@ -99,12 +99,10 @@ export default () => {
             </div>,
           ];
         }}
-        menuRender={(props, defaultDom) => (
-          <>
-            {console.log('defaultDom', defaultDom)}
-            {defaultDom}
-          </>
-        )}
+        menuRender={(props, defaultDom) => {
+          console.log('defaultDom', defaultDom);
+          return defaultDom;
+        }}
         menuItemRender={(item, dom) => (
           <div
             onClick={() => {
