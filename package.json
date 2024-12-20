@@ -92,7 +92,7 @@
     "@umijs/test": "^3.5.43",
     "@umijs/test-utils": "^3.5.43",
     "@umijs/utils": "^4.4.1",
-    "@vitest/coverage-istanbul": "^0.34.6",
+    "@vitest/coverage-istanbul": "^2.1.8",
     "animated-scroll-to": "^2.3.0",
     "antd": "^5.22.5",
     "antd-style": "^3.7.1",
