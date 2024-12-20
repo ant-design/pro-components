@@ -131,8 +131,8 @@ export function useStyle(
         nonce: csp?.nonce,
         layer: {
           name: 'antd-pro',
-          dependencies: ['antd']
-        }
+          dependencies: ['antd'],
+        },
       },
       () => styleFn(token as ProAliasToken),
     ),

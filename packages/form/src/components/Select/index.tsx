@@ -1,6 +1,10 @@
 import { runFunction } from '@ant-design/pro-utils';
 import type { SelectProps } from 'antd';
-import type { BaseOptionType, DefaultOptionType, RefSelectProps } from 'antd/lib/select';
+import type {
+  BaseOptionType,
+  DefaultOptionType,
+  RefSelectProps,
+} from 'antd/lib/select';
 import React, { useContext } from 'react';
 import FieldContext from '../../FieldContext';
 import type {
