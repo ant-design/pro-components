@@ -1,7 +1,7 @@
 ﻿import { GetRowKey } from 'antd/es/table/interface';
 import React from 'react';
-import { ParamsType } from '../../../../components/src';
-import { ProColumns } from '../../../src/typing';
+import type { ParamsType } from '@ant-design/pro-provider'
+import type { ProColumns } from '../../typing';
 import EditableProTable, { EditableProTableProps } from './index';
 
 export function CellEditorTable<
