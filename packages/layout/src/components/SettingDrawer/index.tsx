@@ -79,6 +79,7 @@ export type SettingDrawerProps = {
   pathname?: string;
   disableUrlParams?: boolean;
   themeOnly?: boolean;
+  drawerExtra?: React.ReactNode;
 };
 
 export type SettingDrawerState = {
@@ -219,6 +220,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     pathname = window.location.pathname,
     disableUrlParams = true,
     themeOnly,
+    drawerExtra,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -380,12 +382,13 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         {...drawerOpenProps}
         width={300}
         onClose={() => setOpen(false)}
-        closable={false}
+        closable={drawerExtra ? true : false}
         placement="right"
         getContainer={getContainer}
         style={{
           zIndex: 999,
         }}
+        extra={drawerExtra}
       >
         <div className={`${baseClassName}-drawer-content ${hashId}`.trim()}>
           <Body
