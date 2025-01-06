@@ -1,6 +1,24 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [3.0.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.2...@ant-design/pro-field@3.0.0) (2025-01-06)
+
+
+### Bug Fixes
+
+* **field:** add preserveOriginalLabel prop to SearchSelect ([#8919](https://github.com/ant-design/pro-components/issues/8919)) ([feb8200](https://github.com/ant-design/pro-components/commit/feb8200e162482f8b257a2a80d7ec5aec56b4440))
+* **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+
+### BREAKING CHANGES
+
+* **field:** None
+
+
+
+
 
 ## [2.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@2.17.1...@ant-design/pro-field@2.17.2) (2024-11-14)
 

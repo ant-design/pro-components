@@ -1,6 +1,25 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.31.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.2...@ant-design/pro-form@2.31.3) (2025-01-06)
+
+
+### Bug Fixes
+
+* add dateRange type && typo in word ([#8884](https://github.com/ant-design/pro-components/issues/8884)) ([30b6f01](https://github.com/ant-design/pro-components/commit/30b6f01cf0207cc7e378abdae82dbbbb33c925d4))
+* add emptyText fieldItem props ([#8888](https://github.com/ant-design/pro-components/issues/8888)) ([b2627ff](https://github.com/ant-design/pro-components/commit/b2627ff93aa50a51f07b5ee5e899b807cd26c6e2))
+* **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+
+### Performance Improvements
+
+* add pro-componets path ([#8881](https://github.com/ant-design/pro-components/issues/8881)) ([43ceba3](https://github.com/ant-design/pro-components/commit/43ceba3660ddc8465e5f519711583602b9a6ea7a))
+
+
+
+
 
 ## [2.31.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@2.31.1...@ant-design/pro-form@2.31.2) (2024-11-14)
 

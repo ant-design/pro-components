@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.2...@ant-design/pro-card@2.9.3) (2025-01-06)
+
+
+### Bug Fixes
+
+* **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
+
+
+
+
 
 ## [2.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@2.9.1...@ant-design/pro-card@2.9.2) (2024-11-14)
 
