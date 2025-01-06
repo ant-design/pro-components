@@ -17,6 +17,7 @@ import {
   Button,
   Divider,
   Drawer,
+  DrawerProps,
   List,
   Switch,
   message,
@@ -79,6 +80,7 @@ export type SettingDrawerProps = {
   pathname?: string;
   disableUrlParams?: boolean;
   themeOnly?: boolean;
+  drawerProps?: DrawerProps;
 };
 
 export type SettingDrawerState = {
@@ -219,6 +221,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     pathname = window.location.pathname,
     disableUrlParams = true,
     themeOnly,
+    drawerProps,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -386,6 +389,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         style={{
           zIndex: 999,
         }}
+        {...drawerProps}
       >
         <div className={`${baseClassName}-drawer-content ${hashId}`.trim()}>
           <Body
