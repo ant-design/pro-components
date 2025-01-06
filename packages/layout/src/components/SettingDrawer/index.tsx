@@ -17,6 +17,7 @@ import {
   Button,
   Divider,
   Drawer,
+  DrawerProps,
   List,
   Switch,
   message,
@@ -79,7 +80,7 @@ export type SettingDrawerProps = {
   pathname?: string;
   disableUrlParams?: boolean;
   themeOnly?: boolean;
-  drawerExtra?: React.ReactNode;
+  drawerProps?: DrawerProps;
 };
 
 export type SettingDrawerState = {
@@ -220,7 +221,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     pathname = window.location.pathname,
     disableUrlParams = true,
     themeOnly,
-    drawerExtra,
+    drawerProps,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -382,13 +383,13 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         {...drawerOpenProps}
         width={300}
         onClose={() => setOpen(false)}
-        closable={drawerExtra ? true : false}
+        closable={false}
         placement="right"
         getContainer={getContainer}
         style={{
           zIndex: 999,
         }}
-        extra={drawerExtra}
+        {...drawerProps}
       >
         <div className={`${baseClassName}-drawer-content ${hashId}`.trim()}>
           <Body
