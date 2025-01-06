@@ -518,11 +518,13 @@ describe('settingDrawer.test', () => {
         getContainer={false}
         drawerProps={{
           closable: true,
-          extra: 'extra'
+          extra: 'extra',
         }}
       />,
     );
 
-    expect(container.querySelectorAll('div.ant-drawer-extra')[0].innerHTML).toEqual('extra');
+    expect(
+      container.querySelectorAll('div.ant-drawer-extra')[0].innerHTML,
+    ).toEqual('extra');
   });
 });

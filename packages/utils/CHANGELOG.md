@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.16.2...@ant-design/pro-utils@2.16.3) (2025-01-06)
 
-
 ### Bug Fixes
 
-* **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
-
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
 
 ### Performance Improvements
 
-* replace substr with splice ([#8882](https://github.com/ant-design/pro-components/issues/8882)) ([53e5cc7](https://github.com/ant-design/pro-components/commit/53e5cc7afb1af484c8e446db3e03885bb77b5248))
-
-
-
-
+- replace substr with splice ([#8882](https://github.com/ant-design/pro-components/issues/8882)) ([53e5cc7](https://github.com/ant-design/pro-components/commit/53e5cc7afb1af484c8e446db3e03885bb77b5248))
 
 ## [2.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@2.16.1...@ant-design/pro-utils@2.16.2) (2024-11-14)
 

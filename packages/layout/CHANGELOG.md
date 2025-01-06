@@ -1,23 +1,16 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [7.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.21.2...@ant-design/pro-layout@7.22.0) (2025-01-06)
 
-
 ### Bug Fixes
 
-* **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
-
+- **locale:** add missing newline at end of file for sv_SE, nl_NL, and ro_RO locales ([d0f573f](https://github.com/ant-design/pro-components/commit/d0f573f325db4e863db1fbf70afc25ccf3dde7a7))
 
 ### Features
 
-* **layout:** Add drawerProps for SettingDrawer ([#8953](https://github.com/ant-design/pro-components/issues/8953)) ([2e7e5ad](https://github.com/ant-design/pro-components/commit/2e7e5adc0c339455505427a40e0e39089c5d24cf))
-
-
-
-
+- **layout:** Add drawerProps for SettingDrawer ([#8953](https://github.com/ant-design/pro-components/issues/8953)) ([2e7e5ad](https://github.com/ant-design/pro-components/commit/2e7e5adc0c339455505427a40e0e39089c5d24cf))
 
 ## [7.21.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@7.21.1...@ant-design/pro-layout@7.21.2) (2024-11-14)
 

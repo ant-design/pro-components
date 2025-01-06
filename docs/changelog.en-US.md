@@ -1,3 +1,10 @@
+## @ant-design/pro-components@2.8.3
+
+`2025-01-06`
+
+- feat(layout): Add drawerProps for SettingDrawer (#8953). [#8953](https://github.com/ant-design/pro-components/pull/#8953) [@junyiz](https://github.com/junyiz)
+- fix(field): add preserveOriginalLabel prop to SearchSelect (#8919). [#8919](https://github.com/ant-design/pro-components/pull/#8919) [@DBvc](https://github.com/DBvc)
+
 ## @ant-design/pro-components@2.8.2
 
 `2024-11-14`
