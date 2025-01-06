@@ -2213,6 +2213,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="large"
             />
@@ -2233,6 +2234,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
             <input
               checked=""
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="default"
             />
@@ -2252,6 +2254,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/CheckCard/demo
           >
             <input
               class="ant-radio-button-input"
+              name="test-id"
               type="radio"
               value="small"
             />
@@ -5047,6 +5050,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
           class="ant-tabs ant-tabs-top"
         >
           <div
+            aria-orientation="horizontal"
             class="ant-tabs-nav"
             role="tablist"
           >
@@ -5116,7 +5120,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-2"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5176,7 +5180,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-3"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5236,7 +5240,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-4"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5296,7 +5300,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-5"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5444,6 +5448,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
           class="ant-tabs ant-tabs-top"
         >
           <div
+            aria-orientation="horizontal"
             class="ant-tabs-nav"
             role="tablist"
           >
@@ -5513,7 +5518,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-2"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5573,7 +5578,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-3"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5633,7 +5638,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-4"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -5693,7 +5698,7 @@ exports[`card demos > 📸 renders ./packages/card/src/components/StatisticCard/
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-5"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     <div
                       class="ant-pro-card-statistic"
@@ -9934,6 +9939,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
             class="ant-tabs ant-tabs-top"
           >
             <div
+              aria-orientation="horizontal"
               class="ant-tabs-nav"
               role="tablist"
             >
@@ -9954,7 +9960,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-tab1"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       产品一
                     </div>
@@ -9984,7 +9990,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs.tsx correctly 
                       class="ant-tabs-tab-btn"
                       id="rc-tabs-test-tab-tab3"
                       role="tab"
-                      tabindex="0"
+                      tabindex="-1"
                     >
                       产品三
                     </div>
@@ -10083,6 +10089,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
           class="ant-tabs ant-tabs-top ant-tabs-card"
         >
           <div
+            aria-orientation="horizontal"
             class="ant-tabs-nav"
             role="tablist"
           >
@@ -10118,7 +10125,7 @@ exports[`card demos > 📸 renders ./packages/card/src/demos/tabs-card.tsx corre
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-tab2"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     产品二
                   </div>

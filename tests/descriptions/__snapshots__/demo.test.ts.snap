@@ -1677,6 +1677,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                 class="ant-tabs ant-tabs-top"
               >
                 <div
+                  aria-orientation="horizontal"
                   class="ant-tabs-nav"
                   role="tablist"
                 >
@@ -1712,7 +1713,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                           class="ant-tabs-tab-btn"
                           id="rc-tabs-test-tab-columns"
                           role="tab"
-                          tabindex="0"
+                          tabindex="-1"
                         >
                           列配置
                         </div>
@@ -1818,10 +1819,9 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                       <span
                                         class="ant-input-suffix"
                                       >
-                                        <span
+                                        <button
                                           class="ant-input-clear-icon"
-                                          role="button"
-                                          tabindex="-1"
+                                          type="button"
                                         >
                                           <span
                                             aria-label="close-circle"
@@ -1843,7 +1843,7 @@ exports[`descriptions demos > 📸 renders ./packages/descriptions/src/demos/dyn
                                               />
                                             </svg>
                                           </span>
-                                        </span>
+                                        </button>
                                       </span>
                                     </span>
                                   </div>

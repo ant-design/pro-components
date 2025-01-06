@@ -1623,6 +1623,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                 >
                                   <input
                                     class="ant-radio-input"
+                                    name="test-id"
                                     type="radio"
                                     value="top"
                                   />
@@ -1643,6 +1644,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                   <input
                                     checked=""
                                     class="ant-radio-input"
+                                    name="test-id"
                                     type="radio"
                                     value="bottom"
                                   />
@@ -1662,6 +1664,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                 >
                                   <input
                                     class="ant-radio-input"
+                                    name="test-id"
                                     type="radio"
                                     value="hidden"
                                   />
@@ -3354,8 +3357,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                           <div
                             aria-label="segmented control"
                             class="ant-segmented"
-                            role="listbox"
+                            role="radiogroup"
                             style="margin-block-end: 0;"
+                            tabindex="0"
                           >
                             <div
                               class="ant-segmented-group"
@@ -3365,12 +3369,12 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               >
                                 <input
                                   class="ant-segmented-item-input"
+                                  name="test-id"
                                   type="radio"
                                 />
                                 <div
                                   aria-selected="false"
                                   class="ant-segmented-item-label"
-                                  role="option"
                                   title="添加到顶部"
                                 >
                                   添加到顶部
@@ -3382,12 +3386,12 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                 <input
                                   checked=""
                                   class="ant-segmented-item-input"
+                                  name="test-id"
                                   type="radio"
                                 />
                                 <div
                                   aria-selected="true"
                                   class="ant-segmented-item-label"
-                                  role="option"
                                   title="添加到底部"
                                 >
                                   添加到底部
@@ -3398,12 +3402,12 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                               >
                                 <input
                                   class="ant-segmented-item-input"
+                                  name="test-id"
                                   type="radio"
                                 />
                                 <div
                                   aria-selected="false"
                                   class="ant-segmented-item-label"
-                                  role="option"
                                   title="隐藏"
                                 >
                                   隐藏
@@ -4763,10 +4767,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -4788,7 +4791,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -4946,10 +4949,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -4971,7 +4973,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -5028,10 +5030,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -5053,7 +5054,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -5211,10 +5212,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -5236,7 +5236,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -5293,10 +5293,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -5318,7 +5317,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -5476,10 +5475,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -5501,7 +5499,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -5558,10 +5556,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -5583,7 +5580,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -5741,10 +5738,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -5766,7 +5762,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -5823,10 +5819,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -5848,7 +5843,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -6006,10 +6001,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -6031,7 +6025,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -6088,10 +6082,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -6113,7 +6106,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -6271,10 +6264,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -6296,7 +6288,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -6353,10 +6345,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -6378,7 +6369,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -6536,10 +6527,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -6561,7 +6551,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -6618,10 +6608,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -6643,7 +6632,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -6801,10 +6790,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -6826,7 +6814,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -6883,10 +6871,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -6908,7 +6895,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -7066,10 +7053,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -7091,7 +7077,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -7148,10 +7134,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -7173,7 +7158,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -7331,10 +7316,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -7356,7 +7340,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -7413,10 +7397,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -7438,7 +7421,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -7596,10 +7579,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -7621,7 +7603,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -7678,10 +7660,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -7703,7 +7684,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -7861,10 +7842,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -7886,7 +7866,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -7943,10 +7923,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -7968,7 +7947,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -8126,10 +8105,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -8151,7 +8129,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -8208,10 +8186,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -8233,7 +8210,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -8391,10 +8368,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -8416,7 +8392,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -8473,10 +8449,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -8498,7 +8473,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -8656,10 +8631,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -8681,7 +8655,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -8738,10 +8712,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -8763,7 +8736,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -8921,10 +8894,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -8946,7 +8918,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -9003,10 +8975,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -9028,7 +8999,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -9186,10 +9157,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -9211,7 +9181,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -9268,10 +9238,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -9293,7 +9262,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -9451,10 +9420,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -9476,7 +9444,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -9533,10 +9501,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -9558,7 +9525,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -9716,10 +9683,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -9741,7 +9707,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -9798,10 +9764,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                             <span
                                               class="ant-input-suffix"
                                             >
-                                              <span
+                                              <button
                                                 class="ant-input-clear-icon"
-                                                role="button"
-                                                tabindex="-1"
+                                                type="button"
                                               >
                                                 <span
                                                   aria-label="close-circle"
@@ -9823,7 +9788,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                     />
                                                   </svg>
                                                 </span>
-                                              </span>
+                                              </button>
                                             </span>
                                           </span>
                                         </div>
@@ -9981,10 +9946,9 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                           <span
                                             class="ant-input-suffix"
                                           >
-                                            <span
+                                            <button
                                               class="ant-input-clear-icon"
-                                              role="button"
-                                              tabindex="-1"
+                                              type="button"
                                             >
                                               <span
                                                 aria-label="close-circle"
@@ -10006,7 +9970,7 @@ exports[`table demos > 📸 renders ./packages/table/src/components/EditableTabl
                                                   />
                                                 </svg>
                                               </span>
-                                            </span>
+                                            </button>
                                           </span>
                                         </span>
                                       </div>
@@ -10748,7 +10712,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/basic
                       <input
                         class="ant-input ant-input-outlined"
                         placeholder="请输入"
-                        type="text"
+                        type="search"
                         value=""
                       />
                       <span
@@ -11395,6 +11359,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                   class="ant-tabs ant-tabs-top"
                 >
                   <div
+                    aria-orientation="horizontal"
                     class="ant-tabs-nav"
                     role="tablist"
                   >
@@ -11430,7 +11395,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-done"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             已办事项
                           </div>
@@ -11445,7 +11410,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-tab1"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             <span>
                               应用
@@ -11462,7 +11427,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-tab2"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             <span>
                               项目
@@ -11479,7 +11444,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-tab3"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             <span>
                               文章
@@ -11496,7 +11461,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-tab4"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             <span>
                               文章1
@@ -11513,7 +11478,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-tab5"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             <span>
                               文章2
@@ -11530,7 +11495,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-tab6"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             <span>
                               文章3
@@ -11684,7 +11649,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/menu.
                       <input
                         class="ant-input ant-input-outlined"
                         placeholder="请输入"
-                        type="text"
+                        type="search"
                         value=""
                       />
                       <span
@@ -12375,7 +12340,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/multi
                       <input
                         class="ant-input ant-input-outlined"
                         placeholder="请输入"
-                        type="text"
+                        type="search"
                         value=""
                       />
                       <span
@@ -13159,7 +13124,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/no-ti
                       <input
                         class="ant-input ant-input-outlined"
                         placeholder="请输入"
-                        type="text"
+                        type="search"
                         value=""
                       />
                       <span
@@ -14002,6 +13967,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.
                 style="width: 100%;"
               >
                 <div
+                  aria-orientation="horizontal"
                   class="ant-tabs-nav"
                   role="tablist"
                 >
@@ -14037,7 +14003,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/ListToolBar/tabs.
                           class="ant-tabs-tab-btn"
                           id="rc-tabs-test-tab-tab2"
                           role="tab"
-                          tabindex="0"
+                          tabindex="-1"
                         >
                           标签二
                         </div>
@@ -16764,7 +16730,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columns-setting-c
                       <input
                         class="ant-input ant-input-outlined"
                         placeholder="请输入"
-                        type="text"
+                        type="search"
                         value=""
                       />
                       <span
@@ -17050,7 +17016,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/columnsStateMap.t
                       <input
                         class="ant-input ant-input-outlined"
                         placeholder="请输入"
-                        type="text"
+                        type="search"
                         value=""
                       />
                       <span
@@ -17641,10 +17607,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                           <span
                             class="qixian-input-suffix"
                           >
-                            <span
+                            <button
                               class="qixian-input-clear-icon qixian-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -17666,7 +17631,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/config-provider.t
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -18164,6 +18129,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
           class="ant-tabs ant-tabs-top"
         >
           <div
+            aria-orientation="horizontal"
             class="ant-tabs-nav"
             role="tablist"
           >
@@ -18199,7 +18165,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-form"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     form
                   </div>
@@ -18214,7 +18180,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                     class="ant-tabs-tab-btn"
                     id="rc-tabs-test-tab-descriptions"
                     role="tab"
-                    tabindex="0"
+                    tabindex="-1"
                   >
                     descriptions
                   </div>
@@ -18572,10 +18538,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                             <span
                               class="ant-input-suffix"
                             >
-                              <span
+                              <button
                                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                role="button"
-                                tabindex="-1"
+                                type="button"
                               >
                                 <span
                                   aria-label="close-circle"
@@ -18597,7 +18562,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/crud.tsx correctl
                                     />
                                   </svg>
                                 </span>
-                              </span>
+                              </button>
                             </span>
                           </span>
                         </div>
@@ -19935,10 +19900,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -19960,7 +19924,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -20241,10 +20205,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -20266,7 +20229,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dataSource.tsx co
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -21482,10 +21445,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -21507,7 +21469,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -21997,10 +21959,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -22022,7 +21983,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -22512,10 +22473,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -22537,7 +22497,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dateFormatter.tsx
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -23035,10 +22995,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -23060,7 +23019,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -23113,10 +23072,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -23138,7 +23096,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -23190,6 +23148,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                               <input
                                 checked=""
                                 class="ant-radio-button-input"
+                                name="test-id"
                                 type="radio"
                                 value="close"
                               />
@@ -23209,6 +23168,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                             >
                               <input
                                 class="ant-radio-button-input"
+                                name="test-id"
                                 type="radio"
                                 value="running"
                               />
@@ -23370,10 +23330,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -23395,7 +23354,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-columns-s
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -24389,10 +24348,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                     <span
                                       class="ant-input-suffix"
                                     >
-                                      <span
+                                      <button
                                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                        role="button"
-                                        tabindex="-1"
+                                        type="button"
                                       >
                                         <span
                                           aria-label="close-circle"
@@ -24414,7 +24372,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                             />
                                           </svg>
                                         </span>
-                                      </span>
+                                      </button>
                                     </span>
                                   </span>
                                 </div>
@@ -25696,6 +25654,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                 class="ant-tabs ant-tabs-top"
               >
                 <div
+                  aria-orientation="horizontal"
                   class="ant-tabs-nav"
                   role="tablist"
                 >
@@ -25731,7 +25690,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                           class="ant-tabs-tab-btn"
                           id="rc-tabs-test-tab-tab3"
                           role="tab"
-                          tabindex="0"
+                          tabindex="-1"
                         >
                           表单配置
                         </div>
@@ -25746,7 +25705,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                           class="ant-tabs-tab-btn"
                           id="rc-tabs-test-tab-tab2"
                           role="tab"
-                          tabindex="0"
+                          tabindex="-1"
                         >
                           数据配置
                         </div>
@@ -25761,7 +25720,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                           class="ant-tabs-tab-btn"
                           id="rc-tabs-test-tab-tab4"
                           role="tab"
-                          tabindex="0"
+                          tabindex="-1"
                         >
                           列配置
                         </div>
@@ -26006,6 +25965,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                                 >
                                                   <input
                                                     class="ant-radio-button-input"
+                                                    name="test-id"
                                                     type="radio"
                                                     value="default"
                                                   />
@@ -26025,6 +25985,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                                 >
                                                   <input
                                                     class="ant-radio-button-input"
+                                                    name="test-id"
                                                     type="radio"
                                                     value="middle"
                                                   />
@@ -26045,6 +26006,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                                   <input
                                                     checked=""
                                                     class="ant-radio-button-input"
+                                                    name="test-id"
                                                     type="radio"
                                                     value="small"
                                                   />
@@ -26623,10 +26585,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                               <span
                                                 class="ant-input-suffix"
                                               >
-                                                <span
+                                                <button
                                                   class="ant-input-clear-icon"
-                                                  role="button"
-                                                  tabindex="-1"
+                                                  type="button"
                                                 >
                                                   <span
                                                     aria-label="close-circle"
@@ -26648,7 +26609,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                                       />
                                                     </svg>
                                                   </span>
-                                                </span>
+                                                </button>
                                               </span>
                                             </span>
                                           </div>
@@ -26722,10 +26683,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                               <span
                                                 class="ant-input-suffix"
                                               >
-                                                <span
+                                                <button
                                                   class="ant-input-clear-icon"
-                                                  role="button"
-                                                  tabindex="-1"
+                                                  type="button"
                                                 >
                                                   <span
                                                     aria-label="close-circle"
@@ -26747,7 +26707,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/dynamic-settings.
                                                       />
                                                     </svg>
                                                   </span>
-                                                </span>
+                                                </button>
                                               </span>
                                             </span>
                                           </div>
@@ -28232,10 +28192,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -28257,7 +28216,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/form.tsx correctl
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -28867,10 +28826,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -28892,7 +28850,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/intl.tsx correctl
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -29969,10 +29927,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -29994,7 +29951,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/linkage_form.tsx 
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -30683,6 +30640,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                   class="ant-tabs ant-tabs-top"
                 >
                   <div
+                    aria-orientation="horizontal"
                     class="ant-tabs-nav"
                     role="tablist"
                   >
@@ -30753,7 +30711,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-tab2"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             <span>
                               项目
@@ -30803,7 +30761,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/listToolBar.tsx c
                             class="ant-tabs-tab-btn"
                             id="rc-tabs-test-tab-tab3"
                             role="tab"
-                            tabindex="0"
+                            tabindex="-1"
                           >
                             <span>
                               文章
@@ -31668,10 +31626,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -31693,7 +31650,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -31749,10 +31706,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -31774,7 +31730,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/no-option.tsx cor
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -34060,10 +34016,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -34085,7 +34040,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -34756,10 +34711,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -34781,7 +34735,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/open-rules.tsx co
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -37637,10 +37591,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -37662,7 +37615,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/rtl_table.tsx cor
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -38190,7 +38143,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search.tsx correc
                       <input
                         class="ant-input ant-input-outlined"
                         placeholder="请输入"
-                        type="text"
+                        type="search"
                         value=""
                       />
                       <span
@@ -38541,10 +38494,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -38566,7 +38518,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/search_option.tsx
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -39177,10 +39129,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -39202,7 +39153,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single.tsx correc
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -40269,10 +40220,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                       <span
                         class="canvas-input-suffix"
                       >
-                        <span
+                        <button
                           class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
-                          role="button"
-                          tabindex="-1"
+                          type="button"
                         >
                           <span
                             aria-label="close-circle"
@@ -40294,7 +40244,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                               />
                             </svg>
                           </span>
-                        </span>
+                        </button>
                       </span>
                     </span>
                   </div>
@@ -40314,10 +40264,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
             <span
               class="canvas-input-suffix"
             >
-              <span
+              <button
                 class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
-                role="button"
-                tabindex="-1"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -40339,7 +40288,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                     />
                   </svg>
                 </span>
-              </span>
+              </button>
             </span>
           </span>
           <div
@@ -40430,10 +40379,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                           <span
                             class="canvas-input-suffix"
                           >
-                            <span
+                            <button
                               class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -40455,7 +40403,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -40511,10 +40459,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                           <span
                             class="canvas-input-suffix"
                           >
-                            <span
+                            <button
                               class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -40536,7 +40483,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -41095,10 +41042,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                           <span
                             class="canvas-input-suffix"
                           >
-                            <span
+                            <button
                               class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -41120,7 +41066,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -41253,10 +41199,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         <span
                           class="canvas-input-suffix"
                         >
-                          <span
+                          <button
                             class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
-                            role="button"
-                            tabindex="-1"
+                            type="button"
                           >
                             <span
                               aria-label="close-circle"
@@ -41278,7 +41223,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 />
                               </svg>
                             </span>
-                          </span>
+                          </button>
                         </span>
                       </span>
                     </div>
@@ -41328,10 +41273,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                         <span
                           class="canvas-input-suffix"
                         >
-                          <span
+                          <button
                             class="canvas-input-clear-icon canvas-input-clear-icon-hidden"
-                            role="button"
-                            tabindex="-1"
+                            type="button"
                           >
                             <span
                               aria-label="close-circle"
@@ -41353,7 +41297,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/single-test.tsx c
                                 />
                               </svg>
                             </span>
-                          </span>
+                          </button>
                         </span>
                       </span>
                     </div>
@@ -42499,7 +42443,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/split.tsx correct
                                 <input
                                   class="ant-input ant-input-outlined"
                                   placeholder="请输入"
-                                  type="text"
+                                  type="search"
                                   value=""
                                 />
                                 <span
@@ -43999,10 +43943,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                             <span
                               class="ant-input-suffix"
                             >
-                              <span
+                              <button
                                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                                role="button"
-                                tabindex="-1"
+                                type="button"
                               >
                                 <span
                                   aria-label="close-circle"
@@ -44024,7 +43967,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/theme.tsx correct
                                     />
                                   </svg>
                                 </span>
-                              </span>
+                              </button>
                             </span>
                           </span>
                         </div>
@@ -44906,10 +44849,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -44931,7 +44873,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -44987,10 +44929,9 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -45012,7 +44953,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType.tsx cor
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>
@@ -46048,6 +45989,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             >
                               <input
                                 class="ant-radio-input"
+                                name="test-id"
                                 type="radio"
                                 value="all"
                               />
@@ -46067,6 +46009,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             >
                               <input
                                 class="ant-radio-input"
+                                name="test-id"
                                 type="radio"
                                 value="running"
                               />
@@ -46086,6 +46029,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             >
                               <input
                                 class="ant-radio-input"
+                                name="test-id"
                                 type="radio"
                                 value="online"
                               />
@@ -46105,6 +46049,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             >
                               <input
                                 class="ant-radio-input"
+                                name="test-id"
                                 type="radio"
                                 value="error"
                               />
@@ -46165,6 +46110,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             >
                               <input
                                 class="ant-radio-button-input"
+                                name="test-id"
                                 type="radio"
                                 value="all"
                               />
@@ -46184,6 +46130,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             >
                               <input
                                 class="ant-radio-button-input"
+                                name="test-id"
                                 type="radio"
                                 value="running"
                               />
@@ -46203,6 +46150,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             >
                               <input
                                 class="ant-radio-button-input"
+                                name="test-id"
                                 type="radio"
                                 value="online"
                               />
@@ -46222,6 +46170,7 @@ exports[`table demos > 📸 renders ./packages/table/src/demos/valueType_select.
                             >
                               <input
                                 class="ant-radio-button-input"
+                                name="test-id"
                                 type="radio"
                                 value="error"
                               />

@@ -119,10 +119,9 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                     <span
                       class="ant-input-suffix"
                     >
-                      <span
+                      <button
                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                        role="button"
-                        tabindex="-1"
+                        type="button"
                       >
                         <span
                           aria-label="close-circle"
@@ -144,7 +143,7 @@ exports[`Field > 🐴 edit and no plain 1`] = `
                             />
                           </svg>
                         </span>
-                      </span>
+                      </button>
                     </span>
                   </span>
                 </span>
@@ -1343,10 +1342,9 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                     <span
                       class="ant-input-suffix"
                     >
-                      <span
+                      <button
                         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                        role="button"
-                        tabindex="-1"
+                        type="button"
                       >
                         <span
                           aria-label="close-circle"
@@ -1368,7 +1366,7 @@ exports[`Field > 🐴 edit and plain=true 1`] = `
                             />
                           </svg>
                         </span>
-                      </span>
+                      </button>
                     </span>
                   </span>
                 </span>

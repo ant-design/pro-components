@@ -26,6 +26,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
               <input
                 checked=""
                 class="ant-radio-input"
+                name="test-id"
                 type="radio"
                 value="read"
               />
@@ -45,6 +46,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base.tsx correctl
             >
               <input
                 class="ant-radio-input"
+                name="test-id"
                 type="radio"
                 value="edit"
               />
@@ -1449,6 +1451,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
             >
               <input
                 class="ant-radio-input"
+                name="test-id"
                 type="radio"
                 value="read"
               />
@@ -1469,6 +1472,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
               <input
                 checked=""
                 class="ant-radio-input"
+                name="test-id"
                 type="radio"
                 value="edit"
               />
@@ -1602,10 +1606,9 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                       <span
                         class="ant-input-suffix"
                       >
-                        <span
+                        <button
                           class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                          role="button"
-                          tabindex="-1"
+                          type="button"
                         >
                           <span
                             aria-label="close-circle"
@@ -1627,7 +1630,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                               />
                             </svg>
                           </span>
-                        </span>
+                        </button>
                       </span>
                     </span>
                   </span>
@@ -2971,6 +2974,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                           <input
                             class="ant-radio-input"
                             disabled=""
+                            name="test-id"
                             type="radio"
                             value="all"
                           />
@@ -2990,6 +2994,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         >
                           <input
                             class="ant-radio-input"
+                            name="test-id"
                             type="radio"
                             value="open"
                           />
@@ -3009,6 +3014,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         >
                           <input
                             class="ant-radio-input"
+                            name="test-id"
                             type="radio"
                             value="closed"
                           />
@@ -3028,6 +3034,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         >
                           <input
                             class="ant-radio-input"
+                            name="test-id"
                             type="radio"
                             value="processing"
                           />
@@ -3070,6 +3077,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                           <input
                             class="ant-radio-button-input"
                             disabled=""
+                            name="test-id"
                             type="radio"
                             value="all"
                           />
@@ -3089,6 +3097,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         >
                           <input
                             class="ant-radio-button-input"
+                            name="test-id"
                             type="radio"
                             value="open"
                           />
@@ -3108,6 +3117,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         >
                           <input
                             class="ant-radio-button-input"
+                            name="test-id"
                             type="radio"
                             value="closed"
                           />
@@ -3127,6 +3137,7 @@ exports[`field demos > 📸 renders ./packages/field/src/demos/base_test.tsx cor
                         >
                           <input
                             class="ant-radio-button-input"
+                            name="test-id"
                             type="radio"
                             value="processing"
                           />

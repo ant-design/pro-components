@@ -1476,10 +1476,9 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueType.tsx co
                           <span
                             class="ant-input-suffix"
                           >
-                            <span
+                            <button
                               class="ant-input-clear-icon"
-                              role="button"
-                              tabindex="-1"
+                              type="button"
                             >
                               <span
                                 aria-label="close-circle"
@@ -1501,7 +1500,7 @@ exports[`docs/components demos > 📸 renders ./docs/components/valueType.tsx co
                                   />
                                 </svg>
                               </span>
-                            </span>
+                            </button>
                           </span>
                         </span>
                       </div>

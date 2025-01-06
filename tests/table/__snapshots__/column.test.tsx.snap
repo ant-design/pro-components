@@ -474,10 +474,9 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                         <span
                           class="qixian-input-suffix"
                         >
-                          <span
+                          <button
                             class="qixian-input-clear-icon qixian-input-clear-icon-hidden"
-                            role="button"
-                            tabindex="-1"
+                            type="button"
                           >
                             <span
                               aria-label="close-circle"
@@ -499,7 +498,7 @@ exports[`Table ColumnSetting > 🎏 config provide render 1`] = `
                                 />
                               </svg>
                             </span>
-                          </span>
+                          </button>
                         </span>
                       </span>
                     </div>
@@ -851,10 +850,9 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                         <span
                           class="ant-input-suffix"
                         >
-                          <span
+                          <button
                             class="ant-input-clear-icon ant-input-clear-icon-hidden"
-                            role="button"
-                            tabindex="-1"
+                            type="button"
                           >
                             <span
                               aria-label="close-circle"
@@ -876,7 +874,7 @@ exports[`Table ColumnSetting > 🎏 extra columns 1`] = `
                                 />
                               </svg>
                             </span>
-                          </span>
+                          </button>
                         </span>
                       </span>
                     </div>

@@ -153,6 +153,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
               class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card ant-pro-page-container-tabs"
             >
               <div
+                aria-orientation="horizontal"
                 class="ant-tabs-nav"
                 role="tablist"
               >
@@ -188,14 +189,14 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                         class="ant-tabs-tab-btn"
                         id="rc-tabs-test-tab-info"
                         role="tab"
-                        tabindex="0"
+                        tabindex="-1"
                       >
                         详细信息
                       </div>
                       <button
                         aria-label="remove"
                         class="ant-tabs-tab-remove"
-                        tabindex="0"
+                        tabindex="-1"
                         type="button"
                       >
                         <span
@@ -479,6 +480,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                     class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
                   >
                     <div
+                      aria-orientation="horizontal"
                       class="ant-tabs-nav"
                       role="tablist"
                     >
@@ -514,7 +516,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/PageContai
                               class="ant-tabs-tab-btn"
                               id="rc-tabs-test-tab-2"
                               role="tab"
-                              tabindex="0"
+                              tabindex="-1"
                             >
                               可点击
                             </div>
@@ -1770,10 +1772,9 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                             <span
                               class="ant-input-suffix"
                             >
-                              <span
+                              <button
                                 class="ant-input-clear-icon"
-                                role="button"
-                                tabindex="-1"
+                                type="button"
                               >
                                 <span
                                   aria-label="close-circle"
@@ -1795,7 +1796,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/components/WaterMark/
                                     />
                                   </svg>
                                 </span>
-                              </span>
+                              </button>
                             </span>
                           </span>
                         </div>
@@ -10534,6 +10535,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                     class="qixian-tabs qixian-tabs-top qixian-pro-page-container-tabs"
                   >
                     <div
+                      aria-orientation="horizontal"
                       class="qixian-tabs-nav"
                       role="tablist"
                     >
@@ -10569,7 +10571,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/config-provider
                               class="qixian-tabs-tab-btn"
                               id="rc-tabs-test-tab-info"
                               role="tab"
-                              tabindex="0"
+                              tabindex="-1"
                             >
                               详细信息
                             </div>
@@ -12318,6 +12320,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                                       <input
                                         checked=""
                                         class="ant-radio-input"
+                                        name="test-id"
                                         type="radio"
                                         value="header"
                                       />
@@ -12337,6 +12340,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/customize-colla
                                     >
                                       <input
                                         class="ant-radio-input"
+                                        name="test-id"
                                         type="radio"
                                         value="menu"
                                       />
@@ -15068,6 +15072,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                       class="ant-tabs ant-tabs-top ant-pro-page-container-tabs"
                     >
                       <div
+                        aria-orientation="horizontal"
                         class="ant-tabs-nav"
                         role="tablist"
                       >
@@ -15103,7 +15108,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/dynamic-setting
                                 class="ant-tabs-tab-btn"
                                 id="rc-tabs-test-tab-info"
                                 role="tab"
-                                tabindex="0"
+                                tabindex="-1"
                               >
                                 详细信息
                               </div>
@@ -18801,7 +18806,7 @@ exports[`layout demos > 📸 renders ./packages/layout/src/demos/immersive-navig
                           >
                             <input
                               class="ant-input ant-input-outlined"
-                              type="text"
+                              type="search"
                               value=""
                             />
                             <span
